@@ -57,6 +57,8 @@ def calculate_results(game: GameDTO) -> GameResultDTO:
             if item["total_points"] == prev_total and item["mc_total"] == prev_mc:
                 position = prev_position
                 tied = True
+            # tied = True indica que el jugador comparte la posición con el jugador anterior (no abre una nueva posición).
+            # El primer jugador de un grupo empatado tiene tied = False.
             else:
                 position = idx + 1  # salta posiciones automáticamente si hubo empates
                 tied = False
