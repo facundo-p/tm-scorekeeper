@@ -17,7 +17,6 @@ class PlayerGameSummaryDTO(BaseModel):
 
 class PlayerProfileDTO(BaseModel):
     player_id: str
-    name: str
     stats: PlayerStatsDTO
     games: list[PlayerGameSummaryDTO]
     records: list[str] | None = None
