@@ -45,3 +45,18 @@ class GamesRepository:
         Devuelve una partida por ID o None si no existe.
         """
         return self._games.get(game_id)
+    
+    def get_games_by_player(self, player_id: str):
+        """
+        Devuelve todas las partidas en las que participó el jugador.
+        """
+        result = []
+
+        for game in self._games.values():
+            for player in game.players:
+                if player.player_id == player_id:
+                    result.append(game)
+                    break  # ya sabemos que participa en esta partida
+
+        return result
+

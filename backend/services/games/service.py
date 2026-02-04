@@ -1,15 +1,16 @@
-from models import GameDTO, GameListItemDTO
+from models import GameDTO
 from models.player import PlayerDTO
-from repositories.games.repository import GamesRepository
 from datetime import date
 from models import AwardResult
 from services.results import calculate_results
 from schemas.result import GameResultDTO
 
+
 class GamesService:
-    def __init__(self, repository: GamesRepository):
-        self.repository = repository
-        #Esto es una instancia de GamesRepository que tiene un diccionario donde guarda las partidas
+    def __init__(self, games_repository, players_repository):
+        self.games_repository = games_repository
+        self.players_repository = players_repository
+
 
     def _validate_date(self, game_date: date):
         if game_date > date.today():
@@ -58,7 +59,7 @@ class GamesService:
                     raise ValueError(
                         f"Milestone '{milestone}' was claimed by more than one player"
                 )
-            seen.add(milestone)
+                seen.add(milestone)
 
 
     def _validate_awards_count(self, awards: list[AwardResult]) -> None:
@@ -116,17 +117,19 @@ class GamesService:
         self._validate_unique_awards(game.awards)
         self._validate_award_players(game.awards, game.players)
         self._validate_award_ties(game.awards)
-        return self.repository.create(game)
+        for player in game.players:
+            self.players_repository.register_player(player.player_id)
+        return self.games_repository.create(game)
 
     def list_games(self) -> list[GameDTO]:
-        return list(self.repository.list().values())
+        return list(self.games_repository.list().values())
         
     def update_game(self, game_id: str, game: GameDTO) -> None:
         """
         Actualiza una partida existente.
         Lanza error si no existe.
         """
-        updated = self.repository.update(game_id, game)
+        updated = self.games_repository.update(game_id, game)
 
         if not updated:
             raise ValueError("Game not found")
@@ -136,13 +139,13 @@ class GamesService:
         Elimina una partida.
         Lanza error si no existe.
         """
-        deleted = self.repository.delete(game_id)
+        deleted = self.games_repository.delete(game_id)
 
         if not deleted:
             raise ValueError("Game not found")
         
     def get_game_results(self, game_id: str) -> GameResultDTO:
-        game = self.repository.get(game_id)
+        game = self.games_repository.get(game_id)
 
         if game is None:
             raise ValueError("Game not found")
@@ -150,7 +153,7 @@ class GamesService:
         return calculate_results(game)
     
     def get_game_results(self, game_id: str):
-        game = self.repository.get(game_id)
+        game = self.games_repository.get(game_id)
 
         if game is None:
             raise ValueError("Game not found")

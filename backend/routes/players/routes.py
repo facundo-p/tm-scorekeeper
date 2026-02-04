@@ -3,15 +3,13 @@ from schemas.player_profile import PlayerProfileDTO
 from services.player_profile.service import PlayerProfileService
 from repositories.players.repository import PlayersRepository
 from repositories.games.repository import GamesRepository
+from repositories.container import games_repository, players_repository
 
 router = APIRouter(
     prefix="/players",
     tags=["Players"],
 )
 
-# Instancias de repositorios (mock por ahora)
-players_repository = PlayersRepository()
-games_repository = GamesRepository()
 
 # Service
 player_profile_service = PlayerProfileService(

@@ -13,7 +13,9 @@ class PlayerProfileService:
         self.games_repository = games_repository
 
     def get_profile(self, player_id: str) -> PlayerProfileDTO:
-        player = self.players_repository.get(player_id)
+        
+        # validar que el jugador exista
+        self.players_repository.get(player_id)
 
         games = self.games_repository.get_games_by_player(player_id)
 
@@ -50,11 +52,11 @@ class PlayerProfileService:
             win_rate=win_rate,
         )
 
+        # usar directamente el id
         return PlayerProfileDTO(
-        player_id=player.player_id,
-        stats=stats,
-        games=summaries,
-        records=[],
-)
-        
+            player_id=player_id,
+            stats=stats,
+            games=summaries,
+            records=[],
+        )    
 
