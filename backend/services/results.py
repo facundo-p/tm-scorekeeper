@@ -2,7 +2,7 @@ from typing import List
 from models.game import GameDTO
 from schemas.result import GameResultDTO, PlayerResultDTO
 # nota: usamos game_id como str en el DTO (contrato API)
-# importá aquí cualquier helper que prefieras
+
 
 def _compute_total_points_from_scores(scores) -> int:
     # scores: instance of ScoresDTO (models.player)

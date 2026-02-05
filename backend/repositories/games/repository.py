@@ -59,4 +59,11 @@ class GamesRepository:
                     break  # ya sabemos que participa en esta partida
 
         return result
+    
+    def list_games(self):
+        """
+        Devuelve todas las partidas almacenadas.
+        """
+        return list(self._games.values())
+
 
