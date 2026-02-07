@@ -86,3 +86,47 @@ def test_most_games_won():
     assert record.player_id == "p1"
     assert record.value == 3
     assert record.game_id is None
+
+def test_highest_single_game_score():
+    # Arrange
+
+    # Game 1
+    game1 = make_game("g1", [
+        make_player("p1"),
+        make_player("p2"),
+    ])
+    game1.players[0].scores.terraform_rating = 70
+    game1.players[1].scores.terraform_rating = 60
+
+    # Game 2 (récord)
+    game2 = make_game("g2", [
+        make_player("p1"),
+        make_player("p2"),
+    ])
+    game2.players[0].scores.terraform_rating = 80
+    game2.players[1].scores.terraform_rating = 95
+
+    # Game 3
+    game3 = make_game("g3", [
+        make_player("p1"),
+        make_player("p2"),
+    ])
+    game3.players[0].scores.terraform_rating = 65
+    game3.players[1].scores.terraform_rating = 50
+
+    games_repo = FakeGamesRepositoryForRecords([
+        game1, game2, game3
+    ])
+
+    service = RecordsService(games_repo)
+
+    # Act
+    record = service.highest_single_game_score()
+
+    # Assert
+    assert record is not None
+    assert isinstance(record, RecordDTO)
+    assert record.type == "highest_single_game_score"
+    assert record.player_id == "p2"
+    assert record.value == 95
+    assert record.game_id == "g2"
