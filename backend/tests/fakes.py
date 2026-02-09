@@ -23,6 +23,11 @@ class FakeGamesRepositoryForRecords:
     def list_games(self):
         return self._games
     
+class FakePlayerRecordsService:
+    def get_player_records(self, player_id: str) -> dict[str, bool]:
+        return {}
+
+    
 
 def make_player(player_id: str) -> PlayerDTO:
     return PlayerDTO(

@@ -2,13 +2,25 @@ from datetime import date
 from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
 from schemas.player_profile import PlayerStatsDTO
 from services.player_profile.service import PlayerProfileService
-from tests.fakes import FakePlayersRepository, FakeGamesRepository
+from tests.fakes import FakePlayersRepository, FakeGamesRepository, FakePlayerRecordsService
+import pytest
+
+
+@pytest.fixture
+def player_profile_service():
+    def _factory(players_repo, games_repo):
+        return PlayerProfileService(
+            players_repository=players_repo,
+            games_repository=games_repo,
+            player_records_service=FakePlayerRecordsService(),
+        )
+    return _factory
 
 
 
 
+def test_player_with_no_games_has_zero_stats(player_profile_service):
 
-def test_player_with_no_games_has_zero_stats():
     # Arrange: jugador sin partidas
     player = PlayerDTO(
     player_id="p1",
@@ -37,9 +49,7 @@ def test_player_with_no_games_has_zero_stats():
         # p1 no tiene partidas
     })
 
-    service = PlayerProfileService(players_repo, games_repo)
-
-    # Act: pedir el perfil
+    service = player_profile_service(players_repo, games_repo)
     profile = service.get_profile("p1")
 
     # Assert: stats en cero
@@ -50,7 +60,7 @@ def test_player_with_no_games_has_zero_stats():
     assert profile.games == []
 
 
-def test_player_with_one_winning_game_has_100_percent_win_rate():
+def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_service):
     # Arrange: jugador
     player = PlayerDTO(
         player_id="p1",
@@ -111,7 +121,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate():
         "p1": [game]
     })
 
-    service = PlayerProfileService(players_repo, games_repo)
+    service = player_profile_service(players_repo, games_repo)
 
     # Act
     profile = service.get_profile("p1")
@@ -128,14 +138,9 @@ def test_player_with_one_winning_game_has_100_percent_win_rate():
     assert summary.position == 1
 
 
-import pytest
-from datetime import date
 
-from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
-from services.player_profile.service import PlayerProfileService
-from tests.fakes import FakePlayersRepository, FakeGamesRepository
 
-def test_player_with_multiple_games_and_one_win_has_correct_win_rate():
+def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_profile_service):
     # Arrange: jugador base (usado como referencia en players_repo)
     player = PlayerDTO(
         player_id="p1",
@@ -285,7 +290,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate():
         "p1": [game1, game2, game3]
     })
 
-    service = PlayerProfileService(players_repo, games_repo)
+    service = player_profile_service(players_repo, games_repo)
 
     # Act
     profile = service.get_profile("p1")

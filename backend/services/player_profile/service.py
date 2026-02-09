@@ -8,9 +8,15 @@ from services.results import calculate_results
 
 class PlayerProfileService:
 
-    def __init__(self, players_repository, games_repository):
+    def __init__(
+        self,
+        players_repository,
+        games_repository,
+        player_records_service,
+    ):
         self.players_repository = players_repository
         self.games_repository = games_repository
+        self.player_records_service = player_records_service
 
     def get_profile(self, player_id: str) -> PlayerProfileDTO:
         
@@ -22,7 +28,7 @@ class PlayerProfileService:
         games_played = len(games)
         games_won = 0
         summaries = []
-
+        
         for game in games:
             results = calculate_results(game)
 
@@ -51,12 +57,14 @@ class PlayerProfileService:
             games_won=games_won,
             win_rate=win_rate,
         )
+        
+        records = self.player_records_service.get_player_records(player_id)
 
         # usar directamente el id
         return PlayerProfileDTO(
             player_id=player_id,
             stats=stats,
             games=summaries,
-            records=[],
+            records=records,
         )    
 

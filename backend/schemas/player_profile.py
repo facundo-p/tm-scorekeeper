@@ -19,4 +19,4 @@ class PlayerProfileDTO(BaseModel):
     player_id: str
     stats: PlayerStatsDTO
     games: list[PlayerGameSummaryDTO]
-    records: list[str] | None = None
+    records: dict[str, bool]

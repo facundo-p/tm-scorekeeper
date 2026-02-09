@@ -7,14 +7,6 @@ class RecordsService:
     def __init__(self, games_repository):
         self.games_repository = games_repository
 
-    def get_global_records(self):
-        pass
-        #(!) falta implementarlo para calcular records globales
-
-    def get_player_records(self, player_id: str):
-        pass
-        #(!) falta implementarlo para calcular records solo para un jugador
-
     def most_games_played(self) -> RecordDTO | None:
         games = self.games_repository.list_games()
 
@@ -95,3 +87,20 @@ class RecordsService:
             player_id=record_player_id,
             game_id=record_game_id,
         )
+
+    def get_global_records(self) -> dict[str, RecordDTO]:
+        records = {}
+
+        record = self.most_games_played()
+        if record:
+            records[record.type] = record
+
+        record = self.most_games_won()
+        if record:
+            records[record.type] = record
+
+        record = self.highest_single_game_score()
+        if record:
+            records[record.type] = record
+
+        return records
