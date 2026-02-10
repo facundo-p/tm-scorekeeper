@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from repositories.players.repository import PlayersRepository
-from services.games.service import GamesService
+from backend.services.player_profile_service import GamesService
 from models import GameDTO, GameCreatedResponse
 from schemas.result import GameResultDTO
 from repositories.games.repository import GamesRepository

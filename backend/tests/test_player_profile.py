@@ -1,7 +1,7 @@
 from datetime import date
 from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
 from schemas.player_profile import PlayerStatsDTO
-from services.player_profile.service import PlayerProfileService
+from backend.services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository
 
 
@@ -132,7 +132,7 @@ import pytest
 from datetime import date
 
 from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
-from services.player_profile.service import PlayerProfileService
+from backend.services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository
 
 def test_player_with_multiple_games_and_one_win_has_correct_win_rate():
