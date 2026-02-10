@@ -1,4 +1,4 @@
-from services.records.records_service import RecordsService
+from backend.services.records_service import RecordsService
 
 
 class PlayerRecordsService:

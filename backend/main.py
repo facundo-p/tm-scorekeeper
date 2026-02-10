@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from routes.games.routes import router as games_router
-from routes.players.routes import router as players_router
+from backend.routes.games_routes import router as games_router
+from backend.routes.players_routes import router as players_router
 
 app = FastAPI(title="Terraforming Mars API")
 

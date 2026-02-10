@@ -1,9 +1,11 @@
 from fastapi import APIRouter, HTTPException
 from schemas.player_profile import PlayerProfileDTO
-from services.player_profile.service import PlayerProfileService
+from services.player_profile_service import PlayerProfileService
+from repositories.players.repository import PlayersRepository
+from repositories.games.repository import GamesRepository
 from repositories.container import games_repository, players_repository
-from services.records.records_service import RecordsService
-from services.records.player_records_service import PlayerRecordsService
+from services.records_service import RecordsService
+from services.player_records_service import PlayerRecordsService
 
 router = APIRouter(
     prefix="/players",

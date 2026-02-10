@@ -1,7 +1,7 @@
 from datetime import date
 from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
 from schemas.player_profile import PlayerStatsDTO
-from services.player_profile.service import PlayerProfileService
+from services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository, FakePlayerRecordsService
 import pytest
 
@@ -15,8 +15,6 @@ def player_profile_service():
             player_records_service=FakePlayerRecordsService(),
         )
     return _factory
-
-
 
 
 def test_player_with_no_games_has_zero_stats(player_profile_service):
@@ -136,8 +134,6 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
     summary = profile.games[0]
     assert summary.game_id == "game-1"
     assert summary.position == 1
-
-
 
 
 def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_profile_service):
