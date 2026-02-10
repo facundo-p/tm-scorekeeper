@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from schemas.player_profile import PlayerProfileDTO
-from backend.services.player_profile_service import PlayerProfileService
+from services.player_profile_service import PlayerProfileService
 from repositories.players.repository import PlayersRepository
 from repositories.games.repository import GamesRepository
 from repositories.container import games_repository, players_repository
