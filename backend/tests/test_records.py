@@ -1,7 +1,7 @@
 from tests.fakes import (FakeGamesRepositoryForRecords,
                         make_game,
                         make_player)
-from backend.services.records_service import RecordsService
+from services.records_service import RecordsService
 from schemas.records import RecordDTO
 from models.game import GameDTO
 from models.player import PlayerDTO, ScoresDTO, EndStatsDTO
