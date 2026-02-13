@@ -1,9 +1,9 @@
 from datetime import date
 from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
-from schemas.player_profile import PlayerStatsDTO
 from services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository, FakePlayerRecordsService
 import pytest
+from models.enums import Corporation
 
 
 @pytest.fixture
@@ -22,7 +22,7 @@ def test_player_with_no_games_has_zero_stats(player_profile_service):
     # Arrange: jugador sin partidas
     player = PlayerDTO(
     player_id="p1",
-    corporation="TestCorp",
+    corporation=Corporation.TERACTOR,
     scores=ScoresDTO(
         terraform_rating=0,
         milestone_points=0,
@@ -62,7 +62,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
     # Arrange: jugador
     player = PlayerDTO(
         player_id="p1",
-        corporation="Tharsis",
+        corporation=Corporation.THARSIS_REPUBLIC,
         scores=ScoresDTO(
             terraform_rating=35,
             milestone_points=5,
@@ -91,7 +91,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
             player,
             PlayerDTO(
                 player_id="p2",
-                corporation="Ecoline",
+                corporation=Corporation.ECOLINE,
                 scores=ScoresDTO(
                     terraform_rating=30,
                     milestone_points=0,
@@ -140,7 +140,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
     # Arrange: jugador base (usado como referencia en players_repo)
     player = PlayerDTO(
         player_id="p1",
-        corporation="Tharsis",
+        corporation=Corporation.THARSIS_REPUBLIC,
         scores=ScoresDTO(
             terraform_rating=35,
             milestone_points=5,
@@ -158,7 +158,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
     # --- GAME 1: p1 GANA (p1 tiene más puntos que el oponente) ---
     opponent_g1 = PlayerDTO(
         player_id="p2",
-        corporation="Ecoline",
+        corporation=Corporation.ECOLINE,
         scores=ScoresDTO(
             terraform_rating=30,  # menos que p1
             milestone_points=0,
@@ -188,7 +188,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
     # creamos nuevas instancias con puntajes que reflejen la derrota
     losing_p1_game2 = PlayerDTO(
         player_id="p1",
-        corporation="Tharsis",
+        corporation=Corporation.THARSIS_REPUBLIC,
         scores=ScoresDTO(
             terraform_rating=20,  # menos que el oponente en este game
             milestone_points=0,
@@ -205,7 +205,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
 
     winning_opponent_game2 = PlayerDTO(
         player_id="p2",
-        corporation="Ecoline",
+        corporation=Corporation.ECOLINE,
         scores=ScoresDTO(
             terraform_rating=40,  # mayor, por eso gana
             milestone_points=5,
@@ -234,7 +234,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
     # --- GAME 3: p1 PIERDE (tercer jugador supera a p1) ---
     third_player = PlayerDTO(
         player_id="p3",
-        corporation="Credicor",
+        corporation=Corporation.CREDICOR,
         scores=ScoresDTO(
             terraform_rating=45,
             milestone_points=5,
@@ -251,7 +251,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
 
     losing_p1_game3 = PlayerDTO(
         player_id="p1",
-        corporation="Tharsis",
+        corporation=Corporation.THARSIS_REPUBLIC,
         scores=ScoresDTO(
             terraform_rating=25,  # menos que third_player
             milestone_points=0,

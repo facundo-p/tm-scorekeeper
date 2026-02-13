@@ -1,12 +1,13 @@
 from typing import Optional
 from pydantic import BaseModel, Field
+from models.enums import Milestone, Corporation
 
 
 class ScoresDTO(BaseModel):
     terraform_rating: int = Field(ge=0)
 
     milestone_points: int = Field(ge=0)
-    milestones: list[str]
+    milestones: list[Milestone]
 
     award_points: int = Field(ge=0)
     card_points: int = Field(ge=0)
@@ -21,6 +22,7 @@ class EndStatsDTO(BaseModel):
 
 class PlayerDTO(BaseModel):
     player_id: str
-    corporation: str
+    corporation: Corporation
     scores: ScoresDTO
     end_stats: EndStatsDTO
+#Cambiar a player result(!)
