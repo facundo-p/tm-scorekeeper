@@ -32,7 +32,7 @@ class FakePlayerRecordsService:
 def make_player(player_id: str) -> PlayerDTO:
     return PlayerDTO(
         player_id=player_id,
-        corporation="TestCorp",
+        corporation=Corporation.TERACTOR,
         scores=ScoresDTO(
             terraform_rating=0,
             milestone_points=0,
