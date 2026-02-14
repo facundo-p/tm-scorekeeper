@@ -1,5 +1,5 @@
-from models import GameDTO
-from models.player import PlayerDTO
+from schemas.game import GameDTO
+from schemas.player import PlayerDTO
 from datetime import date
 from models import AwardResult
 from services.results import calculate_results
