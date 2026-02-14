@@ -1,7 +1,8 @@
 from datetime import date
 
 from services.results import calculate_results
-from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
+from schemas.game import GameDTO, PlayerDTO
+from schemas.player import ScoresDTO, EndStatsDTO
 
 def test_results_are_sorted_by_total_points():
     game = GameDTO(

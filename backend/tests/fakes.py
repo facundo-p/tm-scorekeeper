@@ -1,5 +1,5 @@
-from models.game import GameDTO
-from models.player import EndStatsDTO, PlayerDTO, ScoresDTO
+from schemas.game import GameDTO
+from schemas.player import EndStatsDTO, PlayerDTO, ScoresDTO
 
 
 class FakePlayersRepository:

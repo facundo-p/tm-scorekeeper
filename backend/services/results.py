@@ -1,5 +1,5 @@
 from typing import List
-from models.game import GameDTO
+from schemas.game import GameDTO
 from schemas.result import GameResultDTO, PlayerResultDTO
 # nota: usamos game_id como str en el DTO (contrato API)
 

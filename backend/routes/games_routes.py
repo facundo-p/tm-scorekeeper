@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from repositories.players.repository import PlayersRepository
 from services.game_service import GamesService
-from models import GameDTO, GameCreatedResponse
+from schemas.game import GameDTO, GameCreatedResponse
 from schemas.result import GameResultDTO
 from repositories.games.repository import GamesRepository
 from repositories.container import games_repository, players_repository

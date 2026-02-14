@@ -1,5 +1,6 @@
 from datetime import date
-from models import GameDTO, PlayerDTO, ScoresDTO, EndStatsDTO
+from schemas.game import GameDTO, PlayerDTO
+from schemas.player import ScoresDTO, EndStatsDTO
 from schemas.player_profile import PlayerStatsDTO
 from services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository, FakePlayerRecordsService
