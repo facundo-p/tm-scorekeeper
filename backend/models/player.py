@@ -1,26 +1,45 @@
-from typing import Optional
-from pydantic import BaseModel, Field
+from typing import List
+from models.enums import Corporation, Milestone
 
 
-class ScoresDTO(BaseModel):
-    terraform_rating: int = Field(ge=0)
+class Scores:
+    def __init__(
+        self,
+        terraform_rating: int,
+        milestone_points: int,
+        milestones: List[Milestone],
+        award_points: int,
+        card_points: int,
+        card_resource_points: int,
+        greenery_points: int,
+        city_points: int,
+        turmoil_points: int,
+    ):
+        self.terraform_rating = terraform_rating
+        self.milestone_points = milestone_points
+        self.milestones = milestones
+        self.award_points = award_points
+        self.card_points = card_points
+        self.card_resource_points = card_resource_points
+        self.greenery_points = greenery_points
+        self.city_points = city_points
+        self.turmoil_points = turmoil_points
 
-    milestone_points: int = Field(ge=0)
-    milestones: list[str]
 
-    award_points: int = Field(ge=0)
-    card_points: int = Field(ge=0)
-    card_resource_points: int = Field(ge=0)
+class EndStats:
+    def __init__(self, mc_total: int):
+        self.mc_total = mc_total
 
-    greenery_points: int = Field(ge=0)
-    city_points: int = Field(ge=0)
-    turmoil_points: Optional[int] = Field(default=None, ge=0)
 
-class EndStatsDTO(BaseModel):
-    mc_total: int = Field(ge=0)
-
-class PlayerDTO(BaseModel):
-    player_id: str
-    corporation: str
-    scores: ScoresDTO
-    end_stats: EndStatsDTO
+class Player:
+    def __init__(
+        self,
+        player_id: str,
+        corporation: Corporation,
+        scores: Scores,
+        end_stats: EndStats,
+    ):
+        self.player_id = player_id
+        self.corporation = corporation
+        self.scores = scores
+        self.end_stats = end_stats

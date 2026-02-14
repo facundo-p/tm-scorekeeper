@@ -1,5 +1,6 @@
-from models.game import GameDTO
-from models.player import EndStatsDTO, PlayerDTO, ScoresDTO
+from schemas.game import GameDTO
+from schemas.player import EndStatsDTO, PlayerDTO, ScoresDTO
+from models.enums import Corporation
 
 
 class FakePlayersRepository:
@@ -32,7 +33,7 @@ class FakePlayerRecordsService:
 def make_player(player_id: str) -> PlayerDTO:
     return PlayerDTO(
         player_id=player_id,
-        corporation="TestCorp",
+        corporation=Corporation.TERACTOR,
         scores=ScoresDTO(
             terraform_rating=0,
             milestone_points=0,
