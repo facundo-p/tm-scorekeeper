@@ -1,7 +1,7 @@
 from typing import List
 from pydantic import BaseModel, Field
 from datetime import date
-from schemas.award import AwardResult
+from schemas.award import AwardResultDTO
 from models.enums import Expansion, MapName
 from schemas.player import PlayerDTO
 
@@ -15,10 +15,10 @@ class GameDTO(BaseModel):
     generations: int = Field(ge=1)
 
     players: List[PlayerDTO]
-    awards: List[AwardResult]
+    awards: List[AwardResultDTO]
 
 
-class GameCreatedResponse(BaseModel):
+class GameCreatedResponseDTO(BaseModel):
     id: str
     game: GameDTO
 

@@ -1,7 +1,6 @@
 from datetime import date
 from schemas.game import GameDTO, PlayerDTO
-from schemas.player import ScoresDTO, EndStatsDTO
-from schemas.player_profile import PlayerStatsDTO
+from schemas.player import ScoresDTO, PlayerEndStatsDTO
 from services.player_profile_service import PlayerProfileService
 from tests.fakes import FakePlayersRepository, FakeGamesRepository, FakePlayerRecordsService
 import pytest
@@ -36,7 +35,7 @@ def test_player_with_no_games_has_zero_stats(player_profile_service):
         city_points=0,
         turmoil_points=0,
     ),
-    end_stats=EndStatsDTO(
+    end_stats=PlayerEndStatsDTO(
         mc_total=0
     ),
 )
@@ -76,7 +75,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
             city_points=3,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(
+        end_stats=PlayerEndStatsDTO(
             mc_total=10
         ),
     )
@@ -105,7 +104,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
                     city_points=2,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(
+                end_stats=PlayerEndStatsDTO(
                     mc_total=5
                 ),
             ),
@@ -153,7 +152,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=3,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=10),
+        end_stats=PlayerEndStatsDTO(mc_total=10),
     )
 
     # --- GAME 1: p1 GANA (p1 tiene más puntos que el oponente) ---
@@ -171,7 +170,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=2,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=5),
+        end_stats=PlayerEndStatsDTO(mc_total=5),
     )
 
     game1 = GameDTO(
@@ -201,7 +200,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=0,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=3),
+        end_stats=PlayerEndStatsDTO(mc_total=3),
     )
 
     winning_opponent_game2 = PlayerDTO(
@@ -218,7 +217,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=3,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=12),
+        end_stats=PlayerEndStatsDTO(mc_total=12),
     )
 
     game2 = GameDTO(
@@ -247,7 +246,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=4,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=15),
+        end_stats=PlayerEndStatsDTO(mc_total=15),
     )
 
     losing_p1_game3 = PlayerDTO(
@@ -264,7 +263,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
             city_points=0,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=4),
+        end_stats=PlayerEndStatsDTO(mc_total=4),
     )
 
     game3 = GameDTO(

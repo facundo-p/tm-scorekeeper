@@ -17,12 +17,12 @@ class ScoresDTO(BaseModel):
     city_points: int = Field(ge=0)
     turmoil_points: Optional[int] = Field(default=None, ge=0)
 
-class EndStatsDTO(BaseModel):
+class PlayerEndStatsDTO(BaseModel):
     mc_total: int = Field(ge=0)
 
 class PlayerDTO(BaseModel):
     player_id: str
     corporation: Corporation
     scores: ScoresDTO
-    end_stats: EndStatsDTO
+    end_stats: PlayerEndStatsDTO
 #Cambiar a player result(!)
