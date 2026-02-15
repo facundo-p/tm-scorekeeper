@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from models.enums import Milestone, Corporation
 
 
-class ScoresDTO(BaseModel):
+class PlayerScoreDTO(BaseModel):
     terraform_rating: int = Field(ge=0)
 
     milestone_points: int = Field(ge=0)
@@ -20,9 +20,9 @@ class ScoresDTO(BaseModel):
 class PlayerEndStatsDTO(BaseModel):
     mc_total: int = Field(ge=0)
 
-class PlayerDTO(BaseModel):
+class PlayerResultDTO(BaseModel):
     player_id: str
     corporation: Corporation
-    scores: ScoresDTO
+    scores: PlayerScoreDTO
     end_stats: PlayerEndStatsDTO
-#Cambiar a player result(!)
+

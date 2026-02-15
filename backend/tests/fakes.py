@@ -29,11 +29,11 @@ class FakePlayerRecordsService:
 
     
 
-def make_player(player_id: str) -> PlayerDTO:
-    return PlayerDTO(
+def make_player(player_id: str) -> PlayerResultDTO:
+    return PlayerResultDTO(
         player_id=player_id,
         corporation=Corporation.TERACTOR,
-        scores=ScoresDTO(
+        scores=PlayerScoreDTO(
             terraform_rating=0,
             milestone_points=0,
             milestones=[],
@@ -48,7 +48,7 @@ def make_player(player_id: str) -> PlayerDTO:
     )
 
 
-def make_game(game_id: str, players: list[PlayerDTO]) -> GameDTO:
+def make_game(game_id: str, players: list[PlayerScoreDTO]) -> GameDTO:
     return GameDTO(
         id=game_id,
         date="2026-01-01",

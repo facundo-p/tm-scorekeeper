@@ -1,8 +1,8 @@
 from datetime import date
 from models.enums import Corporation
 from services.results import calculate_results
-from schemas.game import GameDTO, PlayerDTO
-from schemas.player import ScoresDTO, PlayerEndStatsDTO
+from schemas.game import GameDTO, PlayerResultDTO
+from schemas.player import PlayerScoreDTO, PlayerEndStatsDTO
 
 def test_results_are_sorted_by_total_points():
     game = GameDTO(
@@ -13,10 +13,10 @@ def test_results_are_sorted_by_total_points():
         draft=True,
         generations=10,
         players=[
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=35,
                     milestone_points=5,
                     milestones=["Mayor"],
@@ -29,10 +29,10 @@ def test_results_are_sorted_by_total_points():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=5),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p2",
                 corporation=Corporation.ECOLINE,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=45,
                     milestone_points=0,
                     milestones=[],
@@ -68,10 +68,10 @@ def test_results_are_sorted_by_mc_when_points_tie():
         draft=True,
         generations=10,
         players=[
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=35,
                     milestone_points=5,
                     milestones=["Mayor"],
@@ -84,10 +84,10 @@ def test_results_are_sorted_by_mc_when_points_tie():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p2",
                 corporation=Corporation.ECOLINE,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=40,
                     milestone_points=0,
                     milestones=[],
@@ -123,10 +123,10 @@ def test_results_are_tied_when_points_and_mc_are_equal():
         draft=True,
         generations=10,
         players=[
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=35,
                     milestone_points=5,
                     milestones=["Mayor"],
@@ -139,10 +139,10 @@ def test_results_are_tied_when_points_and_mc_are_equal():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p2",
                 corporation=Corporation.ECOLINE,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=35,
                     milestone_points=5,
                     milestones=["Planner"],
@@ -178,10 +178,10 @@ def test_positions_skip_after_ties():
         draft=True,
         generations=10,
         players=[
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=50,
                     milestone_points=0,
                     milestones=[],
@@ -194,10 +194,10 @@ def test_positions_skip_after_ties():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=5),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p2",
                 corporation=Corporation.ECOLINE,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=40,
                     milestone_points=0,
                     milestones=[],
@@ -210,10 +210,10 @@ def test_positions_skip_after_ties():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p3",
                 corporation=Corporation.CREDICOR,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=40,
                     milestone_points=0,
                     milestones=[],
@@ -226,10 +226,10 @@ def test_positions_skip_after_ties():
                 ),
                 end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
-            PlayerDTO(
+            PlayerResultDTO(
                 player_id="p4",
                 corporation=Corporation.HELION,
-                scores=ScoresDTO(
+                scores=PlayerScoreDTO(
                     terraform_rating=30,
                     milestone_points=0,
                     milestones=[],

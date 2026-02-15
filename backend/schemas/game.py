@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from datetime import date
 from schemas.award import AwardResultDTO
 from models.enums import Expansion, MapName
-from schemas.player import PlayerDTO
+from schemas.player import PlayerResultDTO
 
 
 class GameDTO(BaseModel):
@@ -14,7 +14,7 @@ class GameDTO(BaseModel):
     draft: bool
     generations: int = Field(ge=1)
 
-    players: List[PlayerDTO]
+    players: List[PlayerResultDTO]
     awards: List[AwardResultDTO]
 
 
