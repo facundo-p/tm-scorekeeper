@@ -2,7 +2,7 @@ from models.enums import Corporation
 from models.player_score import PlayerScore
 
 
-class EndStats:
+class PlayerEndStats:
     def __init__(self, mc_total: int):
         self.mc_total = mc_total
 
@@ -13,7 +13,7 @@ class PlayerResult:
         player_id: str,
         corporation: Corporation,
         scores: PlayerScore,
-        end_stats: EndStats,
+        end_stats: PlayerEndStats,
     ):
         self.player_id = player_id
         self.corporation = corporation
