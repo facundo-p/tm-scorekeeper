@@ -1,5 +1,5 @@
 from schemas.game import GameDTO
-from schemas.player import EndStatsDTO, PlayerDTO, ScoresDTO
+from schemas.player import PlayerEndStatsDTO, PlayerDTO, ScoresDTO
 from models.enums import Corporation
 
 
@@ -45,7 +45,7 @@ def make_player(player_id: str) -> PlayerDTO:
             city_points=0,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=0),
+        end_stats=PlayerEndStatsDTO(mc_total=0),
     )
 
 

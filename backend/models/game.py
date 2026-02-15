@@ -2,8 +2,8 @@ from datetime import date
 from typing import List, Optional
 
 from models.enums import MapName, Expansion
-from models.player import Player
-from models.award import AwardResult
+from models.player_result import PlayerResult
+from models.award_result import AwardResult
 
 
 class Game:
@@ -15,7 +15,7 @@ class Game:
         expansions: List[Expansion],
         draft: bool,
         generations: int,
-        players: List[Player],
+        players: List[PlayerResult],
         awards: List[AwardResult],
     ):
         self.id = game_id

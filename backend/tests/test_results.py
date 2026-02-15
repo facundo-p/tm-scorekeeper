@@ -2,7 +2,7 @@ from datetime import date
 from models.enums import Corporation
 from services.results import calculate_results
 from schemas.game import GameDTO, PlayerDTO
-from schemas.player import ScoresDTO, EndStatsDTO
+from schemas.player import ScoresDTO, PlayerEndStatsDTO
 
 def test_results_are_sorted_by_total_points():
     game = GameDTO(
@@ -27,7 +27,7 @@ def test_results_are_sorted_by_total_points():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=5),
+                end_stats=PlayerEndStatsDTO(mc_total=5),
             ),
             PlayerDTO(
                 player_id="p2",
@@ -43,7 +43,7 @@ def test_results_are_sorted_by_total_points():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=3),
+                end_stats=PlayerEndStatsDTO(mc_total=3),
             ),
         ],
         awards=[],
@@ -82,7 +82,7 @@ def test_results_are_sorted_by_mc_when_points_tie():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=10),
+                end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
             PlayerDTO(
                 player_id="p2",
@@ -98,7 +98,7 @@ def test_results_are_sorted_by_mc_when_points_tie():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=5),
+                end_stats=PlayerEndStatsDTO(mc_total=5),
             ),
         ],
         awards=[],
@@ -137,7 +137,7 @@ def test_results_are_tied_when_points_and_mc_are_equal():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=10),
+                end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
             PlayerDTO(
                 player_id="p2",
@@ -153,7 +153,7 @@ def test_results_are_tied_when_points_and_mc_are_equal():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=10),
+                end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
         ],
         awards=[],
@@ -192,7 +192,7 @@ def test_positions_skip_after_ties():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=5),
+                end_stats=PlayerEndStatsDTO(mc_total=5),
             ),
             PlayerDTO(
                 player_id="p2",
@@ -208,7 +208,7 @@ def test_positions_skip_after_ties():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=10),
+                end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
             PlayerDTO(
                 player_id="p3",
@@ -224,7 +224,7 @@ def test_positions_skip_after_ties():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=10),
+                end_stats=PlayerEndStatsDTO(mc_total=10),
             ),
             PlayerDTO(
                 player_id="p4",
@@ -240,7 +240,7 @@ def test_positions_skip_after_ties():
                     city_points=0,
                     turmoil_points=0,
                 ),
-                end_stats=EndStatsDTO(mc_total=7),
+                end_stats=PlayerEndStatsDTO(mc_total=7),
             ),
         ],
         awards=[],

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from repositories.players.repository import PlayersRepository
 from services.game_service import GamesService
-from schemas.game import GameDTO, GameCreatedResponse
+from schemas.game import GameDTO, GameCreatedResponseDTO
 from schemas.result import GameResultDTO
 from repositories.games.repository import GamesRepository
 from repositories.container import games_repository, players_repository
@@ -18,7 +18,7 @@ games_service = GamesService(
     players_repository=players_repository,
 )
 
-@router.post("/", response_model=GameCreatedResponse)
+@router.post("/", response_model=GameCreatedResponseDTO)
 def create_game(game: GameDTO):
     try:
         game_id = games_service.create_game(game)

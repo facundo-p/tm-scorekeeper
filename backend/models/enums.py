@@ -36,8 +36,6 @@ class Milestone(Enum):
 
     def __str__(self) -> str:
         return self.value
-    
-from enum import Enum
 
 
 class Award(Enum):
@@ -64,9 +62,6 @@ class Award(Enum):
 
     def __str__(self) -> str:
         return self.value
-
-
-from enum import Enum
 
 
 class Corporation(Enum):
