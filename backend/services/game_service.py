@@ -1,5 +1,5 @@
 from schemas.game import GameDTO
-from schemas.player import PlayerDTO
+from schemas.player import PlayerResultDTO
 from datetime import date
 from models import AwardResult
 from services.results import calculate_results
@@ -16,7 +16,7 @@ class GamesService:
         if game_date > date.today():
             raise ValueError("Game date cannot be in the future")
 
-    def _validate_players(self, players: list[PlayerDTO]) -> None:
+    def _validate_players(self, players: list[PlayerResultDTO]) -> None:
         if not (2 <= len(players) <= 5):
             raise ValueError("A game must have between 2 and 5 players")
 
@@ -24,20 +24,20 @@ class GamesService:
         if len(ids) != len(set(ids)):
             raise ValueError("Duplicate players are not allowed")
         
-    def _validate_corporations(self, players: list[PlayerDTO]) -> None:
+    def _validate_corporations(self, players: list[PlayerResultDTO]) -> None:
         for player in players:
             if not player.corporation or not player.corporation.strip():
                 raise ValueError(
                     f"Player '{player.player_id}' must have a non-empty corporation")
     
-    def _validate_milestones(self, players: list[PlayerDTO]) -> None:
+    def _validate_milestones(self, players: list[PlayerResultDTO]) -> None:
         total = sum(len(player.scores.milestones) for player in players)
 
         if not (0 <= total <= 3):
             raise ValueError(
                 f"Total milestones claimed must be between 0 and 3 (got {total})"
             )
-    def _validate_milestone_points_coherence(self, players: list[PlayerDTO]) -> None:
+    def _validate_milestone_points_coherence(self, players: list[PlayerResultDTO]) -> None:
         for player in players:
             points = player.scores.milestone_points
             milestones = player.scores.milestones
@@ -50,7 +50,7 @@ class GamesService:
                     f"({min_required_points} points) but only {points} milestone points"
                 )
 
-    def _validate_unique_milestones(self, players: list[PlayerDTO]) -> None:
+    def _validate_unique_milestones(self, players: list[PlayerResultDTO]) -> None:
         seen: set[str] = set()
 
         for player in players:
@@ -74,7 +74,7 @@ class GamesService:
         if len(award_names) != len(set(award_names)):
             raise ValueError("Each award can only be claimed once per game")
         
-    def _validate_award_players(self, awards: list[AwardResult], players: list[PlayerDTO]) -> None:
+    def _validate_award_players(self, awards: list[AwardResult], players: list[PlayerResultDTO]) -> None:
         valid_ids = {player.player_id for player in players}
 
         for award in awards:
