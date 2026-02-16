@@ -1,11 +1,10 @@
 from typing import List
-from models.game import GameDTO
+from schemas.game import GameDTO
 from schemas.result import GameResultDTO, PlayerResultDTO
 # nota: usamos game_id como str en el DTO (contrato API)
 
 
 def _compute_total_points_from_scores(scores) -> int:
-    # scores: instance of ScoresDTO (models.player)
     turmoil = scores.turmoil_points if scores.turmoil_points is not None else 0
     return (
         scores.terraform_rating

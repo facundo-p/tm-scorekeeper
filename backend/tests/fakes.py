@@ -1,5 +1,6 @@
-from models.game import GameDTO
-from models.player import EndStatsDTO, PlayerDTO, ScoresDTO
+from schemas.game import GameDTO
+from schemas.player import PlayerEndStatsDTO, PlayerResultDTO, PlayerScoreDTO
+from models.enums import Corporation
 
 
 class FakePlayersRepository:
@@ -29,11 +30,11 @@ class FakePlayerRecordsService:
 
     
 
-def make_player(player_id: str) -> PlayerDTO:
-    return PlayerDTO(
+def make_player(player_id: str) -> PlayerResultDTO:
+    return PlayerResultDTO(
         player_id=player_id,
-        corporation="TestCorp",
-        scores=ScoresDTO(
+        corporation=Corporation.TERACTOR,
+        scores=PlayerScoreDTO(
             terraform_rating=0,
             milestone_points=0,
             milestones=[],
@@ -44,11 +45,11 @@ def make_player(player_id: str) -> PlayerDTO:
             city_points=0,
             turmoil_points=0,
         ),
-        end_stats=EndStatsDTO(mc_total=0),
+        end_stats=PlayerEndStatsDTO(mc_total=0),
     )
 
 
-def make_game(game_id: str, players: list[PlayerDTO]) -> GameDTO:
+def make_game(game_id: str, players: list[PlayerScoreDTO]) -> GameDTO:
     return GameDTO(
         id=game_id,
         date="2026-01-01",

@@ -1,6 +1,5 @@
 from uuid import uuid4
-from models import GameDTO
-
+from schemas.game import GameDTO
 class GamesRepository:
     def __init__(self):
         # Mock de persistencia en memoria
