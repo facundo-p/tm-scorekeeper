@@ -151,11 +151,3 @@ class GamesService:
             raise ValueError("Game not found")
 
         return calculate_results(game)
-    
-    def get_game_results(self, game_id: str):
-        game = self.games_repository.get(game_id)
-
-        if game is None:
-            raise ValueError("Game not found")
-
-        return calculate_results(game)
