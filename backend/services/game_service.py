@@ -5,6 +5,8 @@ from models.award_result import AwardResult
 from services.results import calculate_results
 from schemas.result import GameResultDTO
 from mappers.game_mapper import game_dto_to_model
+from mappers.game_mapper import game_model_to_dto
+
 
 
 class GamesService:
@@ -130,17 +132,18 @@ class GamesService:
 
 
     def list_games(self) -> list[GameDTO]:
-        return list(self.games_repository.list().values())
+        games = self.games_repository.list().values()
+        return [game_model_to_dto(game) for game in games]
+
         
-    def update_game(self, game_id: str, game: GameDTO) -> None:
-        """
-        Actualiza una partida existente.
-        Lanza error si no existe.
-        """
+    def update_game(self, game_id: str, game_dto: GameDTO) -> None:
+        game = game_dto_to_model(game_dto)
+
         updated = self.games_repository.update(game_id, game)
 
         if not updated:
             raise ValueError("Game not found")
+
         
     def delete_game(self, game_id: str) -> None:
         """
