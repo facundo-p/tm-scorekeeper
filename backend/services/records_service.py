@@ -16,8 +16,8 @@ class RecordsService:
         games_played_by_player = defaultdict(int)
 
         for game in games:
-            for player in game.players:
-                games_played_by_player[player.player_id] += 1
+            for pr in game.player_results:
+                games_played_by_player[pr.player_id] += 1
 
         # buscar el máximo
         player_id, games_played = max(

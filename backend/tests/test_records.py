@@ -42,34 +42,34 @@ def test_most_games_won():
         make_player("p1"),
         make_player("p2")
     ])
-    game1.players[0].scores.terraform_rating = 30
-    game1.players[1].scores.terraform_rating = 20
+    game1.player_results[0].scores.terraform_rating = 30
+    game1.player_results[1].scores.terraform_rating = 20
 
     # Game 2: gana p1
     game2 = make_game("g2", [
         make_player("p1"),
         make_player("p2")
     ])
-    game2.players[0].scores.terraform_rating = 25
-    game2.players[1].scores.terraform_rating = 10
+    game2.player_results[0].scores.terraform_rating = 25
+    game2.player_results[1].scores.terraform_rating = 10
 
     # Game 3: gana p2
     game3 = make_game("g3", [
         make_player("p1"),
         make_player("p2")
     ])
-    game3.players[0].scores.terraform_rating = 15
-    game3.players[1].scores.terraform_rating = 40
+    game3.player_results[0].scores.terraform_rating = 15
+    game3.player_results[1].scores.terraform_rating = 40
 
     # Game 4: empate
     game4 = make_game("g4", [
         make_player("p1"),
         make_player("p2")
     ])
-    game4.players[0].scores.terraform_rating = 50
-    game4.players[1].scores.terraform_rating = 50
-    game4.players[0].end_stats.mc_total = 10
-    game4.players[1].end_stats.mc_total = 10
+    game4.player_results[0].scores.terraform_rating = 50
+    game4.player_results[1].scores.terraform_rating = 50
+    game4.player_results[0].end_stats.mc_total = 10
+    game4.player_results[1].end_stats.mc_total = 10
 
     games_repo = FakeGamesRepositoryForRecords([
         game1, game2, game3, game4
@@ -96,24 +96,24 @@ def test_highest_single_game_score():
         make_player("p1"),
         make_player("p2"),
     ])
-    game1.players[0].scores.terraform_rating = 70
-    game1.players[1].scores.terraform_rating = 60
+    game1.player_results[0].scores.terraform_rating = 70
+    game1.player_results[1].scores.terraform_rating = 60
 
     # Game 2 (récord)
     game2 = make_game("g2", [
         make_player("p1"),
         make_player("p2"),
     ])
-    game2.players[0].scores.terraform_rating = 80
-    game2.players[1].scores.terraform_rating = 95
+    game2.player_results[0].scores.terraform_rating = 80
+    game2.player_results[1].scores.terraform_rating = 95
 
     # Game 3
     game3 = make_game("g3", [
         make_player("p1"),
         make_player("p2"),
     ])
-    game3.players[0].scores.terraform_rating = 65
-    game3.players[1].scores.terraform_rating = 50
+    game3.player_results[0].scores.terraform_rating = 65
+    game3.player_results[1].scores.terraform_rating = 50
 
     games_repo = FakeGamesRepositoryForRecords([
         game1, game2, game3

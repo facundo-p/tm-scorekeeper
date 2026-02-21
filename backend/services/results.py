@@ -29,7 +29,7 @@ def calculate_results(game: Game) -> GameResultDTO:
     """
     # 1) calcular total_points y preparar lista intermedia
     players_intermediate = []
-    for p in game.players:
+    for p in game.player_results:
         total = _compute_total_points_from_scores(p.scores)
         mc = p.end_stats.mc_total
         players_intermediate.append({
