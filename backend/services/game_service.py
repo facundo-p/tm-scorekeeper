@@ -107,6 +107,13 @@ class GamesService:
                 raise ValueError(
                     f"Award '{award.name}' has a tie for first place, so second place is not allowed"
                 )
+            
+    def _validate_players_exist(self, player_results: list[PlayerResult]):
+        for pr in player_results:
+            try:
+                self.players_repository.get(pr.player_id)
+            except KeyError:
+                raise ValueError(f"Player '{pr.player_id}' is not registered")
     
 
     def create_game(self, game_dto: GameDTO) -> str:
@@ -124,9 +131,7 @@ class GamesService:
         self._validate_unique_awards(game.awards)
         self._validate_award_players(game.awards, game.players)
         self._validate_award_ties(game.awards)
-
-        for player in game.players:
-            self.players_repository.register_player(player.player_id)
+        self._validate_players_exist(game.players)
 
         return self.games_repository.create(game)
 
