@@ -78,7 +78,7 @@ class GamesService:
             raise ValueError("Each award can only be claimed once per game")
         
     def _validate_award_players(self, awards: list[AwardResult], players: list[PlayerResult]) -> None:
-        valid_ids = {player.player_id for player in players}
+        valid_ids = {p.player_id for p in players}
 
         for award in awards:
             # opened_by
