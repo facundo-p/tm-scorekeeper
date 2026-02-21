@@ -19,7 +19,7 @@ def game_dto_to_model(dto: GameDTO) -> Game:
         expansions=list(dto.expansions),
         draft=dto.draft,
         generations=dto.generations,
-        players=[player_result_dto_to_model(p) for p in dto.players],
+        player_results=[player_result_dto_to_model(p) for p in dto.player_results],
         awards=[award_result_dto_to_model(a) for a in dto.awards],
     )
 
@@ -32,6 +32,6 @@ def game_model_to_dto(model: Game) -> GameDTO:
         expansions=list(model.expansions),
         draft=model.draft,
         generations=model.generations,
-        players=[player_result_model_to_dto(p) for p in model.players],
+        player_results=[player_result_model_to_dto(p) for p in model.player_results],
         awards=[award_result_model_to_dto(a) for a in model.awards],
     )

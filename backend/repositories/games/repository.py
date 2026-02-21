@@ -38,7 +38,7 @@ class GamesRepository:
         result = []
 
         for game in self._games.values():
-            for player in game.players:
+            for player in game.player_results:
                 if player.player_id == player_id:
                     result.append(game)
                     break

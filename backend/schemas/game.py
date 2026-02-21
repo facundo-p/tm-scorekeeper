@@ -14,7 +14,7 @@ class GameDTO(BaseModel):
     draft: bool
     generations: int = Field(ge=1)
 
-    players: List[PlayerResultDTO]
+    player_results: List[PlayerResultDTO]
     awards: List[AwardResultDTO]
 
 

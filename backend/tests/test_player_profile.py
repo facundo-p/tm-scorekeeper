@@ -88,7 +88,7 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(player_profile_se
         expansions=["Prelude"],
         draft=True,
         generations=10,
-        players=[
+        player_results=[
             player,
             PlayerResultDTO(
                 player_id="p2",
@@ -180,7 +180,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
         expansions=[],
         draft=False,
         generations=10,
-        players=[player, opponent_g1],
+        player_results=[player, opponent_g1],
         awards=[],
     )
 
@@ -227,7 +227,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
         expansions=[],
         draft=False,
         generations=10,
-        players=[winning_opponent_game2, losing_p1_game2],
+        player_results=[winning_opponent_game2, losing_p1_game2],
         awards=[],
     )
 
@@ -273,7 +273,7 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(player_prof
         expansions=[],
         draft=False,
         generations=10,
-        players=[third_player, opponent_g1, losing_p1_game3],
+        player_results=[third_player, opponent_g1, losing_p1_game3],
         awards=[],
     )
 

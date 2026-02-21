@@ -12,7 +12,7 @@ def test_results_are_sorted_by_total_points():
         expansions=["Prelude"],
         draft=True,
         generations=10,
-        players=[
+        player_results=[
             PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
@@ -67,7 +67,7 @@ def test_results_are_sorted_by_mc_when_points_tie():
         expansions=["Prelude"],
         draft=True,
         generations=10,
-        players=[
+        player_results=[
             PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
@@ -122,7 +122,7 @@ def test_results_are_tied_when_points_and_mc_are_equal():
         expansions=["Prelude"],
         draft=True,
         generations=10,
-        players=[
+        player_results=[
             PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,
@@ -177,7 +177,7 @@ def test_positions_skip_after_ties():
         expansions=["Prelude"],
         draft=True,
         generations=10,
-        players=[
+        player_results=[
             PlayerResultDTO(
                 player_id="p1",
                 corporation=Corporation.THARSIS_REPUBLIC,

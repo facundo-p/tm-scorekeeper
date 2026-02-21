@@ -122,16 +122,16 @@ class GamesService:
 
         # Validaciones usando modelo dominio
         self._validate_date(game.date)
-        self._validate_players(game.players)
-        self._validate_corporations(game.players)
-        self._validate_milestones(game.players)
-        self._validate_milestone_points_coherence(game.players)
-        self._validate_unique_milestones(game.players)
+        self._validate_players(game.player_results)
+        self._validate_corporations(game.player_results)
+        self._validate_milestones(game.player_results)
+        self._validate_milestone_points_coherence(game.player_results)
+        self._validate_unique_milestones(game.player_results)
         self._validate_awards_count(game.awards)
         self._validate_unique_awards(game.awards)
-        self._validate_award_players(game.awards, game.players)
+        self._validate_award_players(game.awards, game.player_results)
         self._validate_award_ties(game.awards)
-        self._validate_players_exist(game.players)
+        self._validate_players_exist(game.player_results)
 
         return self.games_repository.create(game)
 
