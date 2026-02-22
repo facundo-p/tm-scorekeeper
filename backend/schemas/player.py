@@ -26,3 +26,8 @@ class PlayerResultDTO(BaseModel):
     scores: PlayerScoreDTO
     end_stats: PlayerEndStatsDTO
 
+class PlayerCreateDTO(BaseModel):
+    name: str = Field(min_length=1)
+
+class PlayerCreatedResponseDTO(BaseModel):
+    player_id: str
