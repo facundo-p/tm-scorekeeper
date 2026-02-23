@@ -43,3 +43,13 @@ class PlayerService:
             if player.name.strip().lower() == normalized:
                 if exclude_id is None or player.player_id != exclude_id:
                     raise ValueError("Player with this name already exists")
+                
+    
+    #Devuelve lista de jugadores totales, activos o no activos ordenados alfabéticamente.
+    def get_players(self, active: bool | None = None) -> list[Player]:
+        players = self.player_repository.get_all()
+
+        if active is not None:
+            players = [p for p in players if p.is_active == active]
+
+        return sorted(players, key=lambda p: p.name.lower())
