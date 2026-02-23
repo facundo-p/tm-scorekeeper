@@ -1,12 +1,12 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from schemas.player_profile import PlayerProfileDTO
 from services.player_profile_service import PlayerProfileService
 from repositories.container import games_repository, players_repository
 from services.records_service import RecordsService
 from services.player_records_service import PlayerRecordsService
-from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerUpdateDTO
+from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
-
+from typing import Optional
 
 router = APIRouter(
     prefix="/players",
@@ -72,3 +72,16 @@ def update_player(player_id: str, dto: PlayerUpdateDTO):
         )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+# Devuelve la lista de jugadores con query opcional para filtrar activos y no activos.   
+@router.get("/", response_model=list[PlayerResponseDTO])
+def list_players(active: Optional[bool] = Query(default=None)):
+    players = player_service.get_players(active=active)
+    return [
+        PlayerResponseDTO(
+            player_id=p.player_id,
+            name=p.name,
+            is_active=p.is_active,
+        )
+        for p in players
+    ]
