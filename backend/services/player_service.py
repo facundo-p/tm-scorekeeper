@@ -8,11 +8,15 @@ class PlayerService:
         self.player_repository = player_repository
 
     def create_player(self, dto: PlayerCreateDTO) -> str:
+        name = dto.name.strip()
+
+        self._validate_unique_name(name)
+
         player = Player(
             player_id=None,
-            name=dto.name
+            name=name,
+            is_active=True,
         )
-
         created_player = self.player_repository.create(player)
 
         return created_player.player_id
@@ -21,9 +25,21 @@ class PlayerService:
         player = self.player_repository.get(player_id)
 
         if dto.name is not None:
-            player.name = dto.name
+            new_name = dto.name.strip()
+
+            self._validate_unique_name(new_name, exclude_id=player_id)
+
+            player.name = new_name
 
         if dto.is_active is not None:
             player.is_active = dto.is_active
 
         self.player_repository.update(player)
+
+    def _validate_unique_name(self, name: str, exclude_id: str | None = None) -> None:
+        normalized = name.strip().lower()
+        #Revisa si el nombre ya existe en otro jugador registrado con case insensitive y lanza error si eso se cumple.
+        for player in self.player_repository.get_all():
+            if player.name.strip().lower() == normalized:
+                if exclude_id is None or player.player_id != exclude_id:
+                    raise ValueError("Player with this name already exists")

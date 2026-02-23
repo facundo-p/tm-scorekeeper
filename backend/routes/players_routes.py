@@ -52,8 +52,13 @@ def get_player_profile(player_id: str):
 
 @router.post("/", response_model=PlayerCreatedResponseDTO)
 def create_player(dto: PlayerCreateDTO):
-    player_id = player_service.create_player(dto)
+    try:
+        player_id = player_service.create_player(dto)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
     return PlayerCreatedResponseDTO(player_id=player_id)
+
 
 @router.patch("/{player_id}")
 def update_player(player_id: str, dto: PlayerUpdateDTO):
@@ -65,3 +70,5 @@ def update_player(player_id: str, dto: PlayerUpdateDTO):
             status_code=404,
             detail=f"Player '{player_id}' not found",
         )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))

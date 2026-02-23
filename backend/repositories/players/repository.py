@@ -23,3 +23,6 @@ class PlayersRepository:
 
         self._players[player.player_id] = player
         return player
+    
+    def get_all(self) -> list[Player]:
+        return list(self._players.values())
