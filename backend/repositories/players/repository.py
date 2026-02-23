@@ -16,3 +16,10 @@ class PlayersRepository:
             raise KeyError(f"Player '{player_id}' not found")
 
         return self._players[player_id]
+    
+    def update(self, player: Player) -> Player:
+        if player.player_id not in self._players:
+            raise KeyError(f"Player '{player.player_id}' not found")
+
+        self._players[player.player_id] = player
+        return player

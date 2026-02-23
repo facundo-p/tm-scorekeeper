@@ -4,7 +4,7 @@ from services.player_profile_service import PlayerProfileService
 from repositories.container import games_repository, players_repository
 from services.records_service import RecordsService
 from services.player_records_service import PlayerRecordsService
-from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO
+from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
 
 
@@ -54,3 +54,14 @@ def get_player_profile(player_id: str):
 def create_player(dto: PlayerCreateDTO):
     player_id = player_service.create_player(dto)
     return PlayerCreatedResponseDTO(player_id=player_id)
+
+@router.patch("/{player_id}")
+def update_player(player_id: str, dto: PlayerUpdateDTO):
+    try:
+        player_service.update_player(player_id, dto)
+        return {"message": "Player updated successfully"}
+    except KeyError:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Player '{player_id}' not found",
+        )

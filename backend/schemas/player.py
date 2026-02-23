@@ -31,3 +31,7 @@ class PlayerCreateDTO(BaseModel):
 
 class PlayerCreatedResponseDTO(BaseModel):
     player_id: str
+
+class PlayerUpdateDTO(BaseModel):
+    name: Optional[str] = Field(default=None, min_length=1)
+    is_active: Optional[bool] = None
