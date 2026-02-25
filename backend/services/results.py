@@ -1,7 +1,7 @@
 from typing import List
 from schemas.game import GameDTO
 from schemas.result import GameResultDTO, PlayerResultDTO
-# nota: usamos game_id como str en el DTO (contrato API)
+from models.game import Game
 
 
 def _compute_total_points_from_scores(scores) -> int:
@@ -17,9 +17,9 @@ def _compute_total_points_from_scores(scores) -> int:
         + turmoil
     )
 
-def calculate_results(game: GameDTO) -> GameResultDTO:
+def calculate_results(game: Game) -> GameResultDTO:
     """
-    Calcula GameResultDTO a partir de GameDTO (no persiste nada).
+    Calcula GameResultDTO a partir de Game (modelo dominio).
     Reglas:
      - total_points = suma de campos de scores (MC no incluido)
      - ordenar por (total_points desc, mc_total desc)
@@ -29,7 +29,7 @@ def calculate_results(game: GameDTO) -> GameResultDTO:
     """
     # 1) calcular total_points y preparar lista intermedia
     players_intermediate = []
-    for p in game.players:
+    for p in game.player_results:
         total = _compute_total_points_from_scores(p.scores)
         mc = p.end_stats.mc_total
         players_intermediate.append({

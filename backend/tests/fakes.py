@@ -57,6 +57,6 @@ def make_game(game_id: str, players: list[PlayerScoreDTO]) -> GameDTO:
         expansions=[],
         draft=False,
         generations=10,
-        players=players,
+        player_results=players,
         awards=[],
     )

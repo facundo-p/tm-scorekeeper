@@ -15,7 +15,7 @@ class Game:
         expansions: List[Expansion],
         draft: bool,
         generations: int,
-        players: List[PlayerResult],
+        player_results: List[PlayerResult],
         awards: List[AwardResult],
     ):
         self.id = game_id
@@ -24,5 +24,5 @@ class Game:
         self.expansions = expansions
         self.draft = draft
         self.generations = generations
-        self.players = players
+        self.player_results = player_results
         self.awards = awards
