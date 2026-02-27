@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException
-from repositories.players.repository import PlayersRepository
+from repositories.player_repository import PlayersRepository
 from services.game_service import GamesService
 from schemas.game import GameDTO, GameCreatedResponseDTO
 from schemas.result import GameResultDTO
-from repositories.games.repository import GamesRepository
+from repositories.game_repository import GamesRepository
 from repositories.container import games_repository, players_repository
 
 

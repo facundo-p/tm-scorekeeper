@@ -21,6 +21,16 @@ Antes de comenzar, necesitas tener instalado:
      ```
    - Deberías ver algo como: `Python 3.12.x`
 
+2. **Docker & Docker Compose**
+   - Usaremos un contenedor PostgreSQL para desarrollo y pruebas de integración.
+   - Instala Docker Desktop desde: https://www.docker.com/get-started
+   - Verifica que `docker` y `docker compose` funcionen:
+     ```powershell
+     docker --version
+     docker compose version
+     ```
+   - Estas herramientas son opcionales si prefieres usar SQLite localmente, pero se recomiendan para paridad con producción.
+
 2. **Git** (opcional pero recomendado)
    - Para clonar el repositorio
 
@@ -101,6 +111,37 @@ Ahora que estás dentro del virtual environment, instala todas las librerías ne
 ```powershell
 pip install -r requirements.txt
 ```
+
+### Paso 5: Iniciar la base de datos PostgreSQL (Docker)
+
+El proyecto utiliza PostgreSQL en desarrollo y las pruebas de integración. Para arrancar el contenedor ejecuta en la raíz del repo:
+
+```powershell
+# deberá estar instalado Docker Desktop o similar
+docker compose up -d
+```
+
+Esto creará un servicio `db` escuchando en el puerto `5432` de tu máquina. Las credenciales por defecto son:
+
+```
+POSTGRES_USER=tm_user
+POSTGRES_PASSWORD=tm_pass
+POSTGRES_DB=tm_scorekeeper
+```
+
+Si deseas cambiar la URL, exporta `DATABASE_URL` antes de ejecutar la aplicación o los tests:
+
+```powershell
+$env:DATABASE_URL = "postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper"
+```
+
+Puedes parar y eliminar datos con:
+
+```powershell
+docker compose down -v
+```
+
+(Si no te interesa Docker puedes configurar `DATABASE_URL` para usar SQLite en memoria.)
 
 **Explicación del comando:**
 - `pip` - Es el gestor de paquetes de Python (Package Installer for Python)

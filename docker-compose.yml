@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: tm_user
+      POSTGRES_PASSWORD: tm_pass
+      POSTGRES_DB: tm_scorekeeper
+    ports:
+      - "5432:5432"             # map to localhost for tests and dev tools
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
