@@ -13,9 +13,9 @@ from db.models import Base
 from db.session import engine
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def setup_db():
-    # create / drop tables around the test module
+    # create / drop tables around each test to avoid leftovers
     Base.metadata.create_all(bind=engine)
     yield
     Base.metadata.drop_all(bind=engine)
@@ -57,7 +57,7 @@ def player_profile_service(players_repo, games_repo):
 
 def test_player_with_no_games_has_zero_stats(player_profile_service, players_repo):
     # arrange: register player but do not insert any game
-    players_repo.register_player(Player(player_id="p1", name="Test", is_active=True))
+    players_repo.create(Player(player_id="p1", name="Test", is_active=True))
 
     profile = player_profile_service.get_profile("p1")
 
@@ -71,8 +71,9 @@ def test_player_with_no_games_has_zero_stats(player_profile_service, players_rep
 def test_player_with_one_winning_game_has_100_percent_win_rate(
     player_profile_service, players_repo, games_repo
 ):
-    # prepare player
-    players_repo.register_player(Player(player_id="p1", name="Test", is_active=True))
+    # prepare players
+    players_repo.create(Player(player_id="p1", name="Test", is_active=True))
+    players_repo.create(Player(player_id="p2", name="Opponent", is_active=True))
 
     player_pl = PlayerResultDTO(
         player_id="p1",
@@ -135,7 +136,10 @@ def test_player_with_one_winning_game_has_100_percent_win_rate(
 def test_player_with_multiple_games_and_one_win_has_correct_win_rate(
     player_profile_service, players_repo, games_repo
 ):
-    players_repo.register_player(Player(player_id="p1", name="Test", is_active=True))
+    # register all participants so foreign key constraints are satisfied
+    players_repo.create(Player(player_id="p1", name="Test", is_active=True))
+    players_repo.create(Player(player_id="p2", name="Opponent", is_active=True))
+    players_repo.create(Player(player_id="p3", name="Third", is_active=True))
 
     base_player = PlayerResultDTO(
         player_id="p1",

@@ -29,7 +29,9 @@ class GamesService:
         
     def _validate_corporations(self, players: list[PlayerResult]) -> None:
         for player in players:
-            if not player.corporation or not player.corporation.strip():
+            corp = player.corporation
+            # corporation may be an enum or a string; ensure it is not empty
+            if not corp or not str(corp).strip():
                 raise ValueError(
                     f"Player '{player.player_id}' must have a non-empty corporation")
     

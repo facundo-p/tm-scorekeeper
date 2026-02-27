@@ -5,6 +5,8 @@ class MapName(str, Enum):
     HELLAS = "Hellas"
     THARSIS = "Tharsis"
     ELYSIUM = "Elysium"
+    BOREALIS = "Vastitas Borealis"
+    AMAZONIS = "Amazonis Planitia"
 
 class Expansion(str, Enum):
     PRELUDE = "Prelude"

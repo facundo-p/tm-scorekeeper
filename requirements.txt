@@ -4,3 +4,6 @@ uvicorn>=0.40.0
 pydantic>=2.12.5
 pytest>=8.0.0
 httpx>=0.28.0
+sqlalchemy>=1.4
+alembic>=1.18.4
+psycopg2-binary
