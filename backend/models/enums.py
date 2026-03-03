@@ -56,12 +56,11 @@ class Milestone(Enum):
 
 
 class Award(Enum):
-    # Tharsis
-    TERRAFORMER = "Terraformer"
-    MAYOR = "Mayor"
-    GARDENER = "Gardener"
-    BUILDER = "Builder"
-    PLANNER = "Planner"
+    LANDLORD = "Landlord"
+    BANKER = "Banker"
+    SCIENTIST = "Scientist"
+    THERMALIST = "Thermalist"
+    MINER = "Miner"
 
     # Hellas
     CULTIVATOR = "Cultivator"
