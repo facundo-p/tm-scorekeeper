@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { usePlayers } from '@/hooks/usePlayers'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
@@ -11,10 +11,11 @@ import styles from './Players.module.css'
 interface PlayerFormProps {
   player?: PlayerResponseDTO
   onSave: (name: string) => Promise<void>
+  onToggleActive?: () => Promise<void>
   onCancel: () => void
 }
 
-function PlayerForm({ player, onSave, onCancel }: PlayerFormProps) {
+function PlayerForm({ player, onSave, onToggleActive, onCancel }: PlayerFormProps) {
   const [name, setName] = useState(player?.name ?? '')
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
@@ -26,6 +27,16 @@ function PlayerForm({ player, onSave, onCancel }: PlayerFormProps) {
       await onSave(name.trim())
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al guardar')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleToggleActive = async () => {
+    if (!onToggleActive) return
+    setSaving(true)
+    try {
+      await onToggleActive()
     } finally {
       setSaving(false)
     }
@@ -43,6 +54,11 @@ function PlayerForm({ player, onSave, onCancel }: PlayerFormProps) {
         onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
       />
       <div className={styles.formActions}>
+        {onToggleActive && (
+          <Button variant="danger" onClick={handleToggleActive} disabled={saving}>
+            {player?.is_active ? 'Desactivar' : 'Activar'}
+          </Button>
+        )}
         <Button variant="ghost" onClick={onCancel} disabled={saving}>Cancelar</Button>
         <Button onClick={handleSubmit} disabled={saving}>
           {saving ? 'Guardando...' : 'Guardar'}
@@ -53,6 +69,7 @@ function PlayerForm({ player, onSave, onCancel }: PlayerFormProps) {
 }
 
 export default function Players() {
+  const navigate = useNavigate()
   const [activeOnly, setActiveOnly] = useState(true)
   const { players, loading, error, addPlayer, editPlayer } = usePlayers({ activeOnly })
   const [showCreate, setShowCreate] = useState(false)
@@ -69,8 +86,10 @@ export default function Players() {
     setEditing(null)
   }
 
-  const handleToggleActive = async (player: PlayerResponseDTO) => {
-    await editPlayer(player.player_id, { is_active: !player.is_active })
+  const handleToggleActive = async () => {
+    if (!editing) return
+    await editPlayer(editing.player_id, { is_active: !editing.is_active })
+    setEditing(null)
   }
 
   return (
@@ -105,23 +124,17 @@ export default function Players() {
 
         <div className={styles.list}>
           {players.map((player) => (
-            <div key={player.player_id} className={styles.playerCard}>
+            <div
+              key={player.player_id}
+              className={styles.playerCard}
+              onClick={() => navigate(`/players/${player.player_id}/profile`)}
+            >
               <div className={styles.playerInfo}>
                 <span className={styles.playerName}>{player.name}</span>
-                <span className={[styles.statusBadge, player.is_active ? styles.active : styles.inactive].join(' ')}>
-                  {player.is_active ? 'Activo' : 'Inactivo'}
-                </span>
               </div>
-              <div className={styles.actions}>
+              <div className={styles.actions} onClick={(e) => e.stopPropagation()}>
                 <Button variant="ghost" size="sm" onClick={() => setEditing(player)}>
                   Editar
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleToggleActive(player)}
-                >
-                  {player.is_active ? 'Desactivar' : 'Activar'}
                 </Button>
               </div>
             </div>
@@ -137,7 +150,12 @@ export default function Players() {
 
       {editing && (
         <Modal title="Editar jugador" onClose={() => setEditing(null)}>
-          <PlayerForm player={editing} onSave={handleEdit} onCancel={() => setEditing(null)} />
+          <PlayerForm
+            player={editing}
+            onSave={handleEdit}
+            onToggleActive={handleToggleActive}
+            onCancel={() => setEditing(null)}
+          />
         </Modal>
       )}
     </div>

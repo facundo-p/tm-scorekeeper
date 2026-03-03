@@ -4,11 +4,16 @@ import type {
   PlayerCreateDTO,
   PlayerUpdateDTO,
   PlayerCreatedResponseDTO,
+  PlayerProfileDTO,
 } from '@/types'
 
 export function getPlayers(active?: boolean): Promise<PlayerResponseDTO[]> {
   const query = active == true ? `?active=${active}` : ''
   return api.get<PlayerResponseDTO[]>(`/players/${query}`)
+}
+
+export function getPlayerProfile(playerId: string): Promise<PlayerProfileDTO> {
+  return api.get<PlayerProfileDTO>(`/players/${playerId}/profile`)
 }
 
 export function createPlayer(data: PlayerCreateDTO): Promise<PlayerCreatedResponseDTO> {

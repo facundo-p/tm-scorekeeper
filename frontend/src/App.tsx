@@ -4,8 +4,11 @@ import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute'
 import Login from '@/pages/Login/Login'
 import Home from '@/pages/Home/Home'
 import Players from '@/pages/Players/Players'
+import PlayerProfile from '@/pages/PlayerProfile/PlayerProfile'
 import GameForm from '@/pages/GameForm/GameForm'
 import GameRecords from '@/pages/GameRecords/GameRecords'
+import GamesList from '@/pages/GamesList/GamesList'
+import GameDetail from '@/pages/GameDetail/GameDetail'
 import Records from '@/pages/Records/Records'
 
 export default function App() {
@@ -32,10 +35,34 @@ export default function App() {
             }
           />
           <Route
+            path="/players/:playerId/profile"
+            element={
+              <ProtectedRoute>
+                <PlayerProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/games"
+            element={
+              <ProtectedRoute>
+                <GamesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/games/new"
             element={
               <ProtectedRoute>
                 <GameForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/games/:gameId"
+            element={
+              <ProtectedRoute>
+                <GameDetail />
               </ProtectedRoute>
             }
           />
