@@ -3,11 +3,48 @@ from services.results import calculate_results
 from schemas.records import RecordDTO
 
 
+from services.record_calculators.highest_single_game_score import (
+    HighestSingleGameScoreCalculator,
+)
+from schemas.records import RecordDTO
+
+
 class RecordsService:
+
     def __init__(self, games_repository):
         self.games_repository = games_repository
 
-    def most_games_played(self) -> RecordDTO | None:
+        # Lista de calculators (escalable a futuro)
+        self._calculators = [
+            HighestSingleGameScoreCalculator(),
+            # En el futuro agregamos más aquí
+        ]
+
+    def get_global_records(self) -> dict[str, RecordDTO]:
+
+        games = self.games_repository.list_games()
+
+        records = {}
+
+        for calculator in self._calculators:
+            entry = calculator.calculate(games)
+
+            if entry is None:
+                continue
+
+            # Mapear dominio → DTO existente
+            record_dto = RecordDTO(
+                type=entry.code,
+                value=entry.value,
+                player_id=entry.player_id,
+                game_id=entry.game_id,
+            )
+
+            records[entry.code] = record_dto
+
+        return records
+
+    """def most_games_played(self) -> RecordDTO | None:
         games = self.games_repository.list_games()
 
         if not games:
@@ -103,4 +140,4 @@ class RecordsService:
         if record:
             records[record.type] = record
 
-        return records
+        return records"""
