@@ -22,14 +22,9 @@ export default function StepScoreField({ state, field, label, onChange }: Props)
       {state.players.map((player) => (
         <div
           key={player.player_id}
-          style={{
-            background: 'var(--color-surface)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--border-radius)',
-            padding: 'var(--spacing-md)',
-          }}
+          className={styles.card}
         >
-          <h3 style={{ marginBottom: 'var(--spacing-sm)', color: 'var(--color-accent)' }}>
+          <h3 className={styles.cardTitle}>
             {player.name}
           </h3>
           <Input

@@ -48,7 +48,7 @@ export default function StepMilestones({ state, onChange }: Props) {
 
   return (
     <div className={styles.stepContent}>
-      <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>
+      <p className={styles.hintText}>
         Hasta {MAX_MILESTONES} hitos pueden ser reclamados en la partida ({claimedCount}/{MAX_MILESTONES})
       </p>
 
@@ -59,23 +59,17 @@ export default function StepMilestones({ state, onChange }: Props) {
         return (
           <div
             key={milestone}
-            style={{
-              background: entry.claimed ? 'var(--color-surface-hover)' : 'var(--color-surface)',
-              border: `1px solid ${entry.claimed ? 'var(--color-accent)' : 'var(--color-border)'}`,
-              borderRadius: 'var(--border-radius)',
-              padding: 'var(--spacing-md)',
-              opacity: !canClaim ? 0.5 : 1,
-            }}
+            className={`${styles.card} ${entry.claimed ? styles.cardActive : ''} ${!canClaim ? styles.cardDisabled : ''}`}
           >
-            <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)', cursor: canClaim ? 'pointer' : 'not-allowed' }}>
+            <label className={`${styles.checkboxLabel} ${!canClaim ? styles.checkboxLabelDisabled : ''}`}>
               <input
                 type="checkbox"
                 checked={entry.claimed}
                 onChange={() => toggleClaimed(milestone)}
                 disabled={!canClaim}
-                style={{ accentColor: 'var(--color-accent)', width: 18, height: 18 }}
+                className={styles.checkboxInput}
               />
-              <span style={{ fontWeight: 'var(--font-weight-medium)' }}>{milestone}</span>
+              <span className={styles.fontMedium}>{milestone}</span>
             </label>
             {entry.claimed && (
               <div style={{ marginTop: 'var(--spacing-sm)' }}>

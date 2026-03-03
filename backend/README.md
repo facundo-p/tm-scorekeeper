@@ -13,7 +13,10 @@ project root:
 docker compose up -d
 
 # point the app/tests to it (the default value is shown below)
+# Mac
 export DATABASE_URL="postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper"
+# Windows
+$env:DATABASE_URL="postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper"
 ```
 
 The `session.py` module will fall back to the above URL if `DATABASE_URL` is not set.

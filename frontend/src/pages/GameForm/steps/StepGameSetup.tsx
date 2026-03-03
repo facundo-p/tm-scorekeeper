@@ -44,43 +44,32 @@ export default function StepGameSetup({ state, onChange }: Props) {
         required
       />
       <div>
-        <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-sm)' }}>
+        <p className={styles.hintTextMb}>
           Expansiones
         </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-sm)' }}>
+        <div className={styles.expansionGroup}>
           {EXPANSION_LIST.map((exp) => (
             <label
               key={exp.value}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--spacing-xs)',
-                cursor: 'pointer',
-                padding: 'var(--spacing-xs) var(--spacing-sm)',
-                background: state.expansions.includes(exp.value as Expansion)
-                  ? 'var(--color-surface-hover)'
-                  : 'var(--color-surface)',
-                border: `1px solid ${state.expansions.includes(exp.value as Expansion) ? 'var(--color-accent)' : 'var(--color-border)'}`,
-                borderRadius: 'var(--border-radius-sm)',
-              }}
+              className={`${styles.expansionTag} ${state.expansions.includes(exp.value as Expansion) ? styles.expansionTagActive : ''}`}
             >
               <input
                 type="checkbox"
                 checked={state.expansions.includes(exp.value as Expansion)}
                 onChange={() => toggleExpansion(exp.value as Expansion)}
-                style={{ accentColor: 'var(--color-accent)' }}
+                className={styles.checkboxInputSm}
               />
               {exp.label}
             </label>
           ))}
         </div>
       </div>
-      <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)', cursor: 'pointer' }}>
+      <label className={styles.checkboxLabel}>
         <input
           type="checkbox"
           checked={state.draft}
           onChange={(e) => onChange({ draft: e.target.checked })}
-          style={{ accentColor: 'var(--color-primary)', width: 18, height: 18 }}
+          className={styles.checkboxInputPrimary}
         />
         <span>Draft activado</span>
       </label>
