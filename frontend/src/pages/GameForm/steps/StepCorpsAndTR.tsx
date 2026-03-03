@@ -35,17 +35,12 @@ export default function StepCorpsAndTR({ state, onChange }: Props) {
         return (
           <div
             key={player.player_id}
-            style={{
-              background: 'var(--color-surface)',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--border-radius)',
-              padding: 'var(--spacing-md)',
-            }}
+            className={styles.card}
           >
-            <h3 style={{ marginBottom: 'var(--spacing-md)', color: 'var(--color-accent)' }}>
+            <h3 className={styles.cardTitleMd}>
               {player.name}
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+            <div className={styles.colStack}>
               <Select
                 label="Corporación"
                 options={corpOptions}

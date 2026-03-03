@@ -45,7 +45,7 @@ export default function StepAwards({ state, onChange }: Props) {
 
   return (
     <div className={styles.stepContent}>
-      <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>
+      <p className={styles.hintText}>
         Máximo {MAX_AWARDS} recompensas. Se pueden financiar 0 si nadie las abrió. ({state.awards.length}/{MAX_AWARDS})
       </p>
 
@@ -57,18 +57,13 @@ export default function StepAwards({ state, onChange }: Props) {
         return (
           <div
             key={i}
-            style={{
-              background: 'var(--color-surface)',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--border-radius)',
-              padding: 'var(--spacing-md)',
-            }}
+            className={styles.card}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'var(--spacing-md)' }}>
-              <h3 style={{ color: 'var(--color-accent)' }}>Recompensa {i + 1}</h3>
+            <div className={styles.cardHeader}>
+              <h3 className={styles.cardTitle}>Recompensa {i + 1}</h3>
               <Button variant="ghost" size="sm" onClick={() => removeAward(i)}>✕</Button>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+            <div className={styles.colStack}>
               <Select
                 label="Recompensa"
                 options={awardOptions}

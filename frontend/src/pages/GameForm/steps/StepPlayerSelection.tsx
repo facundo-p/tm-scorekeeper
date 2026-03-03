@@ -9,18 +9,6 @@ interface Props {
   onChange: (patch: Partial<GameFormState>) => void
 }
 
-const cardStyle = (selected: boolean): React.CSSProperties => ({
-  display: 'flex',
-  alignItems: 'center',
-  gap: 'var(--spacing-sm)',
-  padding: 'var(--spacing-md)',
-  background: selected ? 'var(--color-surface-hover)' : 'var(--color-surface)',
-  border: `1px solid ${selected ? 'var(--color-accent)' : 'var(--color-border)'}`,
-  borderRadius: 'var(--border-radius)',
-  cursor: 'pointer',
-  userSelect: 'none',
-})
-
 export default function StepPlayerSelection({ state, onChange }: Props) {
   const { players, loading, error } = usePlayers({ activeOnly: true })
 
@@ -32,15 +20,15 @@ export default function StepPlayerSelection({ state, onChange }: Props) {
   }
 
   if (loading) return <Spinner />
-  if (error) return <p style={{ color: 'var(--color-error)' }}>{error}</p>
+  if (error) return <p className={styles.textError}>{error}</p>
 
   return (
     <div className={styles.stepContent}>
-      <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>
+      <p className={styles.hintText}>
         Seleccioná entre {MIN_PLAYERS} y {MAX_PLAYERS} jugadores ({state.selectedPlayerIds.length} seleccionados)
       </p>
       {players.length === 0 && (
-        <p style={{ color: 'var(--color-text-muted)' }}>No hay jugadores activos. Creá jugadores primero.</p>
+        <p className={styles.textMuted}>No hay jugadores activos. Creá jugadores primero.</p>
       )}
       {players.map((player) => {
         const selected = state.selectedPlayerIds.includes(player.player_id)
@@ -48,10 +36,10 @@ export default function StepPlayerSelection({ state, onChange }: Props) {
         return (
           <div
             key={player.player_id}
-            style={{ ...cardStyle(selected), opacity: disabled ? 0.5 : 1, cursor: disabled ? 'not-allowed' : 'pointer' }}
+            className={`${styles.playerCard} ${selected ? styles.cardActive : ''} ${disabled ? styles.cardDisabled : ''}`}
             onClick={() => { if (!disabled) toggle(player.player_id) }}
           >
-            <span style={{ color: selected ? 'var(--color-accent)' : 'var(--color-text-muted)', fontWeight: 'bold' }}>
+            <span className={selected ? styles.accentBold : styles.textMuted}>
               {selected ? '✓' : '○'}
             </span>
             <span>{player.name}</span>

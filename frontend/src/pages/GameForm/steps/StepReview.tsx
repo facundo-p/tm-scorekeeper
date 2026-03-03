@@ -17,8 +17,8 @@ export default function StepReview({ state }: Props) {
 
   return (
     <div className={styles.stepContent}>
-      <section style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--spacing-md)' }}>
-        <h3 style={{ marginBottom: 'var(--spacing-sm)', color: 'var(--color-text-muted)', fontSize: 'var(--font-size-sm)', textTransform: 'uppercase' }}>Configuración</h3>
+      <section className={styles.card}>
+        <h3 className={styles.sectionHeading}>Configuración</h3>
         <p>Fecha: <strong>{state.date}</strong></p>
         <p>Mapa: <strong>{state.map}</strong></p>
         <p>Expansiones: <strong>{state.expansions.length > 0 ? state.expansions.join(', ') : 'Ninguna'}</strong></p>
@@ -26,9 +26,9 @@ export default function StepReview({ state }: Props) {
         <p>Generaciones: <strong>{state.generations}</strong></p>
       </section>
 
-      <section style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--spacing-md)' }}>
-        <h3 style={{ marginBottom: 'var(--spacing-sm)', color: 'var(--color-text-muted)', fontSize: 'var(--font-size-sm)', textTransform: 'uppercase' }}>Puntuaciones finales</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 'var(--spacing-xs) var(--spacing-md)' }}>
+      <section className={styles.card}>
+        <h3 className={styles.sectionHeading}>Puntuaciones finales</h3>
+        <div className={styles.scoreGrid}>
           {state.players.map((player) => {
             const milestones = state.milestones.filter((m) => m.claimed && m.player_id === player.player_id).map((m) => m.milestone)
             const milestone_points = calcMilestonePoints(milestones)
@@ -45,8 +45,8 @@ export default function StepReview({ state }: Props) {
             })
             return (
               <>
-                <span key={`${player.player_id}-name`} style={{ fontWeight: 'var(--font-weight-medium)' }}>{player.name} ({player.corporation})</span>
-                <span key={`${player.player_id}-total`} style={{ color: 'var(--color-accent)', fontWeight: 'var(--font-weight-bold)' }}>{total} pts</span>
+                <span key={`${player.player_id}-name`} className={styles.fontMedium}>{player.name} ({player.corporation})</span>
+                <span key={`${player.player_id}-total`} className={styles.accentBold}>{total} pts</span>
               </>
             )
           })}
@@ -54,8 +54,8 @@ export default function StepReview({ state }: Props) {
       </section>
 
       {state.milestones.filter((m) => m.claimed).length > 0 && (
-        <section style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--spacing-md)' }}>
-          <h3 style={{ marginBottom: 'var(--spacing-sm)', color: 'var(--color-text-muted)', fontSize: 'var(--font-size-sm)', textTransform: 'uppercase' }}>Hitos</h3>
+        <section className={styles.card}>
+          <h3 className={styles.sectionHeading}>Hitos</h3>
           {state.milestones.filter((m) => m.claimed).map((m) => {
             const player = state.players.find((p) => p.player_id === m.player_id)
             return <p key={m.milestone}>{m.milestone}: <strong>{player?.name ?? '—'}</strong></p>
@@ -64,14 +64,14 @@ export default function StepReview({ state }: Props) {
       )}
 
       {state.awards.length > 0 && (
-        <section style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: 'var(--spacing-md)' }}>
-          <h3 style={{ marginBottom: 'var(--spacing-sm)', color: 'var(--color-text-muted)', fontSize: 'var(--font-size-sm)', textTransform: 'uppercase' }}>Recompensas</h3>
+        <section className={styles.card}>
+          <h3 className={styles.sectionHeading}>Recompensas</h3>
           {state.awards.map((award, i) => {
             const opener = state.players.find((p) => p.player_id === award.opened_by)
             const first = award.first_place.map((id) => state.players.find((p) => p.player_id === id)?.name).join(', ')
             const second = award.second_place.map((id) => state.players.find((p) => p.player_id === id)?.name).join(', ')
             return (
-              <div key={i} style={{ marginBottom: 'var(--spacing-sm)' }}>
+              <div key={i} className={styles.awardEntry}>
                 <strong>{award.name}</strong> (abierto por {opener?.name ?? '—'}) — 1ro: {first || '—'}{second ? ` / 2do: ${second}` : ''}
               </div>
             )
