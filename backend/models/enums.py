@@ -36,17 +36,31 @@ class Milestone(Enum):
     ENERGIZER       = "Energizer"
     RIM_SETTLER     = "Rim Settler"
 
+    # Vastias Borealis
+    AGRONOMIST      = "Agronomist"
+    ENGINEER        = "Engineer"
+    SPACECRAFTER    = "Spacecrafter"
+    GEOLOGIST       = "Geologist"
+    FARMER          = "Farmer"
+
+    # Amazonis Planitia
+    TERRAN          = "Terran"
+    LANDSHAPER      = "Landshaper"
+    MERCHANT        = "Merchant"
+    SPONSOR         = "Sponsor"
+    LOBBYIST        = "Lobbyist"
+
+
     def __str__(self) -> str:
         return self.value
 
 
 class Award(Enum):
-    # Tharsis
-    TERRAFORMER = "Terraformer"
-    MAYOR = "Mayor"
-    GARDENER = "Gardener"
-    BUILDER = "Builder"
-    PLANNER = "Planner"
+    LANDLORD = "Landlord"
+    BANKER = "Banker"
+    SCIENTIST = "Scientist"
+    THERMALIST = "Thermalist"
+    MINER = "Miner"
 
     # Hellas
     CULTIVATOR = "Cultivator"
@@ -61,6 +75,20 @@ class Award(Enum):
     DESERT_SETTLER = "Desert Settler"
     ESTATE_DEALER = "Estate Dealer"
     BENEFACTOR = "Benefactor"
+
+    # Vastias Borealis
+    TRAVELLER = "Traveller"
+    LANDSCAPER = "Landscaper"
+    HIGHLANDER = "Highlander"
+    PROMOTER = "Promoter"
+    BLACKSMITH = "Blacksmith"
+
+    # Amazonis Planitia
+    COLLECTOR = "Collector"
+    INNOVATOR = "Innovator"
+    CONSTRUCTOR = "Constructor"
+    MANUFACTURER = "Manufacturer"
+    PHYSICIST = "Physicist"
 
     def __str__(self) -> str:
         return self.value

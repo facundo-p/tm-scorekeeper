@@ -74,11 +74,11 @@ class GamesService:
             )
     
     def _validate_unique_awards(self, awards: list[AwardResult]) -> None:
-        award_names = [award.name for award in awards]
+        award_names = [award.award for award in awards]
 
         if len(award_names) != len(set(award_names)):
             raise ValueError("Each award can only be claimed once per game")
-        
+
     def _validate_award_players(self, awards: list[AwardResult], players: list[PlayerResult]) -> None:
         valid_ids = {p.player_id for p in players}
 
@@ -86,28 +86,39 @@ class GamesService:
             # opened_by
             if award.opened_by not in valid_ids:
                 raise ValueError(
-                    f"Award '{award.name}' opened_by references unknown player '{award.opened_by}'"
+                    f"Award '{award.award}' opened_by references unknown player '{award.opened_by}'"
                 )
 
             # first place list
             for p in award.first_place:
                 if p not in valid_ids:
                     raise ValueError(
-                        f"Award '{award.name}' first_place has unknown player '{p}'"
+                        f"Award '{award.award}' first_place has unknown player '{p}'"
                     )
 
             # second place list
             for p in award.second_place:
                 if p not in valid_ids:
                     raise ValueError(
-                        f"Award '{award.name}' second_place has unknown player '{p}'"
+                        f"Award '{award.award}' second_place has unknown player '{p}'"
                     )
-                
-    def _validate_award_ties(self, awards: list[AwardResult]) -> None:
+
+            # a player cannot be in both first and second place
+            for p in award.first_place:
+                if p in award.second_place:
+                    raise ValueError(
+                        f"Award '{award.award}': player '{p}' cannot be in both first and second place"
+                    )
+
+    def _validate_award_ties(self, awards: list[AwardResult], player_count: int) -> None:
         for award in awards:
             if len(award.first_place) > 1 and len(award.second_place) > 0:
                 raise ValueError(
-                    f"Award '{award.name}' has a tie for first place, so second place is not allowed"
+                    f"Award '{award.award}' has a tie for first place, so second place is not allowed"
+                )
+            if player_count == 2 and len(award.second_place) > 0:
+                raise ValueError(
+                    f"Award '{award.award}' cannot have second place in a 2-player game"
                 )
             
     def _validate_players_exist(self, player_results: list[PlayerResult]):
@@ -132,7 +143,7 @@ class GamesService:
         self._validate_awards_count(game.awards)
         self._validate_unique_awards(game.awards)
         self._validate_award_players(game.awards, game.player_results)
-        self._validate_award_ties(game.awards)
+        self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
 
         return self.games_repository.create(game)

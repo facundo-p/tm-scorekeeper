@@ -1,0 +1,279 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.headerTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.stepDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.stepDot.done {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.stepDot.current {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.stepLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.stepLabel.current {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.stepSeparator {
+  color: var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.main {
+  flex: 1;
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.stepTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+  gap: var(--spacing-sm);
+}
+
+.errors {
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.errorItem {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+
+.errorItem + .errorItem {
+  margin-top: var(--spacing-xs);
+}
+
+/* ── Shared step utilities ─────────────────────────────────── */
+
+/* Card */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+
+.cardActive {
+  background: var(--color-surface-hover);
+  border-color: var(--color-accent);
+}
+
+.cardDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.cardTitle {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cardTitleMd {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.colStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Text */
+.hintText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.hintTextMb {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionHeading {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+}
+
+.fontMedium {
+  font-weight: var(--font-weight-medium);
+}
+
+.accentBold {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.textMuted {
+  color: var(--color-text-muted);
+}
+
+.textError {
+  color: var(--color-error);
+}
+
+/* Review score grid */
+.scoreGrid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-xs) var(--spacing-md);
+}
+
+/* Award review entry */
+.awardEntry {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Checkbox / toggle */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.checkboxLabelDisabled {
+  cursor: not-allowed;
+}
+
+.checkboxInput {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+}
+
+.checkboxInputSm {
+  accent-color: var(--color-accent);
+}
+
+.checkboxInputPrimary {
+  accent-color: var(--color-primary);
+  width: 18px;
+  height: 18px;
+}
+
+/* Player selection card */
+.playerCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Expansion toggles */
+.expansionGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.expansionTag {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+}
+
+.expansionTagActive {
+  background: var(--color-surface-hover);
+  border-color: var(--color-accent);
+}
