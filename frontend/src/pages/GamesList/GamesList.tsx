@@ -25,7 +25,7 @@ function getWinner(game: GameDTO, playersMap: Map<string, string>): string {
   return playersMap.get(best.player_id) ?? best.player_id
 }
 
-function applyFilters(games: GameDTO[], players: PlayerResponseDTO[], filters: Filters): GameDTO[] {
+function applyFilters(games: GameDTO[], _players: PlayerResponseDTO[], filters: Filters): GameDTO[] {
   return games.filter((game) => {
     if (filters.map && game.map !== filters.map) return false
     if (filters.playerId && !game.player_results.some((r) => r.player_id === filters.playerId)) return false

@@ -1,4 +1,4 @@
-.PHONY: dev down migrate logs test-backend test-frontend
+.PHONY: dev down migrate logs test-backend test-frontend typechecks
 
 dev:
 	docker compose up --build
@@ -17,3 +17,6 @@ test-backend:
 
 test-frontend:
 	docker compose exec frontend npm test -- --run
+
+typechecks:
+	docker compose exec frontend npm run typecheck

@@ -1,19 +1,10 @@
-import { test, expect, type Page } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 
 /**
  * E2E: Full flow test
  * Requires backend running on localhost:8000 and frontend on localhost:5173.
  * Tests: login → navigate → players page → game form entry
  */
-
-async function loginToApp(page: Page) {
-  await page.evaluate(() => localStorage.clear())
-  await page.goto('/login')
-  await page.fill('input[type="text"]', 'admin')
-  await page.fill('input[type="password"]', 'admin')
-  await page.click('button[type="submit"]')
-  await expect(page).toHaveURL('/home')
-}
 
 test.describe('Full flow integration', () => {
   test.beforeEach(async ({ page }) => {
