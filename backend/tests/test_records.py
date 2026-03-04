@@ -14,7 +14,7 @@ from db.models import Base
 from db.session import engine
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def setup_db():
     Base.metadata.create_all(bind=engine)
     yield
@@ -31,6 +31,12 @@ def session_factory():
 def games_repo(session_factory):
     from repositories.game_repository import GamesRepository
     return GamesRepository(session_factory=session_factory)
+
+
+@pytest.fixture
+def players_repo(session_factory):
+    from repositories.player_repository import PlayersRepository
+    return PlayersRepository(session_factory=session_factory)
 
 
 def make_player(player_id: str) -> PlayerResult:
@@ -65,12 +71,21 @@ def make_game(game_id: str, players: list[PlayerResult]) -> Game:
     )
 
 
-def persist_games(games: list[Game], repo):
+def persist_games(games: list[Game], repo, players_repo):
+    seen: set[str] = set()
     for g in games:
+        for pr in g.player_results:
+            if pr.player_id not in seen:
+                from models.player import Player
+                try:
+                    players_repo.create(Player(player_id=pr.player_id, name=pr.player_id, is_active=True))
+                except ValueError:
+                    pass
+                seen.add(pr.player_id)
         repo.create(g)
 
 
-def test_most_games_played(games_repo):
+def test_most_games_played(games_repo, players_repo):
     p1 = make_player("p1")
     p2 = make_player("p2")
 
@@ -79,7 +94,7 @@ def test_most_games_played(games_repo):
     game3 = make_game("g3", [p2])
     game4 = make_game("g4", [p1])
 
-    persist_games([game1, game2, game3, game4], games_repo)
+    persist_games([game1, game2, game3, game4], games_repo, players_repo)
 
     service = RecordsService(games_repo)
     record = service.most_games_played()
@@ -92,7 +107,7 @@ def test_most_games_played(games_repo):
     assert record.game_id is None
 
 
-def test_most_games_won(games_repo):
+def test_most_games_won(games_repo, players_repo):
     game1 = make_game("g1", [make_player("p1"), make_player("p2")])
     game1.player_results[0].scores.terraform_rating = 30
     game1.player_results[1].scores.terraform_rating = 20
@@ -111,7 +126,7 @@ def test_most_games_won(games_repo):
     game4.player_results[0].end_stats.mc_total = 10
     game4.player_results[1].end_stats.mc_total = 10
 
-    persist_games([game1, game2, game3, game4], games_repo)
+    persist_games([game1, game2, game3, game4], games_repo, players_repo)
 
     service = RecordsService(games_repo)
     record = service.most_games_won()
@@ -124,7 +139,7 @@ def test_most_games_won(games_repo):
     assert record.game_id is None
 
 
-def test_highest_single_game_score(games_repo):
+def test_highest_single_game_score(games_repo, players_repo):
     game1 = make_game("g1", [make_player("p1"), make_player("p2")])
     game1.player_results[0].scores.terraform_rating = 70
     game1.player_results[1].scores.terraform_rating = 60
@@ -137,7 +152,7 @@ def test_highest_single_game_score(games_repo):
     game3.player_results[0].scores.terraform_rating = 65
     game3.player_results[1].scores.terraform_rating = 50
 
-    persist_games([game1, game2, game3], games_repo)
+    persist_games([game1, game2, game3], games_repo, players_repo)
 
     service = RecordsService(games_repo)
     record = service.highest_single_game_score()

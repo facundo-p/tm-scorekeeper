@@ -3,11 +3,11 @@ from datetime import date
 
 import pytest
 
-from backend.models.player import Player
-from backend.mappers.game_mapper import game_dto_to_model
-from backend.schemas.game import GameDTO
-from backend.schemas.player import PlayerResultDTO, PlayerScoreDTO, PlayerEndStatsDTO
-from backend.models.enums import Corporation, MapName
+from models.player import Player
+from mappers.game_mapper import game_dto_to_model
+from schemas.game import GameDTO
+from schemas.player import PlayerResultDTO, PlayerScoreDTO, PlayerEndStatsDTO
+from models.enums import Corporation, MapName
 
 
 def test_create_game_and_query_results(client, players_repo):
@@ -66,8 +66,8 @@ def test_player_profile_endpoint(client, players_repo, games_repo):
     players_repo.create(Player(player_id="p3", name="Carol"))
 
     # create a game domain object and persist it via repository
-    from backend.models.game import Game
-    from backend.models.player_result import PlayerResult, PlayerScore, PlayerEndStats
+    from models.game import Game
+    from models.player_result import PlayerResult, PlayerScore, PlayerEndStats
 
     game = Game(
         game_id=None,

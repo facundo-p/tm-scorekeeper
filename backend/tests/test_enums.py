@@ -4,21 +4,16 @@ from models.enums import Corporation
 
 def test_milestone_enum_contract():
     expected = {
-        "Terraformer",
-        "Mayor",
-        "Gardener",
-        "Builder",
-        "Planner",
-        "Generalist",
-        "Specialist",
-        "Ecologist",
-        "Tycoon",
-        "Legend",
-        "Diversifier",
-        "Tactician",
-        "Polar Explorer",
-        "Energizer",
-        "Rim Settler",
+        # Tharsis
+        "Terraformer", "Mayor", "Gardener", "Builder", "Planner",
+        # Elysium
+        "Generalist", "Specialist", "Ecologist", "Tycoon", "Legend",
+        # Hellas
+        "Diversifier", "Tactician", "Polar Explorer", "Energizer", "Rim Settler",
+        # Vastitas Borealis
+        "Agronomist", "Engineer", "Spacecrafter", "Geologist", "Farmer",
+        # Amazonis Planitia
+        "Terran", "Landshaper", "Merchant", "Sponsor", "Lobbyist",
     }
 
     actual = {m.value for m in Milestone}
@@ -27,21 +22,16 @@ def test_milestone_enum_contract():
 
 def test_award_enum_contract():
     expected = {
-        "Terraformer",
-        "Mayor",
-        "Gardener",
-        "Builder",
-        "Planner",
-        "Cultivator",
-        "Magnate",
-        "Space Baron",
-        "Excentric",
-        "Contractor",
-        "Celebrity",
-        "Industrialist",
-        "Desert Settler",
-        "Estate Dealer",
-        "Benefactor",
+        # Tharsis
+        "Landlord", "Banker", "Scientist", "Thermalist", "Miner",
+        # Hellas
+        "Cultivator", "Magnate", "Space Baron", "Excentric", "Contractor",
+        # Elysium
+        "Celebrity", "Industrialist", "Desert Settler", "Estate Dealer", "Benefactor",
+        # Vastitas Borealis
+        "Traveller", "Landscaper", "Highlander", "Promoter", "Blacksmith",
+        # Amazonis Planitia
+        "Collector", "Innovator", "Constructor", "Manufacturer", "Physicist",
     }
 
     actual = {a.value for a in Award}
