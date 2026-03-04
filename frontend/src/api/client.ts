@@ -1,4 +1,6 @@
-const BASE_URL = '/api'
+// Dev: VITE_API_URL undefined → '/api' → vite proxy strips prefix → backend local
+// Prod: VITE_API_URL = 'https://backend.onrender.com' → llamadas directas
+const BASE_URL = import.meta.env.VITE_API_URL ?? '/api'
 
 export class ApiError extends Error {
   constructor(

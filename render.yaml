@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tm-scorekeeper-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r ../requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # set manually in Render dashboard (Supabase connection string)
+      - key: FRONTEND_URL
+        sync: false   # set manually in Render dashboard (Vercel URL)
+      - key: PYTHON_VERSION
+        value: "3.12.0"
