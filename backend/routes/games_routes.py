@@ -1,9 +1,10 @@
 from fastapi import APIRouter, HTTPException
-from repositories.player_repository import PlayersRepository
+from mappers.record_comparison_mapper import record_comparison_to_dto
+from schemas.game_records import RecordComparisonDTO
+from services.game_records_service import GameRecordsService
 from services.game_service import GamesService
 from schemas.game import GameDTO, GameCreatedResponseDTO
 from schemas.result import GameResultDTO
-from repositories.game_repository import GamesRepository
 from repositories.container import games_repository, players_repository
 
 
@@ -62,3 +63,15 @@ def delete_game(game_id: str):
         raise HTTPException(status_code=404, detail="Game not found")
 
     return {"message": "Game deleted successfully"}
+
+@router.get("/{game_id}/records", response_model=list[RecordComparisonDTO])
+def get_game_records(game_id: str):
+
+    service = GameRecordsService(games_repository)
+
+    comparisons = service.get_records_for_game(game_id)
+
+    return [
+        record_comparison_to_dto(c, players_repository)
+        for c in comparisons
+    ]
