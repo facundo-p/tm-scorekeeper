@@ -60,6 +60,17 @@ def test_create_game_and_query_results(client, players_repo):
     assert results[0]["player_id"] == "p1"
     assert results[0]["position"] == 1
 
+    # also query the records endpoint to ensure serialization works even when
+    # some record entries lack a game_id (the most-games-played/won calculators)
+    r3 = client.get(f"/games/{game_id}/records")
+    assert r3.status_code == 200
+    recs = r3.json()
+    assert isinstance(recs, list)
+    # each comparison object should include current and compared fields
+    assert "current" in recs[0]
+    # current may have game_id null depending on the record type
+    assert "game_id" in recs[0]["current"]
+
 
 def test_player_profile_endpoint(client, players_repo, games_repo):
     # register a player

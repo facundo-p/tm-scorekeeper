@@ -1,10 +1,16 @@
 from collections import defaultdict
-from services.results import calculate_results
+from helpers.results import calculate_results
 from schemas.records import RecordDTO
 
 
 from services.record_calculators.highest_single_game_score import (
     HighestSingleGameScoreCalculator,
+)
+from services.record_calculators.most_games_played import (
+    MostGamesPlayedCalculator,
+)
+from services.record_calculators.most_games_won import (
+    MostGamesWonCalculator,
 )
 from schemas.records import RecordDTO
 
@@ -17,7 +23,8 @@ class RecordsService:
         # Lista de calculators (escalable a futuro)
         self._calculators = [
             HighestSingleGameScoreCalculator(),
-            # En el futuro agregamos más aquí
+            MostGamesPlayedCalculator(),
+            MostGamesWonCalculator(),
         ]
 
     def get_global_records(self) -> dict[str, RecordDTO]:

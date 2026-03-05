@@ -85,7 +85,8 @@ def test_most_games_played(games_repo, players_repo):
     persist_games([game1, game2, game3, game4], games_repo, players_repo)
 
     service = RecordsService(games_repo)
-    record = service.most_games_played()
+    records = service.get_global_records()
+    record = records.get("most_games_played")
 
     assert record is not None
     assert isinstance(record, RecordDTO)
@@ -117,7 +118,8 @@ def test_most_games_won(games_repo, players_repo):
     persist_games([game1, game2, game3, game4], games_repo, players_repo)
 
     service = RecordsService(games_repo)
-    record = service.most_games_won()
+    records = service.get_global_records()
+    record = records.get("most_games_won")
 
     assert record is not None
     assert isinstance(record, RecordDTO)
@@ -143,7 +145,8 @@ def test_highest_single_game_score(games_repo, players_repo):
     persist_games([game1, game2, game3], games_repo, players_repo)
 
     service = RecordsService(games_repo)
-    record = service.highest_single_game_score()
+    records = service.get_global_records()
+    record = records.get("highest_single_game_score")
 
     assert record is not None
     assert isinstance(record, RecordDTO)

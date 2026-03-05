@@ -7,5 +7,5 @@ class RecordComparison:
     code: str
     description: str
     achieved: bool
-    previous: RecordEntry
+    compared: RecordEntry
     current: RecordEntry

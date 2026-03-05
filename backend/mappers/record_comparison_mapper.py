@@ -18,15 +18,15 @@ def record_comparison_to_dto(comparison, player_repository):
             player_name=player.name,
         )
 
-    previous = None
-    if comparison.previous is not None:
-        previous = entry_to_result(comparison.previous)
+    compared = None
+    if comparison.compared is not None:
+        compared = entry_to_result(comparison.compared)
 
     current = entry_to_result(comparison.current)
 
     return RecordComparisonDTO(
         description=comparison.description,
         achieved=comparison.achieved,
-        previous=previous,
+        compared=compared,
         current=current,
     )

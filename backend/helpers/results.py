@@ -1,5 +1,4 @@
 from typing import List
-from schemas.game import GameDTO
 from schemas.result import GameResultDTO, PlayerResultDTO
 from models.game import Game
 
