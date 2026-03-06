@@ -58,8 +58,8 @@ describe('Award enum values', () => {
 })
 
 describe('Corporation enum values', () => {
-  it('has exactly 34 corporations (10 base + 5 Prelude + 5 VenusNext + 5 Colonies + 4 Turmoil + 5 Prelude2)', () => {
-    expect(Object.keys(Corporation)).toHaveLength(34)
+  it('has exactly 44 corporations (12 base + 9 Prelude + 5 VenusNext + 6 Colonies + 6 Turmoil + 6 Prelude2)', () => {
+    expect(Object.keys(Corporation)).toHaveLength(44)
   })
 
   it('includes base game corporations', () => {
