@@ -5,17 +5,17 @@ from services.player_service import PlayerService
 def record_comparison_to_dto(comparison, players):
     # players es una lista de jugadores ya cargada desde el servicio,
     # para evitar consultar la base de datos en cada conversión a DTO.
-
-    def entry_to_result(entry):
-        """
-        Se obtiene el jugador correspondiente al entry para mostrar su nombre en la respuesta.
-        Creamos un diccionario {player_id: player} para poder
-        buscar jugadores rápidamente por su id sin recorrer la lista.
-        """
-        players_by_id = {
+    """
+    Creamos un diccionario {player_id: player} para poder
+    buscar jugadores rápidamente por su id sin recorrer la lista.
+    """
+    players_by_id = {
             p.player_id: p
             for p in players
-    }
+        }
+
+    def entry_to_result(entry):
+    
         # Buscamos el jugador correspondiente al entry usando su player_id.
         player = players_by_id[entry.player_id]
 
@@ -25,6 +25,7 @@ def record_comparison_to_dto(comparison, players):
             # Se muestra el nombre del jugador en lugar de su ID para una mejor legibilidad.
             player_name=player.name,
         )
+    
     
     """
     compared es None en el caso de que no haya un record anterior,
