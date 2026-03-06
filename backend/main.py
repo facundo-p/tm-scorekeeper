@@ -3,8 +3,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.games_routes import router as games_router
 from routes.players_routes import router as players_router
-from db.models import Base
-from db.session import engine
 
 
 
