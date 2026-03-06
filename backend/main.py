@@ -1,5 +1,4 @@
 import os
-from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.games_routes import router as games_router
@@ -7,14 +6,9 @@ from routes.players_routes import router as players_router
 from db.models import Base
 from db.session import engine
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # startup: ensure tables exist
-    Base.metadata.create_all(bind=engine)
-    yield
-    # shutdown: nothing to do
 
-app = FastAPI(title="Terraforming Mars API", lifespan=lifespan)
+
+app = FastAPI(title="Terraforming Mars API")
 
 app.add_middleware(
     CORSMiddleware,

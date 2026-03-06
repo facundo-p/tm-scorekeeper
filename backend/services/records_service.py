@@ -1,5 +1,3 @@
-from collections import defaultdict
-from helpers.results import calculate_results
 from schemas.records import RecordDTO
 
 

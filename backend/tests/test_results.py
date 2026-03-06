@@ -1,6 +1,6 @@
 from datetime import date
 from models.enums import Corporation
-from helpers.results import calculate_results
+from services.helpers.results import calculate_results
 from schemas.game import GameDTO, PlayerResultDTO
 from schemas.player import PlayerScoreDTO, PlayerEndStatsDTO
 

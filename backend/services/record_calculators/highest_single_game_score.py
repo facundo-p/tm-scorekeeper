@@ -2,7 +2,7 @@ from typing import List
 from models.game import Game
 from models.record_entry import RecordEntry
 from services.record_calculators.base import RecordCalculator
-from helpers.results import calculate_results
+from services.helpers.results import calculate_results
 
 
 class HighestSingleGameScoreCalculator(RecordCalculator):

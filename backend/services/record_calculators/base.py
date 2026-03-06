@@ -13,7 +13,7 @@ class RecordCalculator(ABC):
     @abstractmethod
     def calculate(self, games: List[Game]) -> RecordEntry | None:
         pass
-
+    
     def evaluate(self, games_until_current: List[Game]) -> RecordComparison | None:
 
         if not games_until_current:
@@ -23,27 +23,14 @@ class RecordCalculator(ABC):
         previous_games = games_until_current[:-1]
 
         record_before = self.calculate(previous_games)
-        record_after = self.calculate(games_until_current)
+        record_last_game = self.calculate([current_game])
 
-        if record_after is None:
-            return None
-
-        if record_before is None:
-            achieved = True
-            compared = None
-
-        elif record_after.value > record_before.value:
-            achieved = True
-            compared = record_before
-
-        else:
-            achieved = False
-            compared = record_before
+        achieved = record_before is None or record_last_game.value > record_before.value
 
         return RecordComparison(
             code=self.code,
             description=self.description,
             achieved=achieved,
-            current=record_after,
-            compared=compared,
+            current = record_last_game if achieved else record_before,
+            compared = record_before if achieved else record_last_game,
         )

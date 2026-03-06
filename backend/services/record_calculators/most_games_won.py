@@ -3,7 +3,7 @@ from collections import Counter
 from models.game import Game
 from models.record_entry import RecordEntry
 from services.record_calculators.base import RecordCalculator
-from helpers.results import calculate_results
+from services.helpers.results import calculate_results
 
 
 class MostGamesWonCalculator(RecordCalculator):

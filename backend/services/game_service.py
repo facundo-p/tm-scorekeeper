@@ -3,7 +3,7 @@ from schemas.game import GameDTO
 from datetime import date
 from models.award_result import AwardResult
 from models.enums import Corporation
-from helpers.results import calculate_results
+from services.helpers.results import calculate_results
 from schemas.result import GameResultDTO
 from mappers.game_mapper import game_dto_to_model
 from mappers.game_mapper import game_model_to_dto
