@@ -1,4 +1,5 @@
 import { MIN_PLAYERS, MAX_PLAYERS, MAX_MILESTONES, MAX_AWARDS } from '@/constants/gameRules'
+import { Corporation } from '@/constants/enums'
 import type { GameFormState, PlayerFormData, AwardEntry, MilestoneEntry } from '@/pages/GameForm/GameForm.types'
 
 export function validateStepGameSetup(state: Pick<GameFormState, 'date' | 'map' | 'generations'>): string[] {
@@ -19,8 +20,9 @@ export function validateStepPlayerSelection(playerIds: string[]): string[] {
 export function validateStepCorpsAndTR(players: PlayerFormData[]): string[] {
   const errors: string[] = []
   const corps = players.map((p) => p.corporation).filter(Boolean)
-  const unique = new Set(corps)
-  if (unique.size < corps.length) errors.push('Dos jugadores no pueden usar la misma corporación.')
+  const nonNovelCorps = corps.filter((c) => c !== Corporation.NOVEL)
+  const unique = new Set(nonNovelCorps)
+  if (unique.size < nonNovelCorps.length) errors.push('Dos jugadores no pueden usar la misma corporación.')
   players.forEach((p) => {
     if (!p.corporation) errors.push(`${p.name}: corporación requerida.`)
     if (p.terraform_rating < 0) errors.push(`${p.name}: TR debe ser mayor o igual a 0.`)

@@ -22,7 +22,8 @@ export default function StepAwards({ state, onChange }: Props) {
 
   const awardOptions = availableAwards.map((a) => ({
     value: a,
-    label: usedAwardNames.includes(a) ? `${a} (en uso)` : a,
+    label: a,
+    disabled: usedAwardNames.includes(a),
   }))
 
   const updateAward = (index: number, patch: Partial<AwardEntry>) => {

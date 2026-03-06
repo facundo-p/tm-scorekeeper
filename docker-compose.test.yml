@@ -1,0 +1,27 @@
+services:
+  db_test:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: tm_user
+      POSTGRES_PASSWORD: tm_pass
+      POSTGRES_DB: tm_scorekeeper_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tm_user -d tm_scorekeeper_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend_test:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    volumes:
+      - ./backend:/app
+    environment:
+      DATABASE_URL: postgresql://tm_user:tm_pass@db_test:5432/tm_scorekeeper_test
+    depends_on:
+      db_test:
+        condition: service_healthy
+    entrypoint: ["sh", "-c", "alembic upgrade head && python -m pytest tests -q"]

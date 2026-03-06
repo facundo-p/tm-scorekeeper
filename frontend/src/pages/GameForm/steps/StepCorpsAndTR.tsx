@@ -26,10 +26,12 @@ export default function StepCorpsAndTR({ state, onChange }: Props) {
   return (
     <div className={styles.stepContent}>
       {state.players.map((player) => {
-        const otherCorps = usedCorps.filter((c) => c !== player.corporation)
+        const otherCorps = usedCorps.filter(
+          (c) => c !== player.corporation && c !== Corporation.NOVEL,
+        )
         const corpOptions = CORP_OPTIONS.map((opt) => ({
           ...opt,
-          label: otherCorps.includes(opt.value as Corporation) ? `${opt.label} (en uso)` : opt.label,
+          disabled: otherCorps.includes(opt.value as Corporation),
         }))
 
         return (

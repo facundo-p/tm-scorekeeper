@@ -27,6 +27,7 @@ services:
     environment:
       DATABASE_URL: postgresql://tm_user:tm_pass@db:5432/tm_scorekeeper
       FRONTEND_URL: http://localhost:5173
+      SEED_DATA: "true"
     depends_on:
       db:
         condition: service_healthy

@@ -8,17 +8,6 @@ from mappers.game_mapper import game_dto_to_model
 
 import pytest
 
-# database fixtures
-from db.models import Base
-from db.session import engine
-
-
-@pytest.fixture(scope="function", autouse=True)
-def setup_db():
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
-
 
 @pytest.fixture
 def session_factory():
