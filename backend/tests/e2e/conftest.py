@@ -2,16 +2,6 @@ import pytest
 
 from fastapi.testclient import TestClient
 from main import app
-from db.models import Base
-from db.session import engine
-
-
-@pytest.fixture(scope="module", autouse=True)
-def setup_db():
-    # Ensure tables exist (no-op if already created by migrations)
-    Base.metadata.create_all(bind=engine)
-    yield
-    # Do NOT drop tables — this would destroy the dev/CI database schema
 
 
 @pytest.fixture

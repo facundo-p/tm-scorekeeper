@@ -13,7 +13,9 @@ logs:
 	docker compose logs -f
 
 test-backend:
-	docker compose exec backend python -m pytest tests -q
+	docker compose -f docker-compose.test.yml down
+	docker compose -f docker-compose.test.yml run --rm --build backend_test
+	docker compose -f docker-compose.test.yml down
 
 test-frontend:
 	docker compose exec frontend npm test -- --run
