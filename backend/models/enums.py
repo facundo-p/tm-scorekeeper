@@ -99,13 +99,15 @@ class Corporation(Enum):
     CREDICOR = "Credicor"
     ECOLINE = "Ecoline"
     HELION = "Helion"
-    INTERPLANETARY_CINEMATICS = "Interplanetary Cinematics"
+    INTERPLANETARY_CINEMATICS = "Producciones Interplanetarias"
     INVENTRIX = "Inventrix"
     MINING_GUILD = "Mining Guild"
     PHOBOLOG = "Phobolog"
     SATURN_SYSTEMS = "Saturn Systems"
     THARSIS_REPUBLIC = "Tharsis Republic"
     THORGATE = "Thorgate"
+    UNMI = "United Nations Mars Initiative (UNMI)"
+    TERACTOR = "Teractor"
 
     # --- Prelude ---
     POINT_LUNA = "Point Luna"
@@ -113,6 +115,10 @@ class Corporation(Enum):
     VALLEY_TRUST = "Valley Trust"
     VITOR = "Vitor"
     ARCADIAN_COMMUNITIES = "Arcadian Communities"
+    NIRGAL = "Nirgal Enterprises"
+    ECOTEC = "Ecotec"
+    PALLADIN_SHIPPING = "Palladin Shipping"
+    SPIRE = "Spire"
 
     # --- Venus Next ---
     APHRODITE = "Aphrodite"
@@ -127,19 +133,24 @@ class Corporation(Enum):
     POSEIDON = "Poseidon"
     STORMCRAFT = "Stormcraft Incorporated"
     TERRALABS_RESEARCH = "Terralabs Research"
+    ARKLIGHT = "Arklight"
 
     # --- Turmoil ---
     SEPTEM_TRIBUS = "Septem Tribus"
-    SPLICE_TACTICAL_GENOMICS = "Splice Tactical Genomics"
-    TERACTOR = "Teractor"
     UTOPIA_INVEST = "Utopia Invest"
+    PRISTAR = "Pristar"
+    LAKEFRONT_RESORTS = "Hoteles Lagoazul"
+    MONS_INSURANCE = "Mons Insurance"
+    TERRALABS = "Terralabs Investigation"
 
     # --- Prelude 2 ---
     CHEUNG_SHING_MARS = "Cheung Shing Mars"
     FACTORUM = "Factorum"
-    MONS_INSURANCE = "Mons Insurance"
     RECYCLON = "Recyclon"
     SAGITTA = "Sagitta"
+
+    NOVEL = "Novel Corporation"
+    PHILARES = "Philares"
 
     def __str__(self) -> str:
         return self.value

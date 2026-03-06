@@ -40,40 +40,56 @@ def test_award_enum_contract():
 
 def test_corporation_enum_contract():
     expected = {
+        # Base Game
         "Credicor",
         "Ecoline",
         "Helion",
-        "Interplanetary Cinematics",
+        "Producciones Interplanetarias",
         "Inventrix",
         "Mining Guild",
         "Phobolog",
         "Saturn Systems",
         "Tharsis Republic",
         "Thorgate",
+        "United Nations Mars Initiative (UNMI)",
+        "Teractor",
+        # Prelude
         "Point Luna",
         "Robinson Industries",
         "Valley Trust",
         "Vitor",
         "Arcadian Communities",
+        "Nirgal Enterprises",
+        "Ecotec",
+        "Palladin Shipping",
+        "Spire",
+        # Venus Next
         "Aphrodite",
         "Celestic",
         "Manutech",
         "Morning Star Inc.",
         "Viron",
+        # Colonies
         "Aridor",
         "Polyphemos",
         "Poseidon",
         "Stormcraft Incorporated",
         "Terralabs Research",
+        "Arklight",
+        # Turmoil
         "Septem Tribus",
-        "Splice Tactical Genomics",
-        "Teractor",
         "Utopia Invest",
+        "Pristar",
+        "Hoteles Lagoazul",
+        "Mons Insurance",
+        "Terralabs Investigation",
+        # Prelude 2
         "Cheung Shing Mars",
         "Factorum",
-        "Mons Insurance",
         "Recyclon",
         "Sagitta",
+        "Novel Corporation",
+        "Philares",
     }
 
     actual = {c.value for c in Corporation}
