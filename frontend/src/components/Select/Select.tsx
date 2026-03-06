@@ -4,6 +4,7 @@ import styles from './Select.module.css'
 export interface SelectOption {
   value: string
   label: string
+  disabled?: boolean
 }
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -41,7 +42,7 @@ export default function Select({
       >
         {placeholder && <option value="">{placeholder}</option>}
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
+          <option key={opt.value} value={opt.value} disabled={opt.disabled}>
             {opt.label}
           </option>
         ))}

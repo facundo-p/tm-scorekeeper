@@ -47,6 +47,10 @@
   cursor: not-allowed;
 }
 
+.select option:disabled {
+  color: #9ca3af;
+}
+
 .errorText {
   font-size: var(--font-size-sm);
   color: var(--color-error);

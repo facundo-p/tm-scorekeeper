@@ -31,7 +31,6 @@ export default function GameRecords() {
         <div className={styles.header}>
           <span className={styles.icon}>🏆</span>
           <h1 className={styles.title}>¡Partida guardada!</h1>
-          <p className={styles.subtitle}>Partida #{gameId}</p>
         </div>
 
         <RecordsSection records={records} loading={loading} notAvailable={notAvailable} />

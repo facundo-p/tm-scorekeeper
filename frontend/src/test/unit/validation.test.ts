@@ -2,11 +2,24 @@ import { describe, it, expect } from 'vitest'
 import {
   validateStepGameSetup,
   validateStepPlayerSelection,
+  validateStepCorpsAndTR,
   validateStepAwards,
   validateStepMilestones,
 } from '@/utils/validation'
-import { MapName, Award, Milestone } from '@/constants/enums'
-import type { AwardEntry, MilestoneEntry } from '@/pages/GameForm/GameForm.types'
+import { MapName, Award, Milestone, Corporation } from '@/constants/enums'
+import type { AwardEntry, MilestoneEntry, PlayerFormData } from '@/pages/GameForm/GameForm.types'
+
+const makePlayer = (id: string, corp: Corporation | ''): PlayerFormData => ({
+  player_id: id,
+  name: id,
+  corporation: corp,
+  terraform_rating: 20,
+  card_resource_points: 0,
+  card_points: 0,
+  greenery_points: 0,
+  city_points: 0,
+  turmoil_points: null,
+})
 
 describe('validateStepGameSetup', () => {
   it('returns no errors for valid data', () => {
@@ -40,6 +53,34 @@ describe('validateStepPlayerSelection', () => {
 
   it('rejects more than 5 players', () => {
     expect(validateStepPlayerSelection(['p1', 'p2', 'p3', 'p4', 'p5', 'p6']).length).toBeGreaterThan(0)
+  })
+})
+
+describe('validateStepCorpsAndTR', () => {
+  it('returns no errors for distinct non-NOVEL corps', () => {
+    const players = [makePlayer('p1', Corporation.CREDICOR), makePlayer('p2', Corporation.ECOLINE)]
+    expect(validateStepCorpsAndTR(players)).toHaveLength(0)
+  })
+
+  it('rejects duplicate non-NOVEL corps', () => {
+    const players = [makePlayer('p1', Corporation.CREDICOR), makePlayer('p2', Corporation.CREDICOR)]
+    const errors = validateStepCorpsAndTR(players)
+    expect(errors.some((e) => e.includes('misma corporación'))).toBe(true)
+  })
+
+  it('allows multiple players to choose NOVEL', () => {
+    const players = [makePlayer('p1', Corporation.NOVEL), makePlayer('p2', Corporation.NOVEL)]
+    expect(validateStepCorpsAndTR(players)).toHaveLength(0)
+  })
+
+  it('rejects duplicate non-NOVEL even when mixed with NOVEL', () => {
+    const players = [
+      makePlayer('p1', Corporation.NOVEL),
+      makePlayer('p2', Corporation.CREDICOR),
+      makePlayer('p3', Corporation.CREDICOR),
+    ]
+    const errors = validateStepCorpsAndTR(players)
+    expect(errors.some((e) => e.includes('misma corporación'))).toBe(true)
   })
 })
 
