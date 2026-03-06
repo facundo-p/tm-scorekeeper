@@ -8,18 +8,6 @@ from mappers.game_mapper import game_dto_to_model
 
 import pytest
 
-# database fixtures
-from db.models import Base
-from db.session import engine
-
-
-@pytest.fixture(scope="function", autouse=True)
-def setup_db():
-    # create / drop tables around each test to avoid leftovers
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
-
 
 @pytest.fixture
 def session_factory():
@@ -58,7 +46,6 @@ def player_profile_service(players_repo, games_repo):
 def test_player_with_no_games_has_zero_stats(player_profile_service, players_repo):
     # arrange: register player but do not insert any game
     players_repo.create(Player(player_id="p1", name="Test", is_active=True))
-
     profile = player_profile_service.get_profile("p1")
 
     assert profile.player_id == "p1"

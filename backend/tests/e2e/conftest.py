@@ -2,16 +2,6 @@ import pytest
 
 from fastapi.testclient import TestClient
 from main import app
-from db.models import Base
-from db.session import engine
-
-
-@pytest.fixture(scope="module", autouse=True)
-def setup_db():
-    # create and later drop tables against whatever DATABASE_URL is configured
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
 
 
 @pytest.fixture

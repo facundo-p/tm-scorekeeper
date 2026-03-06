@@ -2,6 +2,7 @@ from models.player_result import PlayerResult
 from schemas.game import GameDTO
 from datetime import date
 from models.award_result import AwardResult
+from models.enums import Corporation
 from services.results import calculate_results
 from schemas.result import GameResultDTO
 from mappers.game_mapper import game_dto_to_model
@@ -28,12 +29,18 @@ class GamesService:
             raise ValueError("Duplicate players are not allowed")
         
     def _validate_corporations(self, players: list[PlayerResult]) -> None:
+        seen: set = set()
         for player in players:
             corp = player.corporation
-            # corporation may be an enum or a string; ensure it is not empty
             if not corp or not str(corp).strip():
                 raise ValueError(
                     f"Player '{player.player_id}' must have a non-empty corporation")
+            if corp == Corporation.NOVEL:
+                continue  # NOVEL can be chosen by multiple players
+            if corp in seen:
+                raise ValueError(
+                    f"Corporation '{corp}' was chosen by more than one player")
+            seen.add(corp)
     
     def _validate_milestones(self, players: list[PlayerResult]) -> None:
         total = sum(len(player.scores.milestones) for player in players)

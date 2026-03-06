@@ -9,18 +9,6 @@ from models.enums import Corporation, MapName
 
 import pytest
 
-# database fixtures
-from db.models import Base
-from db.session import engine
-
-
-@pytest.fixture(scope="function", autouse=True)
-def setup_db():
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
-
-
 @pytest.fixture
 def session_factory():
     from db.session import get_session
