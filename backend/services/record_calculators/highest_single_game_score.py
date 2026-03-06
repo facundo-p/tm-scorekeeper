@@ -31,8 +31,6 @@ class HighestSingleGameScoreCalculator(RecordCalculator):
             return None
 
         return RecordEntry(
-            code=self.code,
-            description=self.description,
             value=max_points,
             player_id=record_player_id,
             game_id=record_game_id,

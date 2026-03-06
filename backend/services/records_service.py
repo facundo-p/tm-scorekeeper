@@ -39,13 +39,13 @@ class RecordsService:
 
             # Mapear dominio → DTO existente
             record_dto = RecordDTO(
-                type=entry.code,
+                type=calculator.code,
                 value=entry.value,
                 player_id=entry.player_id,
                 game_id=entry.game_id,
             )
 
-            records[entry.code] = record_dto
+            records[calculator.code] = record_dto
 
         return records
 

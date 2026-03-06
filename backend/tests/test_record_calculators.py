@@ -108,7 +108,6 @@ class TestHighestSingleGameScoreCalculator:
 
         assert result is not None
         assert isinstance(result, RecordEntry)
-        assert result.code == "highest_single_game_score"
         assert result.value == 50
         assert result.player_id == "p1"
         assert result.game_id == "g1"
@@ -247,7 +246,6 @@ class TestMostGamesPlayedCalculator:
         result = most_played_calculator.calculate([g1, g2, g3])
 
         assert result is not None
-        assert result.code == "most_games_played"
         assert result.value == 3
         assert result.player_id == "p1"
         assert result.game_id is None
@@ -315,7 +313,6 @@ class TestMostGamesWonCalculator:
         result = most_won_calculator.calculate([game])
 
         assert result is not None
-        assert result.code == "most_games_won"
         assert result.value == 1
         assert result.player_id == "p1"
 

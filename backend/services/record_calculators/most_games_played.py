@@ -24,8 +24,6 @@ class MostGamesPlayedCalculator(RecordCalculator):
         player_id, value = counter.most_common(1)[0]
 
         return RecordEntry(
-            code=self.code,
-            description=self.description,
             value=value,
             player_id=player_id,
             game_id=None,
