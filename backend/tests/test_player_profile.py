@@ -29,12 +29,10 @@ def games_repo(session_factory):
 
 @pytest.fixture
 def player_profile_service(players_repo, games_repo):
-    # records service can remain simple; tests don't exercise logic deeply
+    # the PlayerRecordsService now only needs the games repository
     from services.player_records_service import PlayerRecordsService
-    from services.records_service import RecordsService
 
-    records_service = RecordsService(games_repository=games_repo)
-    player_records_service = PlayerRecordsService(records_service=records_service)
+    player_records_service = PlayerRecordsService(games_repository=games_repo)
 
     return PlayerProfileService(
         players_repository=players_repo,

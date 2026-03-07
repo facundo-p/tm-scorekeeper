@@ -3,7 +3,7 @@ from schemas.player_profile import (
     PlayerStatsDTO,
     PlayerGameSummaryDTO,
 )
-from services.results import calculate_results
+from services.helpers.results import calculate_results
 
 
 class PlayerProfileService:

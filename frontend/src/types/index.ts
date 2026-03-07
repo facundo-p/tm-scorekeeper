@@ -124,6 +124,6 @@ export interface GameRecordItemDTO {
 }
 
 export interface GameRecordsDTO {
-  game_id: string
+  game_id: string | null
   records: GameRecordItemDTO[]
 }
