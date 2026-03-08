@@ -4,7 +4,7 @@ import { ApiError } from '@/api/client'
 import { calcMilestonePoints, calcAwardPoints } from '@/utils/gameCalculations'
 import { Expansion } from '@/constants/enums'
 import { Corporation } from '@/constants/enums'
-import type { GameDTO, AwardResultDTO, GameRecordsDTO } from '@/types'
+import type { GameDTO, AwardResultDTO, RecordComparisonDTO } from '@/types'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 export function useGames() {
@@ -71,7 +71,7 @@ export function useGames() {
     }
   }, [])
 
-  const fetchRecords = useCallback(async (gameId: string): Promise<GameRecordsDTO | null> => {
+  const fetchRecords = useCallback(async (gameId: string): Promise<RecordComparisonDTO[] | null> => {
     try {
       return await getGameRecords(gameId)
     } catch {

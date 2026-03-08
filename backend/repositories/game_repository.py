@@ -16,6 +16,7 @@ from models.enums import (
     Milestone,
     Award,
 )
+from repositories.game_filters import GameFilter
 
 
 class GamesRepository:
@@ -167,6 +168,9 @@ class GamesRepository:
             )
             return [self._orm_to_domain(g) for g in orm_games]
 
-    def list_games(self) -> List[Game]:
-        # alias for list().values()
-        return list(self.list().values())
+    def list_games(self, filters: Optional[GameFilter] = None) -> List[Game]:
+        with self._session_factory() as session:
+            query = session.query(GameORM)
+            if filters and filters.game_ids is not None:
+                query = query.filter(GameORM.id.in_(filters.game_ids))
+            return [self._orm_to_domain(g) for g in query.all()]

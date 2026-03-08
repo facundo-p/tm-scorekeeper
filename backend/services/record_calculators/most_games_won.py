@@ -1,7 +1,7 @@
 from typing import List
 from collections import Counter
 from models.game import Game
-from models.record_entry import RecordEntry
+from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER
 from services.record_calculators.base import RecordCalculator
 from services.helpers.results import calculate_results
 
@@ -28,6 +28,7 @@ class MostGamesWonCalculator(RecordCalculator):
 
         return RecordEntry(
             value=value,
-            player_id=player_id,
-            game_id=None,
+            attributes=[
+                RecordAttribute(label=LABEL_PLAYER, value=player_id),
+            ],
         )

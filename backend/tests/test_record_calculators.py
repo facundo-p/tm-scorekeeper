@@ -15,7 +15,7 @@ import pytest
 from models.game import Game
 from models.player_result import PlayerResult, PlayerScore, PlayerEndStats
 from models.enums import Corporation, MapName
-from models.record_entry import RecordEntry
+from models.record_entry import RecordEntry, get_player_id
 from models.record_comparison import RecordComparison
 
 from services.record_calculators.highest_single_game_score import HighestSingleGameScoreCalculator
@@ -109,8 +109,7 @@ class TestHighestSingleGameScoreCalculator:
         assert result is not None
         assert isinstance(result, RecordEntry)
         assert result.value == 50
-        assert result.player_id == "p1"
-        assert result.game_id == "g1"
+        assert get_player_id(result) == "p1"
 
     def test_multiple_games_finds_global_max(self, highest_calculator, make_player, make_game):
         """Múltiples games, encuentra la puntuación máxima global."""
@@ -136,8 +135,7 @@ class TestHighestSingleGameScoreCalculator:
 
         assert result is not None
         assert result.value == 80
-        assert result.player_id == "p1"
-        assert result.game_id == "g2"
+        assert get_player_id(result) == "p1"
 
     def test_tiebreaker_with_mc_total(self, highest_calculator, make_player, make_game):
         """Con puntuaciones terraform iguales, usa MC como tiebreaker."""
@@ -167,7 +165,7 @@ class TestHighestSingleGameScoreCalculator:
 
         assert result is not None
         assert result.value == 65
-        assert result.player_id == "p3"
+        assert get_player_id(result) == "p3"
 
     def test_all_scores_components_counted(self, highest_calculator):
         """Verifica que TODOS los componentes de score se suman."""
@@ -219,7 +217,7 @@ class TestHighestSingleGameScoreCalculator:
         # p1: 10+5+3+4+2+6+7+2 = 39
         # p2: 5+2+1+1+0+2+1+0 = 12
         assert result.value == 39
-        assert result.player_id == "p1"
+        assert get_player_id(result) == "p1"
 
 
 # ============================================================================
@@ -247,8 +245,7 @@ class TestMostGamesPlayedCalculator:
 
         assert result is not None
         assert result.value == 3
-        assert result.player_id == "p1"
-        assert result.game_id is None
+        assert get_player_id(result) == "p1"
 
     def test_single_game_multiple_players(self, most_played_calculator, make_player, make_game):
         """Un game con múltiples jugadores (todos con count=1)."""
@@ -263,7 +260,7 @@ class TestMostGamesPlayedCalculator:
         assert result is not None
         assert result.value == 1
         # most_common devuelve el primero encontrado
-        assert result.player_id in ["p1", "p2", "p3"]
+        assert get_player_id(result) in ["p1", "p2", "p3"]
 
     def test_three_plus_players_multiple_games(self, most_played_calculator, make_player, make_game):
         """4+ jugadores a través de múltiples games."""
@@ -277,7 +274,7 @@ class TestMostGamesPlayedCalculator:
 
         assert result is not None
         assert result.value == 4
-        assert result.player_id == "p3"
+        assert get_player_id(result) == "p3"
 
     def test_equal_participation_returns_one(self, most_played_calculator, make_player, make_game):
         """Cuando dos jugadores tienen igual participación, retorna uno (el primero encontrado)."""
@@ -314,7 +311,7 @@ class TestMostGamesWonCalculator:
 
         assert result is not None
         assert result.value == 1
-        assert result.player_id == "p1"
+        assert get_player_id(result) == "p1"
 
     def test_multiple_games_counts_victories(self, most_won_calculator, make_player, make_game):
         """Múltiples games, cuenta victorias correctamente."""
@@ -340,7 +337,7 @@ class TestMostGamesWonCalculator:
 
         assert result is not None
         assert result.value == 2
-        assert result.player_id == "p1"
+        assert get_player_id(result) == "p1"
 
     def test_three_plus_players_one_winner_per_game(self, most_won_calculator, make_player, make_game):
         """Games con 3+ jugadores: solo el primero de la clasificación cuenta como ganador."""
@@ -396,7 +393,7 @@ class MockGamesRepository:
     def __init__(self, games: list[Game] = None):
         self.games = games or []
 
-    def list_games(self):
+    def list_games(self, filters=None):
         return self.games
 
 
@@ -538,7 +535,7 @@ class TestGameRecordsService:
         assert highest_record is not None
         assert highest_record.achieved is True  # p2 rompe el récord de p1
         assert highest_record.current.value == 95
-        assert highest_record.current.player_id == "p2"
+        assert get_player_id(highest_record.current) == "p2"
 
 
 # ============================================================================

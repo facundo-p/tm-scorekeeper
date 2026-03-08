@@ -98,7 +98,9 @@ export default function PlayerProfile() {
                   {activeRecords.map(([type]) => (
                     <div key={type} className={styles.recordItem}>
                       <span className={styles.recordIcon}>🏅</span>
-                      <span className={styles.recordType}>{type}</span>
+                      <span className={styles.recordType}>
+                        {type.split('_').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                      </span>
                     </div>
                   ))}
                 </div>

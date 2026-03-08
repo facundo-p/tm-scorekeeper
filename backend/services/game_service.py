@@ -7,6 +7,7 @@ from services.helpers.results import calculate_results
 from schemas.result import GameResultDTO
 from mappers.game_mapper import game_dto_to_model
 from mappers.game_mapper import game_model_to_dto
+from repositories.game_filters import GameFilter
 
 
 
@@ -156,8 +157,8 @@ class GamesService:
         return self.games_repository.create(game)
 
 
-    def list_games(self) -> list[GameDTO]:
-        games = self.games_repository.list().values()
+    def list_games(self, filters: GameFilter | None = None) -> list[GameDTO]:
+        games = self.games_repository.list_games(filters)
         return [game_model_to_dto(game) for game in games]
 
         
