@@ -1,16 +1,22 @@
 import type { RecordComparisonDTO, RecordResultDTO } from '@/types'
+import { tryFormatDate } from '@/utils/formatDate'
 import styles from './RecordsSection.module.css'
 
-function ResultRow({ label, result }: { label: string; result: RecordResultDTO }) {
+function ResultRow({ label, result, isPrimary }: { label: string; result: RecordResultDTO; isPrimary: boolean }) {
   return (
-    <div className={styles.resultRow}>
+    <div className={[styles.resultRow, isPrimary ? styles.primary : styles.secondary].join(' ')}>
       <span className={styles.resultLabel}>{label}</span>
-      <span className={styles.resultValue}>{result.value} pts</span>
-      {result.attributes.map((attr) => (
-        <span key={attr.label} className={styles.resultAttr}>
-          <span className={styles.attrLabel}>{attr.label}:</span> {attr.value}
+      <div className={styles.resultBottom}>
+        <span className={styles.resultValue}>{result.value}</span>
+        <span className={styles.resultAttrs}>
+          {result.attributes.map((attr, i) => (
+            <span key={attr.label} className={styles.resultAttr}>
+              {i > 0 && <span className={styles.resultAttrSep}> · </span>}
+              {tryFormatDate(attr.value)}
+            </span>
+          ))}
         </span>
-      ))}
+      </div>
     </div>
   )
 }
@@ -26,13 +32,13 @@ export default function RecordComparisonCard({ comparison }: Props) {
       <div className={styles.rows}>
         {comparison.achieved ? (
           <>
-            <ResultRow label="Nuevo" result={comparison.current} />
-            {comparison.compared && <ResultRow label="Anterior" result={comparison.compared} />}
+            <ResultRow label="Nuevo" result={comparison.current} isPrimary={true} />
+            {comparison.compared && <ResultRow label="Anterior" result={comparison.compared} isPrimary={false} />}
           </>
         ) : (
           <>
-            <ResultRow label="Esta partida" result={comparison.compared!} />
-            <ResultRow label="Record vigente" result={comparison.current} />
+            <ResultRow label="Esta partida" result={comparison.compared!} isPrimary={false} />
+            <ResultRow label="Record vigente" result={comparison.current} isPrimary={true} />
           </>
         )}
       </div>

@@ -1,8 +1,8 @@
 from pydantic import BaseModel
+from schemas.game_records import RecordResultDTO
 
 
-class RecordDTO(BaseModel):
-    type: str
-    value: int
-    player_id: str
-    game_id: str | None = None
+class GlobalRecordDTO(BaseModel):
+    code: str
+    description: str
+    record: RecordResultDTO | None

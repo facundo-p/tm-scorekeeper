@@ -7,6 +7,7 @@ import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import RecordsSection from '@/components/RecordsSection/RecordsSection'
 import type { GameResultDTO, RecordComparisonDTO, PlayerResponseDTO } from '@/types'
+import { formatDate } from '@/utils/formatDate'
 import styles from './GameDetail.module.css'
 
 export default function GameDetail() {
@@ -57,14 +58,14 @@ export default function GameDetail() {
           {loadingResults && <Spinner />}
           {!loadingResults && result && (
             <>
-              <p className={styles.gameMeta}>{result.date}</p>
+              <p className={styles.gameMeta}>{formatDate(result.date)}</p>
               <div className={styles.rankingList}>
                 {result.results.map((r) => (
                   <div
                     key={r.player_id}
                     className={[styles.rankRow, r.position === 1 ? styles.firstPlace : ''].join(' ')}
                   >
-                    <span className={styles.position}>#{r.position}{r.tied ? ' =' : ''}</span>
+                    <span className={styles.position}>#{r.position}</span>
                     <span className={styles.playerName}>
                       {playersMap.get(r.player_id) ?? r.player_id}
                     </span>

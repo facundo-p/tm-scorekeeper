@@ -132,3 +132,9 @@ export interface RecordComparisonDTO {
   compared: RecordResultDTO | null
   current: RecordResultDTO
 }
+
+export interface GlobalRecordDTO {
+  code: string
+  description: string
+  record: RecordResultDTO | null
+}
