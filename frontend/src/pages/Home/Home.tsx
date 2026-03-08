@@ -7,7 +7,7 @@ const navItems = [
   { to: '/players', icon: '👥', title: 'Jugadores', description: 'Gestión de jugadores', disabled: false },
   { to: '/games/new', icon: '🎯', title: 'Cargar Partida', description: 'Registrar nueva partida', disabled: false },
   { to: '/games', icon: '📋', title: 'Partidas', description: 'Historial de partidas', disabled: false },
-  { to: '/records', icon: '🏆', title: 'Records', description: 'Próximamente', disabled: true },
+  { to: '/records', icon: '🏆', title: 'Records', description: 'Records globales', disabled: false },
 ]
 
 export default function Home() {

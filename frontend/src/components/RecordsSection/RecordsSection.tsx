@@ -1,9 +1,10 @@
 import Spinner from '@/components/Spinner/Spinner'
-import type { GameRecordItemDTO } from '@/types'
+import type { RecordComparisonDTO } from '@/types'
+import RecordComparisonCard from './RecordComparisonCard'
 import styles from './RecordsSection.module.css'
 
 interface Props {
-  records: GameRecordItemDTO[] | null
+  records: RecordComparisonDTO[] | null
   loading: boolean
   notAvailable: boolean
 }
@@ -22,25 +23,36 @@ export default function RecordsSection({ records, loading, notAvailable }: Props
   if (!records || records.length === 0) {
     return (
       <div className={styles.placeholder}>
-        <p>No se superaron records en esta partida.</p>
+        <p>No hay información de records para esta partida.</p>
       </div>
     )
   }
 
+  const achieved = records.filter((r) => r.achieved)
+  const notAchieved = records.filter((r) => !r.achieved)
+
   return (
-    <div className={styles.list}>
-      {records.map((record, i) => (
-        <div
-          key={i}
-          className={[styles.recordItem, record.is_new_record ? styles.newRecord : ''].join(' ')}
-        >
-          <div>
-            <p className={styles.recordType}>{record.type}</p>
-            <p className={styles.recordValue}>{record.value}</p>
+    <div className={styles.sections}>
+      {achieved.length > 0 && (
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Records superados</h3>
+          <div className={styles.list}>
+            {achieved.map((r, i) => (
+              <RecordComparisonCard key={i} comparison={r} />
+            ))}
           </div>
-          {record.is_new_record && <span className={styles.newBadge}>¡Nuevo Record!</span>}
         </div>
-      ))}
+      )}
+      {notAchieved.length > 0 && (
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Records no superados</h3>
+          <div className={styles.list}>
+            {notAchieved.map((r, i) => (
+              <RecordComparisonCard key={i} comparison={r} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

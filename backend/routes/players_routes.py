@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, Query
 from schemas.player_profile import PlayerProfileDTO
 from services.player_profile_service import PlayerProfileService
 from repositories.container import games_repository, players_repository
-from services.records_service import RecordsService
 from services.player_records_service import PlayerRecordsService
 from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
@@ -17,14 +16,8 @@ player_service = PlayerService(
     player_repository=players_repository
 )
 
-# Global records service
-records_service = RecordsService(
-    games_repository=games_repository
-)
-
-player_records_service = PlayerRecordsService(
-    records_service=records_service
-)
+# The records computations are handled by PlayerRecordsService directly.
+player_records_service = PlayerRecordsService(games_repository=games_repository)
 
 player_profile_service = PlayerProfileService(
     players_repository=players_repository,

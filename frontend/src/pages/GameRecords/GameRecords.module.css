@@ -38,6 +38,69 @@
   color: var(--color-text-muted);
 }
 
+.section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.gameMeta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.rankRow {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.rankRow.firstPlace {
+  border-color: var(--color-accent);
+  background-color: rgba(230, 126, 34, 0.08);
+}
+
+.position {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.firstPlace .position {
+  color: var(--color-accent);
+}
+
+.playerName {
+  font-weight: var(--font-weight-medium);
+}
+
+.points {
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.mc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
 .actions {
   display: flex;
   justify-content: center;
