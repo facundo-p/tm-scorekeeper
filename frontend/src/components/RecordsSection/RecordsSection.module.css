@@ -1,44 +1,84 @@
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
 .list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
 }
 
-.recordItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.card {
   padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  gap: var(--spacing-sm);
+  background-color: var(--color-background);
 }
 
-.recordItem.newRecord {
+.card.achieved {
   border-color: var(--color-accent);
   background-color: rgba(230, 126, 34, 0.08);
 }
 
-.recordType {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+.card.notAchieved {
+  opacity: 0.75;
 }
 
-.recordValue {
+.description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.resultRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.resultLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  min-width: 90px;
+}
+
+.resultValue {
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }
 
-.newBadge {
+.resultAttr {
   font-size: var(--font-size-sm);
-  background-color: var(--color-accent);
-  color: var(--color-background);
-  padding: 2px var(--spacing-sm);
-  border-radius: var(--border-radius-sm);
+  color: var(--color-text-muted);
+}
+
+.attrLabel {
   font-weight: var(--font-weight-semibold);
-  white-space: nowrap;
 }
 
 .placeholder {

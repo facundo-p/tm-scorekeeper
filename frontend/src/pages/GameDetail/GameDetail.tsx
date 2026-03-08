@@ -6,13 +6,13 @@ import { ApiError } from '@/api/client'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import RecordsSection from '@/components/RecordsSection/RecordsSection'
-import type { GameResultDTO, GameRecordItemDTO, PlayerResponseDTO } from '@/types'
+import type { GameResultDTO, RecordComparisonDTO, PlayerResponseDTO } from '@/types'
 import styles from './GameDetail.module.css'
 
 export default function GameDetail() {
   const { gameId } = useParams<{ gameId: string }>()
   const [result, setResult] = useState<GameResultDTO | null>(null)
-  const [records, setRecords] = useState<GameRecordItemDTO[] | null>(null)
+  const [records, setRecords] = useState<RecordComparisonDTO[] | null>(null)
   const [players, setPlayers] = useState<PlayerResponseDTO[]>([])
   const [loadingResults, setLoadingResults] = useState(true)
   const [loadingRecords, setLoadingRecords] = useState(true)
@@ -28,7 +28,7 @@ export default function GameDetail() {
       .finally(() => setLoadingResults(false))
 
     getGameRecords(gameId)
-      .then((data) => setRecords(data.records))
+      .then(setRecords)
       .catch((err) => {
         if (err instanceof ApiError && err.status === 404) setRecordsUnavailable(true)
         else setRecordsUnavailable(true)

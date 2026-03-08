@@ -1,10 +1,14 @@
 from pydantic import BaseModel
 
 
+class RecordAttributeDTO(BaseModel):
+    label: str
+    value: str
+
+
 class RecordResultDTO(BaseModel):
-    game_id: str | None
     value: int
-    player_name: str
+    attributes: list[RecordAttributeDTO]
 
 
 class RecordComparisonDTO(BaseModel):

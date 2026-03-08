@@ -4,20 +4,20 @@ import { getGameRecords } from '@/api/games'
 import { ApiError } from '@/api/client'
 import Button from '@/components/Button/Button'
 import RecordsSection from '@/components/RecordsSection/RecordsSection'
-import type { GameRecordItemDTO } from '@/types'
+import type { RecordComparisonDTO } from '@/types'
 import styles from './GameRecords.module.css'
 
 export default function GameRecords() {
   const { gameId } = useParams<{ gameId: string }>()
   const navigate = useNavigate()
-  const [records, setRecords] = useState<GameRecordItemDTO[] | null>(null)
+  const [records, setRecords] = useState<RecordComparisonDTO[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [notAvailable, setNotAvailable] = useState(false)
 
   useEffect(() => {
     if (!gameId) return
     getGameRecords(gameId)
-      .then((data) => setRecords(data.records))
+      .then(setRecords)
       .catch((err) => {
         if (err instanceof ApiError && err.status === 404) setNotAvailable(true)
         else setNotAvailable(true)

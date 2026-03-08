@@ -114,16 +114,21 @@ export interface GameResultDTO {
   results: GameResultPlayerDTO[]
 }
 
-// ---- Records DTO (proposed contract for pending endpoint) ----
+// ---- Records DTOs ----
 
-export interface GameRecordItemDTO {
-  type: string
-  value: number
-  player_id: string
-  is_new_record: boolean
+export interface RecordAttributeDTO {
+  label: string
+  value: string
 }
 
-export interface GameRecordsDTO {
-  game_id: string | null
-  records: GameRecordItemDTO[]
+export interface RecordResultDTO {
+  value: number
+  attributes: RecordAttributeDTO[]
+}
+
+export interface RecordComparisonDTO {
+  description: string
+  achieved: boolean
+  compared: RecordResultDTO | null
+  current: RecordResultDTO
 }

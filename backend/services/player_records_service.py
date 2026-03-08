@@ -3,7 +3,7 @@
 # dependency surface small and avoids resurrecting a service that we no
 # longer intend to use.
 
-from services.game_records_service import GameRecordsService
+from models.record_entry import get_player_id
 from services.record_calculators.highest_single_game_score import HighestSingleGameScoreCalculator
 from services.record_calculators.most_games_played import MostGamesPlayedCalculator
 from services.record_calculators.most_games_won import MostGamesWonCalculator
@@ -37,6 +37,8 @@ class PlayerRecordsService:
         records: dict[str, bool] = {}
         for calc in self._calculators:
             entry = calc.calculate(games)
-            if entry and entry.player_id is not None:
-                records[calc.code] = entry.player_id == player_id
+            if entry:
+                pid = get_player_id(entry)
+                if pid is not None:
+                    records[calc.code] = pid == player_id
         return records

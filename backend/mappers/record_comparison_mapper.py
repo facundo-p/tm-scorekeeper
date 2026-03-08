@@ -1,5 +1,5 @@
-from schemas.game_records import RecordComparisonDTO, RecordResultDTO
-from services.player_service import PlayerService
+from schemas.game_records import RecordComparisonDTO, RecordResultDTO, RecordAttributeDTO
+from models.record_entry import LABEL_PLAYER
 
 
 def record_comparison_to_dto(comparison, players):
@@ -7,12 +7,14 @@ def record_comparison_to_dto(comparison, players):
     players_by_id = {p.player_id: p for p in players}
 
     def entry_to_result(entry):
-        player = players_by_id[entry.player_id]
-        return RecordResultDTO(
-            game_id=entry.game_id,
-            value=entry.value,
-            player_name=player.name,
-        )
+        attrs = []
+        for attr in entry.attributes:
+            if attr.label == LABEL_PLAYER:
+                player = players_by_id.get(attr.value)
+                attrs.append(RecordAttributeDTO(label=attr.label, value=player.name if player else attr.value))
+            else:
+                attrs.append(RecordAttributeDTO(label=attr.label, value=attr.value))
+        return RecordResultDTO(value=entry.value, attributes=attrs)
 
     compared = entry_to_result(comparison.compared) if comparison.compared else None
     current = entry_to_result(comparison.current)
