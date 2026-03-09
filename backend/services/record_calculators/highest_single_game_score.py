@@ -8,7 +8,7 @@ from services.helpers.results import calculate_results
 class HighestSingleGameScoreCalculator(RecordCalculator):
 
     code = "highest_single_game_score"
-    description = "Highest single game score"
+    description = "Mayor puntuación en una sola partida"
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
         if not games:

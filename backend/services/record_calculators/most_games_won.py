@@ -9,7 +9,7 @@ from services.helpers.results import calculate_results
 class MostGamesWonCalculator(RecordCalculator):
 
     code = "most_games_won"
-    description = "Most games won"
+    description = "Más partidas ganadas"
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
 

@@ -8,7 +8,7 @@ from services.record_calculators.base import RecordCalculator
 class MostGamesPlayedCalculator(RecordCalculator):
 
     code = "most_games_played"
-    description = "Most games played"
+    description = "Más partidas jugadas"
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
 
