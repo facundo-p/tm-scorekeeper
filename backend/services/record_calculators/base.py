@@ -13,24 +13,31 @@ class RecordCalculator(ABC):
     @abstractmethod
     def calculate(self, games: List[Game]) -> RecordEntry | None:
         pass
+
+    def games_for_current(self, games_until_current: List[Game]) -> List[Game]:
+        """
+        Define qué partidas usar para evaluar el resultado actual del record.
+        Por defecto usa solo la última partida.
+        Los calculators acumulativos pueden sobrescribir este método.
+        """
+        return [games_until_current[-1]]
     
     def evaluate(self, games_until_current: List[Game]) -> RecordComparison | None:
 
         if not games_until_current:
             return None
 
-        current_game = games_until_current[-1]
         previous_games = games_until_current[:-1]
 
         record_before = self.calculate(previous_games)
-        record_last_game = self.calculate([current_game])
+        record_after = self.calculate(self.games_for_current(games_until_current))
 
-        achieved = record_before is None or record_last_game.value > record_before.value
+        achieved = record_before is None or record_after.value > record_before.value
 
         return RecordComparison(
             code=self.code,
             description=self.description,
             achieved=achieved,
-            current = record_last_game if achieved else record_before,
-            compared = record_before if achieved else record_last_game,
+            current=record_after if achieved else record_before,
+            compared=record_before if achieved else record_after,
         )

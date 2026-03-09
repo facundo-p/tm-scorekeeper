@@ -611,7 +611,8 @@ class TestRecordEvaluate:
 
         assert result is not None
         assert result.code == "most_games_played"
-        assert result.description == "Most games played"
+        # description should match the calculator's own text (may be localized)
+        assert result.description == most_played_calculator.description
         assert result.achieved in [True, False]
         assert result.current is not None
         assert result.compared is not None
