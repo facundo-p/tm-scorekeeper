@@ -409,8 +409,8 @@ class TestGameRecordsService:
 
         assert result == []
 
-    def test_single_game_returns_three_comparisons(self, make_player, make_game):
-        """Un game genera 3 comparaciones (uno por cada calculador)."""
+    def test_single_game_returns_six_comparisons(self, make_player, make_game):
+        """Un game genera 6 comparaciones (uno por cada calculador)."""
         game = make_game("g1", date(2026, 1, 1), [
             make_player("p1", terraform_rating=80),
             make_player("p2", terraform_rating=60),
@@ -420,11 +420,18 @@ class TestGameRecordsService:
 
         result = service.get_records_for_game("g1")
 
-        assert len(result) == 3
+        assert len(result) == 6
         assert all(isinstance(r, RecordComparison) for r in result)
 
         codes = {r.code for r in result}
-        assert codes == {"highest_single_game_score", "most_games_played", "most_games_won"}
+        assert codes == {
+            "highest_single_game_score",
+            "most_games_played",
+            "most_games_won",
+            "highest_terraform_rating",
+            "highest_card_points",
+            "highest_card_resource_points",
+        }
 
     def test_chronological_order_respected(self, make_player, make_game):
         """Los games se procesan en orden cronológico (date, id)."""
@@ -526,7 +533,7 @@ class TestGameRecordsService:
 
         result_g3 = service.get_records_for_game("g3")
 
-        assert len(result_g3) == 3
+        assert len(result_g3) == 6
 
         highest_record = next(
             (r for r in result_g3 if r.code == "highest_single_game_score"),
