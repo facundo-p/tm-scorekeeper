@@ -2,36 +2,39 @@ from typing import List
 from models.game import Game
 from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER, LABEL_DATE
 from services.record_calculators.base import RecordCalculator
-from services.helpers.results import calculate_results
 
 
-class HighestSingleGameScoreCalculator(RecordCalculator):
+class MaxScoreFieldCalculator(RecordCalculator):
 
-    code = "highest_single_game_score"
-    description = "Mayor puntuación en una sola partida"
+    def __init__(self, field: str, code: str, description: str):
+        self.field = field
+        self.code = code
+        self.description = description
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
+
         if not games:
             return None
 
-        max_points = None
+        max_value = None
         record_player_id = None
         record_date = None
 
         for game in games:
-            results = calculate_results(game)
+            for p in game.player_results:
 
-            for result in results.results:
-                if max_points is None or result.total_points > max_points:
-                    max_points = result.total_points
-                    record_player_id = result.player_id
+                value = getattr(p.scores, self.field)
+
+                if max_value is None or value > max_value:
+                    max_value = value
+                    record_player_id = p.player_id
                     record_date = game.date
 
-        if max_points is None:
+        if max_value is None:
             return None
 
         return RecordEntry(
-            value=max_points,
+            value=max_value,
             attributes=[
                 RecordAttribute(label=LABEL_PLAYER, value=record_player_id),
                 RecordAttribute(label=LABEL_DATE, value=str(record_date)),
