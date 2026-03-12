@@ -1,13 +1,13 @@
-from typing import List
+from typing import List, Callable
 from models.game import Game
 from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER, LABEL_DATE
 from services.record_calculators.base import RecordCalculator
 
 
-class MaxScoreFieldCalculator(RecordCalculator):
+class MaxScoreCalculator(RecordCalculator):
 
-    def __init__(self, field: str, code: str, description: str):
-        self.field = field
+    def __init__(self, extractor: Callable, code: str, description: str):
+        self.extractor = extractor
         self.code = code
         self.description = description
 
@@ -23,7 +23,7 @@ class MaxScoreFieldCalculator(RecordCalculator):
         for game in games:
             for p in game.player_results:
 
-                value = getattr(p.scores, self.field)
+                value = self.extractor(p)
 
                 if max_value is None or value > max_value:
                     max_value = value

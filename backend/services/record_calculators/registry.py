@@ -1,3 +1,6 @@
+from .highest_city_points import HighestCityPointsCalculator
+from .highest_greenery_points import HighestGreeneryPointsCalculator
+from .highest_turmoil_point import HighestTurmoilPointsCalculator
 from .highest_card_points import HighestCardPointsCalculator
 from .highest_card_resource_points import HighestCardResourcePointsCalculator
 from .highest_terraform_rating import HighestTerraformRatingCalculator
@@ -11,5 +14,8 @@ ALL_CALCULATORS = [
     MostGamesWonCalculator(),
     HighestTerraformRatingCalculator,
     HighestCardPointsCalculator,
-    HighestCardResourcePointsCalculator
+    HighestCardResourcePointsCalculator,
+    HighestGreeneryPointsCalculator,
+    HighestCityPointsCalculator,
+    HighestTurmoilPointsCalculator
 ]
