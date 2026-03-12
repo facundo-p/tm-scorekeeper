@@ -9,7 +9,7 @@ from services.record_calculators.base import RecordCalculator
 class MostGamesPlayedCalculator(RecordCalculator):
 
     code = "most_games_played"
-    description = "Más partidas jugadas"
+    description = "Más PARTIDAS JUGADAS"
 
     def games_for_current(self, games_until_current):
         return games_until_current
