@@ -420,7 +420,9 @@ class TestGameRecordsService:
 
         result = service.get_records_for_game("g1")
 
-        assert len(result) == 6
+        # ahora tenemos 9 calculadores incluyendo los nuevos
+        # de greenery, city y turmoil
+        assert len(result) == 9
         assert all(isinstance(r, RecordComparison) for r in result)
 
         codes = {r.code for r in result}
@@ -431,6 +433,9 @@ class TestGameRecordsService:
             "highest_terraform_rating",
             "highest_card_points",
             "highest_card_resource_points",
+            "highest_greenery_points",
+            "highest_city_points",
+            "highest_turmoil_points",
         }
 
     def test_chronological_order_respected(self, make_player, make_game):
@@ -533,7 +538,8 @@ class TestGameRecordsService:
 
         result_g3 = service.get_records_for_game("g3")
 
-        assert len(result_g3) == 6
+        # expectamos comparaciones para todos los calculadores ahora
+        assert len(result_g3) == 9
 
         highest_record = next(
             (r for r in result_g3 if r.code == "highest_single_game_score"),
