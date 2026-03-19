@@ -9,6 +9,7 @@ class RecordCalculator(ABC):
 
     code: str
     description: str
+    title: str | None = None
 
     @abstractmethod
     def calculate(self, games: List[Game]) -> RecordEntry | None:
@@ -37,6 +38,7 @@ class RecordCalculator(ABC):
         return RecordComparison(
             code=self.code,
             description=self.description,
+            title=self.title,
             achieved=achieved,
             current=record_after if achieved else record_before,
             compared=record_before if achieved else record_after,
