@@ -14,6 +14,7 @@ class RecordAttribute:
 @dataclass
 class RecordEntry:
     value: int
+    title: str | None = None
     attributes: list[RecordAttribute] = field(default_factory=list)
 
 

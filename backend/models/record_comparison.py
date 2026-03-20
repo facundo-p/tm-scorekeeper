@@ -9,3 +9,4 @@ class RecordComparison:
     achieved: bool
     compared: RecordEntry
     current: RecordEntry
+    title: str | None = None

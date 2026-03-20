@@ -10,6 +10,7 @@ class MostGamesPlayedCalculator(RecordCalculator):
 
     code = "most_games_played"
     description = "Más PARTIDAS JUGADAS"
+    title = "Colono persistente"
 
     def games_for_current(self, games_until_current):
         return games_until_current
@@ -29,6 +30,7 @@ class MostGamesPlayedCalculator(RecordCalculator):
 
         return RecordEntry(
             value=max_games,
+            title=self.title,
             attributes=[
                 RecordAttribute(label=LABEL_PLAYER, value=p)
                 for p in players_with_record
