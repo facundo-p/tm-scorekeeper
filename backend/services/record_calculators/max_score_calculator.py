@@ -6,11 +6,12 @@ from services.record_calculators.base import RecordCalculator
 
 class MaxScoreCalculator(RecordCalculator):
 
-    def __init__(self, extractor: Callable, code: str, description: str, title: str | None = None):
+    def __init__(self, extractor: Callable, code: str, description: str, title: str | None = None, emoji: str | None = None):
         self.extractor = extractor
         self.code = code
         self.description = description
         self.title = title
+        self.emoji = emoji
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
 

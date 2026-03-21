@@ -10,6 +10,7 @@ class RecordCalculator(ABC):
     code: str
     description: str
     title: str | None = None
+    emoji: str | None = None
 
     @abstractmethod
     def calculate(self, games: List[Game]) -> RecordEntry | None:
@@ -39,6 +40,7 @@ class RecordCalculator(ABC):
             code=self.code,
             description=self.description,
             title=self.title,
+            emoji=self.emoji,
             achieved=achieved,
             current=record_after if achieved else record_before,
             compared=record_before if achieved else record_after,
