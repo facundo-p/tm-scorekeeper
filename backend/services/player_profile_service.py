@@ -44,7 +44,6 @@ class PlayerProfileService:
             for result in results.results:
                 if result.player_id == player_id:
 
-                    # 👇 ACA CAMBIA TODO
                     game_player_result = next(
                         pr for pr in game.player_results
                         if pr.player_id == player_id
