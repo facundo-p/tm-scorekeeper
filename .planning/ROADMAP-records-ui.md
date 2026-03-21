@@ -36,11 +36,14 @@ Plans:
   3. La descripción del record y el valor numérico aparecen al pie del card en font pequeño y color muted
   4. RecordComparisonCard sigue la misma jerarquía visual que RecordStandingCard, manteniendo diferenciación achieved/not-achieved
   5. El layout es visualmente uniforme al comparar cualquier StandingCard con cualquier ComparisonCard en pantalla
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Rediseñar RecordStandingCard y RecordComparisonCard con jerarquía hero→protagonist→metadata (CARD-01, CARD-02, CARD-03, COMP-01, COMP-02, COMP-03, CONS-01)
 
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline | 0/3 | Not started | - |
-| 2. Visual Redesign | 0/? | Not started | - |
+| 2. Visual Redesign | 0/1 | Not started | - |
