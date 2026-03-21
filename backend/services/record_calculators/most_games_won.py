@@ -12,6 +12,7 @@ class MostGamesWonCalculator(RecordCalculator):
     code = "most_games_won"
     description = "Más PARTIDAS GANADAS"
     title = "Estratega extraordinario"
+    emoji = "🥇"
 
     def games_for_current(self, games_until_current):
         return games_until_current
