@@ -19,7 +19,12 @@ El rediseno de la UI de records ocurre en dos fases naturales: primero establece
   1. Los endpoints de records devuelven `title` y `emoji` en cada record entry
   2. Todos los record calculators tienen un emoji asignado (no null/vacío)
   3. Los tipos TypeScript `RecordResultDTO`, `RecordComparisonDTO` y `GlobalRecordDTO` incluyen `title` y `emoji`
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Agregar campo emoji a modelos de dominio y schemas Pydantic (BACK-01, BACK-03)
+- [ ] 01-02-PLAN.md — Poblar emoji en los 9 record calculators existentes (BACK-02)
+- [ ] 01-03-PLAN.md — Sincronizar tipos TypeScript del frontend con los DTOs del backend (TYPE-01)
 
 ### Phase 2: Visual Redesign
 **Goal**: Los cards de records muestran título+emoji como hero, atributos en una línea, y descripción+valor al pie — con layout uniforme entre StandingCard y ComparisonCard
@@ -37,5 +42,5 @@ El rediseno de la UI de records ocurre en dos fases naturales: primero establece
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline | 0/? | Not started | - |
+| 1. Data Pipeline | 0/3 | Not started | - |
 | 2. Visual Redesign | 0/? | Not started | - |
