@@ -123,10 +123,15 @@ export interface RecordAttributeDTO {
 
 export interface RecordResultDTO {
   value: number
+  title: string | null
+  emoji: string | null
   attributes: RecordAttributeDTO[]
 }
 
 export interface RecordComparisonDTO {
+  code: string
+  title: string | null
+  emoji: string | null
   description: string
   achieved: boolean
   compared: RecordResultDTO | null
@@ -136,5 +141,7 @@ export interface RecordComparisonDTO {
 export interface GlobalRecordDTO {
   code: string
   description: string
+  title: string | null
+  emoji: string | null
   record: RecordResultDTO | null
 }

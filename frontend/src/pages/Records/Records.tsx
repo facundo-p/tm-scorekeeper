@@ -30,7 +30,7 @@ export default function Records() {
           <div className={styles.list}>
             {records.map((r) => (
               r.record
-                ? <RecordStandingCard key={r.code} description={r.description} record={r.record} />
+                ? <RecordStandingCard key={r.code} title={r.title} emoji={r.emoji} description={r.description} record={r.record} />
                 : <div key={r.code} className={styles.emptyRecord}>
                     <span className={styles.emptyDescription}>{r.description}</span>
                     <span className={styles.emptyValue}>Sin datos</span>

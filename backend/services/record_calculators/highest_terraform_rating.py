@@ -5,5 +5,6 @@ HighestTerraformRatingCalculator = MaxScoreCalculator(
     extractor=lambda p: p.scores.terraform_rating,
     code="highest_terraform_rating",
     title="Arquitecto climático",
+    emoji="🌡️",
     description="Mayor VALOR DE TERRAFORMACIÓN en una partida"
 )

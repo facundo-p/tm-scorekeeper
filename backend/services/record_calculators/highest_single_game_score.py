@@ -10,6 +10,7 @@ class HighestSingleGameScoreCalculator(RecordCalculator):
     code = "highest_single_game_score"
     description = "Mayor PUNTUACIÓN FINAL en una sola partida"
     title = "Emperador de Marte"
+    emoji = "🏆"
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
         if not games:

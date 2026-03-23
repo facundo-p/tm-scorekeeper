@@ -38,6 +38,7 @@ def record_comparison_to_dto(comparison, players) -> RecordComparisonDTO:
     return RecordComparisonDTO(
         code=comparison.code,
         title=comparison.title,
+        emoji=comparison.emoji,
         description=comparison.description,
         achieved=comparison.achieved,
         compared=compared,

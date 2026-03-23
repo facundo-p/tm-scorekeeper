@@ -25,11 +25,15 @@
   gap: var(--spacing-sm);
 }
 
+/* ---- Card base ---- */
 .card {
   padding: var(--spacing-sm) var(--spacing-md);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .card.achieved {
@@ -41,13 +45,15 @@
   opacity: 0.75;
 }
 
-.description {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-  margin: 0 0 var(--spacing-sm) 0;
+/* ---- Hero (título + emoji) ---- */
+.hero {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin: 0;
 }
 
+/* ---- Rows de comparación ---- */
 .rows {
   display: flex;
   flex-direction: column;
@@ -66,62 +72,63 @@
   margin-top: var(--spacing-xs);
 }
 
-.resultRow.primary .resultLabel {
-  color: var(--color-text-muted);
-}
-
-.resultRow.primary .resultValue {
-  color: var(--color-text);
-  font-weight: var(--font-weight-bold);
-}
-
-.resultRow.primary .resultAttrs {
-  color: var(--color-text-muted);
-}
-
-.resultRow.secondary .resultLabel,
-.resultRow.secondary .resultValue,
-.resultRow.secondary .resultAttrs {
-  color: var(--color-text-muted);
-  font-weight: var(--font-weight-normal);
-}
-
+/* ---- Label de resultado ---- */
 .resultLabel {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.resultBottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--spacing-sm);
-}
-
-.resultValue {
-  font-size: var(--font-size-sm);
-}
-
+/* ---- Atributos (jugador · fecha) — protagonistas ---- */
 .resultAttrs {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0;
-  font-size: var(--font-size-sm);
-  align-items: baseline;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
 }
 
-.resultAttr {
-  color: inherit;
-  white-space: nowrap;
+.resultRow.secondary .resultAttrs {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
 }
 
 .resultAttrSep {
   color: var(--color-text-muted);
-  opacity: 0.5;
+  opacity: 0.6;
   white-space: nowrap;
 }
 
+/* ---- Valor numérico del resultado ---- */
+.resultMeta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.resultMetaValue {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+}
+
+.resultRow.primary .resultMetaValue {
+  color: var(--color-text);
+}
+
+/* ---- Descripción técnica del card (metadata al pie) ---- */
+.cardMeta {
+  margin-top: var(--spacing-xs);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-xs);
+}
+
+.cardMetaDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Placeholder ---- */
 .placeholder {
   text-align: center;
   color: var(--color-text-muted);

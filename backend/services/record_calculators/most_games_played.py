@@ -11,6 +11,7 @@ class MostGamesPlayedCalculator(RecordCalculator):
     code = "most_games_played"
     description = "Más PARTIDAS JUGADAS"
     title = "Colono persistente"
+    emoji = "🎮"
 
     def games_for_current(self, games_until_current):
         return games_until_current

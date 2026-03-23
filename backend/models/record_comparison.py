@@ -10,3 +10,4 @@ class RecordComparison:
     compared: RecordEntry
     current: RecordEntry
     title: str | None = None
+    emoji: str | None = None
