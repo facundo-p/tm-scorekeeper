@@ -32,29 +32,38 @@ class PlayerProfileService:
         total_awards = 0
         
         for game in games:
-            results = calculate_results(game)
+            game_results = calculate_results(game)
+            #devuelve GameResultDTO con player_id, total_points, mc_total, position, tied
 
             total_awards += sum(player_id in award.first_place for award in game.awards)
+            # Suma todas las recompensas obtenidas por el jugador (solo si tiene el 1er lugar) en cada premio).
 
-            for result in results.results:
-                if result.player_id == player_id:
+            player_results_by_id = {
+                pr.player_id: pr
+                for pr in game.player_results
+            }
+            """Crea un diccionario para acceder rápidamente a los resultados del jugador
+            en el juego actual, usando player_id como clave."""
 
-                    game_player_result = next(
-                        pr for pr in game.player_results
-                        if pr.player_id == player_id
-                    )
+            for game_result in game_results.results:
+                if game_result.player_id == player_id:
+                # Obtener el resultado del jugador para este juego
 
-                    total_milestones += len(game_player_result.scores.milestones)
+                    player_model_result = player_results_by_id[player_id]
+                    # buscar el resultado del jugador en la lista original de resultados
 
-                    if result.position == 1:
+                    total_milestones += len(player_model_result.scores.milestones)
+                    # Cuenta la cantidad de hitos obtenidos en la partida y los suma al total.
+
+                    if game_result.position == 1:
                         games_won += 1
 
                     summaries.append(
                         PlayerGameSummaryDTO(
                             game_id=game.id,
                             date=game.date,
-                            position=result.position,
-                            points=result.total_points,
+                            position=game_result.position,
+                            points=game_result.total_points,
                         )
                     )
         win_rate = (
