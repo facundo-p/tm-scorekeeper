@@ -34,12 +34,7 @@ class PlayerProfileService:
         for game in games:
             results = calculate_results(game)
 
-            # awards (esto ya estaba bien)
-            player_awards = sum(
-                1 for award in game.awards
-                if player_id in award.first_place
-            )
-            total_awards += player_awards
+            total_awards += sum(player_id in award.first_place for award in game.awards)
 
             for result in results.results:
                 if result.player_id == player_id:
