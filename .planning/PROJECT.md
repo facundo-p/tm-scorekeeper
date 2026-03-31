@@ -17,12 +17,12 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 - ✓ Perfiles de jugadores con stats y records — existing
 - ✓ Detalle de partida con resultados y records comparativos — existing
 - ✓ API REST (FastAPI) + Frontend (React + TypeScript) — existing
+- ✓ Sistema de logros con tiers progresivos — Validated in Phase 1: Backend Core
+- ✓ Persistencia de logros desbloqueados (no se pierden) — Validated in Phase 1: Backend Core
 
 ### Active
 
-- [ ] Sistema de logros con tiers progresivos
 - [ ] Evaluación automática de logros al finalizar partida
-- [ ] Persistencia de logros desbloqueados (no se pierden)
 - [ ] Visualización de logros nuevos en pantalla de fin de partida (ícono + título, minimalista)
 - [ ] Sección de logros en perfil de jugador (formato completo: ícono, título, descripción, tiers, progreso)
 - [ ] Reestructuración del perfil de jugador en secciones (Stats, Records, Logros)
@@ -338,4 +338,4 @@ class PlayerAchievement(Base):
 | Progreso on-demand (no persistido) | Cambia con cada partida, no tiene sentido persistirlo | — Pending |
 
 ---
-*Last updated: 2026-03-21 after initialization + architecture discussion*
+*Last updated: 2026-03-31 — Phase 1 (Backend Core) complete: persistence layer + evaluator system*
