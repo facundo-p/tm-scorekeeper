@@ -18,10 +18,10 @@
 
 ### Persistencia
 
-- [ ] **PERS-01**: Tabla `player_achievements` con player_id, code, tier, unlocked_at y constraint unique
-- [ ] **PERS-02**: Migración Alembic para crear la tabla
-- [ ] **PERS-03**: Repository con upsert atómico (ON CONFLICT DO UPDATE, solo si tier sube)
-- [ ] **PERS-04**: Relationship en modelo Player hacia achievements
+- [x] **PERS-01**: Tabla `player_achievements` con player_id, code, tier, unlocked_at y constraint unique
+- [x] **PERS-02**: Migración Alembic para crear la tabla
+- [x] **PERS-03**: Repository con upsert atómico (ON CONFLICT DO UPDATE, solo si tier sube)
+- [x] **PERS-04**: Relationship en modelo Player hacia achievements
 
 ### Integración
 
@@ -101,10 +101,10 @@
 | CORE-06 | Phase 1 | Pending |
 | CORE-07 | Phase 1 | Pending |
 | CORE-08 | Phase 1 | Pending |
-| PERS-01 | Phase 1 | Pending |
-| PERS-02 | Phase 1 | Pending |
-| PERS-03 | Phase 1 | Pending |
-| PERS-04 | Phase 1 | Pending |
+| PERS-01 | Phase 1 | Complete |
+| PERS-02 | Phase 1 | Complete |
+| PERS-03 | Phase 1 | Complete |
+| PERS-04 | Phase 1 | Complete |
 | INTG-01 | Phase 2 | Pending |
 | INTG-02 | Phase 2 | Pending |
 | INTG-03 | Phase 2 | Pending |

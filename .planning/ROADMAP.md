@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — DB layer: domain models, PlayerAchievement ORM, Alembic migration, AchievementRepository with atomic upsert
+- [x] 01-01-PLAN.md — DB layer: domain models, PlayerAchievement ORM, Alembic migration, AchievementRepository with atomic upsert
 - [ ] 01-02-PLAN.md — Evaluators: AchievementEvaluator ABC, SingleGameThreshold, Accumulated, WinStreak, AllMaps, definitions and ALL_EVALUATORS registry
 
 ### Phase 2: Integración y API
