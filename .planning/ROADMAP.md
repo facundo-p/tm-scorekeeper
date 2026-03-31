@@ -44,11 +44,11 @@ Plans:
   3. Si un jugador cruza múltiples tiers en una sola partida, aparece un único item en la respuesta (tier final, no uno por tier)
   4. `GET /players/{id}/achievements` retorna todos los logros con tier actual, progreso hacia siguiente tier, y fecha de desbloqueo
   5. `GET /achievements/catalog` retorna todos los logros disponibles con estado por jugador
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: AchievementsService (evaluate_game, get_player_achievements, get_catalog), integración en GamesService.create_game(), DTOs y mappers
-- [ ] 02-02: achievements_routes.py (3 endpoints), actualización de GameCreatedResponseDTO, types TypeScript generados o documentados
+- [ ] 02-01-PLAN.md — AchievementsService (evaluate_for_game, get_player_achievements, get_catalog), DTOs, mappers, repository get_all, container wiring
+- [ ] 02-02-PLAN.md — REST endpoints (POST /games/{id}/achievements, GET /players/{id}/achievements, GET /achievements/catalog), TypeScript types, frontend API client, useGames retry
 
 ### Phase 3: Frontend
 **Goal**: Los jugadores ven sus logros al terminar una partida, en su perfil, y pueden explorar el catálogo completo
