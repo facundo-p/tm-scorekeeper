@@ -13,7 +13,7 @@ Este milestone agrega un sistema de logros persistentes a la app existente. El t
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Backend Core** - Tabla, repositorio, evaluadores y definiciones de logros (completed 2026-03-31)
-- [ ] **Phase 2: Integración y API** - Wiring en create_game y endpoints REST
+- [x] **Phase 2: Integración y API** - Wiring en create_game y endpoints REST (completed 2026-03-31)
 - [ ] **Phase 3: Frontend** - Fin de partida, perfil de jugador, catálogo e íconos
 - [ ] **Phase 4: Reconciliador** - Herramienta de corrección de logros persistidos
 
@@ -48,7 +48,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — AchievementsService (evaluate_for_game, get_player_achievements, get_catalog), DTOs, mappers, repository get_all, container wiring
-- [ ] 02-02-PLAN.md — REST endpoints (POST /games/{id}/achievements, GET /players/{id}/achievements, GET /achievements/catalog), TypeScript types, frontend API client, useGames retry
+- [x] 02-02-PLAN.md — REST endpoints (POST /games/{id}/achievements, GET /players/{id}/achievements, GET /achievements/catalog), TypeScript types, frontend API client, useGames retry
 
 ### Phase 3: Frontend
 **Goal**: Los jugadores ven sus logros al terminar una partida, en su perfil, y pueden explorar el catálogo completo
@@ -89,6 +89,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Backend Core | 2/2 | Complete   | 2026-03-31 |
-| 2. Integración y API | 0/2 | Not started | - |
+| 2. Integración y API | 2/2 | Complete   | 2026-03-31 |
 | 3. Frontend | 0/3 | Not started | - |
 | 4. Reconciliador | 0/1 | Not started | - |
