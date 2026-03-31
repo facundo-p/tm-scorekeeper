@@ -237,3 +237,163 @@ class TestAccumulatedEvaluator:
         games = [make_game(["p1"], game_date=date(2026, 1, 1)) for _ in range(100)]
         progress = ev.get_progress("p1", games, current_tier=5)
         assert progress is None
+
+
+# ── Custom Evaluator Tests ─────────────────────────────────────────────────────
+
+from services.achievement_evaluators.win_streak import WinStreakEvaluator
+from services.achievement_evaluators.all_maps import AllMapsEvaluator
+from services.achievement_evaluators.registry import ALL_EVALUATORS
+from models.enums import MapName
+
+
+WIN_STREAK_DEF = AchievementDefinition(
+    code="win_streak", description="Win consecutively", icon=None, fallback_icon="flame",
+    tiers=[
+        AchievementTier(level=1, threshold=2, title="Racha"),
+        AchievementTier(level=2, threshold=3, title="Imparable"),
+        AchievementTier(level=3, threshold=5, title="Invencible"),
+    ],
+    show_progress=True,
+)
+
+ALL_MAPS_DEF = AchievementDefinition(
+    code="all_maps", description="Play all maps", icon=None, fallback_icon="map",
+    tiers=[
+        AchievementTier(level=1, threshold=2, title="Explorador"),
+        AchievementTier(level=2, threshold=3, title="Cartógrafo"),
+        AchievementTier(level=3, threshold=5, title="Conquistador de Marte"),
+    ],
+    show_progress=True,
+)
+
+
+def make_win_game(winner_id, loser_id, game_date, map_name=MapName.THARSIS):
+    """Create a game where winner_id clearly beats loser_id (winner has 100 pts, loser 20)."""
+    return make_game(
+        [winner_id, loser_id],
+        map_name=map_name,
+        game_date=game_date,
+        scores_by_player={winner_id: 100, loser_id: 20},
+    )
+
+
+class TestWinStreakEvaluator:
+    def test_compute_tier_0_no_games(self):
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        assert ev.compute_tier("p1", []) == 0
+
+    def test_compute_tier_0_no_wins(self):
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        games = [make_win_game("p2", "p1", date(2026, 1, i)) for i in range(1, 4)]
+        assert ev.compute_tier("p1", games) == 0
+
+    def test_compute_tier_1_with_streak_of_2(self):
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        games = [
+            make_win_game("p1", "p2", date(2026, 1, 1)),
+            make_win_game("p1", "p2", date(2026, 1, 2)),
+        ]
+        assert ev.compute_tier("p1", games) == 1
+
+    def test_compute_tier_uses_max_not_current_streak(self):
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        games = [
+            make_win_game("p1", "p2", date(2026, 1, 1)),  # win
+            make_win_game("p1", "p2", date(2026, 1, 2)),  # win (streak=2)
+            make_win_game("p1", "p2", date(2026, 1, 3)),  # win (streak=3, tier 2)
+            make_win_game("p2", "p1", date(2026, 1, 4)),  # loss (streak reset)
+        ]
+        # Current streak = 0, but max was 3 → tier 2
+        assert ev.compute_tier("p1", games) == 2
+
+    def test_compute_tier_handles_out_of_order_games(self):
+        """Games not in chronological order must still compute correctly."""
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        games = [
+            make_win_game("p1", "p2", date(2026, 1, 3)),  # provided last
+            make_win_game("p1", "p2", date(2026, 1, 1)),  # provided first
+            make_win_game("p1", "p2", date(2026, 1, 2)),  # provided middle
+        ]
+        # Sorted: 3 consecutive wins → tier 2
+        assert ev.compute_tier("p1", games) == 2
+
+    def test_get_progress_returns_current_streak(self):
+        ev = WinStreakEvaluator(WIN_STREAK_DEF)
+        games = [
+            make_win_game("p2", "p1", date(2026, 1, 1)),  # loss
+            make_win_game("p1", "p2", date(2026, 1, 2)),  # win (current streak=1)
+        ]
+        progress = ev.get_progress("p1", games, current_tier=0)
+        assert progress is not None
+        assert progress.current == 1
+        assert progress.target == 2  # next tier threshold
+
+
+class TestAllMapsEvaluator:
+    def test_compute_tier_0_no_games(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        assert ev.compute_tier("p1", []) == 0
+
+    def test_compute_tier_0_one_map(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        game = make_game(["p1"], map_name=MapName.THARSIS)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_compute_tier_1_two_maps(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        games = [
+            make_game(["p1"], map_name=MapName.THARSIS, game_date=date(2026, 1, 1)),
+            make_game(["p1"], map_name=MapName.HELLAS, game_date=date(2026, 1, 2)),
+        ]
+        assert ev.compute_tier("p1", games) == 1
+
+    def test_compute_tier_2_three_maps(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        games = [
+            make_game(["p1"], map_name=MapName.THARSIS, game_date=date(2026, 1, 1)),
+            make_game(["p1"], map_name=MapName.HELLAS, game_date=date(2026, 1, 2)),
+            make_game(["p1"], map_name=MapName.ELYSIUM, game_date=date(2026, 1, 3)),
+        ]
+        assert ev.compute_tier("p1", games) == 2
+
+    def test_compute_tier_3_all_five_maps(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        maps = [MapName.THARSIS, MapName.HELLAS, MapName.ELYSIUM, MapName.BOREALIS, MapName.AMAZONIS]
+        games = [make_game(["p1"], map_name=m, game_date=date(2026, 1, i+1)) for i, m in enumerate(maps)]
+        assert ev.compute_tier("p1", games) == 3
+
+    def test_compute_tier_ignores_duplicate_maps(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        games = [make_game(["p1"], map_name=MapName.THARSIS, game_date=date(2026, 1, i)) for i in range(1, 10)]
+        # 9 games on the same map → still tier 0 (only 1 unique map)
+        assert ev.compute_tier("p1", games) == 0
+
+    def test_get_progress_returns_correct(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        games = [
+            make_game(["p1"], map_name=MapName.THARSIS, game_date=date(2026, 1, 1)),
+            make_game(["p1"], map_name=MapName.HELLAS, game_date=date(2026, 1, 2)),
+        ]
+        progress = ev.get_progress("p1", games, current_tier=1)
+        assert progress is not None
+        assert progress.current == 2
+        assert progress.target == 3  # next tier threshold
+
+
+class TestRegistry:
+    def test_all_evaluators_has_five_entries(self):
+        assert len(ALL_EVALUATORS) == 5
+
+    def test_all_codes_unique(self):
+        codes = [ev.code for ev in ALL_EVALUATORS]
+        assert len(codes) == len(set(codes)), "Registry has duplicate codes"
+
+    def test_expected_codes_present(self):
+        codes = {ev.code for ev in ALL_EVALUATORS}
+        assert codes == {"high_score", "games_played", "games_won", "win_streak", "all_maps"}
+
+    def test_all_evaluators_are_evaluator_instances(self):
+        from services.achievement_evaluators.base import AchievementEvaluator
+        for ev in ALL_EVALUATORS:
+            assert isinstance(ev, AchievementEvaluator), f"{ev} is not an AchievementEvaluator"
