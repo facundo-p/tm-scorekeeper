@@ -7,14 +7,14 @@
 
 ### Backend Core
 
-- [ ] **CORE-01**: Sistema define logros con código, descripción, ícono, fallback, y flag de progreso
-- [ ] **CORE-02**: Cada logro soporta múltiples tiers con level, threshold y título por tier
-- [ ] **CORE-03**: Evaluador base (ABC) con `compute_tier()`, `get_progress()`, y `evaluate()`
-- [ ] **CORE-04**: Evaluador genérico `SingleGameThresholdEvaluator` con extractor lambda
-- [ ] **CORE-05**: Evaluador genérico `AccumulatedEvaluator` con counter lambda y progreso
-- [ ] **CORE-06**: Evaluador custom `WinStreakEvaluator` con progreso de racha actual
-- [ ] **CORE-07**: Evaluador custom `AllMapsEvaluator` con progreso de mapas jugados
-- [ ] **CORE-08**: Registry centralizado `ALL_EVALUATORS` con logros iniciales definidos
+- [x] **CORE-01**: Sistema define logros con código, descripción, ícono, fallback, y flag de progreso
+- [x] **CORE-02**: Cada logro soporta múltiples tiers con level, threshold y título por tier
+- [x] **CORE-03**: Evaluador base (ABC) con `compute_tier()`, `get_progress()`, y `evaluate()`
+- [x] **CORE-04**: Evaluador genérico `SingleGameThresholdEvaluator` con extractor lambda
+- [x] **CORE-05**: Evaluador genérico `AccumulatedEvaluator` con counter lambda y progreso
+- [x] **CORE-06**: Evaluador custom `WinStreakEvaluator` con progreso de racha actual
+- [x] **CORE-07**: Evaluador custom `AllMapsEvaluator` con progreso de mapas jugados
+- [x] **CORE-08**: Registry centralizado `ALL_EVALUATORS` con logros iniciales definidos
 
 ### Persistencia
 
@@ -93,14 +93,14 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CORE-01 | Phase 1 | Pending |
-| CORE-02 | Phase 1 | Pending |
-| CORE-03 | Phase 1 | Pending |
-| CORE-04 | Phase 1 | Pending |
-| CORE-05 | Phase 1 | Pending |
-| CORE-06 | Phase 1 | Pending |
-| CORE-07 | Phase 1 | Pending |
-| CORE-08 | Phase 1 | Pending |
+| CORE-01 | Phase 1 | Complete |
+| CORE-02 | Phase 1 | Complete |
+| CORE-03 | Phase 1 | Complete |
+| CORE-04 | Phase 1 | Complete |
+| CORE-05 | Phase 1 | Complete |
+| CORE-06 | Phase 1 | Complete |
+| CORE-07 | Phase 1 | Complete |
+| CORE-08 | Phase 1 | Complete |
 | PERS-01 | Phase 1 | Complete |
 | PERS-02 | Phase 1 | Complete |
 | PERS-03 | Phase 1 | Complete |
