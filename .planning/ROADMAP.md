@@ -28,11 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Un upsert en el repositorio nunca baja el tier de un logro existente (garantía de permanencia, verificable con test)
   3. Dado un set de partidas en memoria, `compute_tier()` retorna el tier correcto para logros de tipo single-game, acumulado, y win streak
   4. El registry `ALL_EVALUATORS` contiene al menos 3 logros que cubren los tres tipos de condición (single-game, acumulado, combinación)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: DB: tabla player_achievements, modelo ORM, migración Alembic, repositorio con upsert atómico
-- [ ] 01-02: Evaluadores: base ABC, genéricos (SingleGameThreshold, Accumulated), custom (WinStreak, AllMaps), definiciones y registry
+- [ ] 01-01-PLAN.md — DB layer: domain models, PlayerAchievement ORM, Alembic migration, AchievementRepository with atomic upsert
+- [ ] 01-02-PLAN.md — Evaluators: AchievementEvaluator ABC, SingleGameThreshold, Accumulated, WinStreak, AllMaps, definitions and ALL_EVALUATORS registry
 
 ### Phase 2: Integración y API
 **Goal**: Crear una partida evalúa y persiste logros automáticamente, y hay endpoints para consultarlos
