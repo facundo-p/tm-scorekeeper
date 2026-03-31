@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-31T15:57:49.032Z"
+status: executing
+stopped_at: Completed 02-integraci-n-y-api 02-01-PLAN.md
+last_updated: "2026-03-31T16:41:15.613Z"
 last_activity: 2026-03-31
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 0
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Phase 01 — backend-core
+**Current focus:** Phase 02 — integraci-n-y-api
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 02 (integraci-n-y-api) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-31
 
 Progress: [░░░░░░░░░░] 0%
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-backend-core P01 | 3 | 3 tasks | 8 files |
 | Phase 01-backend-core P02 | 273 | 3 tasks | 13 files |
+| Phase 02-integraci-n-y-api P01 | 5 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,8 @@ Recent decisions affecting current work:
 - [Phase 01-backend-core]: Domain models created in plan 02 due to parallel execution (plan 01-01 not yet committed)
 - [Phase 01-backend-core]: WinStreakEvaluator sorts games by date — GamesRepository does not guarantee order
 - [Phase 01-backend-core]: registry.py owns counter/extractor lambdas to avoid circular imports with definitions.py
+- [Phase 02-integraci-n-y-api]: evaluation_result_to_unlocked_dto finds tier title by level match, not list index
+- [Phase 02-integraci-n-y-api]: AchievementsService.evaluate_for_game wraps body in try/except returning {} on any error
 
 ### Pending Todos
 
@@ -84,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T15:57:49.022Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-integraci-n-y-api/02-CONTEXT.md
+Last session: 2026-03-31T16:41:15.610Z
+Stopped at: Completed 02-integraci-n-y-api 02-01-PLAN.md
+Resume file: None

@@ -47,7 +47,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — AchievementsService (evaluate_for_game, get_player_achievements, get_catalog), DTOs, mappers, repository get_all, container wiring
+- [x] 02-01-PLAN.md — AchievementsService (evaluate_for_game, get_player_achievements, get_catalog), DTOs, mappers, repository get_all, container wiring
 - [ ] 02-02-PLAN.md — REST endpoints (POST /games/{id}/achievements, GET /players/{id}/achievements, GET /achievements/catalog), TypeScript types, frontend API client, useGames retry
 
 ### Phase 3: Frontend

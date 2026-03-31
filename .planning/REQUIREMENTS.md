@@ -25,17 +25,17 @@
 
 ### Integración
 
-- [ ] **INTG-01**: Evaluación de logros ejecutada post-commit en `create_game()`
-- [ ] **INTG-02**: Bulk-load de games antes del loop de evaluators (evitar N+1)
+- [x] **INTG-01**: Evaluación de logros ejecutada post-commit en `create_game()`
+- [x] **INTG-02**: Bulk-load de games antes del loop de evaluators (evitar N+1)
 - [ ] **INTG-03**: Response de `POST /games/` incluye logros desbloqueados en esa partida
-- [ ] **INTG-04**: Notificación diferenciada: "Nuevo logro" (tier 1) vs "Logro mejorado" (tier 2+)
-- [ ] **INTG-05**: Un solo evento por logro con tier final (no uno por tier intermedio)
+- [x] **INTG-04**: Notificación diferenciada: "Nuevo logro" (tier 1) vs "Logro mejorado" (tier 2+)
+- [x] **INTG-05**: Un solo evento por logro con tier final (no uno por tier intermedio)
 
 ### API
 
 - [ ] **API-01**: `GET /players/{id}/achievements` retorna logros del jugador con tier, progreso, y estado
 - [ ] **API-02**: `GET /achievements/catalog` retorna catálogo global con quién tiene cada logro
-- [ ] **API-03**: DTOs y mappers para achievements (domain → response)
+- [x] **API-03**: DTOs y mappers para achievements (domain → response)
 
 ### Frontend — Fin de Partida
 
@@ -105,14 +105,14 @@
 | PERS-02 | Phase 1 | Complete |
 | PERS-03 | Phase 1 | Complete |
 | PERS-04 | Phase 1 | Complete |
-| INTG-01 | Phase 2 | Pending |
-| INTG-02 | Phase 2 | Pending |
+| INTG-01 | Phase 2 | Complete |
+| INTG-02 | Phase 2 | Complete |
 | INTG-03 | Phase 2 | Pending |
-| INTG-04 | Phase 2 | Pending |
-| INTG-05 | Phase 2 | Pending |
+| INTG-04 | Phase 2 | Complete |
+| INTG-05 | Phase 2 | Complete |
 | API-01 | Phase 2 | Pending |
 | API-02 | Phase 2 | Pending |
-| API-03 | Phase 2 | Pending |
+| API-03 | Phase 2 | Complete |
 | ENDG-01 | Phase 3 | Pending |
 | ENDG-02 | Phase 3 | Pending |
 | ENDG-03 | Phase 3 | Pending |
