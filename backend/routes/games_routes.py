@@ -7,8 +7,10 @@ from services.game_records_service import GameRecordsService
 from services.game_service import GamesService
 from schemas.game import GameDTO, GameCreatedResponseDTO
 from schemas.result import GameResultDTO
-from repositories.container import games_repository, players_repository
+from repositories.container import games_repository, players_repository, achievement_repository
 from repositories.game_filters import GameFilter
+from services.achievements_service import AchievementsService
+from schemas.achievement import AchievementsByPlayerResponseDTO
 
 
 
@@ -19,6 +21,12 @@ router = APIRouter(
 
 games_service = GamesService(
     games_repository=games_repository,
+    players_repository=players_repository,
+)
+
+achievements_service = AchievementsService(
+    games_repository=games_repository,
+    achievement_repository=achievement_repository,
     players_repository=players_repository,
 )
 
@@ -80,3 +88,9 @@ def get_game_records(game_id: str):
         record_comparison_to_dto(c, players)
         for c in comparisons
     ]
+
+
+@router.post("/{game_id}/achievements", response_model=AchievementsByPlayerResponseDTO)
+def trigger_achievements(game_id: str):
+    result = achievements_service.evaluate_for_game(game_id)
+    return AchievementsByPlayerResponseDTO(achievements_by_player=result)

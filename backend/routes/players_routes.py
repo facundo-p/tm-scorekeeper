@@ -1,11 +1,13 @@
 from fastapi import APIRouter, HTTPException, Query
 from schemas.player_profile import PlayerProfileDTO
 from services.player_profile_service import PlayerProfileService
-from repositories.container import games_repository, players_repository
+from repositories.container import games_repository, players_repository, achievement_repository
 from services.player_records_service import PlayerRecordsService
 from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
 from typing import Optional
+from services.achievements_service import AchievementsService
+from schemas.achievement import PlayerAchievementsResponseDTO
 
 router = APIRouter(
     prefix="/players",
@@ -23,6 +25,12 @@ player_profile_service = PlayerProfileService(
     players_repository=players_repository,
     games_repository=games_repository,
     player_records_service=player_records_service,
+)
+
+achievements_service = AchievementsService(
+    games_repository=games_repository,
+    achievement_repository=achievement_repository,
+    players_repository=players_repository,
 )
 
 
@@ -66,7 +74,7 @@ def update_player(player_id: str, dto: PlayerUpdateDTO):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     
-# Devuelve la lista de jugadores con query opcional para filtrar activos y no activos.   
+# Devuelve la lista de jugadores con query opcional para filtrar activos y no activos.
 @router.get("/", response_model=list[PlayerResponseDTO])
 def list_players(active: Optional[bool] = Query(default=None)):
     players = player_service.get_players(active=active)
@@ -78,3 +86,9 @@ def list_players(active: Optional[bool] = Query(default=None)):
         )
         for p in players
     ]
+
+
+@router.get("/{player_id}/achievements", response_model=PlayerAchievementsResponseDTO)
+def get_player_achievements(player_id: str):
+    items = achievements_service.get_player_achievements(player_id)
+    return PlayerAchievementsResponseDTO(achievements=items)
