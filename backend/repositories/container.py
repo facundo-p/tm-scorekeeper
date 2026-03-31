@@ -9,9 +9,11 @@ produces SQLAlchemy sessions from :mod:`db.session`.
 
 from repositories.game_repository import GamesRepository
 from repositories.player_repository import PlayersRepository
+from repositories.achievement_repository import AchievementRepository
 
 # instantiate concrete repos; additional configuration (e.g. test
 # sessions) can be injected by modifying these variables at startup.
 
 games_repository = GamesRepository()
 players_repository = PlayersRepository()
+achievement_repository = AchievementRepository()

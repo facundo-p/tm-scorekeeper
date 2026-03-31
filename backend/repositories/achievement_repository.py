@@ -40,3 +40,8 @@ class AchievementRepository:
                 .filter(PlayerAchievement.player_id == player_id)
                 .all()
             )
+
+    def get_all(self) -> list[PlayerAchievement]:
+        """Return all achievement rows across all players."""
+        with self._session_factory() as session:
+            return session.query(PlayerAchievement).all()
