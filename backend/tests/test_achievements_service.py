@@ -76,7 +76,11 @@ def make_mock_player(player_id, name):
 
 def make_definition(code, tiers=None, show_progress=False):
     if tiers is None:
-        tiers = [AchievementTier(level=1, threshold=5, title="Tier 1")]
+        tiers = [
+            AchievementTier(level=1, threshold=5, title="Tier 1"),
+            AchievementTier(level=2, threshold=10, title="Tier 2"),
+            AchievementTier(level=3, threshold=20, title="Tier 3"),
+        ]
     return AchievementDefinition(
         code=code,
         description=f"Test {code}",
