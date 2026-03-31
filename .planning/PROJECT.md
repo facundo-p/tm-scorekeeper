@@ -19,16 +19,17 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 - ✓ API REST (FastAPI) + Frontend (React + TypeScript) — existing
 - ✓ Sistema de logros con tiers progresivos — Validated in Phase 1: Backend Core
 - ✓ Persistencia de logros desbloqueados (no se pierden) — Validated in Phase 1: Backend Core
+- ✓ Evaluación automática de logros al finalizar partida — Validated in Phase 2: Integración y API
+- ✓ API REST para consultar logros de jugador y catálogo — Validated in Phase 2: Integración y API
+- ✓ Soporte para progreso parcial en logros que lo ameriten (acumulados) — Validated in Phase 2: Integración y API
 
 ### Active
 
-- [ ] Evaluación automática de logros al finalizar partida
 - [ ] Visualización de logros nuevos en pantalla de fin de partida (ícono + título, minimalista)
 - [ ] Sección de logros en perfil de jugador (formato completo: ícono, título, descripción, tiers, progreso)
 - [ ] Reestructuración del perfil de jugador en secciones (Stats, Records, Logros)
 - [ ] Catálogo global de todos los logros disponibles
 - [ ] Íconos SVG custom con fallback a librería de íconos / emoji
-- [ ] Soporte para progreso parcial en logros que lo ameriten (acumulados)
 
 ### Out of Scope
 
@@ -338,4 +339,4 @@ class PlayerAchievement(Base):
 | Progreso on-demand (no persistido) | Cambia con cada partida, no tiene sentido persistirlo | — Pending |
 
 ---
-*Last updated: 2026-03-31 — Phase 1 (Backend Core) complete: persistence layer + evaluator system*
+*Last updated: 2026-03-31 — Phase 2 (Integración y API) complete: AchievementsService + REST endpoints + frontend types*
