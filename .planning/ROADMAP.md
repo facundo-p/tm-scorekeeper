@@ -76,10 +76,10 @@ Plans:
   2. El reconciliador nunca baja un tier existente — un tier calculado menor al persistido se loggea y se ignora (verificable con test)
   3. El reconciliador puede usarse como backfill para jugadores que tenían partidas antes de que el sistema existiera
 
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: AchievementsReconciler con garantía no-downgrade, trigger CLI/endpoint, tests incluyendo caso de no-downgrade
+- [ ] 04-01-PLAN.md — reconcile_all() method, DTOs, POST /achievements/reconcile endpoint, unit + integration tests
 
 ## Progress
 
