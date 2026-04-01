@@ -25,11 +25,16 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 
 ### Active
 
-- [ ] Visualización de logros nuevos en pantalla de fin de partida (ícono + título, minimalista)
-- [ ] Sección de logros en perfil de jugador (formato completo: ícono, título, descripción, tiers, progreso)
-- [ ] Reestructuración del perfil de jugador en secciones (Stats, Records, Logros)
-- [ ] Catálogo global de todos los logros disponibles
-- [ ] Íconos SVG custom con fallback a librería de íconos / emoji
+(All requirements validated — milestone complete)
+
+### Recently Validated
+
+- ✓ Visualización de logros nuevos en pantalla de fin de partida — Validated in Phase 3: Frontend
+- ✓ Sección de logros en perfil de jugador — Validated in Phase 3: Frontend
+- ✓ Reestructuración del perfil de jugador en secciones (Stats, Records, Logros) — Validated in Phase 3: Frontend
+- ✓ Catálogo global de todos los logros disponibles — Validated in Phase 3: Frontend
+- ✓ Íconos SVG custom con fallback a librería de íconos / emoji — Validated in Phase 3: Frontend
+- ✓ Reconciliador de logros con garantía no-downgrade — Validated in Phase 4: Reconciliador
 
 ### Out of Scope
 
@@ -335,8 +340,8 @@ class PlayerAchievement(Base):
 | No incluir rediseño de records en este milestone | Foco en logros; records funciona, solo es feo | — Pending |
 | Logros persistentes (no se pierden) | A diferencia de records que cambian, los logros son permanentes — motivación acumulativa | — Pending |
 | Definiciones en código, no en DB | Consistente con records; la DB solo persiste desbloqueos | — Pending |
-| Reconciliador manual/startup | Permite cambiar umbrales de tiers sin inconsistencias | — Pending |
+| Reconciliador manual/startup | Permite cambiar umbrales de tiers sin inconsistencias | Implemented — POST /achievements/reconcile |
 | Progreso on-demand (no persistido) | Cambia con cada partida, no tiene sentido persistirlo | — Pending |
 
 ---
-*Last updated: 2026-03-31 — Phase 2 (Integración y API) complete: AchievementsService + REST endpoints + frontend types*
+*Last updated: 2026-04-01 — All phases complete (1-4). Milestone v1.0 finished: achievements system with backend, API, frontend, and reconciler*
