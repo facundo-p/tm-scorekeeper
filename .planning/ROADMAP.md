@@ -63,7 +63,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Leaf components: lucide-react install, AchievementIcon, ProgressBar, AchievementCard, AchievementBadgeMini, TabBar with tests
+- [x] 03-01-PLAN.md — Leaf components: lucide-react install, AchievementIcon, ProgressBar, AchievementCard, AchievementBadgeMini, TabBar with tests
 - [ ] 03-02-PLAN.md — PlayerProfile tabs (Stats/Records/Logros) with lazy-loaded achievements, AchievementModal in GameRecords
 - [ ] 03-03-PLAN.md — AchievementCatalog page with holders modal, /achievements route, Home nav link
 
@@ -90,5 +90,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Backend Core | 2/2 | Complete   | 2026-03-31 |
 | 2. Integración y API | 2/2 | Complete   | 2026-03-31 |
-| 3. Frontend | 0/3 | Not started | - |
+| 3. Frontend | 1/3 | In Progress|  |
 | 4. Reconciliador | 0/1 | Not started | - |
