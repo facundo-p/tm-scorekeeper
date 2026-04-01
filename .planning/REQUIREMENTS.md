@@ -63,9 +63,9 @@
 
 ### Herramientas
 
-- [ ] **TOOL-01**: Script/endpoint de reconciliación que recalcula todos los logros y corrige discrepancias
-- [ ] **TOOL-02**: Reconciliador nunca baja tiers (garantía de permanencia)
-- [ ] **TOOL-03**: Script usable como backfill al agregar nuevos logros
+- [x] **TOOL-01**: Script/endpoint de reconciliación que recalcula todos los logros y corrige discrepancias
+- [x] **TOOL-02**: Reconciliador nunca baja tiers (garantía de permanencia)
+- [x] **TOOL-03**: Script usable como backfill al agregar nuevos logros
 
 ## v2 Requirements
 
@@ -125,9 +125,9 @@
 | ICON-01 | Phase 3 | Complete |
 | ICON-02 | Phase 3 | Pending |
 | ICON-03 | Phase 3 | Complete |
-| TOOL-01 | Phase 4 | Pending |
-| TOOL-02 | Phase 4 | Pending |
-| TOOL-03 | Phase 4 | Pending |
+| TOOL-01 | Phase 4 | Complete |
+| TOOL-02 | Phase 4 | Complete |
+| TOOL-03 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 35 total

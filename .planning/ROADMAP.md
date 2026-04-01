@@ -91,4 +91,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Backend Core | 2/2 | Complete   | 2026-03-31 |
 | 2. Integración y API | 2/2 | Complete   | 2026-03-31 |
 | 3. Frontend | 3/3 | Complete   | 2026-04-01 |
-| 4. Reconciliador | 0/1 | Not started | - |
+| 4. Reconciliador | 0/1 | Planned    |  |
