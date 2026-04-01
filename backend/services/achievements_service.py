@@ -1,4 +1,5 @@
 import logging
+from dataclasses import dataclass, field
 
 from services.achievement_evaluators.registry import ALL_EVALUATORS
 from mappers.achievement_mapper import (
@@ -13,6 +14,21 @@ from schemas.achievement import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class PlayerReconcileChange:
+    code: str
+    old_tier: int
+    new_tier: int
+
+
+@dataclass
+class ReconcileSummaryResult:
+    total_players: int = 0
+    players_updated: int = 0
+    achievements_applied: list = field(default_factory=list)
+    errors: list = field(default_factory=list)
 
 
 class AchievementsService:
@@ -105,3 +121,63 @@ class AchievementsService:
             result.append(build_catalog_item_dto(evaluator, holders))
 
         return result
+
+    def reconcile_all(self) -> ReconcileSummaryResult:
+        """
+        Recalculate achievements for all players and apply corrections upward.
+        Never raises -- per-player errors are logged and skipped (D-05).
+        Returns summary of changes applied.
+        """
+        players = self.players_repository.get_all()
+        total_players = len(players)
+        players_updated = 0
+        achievements_applied: list[PlayerReconcileChange] = []
+        errors: list[str] = []
+
+        for player in players:
+            try:
+                games = self.games_repository.get_games_by_player(player.player_id)
+                persisted = {
+                    a.code: a.tier
+                    for a in self.achievement_repository.get_for_player(player.player_id)
+                }
+
+                player_changes: list[PlayerReconcileChange] = []
+                for evaluator in ALL_EVALUATORS:
+                    current_tier = persisted.get(evaluator.code, 0)
+                    computed = evaluator.compute_tier(player.player_id, games)
+
+                    if computed < current_tier:
+                        logger.info(
+                            "Reconciler skipping downgrade: player=%s code=%s "
+                            "computed=%d persisted=%d",
+                            player.player_id, evaluator.code, computed, current_tier,
+                        )
+                        continue
+
+                    if computed > current_tier:
+                        self.achievement_repository.upsert(
+                            player.player_id, evaluator.code, computed
+                        )
+                        player_changes.append(
+                            PlayerReconcileChange(
+                                code=evaluator.code,
+                                old_tier=current_tier,
+                                new_tier=computed,
+                            )
+                        )
+
+                if player_changes:
+                    players_updated += 1
+                    achievements_applied.extend(player_changes)
+
+            except Exception:
+                logger.exception("Reconciler error for player %s", player.player_id)
+                errors.append(player.player_id)
+
+        return ReconcileSummaryResult(
+            total_players=total_players,
+            players_updated=players_updated,
+            achievements_applied=achievements_applied,
+            errors=errors,
+        )

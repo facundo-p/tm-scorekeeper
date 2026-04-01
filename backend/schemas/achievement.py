@@ -64,3 +64,16 @@ class AchievementCatalogItemDTO(BaseModel):
 
 class AchievementCatalogResponseDTO(BaseModel):
     achievements: list[AchievementCatalogItemDTO]
+
+
+class PlayerReconcileChangeDTO(BaseModel):
+    code: str
+    old_tier: int
+    new_tier: int
+
+
+class ReconcileResponseDTO(BaseModel):
+    total_players: int
+    players_updated: int
+    achievements_applied: list[PlayerReconcileChangeDTO]
+    errors: list[str]
