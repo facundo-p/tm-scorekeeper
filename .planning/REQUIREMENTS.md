@@ -39,13 +39,13 @@
 
 ### Frontend — Fin de Partida
 
-- [ ] **ENDG-01**: Sección separada de logros nuevos en pantalla de fin de partida
+- [x] **ENDG-01**: Sección separada de logros nuevos en pantalla de fin de partida
 - [x] **ENDG-02**: Badge mini: solo ícono + título del logro desbloqueado
 - [x] **ENDG-03**: Diferenciación visual entre "Nuevo logro" y "Logro mejorado"
 
 ### Frontend — Perfil
 
-- [ ] **PROF-01**: Perfil de jugador reestructurado en secciones (Stats, Records, Logros)
+- [x] **PROF-01**: Perfil de jugador reestructurado en secciones (Stats, Records, Logros)
 - [x] **PROF-02**: Badge completo: ícono, título, descripción, tier actual, indicador de tier máximo
 - [x] **PROF-03**: Barra de progreso hacia siguiente tier (en logros que lo soporten)
 - [x] **PROF-04**: Logros bloqueados visibles en grayscale/opaco con progreso si aplica
@@ -113,10 +113,10 @@
 | API-01 | Phase 2 | Complete |
 | API-02 | Phase 2 | Complete |
 | API-03 | Phase 2 | Complete |
-| ENDG-01 | Phase 3 | Pending |
+| ENDG-01 | Phase 3 | Complete |
 | ENDG-02 | Phase 3 | Complete |
 | ENDG-03 | Phase 3 | Complete |
-| PROF-01 | Phase 3 | Pending |
+| PROF-01 | Phase 3 | Complete |
 | PROF-02 | Phase 3 | Complete |
 | PROF-03 | Phase 3 | Complete |
 | PROF-04 | Phase 3 | Complete |

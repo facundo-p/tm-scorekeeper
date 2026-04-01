@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Backend Core** - Tabla, repositorio, evaluadores y definiciones de logros (completed 2026-03-31)
 - [x] **Phase 2: Integración y API** - Wiring en create_game y endpoints REST (completed 2026-03-31)
-- [ ] **Phase 3: Frontend** - Fin de partida, perfil de jugador, catálogo e íconos
+- [x] **Phase 3: Frontend** - Fin de partida, perfil de jugador, catálogo e íconos (completed 2026-04-01)
 - [ ] **Phase 4: Reconciliador** - Herramienta de corrección de logros persistidos
 
 ## Phase Details
@@ -64,8 +64,8 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — Leaf components: lucide-react install, AchievementIcon, ProgressBar, AchievementCard, AchievementBadgeMini, TabBar with tests
-- [ ] 03-02-PLAN.md — PlayerProfile tabs (Stats/Records/Logros) with lazy-loaded achievements, AchievementModal in GameRecords
-- [ ] 03-03-PLAN.md — AchievementCatalog page with holders modal, /achievements route, Home nav link
+- [x] 03-02-PLAN.md — PlayerProfile tabs (Stats/Records/Logros) with lazy-loaded achievements, AchievementModal in GameRecords
+- [x] 03-03-PLAN.md — AchievementCatalog page with holders modal, /achievements route, Home nav link
 
 ### Phase 4: Reconciliador
 **Goal**: Existe una herramienta que puede recalcular y corregir todos los logros persistidos sin bajar ningún tier
@@ -90,5 +90,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Backend Core | 2/2 | Complete   | 2026-03-31 |
 | 2. Integración y API | 2/2 | Complete   | 2026-03-31 |
-| 3. Frontend | 1/3 | In Progress|  |
+| 3. Frontend | 3/3 | Complete   | 2026-04-01 |
 | 4. Reconciliador | 0/1 | Not started | - |
