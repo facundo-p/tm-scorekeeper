@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+.tabBarWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -154,4 +160,28 @@
 .errorBox {
   color: var(--color-error);
   text-align: center;
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.emptyHeading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.emptyBody {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
 }
