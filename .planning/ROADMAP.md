@@ -60,12 +60,12 @@ Plans:
   3. Los logros bloqueados son visibles en el perfil (en grayscale/opaco) con barra de progreso si aplica
   4. Existe una página de catálogo que lista todos los logros disponibles con quién los tiene y en qué tier
   5. Los íconos de logros funcionan con fallback automático: SVG custom → Lucide → emoji
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: Setup íconos (lucide-react, vite-plugin-svgr, AchievementIcon con fallback chain), AchievementBadge y AchievementBadgeMini, api/achievements.ts
-- [ ] 03-02: Perfil reestructurado en secciones (Stats/Records/Logros), AchievementsSection con badges completos y progreso
-- [ ] 03-03: NewAchievementsToast en fin de partida, AchievementCatalog page
+- [ ] 03-01-PLAN.md — Leaf components: lucide-react install, AchievementIcon, ProgressBar, AchievementCard, AchievementBadgeMini, TabBar with tests
+- [ ] 03-02-PLAN.md — PlayerProfile tabs (Stats/Records/Logros) with lazy-loaded achievements, AchievementModal in GameRecords
+- [ ] 03-03-PLAN.md — AchievementCatalog page with holders modal, /achievements route, Home nav link
 
 ### Phase 4: Reconciliador
 **Goal**: Existe una herramienta que puede recalcular y corregir todos los logros persistidos sin bajar ningún tier
