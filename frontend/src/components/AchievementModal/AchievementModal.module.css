@@ -1,0 +1,28 @@
+.playerGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.playerGroup:last-child {
+  margin-bottom: 0;
+}
+
+.playerName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.badgeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+}

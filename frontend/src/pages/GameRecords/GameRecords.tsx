@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getGameRecords, getGameResults } from '@/api/games'
 import { getPlayers } from '@/api/players'
+import { triggerAchievements } from '@/api/achievements'
 import { ApiError } from '@/api/client'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import RecordsSection from '@/components/RecordsSection/RecordsSection'
-import type { RecordComparisonDTO, GameResultDTO, PlayerResponseDTO } from '@/types'
+import AchievementModal from '@/components/AchievementModal/AchievementModal'
+import type { RecordComparisonDTO, GameResultDTO, PlayerResponseDTO, AchievementsByPlayerDTO } from '@/types'
 import { formatDate } from '@/utils/formatDate'
 import styles from './GameRecords.module.css'
 
@@ -19,6 +21,8 @@ export default function GameRecords() {
   const [loadingRecords, setLoadingRecords] = useState(true)
   const [loadingResults, setLoadingResults] = useState(true)
   const [notAvailable, setNotAvailable] = useState(false)
+  const [achievements, setAchievements] = useState<AchievementsByPlayerDTO | null>(null)
+  const [showAchievementModal, setShowAchievementModal] = useState(false)
 
   useEffect(() => {
     if (!gameId) return
@@ -38,6 +42,16 @@ export default function GameRecords() {
     getPlayers()
       .then(setPlayers)
       .catch(() => {})
+
+    triggerAchievements(gameId)
+      .then(data => {
+        const hasAny = Object.values(data.achievements_by_player).some(list => list.length > 0)
+        if (hasAny) {
+          setAchievements(data)
+          setShowAchievementModal(true)
+        }
+      })
+      .catch(() => {})   // silent failure — achievements are non-critical
   }, [gameId])
 
   const playersMap = new Map(players.map((p) => [p.player_id, p.name]))
@@ -84,6 +98,14 @@ export default function GameRecords() {
           <Button onClick={() => navigate('/home')}>Volver al inicio</Button>
         </div>
       </div>
+
+      {showAchievementModal && achievements && (
+        <AchievementModal
+          achievements={achievements}
+          playerNames={playersMap}
+          onClose={() => setShowAchievementModal(false)}
+        />
+      )}
     </div>
   )
 }
