@@ -140,3 +140,14 @@ def test_catalog_has_tiers_and_holders(client):
             assert "level" in tier
             assert "threshold" in tier
             assert "title" in tier
+
+
+def test_reconcile_returns_200_with_summary(client):
+    """POST /achievements/reconcile returns 200 with summary shape."""
+    response = client.post("/achievements/reconcile")
+    assert response.status_code == 200
+    data = response.json()
+    assert "total_players" in data
+    assert "players_updated" in data
+    assert isinstance(data["achievements_applied"], list)
+    assert isinstance(data["errors"], list)

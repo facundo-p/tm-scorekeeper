@@ -389,3 +389,228 @@ class TestGetCatalog:
             result = service.get_catalog()
 
         assert result[0].holders == []
+
+
+# ── reconcile_all Tests ────────────────────────────────────────────────────────
+
+class TestReconcileAll:
+    def test_reconcile_applies_upward_changes(self):
+        """Player has tier 1 persisted, evaluator computes tier 2 -> upsert called, summary shows change."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [make_mock_player("p1", "Alice")]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = [
+            make_mock_achievement("p1", "high_score", tier=1)
+        ]
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=2)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        achievement_repo.upsert.assert_called_once_with("p1", "high_score", 2)
+        assert summary.total_players == 1
+        assert summary.players_updated == 1
+        assert len(summary.achievements_applied) == 1
+        assert summary.achievements_applied[0].code == "high_score"
+        assert summary.achievements_applied[0].old_tier == 1
+        assert summary.achievements_applied[0].new_tier == 2
+        assert summary.errors == []
+
+    def test_reconcile_skips_downgrade(self):
+        """Player has tier 2 persisted, evaluator computes tier 1 -> upsert NOT called, players_updated=0."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [make_mock_player("p1", "Alice")]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = [
+            make_mock_achievement("p1", "high_score", tier=2)
+        ]
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=1)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        achievement_repo.upsert.assert_not_called()
+        assert summary.players_updated == 0
+        assert summary.achievements_applied == []
+
+    def test_reconcile_logs_downgrade(self, caplog):
+        """Downgrade attempt emits an INFO log with 'skipping downgrade', player_id, and code."""
+        import logging
+
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [make_mock_player("p1", "Alice")]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = [
+            make_mock_achievement("p1", "high_score", tier=2)
+        ]
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=1)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with caplog.at_level(logging.INFO, logger="services.achievements_service"):
+            with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+                summary = service.reconcile_all()
+
+        assert any(
+            "skipping downgrade" in r.message.lower() or "Reconciler skipping downgrade" in r.message
+            for r in caplog.records
+        )
+
+    def test_reconcile_all_players(self):
+        """3 players exist — get_games_by_player called 3 times (all players processed)."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [
+            make_mock_player("p1", "Alice"),
+            make_mock_player("p2", "Bob"),
+            make_mock_player("p3", "Carol"),
+        ]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = []
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=0)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        assert games_repo.get_games_by_player.call_count == 3
+        assert summary.total_players == 3
+
+    def test_reconcile_skips_failed_player(self):
+        """2 players; first raises -> second still processed; first player_id in errors."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [
+            make_mock_player("p1", "Alice"),
+            make_mock_player("p2", "Bob"),
+        ]
+
+        games_repo = MagicMock()
+
+        def side_effect(pid):
+            if pid == "p1":
+                raise RuntimeError("DB error")
+            return []
+
+        games_repo.get_games_by_player.side_effect = side_effect
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = []
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=1)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        assert "p1" in summary.errors
+        assert summary.total_players == 2
+        # p2 was processed and got a change (tier 0 -> 1)
+        assert summary.players_updated == 1
+
+    def test_reconcile_no_change_when_tiers_equal(self):
+        """Player has tier 2 persisted, evaluator computes tier 2 -> upsert NOT called, players_updated=0."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [make_mock_player("p1", "Alice")]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = [
+            make_mock_achievement("p1", "high_score", tier=2)
+        ]
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=2)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        achievement_repo.upsert.assert_not_called()
+        assert summary.players_updated == 0
+        assert summary.achievements_applied == []
+
+    def test_reconcile_backfill_new_player(self):
+        """Player has no persisted achievements, evaluator computes tier 1 -> upsert called, old_tier=0."""
+        players_repo = MagicMock()
+        players_repo.get_all.return_value = [make_mock_player("p1", "Alice")]
+
+        games_repo = MagicMock()
+        games_repo.get_games_by_player.return_value = []
+
+        achievement_repo = MagicMock()
+        achievement_repo.get_for_player.return_value = []  # no persisted achievements
+
+        ev = make_mock_evaluator("high_score")
+        ev.compute_tier = MagicMock(return_value=1)
+
+        service = make_service(
+            games_repo=games_repo,
+            achievement_repo=achievement_repo,
+            players_repo=players_repo,
+        )
+
+        with patch("services.achievements_service.ALL_EVALUATORS", [ev]):
+            summary = service.reconcile_all()
+
+        achievement_repo.upsert.assert_called_once_with("p1", "high_score", 1)
+        assert summary.players_updated == 1
+        assert len(summary.achievements_applied) == 1
+        assert summary.achievements_applied[0].old_tier == 0
+        assert summary.achievements_applied[0].new_tier == 1
