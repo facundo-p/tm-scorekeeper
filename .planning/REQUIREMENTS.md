@@ -40,15 +40,15 @@
 ### Frontend — Fin de Partida
 
 - [ ] **ENDG-01**: Sección separada de logros nuevos en pantalla de fin de partida
-- [ ] **ENDG-02**: Badge mini: solo ícono + título del logro desbloqueado
-- [ ] **ENDG-03**: Diferenciación visual entre "Nuevo logro" y "Logro mejorado"
+- [x] **ENDG-02**: Badge mini: solo ícono + título del logro desbloqueado
+- [x] **ENDG-03**: Diferenciación visual entre "Nuevo logro" y "Logro mejorado"
 
 ### Frontend — Perfil
 
 - [ ] **PROF-01**: Perfil de jugador reestructurado en secciones (Stats, Records, Logros)
-- [ ] **PROF-02**: Badge completo: ícono, título, descripción, tier actual, indicador de tier máximo
-- [ ] **PROF-03**: Barra de progreso hacia siguiente tier (en logros que lo soporten)
-- [ ] **PROF-04**: Logros bloqueados visibles en grayscale/opaco con progreso si aplica
+- [x] **PROF-02**: Badge completo: ícono, título, descripción, tier actual, indicador de tier máximo
+- [x] **PROF-03**: Barra de progreso hacia siguiente tier (en logros que lo soporten)
+- [x] **PROF-04**: Logros bloqueados visibles en grayscale/opaco con progreso si aplica
 
 ### Frontend — Catálogo
 
@@ -57,9 +57,9 @@
 
 ### Íconos
 
-- [ ] **ICON-01**: Componente `AchievementIcon` con fallback chain: SVG custom → Lucide → emoji
+- [x] **ICON-01**: Componente `AchievementIcon` con fallback chain: SVG custom → Lucide → emoji
 - [ ] **ICON-02**: Integración `vite-plugin-svgr` para SVG como componentes React
-- [ ] **ICON-03**: Mapeo de fallback icons en definiciones de logros (Lucide icon names)
+- [x] **ICON-03**: Mapeo de fallback icons en definiciones de logros (Lucide icon names)
 
 ### Herramientas
 
@@ -114,17 +114,17 @@
 | API-02 | Phase 2 | Complete |
 | API-03 | Phase 2 | Complete |
 | ENDG-01 | Phase 3 | Pending |
-| ENDG-02 | Phase 3 | Pending |
-| ENDG-03 | Phase 3 | Pending |
+| ENDG-02 | Phase 3 | Complete |
+| ENDG-03 | Phase 3 | Complete |
 | PROF-01 | Phase 3 | Pending |
-| PROF-02 | Phase 3 | Pending |
-| PROF-03 | Phase 3 | Pending |
-| PROF-04 | Phase 3 | Pending |
+| PROF-02 | Phase 3 | Complete |
+| PROF-03 | Phase 3 | Complete |
+| PROF-04 | Phase 3 | Complete |
 | CATL-01 | Phase 3 | Pending |
 | CATL-02 | Phase 3 | Pending |
-| ICON-01 | Phase 3 | Pending |
+| ICON-01 | Phase 3 | Complete |
 | ICON-02 | Phase 3 | Pending |
-| ICON-03 | Phase 3 | Pending |
+| ICON-03 | Phase 3 | Complete |
 | TOOL-01 | Phase 4 | Pending |
 | TOOL-02 | Phase 4 | Pending |
 | TOOL-03 | Phase 4 | Pending |
