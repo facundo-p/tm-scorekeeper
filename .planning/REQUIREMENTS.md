@@ -52,8 +52,8 @@
 
 ### Frontend — Catálogo
 
-- [ ] **CATL-01**: Página con grilla de todos los logros disponibles
-- [ ] **CATL-02**: Cada logro muestra qué jugadores lo tienen y en qué tier
+- [x] **CATL-01**: Página con grilla de todos los logros disponibles
+- [x] **CATL-02**: Cada logro muestra qué jugadores lo tienen y en qué tier
 
 ### Íconos
 
@@ -120,8 +120,8 @@
 | PROF-02 | Phase 3 | Pending |
 | PROF-03 | Phase 3 | Pending |
 | PROF-04 | Phase 3 | Pending |
-| CATL-01 | Phase 3 | Pending |
-| CATL-02 | Phase 3 | Pending |
+| CATL-01 | Phase 3 | Complete |
+| CATL-02 | Phase 3 | Complete |
 | ICON-01 | Phase 3 | Pending |
 | ICON-02 | Phase 3 | Pending |
 | ICON-03 | Phase 3 | Pending |

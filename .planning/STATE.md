@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-frontend-03-01-PLAN.md
-last_updated: "2026-04-01T02:39:01.377Z"
+stopped_at: Completed 03-frontend-03-03-PLAN.md
+last_updated: "2026-04-01T02:45:35.858Z"
 last_activity: 2026-04-01
 progress:
-  total_phases: 4
+  total_phases: 5
   completed_phases: 2
-  total_plans: 7
+  total_plans: 11
   completed_plans: 5
   percent: 0
 ---
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-21)
 ## Current Position
 
 Phase: 03 (frontend) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-04-01
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-integraci-n-y-api P01 | 5 | 2 tasks | 7 files |
 | Phase 02-integraci-n-y-api P02 | 4 | 2 tasks | 7 files |
 | Phase 03-frontend P01 | 175 | 2 tasks | 15 files |
+| Phase 03-frontend P03 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 02-integraci-n-y-api]: fetchAchievements not called inside submitGame — caller chains submitGame -> fetchAchievements -> fetchRecords in Phase 3 UI layer
 - [Phase 02-integraci-n-y-api]: No try/except in trigger_achievements route — AchievementsService.evaluate_for_game handles all errors and returns {} on any exception
 - [Phase 03-frontend]: AchievementBadgeMini uses separate CSS classes (badgeNew/badgeUpgrade) instead of data-attribute selectors — CSS Modules hashes class names preventing descendent selectors from working
+- [Phase 03-frontend]: Catalog item wrapper div captures onClick instead of AchievementCard to keep card reusable
+- [Phase 03-frontend]: Tests use .closest('[role=button]') to click catalog items precisely
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-01T02:39:01.373Z
-Stopped at: Completed 03-frontend-03-01-PLAN.md
+Last session: 2026-04-01T02:45:35.853Z
+Stopped at: Completed 03-frontend-03-03-PLAN.md
 Resume file: None
