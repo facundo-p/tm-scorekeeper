@@ -62,6 +62,21 @@ WIN_STREAK = AchievementDefinition(
     show_progress=True,
 )
 
+GREENERY_TILES = AchievementDefinition(
+    code="greenery_tiles",
+    description="Colocar losetas de vegetación a lo largo de todas las partidas",
+    icon=None,
+    fallback_icon="trees",
+    tiers=[
+        AchievementTier(level=1, threshold=25,  title="Jardinero Marciano"),
+        AchievementTier(level=2, threshold=50,  title="Ecologista"),
+        AchievementTier(level=3, threshold=100, title="Guardián del Bosque"),
+        AchievementTier(level=4, threshold=200, title="Maestro Botánico"),
+        AchievementTier(level=5, threshold=350, title="Elfo Marciano"),
+    ],
+    show_progress=True,
+)
+
 ALL_MAPS = AchievementDefinition(
     code="all_maps",
     description="Jugar en distintos mapas de Marte",

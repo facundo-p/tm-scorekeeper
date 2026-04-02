@@ -382,8 +382,8 @@ class TestAllMapsEvaluator:
 
 
 class TestRegistry:
-    def test_all_evaluators_has_five_entries(self):
-        assert len(ALL_EVALUATORS) == 5
+    def test_all_evaluators_has_six_entries(self):
+        assert len(ALL_EVALUATORS) == 6
 
     def test_all_codes_unique(self):
         codes = [ev.code for ev in ALL_EVALUATORS]
@@ -391,7 +391,7 @@ class TestRegistry:
 
     def test_expected_codes_present(self):
         codes = {ev.code for ev in ALL_EVALUATORS}
-        assert codes == {"high_score", "games_played", "games_won", "win_streak", "all_maps"}
+        assert codes == {"high_score", "games_played", "games_won", "win_streak", "greenery_tiles", "all_maps"}
 
     def test_all_evaluators_are_evaluator_instances(self):
         from services.achievement_evaluators.base import AchievementEvaluator

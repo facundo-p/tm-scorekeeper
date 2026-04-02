@@ -143,16 +143,14 @@ const ICON_MAP: Record<string, IconComponent> = {
 }
 ```
 
-Currently mapped: `trophy`, `flame`, `map`, `gamepad-2`, `star`, `zap`
-
-The `crown` icon is used by `games_won` but NOT in ICON_MAP — check if it needs adding.
+Currently mapped: `trophy`, `flame`, `map`, `gamepad-2`, `star`, `zap`, `crown`, `trees`
 
 ## Post-generation
 
-1. Run `POST /achievements/reconcile` to backfill the new achievement for existing players
-2. Run tests: `make test-backend` (NEVER pytest on host)
-3. Run frontend tests: `cd frontend && npx vitest run`
-4. Verify in catalog: `GET /achievements/catalog`
+1. Run tests: `make test-backend` (NEVER pytest on host)
+2. Run frontend tests: `cd frontend && npx vitest run`
+3. Verify in catalog: `GET /achievements/catalog`
+4. Run reconcile to backfill for existing players: `curl -s -X POST http://localhost:8000/achievements/reconcile`
 
 ## Important notes
 

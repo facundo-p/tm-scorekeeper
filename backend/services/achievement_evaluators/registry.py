@@ -2,7 +2,7 @@ from services.achievement_evaluators.single_game_threshold import SingleGameThre
 from services.achievement_evaluators.accumulated import AccumulatedEvaluator
 from services.achievement_evaluators.win_streak import WinStreakEvaluator
 from services.achievement_evaluators.all_maps import AllMapsEvaluator
-from services.achievement_evaluators.definitions import HIGH_SCORE, GAMES_PLAYED, GAMES_WON, WIN_STREAK, ALL_MAPS
+from services.achievement_evaluators.definitions import HIGH_SCORE, GAMES_PLAYED, GAMES_WON, WIN_STREAK, GREENERY_TILES, ALL_MAPS
 from services.helpers.results import calculate_results
 
 
@@ -34,10 +34,21 @@ def _high_score_extractor(player_id, game, game_result):
     return 0
 
 
+def _count_greenery_tiles(player_id, games):
+    """Sum greenery_points across all games for player."""
+    total = 0
+    for g in games:
+        for pr in g.player_results:
+            if pr.player_id == player_id:
+                total += pr.scores.greenery_points
+    return total
+
+
 ALL_EVALUATORS = [
     SingleGameThresholdEvaluator(HIGH_SCORE, extractor=_high_score_extractor),
     AccumulatedEvaluator(GAMES_PLAYED, counter=_count_games),
     AccumulatedEvaluator(GAMES_WON, counter=_count_wins),
     WinStreakEvaluator(WIN_STREAK),
+    AccumulatedEvaluator(GREENERY_TILES, counter=_count_greenery_tiles),
     AllMapsEvaluator(ALL_MAPS),
 ]

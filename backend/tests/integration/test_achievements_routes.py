@@ -100,15 +100,15 @@ def test_trigger_achievements_nonexistent_game(client):
 
 
 def test_get_player_achievements(client, players_repo):
-    """GET /players/{player_id}/achievements returns 200 with achievements list containing all defined achievements (5 items)."""
+    """GET /players/{player_id}/achievements returns 200 with achievements list containing all defined achievements (6 items)."""
     players_repo.create(Player(player_id="p10", name="Charlie"))
 
     response = client.get("/players/p10/achievements")
     assert response.status_code == 200
     data = response.json()
     assert "achievements" in data
-    # All 5 evaluators from ALL_EVALUATORS should appear (locked or unlocked)
-    assert len(data["achievements"]) == 5
+    # All 6 evaluators from ALL_EVALUATORS should appear (locked or unlocked)
+    assert len(data["achievements"]) == 6
     for item in data["achievements"]:
         assert "code" in item
         assert "title" in item
@@ -117,12 +117,12 @@ def test_get_player_achievements(client, players_repo):
 
 
 def test_get_catalog(client):
-    """GET /achievements/catalog returns 200 with achievements list containing all defined achievements (5 items)."""
+    """GET /achievements/catalog returns 200 with achievements list containing all defined achievements (6 items)."""
     response = client.get("/achievements/catalog")
     assert response.status_code == 200
     data = response.json()
     assert "achievements" in data
-    assert len(data["achievements"]) == 5
+    assert len(data["achievements"]) == 6
 
 
 def test_catalog_has_tiers_and_holders(client):
