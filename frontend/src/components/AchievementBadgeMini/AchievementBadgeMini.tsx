@@ -14,7 +14,6 @@ export default function AchievementBadgeMini({
   tier,
   fallback_icon,
   is_new,
-  is_upgrade,
 }: AchievementBadgeMiniProps) {
   const badgeType = is_new ? 'new' : 'upgrade'
   const badgeVariantClass = is_new ? styles.badgeNew : styles.badgeUpgrade
