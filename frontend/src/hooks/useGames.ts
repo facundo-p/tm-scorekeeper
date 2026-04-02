@@ -1,10 +1,11 @@
 import { useState, useCallback } from 'react'
 import { createGame, getGameRecords } from '@/api/games'
+import { triggerAchievements } from '@/api/achievements'
 import { ApiError } from '@/api/client'
 import { calcMilestonePoints, calcAwardPoints } from '@/utils/gameCalculations'
 import { Expansion } from '@/constants/enums'
 import { Corporation } from '@/constants/enums'
-import type { GameDTO, AwardResultDTO, RecordComparisonDTO } from '@/types'
+import type { GameDTO, AwardResultDTO, RecordComparisonDTO, AchievementsByPlayerDTO } from '@/types'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 export function useGames() {
@@ -79,5 +80,20 @@ export function useGames() {
     }
   }, [])
 
-  return { submitting, submitError, submitGame, fetchRecords }
+  const fetchAchievements = useCallback(async (gameId: string): Promise<AchievementsByPlayerDTO | null> => {
+    try {
+      return await triggerAchievements(gameId)
+    } catch {
+      // D-09: one retry
+      try {
+        return await triggerAchievements(gameId)
+      } catch {
+        // D-10: silent failure — achievements will be calculated eventually (reconciler or next game)
+        console.warn('Failed to load achievements after retry')
+        return null
+      }
+    }
+  }, [])
+
+  return { submitting, submitError, submitGame, fetchRecords, fetchAchievements }
 }
