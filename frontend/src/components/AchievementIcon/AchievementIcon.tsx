@@ -28,7 +28,7 @@ export default function AchievementIcon({
 
   return (
     <div
-      className={[styles.circle, unlocked ? styles.unlocked : styles.locked]
+      className={[styles.hexagon, unlocked ? styles.unlocked : styles.locked]
         .filter(Boolean)
         .join(' ')}
     >

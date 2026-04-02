@@ -64,38 +64,49 @@ describe('AchievementCatalog', () => {
     expect(screen.getByRole('status')).toBeInTheDocument()
   })
 
-  it('renders achievement titles after fetch resolves', async () => {
+  it('renders achievement descriptions after fetch resolves', async () => {
     vi.mocked(getAchievementsCatalog).mockResolvedValue(mockCatalog)
     renderCatalog()
     await waitFor(() => {
-      expect(screen.getByText('Gran Terraformador')).toBeInTheDocument()
-      expect(screen.getByText('Habitué')).toBeInTheDocument()
+      expect(screen.getByText('Alcanzar X puntos en una partida')).toBeInTheDocument()
+      expect(screen.getByText('Jugar partidas')).toBeInTheDocument()
     })
   })
 
-  it('clicking a card opens Modal with holders info', async () => {
+  it('shows max tier level for achievements with holders', async () => {
     vi.mocked(getAchievementsCatalog).mockResolvedValue(mockCatalog)
     renderCatalog()
     await waitFor(() => {
-      expect(screen.getByText('Gran Terraformador')).toBeInTheDocument()
+      expect(screen.getByText('Nivel 2: Joven Promesa')).toBeInTheDocument()
     })
-    // Click the catalog item wrapper (has role=button, title contains the achievement title)
-    const card = screen.getByText('Gran Terraformador').closest('[role="button"]')
+  })
+
+  it('clicking a multi-tier achievement shows tier breakdown with holders', async () => {
+    vi.mocked(getAchievementsCatalog).mockResolvedValue(mockCatalog)
+    renderCatalog()
+    await waitFor(() => {
+      expect(screen.getByText('Alcanzar X puntos en una partida')).toBeInTheDocument()
+    })
+    const card = screen.getByText('Alcanzar X puntos en una partida').closest('[role="button"]')
     fireEvent.click(card!)
     await waitFor(() => {
+      // Tier titles in the modal
+      expect(screen.getByText('Colono')).toBeInTheDocument()
+      expect(screen.getByText('Joven Promesa')).toBeInTheDocument()
+      expect(screen.getByText('Gran Terraformador')).toBeInTheDocument()
+      // Alice (tier 2) shown at Nivel 2, Bob (tier 1) at Nivel 1
       expect(screen.getByText('Alice')).toBeInTheDocument()
       expect(screen.getByText('Bob')).toBeInTheDocument()
     })
   })
 
-  it('shows empty holders text when no holders', async () => {
+  it('clicking an achievement with no holders shows empty message', async () => {
     vi.mocked(getAchievementsCatalog).mockResolvedValue(mockCatalog)
     renderCatalog()
     await waitFor(() => {
-      expect(screen.getByText('Habitué')).toBeInTheDocument()
+      expect(screen.getByText('Jugar partidas')).toBeInTheDocument()
     })
-    // Click the catalog item with no holders
-    const card = screen.getByText('Habitué').closest('[role="button"]')
+    const card = screen.getByText('Jugar partidas').closest('[role="button"]')
     fireEvent.click(card!)
     await waitFor(() => {
       expect(
