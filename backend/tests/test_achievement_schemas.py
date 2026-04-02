@@ -270,8 +270,8 @@ class TestBuildPlayerAchievementDTO:
         assert dto.progress.current == 7
         assert dto.progress.target == 10
 
-    def test_title_uses_first_tier(self):
-        """title = first tier title (canonical name per research recommendation)."""
+    def test_title_uses_persisted_tier(self):
+        """title = title of the player's current (persisted) tier."""
         from mappers.achievement_mapper import build_player_achievement_dto
         defn = make_definition(tiers=[
             AchievementTier(level=1, threshold=5, title="Novato"),
@@ -281,5 +281,17 @@ class TestBuildPlayerAchievementDTO:
 
         dto = build_player_achievement_dto(ev, persisted_tier=2, unlocked_at=date(2026, 1, 1), progress=None)
 
-        # title should always be the first tier's title (canonical name)
+        assert dto.title == "Habitue"
+
+    def test_title_falls_back_to_first_tier_when_not_unlocked(self):
+        """When persisted_tier=0, title falls back to first tier."""
+        from mappers.achievement_mapper import build_player_achievement_dto
+        defn = make_definition(tiers=[
+            AchievementTier(level=1, threshold=5, title="Novato"),
+            AchievementTier(level=2, threshold=10, title="Habitue"),
+        ])
+        ev = make_evaluator(defn)
+
+        dto = build_player_achievement_dto(ev, persisted_tier=0, unlocked_at=None, progress=None)
+
         assert dto.title == "Novato"

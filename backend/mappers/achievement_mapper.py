@@ -40,7 +40,10 @@ def build_player_achievement_dto(
     progress: Optional[Progress],
 ) -> PlayerAchievementDTO:
     """Build a full PlayerAchievementDTO from evaluator state and persisted data."""
-    title = evaluator.definition.tiers[0].title
+    title = next(
+        (t.title for t in evaluator.definition.tiers if t.level == persisted_tier),
+        evaluator.definition.tiers[0].title,
+    )
     max_tier = max(t.level for t in evaluator.definition.tiers)
     progress_dto = (
         ProgressDTO(current=progress.current, target=progress.target)
@@ -76,7 +79,7 @@ def build_catalog_item_dto(
     ]
     return AchievementCatalogItemDTO(
         code=evaluator.code,
-        title=evaluator.definition.tiers[0].title,
+        title=evaluator.definition.description,
         description=evaluator.definition.description,
         icon=evaluator.definition.icon,
         fallback_icon=evaluator.definition.fallback_icon,
