@@ -6,6 +6,8 @@ class PlayerStatsDTO(BaseModel):
     games_played: int
     games_won: int
     win_rate: float
+    avg_milestones: float
+    avg_awards: float
 
 
 class PlayerGameSummaryDTO(BaseModel):
