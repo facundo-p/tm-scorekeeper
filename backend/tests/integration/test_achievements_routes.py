@@ -107,8 +107,8 @@ def test_get_player_achievements(client, players_repo):
     assert response.status_code == 200
     data = response.json()
     assert "achievements" in data
-    # All 6 evaluators from ALL_EVALUATORS should appear (locked or unlocked)
-    assert len(data["achievements"]) == 6
+    # All 7 evaluators from ALL_EVALUATORS should appear (locked or unlocked)
+    assert len(data["achievements"]) == 12
     for item in data["achievements"]:
         assert "code" in item
         assert "title" in item
@@ -122,7 +122,7 @@ def test_get_catalog(client):
     assert response.status_code == 200
     data = response.json()
     assert "achievements" in data
-    assert len(data["achievements"]) == 6
+    assert len(data["achievements"]) == 12
 
 
 def test_catalog_has_tiers_and_holders(client):

@@ -243,7 +243,11 @@ class TestAccumulatedEvaluator:
 
 from services.achievement_evaluators.win_streak import WinStreakEvaluator
 from services.achievement_evaluators.all_maps import AllMapsEvaluator
-from services.achievement_evaluators.registry import ALL_EVALUATORS
+from services.achievement_evaluators.registry import (
+    ALL_EVALUATORS, _milestone_master_extractor, _no_milestone_win_extractor,
+    _award_master_extractor, _no_award_win_extractor, _stolen_awards_extractor,
+    _card_points_extractor,
+)
 from models.enums import MapName
 
 
@@ -381,9 +385,348 @@ class TestAllMapsEvaluator:
         assert progress.target == 3  # next tier threshold
 
 
+# ── Milestone Master (SingleGameThreshold) Tests ─────────────────────────────
+
+class TestMilestoneMaster:
+    def _make_game_with_milestones(self, player_id, milestones, total_points, opponent_points=20):
+        """Create a game where player has specific milestones and points."""
+        from models.enums import Milestone
+        player_score = PlayerScore(
+            terraform_rating=total_points,
+            milestone_points=len(milestones) * 5,
+            milestones=[Milestone(m) for m in milestones],
+            award_points=0,
+            card_points=0,
+            card_resource_points=0,
+            greenery_points=0,
+            city_points=0,
+            turmoil_points=None,
+        )
+        opponent_score = make_player_score(terraform_rating=opponent_points)
+        return Game(
+            game_id="g1",
+            date=date(2026, 1, 1),
+            map_name=MapName.THARSIS,
+            expansions=[],
+            draft=False,
+            generations=10,
+            player_results=[
+                PlayerResult(player_id=player_id, corporation=Corporation.CREDICOR,
+                             scores=player_score, end_stats=PlayerEndStats(mc_total=30)),
+                PlayerResult(player_id="opponent", corporation=Corporation.CREDICOR,
+                             scores=opponent_score, end_stats=PlayerEndStats(mc_total=30)),
+            ],
+            awards=[],
+        )
+
+    def test_win_with_3_milestones_unlocks(self):
+        from services.achievement_evaluators.definitions import MILESTONE_MASTER
+        ev = SingleGameThresholdEvaluator(MILESTONE_MASTER, extractor=_milestone_master_extractor)
+        game = self._make_game_with_milestones("p1", ["Terraformer", "Mayor", "Gardener"], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_win_with_2_milestones_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import MILESTONE_MASTER
+        ev = SingleGameThresholdEvaluator(MILESTONE_MASTER, extractor=_milestone_master_extractor)
+        game = self._make_game_with_milestones("p1", ["Terraformer", "Mayor"], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_lose_with_3_milestones_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import MILESTONE_MASTER
+        ev = SingleGameThresholdEvaluator(MILESTONE_MASTER, extractor=_milestone_master_extractor)
+        game = self._make_game_with_milestones("p1", ["Terraformer", "Mayor", "Gardener"], total_points=50, opponent_points=80)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_no_milestones_win_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import MILESTONE_MASTER
+        ev = SingleGameThresholdEvaluator(MILESTONE_MASTER, extractor=_milestone_master_extractor)
+        game = self._make_game_with_milestones("p1", [], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+
+# ── No Milestone Win (SingleGameThreshold) Tests ─────────────────────────────
+
+class TestNoMilestoneWin:
+    def _make_game_with_milestones(self, player_id, milestones, total_points, opponent_points=20, opponent_mc=30):
+        """Create a game where player has specific milestones and points."""
+        from models.enums import Milestone
+        player_score = PlayerScore(
+            terraform_rating=total_points,
+            milestone_points=len(milestones) * 5,
+            milestones=[Milestone(m) for m in milestones],
+            award_points=0,
+            card_points=0,
+            card_resource_points=0,
+            greenery_points=0,
+            city_points=0,
+            turmoil_points=None,
+        )
+        opponent_score = make_player_score(terraform_rating=opponent_points)
+        return Game(
+            game_id="g1",
+            date=date(2026, 1, 1),
+            map_name=MapName.THARSIS,
+            expansions=[],
+            draft=False,
+            generations=10,
+            player_results=[
+                PlayerResult(player_id=player_id, corporation=Corporation.CREDICOR,
+                             scores=player_score, end_stats=PlayerEndStats(mc_total=30)),
+                PlayerResult(player_id="opponent", corporation=Corporation.CREDICOR,
+                             scores=opponent_score, end_stats=PlayerEndStats(mc_total=opponent_mc)),
+            ],
+            awards=[],
+        )
+
+    def test_win_with_0_milestones_unlocks(self):
+        from services.achievement_evaluators.definitions import NO_MILESTONE_WIN
+        ev = SingleGameThresholdEvaluator(NO_MILESTONE_WIN, extractor=_no_milestone_win_extractor)
+        game = self._make_game_with_milestones("p1", [], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_win_with_1_milestone_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import NO_MILESTONE_WIN
+        ev = SingleGameThresholdEvaluator(NO_MILESTONE_WIN, extractor=_no_milestone_win_extractor)
+        game = self._make_game_with_milestones("p1", ["Terraformer"], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_lose_with_0_milestones_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import NO_MILESTONE_WIN
+        ev = SingleGameThresholdEvaluator(NO_MILESTONE_WIN, extractor=_no_milestone_win_extractor)
+        game = self._make_game_with_milestones("p1", [], total_points=50, opponent_points=80)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_tied_first_with_0_milestones_unlocks(self):
+        from services.achievement_evaluators.definitions import NO_MILESTONE_WIN
+        ev = SingleGameThresholdEvaluator(NO_MILESTONE_WIN, extractor=_no_milestone_win_extractor)
+        # Same total points and same MC = real tie, both position 1
+        game = self._make_game_with_milestones("p1", [], total_points=80, opponent_points=80, opponent_mc=30)
+        assert ev.compute_tier("p1", [game]) == 1
+        assert ev.compute_tier("opponent", [game]) == 1
+
+
+# ── Award-based achievement helpers ──────────────────────────────────────────
+
+def _make_award(award_name, opened_by, first_place, second_place=None):
+    from models.award_result import AwardResult
+    from models.enums import Award
+    return AwardResult(
+        award=Award(award_name),
+        opened_by=opened_by,
+        first_place=first_place,
+        second_place=second_place or [],
+    )
+
+
+def _make_game_with_awards(player_id, awards, total_points, opponent_points=20, opponent_mc=30):
+    """Create a game with specific awards and points."""
+    player_score = make_player_score(terraform_rating=total_points)
+    opponent_score = make_player_score(terraform_rating=opponent_points)
+    return Game(
+        game_id="g1",
+        date=date(2026, 1, 1),
+        map_name=MapName.THARSIS,
+        expansions=[],
+        draft=False,
+        generations=10,
+        player_results=[
+            PlayerResult(player_id=player_id, corporation=Corporation.CREDICOR,
+                         scores=player_score, end_stats=PlayerEndStats(mc_total=30)),
+            PlayerResult(player_id="opponent", corporation=Corporation.CREDICOR,
+                         scores=opponent_score, end_stats=PlayerEndStats(mc_total=opponent_mc)),
+        ],
+        awards=awards,
+    )
+
+
+# ── Award Master (SingleGameThreshold) Tests ─────────────────────────────────
+
+class TestAwardMaster:
+    def test_win_with_3_first_place_awards_unlocks(self):
+        from services.achievement_evaluators.definitions import AWARD_MASTER
+        ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "opponent", ["p1"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_win_with_2_first_place_awards_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import AWARD_MASTER
+        ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_lose_with_3_first_place_awards_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import AWARD_MASTER
+        ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=50, opponent_points=80)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_shared_first_place_counts(self):
+        from services.achievement_evaluators.definitions import AWARD_MASTER
+        ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1", "opponent"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1", "opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+
+# ── No Award Win (SingleGameThreshold) Tests ─────────────────────────────────
+
+class TestNoAwardWin:
+    def test_win_with_no_first_place_awards_unlocks(self):
+        from services.achievement_evaluators.definitions import NO_AWARD_WIN
+        ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_win_with_one_first_place_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import NO_AWARD_WIN
+        ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_lose_with_no_first_place_does_not_unlock(self):
+        from services.achievement_evaluators.definitions import NO_AWARD_WIN
+        ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=50, opponent_points=80)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_no_awards_in_game_unlocks(self):
+        from services.achievement_evaluators.definitions import NO_AWARD_WIN
+        ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
+        game = _make_game_with_awards("p1", [], total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+
+# ── Stolen Awards (SingleGameThreshold) Tests ────────────────────────────────
+
+class TestStolenAwards:
+    def test_steal_1_award_unlocks_tier_1(self):
+        from services.achievement_evaluators.definitions import STOLEN_AWARDS
+        ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
+        awards = [
+            _make_award("Landlord", "opponent", ["p1"]),       # stolen: sole 1st, not opener
+            _make_award("Banker", "p1", ["p1"]),               # not stolen: p1 opened it
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_steal_3_awards_unlocks_tier_3(self):
+        from services.achievement_evaluators.definitions import STOLEN_AWARDS
+        ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
+        awards = [
+            _make_award("Landlord", "opponent", ["p1"]),
+            _make_award("Banker", "opponent", ["p1"]),
+            _make_award("Scientist", "opponent", ["p1"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 3
+
+    def test_shared_first_place_does_not_count_as_stolen(self):
+        from services.achievement_evaluators.definitions import STOLEN_AWARDS
+        ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
+        awards = [
+            _make_award("Landlord", "opponent", ["p1", "opponent"]),  # shared, not sole
+            _make_award("Banker", "opponent", ["p1"]),                # stolen
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_opened_by_self_does_not_count(self):
+        from services.achievement_evaluators.definitions import STOLEN_AWARDS
+        ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
+        awards = [
+            _make_award("Landlord", "p1", ["p1"]),   # p1 opened it, not stolen
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_no_stolen_awards_tier_0(self):
+        from services.achievement_evaluators.definitions import STOLEN_AWARDS
+        ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
+        awards = [
+            _make_award("Landlord", "opponent", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
+        ]
+        game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
+        assert ev.compute_tier("p1", [game]) == 0
+
+
+# ── Card Points (SingleGameThreshold) Tests ──────────────────────────────────
+
+class TestCardPoints:
+    def test_card_points_tier_1(self):
+        from services.achievement_evaluators.definitions import CARD_POINTS
+        ev = SingleGameThresholdEvaluator(CARD_POINTS, extractor=_card_points_extractor)
+        game = make_game(["p1", "p2"], scores_by_player={"p1": 20, "p2": 20})
+        # Default make_player_score has card_points=0, need custom score
+        game.player_results[0].scores.card_points = 15
+        assert ev.compute_tier("p1", [game]) == 1
+
+    def test_card_points_tier_5(self):
+        from services.achievement_evaluators.definitions import CARD_POINTS
+        ev = SingleGameThresholdEvaluator(CARD_POINTS, extractor=_card_points_extractor)
+        game = make_game(["p1", "p2"], scores_by_player={"p1": 20, "p2": 20})
+        game.player_results[0].scores.card_points = 55
+        assert ev.compute_tier("p1", [game]) == 5
+
+    def test_card_points_below_threshold(self):
+        from services.achievement_evaluators.definitions import CARD_POINTS
+        ev = SingleGameThresholdEvaluator(CARD_POINTS, extractor=_card_points_extractor)
+        game = make_game(["p1", "p2"], scores_by_player={"p1": 20, "p2": 20})
+        game.player_results[0].scores.card_points = 5
+        assert ev.compute_tier("p1", [game]) == 0
+
+    def test_card_points_best_across_games(self):
+        from services.achievement_evaluators.definitions import CARD_POINTS
+        ev = SingleGameThresholdEvaluator(CARD_POINTS, extractor=_card_points_extractor)
+        game1 = make_game(["p1", "p2"], scores_by_player={"p1": 20, "p2": 20})
+        game1.player_results[0].scores.card_points = 15
+        game2 = make_game(["p1", "p2"], scores_by_player={"p1": 20, "p2": 20})
+        game2.player_results[0].scores.card_points = 35
+        assert ev.compute_tier("p1", [game1, game2]) == 3  # best is 35 -> tier 3
+
+
 class TestRegistry:
-    def test_all_evaluators_has_six_entries(self):
-        assert len(ALL_EVALUATORS) == 6
+    def test_all_evaluators_has_twelve_entries(self):
+        assert len(ALL_EVALUATORS) == 12
 
     def test_all_codes_unique(self):
         codes = [ev.code for ev in ALL_EVALUATORS]
@@ -391,7 +734,11 @@ class TestRegistry:
 
     def test_expected_codes_present(self):
         codes = {ev.code for ev in ALL_EVALUATORS}
-        assert codes == {"high_score", "games_played", "games_won", "win_streak", "greenery_tiles", "all_maps"}
+        assert codes == {
+            "high_score", "games_played", "games_won", "win_streak", "greenery_tiles",
+            "all_maps", "milestone_master", "no_milestone_win",
+            "award_master", "no_award_win", "stolen_awards", "card_points",
+        }
 
     def test_all_evaluators_are_evaluator_instances(self):
         from services.achievement_evaluators.base import AchievementEvaluator
