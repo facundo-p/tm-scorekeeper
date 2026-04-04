@@ -1,4 +1,4 @@
-import { Trophy, Flame, Map, Gamepad2, Star, Zap, Crown, Trees } from 'lucide-react'
+import { Trophy, Flame, Map, Gamepad2, Star, Zap, Crown, Trees, Shield, Layers } from 'lucide-react'
 import type { LucideProps } from 'lucide-react'
 import styles from './AchievementIcon.module.css'
 
@@ -13,6 +13,8 @@ const ICON_MAP: Record<string, IconComponent> = {
   zap: Zap,
   crown: Crown,
   trees: Trees,
+  shield: Shield,
+  layers: Layers,
 }
 
 interface AchievementIconProps {

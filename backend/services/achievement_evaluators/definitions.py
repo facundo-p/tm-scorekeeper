@@ -77,6 +77,78 @@ GREENERY_TILES = AchievementDefinition(
     show_progress=True,
 )
 
+MILESTONE_MASTER = AchievementDefinition(
+    code="milestone_master",
+    description="Ganar una partida habiendo reclamado los 3 hitos",
+    icon=None,
+    fallback_icon="star",
+    tiers=[
+        AchievementTier(level=1, threshold=1, title="Maestro de Hitos"),
+    ],
+    show_progress=False,
+)
+
+NO_MILESTONE_WIN = AchievementDefinition(
+    code="no_milestone_win",
+    description="Ganar una partida sin haber reclamado ningún hito",
+    icon=None,
+    fallback_icon="zap",
+    tiers=[
+        AchievementTier(level=1, threshold=1, title="Lobo Solitario"),
+    ],
+    show_progress=False,
+)
+
+AWARD_MASTER = AchievementDefinition(
+    code="award_master",
+    description="Ganar una partida habiendo quedado primero en las 3 recompensas",
+    icon=None,
+    fallback_icon="trophy",
+    tiers=[
+        AchievementTier(level=1, threshold=1, title="Rey de las Recompensas"),
+    ],
+    show_progress=False,
+)
+
+NO_AWARD_WIN = AchievementDefinition(
+    code="no_award_win",
+    description="Ganar una partida sin haber quedado primero en ninguna recompensa",
+    icon=None,
+    fallback_icon="zap",
+    tiers=[
+        AchievementTier(level=1, threshold=1, title="Incomprendido"),
+    ],
+    show_progress=False,
+)
+
+STOLEN_AWARDS = AchievementDefinition(
+    code="stolen_awards",
+    description="Robar recompensas (quedar 1ro en solitario en una recompensa que no abriste)",
+    icon=None,
+    fallback_icon="shield",
+    tiers=[
+        AchievementTier(level=1, threshold=1, title="Oportunista"),
+        AchievementTier(level=2, threshold=2, title="Ladrón"),
+        AchievementTier(level=3, threshold=3, title="Gran Estafador"),
+    ],
+    show_progress=False,
+)
+
+CARD_POINTS = AchievementDefinition(
+    code="card_points",
+    description="Alcanzar X puntos de cartas en una partida",
+    icon=None,
+    fallback_icon="layers",
+    tiers=[
+        AchievementTier(level=1, threshold=10, title="Apostador"),
+        AchievementTier(level=2, threshold=20, title="Inversor"),
+        AchievementTier(level=3, threshold=30, title="Magnate"),
+        AchievementTier(level=4, threshold=40, title="Cerebro Corporativo"),
+        AchievementTier(level=5, threshold=50, title="Elon Musk"),
+    ],
+    show_progress=False,
+)
+
 ALL_MAPS = AchievementDefinition(
     code="all_maps",
     description="Jugar en distintos mapas de Marte",
