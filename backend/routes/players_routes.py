@@ -83,6 +83,7 @@ def list_players(active: Optional[bool] = Query(default=None)):
             player_id=p.player_id,
             name=p.name,
             is_active=p.is_active,
+            elo=p.elo,
         )
         for p in players
     ]

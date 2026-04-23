@@ -36,10 +36,12 @@ class Player(Base):
     id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
     is_active = Column(Boolean, nullable=False, default=True)
+    elo = Column(Integer, nullable=False, default=1000)
 
     results = relationship("PlayerResult", back_populates="player")
     opened_awards = relationship("Award", back_populates="opened_by_player")
     achievements = relationship("PlayerAchievement", back_populates="player", cascade="all, delete-orphan")
+    elo_history = relationship("PlayerEloHistory", back_populates="player", cascade="all, delete-orphan")
 
 
 class Game(Base):
@@ -107,3 +109,17 @@ class PlayerAchievement(Base):
     )
 
     player = relationship("Player", back_populates="achievements")
+
+
+class PlayerEloHistory(Base):
+    __tablename__ = "player_elo_history"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    elo_before = Column(Integer, nullable=False)
+    elo_after = Column(Integer, nullable=False)
+    delta = Column(Integer, nullable=False)
+    recorded_at = Column(Date, nullable=False)
+
+    player = relationship("Player", back_populates="elo_history")

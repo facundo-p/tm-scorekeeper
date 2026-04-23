@@ -2,6 +2,7 @@ from typing import List
 from pydantic import BaseModel, Field
 from datetime import date
 from schemas.award import AwardResultDTO
+from schemas.elo import EloChangeDTO
 from models.enums import Expansion, MapName
 from schemas.player import PlayerResultDTO
 
@@ -21,6 +22,7 @@ class GameDTO(BaseModel):
 class GameCreatedResponseDTO(BaseModel):
     id: str
     game: GameDTO
+    elo_changes: List[EloChangeDTO]
 
 
 class GameListItemDTO(BaseModel):

@@ -1,9 +1,12 @@
 from models.player_result import PlayerResult
+from models.elo_change import EloChange
+from models.game import Game
 from schemas.game import GameDTO
 from datetime import date
 from models.award_result import AwardResult
 from models.enums import Corporation
 from services.helpers.results import calculate_results
+from services.elo_service import calculate_elo_changes, DEFAULT_ELO
 from schemas.result import GameResultDTO
 from mappers.game_mapper import game_dto_to_model
 from mappers.game_mapper import game_model_to_dto
@@ -12,9 +15,10 @@ from repositories.game_filters import GameFilter
 
 
 class GamesService:
-    def __init__(self, games_repository, players_repository):
+    def __init__(self, games_repository, players_repository, elo_repository=None):
         self.games_repository = games_repository
         self.players_repository = players_repository
+        self.elo_repository = elo_repository
 
 
     def _validate_date(self, game_date: date):
@@ -28,7 +32,7 @@ class GamesService:
         ids = [p.player_id for p in players]
         if len(ids) != len(set(ids)):
             raise ValueError("Duplicate players are not allowed")
-        
+
     def _validate_corporations(self, players: list[PlayerResult]) -> None:
         seen: set = set()
         for player in players:
@@ -42,7 +46,7 @@ class GamesService:
                 raise ValueError(
                     f"Corporation '{corp}' was chosen by more than one player")
             seen.add(corp)
-    
+
     def _validate_milestones(self, players: list[PlayerResult]) -> None:
         total = sum(len(player.scores.milestones) for player in players)
 
@@ -80,7 +84,7 @@ class GamesService:
             raise ValueError(
                 f"A game can have at most 3 awards (got {len(awards)})"
             )
-    
+
     def _validate_unique_awards(self, awards: list[AwardResult]) -> None:
         award_names = [award.award for award in awards]
 
@@ -128,16 +132,16 @@ class GamesService:
                 raise ValueError(
                     f"Award '{award.award}' cannot have second place in a 2-player game"
                 )
-            
+
     def _validate_players_exist(self, player_results: list[PlayerResult]):
         for pr in player_results:
             try:
                 self.players_repository.get(pr.player_id)
             except KeyError:
                 raise ValueError(f"Player '{pr.player_id}' is not registered")
-    
 
-    def create_game(self, game_dto: GameDTO) -> str:
+
+    def create_game(self, game_dto: GameDTO) -> tuple[str, list[EloChange]]:
         # Mapear a dominio
         game = game_dto_to_model(game_dto)
 
@@ -154,33 +158,44 @@ class GamesService:
         self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
 
-        return self.games_repository.create(game)
+        game_id = self.games_repository.create(game)
+        game.id = game_id
+
+        elo_changes = self._apply_elo_for_game(game)
+        return game_id, elo_changes
 
 
     def list_games(self, filters: GameFilter | None = None) -> list[GameDTO]:
         games = self.games_repository.list_games(filters)
         return [game_model_to_dto(game) for game in games]
 
-        
-    def update_game(self, game_id: str, game_dto: GameDTO) -> None:
+
+    def update_game(self, game_id: str, game_dto: GameDTO) -> list[EloChange]:
         game = game_dto_to_model(game_dto)
 
-        updated = self.games_repository.update(game_id, game)
-
-        if not updated:
+        if self.games_repository.get(game_id) is None:
             raise ValueError("Game not found")
 
-        
+        self._revert_elo_for_game(game_id)
+
+        self.games_repository.update(game_id, game)
+
+        game.id = game_id
+        return self._apply_elo_for_game(game)
+
+
     def delete_game(self, game_id: str) -> None:
         """
         Elimina una partida.
         Lanza error si no existe.
         """
+        self._revert_elo_for_game(game_id)
+
         deleted = self.games_repository.delete(game_id)
 
         if not deleted:
             raise ValueError("Game not found")
-        
+
     def get_game_results(self, game_id: str) -> GameResultDTO:
         game = self.games_repository.get(game_id)
 
@@ -188,3 +203,39 @@ class GamesService:
             raise ValueError("Game not found")
 
         return calculate_results(game)
+
+    def _apply_elo_for_game(self, game: Game) -> list[EloChange]:
+        """Calcula y persiste los cambios de ELO para una partida ya guardada."""
+        if self.elo_repository is None:
+            return []
+
+        current_elo_by_player = {
+            pr.player_id: self.players_repository.get(pr.player_id).elo
+            for pr in game.player_results
+        }
+
+        changes = calculate_elo_changes(game, current_elo_by_player)
+
+        self.elo_repository.save_elo_changes(
+            game_id=game.id,
+            recorded_at=game.date,
+            changes=changes,
+        )
+        self.players_repository.bulk_update_elo(
+            {c.player_id: c.elo_after for c in changes}
+        )
+        return changes
+
+    def _revert_elo_for_game(self, game_id: str) -> None:
+        """Revierte los cambios de ELO de una partida usando el historial."""
+        if self.elo_repository is None:
+            return
+
+        previous_changes = self.elo_repository.get_changes_for_game(game_id)
+        if not previous_changes:
+            return
+
+        self.players_repository.bulk_update_elo(
+            {c.player_id: c.elo_before for c in previous_changes}
+        )
+        self.elo_repository.delete_changes_for_game(game_id)
