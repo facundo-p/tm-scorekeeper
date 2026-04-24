@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from typing import Optional
 from services.player_service import PlayerService
 from mappers.record_comparison_mapper import record_comparison_to_dto
+from mappers.elo_mapper import elo_changes_to_dtos
 from schemas.game_records import RecordComparisonDTO
 from schemas.elo import EloChangeDTO
 from services.game_records_service import GameRecordsService
@@ -38,19 +39,6 @@ achievements_service = AchievementsService(
 )
 
 
-def _to_elo_change_dtos(changes, players_by_id) -> list[EloChangeDTO]:
-    return [
-        EloChangeDTO(
-            player_id=c.player_id,
-            player_name=players_by_id.get(c.player_id, c.player_id),
-            elo_before=c.elo_before,
-            elo_after=c.elo_after,
-            delta=c.delta,
-        )
-        for c in changes
-    ]
-
-
 def _player_names_map() -> dict[str, str]:
     return {p.player_id: p.name for p in players_repository.get_all()}
 
@@ -62,7 +50,7 @@ def create_game(game: GameDTO):
         return {
             "id": game_id,
             "game": game,
-            "elo_changes": _to_elo_change_dtos(elo_changes, _player_names_map()),
+            "elo_changes": elo_changes_to_dtos(elo_changes, _player_names_map()),
         }
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -94,7 +82,7 @@ def update_game(game_id: str, game: GameDTO):
 
     return {
         "message": "Game updated successfully",
-        "elo_changes": _to_elo_change_dtos(elo_changes, _player_names_map()),
+        "elo_changes": elo_changes_to_dtos(elo_changes, _player_names_map()),
     }
 
 
@@ -128,7 +116,7 @@ def get_game_elo_changes(game_id: str):
         raise HTTPException(status_code=404, detail="Game not found")
 
     changes = elo_repository.get_changes_for_game(game_id)
-    return _to_elo_change_dtos(changes, _player_names_map())
+    return elo_changes_to_dtos(changes, _player_names_map())
 
 
 @router.post("/{game_id}/achievements", response_model=AchievementsByPlayerResponseDTO)
