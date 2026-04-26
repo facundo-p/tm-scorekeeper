@@ -15,6 +15,7 @@ from repositories.container import (
     achievement_repository,
     elo_repository,
 )
+from services.container import elo_service
 from repositories.game_filters import GameFilter
 from services.achievements_service import AchievementsService
 from schemas.achievement import AchievementsByPlayerResponseDTO
@@ -29,7 +30,7 @@ router = APIRouter(
 games_service = GamesService(
     games_repository=games_repository,
     players_repository=players_repository,
-    elo_repository=elo_repository,
+    elo_service=elo_service,
 )
 
 achievements_service = AchievementsService(
@@ -46,12 +47,8 @@ def _player_names_map() -> dict[str, str]:
 @router.post("/", response_model=GameCreatedResponseDTO)
 def create_game(game: GameDTO):
     try:
-        game_id, elo_changes = games_service.create_game(game)
-        return {
-            "id": game_id,
-            "game": game,
-            "elo_changes": elo_changes_to_dtos(elo_changes, _player_names_map()),
-        }
+        game_id = games_service.create_game(game)
+        return {"id": game_id, "game": game}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -76,14 +73,11 @@ def get_game_results(game_id: str):
 @router.put("/{game_id}")
 def update_game(game_id: str, game: GameDTO):
     try:
-        elo_changes = games_service.update_game(game_id, game)
+        games_service.update_game(game_id, game)
     except ValueError:
         raise HTTPException(status_code=404, detail="Game not found")
 
-    return {
-        "message": "Game updated successfully",
-        "elo_changes": elo_changes_to_dtos(elo_changes, _player_names_map()),
-    }
+    return {"message": "Game updated successfully"}
 
 
 

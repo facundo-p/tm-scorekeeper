@@ -1,24 +1,21 @@
-from models.player_result import PlayerResult
-from models.elo_change import EloChange
-from models.game import Game
-from schemas.game import GameDTO
 from datetime import date
+
+from models.player_result import PlayerResult
 from models.award_result import AwardResult
 from models.enums import Corporation
-from services.helpers.results import calculate_results
-from services.elo_service import calculate_elo_changes, DEFAULT_ELO
+from schemas.game import GameDTO
 from schemas.result import GameResultDTO
-from mappers.game_mapper import game_dto_to_model
-from mappers.game_mapper import game_model_to_dto
+from services.helpers.results import calculate_results
+from mappers.game_mapper import game_dto_to_model, game_model_to_dto
 from repositories.game_filters import GameFilter
 
 
 
 class GamesService:
-    def __init__(self, games_repository, players_repository, elo_repository=None):
+    def __init__(self, games_repository, players_repository, elo_service=None):
         self.games_repository = games_repository
         self.players_repository = players_repository
-        self.elo_repository = elo_repository
+        self.elo_service = elo_service
 
 
     def _validate_date(self, game_date: date):
@@ -141,7 +138,7 @@ class GamesService:
                 raise ValueError(f"Player '{pr.player_id}' is not registered")
 
 
-    def create_game(self, game_dto: GameDTO) -> tuple[str, list[EloChange]]:
+    def create_game(self, game_dto: GameDTO) -> str:
         # Mapear a dominio
         game = game_dto_to_model(game_dto)
 
@@ -161,8 +158,8 @@ class GamesService:
         game_id = self.games_repository.create(game)
         game.id = game_id
 
-        elo_changes = self._apply_elo_for_game(game)
-        return game_id, elo_changes
+        self._recompute_elo_from(game.date)
+        return game_id
 
 
     def list_games(self, filters: GameFilter | None = None) -> list[GameDTO]:
@@ -170,18 +167,17 @@ class GamesService:
         return [game_model_to_dto(game) for game in games]
 
 
-    def update_game(self, game_id: str, game_dto: GameDTO) -> list[EloChange]:
-        game = game_dto_to_model(game_dto)
+    def update_game(self, game_id: str, game_dto: GameDTO) -> None:
+        new_game = game_dto_to_model(game_dto)
 
-        if self.games_repository.get(game_id) is None:
+        old_game = self.games_repository.get(game_id)
+        if old_game is None:
             raise ValueError("Game not found")
 
-        self._revert_elo_for_game(game_id)
+        self.games_repository.update(game_id, new_game)
 
-        self.games_repository.update(game_id, game)
-
-        game.id = game_id
-        return self._apply_elo_for_game(game)
+        affected_date = min(old_game.date, new_game.date)
+        self._recompute_elo_from(affected_date)
 
 
     def delete_game(self, game_id: str) -> None:
@@ -189,12 +185,15 @@ class GamesService:
         Elimina una partida.
         Lanza error si no existe.
         """
-        self._revert_elo_for_game(game_id)
+        old_game = self.games_repository.get(game_id)
+        if old_game is None:
+            raise ValueError("Game not found")
 
         deleted = self.games_repository.delete(game_id)
-
         if not deleted:
             raise ValueError("Game not found")
+
+        self._recompute_elo_from(old_game.date)
 
     def get_game_results(self, game_id: str) -> GameResultDTO:
         game = self.games_repository.get(game_id)
@@ -204,38 +203,7 @@ class GamesService:
 
         return calculate_results(game)
 
-    def _apply_elo_for_game(self, game: Game) -> list[EloChange]:
-        """Calcula y persiste los cambios de ELO para una partida ya guardada."""
-        if self.elo_repository is None:
-            return []
-
-        current_elo_by_player = {
-            pr.player_id: self.players_repository.get(pr.player_id).elo
-            for pr in game.player_results
-        }
-
-        changes = calculate_elo_changes(game, current_elo_by_player)
-
-        self.elo_repository.save_elo_changes(
-            game_id=game.id,
-            recorded_at=game.date,
-            changes=changes,
-        )
-        self.players_repository.bulk_update_elo(
-            {c.player_id: c.elo_after for c in changes}
-        )
-        return changes
-
-    def _revert_elo_for_game(self, game_id: str) -> None:
-        """Revierte los cambios de ELO de una partida usando el historial."""
-        if self.elo_repository is None:
+    def _recompute_elo_from(self, start_date: date) -> None:
+        if self.elo_service is None:
             return
-
-        previous_changes = self.elo_repository.get_changes_for_game(game_id)
-        if not previous_changes:
-            return
-
-        self.players_repository.bulk_update_elo(
-            {c.player_id: c.elo_before for c in previous_changes}
-        )
-        self.elo_repository.delete_changes_for_game(game_id)
+        self.elo_service.recompute_from_date(start_date)

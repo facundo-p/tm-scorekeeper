@@ -1,3 +1,5 @@
+from datetime import date
+
 from models.elo_change import EloChange
 from models.game import Game
 from services.helpers.results import calculate_results
@@ -63,3 +65,51 @@ def calculate_elo_changes(
         )
 
     return changes
+
+
+class EloService:
+    """
+    Encapsula la persistencia y recomputación de ELO.
+
+    `recompute_from_date` es la única vía de mutación: dada una fecha de partida
+    afectada, re-procesa todas las partidas con date >= start_date en orden
+    cronológico, dejando el historial y players.elo consistentes.
+    """
+
+    def __init__(self, elo_repository, players_repository, games_repository):
+        self.elo_repository = elo_repository
+        self.players_repository = players_repository
+        self.games_repository = games_repository
+
+    def recompute_from_date(self, start_date: date) -> None:
+        baseline = self._build_baseline(start_date)
+        self.elo_repository.delete_changes_from_date(start_date)
+        games = self.games_repository.list_games_from_date(start_date)
+        self._walk_and_persist(games, baseline)
+        self.players_repository.bulk_update_elo(baseline)
+
+    def recompute_all(self) -> None:
+        self.recompute_from_date(date.min)
+
+    def _build_baseline(self, start_date: date) -> dict[str, int]:
+        baseline = {p.player_id: DEFAULT_ELO for p in self.players_repository.get_all()}
+        baseline.update(self.elo_repository.get_baseline_elo_before(start_date))
+        return baseline
+
+    def _walk_and_persist(self, games: list[Game], baseline: dict[str, int]) -> None:
+        games.sort(key=lambda g: (g.date, g.id))
+        for game in games:
+            for pr in game.player_results:
+                baseline.setdefault(pr.player_id, DEFAULT_ELO)
+            snapshot = {
+                pr.player_id: baseline[pr.player_id]
+                for pr in game.player_results
+            }
+            changes = calculate_elo_changes(game, snapshot)
+            self.elo_repository.save_elo_changes(
+                game_id=game.id,
+                recorded_at=game.date,
+                changes=changes,
+            )
+            for c in changes:
+                baseline[c.player_id] = c.elo_after

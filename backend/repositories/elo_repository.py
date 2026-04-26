@@ -56,3 +56,32 @@ class EloRepository:
     def has_any_history(self) -> bool:
         with self._session_factory() as session:
             return session.query(PlayerEloHistoryORM.id).first() is not None
+
+    def delete_changes_from_date(self, start_date: date) -> None:
+        with self._session_factory() as session:
+            session.query(PlayerEloHistoryORM).filter(
+                PlayerEloHistoryORM.recorded_at >= start_date
+            ).delete(synchronize_session=False)
+            session.commit()
+
+    def get_baseline_elo_before(self, start_date: date) -> dict[str, int]:
+        """
+        Devuelve el último elo_after por jugador considerando solo registros con
+        recorded_at < start_date. Jugadores sin historial previo quedan ausentes
+        (el caller asigna DEFAULT_ELO).
+        """
+        with self._session_factory() as session:
+            rows = (
+                session.query(PlayerEloHistoryORM)
+                .filter(PlayerEloHistoryORM.recorded_at < start_date)
+                .order_by(
+                    PlayerEloHistoryORM.player_id,
+                    PlayerEloHistoryORM.recorded_at,
+                    PlayerEloHistoryORM.game_id,
+                )
+                .all()
+            )
+            baseline: dict[str, int] = {}
+            for r in rows:
+                baseline[r.player_id] = r.elo_after
+            return baseline
