@@ -44,19 +44,31 @@ Timestamp en UTC para ordenamiento lexicográfico estable.
 
 > ⚠️ **WARNING**: el dump contiene `DROP` implícito vía recreación de objetos. Ejecutar contra una DB de producción **sobreescribe** datos. Hacer SIEMPRE en una DB de prueba primero.
 
-### Restaurar a una DB local de prueba
+### Restaurar a la DB local de desarrollo (camino fácil)
+
+Hay un target en el `Makefile` que automatiza todo el flujo (down -v → up db → drop schema → restore → up):
 
 ```bash
-# 1. Descargar el backup desde R2 (Cloudflare dashboard o aws CLI)
-aws s3 cp \
-  s3://tm-scorekeeper-backups/tm-scorekeeper-20260426-143022.sql.gz \
-  ./backup.sql.gz \
-  --endpoint-url https://<ACCOUNT_ID>.r2.cloudflarestorage.com
+# 1. Bajar el backup desde Cloudflare R2 dashboard → bucket tm-scorekeeper-backups
+#    (Click en el archivo .sql.gz más reciente → Download)
 
-# 2. Verificar integridad
-gunzip -t backup.sql.gz
+# 2. Correr el restore (te pide confirmación antes de pisar la DB)
+make restore-prod FILE=/Users/facu/Downloads/tm-scorekeeper-20260427-XXXXXX.sql.gz
+```
 
-# 3. Crear DB destino y restaurar
+⚠️ Pisa toda la DB local. El target valida antes de hacer destructive ops:
+- File existe
+- Es un gzip válido
+- Contiene header de `pg_dump`
+- Pide confirmación interactiva `[y/N]`
+
+### Restaurar a una DB local de prueba (manual, sin pisar dev)
+
+Si querés restaurar en una DB aparte sin tocar tu dev local:
+
+```bash
+# Asumiendo que tenés psql 17+ local (brew install postgresql@17)
+gunzip -t backup.sql.gz                    # verificar integridad
 createdb tm_restore_test
 gunzip -c backup.sql.gz | psql postgresql://localhost/tm_restore_test
 ```
