@@ -98,24 +98,34 @@ Usamos `SUPABASE_DIRECT_URL` separado de `DATABASE_URL` (el que usa el backend e
 
 ---
 
-## Caveat: pooler vs direct connection
+## Caveat: qué endpoint de Supabase usar
 
-Supabase expone dos endpoints para Postgres:
+Supabase expone tres endpoints para Postgres:
 
-| Tipo | Puerto | Sirve para |
-|---|---|---|
-| **Direct** | `5432` | `pg_dump`, sesiones largas, transacciones grandes |
-| **Pooler** (PgBouncer) | `6543` | Queries cortas en modo transaction pooling |
+| Tipo | Host | Puerto | Sirve para `pg_dump`? | Reachable desde GH Actions free? |
+|---|---|---|---|---|
+| **Direct** | `db.<PROJECT_REF>.supabase.co` | `5432` | ✅ Sí | ❌ **IPv6 only en plan free** |
+| **Transaction pooler** | `<region>.pooler.supabase.com` | `6543` | ❌ No (modo transaction rompe `COPY`) | ✅ IPv4 |
+| **Session pooler** | `<region>.pooler.supabase.com` | `5432` | ✅ Sí (session mode = full Postgres protocol) | ✅ IPv4 |
 
-**`pg_dump` no funciona contra el pooler** (PgBouncer transaction mode no soporta `COPY` ni sesiones que exceden una transacción). Por eso este workflow usa un secret dedicado `SUPABASE_DIRECT_URL` en lugar de reusar el `DATABASE_URL` del backend.
+Los runners de GitHub Actions no tienen conectividad IPv6 → el endpoint **direct** falla con `Network is unreachable`. La única combinación que sirve para correr `pg_dump` desde GH Actions en plan free es el **Session Pooler**.
 
-### Cómo verificar que `SUPABASE_DIRECT_URL` está bien
+### Qué tiene que tener `SUPABASE_DIRECT_URL`
 
-El host de la connection string debe ser:
-- ✅ Direct: `db.<PROJECT_REF>.supabase.co` con puerto `5432`
-- ❌ Pooler: `<region>.pooler.supabase.com` con puerto `6543` (o `5432` con `?pgbouncer=true`)
+A pesar del nombre del secret, en plan free debe apuntar al **Session Pooler**:
 
-En el dashboard de Supabase: Project Settings → Database → Connection string → URI con el toggle **"Use connection pooling"** en **OFF**.
+```
+postgresql://postgres.<PROJECT_REF>:<PASSWORD>@<region>.pooler.supabase.com:5432/postgres
+```
+
+Identificadores clave:
+- User es `postgres.<PROJECT_REF>` (con el project ref después del punto, no solo `postgres`)
+- Host es `<region>.pooler.supabase.com`
+- Puerto **5432** (no 6543 — eso sería transaction mode)
+
+En el dashboard de Supabase: **Project Settings** → **Database** → **Connection string** → seleccionar **Session pooler** (o "Session mode" dentro del dropdown de Connection pooling). Copiar la URI tal cual.
+
+> Nota sobre el naming: el secret se llama `SUPABASE_DIRECT_URL` por contraste con el `DATABASE_URL` del backend (que usa el transaction pooler). En plan paid de Supabase con add-on de IPv4 se podría apuntar al endpoint direct real. Cuando eso pase, actualizar este doc.
 
 ---
 
@@ -128,4 +138,5 @@ En el dashboard de Supabase: Project Settings → Database → Connection string
 | `ERROR: Backup file is N bytes (<1KB). pg_dump likely produced an empty dump.` | `pg_dump` falló sin output (URL inválida, host inalcanzable, permisos) | Revisar logs del step previo; verificar el valor de `SUPABASE_DIRECT_URL` |
 | `An error occurred (NoSuchBucket)` | Bucket no existe o nombre incorrecto en `CLOUDFLARE_R2_BUCKET` | Verificar nombre exacto en R2 dashboard |
 | `An error occurred (InvalidAccessKeyId)` | Credenciales R2 inválidas o revocadas | Regenerar API token en R2 |
-| `pg_dump: error: server version: 16.x; pg_dump version: 15.x` | Supabase upgradeó Postgres | Actualizar `postgresql-client-15` → `-16` en el workflow |
+| `pg_dump: error: aborting because of server version mismatch` | Supabase upgradeó Postgres a una versión > el cliente instalado | Bumpear `postgresql-client-NN` al major nuevo en el step **Install postgresql-client** del workflow (y la línea de `/usr/lib/postgresql/NN/bin`) |
+| `Network is unreachable` contra `db.<ref>.supabase.co` | El host **direct** de Supabase es IPv6-only en plan free; los runners de GH Actions no tienen IPv6 | Cambiar `SUPABASE_DIRECT_URL` al **Session Mode Pooler** (host `<region>.pooler.supabase.com:5432`, user `postgres.<project_ref>`). El pooler en session mode soporta `pg_dump` y es IPv4 |
