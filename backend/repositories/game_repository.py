@@ -173,4 +173,9 @@ class GamesRepository:
             query = session.query(GameORM)
             if filters and filters.game_ids is not None:
                 query = query.filter(GameORM.id.in_(filters.game_ids))
+            if filters and filters.date_from is not None:
+                query = query.filter(GameORM.date >= filters.date_from)
             return [self._orm_to_domain(g) for g in query.all()]
+
+    def list_games_from_date(self, start_date) -> List[Game]:
+        return self.list_games(GameFilter(date_from=start_date))
