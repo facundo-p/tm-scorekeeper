@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getPlayerProfile, getPlayers } from '@/api/players'
+import { getPlayerAchievements } from '@/api/achievements'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
-import type { PlayerProfileDTO } from '@/types'
+import TabBar from '@/components/TabBar/TabBar'
+import AchievementCard from '@/components/AchievementCard/AchievementCard'
+import type { Tab } from '@/components/TabBar/TabBar'
+import type { PlayerProfileDTO, PlayerAchievementDTO } from '@/types'
 import styles from './PlayerProfile.module.css'
 
 export default function PlayerProfile() {
@@ -12,6 +16,11 @@ export default function PlayerProfile() {
   const [playerName, setPlayerName] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+
+  const [activeTab, setActiveTab] = useState<Tab>('stats')
+  const [achievements, setAchievements] = useState<PlayerAchievementDTO[] | null>(null)
+  const [loadingAchievements, setLoadingAchievements] = useState(false)
+  const [achievementsError, setAchievementsError] = useState('')
 
   useEffect(() => {
     if (!playerId) return
@@ -25,8 +34,23 @@ export default function PlayerProfile() {
       .finally(() => setLoading(false))
   }, [playerId])
 
+  const handleTabChange = (tab: Tab) => {
+    setActiveTab(tab)
+    if (tab === 'logros' && achievements === null && !loadingAchievements) {
+      setLoadingAchievements(true)
+      getPlayerAchievements(playerId!)
+        .then(res => setAchievements(res.achievements))
+        .catch(() => setAchievementsError('No se pudo cargar los logros. Intentá de nuevo.'))
+        .finally(() => setLoadingAchievements(false))
+    }
+  }
+
   const activeRecords = profile
     ? Object.entries(profile.records).filter(([, holds]) => holds)
+    : []
+
+  const sortedAchievements = achievements
+    ? [...achievements].sort((a, b) => (b.unlocked ? 1 : 0) - (a.unlocked ? 1 : 0))
     : []
 
   return (
@@ -40,72 +64,114 @@ export default function PlayerProfile() {
         </h1>
       </header>
 
+      <div className={styles.tabBarWrapper}>
+        <TabBar activeTab={activeTab} onTabChange={handleTabChange} />
+      </div>
+
       <main className={styles.main}>
         {loading && <Spinner />}
         {error && <p className={styles.errorBox}>{error}</p>}
 
         {!loading && profile && (
           <>
-            <section className={styles.statsCard}>
-              <h2 className={styles.sectionTitle}>Estadísticas</h2>
-              <div className={styles.statsGrid}>
-                <div className={styles.statItem}>
-                  <span className={styles.statValue}>{profile.stats.games_played}</span>
-                  <span className={styles.statLabel}>Partidas jugadas</span>
-                </div>
-                <div className={styles.statItem}>
-                  <span className={styles.statValue}>{profile.stats.games_won}</span>
-                  <span className={styles.statLabel}>Partidas ganadas</span>
-                </div>
-                <div className={styles.statItem}>
-                  <span className={styles.statValue}>
-                    {(profile.stats.win_rate * 100).toFixed(0)}%
-                  </span>
-                  <span className={styles.statLabel}>Win rate</span>
-                </div>
-              </div>
-            </section>
-
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Historial de partidas</h2>
-              {profile.games.length === 0 ? (
-                <p className={styles.empty}>Todavía no hay partidas registradas.</p>
-              ) : (
-                <div className={styles.gameList}>
-                  {profile.games.map((game) => (
-                    <Link
-                      key={game.game_id}
-                      to={`/games/${game.game_id}`}
-                      className={styles.gameRow}
-                    >
-                      <span className={styles.gameDate}>{game.date}</span>
-                      <span className={[styles.gamePosition, game.position === 1 ? styles.winner : ''].join(' ')}>
-                        #{game.position}
-                      </span>
-                      <span className={styles.gamePoints}>{game.points} pts</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </section>
-
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Records actuales</h2>
-              {activeRecords.length === 0 ? (
-                <p className={styles.empty}>Este jugador no sostiene ningún record actualmente.</p>
-              ) : (
-                <div className={styles.recordList}>
-                  {activeRecords.map(([type]) => (
-                    <div key={type} className={styles.recordItem}>
-                      <span className={styles.recordIcon}>🏅</span>
-                      <span className={styles.recordType}>
-                        {type.split('_').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
-                      </span>
+            {activeTab === 'stats' && (
+              <>
+                <section className={styles.statsCard}>
+                  <h2 className={styles.sectionTitle}>Estadísticas</h2>
+                  <div className={styles.statsGrid}>
+                    <div className={styles.statItem}>
+                      <span className={styles.statValue}>{profile.stats.games_played}</span>
+                      <span className={styles.statLabel}>Partidas jugadas</span>
                     </div>
-                  ))}
-                </div>
-              )}
-            </section>
+                    <div className={styles.statItem}>
+                      <span className={styles.statValue}>{profile.stats.games_won}</span>
+                      <span className={styles.statLabel}>Partidas ganadas</span>
+                    </div>
+                    <div className={styles.statItem}>
+                      <span className={styles.statValue}>
+                        {(profile.stats.win_rate * 100).toFixed(0)}%
+                      </span>
+                      <span className={styles.statLabel}>Win rate</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>Historial de partidas</h2>
+                  {profile.games.length === 0 ? (
+                    <p className={styles.empty}>Todavía no hay partidas registradas.</p>
+                  ) : (
+                    <div className={styles.gameList}>
+                      {profile.games.map((game) => (
+                        <Link
+                          key={game.game_id}
+                          to={`/games/${game.game_id}`}
+                          className={styles.gameRow}
+                        >
+                          <span className={styles.gameDate}>{game.date}</span>
+                          <span className={[styles.gamePosition, game.position === 1 ? styles.winner : ''].join(' ')}>
+                            #{game.position}
+                          </span>
+                          <span className={styles.gamePoints}>{game.points} pts</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              </>
+            )}
+
+            {activeTab === 'records' && (
+              <>
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>Records actuales</h2>
+                  {activeRecords.length === 0 ? (
+                    <p className={styles.empty}>Este jugador no sostiene ningún record actualmente.</p>
+                  ) : (
+                    <div className={styles.recordList}>
+                      {activeRecords.map(([type]) => (
+                        <div key={type} className={styles.recordItem}>
+                          <span className={styles.recordIcon}>🏅</span>
+                          <span className={styles.recordType}>
+                            {type.split('_').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </section>
+              </>
+            )}
+
+            {activeTab === 'logros' && (
+              <>
+                {loadingAchievements && <Spinner />}
+                {achievementsError && <p className={styles.errorBox}>{achievementsError}</p>}
+                {!loadingAchievements && !achievementsError && achievements !== null && (
+                  achievements.length === 0 ? (
+                    <div className={styles.emptyState}>
+                      <h2 className={styles.emptyHeading}>Sin logros todavía</h2>
+                      <p className={styles.emptyBody}>Jugá más partidas para desbloquear logros.</p>
+                    </div>
+                  ) : (
+                    <div className={styles.achievementList}>
+                      {sortedAchievements.map(ach => (
+                        <AchievementCard
+                          key={ach.code}
+                          title={ach.title}
+                          description={ach.description}
+                          fallback_icon={ach.fallback_icon}
+                          tier={ach.tier}
+                          max_tier={ach.max_tier}
+                          unlocked={ach.unlocked}
+                          progress={ach.progress}
+                        />
+                      ))}
+                    </div>
+                  )
+                )}
+              </>
+            )}
           </>
         )}
       </main>

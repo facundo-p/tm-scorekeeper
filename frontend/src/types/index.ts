@@ -123,10 +123,15 @@ export interface RecordAttributeDTO {
 
 export interface RecordResultDTO {
   value: number
+  title: string | null
+  emoji: string | null
   attributes: RecordAttributeDTO[]
 }
 
 export interface RecordComparisonDTO {
+  code: string
+  title: string | null
+  emoji: string | null
   description: string
   achieved: boolean
   compared: RecordResultDTO | null
@@ -136,5 +141,72 @@ export interface RecordComparisonDTO {
 export interface GlobalRecordDTO {
   code: string
   description: string
+  title: string | null
+  emoji: string | null
   record: RecordResultDTO | null
+}
+
+// Achievement types
+
+export interface AchievementUnlockedDTO {
+  code: string
+  title: string
+  tier: number
+  is_new: boolean
+  is_upgrade: boolean
+  icon: string | null
+  fallback_icon: string
+}
+
+export interface AchievementsByPlayerDTO {
+  achievements_by_player: Record<string, AchievementUnlockedDTO[]>
+}
+
+export interface ProgressDTO {
+  current: number
+  target: number
+}
+
+export interface PlayerAchievementDTO {
+  code: string
+  title: string
+  description: string
+  tier: number
+  max_tier: number
+  icon: string | null
+  fallback_icon: string
+  unlocked: boolean
+  unlocked_at: string | null
+  progress: ProgressDTO | null
+}
+
+export interface PlayerAchievementsResponseDTO {
+  achievements: PlayerAchievementDTO[]
+}
+
+export interface AchievementTierInfoDTO {
+  level: number
+  threshold: number
+  title: string
+}
+
+export interface HolderDTO {
+  player_id: string
+  player_name: string
+  tier: number
+  unlocked_at: string
+}
+
+export interface AchievementCatalogItemDTO {
+  code: string
+  title: string
+  description: string
+  icon: string | null
+  fallback_icon: string
+  tiers: AchievementTierInfoDTO[]
+  holders: HolderDTO[]
+}
+
+export interface AchievementCatalogResponseDTO {
+  achievements: AchievementCatalogItemDTO[]
 }

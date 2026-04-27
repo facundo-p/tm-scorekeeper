@@ -39,6 +39,7 @@ class Player(Base):
 
     results = relationship("PlayerResult", back_populates="player")
     opened_awards = relationship("Award", back_populates="opened_by_player")
+    achievements = relationship("PlayerAchievement", back_populates="player", cascade="all, delete-orphan")
 
 
 class Game(Base):
@@ -90,3 +91,19 @@ class Award(Base):
 
     game = relationship("Game", back_populates="awards")
     opened_by_player = relationship("Player", back_populates="opened_awards")
+
+
+class PlayerAchievement(Base):
+    __tablename__ = "player_achievements"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    code = Column(String, nullable=False)
+    tier = Column(Integer, nullable=False, default=1)
+    unlocked_at = Column(Date, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("player_id", "code", name="uq_player_achievement"),
+    )
+
+    player = relationship("Player", back_populates="achievements")

@@ -1,0 +1,172 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+.headerTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.main {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.catalogItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.catalogItem:hover {
+  background: var(--color-surface-hover);
+}
+
+.catalogItem:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.catalogInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.catalogTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.catalogTier {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.errorBox {
+  color: var(--color-error);
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+/* Modal detail */
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.noHolders {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+}
+
+.tierBlock {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid transparent;
+}
+
+.tierUnlocked {
+  background: rgba(230, 126, 34, 0.08);
+  border-left-color: var(--color-accent);
+}
+
+.tierLocked {
+  opacity: 0.45;
+}
+
+.tierHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.tierLevel {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  min-width: 52px;
+}
+
+.tierTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  flex: 1;
+}
+
+.tierThreshold {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.tierHolders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs) var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+  padding-left: 52px;
+}
+
+.tierHolderName {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Single-tier holders */
+.holdersList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.holderRow {
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.holderRow:last-child {
+  border-bottom: none;
+}
+
+.holderName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}

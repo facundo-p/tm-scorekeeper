@@ -30,6 +30,6 @@ class GameRecordsService:
     def get_global_records(self):
         games = self.games_repository.list_games()
         return [
-            {"code": c.code, "description": c.description, "entry": c.calculate(games)}
+            {"code": c.code, "title": c.title, "emoji": c.emoji, "description": c.description, "entry": c.calculate(games)}
             for c in self._calculators
         ]

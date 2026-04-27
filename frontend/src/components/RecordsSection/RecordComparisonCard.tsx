@@ -6,16 +6,16 @@ function ResultRow({ label, result, isPrimary }: { label: string; result: Record
   return (
     <div className={[styles.resultRow, isPrimary ? styles.primary : styles.secondary].join(' ')}>
       <span className={styles.resultLabel}>{label}</span>
-      <div className={styles.resultBottom}>
-        <span className={styles.resultValue}>{result.value}</span>
-        <span className={styles.resultAttrs}>
-          {result.attributes.map((attr, i) => (
-            <span key={attr.label} className={styles.resultAttr}>
-              {i > 0 && <span className={styles.resultAttrSep}> · </span>}
-              {tryFormatDate(attr.value)}
-            </span>
-          ))}
-        </span>
+      <p className={styles.resultAttrs}>
+        {result.attributes.map((attr, i) => (
+          <span key={attr.label}>
+            {i > 0 && <span className={styles.resultAttrSep}> · </span>}
+            {tryFormatDate(attr.value)}
+          </span>
+        ))}
+      </p>
+      <div className={styles.resultMeta}>
+        <span className={styles.resultMetaValue}>{result.value}</span>
       </div>
     </div>
   )
@@ -26,9 +26,13 @@ interface Props {
 }
 
 export default function RecordComparisonCard({ comparison }: Props) {
+  const heroTitle = comparison.title ?? comparison.description
+
   return (
     <div className={[styles.card, comparison.achieved ? styles.achieved : styles.notAchieved].join(' ')}>
-      <p className={styles.description}>{comparison.description}</p>
+      <p className={styles.hero}>
+        {comparison.emoji && <span>{comparison.emoji}</span>} {heroTitle}
+      </p>
       <div className={styles.rows}>
         {comparison.achieved ? (
           <>
@@ -41,6 +45,9 @@ export default function RecordComparisonCard({ comparison }: Props) {
             <ResultRow label="Record vigente" result={comparison.current} isPrimary={true} />
           </>
         )}
+      </div>
+      <div className={styles.cardMeta}>
+        <span className={styles.cardMetaDescription}>{comparison.description}</span>
       </div>
     </div>
   )

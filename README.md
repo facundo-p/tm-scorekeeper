@@ -57,6 +57,12 @@ make migrate
 
 ---
 
+## Operaciones
+
+- **Backups de la DB de producción** — workflow manual que dumpea Supabase a un bucket de Cloudflare R2. Ver [`docs/backups.md`](docs/backups.md).
+
+---
+
 ## Estructura del proyecto
 
 ```

@@ -16,6 +16,8 @@ def get_global_records():
     return [
         GlobalRecordDTO(
             code=r["code"],
+            title=r["title"],
+            emoji=r["emoji"],
             description=r["description"],
             record=entry_to_result(r["entry"], players_by_id) if r["entry"] else None,
         )

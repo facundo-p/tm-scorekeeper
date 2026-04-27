@@ -1,0 +1,77 @@
+name: Backup Supabase to R2
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: "Optional suffix for the backup filename (e.g. pre-migration)"
+        required: false
+        default: ""
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install postgresql-client-15
+        run: |
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl -fsSL -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
+            https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" \
+            | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends postgresql-client-15
+          pg_dump --version
+
+      - name: Compute backup filename
+        id: name
+        run: |
+          TIMESTAMP=$(date -u +'%Y%m%d-%H%M%S')
+          LABEL="${{ inputs.label }}"
+          if [ -n "$LABEL" ]; then
+            SAFE_LABEL=$(echo "$LABEL" | tr -c '[:alnum:]-_' '-' | sed 's/-\{2,\}/-/g; s/^-//; s/-$//')
+            FILENAME="tm-scorekeeper-${TIMESTAMP}-${SAFE_LABEL}.sql.gz"
+          else
+            FILENAME="tm-scorekeeper-${TIMESTAMP}.sql.gz"
+          fi
+          echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
+          echo "Backup filename: $FILENAME"
+
+      - name: Dump database and compress
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          pg_dump \
+            --schema=public \
+            --no-owner \
+            --no-acl \
+            --format=plain \
+            "$DATABASE_URL" \
+            | gzip -9 > "${{ steps.name.outputs.filename }}"
+          ls -lh "${{ steps.name.outputs.filename }}"
+          gunzip -t "${{ steps.name.outputs.filename }}"
+
+      - name: Upload to Cloudflare R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ secrets.CLOUDFLARE_R2_BUCKET }}
+        run: |
+          aws s3 cp \
+            "${{ steps.name.outputs.filename }}" \
+            "s3://${R2_BUCKET}/${{ steps.name.outputs.filename }}" \
+            --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+
+      - name: Verify upload
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ secrets.CLOUDFLARE_R2_BUCKET }}
+        run: |
+          aws s3 ls \
+            "s3://${R2_BUCKET}/${{ steps.name.outputs.filename }}" \
+            --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
