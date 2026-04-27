@@ -36,13 +36,14 @@ make down
 ## Comandos disponibles
 
 ```bash
-make dev            # Levanta todos los servicios (hot-reload activo)
-make down           # Detiene y elimina los contenedores
-make migrate        # Aplica migraciones de base de datos (Alembic)
-make logs           # Tail de logs de todos los servicios
-make test-backend   # Corre los tests del backend (pytest)
-make test-frontend  # Corre los tests del frontend (vitest)
-make typechecks     # Typecheck de TypeScript (tsc -b)
+make dev                              # Levanta todos los servicios (hot-reload activo)
+make down                             # Detiene y elimina los contenedores
+make migrate                          # Aplica migraciones de base de datos (Alembic)
+make logs                             # Tail de logs de todos los servicios
+make test-backend                     # Corre los tests del backend (pytest)
+make test-frontend                    # Corre los tests del frontend (vitest)
+make typechecks                       # Typecheck de TypeScript (tsc -b)
+make restore-prod FILE=<backup.sql.gz>  # Restaura un backup de prod a la DB local (DESTRUCTIVO — pisa todo)
 ```
 
 ---
