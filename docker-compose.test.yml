@@ -1,6 +1,6 @@
 services:
   db_test:
-    image: postgres:15
+    image: postgres:17
     environment:
       POSTGRES_USER: tm_user
       POSTGRES_PASSWORD: tm_pass
