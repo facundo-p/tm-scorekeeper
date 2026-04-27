@@ -88,13 +88,13 @@ Configurar en: repo → **Settings** → **Secrets and variables** → **Actions
 
 | Secret | Valor | Dónde se obtiene |
 |---|---|---|
-| `DATABASE_URL` | Connection string Postgres de Supabase (**direct**, ver caveat abajo) | Supabase dashboard → Project settings → Database → Connection string |
+| `SUPABASE_DIRECT_URL` | Connection string Postgres de Supabase, **modo direct** (puerto 5432) | Supabase dashboard → Project Settings → Database → Connection string → URI con "Use connection pooling" en **OFF** |
 | `CLOUDFLARE_R2_ACCOUNT_ID` | Account ID de Cloudflare | R2 dashboard → API (sidebar derecha) |
 | `CLOUDFLARE_R2_ACCESS_KEY_ID` | Access Key ID del API token | R2 → **Manage R2 API Tokens** → **Create API token** (scope: read/write al bucket) |
 | `CLOUDFLARE_R2_SECRET_ACCESS_KEY` | Secret Access Key del mismo token | Mismo token (solo se ve una vez al crear) |
 | `CLOUDFLARE_R2_BUCKET` | Nombre del bucket | El que hayas creado, ej. `tm-scorekeeper-backups` |
 
-`DATABASE_URL` ya existe (lo usa `deploy.yml` para correr migraciones). Verificar el caveat antes de reusar el mismo secret.
+Usamos `SUPABASE_DIRECT_URL` separado de `DATABASE_URL` (el que usa el backend en Render) para garantizar que `pg_dump` siempre conecte vía direct connection — el pooler no soporta `pg_dump` (ver caveat abajo).
 
 ---
 
@@ -107,20 +107,15 @@ Supabase expone dos endpoints para Postgres:
 | **Direct** | `5432` | `pg_dump`, sesiones largas, transacciones grandes |
 | **Pooler** (PgBouncer) | `6543` | Queries cortas en modo transaction pooling |
 
-**`pg_dump` falla contra el pooler** (PgBouncer transaction mode no soporta `COPY` ni sesiones que exceden una transacción).
+**`pg_dump` no funciona contra el pooler** (PgBouncer transaction mode no soporta `COPY` ni sesiones que exceden una transacción). Por eso este workflow usa un secret dedicado `SUPABASE_DIRECT_URL` en lugar de reusar el `DATABASE_URL` del backend.
 
-### Cómo verificar
+### Cómo verificar que `SUPABASE_DIRECT_URL` está bien
 
-Mirar el host en `DATABASE_URL`:
-- Direct: `db.<PROJECT_REF>.supabase.co` — puerto `5432`
-- Pooler: `<region>.pooler.supabase.com` — puerto `6543` (o `5432` con `?pgbouncer=true`)
+El host de la connection string debe ser:
+- ✅ Direct: `db.<PROJECT_REF>.supabase.co` con puerto `5432`
+- ❌ Pooler: `<region>.pooler.supabase.com` con puerto `6543` (o `5432` con `?pgbouncer=true`)
 
-### Si `DATABASE_URL` es el pooler
-
-El backend en Render probablemente usa el pooler (recomendado para apps web). En ese caso:
-
-1. Agregar un secret aparte `SUPABASE_DIRECT_URL` con la connection string del puerto `5432`.
-2. Editar `.github/workflows/backup-supabase.yml`: cambiar `${{ secrets.DATABASE_URL }}` → `${{ secrets.SUPABASE_DIRECT_URL }}` en el step **Dump database and compress**.
+En el dashboard de Supabase: Project Settings → Database → Connection string → URI con el toggle **"Use connection pooling"** en **OFF**.
 
 ---
 
@@ -128,7 +123,9 @@ El backend en Render probablemente usa el pooler (recomendado para apps web). En
 
 | Error | Causa | Fix |
 |---|---|---|
-| `pg_dump: error: query failed: ERROR: prepared statement "..." does not exist` | `DATABASE_URL` apunta al pooler | Usar direct connection (ver caveat) |
+| `ERROR: SUPABASE_DIRECT_URL secret is not set` | El secret no está configurado en GitHub | Agregar el secret en Settings → Secrets and variables → Actions |
+| `pg_dump: error: query failed: ERROR: prepared statement "..." does not exist` | `SUPABASE_DIRECT_URL` apunta al pooler en vez de direct | Regenerar la connection string con "Use connection pooling" OFF |
+| `ERROR: Backup file is N bytes (<1KB). pg_dump likely produced an empty dump.` | `pg_dump` falló sin output (URL inválida, host inalcanzable, permisos) | Revisar logs del step previo; verificar el valor de `SUPABASE_DIRECT_URL` |
 | `An error occurred (NoSuchBucket)` | Bucket no existe o nombre incorrecto en `CLOUDFLARE_R2_BUCKET` | Verificar nombre exacto en R2 dashboard |
 | `An error occurred (InvalidAccessKeyId)` | Credenciales R2 inválidas o revocadas | Regenerar API token en R2 |
 | `pg_dump: error: server version: 16.x; pg_dump version: 15.x` | Supabase upgradeó Postgres | Actualizar `postgresql-client-15` → `-16` en el workflow |

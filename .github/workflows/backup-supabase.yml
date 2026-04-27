@@ -39,17 +39,40 @@ jobs:
 
       - name: Dump database and compress
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SUPABASE_DIRECT_URL: ${{ secrets.SUPABASE_DIRECT_URL }}
         run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_DIRECT_URL}" ]; then
+            echo "ERROR: SUPABASE_DIRECT_URL secret is not set."
+            exit 1
+          fi
+
+          FILENAME="${{ steps.name.outputs.filename }}"
+
           pg_dump \
             --schema=public \
             --no-owner \
             --no-acl \
             --format=plain \
-            "$DATABASE_URL" \
-            | gzip -9 > "${{ steps.name.outputs.filename }}"
-          ls -lh "${{ steps.name.outputs.filename }}"
-          gunzip -t "${{ steps.name.outputs.filename }}"
+            "$SUPABASE_DIRECT_URL" \
+            | gzip -9 > "$FILENAME"
+
+          ls -lh "$FILENAME"
+          gunzip -t "$FILENAME"
+
+          SIZE=$(stat -c%s "$FILENAME")
+          if [ "$SIZE" -lt 1024 ]; then
+            echo "ERROR: Backup file is $SIZE bytes (<1KB). pg_dump likely produced an empty dump."
+            exit 1
+          fi
+
+          if ! gunzip -c "$FILENAME" | head -5 | grep -q "PostgreSQL database dump"; then
+            echo "ERROR: Backup does not contain a valid pg_dump header."
+            exit 1
+          fi
+
+          echo "Backup OK ($SIZE bytes compressed)."
 
       - name: Upload to Cloudflare R2
         env:
