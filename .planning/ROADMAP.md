@@ -31,7 +31,9 @@
   1. `services/container.py` exposes `achievements_service` as a singleton; `games_routes`, `players_routes`, `achievements_routes` import it (no local instantiation)
   2. `GameRecords.tsx` calls `useGames.fetchAchievements` (retry-once preserved); no direct `triggerAchievements` + bare `.catch(() => {})` anywhere
   3. All 131+ existing tests still pass
-**Plans:** TBD via `/gsd-plan-phase 5`
+**Plans:** 2 plans
+- [ ] 05-01-PLAN.md — Backend: AchievementsService singleton en services/container.py + 3 routers refactorizados (cierra INT-01)
+- [ ] 05-02-PLAN.md — Frontend: GameRecords.tsx consume useGames.fetchAchievements (cierra INT-02 / FLOW-01)
 
 #### Phase 6: Drifts y polish v1.0
 **Goal:** Eliminate dead/misleading code surface area flagged as low-severity drifts
