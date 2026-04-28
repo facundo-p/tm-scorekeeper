@@ -3,6 +3,8 @@ phase: 03-frontend
 plan: "02"
 subsystem: frontend-integration
 tags: [react, achievements, tabs, modal, tdd, css-modules, typescript]
+requirements: [ENDG-01, PROF-01]
+requirements-completed: [ENDG-01, PROF-01]
 dependency_graph:
   requires:
     - 03-01 (TabBar, AchievementCard, AchievementBadgeMini components)
