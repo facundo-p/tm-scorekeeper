@@ -79,7 +79,6 @@ def build_catalog_item_dto(
     ]
     return AchievementCatalogItemDTO(
         code=evaluator.code,
-        title=evaluator.definition.description,
         description=evaluator.definition.description,
         icon=evaluator.definition.icon,
         fallback_icon=evaluator.definition.fallback_icon,
