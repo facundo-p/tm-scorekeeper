@@ -11,13 +11,18 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 ## Current State
 
 **v1.0 shipped** — Sistema de Logros completo (2026-04-01)
+**v1.0 cleanup shipped** — gaps del audit cerrados (2026-04-28)
 
-- Backend: evaluadores con patrón strategy híbrido, 4 tipos de logros, tiers progresivos
+- Backend: 4 tipos de evaluadores (strategy pattern) registrando **12 definiciones** en `ALL_EVALUATORS`. `AchievementsService` centralizado como singleton en `services/container.py`.
 - Integración: evaluación automática post-partida, 3 endpoints REST
-- Frontend: badges en fin de partida, perfil con tabs (Stats/Records/Logros), catálogo global
+- Frontend: badges en fin de partida con retry-once-on-failure observable; perfil con tabs (Stats/Records/Logros); catálogo global. Componentes limpios — sin props muertos.
 - Herramientas: reconciliador con garantía no-downgrade
-- Tests: 131+ tests (pytest backend, vitest frontend)
-- Stack: FastAPI + SQLAlchemy + PostgreSQL + Alembic / React 18 + TypeScript + Vite + CSS Modules
+- Tests: 298 tests (122 frontend / 176 backend), todos en CI
+- Stack: FastAPI + SQLAlchemy + PostgreSQL 17 + Alembic / React 18 + TypeScript + Vite + CSS Modules
+
+## Next Milestone
+
+(Not yet defined — run `/gsd-new-milestone` to start the next cycle.)
 
 ## Requirements
 
@@ -76,4 +81,4 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 | compute_tier() directo en reconciliador | evaluate() colapsa no-change y downgrade | ✓ Critical insight |
 
 ---
-*Last updated: 2026-04-01 after v1.0 milestone*
+*Last updated: 2026-04-28 after v1.0-cleanup milestone*
