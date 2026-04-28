@@ -12,12 +12,10 @@ from schemas.result import GameResultDTO
 from repositories.container import (
     games_repository,
     players_repository,
-    achievement_repository,
     elo_repository,
 )
-from services.container import elo_service
+from services.container import achievements_service, elo_service
 from repositories.game_filters import GameFilter
-from services.achievements_service import AchievementsService
 from schemas.achievement import AchievementsByPlayerResponseDTO
 
 
@@ -31,12 +29,6 @@ games_service = GamesService(
     games_repository=games_repository,
     players_repository=players_repository,
     elo_service=elo_service,
-)
-
-achievements_service = AchievementsService(
-    games_repository=games_repository,
-    achievement_repository=achievement_repository,
-    players_repository=players_repository,
 )
 
 
