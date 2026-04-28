@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getGameRecords, getGameResults } from '@/api/games'
 import { getPlayers } from '@/api/players'
-import { triggerAchievements } from '@/api/achievements'
 import { ApiError } from '@/api/client'
+import { useGames } from '@/hooks/useGames'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import RecordsSection from '@/components/RecordsSection/RecordsSection'
@@ -23,6 +23,7 @@ export default function GameRecords() {
   const [notAvailable, setNotAvailable] = useState(false)
   const [achievements, setAchievements] = useState<AchievementsByPlayerDTO | null>(null)
   const [showAchievementModal, setShowAchievementModal] = useState(false)
+  const { fetchAchievements } = useGames()
 
   useEffect(() => {
     if (!gameId) return
@@ -43,15 +44,14 @@ export default function GameRecords() {
       .then(setPlayers)
       .catch(() => {})
 
-    triggerAchievements(gameId)
-      .then(data => {
-        const hasAny = Object.values(data.achievements_by_player).some(list => list.length > 0)
-        if (hasAny) {
-          setAchievements(data)
-          setShowAchievementModal(true)
-        }
-      })
-      .catch(() => {})   // silent failure — achievements are non-critical
+    fetchAchievements(gameId).then(data => {
+      if (!data) return
+      const hasAny = Object.values(data.achievements_by_player).some(list => list.length > 0)
+      if (hasAny) {
+        setAchievements(data)
+        setShowAchievementModal(true)
+      }
+    })
   }, [gameId])
 
   const playersMap = new Map(players.map((p) => [p.player_id, p.name]))

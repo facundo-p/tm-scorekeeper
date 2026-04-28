@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Query
 from schemas.player_profile import PlayerProfileDTO
 from services.player_profile_service import PlayerProfileService
-from repositories.container import games_repository, players_repository, achievement_repository
+from repositories.container import games_repository, players_repository
 from services.player_records_service import PlayerRecordsService
 from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
+from services.container import achievements_service
 from typing import Optional
-from services.achievements_service import AchievementsService
 from schemas.achievement import PlayerAchievementsResponseDTO
 
 router = APIRouter(
@@ -25,12 +25,6 @@ player_profile_service = PlayerProfileService(
     players_repository=players_repository,
     games_repository=games_repository,
     player_records_service=player_records_service,
-)
-
-achievements_service = AchievementsService(
-    games_repository=games_repository,
-    achievement_repository=achievement_repository,
-    players_repository=players_repository,
 )
 
 
