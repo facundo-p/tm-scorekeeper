@@ -59,8 +59,8 @@
   2. All 8 v1.0 plan SUMMARYs carry `requirements` / `requirements-completed` frontmatter
   3. Audit re-run shows zero `tech_debt` items in the doc/process category
 **Plans:** 2 plans
-- [ ] 07-01-PLAN.md — Backfill `requirements:` / `requirements-completed:` frontmatter en las 8 SUMMARYs v1.0 + fix drift "5 → 12 evaluadores" en 01-02-SUMMARY y 02-02-SUMMARY (cierra DOC-DRIFT y PROCESS-summary-frontmatter)
-- [ ] 07-02-PLAN.md — Verificación read-only de `v1.0-REQUIREMENTS.md` Traceability (35/35 Complete) (cierra PROCESS-requirements-traceability)
+- [x] 07-01-PLAN.md — Backfill `requirements:` / `requirements-completed:` frontmatter en las 8 SUMMARYs v1.0 + fix drift "5 → 12 evaluadores" en 01-02-SUMMARY y 02-02-SUMMARY (cierra DOC-DRIFT y PROCESS-summary-frontmatter)
+- [x] 07-02-PLAN.md — Verificación read-only de `v1.0-REQUIREMENTS.md` Traceability (35/35 Complete) (cierra PROCESS-requirements-traceability)
 
 ## Progress
 
