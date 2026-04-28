@@ -162,7 +162,6 @@ export default function PlayerProfile() {
                           description={ach.description}
                           fallback_icon={ach.fallback_icon}
                           tier={ach.tier}
-                          max_tier={ach.max_tier}
                           unlocked={ach.unlocked}
                           progress={ach.progress}
                         />
