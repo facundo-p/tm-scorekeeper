@@ -45,9 +45,9 @@
   2. `AchievementBadgeMini` and `AchievementCard` declare only props they actually consume; parent components stop passing the removed props
   3. Backend lint/format clean on `games_routes.py`
 **Plans:** 3 plans
-- [ ] 06-01-PLAN.md — Eliminar `title` de `AchievementCatalogItemDTO` (backend schema + mapper + frontend type) — cierra drift API-03
-- [ ] 06-02-PLAN.md — Limpiar props muertos `AchievementBadgeMini.is_upgrade` y `AchievementCard.max_tier` (componentes + callers + tests) — cierra drifts ENDG-02/ENDG-03/PROF-02
-- [ ] 06-03-PLAN.md — Normalizar espaciado de líneas en blanco en `backend/routes/games_routes.py` (cleanup cosmético, sin formatter externo)
+- [x] 06-01-PLAN.md — Eliminar `title` de `AchievementCatalogItemDTO` (backend schema + mapper + frontend type) — cierra drift API-03
+- [x] 06-02-PLAN.md — Limpiar props muertos `AchievementBadgeMini.is_upgrade` y `AchievementCard.max_tier` (componentes + callers + tests) — cierra drifts ENDG-02/ENDG-03/PROF-02
+- [x] 06-03-PLAN.md — Normalizar espaciado de líneas en blanco en `backend/routes/games_routes.py` (cleanup cosmético, sin formatter externo)
 
 #### Phase 7: Documentación y proceso v1.0
 **Goal:** Bring shipped documentation in sync with shipped code and standardize plan SUMMARY frontmatter
