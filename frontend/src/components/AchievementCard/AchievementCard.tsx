@@ -7,7 +7,6 @@ interface AchievementCardProps {
   description: string
   fallback_icon: string
   tier: number
-  max_tier: number
   unlocked: boolean
   progress: { current: number; target: number } | null
   onClick?: () => void
