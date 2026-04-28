@@ -1,10 +1,10 @@
 ---
 gsd_state_version: 1.0
-milestone: none
-milestone_name: (awaiting next milestone)
-status: idle
-stopped_at: v1.0-cleanup milestone shipped
-last_updated: "2026-04-28T21:30:00.000Z"
+milestone: v1.1
+milestone_name: Visualización de ELO en Frontend
+status: defining-requirements
+stopped_at: milestone v1.1 started, defining requirements
+last_updated: "2026-04-28T22:00:00.000Z"
 last_activity: 2026-04-28
 progress:
   total_phases: 0
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** v1.0 + v1.0-cleanup shipped — awaiting next milestone definition
+**Current focus:** v1.1 Visualización de ELO en Frontend — defining requirements
 
 ## Current Position
 
-Phase: —
+Phase: Not started (defining requirements)
 Plan: —
-Status: idle (between milestones)
-Last activity: 2026-04-28
+Status: Defining requirements
+Last activity: 2026-04-28 — Milestone v1.1 started
 
 Progress: [          ] 0%
 
@@ -98,7 +98,11 @@ None yet.
 - [Phase 2] GameCreatedResponseDTO es un breaking change para el frontend TypeScript — auditar consumidores antes de cambiar el shape
 - [Phase 3] Layout actual del PlayerProfile debe revisarse para evaluar complejidad de reestructuración en secciones
 
+### Roadmap Evolution
+
+- Milestone v1.1 started: Visualización de ELO en Frontend (backend ELO ya mergeado vía PR #42)
+
 ## Session Continuity
 
-Last session: 2026-04-28T21:30:00.000Z
-Stopped at: v1.0-cleanup milestone shipped (PRs #55/#56/#57 merged); next milestone not yet defined — run `/gsd-new-milestone` to start.
+Last session: 2026-04-28T22:00:00.000Z
+Stopped at: Milestone v1.1 started; PROJECT/STATE updated. Next: define requirements + roadmap.
