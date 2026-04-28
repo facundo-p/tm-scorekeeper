@@ -7,7 +7,6 @@ const baseProps = {
   description: 'Test description',
   fallback_icon: 'trophy',
   tier: 2,
-  max_tier: 5,
   unlocked: true,
   progress: null,
 }

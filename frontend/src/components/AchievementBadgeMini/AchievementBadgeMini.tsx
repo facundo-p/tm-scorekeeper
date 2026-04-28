@@ -6,7 +6,6 @@ interface AchievementBadgeMiniProps {
   tier: number
   fallback_icon: string
   is_new: boolean
-  is_upgrade: boolean
 }
 
 export default function AchievementBadgeMini({

@@ -199,7 +199,6 @@ export interface HolderDTO {
 
 export interface AchievementCatalogItemDTO {
   code: string
-  title: string
   description: string
   icon: string | null
   fallback_icon: string

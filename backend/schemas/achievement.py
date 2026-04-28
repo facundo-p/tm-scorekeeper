@@ -54,7 +54,6 @@ class HolderDTO(BaseModel):
 
 class AchievementCatalogItemDTO(BaseModel):
     code: str
-    title: str
     description: str
     icon: Optional[str]
     fallback_icon: str
