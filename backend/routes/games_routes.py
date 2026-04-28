@@ -19,7 +19,6 @@ from repositories.game_filters import GameFilter
 from schemas.achievement import AchievementsByPlayerResponseDTO
 
 
-
 router = APIRouter(
     prefix="/games",
     tags=["Games"]
@@ -45,12 +44,10 @@ def create_game(game: GameDTO):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-
 @router.get("/", response_model=list[GameDTO])
 def list_games(game_ids: Optional[list[str]] = Query(default=None)):
     filters = GameFilter(game_ids=set(game_ids)) if game_ids else None
     return games_service.list_games(filters)
-
 
 
 @router.get("/{game_id}/results", response_model=GameResultDTO)
@@ -61,7 +58,6 @@ def get_game_results(game_id: str):
         raise HTTPException(status_code=404, detail="Game not found")
 
 
-
 @router.put("/{game_id}")
 def update_game(game_id: str, game: GameDTO):
     try:
@@ -70,7 +66,6 @@ def update_game(game_id: str, game: GameDTO):
         raise HTTPException(status_code=404, detail="Game not found")
 
     return {"message": "Game updated successfully"}
-
 
 
 @router.delete("/{game_id}")
