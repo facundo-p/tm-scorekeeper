@@ -31,7 +31,7 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 ### v1.1 Visualización de ELO en Frontend — IN PROGRESS
 
 - [ ] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work
-- [ ] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile
+- [x] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile (completed 2026-04-29)
 - [ ] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes
 - [ ] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params
 - [ ] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking`
@@ -63,7 +63,7 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 Plans:
 - [x] 09-01-PLAN.md — Backend ELO Summary Endpoint (route + service + 3 repo methods + integration tests)
 - [x] 09-02-PLAN.md — Frontend Foundation: Types + API Wrapper (drift fix + new DTOs + getEloSummary)
-- [ ] 09-03-PLAN.md — EloSummaryCard component + PlayerProfile integration (depends on 01 + 02)
+- [x] 09-03-PLAN.md — EloSummaryCard component + PlayerProfile integration (depends on 01 + 02)
 **UI hint**: yes
 
 ### Phase 10: End-of-game unified summary modal with ELO section
@@ -119,7 +119,7 @@ Plans:
 | 6. Drifts y polish | v1.0 cleanup | 3/3 | Complete | 2026-04-28 |
 | 7. Documentación y proceso | v1.0 cleanup | 2/2 | Complete | 2026-04-28 |
 | 8. Backend `GET /elo/history` | v1.1 | 0/? | Not started | - |
-| 9. PlayerProfile ELO + foundation | v1.1 | 2/3 | In Progress|  |
+| 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 0/? | Not started | - |
 | 12. Ranking chart + leaderboard | v1.1 | 0/? | Not started | - |

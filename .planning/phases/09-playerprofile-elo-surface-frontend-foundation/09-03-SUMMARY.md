@@ -3,7 +3,7 @@ phase: 09-playerprofile-elo-surface-frontend-foundation
 plan: 03
 subsystem: frontend
 tags: [react, typescript, css-modules, vitest, testing-library, elo, playerprofile]
-status: AWAITING-CHECKPOINT
+status: COMPLETE
 
 # Dependency graph
 requires:
@@ -53,13 +53,15 @@ patterns-established:
 requirements-completed: [PROF-01, PROF-02, PROF-03, PROF-04]
 
 # Metrics
-duration: ~6min (Tasks 1–4 only; Task 5 is a manual smoke test pending user)
+duration: ~6min (Tasks 1–4) + manual smoke (Task 5 by user)
 completed: 2026-04-29
 ---
 
-# Phase 9 Plan 03: EloSummaryCard + PlayerProfile Integration (PARTIAL — Tasks 1–4 of 5)
+# Phase 9 Plan 03: EloSummaryCard + PlayerProfile Integration
 
-**Status: AWAITING-CHECKPOINT**
+**Status: COMPLETE**
+
+Task 5 (manual UI smoke test) approved by user on 2026-04-29 against restored prod backup `tm-scorekeeper-20260427-183436.sql.gz` (8 players, 12 games, 45 ELO history rows after recompute). User confirmed: hero number + delta + peak + rank render correctly, mobile responsive, accent color discipline preserved, no inline styles. D-14 isolation verified by tests; cascade reflection verified architecturally.
 
 EloSummaryCard renders the v1.1 hero ELO surface (current + delta + peak + rank) with all nullable branches; PlayerProfile mounts it ABOVE statsCard with isolated summary catch (D-14). 13 component tests + 1 page-level isolation test green; full frontend suite 136/136 passing. Task 5 (manual UI smoke test) pending user verification.
 
@@ -206,5 +208,5 @@ Verified post-write:
 ---
 *Phase: 09-playerprofile-elo-surface-frontend-foundation*
 *Plan: 03*
-*Status: AWAITING-CHECKPOINT (Tasks 1–4 of 5 complete)*
-*Partial summary date: 2026-04-29*
+*Status: COMPLETE (Tasks 1–5 done; Task 5 smoke test approved by user 2026-04-29)*
+*Summary date: 2026-04-29*
