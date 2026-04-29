@@ -129,9 +129,9 @@ describe('EndOfGameSummaryModal — POST-02 ELO section visuals', () => {
 
   it('omits ELO section entirely when eloChanges is null (no "ELO" heading rendered)', () => {
     renderModal({ eloChanges: null })
-    // EloSection in null mode renders Spinner WITH heading — heading still present during loading
+    // D-04: eloChanges === null means fetch not yet settled or failed — section omitted entirely
     const eloHeadings = screen.queryAllByRole('heading', { level: 3, name: /^ELO$/ })
-    expect(eloHeadings.length).toBe(1) // heading still renders during loading
+    expect(eloHeadings).toHaveLength(0)
   })
 
   it('omits ELO section entirely when eloChanges is an empty array (no "ELO" heading rendered)', () => {

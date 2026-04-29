@@ -20,8 +20,15 @@ function deltaClass(d: number): string {
 }
 
 export default function EloSection({ eloChanges, result }: EloSectionProps) {
-  // Pitfall 3: both inputs required for the position × ELO join
-  if (eloChanges === null || result === null) {
+  // D-04 / must_haves truth: eloChanges === null means either still loading or fetch failed.
+  // In both cases omit the section entirely (no heading, no spinner) — silent omission.
+  if (eloChanges === null) return null
+
+  // Pitfall 5: backend can return [] for legacy games — omit section entirely
+  if (eloChanges.length === 0) return null
+
+  // result is still loading — show heading + spinner while we wait for the join data
+  if (result === null) {
     return (
       <section className={styles.section}>
         <h3 className={styles.sectionTitle}>ELO</h3>
@@ -29,9 +36,6 @@ export default function EloSection({ eloChanges, result }: EloSectionProps) {
       </section>
     )
   }
-
-  // Pitfall 5: backend can return [] for legacy games — omit section entirely
-  if (eloChanges.length === 0) return null
 
   const eloByPlayerId = new Map(eloChanges.map((e) => [e.player_id, e]))
 
