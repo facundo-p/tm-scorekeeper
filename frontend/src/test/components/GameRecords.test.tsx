@@ -30,8 +30,8 @@ const mockGetPlayers = vi.mocked(getPlayers)
 const mockTriggerAchievements = vi.mocked(triggerAchievements)
 
 const PLAYERS: PlayerResponseDTO[] = [
-  { player_id: 'p1', name: 'Alice', is_active: true },
-  { player_id: 'p2', name: 'Bob', is_active: true },
+  { player_id: 'p1', name: 'Alice', is_active: true, elo: 1000 },
+  { player_id: 'p2', name: 'Bob', is_active: true, elo: 1000 },
 ]
 
 const RECORDS: RecordComparisonDTO[] = []
