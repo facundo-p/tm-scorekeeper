@@ -1,5 +1,7 @@
 from datetime import date
 
+from sqlalchemy import func
+
 from db.session import get_session
 from db.models import PlayerEloHistory as PlayerEloHistoryORM
 from models.elo_change import EloChange
@@ -85,3 +87,41 @@ class EloRepository:
             for r in rows:
                 baseline[r.player_id] = r.elo_after
             return baseline
+
+    def get_peak_for_player(self, player_id: str) -> int | None:
+        """Return MAX(elo_after) for the player, or None if no history exists.
+
+        Per CONTEXT D-03: peak is computed on-the-fly from PlayerEloHistory.elo_after.
+        No new column. Recalculates automatically after `recompute_from_date`.
+        """
+        with self._session_factory() as session:
+            return (
+                session.query(func.max(PlayerEloHistoryORM.elo_after))
+                .filter(PlayerEloHistoryORM.player_id == player_id)
+                .scalar()
+            )
+
+    def get_last_change_for_player(self, player_id: str) -> EloChange | None:
+        """Return the most recent EloChange for the player.
+
+        Order: recorded_at DESC, then game_id DESC for deterministic same-day
+        tie-break. Used to derive `last_delta` for the elo-summary endpoint.
+        """
+        with self._session_factory() as session:
+            orm = (
+                session.query(PlayerEloHistoryORM)
+                .filter(PlayerEloHistoryORM.player_id == player_id)
+                .order_by(
+                    PlayerEloHistoryORM.recorded_at.desc(),
+                    PlayerEloHistoryORM.game_id.desc(),
+                )
+                .first()
+            )
+            if orm is None:
+                return None
+            return EloChange(
+                player_id=orm.player_id,
+                elo_before=orm.elo_before,
+                elo_after=orm.elo_after,
+                delta=orm.delta,
+            )

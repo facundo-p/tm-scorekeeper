@@ -2,18 +2,21 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getPlayerProfile, getPlayers } from '@/api/players'
 import { getPlayerAchievements } from '@/api/achievements'
+import { getEloSummary } from '@/api/elo'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import TabBar from '@/components/TabBar/TabBar'
 import AchievementCard from '@/components/AchievementCard/AchievementCard'
+import EloSummaryCard from '@/components/EloSummaryCard/EloSummaryCard'
 import type { Tab } from '@/components/TabBar/TabBar'
-import type { PlayerProfileDTO, PlayerAchievementDTO } from '@/types'
+import type { PlayerProfileDTO, PlayerAchievementDTO, PlayerEloSummaryDTO } from '@/types'
 import styles from './PlayerProfile.module.css'
 
 export default function PlayerProfile() {
   const { playerId } = useParams<{ playerId: string }>()
   const [profile, setProfile] = useState<PlayerProfileDTO | null>(null)
   const [playerName, setPlayerName] = useState('')
+  const [eloSummary, setEloSummary] = useState<PlayerEloSummaryDTO | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -24,11 +27,18 @@ export default function PlayerProfile() {
 
   useEffect(() => {
     if (!playerId) return
-    Promise.all([getPlayerProfile(playerId), getPlayers()])
-      .then(([profileData, playersData]) => {
+    // Profile + players are critical: failure shows the page-level error box.
+    // Summary is optional (D-14): isolated catch returns null on any failure
+    // so the card is hidden but the rest of the profile still renders.
+    const profilePromise = Promise.all([getPlayerProfile(playerId), getPlayers()])
+    const summaryPromise = getEloSummary(playerId).catch(() => null)
+
+    Promise.all([profilePromise, summaryPromise])
+      .then(([[profileData, playersData], summaryData]) => {
         setProfile(profileData)
         const found = playersData.find((p) => p.player_id === playerId)
         setPlayerName(found?.name ?? playerId)
+        setEloSummary(summaryData)
       })
       .catch(() => setError('No se pudo cargar el perfil del jugador.'))
       .finally(() => setLoading(false))
@@ -76,6 +86,7 @@ export default function PlayerProfile() {
           <>
             {activeTab === 'stats' && (
               <>
+                {eloSummary && <EloSummaryCard summary={eloSummary} />}
                 <section className={styles.statsCard}>
                   <h2 className={styles.sectionTitle}>Estadísticas</h2>
                   <div className={styles.statsGrid}>

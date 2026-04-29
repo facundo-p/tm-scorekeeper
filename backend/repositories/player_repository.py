@@ -62,6 +62,24 @@ class PlayersRepository:
                 for o in orms
             ]
 
+    def get_active_players_ranked(self) -> list[Player]:
+        """Return active players ordered by elo DESC, tie-break by player_id ASC.
+
+        Position = index+1 in this list. Total = len(this list). Order is
+        deterministic (CONTEXT D-06: stable order by player_id, NOT dense rank).
+        """
+        with self._session_factory() as session:
+            orms = (
+                session.query(PlayerORM)
+                .filter(PlayerORM.is_active.is_(True))
+                .order_by(PlayerORM.elo.desc(), PlayerORM.id.asc())
+                .all()
+            )
+            return [
+                Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo)
+                for o in orms
+            ]
+
     def bulk_update_elo(self, elo_by_player: dict[str, int]) -> None:
         """Persist new ELO values for several players in a single transaction."""
         if not elo_by_player:

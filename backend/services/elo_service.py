@@ -2,6 +2,7 @@ from datetime import date
 
 from models.elo_change import EloChange
 from models.game import Game
+from schemas.elo_summary import EloRankDTO, PlayerEloSummaryDTO
 from services.helpers.results import calculate_results
 
 
@@ -113,3 +114,36 @@ class EloService:
             )
             for c in changes:
                 baseline[c.player_id] = c.elo_after
+
+    def get_summary_for_player(self, player_id: str) -> PlayerEloSummaryDTO:
+        """Return the ELO summary for a single player.
+
+        Tie-breaking: when active players share the same `elo`, ranking is
+        stable by ascending `player_id` (NOT dense rank — CONTEXT D-06).
+        A player with 0 games has current_elo = DEFAULT_ELO (1000), peak_elo
+        = None and last_delta = None (D-05). Inactive players have rank =
+        None (D-04 / D-18 — rank is scoped to active players).
+        Raises KeyError when the player does not exist (route → 404).
+        """
+        player = self.players_repository.get(player_id)  # raises KeyError → 404
+
+        peak = self.elo_repository.get_peak_for_player(player_id)
+        last_change = self.elo_repository.get_last_change_for_player(player_id)
+        last_delta = last_change.delta if last_change is not None else None
+
+        rank = self._compute_rank(player_id) if player.is_active else None
+
+        return PlayerEloSummaryDTO(
+            current_elo=player.elo,
+            peak_elo=peak,
+            last_delta=last_delta,
+            rank=rank,
+        )
+
+    def _compute_rank(self, player_id: str) -> EloRankDTO | None:
+        """1-based position in active-players ranking (CONTEXT D-04, D-06)."""
+        ranked = self.players_repository.get_active_players_ranked()
+        for idx, p in enumerate(ranked):
+            if p.player_id == player_id:
+                return EloRankDTO(position=idx + 1, total=len(ranked))
+        return None
