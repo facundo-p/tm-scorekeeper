@@ -76,7 +76,7 @@ line-height inherited from the global `h1..h6 { line-height: 1.3 }` rule
 | Role | Token | Computed | Weight | Line height | Usage |
 |------|-------|----------|--------|-------------|-------|
 | Hero ELO number | `--font-size-3xl` | 30px | `--font-weight-bold` (700) | 1.3 (heading) | The current_elo number (or `—`) — visually dominant focal point |
-| Hero label "ELO" + delta span | `--font-size-xl` | 20px | `--font-weight-semibold` (600) | 1.3 | The "ELO" word adjacent to the number; the `+23 / -12 / ±0` delta span |
+| Hero label "ELO" + delta span | `--font-size-xl` | 20px | `--font-weight-normal` (400) | 1.3 | The "ELO" word adjacent to the number; the `+23 / -12 / ±0` delta span |
 | Sub-row (peak + rank) | `--font-size-base` | 16px | `--font-weight-normal` (400) | 1.5 (body) | "Pico: 1612", "Pico: 1612 · actual", "#3 de 8" |
 | (existing statsCard `statValue`) | `--font-size-2xl` | 24px | bold | 1.3 | Reference only — the 3-tile grid below the hero card; the EloSummaryCard hero is intentionally LARGER (3xl > 2xl) to assert the new visual hierarchy from D-08 |
 
@@ -89,12 +89,9 @@ to feel calm relative to the hero, mirroring how `.statLabel` recedes from
 `.statValue`.
 
 **Weights used:** Exactly 2 — `--font-weight-bold` (700) for the hero number,
-`--font-weight-normal` (400) for the sub-row, plus `--font-weight-semibold`
-(600) for the "ELO" label and the delta. This still counts as 2 distinct
-intent levels (emphasis vs. body) since semibold is the project's standard
-"label" weight (matches `AchievementCard.module.css:25`, `PlayerProfile.module.css:54`).
-If the checker rejects 3 weights, collapse the "ELO" label to weight 400 — the
-hero number remains visually dominant by size alone.
+`--font-weight-normal` (400) for the "ELO" label, the delta span, and the
+sub-row. The hero number remains visually dominant by size alone (3xl > xl >
+base), so a single emphasis weight at the top of the hierarchy is enough.
 
 **Heading semantics:** The card root is a `<section aria-label="Resumen de ELO">`.
 It does NOT introduce a new visible heading — the existing `<h2>Estadísticas</h2>`
@@ -330,28 +327,28 @@ function deltaClass(d: number): string {
 
 .heroLabel {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-normal);
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
 }
 
 .deltaPositive {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-normal);
   color: var(--color-success);
   margin-left: auto;            /* push delta to the right of the hero row on wide screens; gracefully wraps below on narrow screens */
 }
 
 .deltaNegative {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-normal);
   color: var(--color-error);
   margin-left: auto;
 }
 
 .deltaZero {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-normal);
   color: var(--color-text-muted);
   margin-left: auto;
 }
