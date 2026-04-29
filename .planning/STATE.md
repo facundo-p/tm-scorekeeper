@@ -4,8 +4,8 @@ milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: executing
 stopped_at: Phase 9 context gathered
-last_updated: "2026-04-29T14:48:14.778Z"
-last_activity: 2026-04-29 -- Phase 9 planning complete
+last_updated: "2026-04-29T16:04:01.112Z"
+last_activity: 2026-04-29 -- Phase 9 execution started
 progress:
   total_phases: 5
   completed_phases: 0
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** v1.1 Visualización de ELO en Frontend — defining requirements
+**Current focus:** Phase 9 — PlayerProfile ELO surface + frontend foundation
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Ready to execute
-Last activity: 2026-04-29 -- Phase 9 planning complete
+Phase: 9 (PlayerProfile ELO surface + frontend foundation) — EXECUTING
+Plan: 1 of 3
+Status: Executing Phase 9
+Last activity: 2026-04-29 -- Phase 9 execution started
 
 Progress: [          ] 0%
 

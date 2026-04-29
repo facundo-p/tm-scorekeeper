@@ -61,8 +61,8 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
   5. After editing or deleting an old game, returning to the profile reflects the recomputed ELO without any client cache or `localStorage` snapshot getting in the way
 **Plans**: 3 plans
 Plans:
-- [ ] 09-01-PLAN.md — Backend ELO Summary Endpoint (route + service + 3 repo methods + integration tests)
-- [ ] 09-02-PLAN.md — Frontend Foundation: Types + API Wrapper (drift fix + new DTOs + getEloSummary)
+- [x] 09-01-PLAN.md — Backend ELO Summary Endpoint (route + service + 3 repo methods + integration tests)
+- [x] 09-02-PLAN.md — Frontend Foundation: Types + API Wrapper (drift fix + new DTOs + getEloSummary)
 - [ ] 09-03-PLAN.md — EloSummaryCard component + PlayerProfile integration (depends on 01 + 02)
 **UI hint**: yes
 
@@ -119,7 +119,7 @@ Plans:
 | 6. Drifts y polish | v1.0 cleanup | 3/3 | Complete | 2026-04-28 |
 | 7. Documentación y proceso | v1.0 cleanup | 2/2 | Complete | 2026-04-28 |
 | 8. Backend `GET /elo/history` | v1.1 | 0/? | Not started | - |
-| 9. PlayerProfile ELO + foundation | v1.1 | 0/? | Not started | - |
+| 9. PlayerProfile ELO + foundation | v1.1 | 2/3 | In Progress|  |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 0/? | Not started | - |
 | 12. Ranking chart + leaderboard | v1.1 | 0/? | Not started | - |
