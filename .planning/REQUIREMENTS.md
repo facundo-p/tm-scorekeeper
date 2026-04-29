@@ -9,7 +9,7 @@ Requirements for this milestone. Each maps to a roadmap phase. Backend ELO ya es
 
 ### ELO Backend API
 
-- [ ] **ELO-API-01**: API expone `GET /elo/history` con filtros opcionales `from` (fecha) y `player_ids` (lista), devolviendo serie temporal de ELO por jugador para alimentar el chart de Ranking
+- [x] **ELO-API-01**: API expone `GET /elo/history` con filtros opcionales `from` (fecha) y `player_ids` (lista), devolviendo serie temporal de ELO por jugador para alimentar el chart de Ranking
 
 ### PlayerProfile
 
