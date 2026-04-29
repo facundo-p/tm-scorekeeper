@@ -66,7 +66,7 @@ Deferred — no entran en v1.1.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ELO-API-01 | Phase 8 | In Progress |
+| ELO-API-01 | Phase 8 | Complete |
 | PROF-01 | Phase 9 | Pending |
 | PROF-02 | Phase 9 | Pending |
 | PROF-03 | Phase 9 | Pending |
