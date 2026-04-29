@@ -1,7 +1,11 @@
 from datetime import date
+from typing import Optional
 
+from mappers.elo_mapper import elo_history_changes_to_player_dto
 from models.elo_change import EloChange
 from models.game import Game
+from repositories.elo_filters import EloHistoryFilter
+from schemas.elo import PlayerEloHistoryDTO
 from schemas.elo_summary import EloRankDTO, PlayerEloSummaryDTO
 from services.helpers.results import calculate_results
 
@@ -147,3 +151,57 @@ class EloService:
             if p.player_id == player_id:
                 return EloRankDTO(position=idx + 1, total=len(ranked))
         return None
+
+    def get_history(
+        self,
+        date_from: Optional[date] = None,
+        player_ids: Optional[set[str]] = None,
+    ) -> list[PlayerEloHistoryDTO]:
+        """
+        Devuelve la serie temporal de ELO por jugador.
+
+        - Sin player_ids: candidatos = jugadores activos (is_active == True).
+        - Con player_ids: candidatos = ids explícitos (activos o no);
+          ids desconocidos se descartan silenciosamente.
+        - Jugadores sin historial en la ventana se omiten del resultado.
+        - Orden top-level: ascendente por player_name (determinístico para tests).
+        """
+        candidate_ids, names_by_id = self._resolve_candidates(player_ids)
+        if not candidate_ids:
+            return []
+
+        rows = self.elo_repository.get_history(
+            EloHistoryFilter(date_from=date_from, player_ids=candidate_ids)
+        )
+
+        rows_by_player: dict[str, list] = {}
+        for r in rows:
+            rows_by_player.setdefault(r.player_id, []).append(r)
+
+        return [
+            elo_history_changes_to_player_dto(
+                player_id=pid,
+                player_name=names_by_id[pid],
+                history_rows=rows_by_player[pid],
+            )
+            for pid in sorted(rows_by_player.keys(), key=lambda p: names_by_id[p])
+        ]
+
+    def _resolve_candidates(
+        self,
+        player_ids: Optional[set[str]],
+    ) -> tuple[set[str], dict[str, str]]:
+        """
+        Resuelve el conjunto de candidatos y el mapa player_id->name en una sola pasada
+        sobre players_repository.get_all().
+
+        - player_ids None  -> activos (is_active == True).
+        - player_ids set   -> intersección con players existentes (unknown ids dropped).
+        """
+        all_players = self.players_repository.get_all()
+        names_by_id = {p.player_id: p.name for p in all_players}
+        if player_ids is None:
+            candidate_ids = {p.player_id for p in all_players if p.is_active}
+        else:
+            candidate_ids = {pid for pid in player_ids if pid in names_by_id}
+        return candidate_ids, names_by_id
