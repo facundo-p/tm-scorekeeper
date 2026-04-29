@@ -4,6 +4,7 @@ from sqlalchemy import func
 
 from db.session import get_session
 from db.models import PlayerEloHistory as PlayerEloHistoryORM
+from repositories.elo_filters import EloHistoryFilter
 from models.elo_change import EloChange
 
 
@@ -125,3 +126,22 @@ class EloRepository:
                 elo_after=orm.elo_after,
                 delta=orm.delta,
             )
+
+    def get_history(self, filter: EloHistoryFilter) -> list[PlayerEloHistoryORM]:
+        """
+        Devuelve filas de PlayerEloHistory ordenadas por (player_id, recorded_at, game_id),
+        opcionalmente filtradas por fecha desde y/o conjunto de player_ids.
+        UNA sola query indexada (recorded_at y player_id son index=True).
+        """
+        with self._session_factory() as session:
+            query = session.query(PlayerEloHistoryORM)
+            if filter.date_from is not None:
+                query = query.filter(PlayerEloHistoryORM.recorded_at >= filter.date_from)
+            if filter.player_ids is not None:
+                query = query.filter(PlayerEloHistoryORM.player_id.in_(filter.player_ids))
+            rows = query.order_by(
+                PlayerEloHistoryORM.player_id,
+                PlayerEloHistoryORM.recorded_at,
+                PlayerEloHistoryORM.game_id,
+            ).all()
+            return list(rows)
