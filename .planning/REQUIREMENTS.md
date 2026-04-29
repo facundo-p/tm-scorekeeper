@@ -66,26 +66,26 @@ Deferred — no entran en v1.1.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ELO-API-01 | TBD | Pending |
-| PROF-01 | TBD | Pending |
-| PROF-02 | TBD | Pending |
-| PROF-03 | TBD | Pending |
-| PROF-04 | TBD | Pending |
-| POST-01 | TBD | Pending |
-| POST-02 | TBD | Pending |
-| POST-03 | TBD | Pending |
-| RANK-01 | TBD | Pending |
-| RANK-02 | TBD | Pending |
-| RANK-03 | TBD | Pending |
-| RANK-04 | TBD | Pending |
-| RANK-05 | TBD | Pending |
-| RANK-06 | TBD | Pending |
+| ELO-API-01 | Phase 8 | Pending |
+| PROF-01 | Phase 9 | Pending |
+| PROF-02 | Phase 9 | Pending |
+| PROF-03 | Phase 9 | Pending |
+| PROF-04 | Phase 9 | Pending |
+| POST-01 | Phase 10 | Pending |
+| POST-02 | Phase 10 | Pending |
+| POST-03 | Phase 10 | Pending |
+| RANK-01 | Phase 11 | Pending |
+| RANK-02 | Phase 12 | Pending |
+| RANK-03 | Phase 11 | Pending |
+| RANK-04 | Phase 11 | Pending |
+| RANK-05 | Phase 12 | Pending |
+| RANK-06 | Phase 11 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 14 total
-- Mapped to phases: 0 (roadmap pending)
-- Unmapped: 14 (roadmapper will assign)
+- Mapped to phases: 14 (100%)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-28*
-*Last updated: 2026-04-28 after initial definition*
+*Last updated: 2026-04-28 — roadmap mapped all 14 requirements to phases 8-12*
