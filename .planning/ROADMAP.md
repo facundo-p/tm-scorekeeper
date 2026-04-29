@@ -59,7 +59,11 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
   3. The user sees the player's peak rating (e.g. "Pico: 1612") and rank among active players (e.g. "#3 de 8")
   4. A player with 0 games shows `—` (not the seeded `1000`) for current ELO, and peak/rank/delta are hidden rather than rendered as `0`
   5. After editing or deleting an old game, returning to the profile reflects the recomputed ELO without any client cache or `localStorage` snapshot getting in the way
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 09-01-PLAN.md — Backend ELO Summary Endpoint (route + service + 3 repo methods + integration tests)
+- [ ] 09-02-PLAN.md — Frontend Foundation: Types + API Wrapper (drift fix + new DTOs + getEloSummary)
+- [ ] 09-03-PLAN.md — EloSummaryCard component + PlayerProfile integration (depends on 01 + 02)
 **UI hint**: yes
 
 ### Phase 10: End-of-game unified summary modal with ELO section
