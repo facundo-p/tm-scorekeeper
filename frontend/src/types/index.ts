@@ -6,6 +6,7 @@ export interface PlayerResponseDTO {
   player_id: string
   name: string
   is_active: boolean
+  elo: number
 }
 
 export interface PlayerCreateDTO {
@@ -36,6 +37,7 @@ export interface PlayerGameSummaryDTO {
 
 export interface PlayerProfileDTO {
   player_id: string
+  elo: number
   stats: PlayerStatsDTO
   games: PlayerGameSummaryDTO[]
   records: Record<string, boolean>
@@ -208,4 +210,26 @@ export interface AchievementCatalogItemDTO {
 
 export interface AchievementCatalogResponseDTO {
   achievements: AchievementCatalogItemDTO[]
+}
+
+// ---- ELO DTOs ----
+
+export interface EloChangeDTO {
+  player_id: string
+  player_name: string
+  elo_before: number
+  elo_after: number
+  delta: number
+}
+
+export interface EloRankDTO {
+  position: number
+  total: number
+}
+
+export interface PlayerEloSummaryDTO {
+  current_elo: number
+  peak_elo: number | null
+  last_delta: number | null
+  rank: EloRankDTO | null
 }
