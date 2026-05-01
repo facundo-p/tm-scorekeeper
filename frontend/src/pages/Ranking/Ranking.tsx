@@ -5,6 +5,8 @@ import { usePlayers } from '@/hooks/usePlayers'
 import { useRankingFilters } from '@/hooks/useRankingFilters'
 import { applyRankingFilters } from '@/utils/rankingFilters'
 import RankingFilters from '@/components/RankingFilters/RankingFilters'
+import EloLineChart from '@/components/EloLineChart/EloLineChart'
+import EloLeaderboard from '@/components/EloLeaderboard/EloLeaderboard'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import type { PlayerEloHistoryDTO } from '@/types'
@@ -33,17 +35,6 @@ function renderEmptyState(kind: 'no-players' | 'no-data', onClear: () => void) {
           : 'Probá ampliar el rango de fechas.'}
       </p>
       <Button variant="ghost" onClick={onClear}>Limpiar filtros</Button>
-    </div>
-  )
-}
-
-function renderChartSkeleton() {
-  return (
-    <div className={styles.chartSkeleton} data-testid="chart-skeleton">
-      <div className={styles.skeletonLine} />
-      <div className={styles.skeletonLine} />
-      <div className={styles.skeletonLine} />
-      <div className={styles.skeletonLine} />
     </div>
   )
 }
@@ -127,11 +118,23 @@ export default function Ranking() {
               onFromDateChange={setFromDate}
               onClear={clearAll}
             />
-            {selectedPlayers.length === 0
-              ? renderEmptyState('no-players', clearAll)
-              : totalPoints === 0
-              ? renderEmptyState('no-data', clearAll)
-              : renderChartSkeleton()}
+            {selectedPlayers.length === 0 ? (
+              renderEmptyState('no-players', clearAll)
+            ) : totalPoints === 0 ? (
+              renderEmptyState('no-data', clearAll)
+            ) : (
+              <>
+                <div className={styles.chartContainer}>
+                  <EloLineChart data={filtered} />
+                </div>
+                {totalPoints === 1 && (
+                  <p className={styles.singlePointHint}>
+                    Solo hay una partida en este rango
+                  </p>
+                )}
+                <EloLeaderboard data={dataset} />
+              </>
+            )}
           </>
         )}
       </main>
