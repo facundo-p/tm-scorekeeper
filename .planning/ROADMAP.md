@@ -30,7 +30,7 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 
 ### v1.1 Visualización de ELO en Frontend — IN PROGRESS
 
-- [ ] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work
+- [x] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work (completed 2026-04-29)
 - [x] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile (completed 2026-04-29)
 - [ ] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes
 - [ ] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params
@@ -118,7 +118,7 @@ Plans:
 | 5. Cleanup integración | v1.0 cleanup | 2/2 | Complete | 2026-04-27 |
 | 6. Drifts y polish | v1.0 cleanup | 3/3 | Complete | 2026-04-28 |
 | 7. Documentación y proceso | v1.0 cleanup | 2/2 | Complete | 2026-04-28 |
-| 8. Backend `GET /elo/history` | v1.1 | 0/? | Not started | - |
+| 8. Backend `GET /elo/history` | v1.1 | 4/4 | Complete | 2026-04-29 |
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 0/? | Not started | - |
