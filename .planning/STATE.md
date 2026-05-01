@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: executing
-stopped_at: Phase 12 context gathered
-last_updated: "2026-05-01T16:37:50.706Z"
+stopped_at: Completed 12-01-PLAN.md
+last_updated: "2026-05-01T18:03:31.471Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 13
-  completed_plans: 13
-  percent: 100
+  total_plans: 17
+  completed_plans: 14
+  percent: 82
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Phase 9 — PlayerProfile ELO surface + frontend foundation
+**Current focus:** Phase 12 — ranking-line-chart-leaderboard
 
 ## Current Position
 
-Phase: 12
-Plan: Not started
-Status: Executing Phase 9
+Phase: 12 (ranking-line-chart-leaderboard) — EXECUTING
+Plan: 2 of 4
+Status: Ready to execute
 Last activity: 2026-05-01
 
 Progress: [          ] 0%
@@ -62,6 +62,7 @@ Progress: [          ] 0%
 | Phase 03-frontend P01 | 175 | 2 tasks | 15 files |
 | Phase 03-frontend P02 | 209 | 2 tasks | 6 files |
 | Phase 04-reconciliador P01 | 6 | 2 tasks | 5 files |
+| Phase 12 P01 | 59 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,7 @@ Recent decisions affecting current work:
 - [Phase 03-frontend]: triggerAchievements in GameRecords uses silent catch — achievements non-critical, cannot block records display
 - [Phase 04-reconciliador]: Use compute_tier (not evaluate) in reconcile_all — evaluate() collapses no-change and downgrade into same None, preventing logging
 - [Phase 04-reconciliador]: Internal ReconcileSummaryResult dataclass in service layer, mapped to ReconcileResponseDTO at route level
+- [Phase 12]: recharts@3.8.1 pinned as exact version per D-01; global.ResizeObserver unconditional class stub in setup.ts for vitest jsdom
 
 ### Pending Todos
 
@@ -105,5 +107,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-01T16:37:50.696Z
-Stopped at: Phase 12 context gathered
+Last session: 2026-05-01T18:03:31.462Z
+Stopped at: Completed 12-01-PLAN.md

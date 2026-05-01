@@ -104,7 +104,12 @@ Plans:
   4. The chart uses `dot={false}` and `isAnimationActive={false}` defaults; with one game in the filtered window a single dot renders with an explicit hint ("Solo hay una partida en este rango")
   5. Below the chart, a leaderboard table lists Posición, Jugador, ELO actual, Última delta — sorted by ELO descending — driven by the same `/elo/history` data
   6. The chart is wrapped in `role="img"` with a descriptive `aria-label`, has `accessibilityLayer` enabled, and includes a `<details><summary>Ver datos como tabla</summary>` data-table fallback for screen readers; no `.recharts-*` global rules leak into `index.css`
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+- [x] 12-01-PLAN.md — Wave-0 preflight: install recharts@3.8.1 + add ResizeObserver mock to test setup
+- [ ] 12-02-PLAN.md — EloLineChart component (Recharts multi-line, deterministic palette, click tooltip, a11y) + tests
+- [ ] 12-03-PLAN.md — EloLeaderboard component (ranked table, ELO desc + alphabetical tiebreak, delta colors) + tests
+- [ ] 12-04-PLAN.md — Wire chart + leaderboard into Ranking.tsx + responsive container + single-point hint + Ranking.test.tsx update + human-verify checkpoint
 **UI hint**: yes
 
 ## Progress
@@ -122,4 +127,4 @@ Plans:
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
-| 12. Ranking chart + leaderboard | v1.1 | 0/? | Not started | - |
+| 12. Ranking chart + leaderboard | v1.1 | 1/4 | In Progress|  |
