@@ -41,12 +41,12 @@ const DATASET: PlayerEloHistoryDTO[] = [
 // ---------------------------------------------------------------------------
 
 describe('parseRankingParams', () => {
-  it('empty URLSearchParams → default state with hasPlayersKey false (D-C1)', () => {
+  it('empty URLSearchParams → default state with hasPlayersKey false (no `players` key in URL)', () => {
     const result = parseRankingParams(new URLSearchParams())
     expect(result).toEqual({ players: [], from: null, hasPlayersKey: false })
   })
 
-  it('?players= (key present, empty value) → players empty, hasPlayersKey true (D-C2/D-C3)', () => {
+  it('?players= (key present, empty value) → players empty, hasPlayersKey true (explicit empty selection)', () => {
     const result = parseRankingParams(new URLSearchParams('players='))
     expect(result).toEqual({ players: [], from: null, hasPlayersKey: true })
   })
@@ -77,22 +77,22 @@ describe('parseRankingParams', () => {
 // ---------------------------------------------------------------------------
 
 describe('serializeRankingParams', () => {
-  it('empty state → empty string (URL clean, D-C1)', () => {
+  it('empty state → empty string (URL stays clean for the default selection)', () => {
     const result = serializeRankingParams({ players: [], from: null })
     expect(result.toString()).toBe('')
   })
 
-  it('empty state with explicitEmptyPlayers → "players=" (D-C2)', () => {
+  it('empty state with explicitEmptyPlayers → "players=" (preserves explicit-empty signal)', () => {
     const result = serializeRankingParams({ players: [], from: null }, { explicitEmptyPlayers: true })
     expect(result.toString()).toBe('players=')
   })
 
-  it('players sorted by string compare, comma encodes as %2C (D-A7 + Pitfall D)', () => {
+  it('players sorted by string compare, comma encodes as %2C (canonical URL regardless of input order)', () => {
     const result = serializeRankingParams({ players: ['b', 'a'], from: null })
     expect(result.toString()).toBe('players=a%2Cb')
   })
 
-  it('players set BEFORE from — deterministic key order (Pitfall D)', () => {
+  it('players set BEFORE from — deterministic key order (avoids browser-specific URLSearchParams ordering)', () => {
     const result = serializeRankingParams({ players: ['p1'], from: '2026-01-01' })
     expect(result.toString()).toBe('players=p1&from=2026-01-01')
   })
@@ -136,10 +136,14 @@ describe('applyRankingFilters', () => {
 })
 
 // ---------------------------------------------------------------------------
-// TZ-safe YYYY-MM-DD round-trip (SC#5)
+// TZ-safe YYYY-MM-DD round-trip: dates must survive parse → serialize →
+// parse with byte-exact equality regardless of the test runner's timezone.
+// `setup.ts` pins TZ to America/Argentina/Buenos_Aires so this test catches
+// any accidental Date-constructor wrapping that would shift the date by a
+// day in non-UTC timezones.
 // ---------------------------------------------------------------------------
 
-describe('rankingFilters — TZ-safe YYYY-MM-DD round-trip (SC#5)', () => {
+describe('rankingFilters — TZ-safe YYYY-MM-DD round-trip', () => {
   it('round-trips from=2026-01-01 unchanged regardless of TZ', () => {
     // Defensive guard: setup.ts must have pinned TZ before any import
     expect(process.env.TZ).toBe('America/Argentina/Buenos_Aires')
@@ -156,7 +160,7 @@ describe('rankingFilters — TZ-safe YYYY-MM-DD round-trip (SC#5)', () => {
     expect(reparsed.from).toBe('2026-01-01')
   })
 
-  it('encoding stability: players sorted + from after players (Pitfall D regression guard)', () => {
+  it('encoding stability: players sorted + from after players (regression guard for URL ordering)', () => {
     const result = serializeRankingParams({ players: ['a', 'b'], from: '2026-01-01' })
     expect(result.toString()).toBe('players=a%2Cb&from=2026-01-01')
   })

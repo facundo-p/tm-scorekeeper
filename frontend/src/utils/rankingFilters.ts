@@ -10,7 +10,12 @@ export interface RankingFilterState {
 }
 
 export interface RankingParseResult extends RankingFilterState {
-  hasPlayersKey: boolean   // distinguishes ?players= from key absence (D-C3)
+  /**
+   * True if the URL had a `players` query key at all (even with empty value
+   * `?players=`). Lets the hook distinguish "user explicitly chose empty"
+   * from "user opened a clean URL" — the two trigger different defaults.
+   */
+  hasPlayersKey: boolean
 }
 
 export function parseRankingParams(search: URLSearchParams): RankingParseResult {
@@ -28,10 +33,16 @@ export function serializeRankingParams(
 ): URLSearchParams {
   const out = new URLSearchParams()
   if (state.players.length > 0) {
-    // Stable string-compare sort (D-A7); set PLAYERS_KEY before FROM_KEY (Pitfall D)
+    // Sort + write `players` BEFORE `from` so URLSearchParams produces a
+    // deterministic key order across browsers (some implementations preserve
+    // insertion order, some sort alphabetically — explicit ordering avoids
+    // diff churn in shared links and test snapshots).
     out.set(PLAYERS_KEY, [...state.players].sort().join(','))
   } else if (opts?.explicitEmptyPlayers) {
-    out.set(PLAYERS_KEY, '')  // ?players= explicit empty (D-C2)
+    // Write `?players=` (key with empty value) so the hook can tell "user
+    // deselected everything" apart from "user opened a clean URL". Without
+    // this signal both states would render the all-active default.
+    out.set(PLAYERS_KEY, '')
   }
   if (state.from) out.set(FROM_KEY, state.from)
   return out
@@ -47,7 +58,11 @@ export function applyRankingFilters(
     .filter((p) => selectedPlayerIds.includes(p.player_id))
     .map((p) => ({
       ...p,
-      // Lexicographic compare — NEVER new Date() (RESEARCH Pattern 4 / Pitfall A)
+      // String compare on `YYYY-MM-DD` works because the format is sortable
+      // by lexicographic order. Avoid `new Date(...)` here — it interprets
+      // bare dates in local TZ, which can shift the cutoff by a day for
+      // anyone west of UTC. The opaque-string round-trip is enforced by the
+      // SC#5 test pinning TZ to America/Argentina/Buenos_Aires.
       points: fromDate === null ? p.points : p.points.filter((pt) => pt.recorded_at >= fromDate),
     }))
 }

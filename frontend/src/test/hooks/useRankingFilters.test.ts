@@ -23,26 +23,31 @@ function renderWithLocation(initialEntry: string, activePlayerIds: string[] | nu
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// A — Default branch (URL clean → all active) (D-C1)
+// A — Default branch: clean URL → resolve to all active players, do not
+// rewrite (the URL stays clean unless the user explicitly picks something).
 // ─────────────────────────────────────────────────────────────────────────────
-describe('A — Default branch: URL clean → all active (D-C1)', () => {
+describe('A — Default branch: URL clean → all active', () => {
   it('returns all activePlayerIds when URL has no players key', () => {
     const { result } = renderWithLocation('/ranking', ['p1', 'p2', 'p3'])
     expect(result.current.players).toEqual(['p1', 'p2', 'p3'])
     expect(result.current.fromDate).toBeNull()
   })
 
-  it('does NOT rewrite the URL on mount (D-C1 silence — URL stays clean)', () => {
+  it('does NOT rewrite the URL on mount (URL stays clean for the default state)', () => {
     const { result } = renderWithLocation('/ranking', ['p1', 'p2', 'p3'])
-    // No rewrite — search should remain empty string
     expect(result.current.locationSearch).toBe('')
   })
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// B — Intersection drop + idempotent rewrite (D-A3 step 3, Pitfall B)
+// B — Intersection drop + idempotent rewrite: when the URL has player ids
+// that no longer exist (e.g. a stale shared link), drop them, surface only
+// the valid ones, and rewrite the URL to canonical sorted form. The rewrite
+// must be idempotent — re-running the effect must NOT trigger a second
+// setSearchParams (otherwise: setSearchParams → searchParams change →
+// effect re-runs → infinite loop).
 // ─────────────────────────────────────────────────────────────────────────────
-describe('B — Intersection drop + idempotent rewrite (D-A3 step 3, Pitfall B)', () => {
+describe('B — Intersection drop + idempotent URL rewrite', () => {
   it('drops ghost IDs and resolves to valid intersection', async () => {
     const { result } = renderWithLocation('/ranking?players=p1,ghost,p2', ['p1', 'p2', 'p3'])
     // After effect runs, resolved players should be ['p1', 'p2'] (sorted)
@@ -50,7 +55,7 @@ describe('B — Intersection drop + idempotent rewrite (D-A3 step 3, Pitfall B)'
     expect(result.current.players).toEqual(['p1', 'p2'])
   })
 
-  it('rewrites URL exactly ONCE to canonical sorted form (Pitfall B — no infinite loop)', async () => {
+  it('rewrites URL exactly ONCE to canonical sorted form (no infinite re-fire loop)', async () => {
     const { result, rerender } = renderWithLocation('/ranking?players=p1,ghost,p2', ['p1', 'p2', 'p3'])
     await act(async () => {})
     // After first rewrite, URL should have sorted valid players
@@ -65,9 +70,12 @@ describe('B — Intersection drop + idempotent rewrite (D-A3 step 3, Pitfall B)'
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// C — Empty intersection → in-memory fallback + URL clean (D-A3 step 4)
+// C — Empty intersection: when EVERY id in the URL is unknown, the UI falls
+// back to all active players in memory AND the URL is cleaned (drop the
+// `players` key entirely) so a reload starts fresh instead of re-trying
+// the dead ids on every visit.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('C — Empty intersection → fallback to all active + URL clean (D-A3 step 4)', () => {
+describe('C — Empty intersection → fallback to all active + URL clean', () => {
   it('falls back to all active when intersection is empty', async () => {
     const { result } = renderWithLocation('/ranking?players=ghost1,ghost2', ['p1', 'p2'])
     await act(async () => {})
@@ -81,7 +89,7 @@ describe('C — Empty intersection → fallback to all active + URL clean (D-A3 
     expect(result.current.locationSearch).not.toContain('players')
   })
 
-  it('does NOT rewrite URL a second time after empty-intersection rewrite (Pitfall B)', async () => {
+  it('does NOT rewrite URL a second time after empty-intersection rewrite (idempotency guard)', async () => {
     const { result, rerender } = renderWithLocation('/ranking?players=ghost1,ghost2', ['p1', 'p2'])
     await act(async () => {})
     const searchAfterFirst = result.current.locationSearch
@@ -93,9 +101,11 @@ describe('C — Empty intersection → fallback to all active + URL clean (D-A3 
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// D — Explicit empty ?players= → respect, no rewrite (D-C2/D-C3)
+// D — Explicit empty selection: `?players=` (key present, empty value) means
+// the user actively deselected every player. Respect it — render the empty
+// state — and do NOT rewrite the URL back to the all-active default.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('D — Explicit empty ?players= → respect, no URL rewrite (D-C2/D-C3)', () => {
+describe('D — Explicit empty ?players= → respect, no URL rewrite', () => {
   it('returns empty players array when ?players= is explicit', () => {
     const { result } = renderWithLocation('/ranking?players=', ['p1', 'p2'])
     expect(result.current.players).toEqual([])
@@ -110,9 +120,13 @@ describe('D — Explicit empty ?players= → respect, no URL rewrite (D-C2/D-C3)
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// E — activePlayerIds === null (loading state, Pitfall E)
+// E — Loading state: when activePlayerIds is null (parent page is still
+// fetching the active player list) the hook must render an empty selection
+// and leave the URL untouched — there's no way to safely intersect against
+// an unknown set, and writing to the URL during the loading flash would
+// corrupt the user's filter state.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('E — activePlayerIds === null (loading state, Pitfall E)', () => {
+describe('E — activePlayerIds === null (parent still loading)', () => {
   it('returns empty players array when activePlayerIds is null', async () => {
     const { result } = renderWithLocation('/ranking?players=p1', null)
     await act(async () => {})
@@ -133,10 +147,13 @@ describe('E — activePlayerIds === null (loading state, Pitfall E)', () => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// F — setPlayers setter
+// F — setPlayers setter: writes player selection to URL with stable sort
+// order so reordering the picker doesn't churn the URL, preserves any
+// existing `from` filter, and signals "explicit empty" via `?players=`
+// when the user deselects everything.
 // ─────────────────────────────────────────────────────────────────────────────
 describe('F — setPlayers setter', () => {
-  it('sorts players before serializing to URL (D-A7)', async () => {
+  it('sorts players before serializing so URL is canonical regardless of selection order', async () => {
     const { result } = renderWithLocation('/ranking', ['p1', 'p2', 'p3'])
     await act(async () => {
       result.current.setPlayers(['p2', 'p1'])
@@ -146,7 +163,7 @@ describe('F — setPlayers setter', () => {
     expect(result.current.players).toEqual(['p1', 'p2'])
   })
 
-  it('writes ?players= (explicit empty) when setPlayers([]) called (D-C2)', async () => {
+  it('writes ?players= (explicit empty) when setPlayers([]) called', async () => {
     const { result } = renderWithLocation('/ranking?players=p1', ['p1', 'p2'])
     await act(async () => {
       result.current.setPlayers([])
@@ -155,7 +172,7 @@ describe('F — setPlayers setter', () => {
     expect(result.current.players).toEqual([])
   })
 
-  it('preserves fromDate in URL when setPlayers called with fromDate present (Pitfall D)', async () => {
+  it('preserves fromDate in URL when setPlayers called with fromDate present', async () => {
     const { result } = renderWithLocation('/ranking?players=p1&from=2026-01-01', ['p1', 'p2', 'p3'])
     await act(async () => {
       result.current.setPlayers(['p2', 'p1'])
@@ -166,9 +183,11 @@ describe('F — setPlayers setter', () => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// G — setFromDate setter (RANK-04 + Pitfall F — no new Date())
+// G — setFromDate setter: writes the date as an opaque YYYY-MM-DD string
+// straight to the URL (no Date constructor, no TZ shifting), and accepts
+// null to clear the filter while preserving the player selection.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('G — setFromDate setter (opaque string, Pitfall F)', () => {
+describe('G — setFromDate setter (opaque YYYY-MM-DD string, no Date wrapping)', () => {
   it('writes from=YYYY-MM-DD to URL opaquely without Date wrapping', async () => {
     const { result } = renderWithLocation('/ranking', ['p1', 'p2'])
     await act(async () => {
@@ -198,9 +217,10 @@ describe('G — setFromDate setter (opaque string, Pitfall F)', () => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// H — clearAll (D-C4)
+// H — clearAll: drops both query keys so the URL goes back to clean
+// `/ranking`, and the next render falls through to the all-active default.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('H — clearAll resets URL to clean (D-C4)', () => {
+describe('H — clearAll resets URL to clean', () => {
   it('clears both players and from params from URL', async () => {
     const { result } = renderWithLocation('/ranking?players=p1,p2&from=2026-01-01', ['p1', 'p2', 'p3'])
     await act(async () => {
@@ -219,11 +239,14 @@ describe('H — clearAll resets URL to clean (D-C4)', () => {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
-// I — replace: true regression guard (D-A6)
-// Note: replace: true is verified by grep on source — not testable in jsdom
-// This test covers the accept criteria via the source-file check description
+// I — `replace: true` regression guard: every URL write must use
+// `setSearchParams(..., { replace: true })` so filter changes do NOT add
+// browser-history entries (back button should jump straight back to the
+// referrer, not walk through every filter toggle). The actual `replace: true`
+// flag is verified by source grep — this smoke test just confirms the hook
+// remains importable and returns the expected setter shape.
 // ─────────────────────────────────────────────────────────────────────────────
-describe('I — replace: true regression guard (D-A6)', () => {
+describe('I — replace: true regression guard (hook surface)', () => {
   it('hook exists and exports useRankingFilters function', () => {
     // Smoke test: hook must be importable and usable
     const { result } = renderWithLocation('/ranking', ['p1'])

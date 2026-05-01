@@ -75,12 +75,18 @@ export default function Ranking() {
   const [retryCount, setRetryCount] = useState(0)
 
   useEffect(() => {
+    // `cancelled` guard prevents setState calls after the component has
+    // unmounted (or after `retryCount` bumps and a newer fetch is in flight).
+    // Without it, a slow request that resolves post-unmount would emit a
+    // React warning and overwrite state from the newer request.
+    let cancelled = false
     setLoading(true)
     setError(null)
     getEloHistory()
-      .then((data) => setDataset(data))
-      .catch(() => setError('No se pudo cargar el ranking.'))
-      .finally(() => setLoading(false))
+      .then((data) => { if (!cancelled) setDataset(data) })
+      .catch(() => { if (!cancelled) setError('No se pudo cargar el ranking.') })
+      .finally(() => { if (!cancelled) setLoading(false) })
+    return () => { cancelled = true }
   }, [retryCount])
 
   const filtered = useMemo(
