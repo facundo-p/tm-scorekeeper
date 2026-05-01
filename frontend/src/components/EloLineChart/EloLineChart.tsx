@@ -37,7 +37,9 @@ function hashPlayerId(playerId: string): number {
   return sum
 }
 
-function playerColor(playerId: string): string {
+// Exported for testability — allows unit tests to verify deterministic palette
+// without depending on Recharts SVG rendering in jsdom (which requires dimensions).
+export function playerColor(playerId: string): string {
   return PLAYER_COLORS[hashPlayerId(playerId) % PLAYER_COLORS.length]
 }
 
