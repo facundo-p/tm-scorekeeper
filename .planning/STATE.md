@@ -5,7 +5,7 @@ milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: verifying
 stopped_at: Completed 12-04-PLAN.md — Phase 12 complete, human-verify approved
 last_updated: "2026-05-01T20:38:21.965Z"
-last_activity: 2026-05-01
+last_activity: 2026-05-01 - Completed quick task 260501-r3p: Fix enums de Awards Tharsis en backend + DB, y agregar Hito y Recompensa de expansión Venus
 progress:
   total_phases: 5
   completed_phases: 4
@@ -103,6 +103,12 @@ Recent decisions affecting current work:
 ### Pending Todos
 
 None yet.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260501-r3p | Fix enums de Awards Tharsis en backend + DB, y agregar Hito y Recompensa de expansión Venus | 2026-05-01 | c0f365a | [260501-r3p-fix-enums-de-awards-tharsis-en-backend-d](./quick/260501-r3p-fix-enums-de-awards-tharsis-en-backend-d/) |
 
 ### Blockers/Concerns
 

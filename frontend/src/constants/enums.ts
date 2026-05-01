@@ -47,15 +47,17 @@ export enum Milestone {
   MERCHANT = 'Merchant',
   SPONSOR = 'Sponsor',
   LOBBYIST = 'Lobbyist',
+  // Venus Next
+  HOVERLORD = 'Hoverlord',
 }
 
 export enum Award {
-  // Tharsis (note: backend uses same string values as Tharsis milestones)
-  TERRAFORMER = 'Terraformer',
-  MAYOR = 'Mayor',
-  GARDENER = 'Gardener',
-  BUILDER = 'Builder',
-  PLANNER = 'Planner',
+  // Tharsis
+  LANDLORD = 'Landlord',
+  BANKER = 'Banker',
+  SCIENTIST = 'Scientist',
+  THERMALIST = 'Thermalist',
+  MINER = 'Miner',
   // Hellas
   CULTIVATOR = 'Cultivator',
   MAGNATE = 'Magnate',
@@ -80,6 +82,8 @@ export enum Award {
   CONSTRUCTOR = 'Constructor',
   MANUFACTURER = 'Manufacturer',
   PHYSICIST = 'Physicist',
+  // Venus Next
+  VENUPHILE = 'Venuphile',
 }
 
 export enum Corporation {
