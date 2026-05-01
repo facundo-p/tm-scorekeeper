@@ -29,20 +29,6 @@ describe('EloLineChart', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders a11y data table summary', () => {
-    render(<EloLineChart data={fixture} />)
-    expect(screen.getByText('Ver datos como tabla')).toBeInTheDocument()
-  })
-
-  it('a11y table lists every data point row', () => {
-    render(<EloLineChart data={fixture} />)
-    // Three points across two players
-    expect(screen.getAllByRole('row').length).toBeGreaterThanOrEqual(4) // header + 3
-    expect(screen.getByText('1510')).toBeInTheDocument()
-    expect(screen.getByText('1520')).toBeInTheDocument()
-    expect(screen.getByText('1450')).toBeInTheDocument()
-  })
-
   it('does not crash with empty data', () => {
     expect(() => render(<EloLineChart data={[]} />)).not.toThrow()
   })

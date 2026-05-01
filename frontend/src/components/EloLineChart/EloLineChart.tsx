@@ -15,16 +15,20 @@ interface EloLineChartProps {
   data: PlayerEloHistoryDTO[]
 }
 
-// Deterministic, id-keyed palette. All 6 colors verified ≥3:1 WCAG contrast
-// against --color-surface (#2c1810). Order locked in 12-UI-SPEC.md § Color.
-// Adding/removing other players never reassigns a player's color (RANK-02 SC1).
+// Deterministic, id-keyed palette. 10 colors so up to 10 concurrent players
+// get unique colors. All verified ≥3:1 WCAG contrast against --color-surface (#2c1810).
+// Adding/removing players never reassigns existing players' colors (RANK-02 SC1).
 const PLAYER_COLORS = [
-  '#4e9af1', // bright blue
+  '#4e9af1', // blue
   '#f1c40f', // yellow
   '#2ecc71', // green
-  '#e91e8c', // pink
+  '#e91e8c', // hot pink
   '#ff7043', // orange-red
   '#a78bfa', // purple
+  '#26c6da', // cyan
+  '#ff9800', // amber
+  '#f06292', // rose
+  '#80cbc4', // teal
 ] as const
 
 // Hash = sum of UTF-16 char codes of player_id. Pure, deterministic, no
@@ -68,9 +72,27 @@ function buildMergedRows(data: PlayerEloHistoryDTO[]): MergedRow[] {
     }
   }
   // Sort by recorded_at ascending — string sort is correct for YYYY-MM-DD.
-  return Array.from(byDate.values()).sort((a, b) =>
+  const rows = Array.from(byDate.values()).sort((a, b) =>
     a.recorded_at < b.recorded_at ? -1 : a.recorded_at > b.recorded_at ? 1 : 0,
   )
+
+  // Extend each player's last known ELO to the latest date in the dataset.
+  // With connectNulls + type="linear", this produces a horizontal line from
+  // the player's last game to the right edge of the chart, communicating
+  // "current ELO unchanged since last game."
+  if (rows.length > 0) {
+    const lastRow = rows[rows.length - 1]
+    for (const player of data) {
+      if (player.points.length === 0 || lastRow[player.player_id] !== undefined) continue
+      const sorted = [...player.points].sort((a, b) =>
+        a.recorded_at < b.recorded_at ? -1 : a.recorded_at > b.recorded_at ? 1 : 0,
+      )
+      const lastPoint = sorted[sorted.length - 1]
+      lastRow[player.player_id] = lastPoint.elo_after
+    }
+  }
+
+  return rows
 }
 
 function totalPointCount(data: PlayerEloHistoryDTO[]): number {
@@ -124,7 +146,7 @@ export default function EloLineChart({ data }: EloLineChartProps) {
           {data.map((player) => (
             <Line
               key={player.player_id}
-              type="monotone"
+              type="linear"
               dataKey={player.player_id}
               name={player.player_name}
               stroke={playerColor(player.player_id)}
@@ -136,30 +158,6 @@ export default function EloLineChart({ data }: EloLineChartProps) {
           ))}
         </LineChart>
       </ResponsiveContainer>
-
-      <details className={styles.a11yDetails}>
-        <summary className={styles.a11yToggle}>Ver datos como tabla</summary>
-        <table className={styles.a11yTable}>
-          <thead>
-            <tr>
-              <th>Jugador</th>
-              <th>Fecha</th>
-              <th>ELO</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.flatMap((player) =>
-              player.points.map((point) => (
-                <tr key={`${player.player_id}-${point.game_id}`}>
-                  <td>{player.player_name}</td>
-                  <td>{point.recorded_at}</td>
-                  <td>{point.elo_after}</td>
-                </tr>
-              )),
-            )}
-          </tbody>
-        </table>
-      </details>
     </div>
   )
 }

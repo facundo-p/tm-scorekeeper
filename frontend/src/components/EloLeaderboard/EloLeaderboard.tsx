@@ -71,10 +71,10 @@ export default function EloLeaderboard({ data }: EloLeaderboardProps) {
         <caption className={styles.caption}>Ranking</caption>
         <thead>
           <tr>
-            <th scope="col" className={styles.colPosition}>Posición</th>
+            <th scope="col" className={styles.colPosition}>#</th>
             <th scope="col" className={styles.colPlayer}>Jugador</th>
-            <th scope="col" className={styles.colElo}>ELO actual</th>
-            <th scope="col" className={styles.colDelta}>Última delta</th>
+            <th scope="col" className={styles.colElo}>ELO</th>
+            <th scope="col" className={styles.colDelta}>Últ. delta</th>
           </tr>
         </thead>
         <tbody>

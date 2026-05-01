@@ -30,7 +30,7 @@ describe('EloLeaderboard', () => {
     const data = [p('a', 'Alice', [{ recorded_at: '2025-06-01', elo_after: 1500, delta: 0 }])]
     render(<EloLeaderboard data={data} />)
     const headers = screen.getAllByRole('columnheader').map((h) => h.textContent)
-    expect(headers).toEqual(['Posición', 'Jugador', 'ELO actual', 'Última delta'])
+    expect(headers).toEqual(['#', 'Jugador', 'ELO', 'Últ. delta'])
   })
 
   it('sorts by current_elo descending', () => {

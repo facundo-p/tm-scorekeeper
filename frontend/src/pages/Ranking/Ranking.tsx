@@ -110,30 +110,36 @@ export default function Ranking() {
         })}
         {!isLoading && !hasError && (
           <>
-            <RankingFilters
-              players={selectedPlayers}
-              fromDate={fromDate}
-              activePlayersOptions={activePlayersOptions}
-              onPlayersChange={setPlayers}
-              onFromDateChange={setFromDate}
-              onClear={clearAll}
-            />
-            {selectedPlayers.length === 0 ? (
-              renderEmptyState('no-players', clearAll)
-            ) : totalPoints === 0 ? (
-              renderEmptyState('no-data', clearAll)
-            ) : (
-              <>
-                <div className={styles.chartContainer}>
-                  <EloLineChart data={filtered} />
-                </div>
-                {totalPoints === 1 && (
-                  <p className={styles.singlePointHint}>
-                    Solo hay una partida en este rango
-                  </p>
-                )}
-                <EloLeaderboard data={dataset} />
-              </>
+            <div className={styles.chartCard}>
+              <div className={styles.filterSection}>
+                <RankingFilters
+                  players={selectedPlayers}
+                  fromDate={fromDate}
+                  activePlayersOptions={activePlayersOptions}
+                  onPlayersChange={setPlayers}
+                  onFromDateChange={setFromDate}
+                  onClear={clearAll}
+                />
+              </div>
+              {selectedPlayers.length === 0 ? (
+                renderEmptyState('no-players', clearAll)
+              ) : totalPoints === 0 ? (
+                renderEmptyState('no-data', clearAll)
+              ) : (
+                <>
+                  <div className={styles.chartArea}>
+                    <EloLineChart data={filtered} />
+                  </div>
+                  {totalPoints === 1 && (
+                    <p className={styles.singlePointHint}>
+                      Solo hay una partida en este rango
+                    </p>
+                  )}
+                </>
+              )}
+            </div>
+            {selectedPlayers.length > 0 && totalPoints > 0 && (
+              <EloLeaderboard data={dataset} />
             )}
           </>
         )}
