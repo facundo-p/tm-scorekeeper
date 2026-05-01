@@ -546,9 +546,9 @@ class TestAwardMaster:
         from services.achievement_evaluators.definitions import AWARD_MASTER
         ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1"]),
-            _make_award("Banquero", "p1", ["p1"]),
-            _make_award("Científico", "opponent", ["p1"]),
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "opponent", ["p1"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 1
@@ -557,9 +557,9 @@ class TestAwardMaster:
         from services.achievement_evaluators.definitions import AWARD_MASTER
         ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1"]),
-            _make_award("Banquero", "p1", ["p1"]),
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 0
@@ -568,9 +568,9 @@ class TestAwardMaster:
         from services.achievement_evaluators.definitions import AWARD_MASTER
         ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1"]),
-            _make_award("Banquero", "p1", ["p1"]),
-            _make_award("Científico", "p1", ["p1"]),
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=50, opponent_points=80)
         assert ev.compute_tier("p1", [game]) == 0
@@ -579,9 +579,9 @@ class TestAwardMaster:
         from services.achievement_evaluators.definitions import AWARD_MASTER
         ev = SingleGameThresholdEvaluator(AWARD_MASTER, extractor=_award_master_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1", "opponent"]),
-            _make_award("Banquero", "p1", ["p1"]),
-            _make_award("Científico", "p1", ["p1", "opponent"]),
+            _make_award("Landlord", "p1", ["p1", "opponent"]),
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1", "opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 1
@@ -594,9 +594,9 @@ class TestNoAwardWin:
         from services.achievement_evaluators.definitions import NO_AWARD_WIN
         ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["opponent"]),
-            _make_award("Banquero", "opponent", ["opponent"]),
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "p1", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 1
@@ -605,9 +605,9 @@ class TestNoAwardWin:
         from services.achievement_evaluators.definitions import NO_AWARD_WIN
         ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1"]),
-            _make_award("Banquero", "opponent", ["opponent"]),
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "p1", ["p1"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 0
@@ -616,9 +616,9 @@ class TestNoAwardWin:
         from services.achievement_evaluators.definitions import NO_AWARD_WIN
         ev = SingleGameThresholdEvaluator(NO_AWARD_WIN, extractor=_no_award_win_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["opponent"]),
-            _make_award("Banquero", "opponent", ["opponent"]),
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "p1", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=50, opponent_points=80)
         assert ev.compute_tier("p1", [game]) == 0
@@ -637,9 +637,9 @@ class TestStolenAwards:
         from services.achievement_evaluators.definitions import STOLEN_AWARDS
         ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
         awards = [
-            _make_award("Terrateniente", "opponent", ["p1"]),       # stolen: sole 1st, not opener
-            _make_award("Banquero", "p1", ["p1"]),               # not stolen: p1 opened it
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "opponent", ["p1"]),       # stolen: sole 1st, not opener
+            _make_award("Banker", "p1", ["p1"]),               # not stolen: p1 opened it
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 1
@@ -648,9 +648,9 @@ class TestStolenAwards:
         from services.achievement_evaluators.definitions import STOLEN_AWARDS
         ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
         awards = [
-            _make_award("Terrateniente", "opponent", ["p1"]),
-            _make_award("Banquero", "opponent", ["p1"]),
-            _make_award("Científico", "opponent", ["p1"]),
+            _make_award("Landlord", "opponent", ["p1"]),
+            _make_award("Banker", "opponent", ["p1"]),
+            _make_award("Scientist", "opponent", ["p1"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 3
@@ -659,9 +659,9 @@ class TestStolenAwards:
         from services.achievement_evaluators.definitions import STOLEN_AWARDS
         ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
         awards = [
-            _make_award("Terrateniente", "opponent", ["p1", "opponent"]),  # shared, not sole
-            _make_award("Banquero", "opponent", ["p1"]),                # stolen
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "opponent", ["p1", "opponent"]),  # shared, not sole
+            _make_award("Banker", "opponent", ["p1"]),                # stolen
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 1
@@ -670,9 +670,9 @@ class TestStolenAwards:
         from services.achievement_evaluators.definitions import STOLEN_AWARDS
         ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
         awards = [
-            _make_award("Terrateniente", "p1", ["p1"]),   # p1 opened it, not stolen
-            _make_award("Banquero", "p1", ["p1"]),
-            _make_award("Científico", "p1", ["p1"]),
+            _make_award("Landlord", "p1", ["p1"]),   # p1 opened it, not stolen
+            _make_award("Banker", "p1", ["p1"]),
+            _make_award("Scientist", "p1", ["p1"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 0
@@ -681,9 +681,9 @@ class TestStolenAwards:
         from services.achievement_evaluators.definitions import STOLEN_AWARDS
         ev = SingleGameThresholdEvaluator(STOLEN_AWARDS, extractor=_stolen_awards_extractor)
         awards = [
-            _make_award("Terrateniente", "opponent", ["opponent"]),
-            _make_award("Banquero", "opponent", ["opponent"]),
-            _make_award("Científico", "opponent", ["opponent"]),
+            _make_award("Landlord", "opponent", ["opponent"]),
+            _make_award("Banker", "opponent", ["opponent"]),
+            _make_award("Scientist", "opponent", ["opponent"]),
         ]
         game = _make_game_with_awards("p1", awards, total_points=80, opponent_points=50)
         assert ev.compute_tier("p1", [game]) == 0

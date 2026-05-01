@@ -25,7 +25,7 @@ def test_milestone_enum_contract():
 def test_award_enum_contract():
     expected = {
         # Tharsis
-        "Terrateniente", "Banquero", "Científico", "Termalista", "Minero",
+        "Landlord", "Banker", "Scientist", "Thermalist", "Miner",
         # Hellas
         "Cultivator", "Magnate", "Space Baron", "Excentric", "Contractor",
         # Elysium

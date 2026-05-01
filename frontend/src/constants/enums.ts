@@ -52,12 +52,12 @@ export enum Milestone {
 }
 
 export enum Award {
-  // Tharsis (note: backend uses same string values as Tharsis milestones)
-  TERRATENIENTE = 'Terrateniente',
-  BANQUERO = 'Banquero',
-  CIENTIFICO = 'Científico',
-  TERMALISTA = 'Termalista',
-  MINERO = 'Minero',
+  // Tharsis
+  LANDLORD = 'Landlord',
+  BANKER = 'Banker',
+  SCIENTIST = 'Scientist',
+  THERMALIST = 'Thermalist',
+  MINER = 'Miner',
   // Hellas
   CULTIVATOR = 'Cultivator',
   MAGNATE = 'Magnate',

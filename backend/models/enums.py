@@ -59,11 +59,11 @@ class Milestone(Enum):
 
 class Award(Enum):
     # Tharsis
-    TERRATENIENTE = "Terrateniente"
-    BANQUERO = "Banquero"
-    CIENTIFICO = "Científico"
-    TERMALISTA = "Termalista"
-    MINERO = "Minero"
+    LANDLORD = "Landlord"
+    BANKER = "Banker"
+    SCIENTIST = "Scientist"
+    THERMALIST = "Thermalist"
+    MINER = "Miner"
 
     # Hellas
     CULTIVATOR = "Cultivator"
