@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: executing
-stopped_at: Completed 12-03-PLAN.md
-last_updated: "2026-05-01T18:13:04.929Z"
+stopped_at: "Checkpoint: Task 5 human-verify in 12-04-PLAN.md"
+last_updated: "2026-05-01T18:17:33.592Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 17
-  completed_plans: 16
-  percent: 94
+  completed_plans: 17
+  percent: 100
 ---
 
 # Project State
@@ -65,6 +65,7 @@ Progress: [          ] 0%
 | Phase 12 P01 | 59 | 3 tasks | 3 files |
 | Phase 12 P02 | 4 | 3 tasks | 3 files |
 | Phase 12 P03 | 3 | 3 tasks | 3 files |
+| Phase 12 P04 | 10 | 4 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,7 @@ Recent decisions affecting current work:
 - [Phase 12]: lastPointByDate uses YYYY-MM-DD string sort — lexicographically safe, no Date() wrapping needed
 - [Phase 12]: buildLeaderboardRows at module level (not inside component) — pure function, separates logic from presentation per CLAUDE.md
 - [Phase 12]: formatDelta/deltaClass copied from EloSummaryCard (intentional duplication for component isolation)
+- [Phase 12]: EloLineChart receives filtered (player+date filtered) — respects RANK-02 filter contract; EloLeaderboard receives dataset (unfiltered) — D-08 'Última delta' is global momentum, ignores date filter
 
 ### Pending Todos
 
@@ -114,5 +116,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-01T18:13:04.924Z
-Stopped at: Completed 12-03-PLAN.md
+Last session: 2026-05-01T18:17:25.517Z
+Stopped at: Checkpoint: Task 5 human-verify in 12-04-PLAN.md
