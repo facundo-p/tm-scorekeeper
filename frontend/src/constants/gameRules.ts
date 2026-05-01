@@ -48,11 +48,11 @@ export const MAP_MILESTONES: Record<MapName, Milestone[]> = {
 
 export const MAP_AWARDS: Record<MapName, Award[]> = {
   [MapName.THARSIS]: [
-    Award.TERRAFORMER,
-    Award.MAYOR,
-    Award.GARDENER,
-    Award.BUILDER,
-    Award.PLANNER,
+    Award.LANDLORD,
+    Award.BANKER,
+    Award.SCIENTIST,
+    Award.THERMALIST,
+    Award.MINER,
   ],
   [MapName.HELLAS]: [
     Award.CULTIVATOR,
