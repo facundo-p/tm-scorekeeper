@@ -71,14 +71,14 @@ describe('Ranking', () => {
     expect(screen.getByRole('status')).toBeInTheDocument()
   })
 
-  it('shows chart skeleton when data loads with ≥1 point', async () => {
+  it('shows chart when data loads with at least one point', async () => {
     renderAt('/ranking')
     await waitFor(() => {
       expect(screen.queryByRole('status')).not.toBeInTheDocument()
     })
     expect(screen.queryByText(/sin partidas/i)).not.toBeInTheDocument()
-    const chartSkeleton = document.querySelector('[data-testid="chart-skeleton"]')
-    expect(chartSkeleton).toBeTruthy()
+    const chart = screen.queryByRole('img', { name: 'Gráfico de evolución de ELO por jugador' })
+    expect(chart).toBeInTheDocument()
   })
 
   it('shows empty state "Sin partidas en este rango" when from filter excludes all data', async () => {
@@ -123,16 +123,18 @@ describe('Ranking', () => {
     })
   })
 
-  it('default URL clean shows skeleton (all-active selected)', async () => {
+  it('default URL clean shows chart (all-active selected)', async () => {
     renderAt('/ranking')
     await waitFor(() => {
-      expect(document.querySelector('[data-testid="chart-skeleton"]')).toBeTruthy()
+      expect(
+        screen.queryByRole('img', { name: 'Gráfico de evolución de ELO por jugador' }),
+      ).toBeInTheDocument()
     })
     expect(screen.queryByText(/sin partidas/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/selecciona al menos/i)).not.toBeInTheDocument()
   })
 
-  it('clicking Limpiar filtros from empty state clears URL and shows skeleton', async () => {
+  it('clicking Limpiar filtros from empty state clears URL and shows chart', async () => {
     // Start filtered-out: all data is in 2025, filter from 2026 gives empty
     renderAt('/ranking?from=2026-01-01')
     await waitFor(() => {
@@ -142,8 +144,42 @@ describe('Ranking', () => {
     const clearButtons = screen.getAllByRole('button', { name: /limpiar filtros/i })
     fireEvent.click(clearButtons[clearButtons.length - 1])
     await waitFor(() => {
-      expect(document.querySelector('[data-testid="chart-skeleton"]')).toBeTruthy()
+      expect(
+        screen.queryByRole('img', { name: 'Gráfico de evolución de ELO por jugador' }),
+      ).toBeInTheDocument()
     })
     expect(screen.queryByText(/sin partidas/i)).not.toBeInTheDocument()
+  })
+
+  it('shows single-point hint when filtered dataset has exactly one point', async () => {
+    // Override mock so only Alice has data, with 1 point
+    vi.mocked(getEloHistory).mockResolvedValue([
+      {
+        player_id: 'p1',
+        player_name: 'Alice',
+        points: [
+          { recorded_at: '2025-06-01', game_id: 'g1', elo_after: 1510, delta: 10 },
+        ],
+      },
+    ])
+    renderAt('/ranking?players=p1')
+    await waitFor(() => {
+      expect(
+        screen.getByText('Solo hay una partida en este rango'),
+      ).toBeInTheDocument()
+    })
+  })
+
+  it('does not show single-point hint when more than one point is in range', async () => {
+    // fixtureHistory has 2 total points (one per player) — both selected by default
+    renderAt('/ranking')
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('img', { name: 'Gráfico de evolución de ELO por jugador' }),
+      ).toBeInTheDocument()
+    })
+    expect(
+      screen.queryByText('Solo hay una partida en este rango'),
+    ).not.toBeInTheDocument()
   })
 })
