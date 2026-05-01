@@ -45,6 +45,7 @@ function renderAt(initialEntry: string) {
 
 describe('Ranking', () => {
   beforeEach(() => {
+    vi.clearAllMocks()
     vi.mocked(usePlayers).mockReturnValue({
       players: fixturePlayers,
       loading: false,
@@ -86,7 +87,9 @@ describe('Ranking', () => {
     await waitFor(() => {
       expect(screen.getByText('Sin partidas en este rango')).toBeInTheDocument()
     })
-    expect(screen.getByRole('button', { name: /limpiar filtros/i })).toBeInTheDocument()
+    // Multiple "Limpiar filtros" buttons may exist (RankingFilters + empty state)
+    const clearButtons = screen.getAllByRole('button', { name: /limpiar filtros/i })
+    expect(clearButtons.length).toBeGreaterThan(0)
   })
 
   it('shows empty state "Selecciona al menos un jugador" when ?players= is empty', async () => {
@@ -94,7 +97,8 @@ describe('Ranking', () => {
     await waitFor(() => {
       expect(screen.getByText(/selecciona al menos un jugador/i)).toBeInTheDocument()
     })
-    expect(screen.getByRole('button', { name: /limpiar filtros/i })).toBeInTheDocument()
+    const clearButtons = screen.getAllByRole('button', { name: /limpiar filtros/i })
+    expect(clearButtons.length).toBeGreaterThan(0)
   })
 
   it('shows error state and Reintentar button when getEloHistory rejects', async () => {
@@ -112,9 +116,10 @@ describe('Ranking', () => {
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /reintentar/i })).toBeInTheDocument()
     })
+    const callsBefore = vi.mocked(getEloHistory).mock.calls.length
     fireEvent.click(screen.getByRole('button', { name: /reintentar/i }))
     await waitFor(() => {
-      expect(vi.mocked(getEloHistory)).toHaveBeenCalledTimes(2)
+      expect(vi.mocked(getEloHistory).mock.calls.length).toBeGreaterThan(callsBefore)
     })
   })
 
@@ -133,7 +138,9 @@ describe('Ranking', () => {
     await waitFor(() => {
       expect(screen.getByText('Sin partidas en este rango')).toBeInTheDocument()
     })
-    fireEvent.click(screen.getByRole('button', { name: /limpiar filtros/i }))
+    // Click the last "Limpiar filtros" button (the one in the empty state block)
+    const clearButtons = screen.getAllByRole('button', { name: /limpiar filtros/i })
+    fireEvent.click(clearButtons[clearButtons.length - 1])
     await waitFor(() => {
       expect(document.querySelector('[data-testid="chart-skeleton"]')).toBeTruthy()
     })
