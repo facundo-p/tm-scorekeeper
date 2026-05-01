@@ -2,7 +2,7 @@ from datetime import date
 
 from models.player_result import PlayerResult
 from models.award_result import AwardResult
-from models.enums import Corporation
+from models.enums import Corporation, Milestone, Award, Expansion
 from schemas.game import GameDTO
 from schemas.result import GameResultDTO
 from services.helpers.results import calculate_results
@@ -137,6 +137,19 @@ class GamesService:
             except KeyError:
                 raise ValueError(f"Player '{pr.player_id}' is not registered")
 
+    def _validate_venus_requirements(self, game) -> None:
+        has_hoverlord = any(
+            Milestone.HOVERLORD in player.scores.milestones
+            for player in game.player_results
+        )
+        has_venuphile = any(
+            award.award == Award.VENUPHILE
+            for award in game.awards
+        )
+        if (has_hoverlord or has_venuphile) and Expansion.VENUS_NEXT not in game.expansions:
+            raise ValueError(
+                "Expansion 'Venus Next' is required when using HOVERLORD milestone or VENUPHILE award"
+            )
 
     def create_game(self, game_dto: GameDTO) -> str:
         # Mapear a dominio
@@ -154,6 +167,7 @@ class GamesService:
         self._validate_award_players(game.awards, game.player_results)
         self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
+        self._validate_venus_requirements(game)
 
         game_id = self.games_repository.create(game)
         game.id = game_id
