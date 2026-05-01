@@ -19,9 +19,9 @@ class PlayerProfileService:
         self.player_records_service = player_records_service
 
     def get_profile(self, player_id: str) -> PlayerProfileDTO:
-        
+
         # validar que el jugador exista
-        self.players_repository.get(player_id)
+        player = self.players_repository.get(player_id)
 
         games = self.games_repository.get_games_by_player(player_id)
 
@@ -98,8 +98,9 @@ class PlayerProfileService:
         # usar directamente el id
         return PlayerProfileDTO(
             player_id=player_id,
+            elo=player.elo,
             stats=stats,
             games=summaries,
             records=records,
-        )    
+        )
 

@@ -14,7 +14,6 @@ const mockCatalog = {
   achievements: [
     {
       code: 'high_score',
-      title: 'Gran Terraformador',
       description: 'Alcanzar X puntos en una partida',
       icon: null,
       fallback_icon: 'trophy',
@@ -30,7 +29,6 @@ const mockCatalog = {
     },
     {
       code: 'games_played',
-      title: 'Habitué',
       description: 'Jugar partidas',
       icon: null,
       fallback_icon: 'gamepad',

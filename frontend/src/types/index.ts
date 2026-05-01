@@ -6,6 +6,7 @@ export interface PlayerResponseDTO {
   player_id: string
   name: string
   is_active: boolean
+  elo: number
 }
 
 export interface PlayerCreateDTO {
@@ -36,6 +37,7 @@ export interface PlayerGameSummaryDTO {
 
 export interface PlayerProfileDTO {
   player_id: string
+  elo: number
   stats: PlayerStatsDTO
   games: PlayerGameSummaryDTO[]
   records: Record<string, boolean>
@@ -199,7 +201,6 @@ export interface HolderDTO {
 
 export interface AchievementCatalogItemDTO {
   code: string
-  title: string
   description: string
   icon: string | null
   fallback_icon: string
@@ -209,4 +210,49 @@ export interface AchievementCatalogItemDTO {
 
 export interface AchievementCatalogResponseDTO {
   achievements: AchievementCatalogItemDTO[]
+}
+
+// ---- ELO DTOs ----
+
+export interface EloChangeDTO {
+  player_id: string
+  player_name: string
+  elo_before: number
+  elo_after: number
+  delta: number
+}
+
+export interface EloRankDTO {
+  position: number
+  total: number
+}
+
+export interface PlayerEloSummaryDTO {
+  current_elo: number
+  peak_elo: number | null
+  last_delta: number | null
+  rank: EloRankDTO | null
+}
+
+/**
+ * One point in a player's ELO evolution.
+ * IMPORTANT: chart Y-axis = elo_after (the rating after this game).
+ * Use `delta` only for end-of-game "+12 / -8" labels. Never for chart lines.
+ *
+ * Mirrors backend EloHistoryPointDTO (backend/schemas/elo.py).
+ */
+export interface EloHistoryPointDTO {
+  recorded_at: string  // YYYY-MM-DD opaque string — DO NOT wrap in new Date()
+  game_id: string
+  elo_after: number
+  delta: number
+}
+
+/**
+ * Full ELO history for one player. Mirrors backend PlayerEloHistoryDTO.
+ */
+export interface PlayerEloHistoryDTO {
+  player_id: string
+  player_name: string
+  points: EloHistoryPointDTO[]
 }

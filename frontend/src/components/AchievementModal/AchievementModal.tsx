@@ -26,7 +26,6 @@ export default function AchievementModal({ achievements, playerNames, onClose }:
                 tier={ach.tier}
                 fallback_icon={ach.fallback_icon}
                 is_new={ach.is_new}
-                is_upgrade={ach.is_upgrade}
               />
             ))}
           </div>

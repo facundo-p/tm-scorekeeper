@@ -40,3 +40,4 @@ class PlayerResponseDTO(BaseModel):
     player_id: str
     name: str
     is_active: bool
+    elo: int

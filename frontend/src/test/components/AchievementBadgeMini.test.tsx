@@ -7,7 +7,6 @@ const baseProps = {
   tier: 3,
   fallback_icon: 'trophy',
   is_new: true,
-  is_upgrade: false,
 }
 
 describe('AchievementBadgeMini', () => {
@@ -31,15 +30,15 @@ describe('AchievementBadgeMini', () => {
 
   it('uses data-type="new" when is_new=true', () => {
     const { container } = render(
-      <AchievementBadgeMini {...baseProps} is_new={true} is_upgrade={false} />,
+      <AchievementBadgeMini {...baseProps} is_new={true} />,
     )
     const badge = container.firstChild as HTMLElement
     expect(badge.getAttribute('data-type')).toBe('new')
   })
 
-  it('uses data-type="upgrade" when is_upgrade=true', () => {
+  it('uses data-type="upgrade" when is_new=false', () => {
     const { container } = render(
-      <AchievementBadgeMini {...baseProps} is_new={false} is_upgrade={true} />,
+      <AchievementBadgeMini {...baseProps} is_new={false} />,
     )
     const badge = container.firstChild as HTMLElement
     expect(badge.getAttribute('data-type')).toBe('upgrade')

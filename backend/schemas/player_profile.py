@@ -19,6 +19,7 @@ class PlayerGameSummaryDTO(BaseModel):
 
 class PlayerProfileDTO(BaseModel):
     player_id: str
+    elo: int
     stats: PlayerStatsDTO
     games: list[PlayerGameSummaryDTO]
     records: dict[str, bool]

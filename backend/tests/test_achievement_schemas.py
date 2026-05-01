@@ -159,7 +159,6 @@ class TestAchievementCatalogItemDTO:
         holder = HolderDTO(player_id="p1", player_name="Alice", tier=1, unlocked_at=date(2026, 1, 1))
         dto = AchievementCatalogItemDTO(
             code="high_score",
-            title="Colono",
             description="Score high",
             icon="trophy.svg",
             fallback_icon="trophy",

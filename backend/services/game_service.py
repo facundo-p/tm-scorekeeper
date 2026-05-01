@@ -1,20 +1,21 @@
-from models.player_result import PlayerResult
-from schemas.game import GameDTO
 from datetime import date
+
+from models.player_result import PlayerResult
 from models.award_result import AwardResult
 from models.enums import Corporation
-from services.helpers.results import calculate_results
+from schemas.game import GameDTO
 from schemas.result import GameResultDTO
-from mappers.game_mapper import game_dto_to_model
-from mappers.game_mapper import game_model_to_dto
+from services.helpers.results import calculate_results
+from mappers.game_mapper import game_dto_to_model, game_model_to_dto
 from repositories.game_filters import GameFilter
 
 
 
 class GamesService:
-    def __init__(self, games_repository, players_repository):
+    def __init__(self, games_repository, players_repository, elo_service=None):
         self.games_repository = games_repository
         self.players_repository = players_repository
+        self.elo_service = elo_service
 
 
     def _validate_date(self, game_date: date):
@@ -28,7 +29,7 @@ class GamesService:
         ids = [p.player_id for p in players]
         if len(ids) != len(set(ids)):
             raise ValueError("Duplicate players are not allowed")
-        
+
     def _validate_corporations(self, players: list[PlayerResult]) -> None:
         seen: set = set()
         for player in players:
@@ -42,7 +43,7 @@ class GamesService:
                 raise ValueError(
                     f"Corporation '{corp}' was chosen by more than one player")
             seen.add(corp)
-    
+
     def _validate_milestones(self, players: list[PlayerResult]) -> None:
         total = sum(len(player.scores.milestones) for player in players)
 
@@ -80,7 +81,7 @@ class GamesService:
             raise ValueError(
                 f"A game can have at most 3 awards (got {len(awards)})"
             )
-    
+
     def _validate_unique_awards(self, awards: list[AwardResult]) -> None:
         award_names = [award.award for award in awards]
 
@@ -128,14 +129,14 @@ class GamesService:
                 raise ValueError(
                     f"Award '{award.award}' cannot have second place in a 2-player game"
                 )
-            
+
     def _validate_players_exist(self, player_results: list[PlayerResult]):
         for pr in player_results:
             try:
                 self.players_repository.get(pr.player_id)
             except KeyError:
                 raise ValueError(f"Player '{pr.player_id}' is not registered")
-    
+
 
     def create_game(self, game_dto: GameDTO) -> str:
         # Mapear a dominio
@@ -154,33 +155,46 @@ class GamesService:
         self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
 
-        return self.games_repository.create(game)
+        game_id = self.games_repository.create(game)
+        game.id = game_id
+
+        self._recompute_elo_from(game.date)
+        return game_id
 
 
     def list_games(self, filters: GameFilter | None = None) -> list[GameDTO]:
         games = self.games_repository.list_games(filters)
         return [game_model_to_dto(game) for game in games]
 
-        
+
     def update_game(self, game_id: str, game_dto: GameDTO) -> None:
-        game = game_dto_to_model(game_dto)
+        new_game = game_dto_to_model(game_dto)
 
-        updated = self.games_repository.update(game_id, game)
-
-        if not updated:
+        old_game = self.games_repository.get(game_id)
+        if old_game is None:
             raise ValueError("Game not found")
 
-        
+        self.games_repository.update(game_id, new_game)
+
+        affected_date = min(old_game.date, new_game.date)
+        self._recompute_elo_from(affected_date)
+
+
     def delete_game(self, game_id: str) -> None:
         """
         Elimina una partida.
         Lanza error si no existe.
         """
-        deleted = self.games_repository.delete(game_id)
+        old_game = self.games_repository.get(game_id)
+        if old_game is None:
+            raise ValueError("Game not found")
 
+        deleted = self.games_repository.delete(game_id)
         if not deleted:
             raise ValueError("Game not found")
-        
+
+        self._recompute_elo_from(old_game.date)
+
     def get_game_results(self, game_id: str) -> GameResultDTO:
         game = self.games_repository.get(game_id)
 
@@ -188,3 +202,8 @@ class GamesService:
             raise ValueError("Game not found")
 
         return calculate_results(game)
+
+    def _recompute_elo_from(self, start_date: date) -> None:
+        if self.elo_service is None:
+            return
+        self.elo_service.recompute_from_date(start_date)
