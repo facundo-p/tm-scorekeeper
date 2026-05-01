@@ -107,7 +107,7 @@ Plans:
 **Plans**: 4 plans
 Plans:
 - [x] 12-01-PLAN.md — Wave-0 preflight: install recharts@3.8.1 + add ResizeObserver mock to test setup
-- [ ] 12-02-PLAN.md — EloLineChart component (Recharts multi-line, deterministic palette, click tooltip, a11y) + tests
+- [x] 12-02-PLAN.md — EloLineChart component (Recharts multi-line, deterministic palette, click tooltip, a11y) + tests
 - [ ] 12-03-PLAN.md — EloLeaderboard component (ranked table, ELO desc + alphabetical tiebreak, delta colors) + tests
 - [ ] 12-04-PLAN.md — Wire chart + leaderboard into Ranking.tsx + responsive container + single-point hint + Ranking.test.tsx update + human-verify checkpoint
 **UI hint**: yes
@@ -127,4 +127,4 @@ Plans:
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
-| 12. Ranking chart + leaderboard | v1.1 | 1/4 | In Progress|  |
+| 12. Ranking chart + leaderboard | v1.1 | 2/4 | In Progress|  |
