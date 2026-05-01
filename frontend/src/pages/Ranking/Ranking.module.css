@@ -56,19 +56,23 @@
   margin: 0 0 var(--spacing-md);
 }
 
-.chartSkeleton {
-  min-height: 280px;
+.chartContainer {
+  height: 280px;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+  padding: var(--spacing-md);
 }
 
-.skeletonLine {
-  height: 8px;
-  background-color: var(--color-border);
-  border-radius: var(--border-radius-sm);
+@media (min-width: 768px) {
+  .chartContainer {
+    height: 400px;
+  }
+}
+
+.singlePointHint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 0;
 }
