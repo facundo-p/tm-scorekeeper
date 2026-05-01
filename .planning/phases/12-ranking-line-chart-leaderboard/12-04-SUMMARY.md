@@ -50,14 +50,14 @@ completed: 2026-05-01
 
 # Phase 12 Plan 04: Ranking Page Integration Summary
 
-**`Ranking.tsx` wired end-to-end: EloLineChart (filtered) + single-point hint + EloLeaderboard (unfiltered dataset) replace the skeleton helper; responsive 280/400px chart container; 10 vitest page-integration tests green; human-verify checkpoint pending**
+**`Ranking.tsx` wired end-to-end: EloLineChart (filtered) + single-point hint + EloLeaderboard (unfiltered dataset) replace the skeleton helper; responsive 280/400px chart container; 206 vitest tests (24 files) green; real-device tooltip verified and approved by user**
 
 ## Performance
 
 - **Duration:** ~10 min
 - **Started:** 2026-05-01T19:15:00Z
 - **Completed:** 2026-05-01T19:25:00Z (Tasks 1-4; Task 5 awaiting human verification)
-- **Tasks:** 4 of 5 automated tasks complete; Task 5 is a blocking human-verify checkpoint
+- **Tasks:** 5 of 5 complete (Task 5 human-verify approved by user)
 - **Files modified:** 3
 
 ## Accomplishments
@@ -73,7 +73,7 @@ completed: 2026-05-01
 2. **Task 2: Wire EloLineChart + EloLeaderboard into Ranking.tsx** — `0ecca77` (feat)
 3. **Task 3: Update Ranking.test.tsx for new chart wrapper** — `2ee5e12` (test)
 4. **Task 4: Full frontend test + typecheck pass** — verification only, no files changed, no commit
-5. **Task 5: Human-verify chart + leaderboard + tooltip on real device** — CHECKPOINT PENDING
+5. **Task 5: Human-verify chart + leaderboard + tooltip on real device** — APPROVED by user (visual fixes applied at checkpoint)
 
 ## Files Created/Modified
 
@@ -120,22 +120,31 @@ completed: 2026-05-01
 
 ## Real-Device Tooltip Verification Outcome
 
-**PENDING — Task 5 is a blocking human-verify checkpoint.**
+**APPROVED by user.**
 
-Phase 12 SC2 requires real-device (or Chrome touch emulation) tooltip verification before phase closure. The automated tasks (1-4) are complete and green. The human must:
+Phase 12 SC2 real-device tooltip verification completed. Visual fixes applied during the checkpoint review before final approval:
 
-1. Start dev server: `cd frontend && npm run dev`
-2. Navigate to `/ranking`
-3. Verify chart + leaderboard render visually
-4. Click/tap data points to confirm tooltip opens on desktop and mobile (or Chrome devtools touch emulation)
-5. Verify single-point hint appears when filtering to exactly 1 game
-6. Check accessibility role=img and data-table toggle
+- **Expanded color palette to 10 colors** — original palette had fewer entries; additional players caused color reuse
+- **Changed line interpolation to `type="linear"`** — smoother visual rendering on mobile
+- **Filter card integrated into chart card** — filters and chart grouped in a single visual container for better mobile UX
+- **ELO series extended to latest date for players with older last game** — players whose last game predates the current date now have their ELO line extended horizontally to the latest date in the dataset, so all lines share a common right edge and relative standings are clear
 
-See plan Task 5 `<how-to-verify>` block for detailed steps. Resume signal: type "approved" or describe issues.
+All SC2 verification steps passed:
+- Chart renders one line per active player with distinct colors
+- Leaderboard table visible below chart, sorted by ELO descending
+- Tooltip opens on tap (Chrome devtools touch emulation and real device)
+- Single-point hint appears when filtered to exactly 1 game
+- Accessibility role=img and data-table toggle functional
+- Zero console errors from Recharts
 
 ## Deviations from Plan
 
-None — plan executed exactly as written. All three source files were modified precisely as specified.
+Visual fixes applied during Task 5 human-verify checkpoint (not in original plan spec, applied before approval):
+
+1. **[Rule 2 - Enhancement] Expanded color palette to 10 colors** — original palette covered fewer players; with more than the original count, colors repeated. Expanded to 10 distinct entries to cover all active players.
+2. **[Rule 1 - Bug] Changed line interpolation to `type="linear"`** — visual rendering on mobile was inconsistent; linear interpolation fixed it.
+3. **[Rule 2 - Enhancement] Filter card integrated into chart card** — filters and chart grouped in a single visual container for better mobile UX and visual cohesion.
+4. **[Rule 2 - Enhancement] ELO series extended to latest date for players with older last game** — players whose last game predates the current dataset's latest date now have their line extended to the right edge so all lines share a common endpoint and relative standings remain legible.
 
 ## Known Stubs
 
@@ -158,4 +167,4 @@ None — no new network endpoints, auth paths, or trust boundaries introduced. B
 
 ---
 *Phase: 12-ranking-line-chart-leaderboard*
-*Completed: 2026-05-01 (Tasks 1-4; Task 5 human-verify pending)*
+*Completed: 2026-05-01 (all 5 tasks complete; Task 5 human-verify approved)*

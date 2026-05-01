@@ -34,7 +34,7 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 - [x] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile (completed 2026-04-29)
 - [ ] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes
 - [x] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params (completed 2026-05-01)
-- [ ] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking`
+- [x] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking` (completed 2026-05-01)
 
 ## Phase Details
 
@@ -109,7 +109,7 @@ Plans:
 - [x] 12-01-PLAN.md — Wave-0 preflight: install recharts@3.8.1 + add ResizeObserver mock to test setup
 - [x] 12-02-PLAN.md — EloLineChart component (Recharts multi-line, deterministic palette, click tooltip, a11y) + tests
 - [x] 12-03-PLAN.md — EloLeaderboard component (ranked table, ELO desc + alphabetical tiebreak, delta colors) + tests
-- [ ] 12-04-PLAN.md — Wire chart + leaderboard into Ranking.tsx + responsive container + single-point hint + Ranking.test.tsx update + human-verify checkpoint
+- [x] 12-04-PLAN.md — Wire chart + leaderboard into Ranking.tsx + responsive container + single-point hint + Ranking.test.tsx update + human-verify checkpoint
 **UI hint**: yes
 
 ## Progress
@@ -127,4 +127,4 @@ Plans:
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
-| 12. Ranking chart + leaderboard | v1.1 | 3/4 | In Progress|  |
+| 12. Ranking chart + leaderboard | v1.1 | 4/4 | Complete   | 2026-05-01 |
