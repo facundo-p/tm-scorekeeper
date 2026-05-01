@@ -1,7 +1,8 @@
 ---
 phase: 12
 slug: ranking-line-chart-leaderboard
-status: draft
+status: approved
+reviewed_at: 2026-05-01
 shadcn_initialized: false
 preset: none
 created: 2026-05-01
