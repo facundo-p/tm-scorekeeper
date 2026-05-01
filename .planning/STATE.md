@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: executing
-stopped_at: Completed 12-02-PLAN.md
-last_updated: "2026-05-01T18:09:42.630Z"
+stopped_at: Completed 12-03-PLAN.md
+last_updated: "2026-05-01T18:13:04.929Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 17
-  completed_plans: 15
-  percent: 88
+  completed_plans: 16
+  percent: 94
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-21)
 ## Current Position
 
 Phase: 12 (ranking-line-chart-leaderboard) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Last activity: 2026-05-01
 
@@ -64,6 +64,7 @@ Progress: [          ] 0%
 | Phase 04-reconciliador P01 | 6 | 2 tasks | 5 files |
 | Phase 12 P01 | 59 | 3 tasks | 3 files |
 | Phase 12 P02 | 4 | 3 tasks | 3 files |
+| Phase 12 P03 | 3 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,9 @@ Recent decisions affecting current work:
 - [Phase 12]: recharts@3.8.1 pinned as exact version per D-01; global.ResizeObserver unconditional class stub in setup.ts for vitest jsdom
 - [Phase 12]: Exported playerColor as named export to enable direct unit testing — jsdom cannot render Recharts SVG (ResponsiveContainer needs real dimensions)
 - [Phase 12]: Recharts Tooltip formatter/labelFormatter type annotations must be inferred not explicit — v3 uses ReactNode/ValueType|undefined overloads that conflict with string/number annotations
+- [Phase 12]: lastPointByDate uses YYYY-MM-DD string sort — lexicographically safe, no Date() wrapping needed
+- [Phase 12]: buildLeaderboardRows at module level (not inside component) — pure function, separates logic from presentation per CLAUDE.md
+- [Phase 12]: formatDelta/deltaClass copied from EloSummaryCard (intentional duplication for component isolation)
 
 ### Pending Todos
 
@@ -110,5 +114,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-01T18:09:42.625Z
-Stopped at: Completed 12-02-PLAN.md
+Last session: 2026-05-01T18:13:04.924Z
+Stopped at: Completed 12-03-PLAN.md
