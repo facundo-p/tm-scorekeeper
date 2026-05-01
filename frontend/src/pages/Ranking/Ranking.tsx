@@ -49,16 +49,20 @@ function renderChartSkeleton() {
 }
 
 export default function Ranking() {
-  const { players: allPlayers, loading: playersLoading, error: playersError } =
-    usePlayers({ activeOnly: true })
+  const {
+    players: allPlayers,
+    loading: playersLoading,
+    error: playersError,
+    refetch: refetchPlayers,
+  } = usePlayers({ activeOnly: true })
 
   const activePlayerIds = useMemo<string[] | null>(
-    () => (playersLoading ? null : allPlayers.filter((p) => p.is_active).map((p) => p.player_id)),
+    () => (playersLoading ? null : allPlayers.map((p) => p.player_id)),
     [allPlayers, playersLoading],
   )
 
   const activePlayersOptions = useMemo(
-    () => allPlayers.filter((p) => p.is_active).map((p) => ({ value: p.player_id, label: p.name })),
+    () => allPlayers.map((p) => ({ value: p.player_id, label: p.name })),
     [allPlayers],
   )
 
@@ -103,7 +107,10 @@ export default function Ranking() {
 
       <main className={styles.main}>
         {isLoading && <Spinner />}
-        {!isLoading && hasError && renderError(() => setRetryCount((c) => c + 1))}
+        {!isLoading && hasError && renderError(() => {
+          if (playersError) refetchPlayers()
+          setRetryCount((c) => c + 1)
+        })}
         {!isLoading && !hasError && (
           <>
             <RankingFilters
