@@ -1,3 +1,4 @@
+process.env.TZ = 'America/Argentina/Buenos_Aires'
 import '@testing-library/jest-dom'
 
 // Mock localStorage for jsdom environment
