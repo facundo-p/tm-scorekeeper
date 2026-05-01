@@ -11,6 +11,7 @@ import GamesList from '@/pages/GamesList/GamesList'
 import GameDetail from '@/pages/GameDetail/GameDetail'
 import Records from '@/pages/Records/Records'
 import AchievementCatalog from '@/pages/AchievementCatalog/AchievementCatalog'
+import Ranking from '@/pages/Ranking/Ranking'
 
 export default function App() {
   return (
@@ -88,6 +89,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <AchievementCatalog />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ranking"
+            element={
+              <ProtectedRoute>
+                <Ranking />
               </ProtectedRoute>
             }
           />
