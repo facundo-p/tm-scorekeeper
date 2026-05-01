@@ -9,6 +9,7 @@ const navItems = [
   { to: '/games', icon: '📋', title: 'Partidas', description: 'Historial de partidas', disabled: false },
   { to: '/records', icon: '🏆', title: 'Records', description: 'Records globales', disabled: false },
   { to: '/achievements', icon: '🏅', title: 'Logros', description: 'Catalogo de logros', disabled: false },
+  { to: '/ranking', icon: '📈', title: 'Ranking', description: 'Evolución de ELO', disabled: false },
 ]
 
 export default function Home() {

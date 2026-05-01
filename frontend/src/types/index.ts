@@ -233,3 +233,26 @@ export interface PlayerEloSummaryDTO {
   last_delta: number | null
   rank: EloRankDTO | null
 }
+
+/**
+ * One point in a player's ELO evolution.
+ * IMPORTANT: chart Y-axis = elo_after (the rating after this game).
+ * Use `delta` only for end-of-game "+12 / -8" labels. Never for chart lines.
+ *
+ * Mirrors backend EloHistoryPointDTO (backend/schemas/elo.py).
+ */
+export interface EloHistoryPointDTO {
+  recorded_at: string  // YYYY-MM-DD opaque string — DO NOT wrap in new Date()
+  game_id: string
+  elo_after: number
+  delta: number
+}
+
+/**
+ * Full ELO history for one player. Mirrors backend PlayerEloHistoryDTO.
+ */
+export interface PlayerEloHistoryDTO {
+  player_id: string
+  player_name: string
+  points: EloHistoryPointDTO[]
+}
