@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
-status: executing
-stopped_at: context exhaustion at 90% (2026-04-29)
-last_updated: "2026-04-29T22:53:22.499Z"
-last_activity: 2026-04-29
+status: verifying
+stopped_at: Completed 10-03-PLAN.md — Phase 10 complete, human-verify approved
+last_updated: "2026-05-02T00:00:00.000Z"
+last_activity: 2026-05-02 - Merged phase 10 (EndOfGameSummaryModal) into staging
 progress:
   total_phases: 5
-  completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
+  completed_phases: 5
+  total_plans: 20
+  completed_plans: 20
   percent: 100
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Phase 10 — end-of-game-unified-summary-modal-with-elo-section
+**Current focus:** Milestone v1.1 complete — all phases 8-12 shipped
 
 ## Current Position
 
-Phase: 11
-Plan: Not started
-Status: Executing Phase 10
-Last activity: 2026-04-29
+Phase: 12 (ranking-line-chart-leaderboard) — COMPLETE
+Plan: 4 of 4
+Status: All phases complete — milestone complete
+Last activity: 2026-05-02
 
 Progress: [          ] 0%
 
@@ -36,7 +36,7 @@ Progress: [          ] 0%
 
 **Velocity:**
 
-- Total plans completed: 10
+- Total plans completed: 16
 - Average duration: —
 - Total execution time: 0 hours
 
@@ -48,6 +48,7 @@ Progress: [          ] 0%
 | 06 | 3 | - | - |
 | 07 | 2 | - | - |
 | 10 | 3 | - | - |
+| 11 | 6 | - | - |
 
 **Recent Trend:**
 
@@ -62,6 +63,10 @@ Progress: [          ] 0%
 | Phase 03-frontend P01 | 175 | 2 tasks | 15 files |
 | Phase 03-frontend P02 | 209 | 2 tasks | 6 files |
 | Phase 04-reconciliador P01 | 6 | 2 tasks | 5 files |
+| Phase 12 P01 | 59 | 3 tasks | 3 files |
+| Phase 12 P02 | 4 | 3 tasks | 3 files |
+| Phase 12 P03 | 3 | 3 tasks | 3 files |
+| Phase 12 P04 | 10 | 4 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -88,10 +93,23 @@ Recent decisions affecting current work:
 - [Phase 03-frontend]: triggerAchievements in GameRecords uses silent catch — achievements non-critical, cannot block records display
 - [Phase 04-reconciliador]: Use compute_tier (not evaluate) in reconcile_all — evaluate() collapses no-change and downgrade into same None, preventing logging
 - [Phase 04-reconciliador]: Internal ReconcileSummaryResult dataclass in service layer, mapped to ReconcileResponseDTO at route level
+- [Phase 12]: recharts@3.8.1 pinned as exact version per D-01; global.ResizeObserver unconditional class stub in setup.ts for vitest jsdom
+- [Phase 12]: Exported playerColor as named export to enable direct unit testing — jsdom cannot render Recharts SVG (ResponsiveContainer needs real dimensions)
+- [Phase 12]: Recharts Tooltip formatter/labelFormatter type annotations must be inferred not explicit — v3 uses ReactNode/ValueType|undefined overloads that conflict with string/number annotations
+- [Phase 12]: lastPointByDate uses YYYY-MM-DD string sort — lexicographically safe, no Date() wrapping needed
+- [Phase 12]: buildLeaderboardRows at module level (not inside component) — pure function, separates logic from presentation per CLAUDE.md
+- [Phase 12]: formatDelta/deltaClass copied from EloSummaryCard (intentional duplication for component isolation)
+- [Phase 12]: EloLineChart receives filtered (player+date filtered) — respects RANK-02 filter contract; EloLeaderboard receives dataset (unfiltered) — D-08 'Última delta' is global momentum, ignores date filter
 
 ### Pending Todos
 
 None yet.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260501-r3p | Fix enums de Awards Tharsis en backend + DB, y agregar Hito y Recompensa de expansión Venus | 2026-05-01 | c0f365a | [260501-r3p-fix-enums-de-awards-tharsis-en-backend-d](./quick/260501-r3p-fix-enums-de-awards-tharsis-en-backend-d/) |
 
 ### Blockers/Concerns
 
@@ -105,5 +123,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-29T21:56:25.748Z
-Stopped at: context exhaustion at 90% (2026-04-29)
+Last session: 2026-05-02T00:00:00.000Z
+Stopped at: Merged phase 10 into staging — milestone v1.1 complete

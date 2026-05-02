@@ -32,8 +32,8 @@ describe('Expansion enum values', () => {
 })
 
 describe('Milestone enum values', () => {
-  it('has exactly 25 milestones (5 per map)', () => {
-    expect(Object.keys(Milestone)).toHaveLength(25)
+  it('has exactly 26 milestones (5 per map + 1 Venus Next)', () => {
+    expect(Object.keys(Milestone)).toHaveLength(26)
   })
 
   it('all values are non-empty strings', () => {
@@ -45,8 +45,8 @@ describe('Milestone enum values', () => {
 })
 
 describe('Award enum values', () => {
-  it('has exactly 25 awards (5 per map)', () => {
-    expect(Object.keys(Award)).toHaveLength(25)
+  it('has exactly 26 awards (5 per map + 1 Venus Next)', () => {
+    expect(Object.keys(Award)).toHaveLength(26)
   })
 
   it('all values are non-empty strings', () => {

@@ -9,7 +9,7 @@ Requirements for this milestone. Each maps to a roadmap phase. Backend ELO ya es
 
 ### ELO Backend API
 
-- [ ] **ELO-API-01**: API expone `GET /elo/history` con filtros opcionales `from` (fecha) y `player_ids` (lista), devolviendo serie temporal de ELO por jugador para alimentar el chart de Ranking
+- [x] **ELO-API-01**: API expone `GET /elo/history` con filtros opcionales `from` (fecha) y `player_ids` (lista), devolviendo serie temporal de ELO por jugador para alimentar el chart de Ranking
 
 ### PlayerProfile
 
@@ -27,10 +27,10 @@ Requirements for this milestone. Each maps to a roadmap phase. Backend ELO ya es
 ### Ranking page
 
 - [ ] **RANK-01**: Usuario accede a una sección "Ranking" desde la navegación principal (`/ranking`)
-- [ ] **RANK-02**: Ranking page muestra un line chart con la evolución de ELO en el tiempo, una línea por jugador, paleta determinística por player ID
+- [x] **RANK-02**: Ranking page muestra un line chart con la evolución de ELO en el tiempo, una línea por jugador, paleta determinística por player ID
 - [ ] **RANK-03**: Ranking page incluye un selector multi-jugador con default = todos los jugadores activos
 - [ ] **RANK-04**: Ranking page incluye un filtro de fecha "desde" (input nativo `type=date`) que acota el rango del chart
-- [ ] **RANK-05**: Bajo el chart hay una tabla leaderboard con columnas Posición, Jugador, ELO actual, Última delta — ordenada por ELO descendente
+- [x] **RANK-05**: Bajo el chart hay una tabla leaderboard con columnas Posición, Jugador, ELO actual, Última delta — ordenada por ELO descendente
 - [ ] **RANK-06**: El estado de filtros (jugadores seleccionados + fecha desde) se persiste en URL search params (`?players=...&from=...`) para que la vista sea compartible y sobreviva reload; IDs inválidos en URL se filtran contra jugadores activos
 
 ## v2 / Future Requirements
@@ -66,7 +66,7 @@ Deferred — no entran en v1.1.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ELO-API-01 | Phase 8 | Pending |
+| ELO-API-01 | Phase 8 | Complete |
 | PROF-01 | Phase 9 | Pending |
 | PROF-02 | Phase 9 | Pending |
 | PROF-03 | Phase 9 | Pending |
@@ -75,10 +75,10 @@ Deferred — no entran en v1.1.
 | POST-02 | Phase 10 | Pending |
 | POST-03 | Phase 10 | Pending |
 | RANK-01 | Phase 11 | Pending |
-| RANK-02 | Phase 12 | Pending |
+| RANK-02 | Phase 12 | Complete |
 | RANK-03 | Phase 11 | Pending |
 | RANK-04 | Phase 11 | Pending |
-| RANK-05 | Phase 12 | Pending |
+| RANK-05 | Phase 12 | Complete |
 | RANK-06 | Phase 11 | Pending |
 
 **Coverage:**

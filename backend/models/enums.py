@@ -50,12 +50,15 @@ class Milestone(Enum):
     SPONSOR         = "Sponsor"
     LOBBYIST        = "Lobbyist"
 
+    # Venus Next
+    HOVERLORD       = "Hoverlord"
 
     def __str__(self) -> str:
         return self.value
 
 
 class Award(Enum):
+    # Tharsis
     LANDLORD = "Landlord"
     BANKER = "Banker"
     SCIENTIST = "Scientist"
@@ -89,6 +92,9 @@ class Award(Enum):
     CONSTRUCTOR = "Constructor"
     MANUFACTURER = "Manufacturer"
     PHYSICIST = "Physicist"
+
+    # Venus Next
+    VENUPHILE = "Venuphile"
 
     def __str__(self) -> str:
         return self.value

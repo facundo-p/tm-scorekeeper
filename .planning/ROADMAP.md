@@ -30,11 +30,11 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 
 ### v1.1 Visualización de ELO en Frontend — IN PROGRESS
 
-- [ ] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work
+- [x] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work (completed 2026-04-29)
 - [x] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile (completed 2026-04-29)
 - [x] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes (completed 2026-04-29)
-- [ ] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params
-- [ ] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking`
+- [x] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params (completed 2026-05-01)
+- [x] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking` (completed 2026-05-01)
 
 ## Phase Details
 
@@ -108,7 +108,12 @@ Plans:
   4. The chart uses `dot={false}` and `isAnimationActive={false}` defaults; with one game in the filtered window a single dot renders with an explicit hint ("Solo hay una partida en este rango")
   5. Below the chart, a leaderboard table lists Posición, Jugador, ELO actual, Última delta — sorted by ELO descending — driven by the same `/elo/history` data
   6. The chart is wrapped in `role="img"` with a descriptive `aria-label`, has `accessibilityLayer` enabled, and includes a `<details><summary>Ver datos como tabla</summary>` data-table fallback for screen readers; no `.recharts-*` global rules leak into `index.css`
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+- [x] 12-01-PLAN.md — Wave-0 preflight: install recharts@3.8.1 + add ResizeObserver mock to test setup
+- [x] 12-02-PLAN.md — EloLineChart component (Recharts multi-line, deterministic palette, click tooltip, a11y) + tests
+- [x] 12-03-PLAN.md — EloLeaderboard component (ranked table, ELO desc + alphabetical tiebreak, delta colors) + tests
+- [x] 12-04-PLAN.md — Wire chart + leaderboard into Ranking.tsx + responsive container + single-point hint + Ranking.test.tsx update + human-verify checkpoint
 **UI hint**: yes
 
 ## Progress
@@ -122,8 +127,8 @@ Plans:
 | 5. Cleanup integración | v1.0 cleanup | 2/2 | Complete | 2026-04-27 |
 | 6. Drifts y polish | v1.0 cleanup | 3/3 | Complete | 2026-04-28 |
 | 7. Documentación y proceso | v1.0 cleanup | 2/2 | Complete | 2026-04-28 |
-| 8. Backend `GET /elo/history` | v1.1 | 0/? | Not started | - |
+| 8. Backend `GET /elo/history` | v1.1 | 4/4 | Complete | 2026-04-29 |
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
 | 10. End-of-game unified modal | v1.1 | 3/3 | Complete    | 2026-04-29 |
-| 11. Ranking skeleton + filters + URL state | v1.1 | 0/? | Not started | - |
-| 12. Ranking chart + leaderboard | v1.1 | 0/? | Not started | - |
+| 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
+| 12. Ranking chart + leaderboard | v1.1 | 4/4 | Complete   | 2026-05-01 |

@@ -14,6 +14,8 @@ def test_milestone_enum_contract():
         "Agronomist", "Engineer", "Spacecrafter", "Geologist", "Farmer",
         # Amazonis Planitia
         "Terran", "Landshaper", "Merchant", "Sponsor", "Lobbyist",
+        # Venus Next
+        "Hoverlord",
     }
 
     actual = {m.value for m in Milestone}
@@ -32,6 +34,8 @@ def test_award_enum_contract():
         "Traveller", "Landscaper", "Highlander", "Promoter", "Blacksmith",
         # Amazonis Planitia
         "Collector", "Innovator", "Constructor", "Manufacturer", "Physicist",
+        # Venus Next
+        "Venuphile",
     }
 
     actual = {a.value for a in Award}
