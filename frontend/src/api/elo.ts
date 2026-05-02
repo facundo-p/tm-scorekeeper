@@ -27,7 +27,20 @@ export function getEloSummary(playerId: string): Promise<PlayerEloSummaryDTO> {
  * history for affected players), making the chart show stale points. The
  * backend `from` / `player_ids` params are still defined and available if
  * a future page needs them.
+ *
+ * When `params.playerIds` is provided, the backend filters to those players
+ * server-side (GET /elo/history?player_ids=id1,id2). Use this in single-player
+ * contexts (e.g. PlayerProfile) to avoid fetching all players' histories.
+ * Ranking.tsx continues to call getEloHistory() without params and filters
+ * client-side for zero round-trip latency on filter changes.
  */
-export function getEloHistory(): Promise<PlayerEloHistoryDTO[]> {
-  return api.get<PlayerEloHistoryDTO[]>('/elo/history')
+export function getEloHistory(params?: {
+  playerIds?: string[]
+}): Promise<PlayerEloHistoryDTO[]> {
+  const qs = new URLSearchParams()
+  if (params?.playerIds && params.playerIds.length > 0) {
+    qs.set('player_ids', params.playerIds.join(','))
+  }
+  const query = qs.toString()
+  return api.get<PlayerEloHistoryDTO[]>(query ? `/elo/history?${query}` : '/elo/history')
 }
