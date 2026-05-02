@@ -22,7 +22,7 @@ def get_elo_history(
     return elo_service.get_history(date_from=from_, player_ids=ids_set)
 
 
-@router.post("/admin/recompute")
+@router.get("/admin/recompute")
 def admin_recompute_elo(secret: str = Query(...)):
     expected = os.getenv("ADMIN_SECRET")
     if not expected or secret != expected:
