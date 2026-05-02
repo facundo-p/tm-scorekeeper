@@ -57,3 +57,14 @@
   font-size: var(--font-size-base);
   color: var(--color-text-muted);
 }
+
+.chartArea {
+  height: 220px;
+  padding: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .chartArea {
+    height: 280px;
+  }
+}
