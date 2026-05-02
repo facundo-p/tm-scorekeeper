@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
-status: verifying
+status: executing
 stopped_at: Phase 14 context gathered
-last_updated: "2026-05-02T19:34:46.879Z"
-last_activity: 2026-05-01
+last_updated: "2026-05-02T21:08:47.318Z"
+last_activity: 2026-05-02 -- Phase 14 execution started
 progress:
   total_phases: 7
   completed_phases: 4
-  total_plans: 17
+  total_plans: 20
   completed_plans: 17
-  percent: 100
+  percent: 85
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Phase 12 — ranking-line-chart-leaderboard
+**Current focus:** Phase 14 — elo-evolution-chart-in-player-profile-stats
 
 ## Current Position
 
-Phase: 12 (ranking-line-chart-leaderboard) — EXECUTING
-Plan: 4 of 4
-Status: Phase complete — ready for verification
-Last activity: 2026-05-01
+Phase: 14 (elo-evolution-chart-in-player-profile-stats) — EXECUTING
+Plan: 1 of 3
+Status: Executing Phase 14
+Last activity: 2026-05-02 -- Phase 14 execution started
 
 Progress: [          ] 0%
 

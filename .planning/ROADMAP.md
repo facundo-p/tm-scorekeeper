@@ -128,3 +128,25 @@ Plans:
 | 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
 | 12. Ranking chart + leaderboard | v1.1 | 4/4 | Complete   | 2026-05-01 |
+
+### Phase 13: agregarle al front end la posibilidad de seleccionar el hito y la recompensa de Venus al jugar una partida que incluya esa expansión
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 12
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd-plan-phase 13 to break down)
+
+### Phase 14: ELO evolution chart in player profile stats
+
+**Goal:** Players see a full ELO evolution line chart embedded inside the EloSummaryCard on their profile Stats tab; the Stats tab is reordered so general stats (Partidas/Ganadas/Win rate + history) come first and the ELO summary + chart come second.
+**Requirements**: D-01..D-10 (no formal REQUIREMENTS.md ID — covered by 14-CONTEXT.md decisions)
+**Depends on:** Phase 9 (EloSummaryCard, getEloSummary), Phase 12 (EloLineChart, recharts setup)
+**Plans:** 2/3 plans executed
+
+Plans:
+- [x] 14-01-PLAN.md — Extend `getEloHistory()` with optional `{ playerIds }` filter + unit tests (Wave 1)
+- [x] 14-02-PLAN.md — Add `showLegend?: boolean` prop to `EloLineChart` + tests (Wave 1, parallel with 14-01)
+- [ ] 14-03-PLAN.md — Embed chart in `EloSummaryCard`, wire fetch + reorder Stats tab in `PlayerProfile`, human-verify checkpoint (Wave 2, depends on 14-01 + 14-02)
