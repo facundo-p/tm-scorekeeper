@@ -11,11 +11,12 @@ vi.mock('@/api/achievements', () => ({
 }))
 vi.mock('@/api/elo', () => ({
   getEloSummary: vi.fn(),
+  getEloHistory: vi.fn(),
 }))
 
 import PlayerProfile from '@/pages/PlayerProfile/PlayerProfile'
 import { getPlayerProfile, getPlayers } from '@/api/players'
-import { getEloSummary } from '@/api/elo'
+import { getEloSummary, getEloHistory } from '@/api/elo'
 import type { PlayerProfileDTO, PlayerResponseDTO } from '@/types'
 
 const fixtureProfile: PlayerProfileDTO = {
@@ -44,6 +45,7 @@ describe('PlayerProfile', () => {
   beforeEach(() => {
     vi.mocked(getPlayerProfile).mockResolvedValue(fixtureProfile)
     vi.mocked(getPlayers).mockResolvedValue(fixturePlayers)
+    vi.mocked(getEloHistory).mockResolvedValue([])
   })
 
   it('summary failure does not block profile', async () => {

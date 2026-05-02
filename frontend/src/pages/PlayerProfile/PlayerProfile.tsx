@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getPlayerProfile, getPlayers } from '@/api/players'
 import { getPlayerAchievements } from '@/api/achievements'
-import { getEloSummary } from '@/api/elo'
+import { getEloSummary, getEloHistory } from '@/api/elo'
 import Button from '@/components/Button/Button'
 import Spinner from '@/components/Spinner/Spinner'
 import TabBar from '@/components/TabBar/TabBar'
 import AchievementCard from '@/components/AchievementCard/AchievementCard'
 import EloSummaryCard from '@/components/EloSummaryCard/EloSummaryCard'
 import type { Tab } from '@/components/TabBar/TabBar'
-import type { PlayerProfileDTO, PlayerAchievementDTO, PlayerEloSummaryDTO } from '@/types'
+import type { PlayerProfileDTO, PlayerAchievementDTO, PlayerEloSummaryDTO, PlayerEloHistoryDTO } from '@/types'
 import styles from './PlayerProfile.module.css'
 
 export default function PlayerProfile() {
@@ -17,6 +17,7 @@ export default function PlayerProfile() {
   const [profile, setProfile] = useState<PlayerProfileDTO | null>(null)
   const [playerName, setPlayerName] = useState('')
   const [eloSummary, setEloSummary] = useState<PlayerEloSummaryDTO | null>(null)
+  const [eloHistory, setEloHistory] = useState<PlayerEloHistoryDTO[] | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -42,6 +43,18 @@ export default function PlayerProfile() {
       })
       .catch(() => setError('No se pudo cargar el perfil del jugador.'))
       .finally(() => setLoading(false))
+  }, [playerId])
+
+  // D-09: isolated catch — history fetch failure must not break the profile.
+  // D-05: eager fetch on mount (small dataset, single player). On failure
+  // eloHistory stays null and EloSummaryCard simply omits the chart.
+  useEffect(() => {
+    if (!playerId) return
+    let cancelled = false
+    getEloHistory({ playerIds: [playerId] })
+      .then((data) => { if (!cancelled) setEloHistory(data) })
+      .catch(() => { if (!cancelled) setEloHistory(null) })
+    return () => { cancelled = true }
   }, [playerId])
 
   const handleTabChange = (tab: Tab) => {
@@ -86,7 +99,6 @@ export default function PlayerProfile() {
           <>
             {activeTab === 'stats' && (
               <>
-                {eloSummary && <EloSummaryCard summary={eloSummary} />}
                 <section className={styles.statsCard}>
                   <h2 className={styles.sectionTitle}>Estadísticas</h2>
                   <div className={styles.statsGrid}>
@@ -129,6 +141,13 @@ export default function PlayerProfile() {
                     </div>
                   )}
                 </section>
+
+                {eloSummary && (
+                  <EloSummaryCard
+                    summary={eloSummary}
+                    history={eloHistory ?? undefined}
+                  />
+                )}
               </>
             )}
 
