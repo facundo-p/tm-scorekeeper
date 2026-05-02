@@ -3,11 +3,11 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
 status: verifying
-stopped_at: Completed 12-04-PLAN.md — Phase 12 complete, human-verify approved
-last_updated: "2026-05-01T20:38:21.965Z"
-last_activity: 2026-05-01 - Completed quick task 260501-r3p: Fix enums de Awards Tharsis en backend + DB, y agregar Hito y Recompensa de expansión Venus
+stopped_at: Phase 14 context gathered
+last_updated: "2026-05-02T19:34:46.879Z"
+last_activity: 2026-05-01
 progress:
-  total_phases: 5
+  total_phases: 7
   completed_phases: 4
   total_plans: 17
   completed_plans: 17
@@ -119,8 +119,10 @@ None yet.
 ### Roadmap Evolution
 
 - Milestone v1.1 started: Visualización de ELO en Frontend (backend ELO ya mergeado vía PR #42)
+- Phase 13 added: agregarle al front end la posibilidad de seleccionar el hito y la recompensa de Venus al jugar una partida que incluya esa expansión
+- Phase 14 added: ELO evolution chart in player profile stats
 
 ## Session Continuity
 
-Last session: 2026-05-01T20:38:21.961Z
-Stopped at: Completed 12-04-PLAN.md — Phase 12 complete, human-verify approved
+Last session: 2026-05-02T19:34:46.862Z
+Stopped at: Phase 14 context gathered
