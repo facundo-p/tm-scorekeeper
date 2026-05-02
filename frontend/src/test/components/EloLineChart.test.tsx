@@ -53,4 +53,9 @@ describe('EloLineChart', () => {
     // This validates the hash distributes the two players to different palette slots.
     expect(aliceColor).not.toBe(bobColor)
   })
+
+  it('omits Legend when showLegend={false}', () => {
+    const { container } = render(<EloLineChart data={fixture} showLegend={false} />)
+    expect(container.querySelector('.recharts-legend-wrapper')).toBeNull()
+  })
 })
