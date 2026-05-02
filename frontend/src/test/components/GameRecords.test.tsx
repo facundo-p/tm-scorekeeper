@@ -1,9 +1,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import GameRecords from '@/pages/GameRecords/GameRecords'
 import type {
   AchievementsByPlayerDTO,
+  EloChangeDTO,
   GameResultDTO,
   PlayerResponseDTO,
   RecordComparisonDTO,
@@ -19,19 +20,24 @@ vi.mock('@/api/players', () => ({
 vi.mock('@/api/achievements', () => ({
   triggerAchievements: vi.fn(),
 }))
+vi.mock('@/api/elo', () => ({
+  getEloChanges: vi.fn(),
+}))
 
 import { getGameRecords, getGameResults } from '@/api/games'
 import { getPlayers } from '@/api/players'
 import { triggerAchievements } from '@/api/achievements'
+import { getEloChanges } from '@/api/elo'
 
 const mockGetGameRecords = vi.mocked(getGameRecords)
 const mockGetGameResults = vi.mocked(getGameResults)
 const mockGetPlayers = vi.mocked(getPlayers)
 const mockTriggerAchievements = vi.mocked(triggerAchievements)
+const mockGetEloChanges = vi.mocked(getEloChanges)
 
 const PLAYERS: PlayerResponseDTO[] = [
-  { player_id: 'p1', name: 'Alice', is_active: true, elo: 1000 },
-  { player_id: 'p2', name: 'Bob', is_active: true, elo: 1000 },
+  { player_id: 'p1', name: 'Alice', is_active: true, elo: 1523 },
+  { player_id: 'p2', name: 'Bob', is_active: true, elo: 1477 },
 ]
 
 const RECORDS: RecordComparisonDTO[] = []
@@ -45,18 +51,21 @@ const RESULT: GameResultDTO = {
   ],
 }
 
+const ACHIEVEMENTS_EMPTY: AchievementsByPlayerDTO = {
+  achievements_by_player: { p1: [], p2: [] },
+}
+
 const ACHIEVEMENTS_WITH_UNLOCKS: AchievementsByPlayerDTO = {
   achievements_by_player: {
-    p1: [
-      { code: 'high_score', title: 'Alcanzar X puntos', tier: 1, is_new: true, is_upgrade: false, icon: null, fallback_icon: 'trophy' },
-    ],
+    p1: [{ code: 'high_score', title: 'Alcanzar X puntos', tier: 1, is_new: true, is_upgrade: false, icon: null, fallback_icon: 'trophy' }],
     p2: [],
   },
 }
 
-const ACHIEVEMENTS_EMPTY: AchievementsByPlayerDTO = {
-  achievements_by_player: { p1: [], p2: [] },
-}
+const ELO_CHANGES: EloChangeDTO[] = [
+  { player_id: 'p1', player_name: 'Alice', elo_before: 1500, elo_after: 1523, delta: 23 },
+  { player_id: 'p2', player_name: 'Bob', elo_before: 1500, elo_after: 1477, delta: -23 },
+]
 
 function renderPage() {
   return render(
@@ -68,20 +77,17 @@ function renderPage() {
   )
 }
 
-const RETRY_WARN_MSG = 'Failed to load achievements after retry'
+const ELO_RETRY_WARN = 'Failed to load ELO changes after retry'
 
-describe('GameRecords — achievements modal integration with useGames retry', () => {
+describe('GameRecords — EndOfGameSummaryModal integration (Phase 10 POST-01/POST-02)', () => {
   let warnSpy: ReturnType<typeof vi.spyOn>
-
-  function retryWarnCalls() {
-    return warnSpy.mock.calls.filter((args) => args[0] === RETRY_WARN_MSG)
-  }
 
   beforeEach(() => {
     mockGetGameRecords.mockReset().mockResolvedValue(RECORDS)
     mockGetGameResults.mockReset().mockResolvedValue(RESULT)
     mockGetPlayers.mockReset().mockResolvedValue(PLAYERS)
-    mockTriggerAchievements.mockReset()
+    mockTriggerAchievements.mockReset().mockResolvedValue(ACHIEVEMENTS_EMPTY)
+    mockGetEloChanges.mockReset().mockResolvedValue(ELO_CHANGES)
     warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
   })
 
@@ -89,72 +95,106 @@ describe('GameRecords — achievements modal integration with useGames retry', (
     warnSpy.mockRestore()
   })
 
-  it('shows AchievementModal when there are unlocks (Caso A — happy path)', async () => {
+  it('renders the modal on mount even when achievements are all empty (D-03 — modal always opens)', async () => {
+    renderPage()
+    // Modal title from EndOfGameSummaryModal
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 2, name: /resumen de partida/i })).toBeInTheDocument()
+    })
+  })
+
+  it('renders all 4 section headings inside the modal', async () => {
+    mockTriggerAchievements.mockResolvedValueOnce(ACHIEVEMENTS_WITH_UNLOCKS)
+    renderPage()
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 3, name: /resultados/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /records/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /logros/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /^ELO$/ })).toBeInTheDocument()
+    })
+  })
+
+  it('renders ELO row content when getEloChanges resolves (POST-02)', async () => {
+    renderPage()
+    await waitFor(() => {
+      expect(screen.getByText(/1500\s*→\s*1523/)).toBeInTheDocument()
+    })
+    expect(screen.getByText('+23')).toBeInTheDocument()
+    expect(screen.getByText('-23')).toBeInTheDocument()
+  })
+
+  it('omits the ELO section when getEloChanges fails twice; Records and Logros still render (POST-02 SC-4)', async () => {
+    mockGetEloChanges
+      .mockRejectedValueOnce(new Error('offline 1'))
+      .mockRejectedValueOnce(new Error('offline 2'))
     mockTriggerAchievements.mockResolvedValueOnce(ACHIEVEMENTS_WITH_UNLOCKS)
     renderPage()
 
+    // Wait for retry chain to complete
     await waitFor(() => {
-      expect(screen.getByText('Alcanzar X puntos')).toBeInTheDocument()
+      expect(mockGetEloChanges).toHaveBeenCalledTimes(2)
     })
-    expect(screen.getByRole('button', { name: /continuar/i })).toBeInTheDocument()
-    expect(mockTriggerAchievements).toHaveBeenCalledTimes(1)
-    expect(retryWarnCalls()).toHaveLength(0)
+
+    // ELO heading must NOT be present (section omitted entirely)
+    await waitFor(() => {
+      expect(screen.queryByRole('heading', { level: 3, name: /^ELO$/ })).not.toBeInTheDocument()
+    })
+
+    // But Records and Logros sections still render
+    expect(screen.getByRole('heading', { level: 3, name: /records/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3, name: /logros/i })).toBeInTheDocument()
+    // Achievement content still shown
+    expect(screen.getByText('Alcanzar X puntos')).toBeInTheDocument()
+
+    // Warn was logged exactly once for ELO failure
+    const eloWarns = warnSpy.mock.calls.filter((args) => args[0] === ELO_RETRY_WARN)
+    expect(eloWarns).toHaveLength(1)
   })
 
-  it('shows modal when first call fails and second succeeds (Caso B — retry exitoso)', async () => {
-    mockTriggerAchievements
-      .mockRejectedValueOnce(new Error('transient network error'))
-      .mockResolvedValueOnce(ACHIEVEMENTS_WITH_UNLOCKS)
-    renderPage()
-
-    await waitFor(() => {
-      expect(screen.getByText('Alcanzar X puntos')).toBeInTheDocument()
-    })
-    expect(mockTriggerAchievements).toHaveBeenCalledTimes(2)
-    expect(retryWarnCalls()).toHaveLength(0)
-  })
-
-  it('does NOT show modal when both retries fail (Caso C — retry agotado)', async () => {
-    mockTriggerAchievements
-      .mockRejectedValueOnce(new Error('offline 1'))
-      .mockRejectedValueOnce(new Error('offline 2'))
-    renderPage()
-
-    // Wait for the page to settle (records section renders)
-    await waitFor(() => {
-      expect(screen.getByText(/records/i)).toBeInTheDocument()
-    })
-    // Give the retry chain time to complete (microtask drain)
-    await waitFor(() => {
-      expect(mockTriggerAchievements).toHaveBeenCalledTimes(2)
-    })
-    expect(screen.queryByRole('button', { name: /continuar/i })).not.toBeInTheDocument()
-    expect(retryWarnCalls()).toHaveLength(1)
-  })
-
-  it('does NOT show modal when achievements_by_player has only empty lists (Caso D — sin regresión)', async () => {
+  it('Continuar button is always present (not gated by achievement data)', async () => {
     mockTriggerAchievements.mockResolvedValueOnce(ACHIEVEMENTS_EMPTY)
     renderPage()
-
     await waitFor(() => {
-      expect(screen.getByText(/records/i)).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /continuar/i })).toBeInTheDocument()
     })
-    // Confirm the achievements promise resolved
-    await waitFor(() => {
-      expect(mockTriggerAchievements).toHaveBeenCalledTimes(1)
-    })
-    expect(screen.queryByRole('button', { name: /continuar/i })).not.toBeInTheDocument()
-    expect(retryWarnCalls()).toHaveLength(0)
   })
 
-  it('renders the page without modal when triggerAchievements returns no unlocks and getPlayers fails silently', async () => {
+  it('clicking Continuar closes the modal — only header + "Volver al inicio" remain on the page', async () => {
+    renderPage()
+    const continuar = await screen.findByRole('button', { name: /continuar/i })
+    fireEvent.click(continuar)
+
+    // Modal title gone
+    await waitFor(() => {
+      expect(screen.queryByRole('heading', { level: 2, name: /resumen de partida/i })).not.toBeInTheDocument()
+    })
+    // Page header + Volver button remain
+    expect(screen.getByRole('heading', { level: 1, name: /¡partida guardada!/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /volver al inicio/i })).toBeInTheDocument()
+  })
+
+  it('renders the page even when getPlayers fails silently', async () => {
     mockGetPlayers.mockRejectedValueOnce(new Error('players unavailable'))
-    mockTriggerAchievements.mockResolvedValueOnce(ACHIEVEMENTS_EMPTY)
     renderPage()
-
     await waitFor(() => {
-      expect(screen.getByText(/¡partida guardada!/i)).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 1, name: /¡partida guardada!/i })).toBeInTheDocument()
     })
-    expect(screen.queryByRole('button', { name: /continuar/i })).not.toBeInTheDocument()
+    // Modal still opens (eloChanges has player_name fallback already)
+    expect(screen.getByRole('heading', { level: 2, name: /resumen de partida/i })).toBeInTheDocument()
+  })
+
+  it('does NOT render inline Resultados or Records sections on the page outside the modal (D-01)', async () => {
+    renderPage()
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1, name: /¡partida guardada!/i })).toBeInTheDocument()
+    })
+    // Close modal
+    fireEvent.click(await screen.findByRole('button', { name: /continuar/i }))
+    await waitFor(() => {
+      expect(screen.queryByRole('heading', { level: 2, name: /resumen de partida/i })).not.toBeInTheDocument()
+    })
+    // Page must NOT show Resultados or Records section headings now
+    expect(screen.queryByRole('heading', { name: /resultados/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: /records/i })).not.toBeInTheDocument()
   })
 })

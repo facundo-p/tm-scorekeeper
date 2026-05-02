@@ -1,0 +1,152 @@
+/* Section structure */
+.section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.gameMeta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.emptyState {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Results rows (extracted from GameRecords) */
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.resultRow {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.resultRow.firstPlace {
+  border-color: var(--color-accent);
+  background-color: rgba(230, 126, 34, 0.08);
+}
+
+.position {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+.firstPlace .position {
+  color: var(--color-accent);
+}
+
+.resultPlayerName {
+  font-weight: var(--font-weight-medium);
+}
+
+.points {
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.mc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ELO rows (Task 2 will use these) */
+.eloList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.eloRow {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.eloPlayerName {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+}
+
+.eloPair {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.deltaPositive {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-success);
+}
+
+.deltaNegative {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-error);
+}
+
+.deltaZero {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+}
+
+/* Achievements section (mirror AchievementModal patterns) */
+.playerGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.playerGroup:last-child {
+  margin-bottom: 0;
+}
+
+.achievementsPlayerName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.badgeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+}
