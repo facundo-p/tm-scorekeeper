@@ -1,7 +1,7 @@
 import Select from '@/components/Select/Select'
 import MultiSelect from '@/components/MultiSelect/MultiSelect'
 import Button from '@/components/Button/Button'
-import { MAP_AWARDS, MAX_AWARDS } from '@/constants/gameRules'
+import { EXPANSION_AWARDS, MAP_AWARDS, MAX_AWARDS } from '@/constants/gameRules'
 import { Award, MapName } from '@/constants/enums'
 import type { GameFormState, AwardEntry } from '../GameForm.types'
 import styles from '../GameForm.module.css'
@@ -14,7 +14,11 @@ interface Props {
 const EMPTY_AWARD: AwardEntry = { name: '', opened_by: '', first_place: [], second_place: [] }
 
 export default function StepAwards({ state, onChange }: Props) {
-  const availableAwards: Award[] = state.map ? MAP_AWARDS[state.map as MapName] ?? [] : []
+  const mapAwards: Award[] = state.map ? MAP_AWARDS[state.map as MapName] ?? [] : []
+  const expansionAwards: Award[] = state.expansions.flatMap(
+    (exp) => EXPANSION_AWARDS[exp] ?? []
+  )
+  const availableAwards: Award[] = [...mapAwards, ...expansionAwards]
   const playerOptions = state.players.map((p) => ({ value: p.player_id, label: p.name }))
   const twoPlayerGame = state.players.length === 2
 

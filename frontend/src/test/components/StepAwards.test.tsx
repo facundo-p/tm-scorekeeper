@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import StepAwards from '@/pages/GameForm/steps/StepAwards'
 import { INITIAL_GAME_STATE, type PlayerFormData } from '@/pages/GameForm/GameForm.types'
-import { MapName, Award } from '@/constants/enums'
+import { Expansion, MapName, Award } from '@/constants/enums'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 const basePlayers: PlayerFormData[] = [
@@ -92,5 +92,24 @@ describe('StepAwards', () => {
     }
     render(<StepAwards state={withTiedFirst} onChange={() => {}} />)
     expect(screen.queryByText(/2do puesto/i)).not.toBeInTheDocument()
+  })
+
+  it('incluye VENUPHILE en opciones de recompensa cuando Venus Next está activo', () => {
+    const stateWithVenus: GameFormState = {
+      ...stateWithHellas,
+      expansions: [Expansion.VENUS_NEXT],
+      awards: [{ name: '', opened_by: '', first_place: [], second_place: [] }],
+    }
+    render(<StepAwards state={stateWithVenus} onChange={() => {}} />)
+    expect(screen.getByText(Award.VENUPHILE)).toBeInTheDocument()
+  })
+
+  it('no incluye VENUPHILE cuando Venus Next no está activo', () => {
+    const stateNoVenus: GameFormState = {
+      ...stateWithHellas,
+      awards: [{ name: '', opened_by: '', first_place: [], second_place: [] }],
+    }
+    render(<StepAwards state={stateNoVenus} onChange={() => {}} />)
+    expect(screen.queryByText(Award.VENUPHILE)).not.toBeInTheDocument()
   })
 })

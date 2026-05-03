@@ -1,5 +1,5 @@
 import Select from '@/components/Select/Select'
-import { MAP_MILESTONES, MAX_MILESTONES } from '@/constants/gameRules'
+import { EXPANSION_MILESTONES, MAP_MILESTONES, MAX_MILESTONES } from '@/constants/gameRules'
 import { MapName, type Milestone } from '@/constants/enums'
 import type { GameFormState, MilestoneEntry } from '../GameForm.types'
 import styles from '../GameForm.module.css'
@@ -10,7 +10,11 @@ interface Props {
 }
 
 export default function StepMilestones({ state, onChange }: Props) {
-  const availableMilestones: Milestone[] = state.map ? MAP_MILESTONES[state.map as MapName] ?? [] : []
+  const mapMilestones: Milestone[] = state.map ? MAP_MILESTONES[state.map as MapName] ?? [] : []
+  const expansionMilestones: Milestone[] = state.expansions.flatMap(
+    (exp) => EXPANSION_MILESTONES[exp] ?? []
+  )
+  const availableMilestones: Milestone[] = [...mapMilestones, ...expansionMilestones]
   const playerOptions = [
     { value: '', label: 'Nadie' },
     ...state.players.map((p) => ({ value: p.player_id, label: p.name })),
