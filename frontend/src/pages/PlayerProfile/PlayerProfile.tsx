@@ -119,6 +119,13 @@ export default function PlayerProfile() {
                   </div>
                 </section>
 
+                {eloSummary && (
+                  <EloSummaryCard
+                    summary={eloSummary}
+                    history={eloHistory ?? undefined}
+                  />
+                )}
+
                 <section className={styles.section}>
                   <h2 className={styles.sectionTitle}>Historial de partidas</h2>
                   {profile.games.length === 0 ? (
@@ -141,13 +148,6 @@ export default function PlayerProfile() {
                     </div>
                   )}
                 </section>
-
-                {eloSummary && (
-                  <EloSummaryCard
-                    summary={eloSummary}
-                    history={eloHistory ?? undefined}
-                  />
-                )}
               </>
             )}
 
