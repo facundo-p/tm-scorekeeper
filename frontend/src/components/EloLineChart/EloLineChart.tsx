@@ -13,6 +13,7 @@ import styles from './EloLineChart.module.css'
 
 interface EloLineChartProps {
   data: PlayerEloHistoryDTO[]
+  showLegend?: boolean
 }
 
 // Deterministic, id-keyed palette. 10 colors so up to 10 concurrent players
@@ -99,7 +100,7 @@ function totalPointCount(data: PlayerEloHistoryDTO[]): number {
   return data.reduce((sum, p) => sum + p.points.length, 0)
 }
 
-export default function EloLineChart({ data }: EloLineChartProps) {
+export default function EloLineChart({ data, showLegend = true }: EloLineChartProps) {
   const rows = buildMergedRows(data)
   const singlePoint = totalPointCount(data) === 1
 
@@ -142,7 +143,7 @@ export default function EloLineChart({ data }: EloLineChartProps) {
               return [`ELO: ${value}`, player?.player_name ?? String(nameOrId ?? '')]
             }}
           />
-          <Legend />
+          {showLegend && <Legend />}
           {data.map((player) => (
             <Line
               key={player.player_id}

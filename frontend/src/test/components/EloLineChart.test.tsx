@@ -1,7 +1,42 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import React from 'react'
 import { render, screen } from '@testing-library/react'
 import EloLineChart, { playerColor } from '@/components/EloLineChart/EloLineChart'
 import type { PlayerEloHistoryDTO } from '@/types'
+
+// Strategy for showLegend tests:
+// Recharts processes <Legend /> as chart configuration before React reconciles it.
+// ResponsiveContainer also skips rendering children in jsdom (needs real dimensions).
+//
+// Both ResponsiveContainer and LineChart are mocked:
+// - ResponsiveContainer renders its children so LineChart actually mounts.
+// - LineChart captures its children array so we can check if a Legend element is present.
+// - Legend is replaced with mockLegend so child.type === mockLegend gives a reliable signal.
+//
+// This tests EloLineChart's JSX intent (does it include <Legend /> in the tree it passes
+// to LineChart?) rather than Recharts' internal rendering behavior.
+
+const { mockLegend, capturedChildren } = vi.hoisted(() => ({
+  mockLegend: vi.fn(() => null),
+  capturedChildren: { current: [] as React.ReactNode[] },
+}))
+
+vi.mock('recharts', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('recharts')>()
+  const MockResponsiveContainer = ({ children }: { children?: React.ReactNode }) => (
+    <div>{children}</div>
+  )
+  const MockLineChart = ({ children }: { children?: React.ReactNode }) => {
+    capturedChildren.current = React.Children.toArray(children)
+    return null
+  }
+  return {
+    ...actual,
+    Legend: mockLegend,
+    ResponsiveContainer: MockResponsiveContainer,
+    LineChart: MockLineChart,
+  }
+})
 
 const fixture: PlayerEloHistoryDTO[] = [
   {
@@ -52,5 +87,32 @@ describe('EloLineChart', () => {
     // Different player_ids must not be forced to the same color (for these two IDs)
     // This validates the hash distributes the two players to different palette slots.
     expect(aliceColor).not.toBe(bobColor)
+  })
+
+  // showLegend prop tests — see mock strategy comment at top of file.
+  describe('showLegend prop', () => {
+    const hasLegendChild = () =>
+      capturedChildren.current.some(
+        (child) => React.isValidElement(child) && child.type === mockLegend,
+      )
+
+    beforeEach(() => {
+      capturedChildren.current = []
+    })
+
+    it('renders Legend by default (showLegend not specified)', () => {
+      render(<EloLineChart data={fixture} />)
+      expect(hasLegendChild()).toBe(true)
+    })
+
+    it('omits Legend when showLegend={false}', () => {
+      render(<EloLineChart data={fixture} showLegend={false} />)
+      expect(hasLegendChild()).toBe(false)
+    })
+
+    it('renders Legend when showLegend={true} (explicit)', () => {
+      render(<EloLineChart data={fixture} showLegend={true} />)
+      expect(hasLegendChild()).toBe(true)
+    })
   })
 })

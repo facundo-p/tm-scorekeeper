@@ -104,4 +104,46 @@ describe('EloSummaryCard', () => {
     render(<EloSummaryCard summary={summary} />)
     expect(screen.getByText('#1 de 1')).toBeInTheDocument()
   })
+
+  // --- Phase 14: history prop / embedded chart ---
+
+  const historyFixture = [
+    {
+      player_id: 'p-alice',
+      player_name: 'Alice',
+      points: [
+        { recorded_at: '2025-06-01', game_id: 'g1', elo_after: 1510, delta: 10 },
+        { recorded_at: '2025-06-15', game_id: 'g2', elo_after: 1520, delta: 10 },
+      ],
+    },
+  ]
+
+  it('renders without history prop (backward compatible)', () => {
+    const { container } = render(<EloSummaryCard summary={baseSummary} />)
+    expect(container.querySelector('[class*="chartArea"]')).toBeNull()
+  })
+
+  it('renders chart container when history has 1+ players with 1+ points', () => {
+    const { container } = render(
+      <EloSummaryCard summary={baseSummary} history={historyFixture} />
+    )
+    expect(container.querySelector('[class*="chartArea"]')).not.toBeNull()
+  })
+
+  it('does NOT render chart when history is empty array (D-10)', () => {
+    const { container } = render(
+      <EloSummaryCard summary={baseSummary} history={[]} />
+    )
+    expect(container.querySelector('[class*="chartArea"]')).toBeNull()
+  })
+
+  it('does NOT render chart when history has only zero-point players (D-10)', () => {
+    const emptyPointsHistory = [
+      { player_id: 'p-alice', player_name: 'Alice', points: [] },
+    ]
+    const { container } = render(
+      <EloSummaryCard summary={baseSummary} history={emptyPointsHistory} />
+    )
+    expect(container.querySelector('[class*="chartArea"]')).toBeNull()
+  })
 })

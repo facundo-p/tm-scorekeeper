@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visualización de ELO en Frontend — IN PROGRESS
-status: verifying
-stopped_at: Completed 10-03-PLAN.md — Phase 10 complete, human-verify approved
-last_updated: "2026-05-02T00:00:00.000Z"
-last_activity: 2026-05-02 - Merged phase 10 (EndOfGameSummaryModal) into staging
+status: executing
+stopped_at: Phase 14 context gathered
+last_updated: "2026-05-03T00:55:27.982Z"
+last_activity: 2026-05-03
 progress:
-  total_phases: 5
+  total_phases: 7
   completed_phases: 5
   total_plans: 20
   completed_plans: 20
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Milestone v1.1 complete — all phases 8-12 shipped
+**Current focus:** Phase 14 — elo-evolution-chart-in-player-profile-stats
 
 ## Current Position
 
-Phase: 12 (ranking-line-chart-leaderboard) — COMPLETE
-Plan: 4 of 4
-Status: All phases complete — milestone complete
-Last activity: 2026-05-02
+Phase: 14
+Plan: Not started
+Status: Executing Phase 14
+Last activity: 2026-05-03
 
 Progress: [          ] 0%
 
@@ -49,6 +49,7 @@ Progress: [          ] 0%
 | 07 | 2 | - | - |
 | 10 | 3 | - | - |
 | 11 | 6 | - | - |
+| 14 | 3 | - | - |
 
 **Recent Trend:**
 
@@ -120,8 +121,10 @@ None yet.
 ### Roadmap Evolution
 
 - Milestone v1.1 started: Visualización de ELO en Frontend (backend ELO ya mergeado vía PR #42)
+- Phase 13 added: agregarle al front end la posibilidad de seleccionar el hito y la recompensa de Venus al jugar una partida que incluya esa expansión
+- Phase 14 added: ELO evolution chart in player profile stats
 
 ## Session Continuity
 
-Last session: 2026-05-02T00:00:00.000Z
-Stopped at: Merged phase 10 into staging — milestone v1.1 complete
+Last session: 2026-05-02T19:34:46.862Z
+Stopped at: Phase 14 context gathered

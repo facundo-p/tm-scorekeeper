@@ -1,8 +1,10 @@
-import type { PlayerEloSummaryDTO } from '@/types'
+import type { PlayerEloSummaryDTO, PlayerEloHistoryDTO } from '@/types'
+import EloLineChart from '@/components/EloLineChart/EloLineChart'
 import styles from './EloSummaryCard.module.css'
 
 interface EloSummaryCardProps {
   summary: PlayerEloSummaryDTO
+  history?: PlayerEloHistoryDTO[]
 }
 
 function formatDelta(d: number): string {
@@ -17,7 +19,7 @@ function deltaClass(d: number): string {
   return styles.deltaZero
 }
 
-export default function EloSummaryCard({ summary }: EloSummaryCardProps) {
+export default function EloSummaryCard({ summary, history }: EloSummaryCardProps) {
   const hasGames = summary.last_delta !== null
   const showSubRow = summary.peak_elo !== null || summary.rank !== null
 
@@ -50,6 +52,11 @@ export default function EloSummaryCard({ summary }: EloSummaryCardProps) {
               #{summary.rank.position} de {summary.rank.total}
             </span>
           )}
+        </div>
+      )}
+      {history && history.some((p) => p.points.length > 0) && (
+        <div className={styles.chartArea}>
+          <EloLineChart data={history} showLegend={false} />
         </div>
       )}
     </section>
