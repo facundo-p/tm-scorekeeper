@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-03-21)
 Phase: 14
 Plan: Not started
 Status: Executing Phase 14
-Last activity: 2026-05-03
+Last activity: 2026-05-03 - Completed quick task 260502-vc2: agregar opciones Venus Next a selects de hitos y recompensas en creacion de partida
 
 Progress: [          ] 0%
 
@@ -111,6 +111,7 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260501-r3p | Fix enums de Awards Tharsis en backend + DB, y agregar Hito y Recompensa de expansión Venus | 2026-05-01 | c0f365a | [260501-r3p-fix-enums-de-awards-tharsis-en-backend-d](./quick/260501-r3p-fix-enums-de-awards-tharsis-en-backend-d/) |
+| 260502-vc2 | agregar opciones Venus Next a selects de hitos y recompensas en creacion de partida | 2026-05-03 | 2f66ae2 | [260502-vc2-agregar-opciones-venus-next-a-selects-de](./quick/260502-vc2-agregar-opciones-venus-next-a-selects-de/) |
 
 ### Blockers/Concerns
 
