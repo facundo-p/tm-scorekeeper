@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 // Mock the api client BEFORE importing the SUT so the mock is applied.
 // We capture every path passed to api.get so each test can assert on it.
-const getMock = vi.fn(() => Promise.resolve([]))
+const getMock = vi.fn((_path: string) => Promise.resolve([]))
 vi.mock('@/api/client', () => ({
   api: {
     get: (path: string) => getMock(path),
