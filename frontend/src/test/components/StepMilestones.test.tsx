@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import StepMilestones from '@/pages/GameForm/steps/StepMilestones'
 import { INITIAL_GAME_STATE, type PlayerFormData } from '@/pages/GameForm/GameForm.types'
-import { MapName, Milestone } from '@/constants/enums'
+import { Expansion, MapName, Milestone } from '@/constants/enums'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 const basePlayers: PlayerFormData[] = [
@@ -49,5 +49,23 @@ describe('StepMilestones', () => {
     const checkboxes = screen.getAllByRole('checkbox')
     expect(checkboxes[3]).toBeDisabled()
     expect(checkboxes[4]).toBeDisabled()
+  })
+
+  it('muestra HOVERLORD cuando Venus Next está en expansions', () => {
+    const stateWithVenus: GameFormState = {
+      ...stateWithTharsis,
+      expansions: [Expansion.VENUS_NEXT],
+    }
+    render(<StepMilestones state={stateWithVenus} onChange={() => {}} />)
+    const checkboxes = screen.getAllByRole('checkbox')
+    expect(checkboxes).toHaveLength(6)
+    expect(screen.getByText(Milestone.HOVERLORD)).toBeInTheDocument()
+  })
+
+  it('no muestra HOVERLORD cuando Venus Next no está en expansions', () => {
+    render(<StepMilestones state={stateWithTharsis} onChange={() => {}} />)
+    const checkboxes = screen.getAllByRole('checkbox')
+    expect(checkboxes).toHaveLength(5)
+    expect(screen.queryByText(Milestone.HOVERLORD)).not.toBeInTheDocument()
   })
 })
