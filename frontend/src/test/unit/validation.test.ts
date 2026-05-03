@@ -14,6 +14,7 @@ const makePlayer = (id: string, corp: Corporation | ''): PlayerFormData => ({
   name: id,
   corporation: corp,
   terraform_rating: 20,
+  mc_total: 0,
   card_resource_points: 0,
   card_points: 0,
   greenery_points: 0,

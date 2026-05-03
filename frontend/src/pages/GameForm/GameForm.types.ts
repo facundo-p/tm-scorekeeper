@@ -18,6 +18,7 @@ export interface PlayerFormData {
   name: string
   corporation: Corporation | ''
   terraform_rating: number
+  mc_total: number
   card_resource_points: number
   card_points: number
   greenery_points: number
@@ -40,6 +41,7 @@ export interface GameFormState {
 export const INITIAL_PLAYER_DATA: Omit<PlayerFormData, 'player_id' | 'name'> = {
   corporation: '',
   terraform_rating: 20,
+  mc_total: 0,
   card_resource_points: 0,
   card_points: 0,
   greenery_points: 0,
