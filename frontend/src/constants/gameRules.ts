@@ -1,4 +1,4 @@
-import { MapName, Milestone, Award } from './enums'
+import { Expansion, MapName, Milestone, Award } from './enums'
 
 export const MAX_MILESTONES = 3
 export const MAX_AWARDS = 3
@@ -82,4 +82,12 @@ export const MAP_AWARDS: Record<MapName, Award[]> = {
     Award.MANUFACTURER,
     Award.PHYSICIST,
   ],
+}
+
+export const EXPANSION_MILESTONES: Partial<Record<Expansion, Milestone[]>> = {
+  [Expansion.VENUS_NEXT]: [Milestone.HOVERLORD],
+}
+
+export const EXPANSION_AWARDS: Partial<Record<Expansion, Award[]>> = {
+  [Expansion.VENUS_NEXT]: [Award.VENUPHILE],
 }
