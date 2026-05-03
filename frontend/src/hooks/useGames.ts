@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react'
 import { createGame, getGameRecords } from '@/api/games'
 import { triggerAchievements } from '@/api/achievements'
+import { getEloChanges } from '@/api/elo'
 import { ApiError } from '@/api/client'
 import { calcMilestonePoints, calcAwardPoints } from '@/utils/gameCalculations'
 import { Expansion } from '@/constants/enums'
 import { Corporation } from '@/constants/enums'
-import type { GameDTO, AwardResultDTO, RecordComparisonDTO, AchievementsByPlayerDTO } from '@/types'
+import type { GameDTO, AwardResultDTO, RecordComparisonDTO, AchievementsByPlayerDTO, EloChangeDTO } from '@/types'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 export function useGames() {
@@ -95,5 +96,20 @@ export function useGames() {
     }
   }, [])
 
-  return { submitting, submitError, submitGame, fetchRecords, fetchAchievements }
+  const fetchEloChanges = useCallback(async (gameId: string): Promise<EloChangeDTO[] | null> => {
+    try {
+      return await getEloChanges(gameId)
+    } catch {
+      // D-10: one retry
+      try {
+        return await getEloChanges(gameId)
+      } catch {
+        // D-04 / D-10: silent failure — ELO section will be omitted from the modal
+        console.warn('Failed to load ELO changes after retry')
+        return null
+      }
+    }
+  }, [])
+
+  return { submitting, submitError, submitGame, fetchRecords, fetchAchievements, fetchEloChanges }
 }

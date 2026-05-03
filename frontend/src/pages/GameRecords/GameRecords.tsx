@@ -5,11 +5,14 @@ import { getPlayers } from '@/api/players'
 import { ApiError } from '@/api/client'
 import { useGames } from '@/hooks/useGames'
 import Button from '@/components/Button/Button'
-import Spinner from '@/components/Spinner/Spinner'
-import RecordsSection from '@/components/RecordsSection/RecordsSection'
-import AchievementModal from '@/components/AchievementModal/AchievementModal'
-import type { RecordComparisonDTO, GameResultDTO, PlayerResponseDTO, AchievementsByPlayerDTO } from '@/types'
-import { formatDate } from '@/utils/formatDate'
+import EndOfGameSummaryModal from '@/components/EndOfGameSummaryModal/EndOfGameSummaryModal'
+import type {
+  RecordComparisonDTO,
+  GameResultDTO,
+  PlayerResponseDTO,
+  AchievementsByPlayerDTO,
+  EloChangeDTO,
+} from '@/types'
 import styles from './GameRecords.module.css'
 
 export default function GameRecords() {
@@ -19,11 +22,12 @@ export default function GameRecords() {
   const [result, setResult] = useState<GameResultDTO | null>(null)
   const [players, setPlayers] = useState<PlayerResponseDTO[]>([])
   const [loadingRecords, setLoadingRecords] = useState(true)
-  const [loadingResults, setLoadingResults] = useState(true)
   const [notAvailable, setNotAvailable] = useState(false)
   const [achievements, setAchievements] = useState<AchievementsByPlayerDTO | null>(null)
-  const [showAchievementModal, setShowAchievementModal] = useState(false)
-  const { fetchAchievements } = useGames()
+  const [eloChanges, setEloChanges] = useState<EloChangeDTO[] | null>(null)
+  // D-03: modal opens unconditionally on mount
+  const [showModal, setShowModal] = useState(true)
+  const { fetchAchievements, fetchEloChanges } = useGames()
 
   useEffect(() => {
     if (!gameId) return
@@ -38,19 +42,19 @@ export default function GameRecords() {
 
     getGameResults(gameId)
       .then(setResult)
-      .finally(() => setLoadingResults(false))
+      .catch(() => {})
 
     getPlayers()
       .then(setPlayers)
       .catch(() => {})
 
-    fetchAchievements(gameId).then(data => {
-      if (!data) return
-      const hasAny = Object.values(data.achievements_by_player).some(list => list.length > 0)
-      if (hasAny) {
-        setAchievements(data)
-        setShowAchievementModal(true)
-      }
+    fetchAchievements(gameId).then((data) => {
+      if (data) setAchievements(data)
+    })
+
+    fetchEloChanges(gameId).then((data) => {
+      // D-04 / D-10: hook returns null on retry exhaustion; null state → ELO section omitted
+      setEloChanges(data)
     })
   }, [gameId])
 
@@ -63,47 +67,21 @@ export default function GameRecords() {
           <span className={styles.icon}>🏆</span>
           <h1 className={styles.title}>¡Partida guardada!</h1>
         </div>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Resultados</h2>
-          {loadingResults && <Spinner />}
-          {!loadingResults && result && (
-            <>
-              <p className={styles.gameMeta}>{formatDate(result.date)}</p>
-              <div className={styles.rankingList}>
-                {result.results.map((r) => (
-                  <div
-                    key={r.player_id}
-                    className={[styles.rankRow, r.position === 1 ? styles.firstPlace : ''].join(' ')}
-                  >
-                    <span className={styles.position}>#{r.position}</span>
-                    <span className={styles.playerName}>
-                      {playersMap.get(r.player_id) ?? r.player_id}
-                    </span>
-                    <span className={styles.points}>{r.total_points} pts</span>
-                    <span className={styles.mc}>MC: {r.mc_total}</span>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Records</h2>
-          <RecordsSection records={records} loading={loadingRecords} notAvailable={notAvailable} />
-        </section>
-
         <div className={styles.actions}>
           <Button onClick={() => navigate('/home')}>Volver al inicio</Button>
         </div>
       </div>
 
-      {showAchievementModal && achievements && (
-        <AchievementModal
+      {showModal && (
+        <EndOfGameSummaryModal
+          result={result}
+          records={records}
+          loadingRecords={loadingRecords}
+          notAvailable={notAvailable}
           achievements={achievements}
+          eloChanges={eloChanges}
           playerNames={playersMap}
-          onClose={() => setShowAchievementModal(false)}
+          onClose={() => setShowModal(false)}
         />
       )}
     </div>

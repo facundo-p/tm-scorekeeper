@@ -32,7 +32,7 @@ For details: [`.planning/milestones/v1.0-cleanup-ROADMAP.md`](milestones/v1.0-cl
 
 - [x] **Phase 8: Backend `GET /elo/history` endpoint** — Expose per-player ELO time series consumable by the chart, gating downstream chart work (completed 2026-04-29)
 - [x] **Phase 9: PlayerProfile ELO surface + frontend foundation** — Land typed contracts + `api/elo.ts` and surface current ELO, peak, rank and last-game delta on the player profile (completed 2026-04-29)
-- [ ] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes
+- [x] **Phase 10: End-of-game unified summary modal with ELO section** — Refactor `AchievementModal` into `EndOfGameSummaryModal` containing records + achievements + per-player ELO changes (completed 2026-04-29)
 - [x] **Phase 11: Ranking page skeleton + filters + URL state** — New `/ranking` route with multi-player selector, "Desde" date filter and shareable URL search params (completed 2026-05-01)
 - [x] **Phase 12: Ranking line chart + leaderboard** — Multi-line ELO evolution chart (Recharts) and current-rank leaderboard table on `/ranking` (completed 2026-05-01)
 
@@ -76,7 +76,11 @@ Plans:
   3. Each row shows the finishing position (1°, 2°, 3°, …) next to the player name so the delta is anchored to the result that produced it
   4. If `fetchEloChanges` fails twice (single retry mirroring `fetchAchievements`), the ELO section is silently omitted and a `console.warn` is logged — records and achievements still render
   5. The modal handles the empty case (no records, no achievements) by still showing the ELO section, since ELO fires on every game
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [x] 10-01-PLAN.md — API + hook foundation: getEloChanges + fetchEloChanges retry-once + tests
+- [x] 10-02-PLAN.md — EndOfGameSummaryModal + ResultsSection/EloSection/AchievementsSection + component tests
+- [x] 10-03-PLAN.md — GameRecords refactor + AchievementModal deletion + integration test rewrite + human-verify
 **UI hint**: yes
 
 ### Phase 11: Ranking page skeleton + filters + URL state
@@ -125,7 +129,7 @@ Plans:
 | 7. Documentación y proceso | v1.0 cleanup | 2/2 | Complete | 2026-04-28 |
 | 8. Backend `GET /elo/history` | v1.1 | 4/4 | Complete | 2026-04-29 |
 | 9. PlayerProfile ELO + foundation | v1.1 | 3/3 | Complete   | 2026-04-29 |
-| 10. End-of-game unified modal | v1.1 | 0/? | Not started | - |
+| 10. End-of-game unified modal | v1.1 | 3/3 | Complete    | 2026-04-29 |
 | 11. Ranking skeleton + filters + URL state | v1.1 | 6/6 | Complete    | 2026-05-01 |
 | 12. Ranking chart + leaderboard | v1.1 | 4/4 | Complete   | 2026-05-01 |
 
