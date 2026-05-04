@@ -61,6 +61,15 @@ export default function StepCorpsAndTR({ state, onChange }: Props) {
                 }
                 required
               />
+              <Input
+                label="Megacréditos finales (MC)"
+                type="number"
+                value={player.mc_total}
+                min={0}
+                onChange={(e) =>
+                  updatePlayer(player.player_id, { mc_total: parseInt(e.target.value) || 0 })
+                }
+              />
             </div>
           </div>
         )

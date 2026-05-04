@@ -6,13 +6,13 @@ import { Expansion, MapName, Award } from '@/constants/enums'
 import type { GameFormState } from '@/pages/GameForm/GameForm.types'
 
 const basePlayers: PlayerFormData[] = [
-  { player_id: 'p1', name: 'Alice', corporation: '', terraform_rating: 20, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
-  { player_id: 'p2', name: 'Bob', corporation: '', terraform_rating: 20, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
+  { player_id: 'p1', name: 'Alice', corporation: '', terraform_rating: 20, mc_total: 0, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
+  { player_id: 'p2', name: 'Bob', corporation: '', terraform_rating: 20, mc_total: 0, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
 ]
 
 const threePlayer: PlayerFormData[] = [
   ...basePlayers,
-  { player_id: 'p3', name: 'Carol', corporation: '', terraform_rating: 20, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
+  { player_id: 'p3', name: 'Carol', corporation: '', terraform_rating: 20, mc_total: 0, card_resource_points: 0, card_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null },
 ]
 
 const stateWithHellas: GameFormState = {

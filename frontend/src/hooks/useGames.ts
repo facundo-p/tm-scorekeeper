@@ -47,7 +47,7 @@ export function useGames() {
             city_points: player.city_points,
             turmoil_points: hasTurmoil ? (player.turmoil_points ?? 0) : null,
           },
-          end_stats: { mc_total: 0 },
+          end_stats: { mc_total: player.mc_total },
         }
       })
 
