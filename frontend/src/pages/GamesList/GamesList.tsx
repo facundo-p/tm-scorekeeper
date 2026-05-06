@@ -17,12 +17,20 @@ interface Filters {
   dateTo: string
 }
 
+type SortKey = 'date' | 'winner' | 'map' | 'playerCount'
+type SortDir = 'asc' | 'desc'
+
 function getWinner(game: GameDTO, playersMap: Map<string, string>): string {
   if (!game.player_results.length) return '—'
   const best = game.player_results.reduce((top, curr) =>
     calcRunningTotal(curr.scores) > calcRunningTotal(top.scores) ? curr : top
   )
   return playersMap.get(best.player_id) ?? best.player_id
+}
+
+function formatDateDMY(iso: string): string {
+  const [y, m, d] = iso.split('-')
+  return y && m && d ? `${d}-${m}-${y}` : iso
 }
 
 function applyFilters(games: GameDTO[], _players: PlayerResponseDTO[], filters: Filters): GameDTO[] {
@@ -35,6 +43,43 @@ function applyFilters(games: GameDTO[], _players: PlayerResponseDTO[], filters: 
     return true
   })
 }
+
+function compareGames(a: GameDTO, b: GameDTO, key: SortKey, playersMap: Map<string, string>): number {
+  switch (key) {
+    case 'date':
+      return a.date.localeCompare(b.date)
+    case 'winner':
+      return getWinner(a, playersMap).localeCompare(getWinner(b, playersMap), 'es', { sensitivity: 'base' })
+    case 'map':
+      return a.map.localeCompare(b.map, 'es', { sensitivity: 'base' })
+    case 'playerCount':
+      return a.player_results.length - b.player_results.length
+  }
+}
+
+function sortGames(
+  games: GameDTO[],
+  sortBy: SortKey,
+  sortDir: SortDir,
+  playersMap: Map<string, string>
+): GameDTO[] {
+  const dirMul = sortDir === 'asc' ? 1 : -1
+  return [...games].sort((a, b) => {
+    const primary = compareGames(a, b, sortBy, playersMap) * dirMul
+    if (primary !== 0) return primary
+    if (sortBy === 'date') {
+      return a.player_results.length - b.player_results.length
+    }
+    return -a.date.localeCompare(b.date)
+  })
+}
+
+const COLUMNS: { key: SortKey; label: string; align?: 'center' }[] = [
+  { key: 'date', label: 'Fecha' },
+  { key: 'winner', label: 'Ganador' },
+  { key: 'map', label: 'Mapa' },
+  { key: 'playerCount', label: 'Jugadores', align: 'center' },
+]
 
 export default function GamesList() {
   const [games, setGames] = useState<GameDTO[]>([])
@@ -49,6 +94,8 @@ export default function GamesList() {
     dateFrom: '',
     dateTo: '',
   })
+  const [sortBy, setSortBy] = useState<SortKey>('date')
+  const [sortDir, setSortDir] = useState<SortDir>('desc')
 
   useEffect(() => {
     Promise.all([listGames(), getPlayers()])
@@ -69,6 +116,20 @@ export default function GamesList() {
     () => applyFilters(games, players, filters),
     [games, players, filters]
   )
+
+  const sorted = useMemo(
+    () => sortGames(filtered, sortBy, sortDir, playersMap),
+    [filtered, sortBy, sortDir, playersMap]
+  )
+
+  const handleSort = (key: SortKey) => {
+    if (key === sortBy) {
+      setSortDir((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortBy(key)
+      setSortDir('asc')
+    }
+  }
 
   const setFilter = (key: keyof Filters) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     setFilters((prev) => ({ ...prev, [key]: e.target.value }))
@@ -139,25 +200,41 @@ export default function GamesList() {
 
         {!loading && !error && (
           <>
-            <p className={styles.count}>{filtered.length} partida{filtered.length !== 1 ? 's' : ''}</p>
+            <p className={styles.count}>{sorted.length} partida{sorted.length !== 1 ? 's' : ''}</p>
 
-            {filtered.length === 0 ? (
+            {sorted.length === 0 ? (
               <p className={styles.empty}>No hay partidas que coincidan con los filtros.</p>
             ) : (
               <div className={styles.list}>
                 <div className={styles.listHeader}>
-                  <span>Fecha</span>
-                  <span>Ganador</span>
-                  <span>Mapa</span>
-                  <span className={styles.alignCenter}>Jugadores</span>
+                  {COLUMNS.map((col) => {
+                    const isActive = sortBy === col.key
+                    const arrow = isActive ? (sortDir === 'asc' ? '▲' : '▼') : ''
+                    const classes = [
+                      styles.sortButton,
+                      isActive ? styles.sortButtonActive : '',
+                      col.align === 'center' ? styles.alignCenter : '',
+                    ].filter(Boolean).join(' ')
+                    return (
+                      <button
+                        key={col.key}
+                        type="button"
+                        className={classes}
+                        onClick={() => handleSort(col.key)}
+                        aria-sort={isActive ? (sortDir === 'asc' ? 'ascending' : 'descending') : 'none'}
+                      >
+                        {col.label}{arrow && <span className={styles.sortArrow}>{arrow}</span>}
+                      </button>
+                    )
+                  })}
                 </div>
-                {filtered.map((game) => (
+                {sorted.map((game) => (
                   <Link
                     key={game.id}
                     to={`/games/${game.id}`}
                     className={styles.row}
                   >
-                    <span>{game.date}</span>
+                    <span>{formatDateDMY(game.date)}</span>
                     <span className={styles.winner}>{getWinner(game, playersMap)}</span>
                     <span>{game.map}</span>
                     <span className={styles.alignCenter}>{game.player_results.length}</span>
