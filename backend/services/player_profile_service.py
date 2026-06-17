@@ -1,9 +1,14 @@
+from collections import Counter
 from schemas.player_profile import (
     PlayerProfileDTO,
     PlayerStatsDTO,
     PlayerGameSummaryDTO,
 )
 from services.helpers.results import calculate_results
+from services.helpers.milestone_award_translations import (
+    translate_milestone,
+    translate_award,
+)
 
 
 class PlayerProfileService:
@@ -30,13 +35,19 @@ class PlayerProfileService:
         summaries = []
         total_milestones = 0
         total_awards = 0
-        
+        milestone_counter = Counter()
+        award_counter = Counter()
+
         for game in games:
             game_results = calculate_results(game)
             #devuelve GameResultDTO con player_id, total_points, mc_total, position, tied
 
             total_awards += sum(player_id in award.first_place for award in game.awards)
             # Suma todas las recompensas obtenidas por el jugador (solo si tiene el 1er lugar) en cada premio).
+
+            for award_result in game.awards:
+                if player_id in award_result.first_place:
+                    award_counter[award_result.award] += 1
 
             player_results_by_id = {
                 pr.player_id: pr
@@ -54,6 +65,9 @@ class PlayerProfileService:
 
                     total_milestones += len(player_model_result.scores.milestones)
                     # Cuenta la cantidad de hitos obtenidos en la partida y los suma al total.
+
+                    for milestone in player_model_result.scores.milestones:
+                        milestone_counter[milestone] += 1
 
                     if game_result.position == 1:
                         games_won += 1
@@ -85,12 +99,37 @@ class PlayerProfileService:
         avg_milestones = round(avg_milestones, 2)
         avg_awards = round(avg_awards, 2)
 
+        most_claimed_milestones = None
+        most_claimed_awards = None
+
+        if milestone_counter:
+            max_milestone_count = max(milestone_counter.values())
+            most_common_milestones = [
+                m for m, count in milestone_counter.items()
+                if count == max_milestone_count
+            ]
+            most_claimed_milestones = [
+                translate_milestone(m) for m in most_common_milestones
+            ]
+
+        if award_counter:
+            max_award_count = max(award_counter.values())
+            most_common_awards = [
+                a for a, count in award_counter.items()
+                if count == max_award_count
+            ]
+            most_claimed_awards = [
+                translate_award(a) for a in most_common_awards
+            ]
+
         stats = PlayerStatsDTO(
             games_played=games_played,
             games_won=games_won,
             win_rate=win_rate,
             avg_milestones=avg_milestones,
             avg_awards=avg_awards,
+            most_claimed_milestones=most_claimed_milestones,
+            most_claimed_awards=most_claimed_awards,
         )
         
         records = self.player_records_service.get_player_records(player_id)

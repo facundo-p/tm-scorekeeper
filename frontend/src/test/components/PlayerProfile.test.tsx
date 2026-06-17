@@ -22,7 +22,15 @@ import type { PlayerProfileDTO, PlayerResponseDTO } from '@/types'
 const fixtureProfile: PlayerProfileDTO = {
   player_id: 'p1',
   elo: 1523,
-  stats: { games_played: 5, games_won: 2, win_rate: 0.4 },
+  stats: {
+    games_played: 5,
+    games_won: 2,
+    win_rate: 0.4,
+    avg_milestones: 1.2,
+    avg_awards: 0.8,
+    most_claimed_milestones: ['Alcalde'],
+    most_claimed_awards: ['Banquero'],
+  },
   games: [],
   records: {},
 }
@@ -46,6 +54,38 @@ describe('PlayerProfile', () => {
     vi.mocked(getPlayerProfile).mockResolvedValue(fixtureProfile)
     vi.mocked(getPlayers).mockResolvedValue(fixturePlayers)
     vi.mocked(getEloHistory).mockResolvedValue([])
+  })
+
+  it('shows most claimed milestone and award when present', async () => {
+    vi.mocked(getEloSummary).mockResolvedValue(null as never)
+
+    renderRoute()
+
+    await waitFor(() => {
+      expect(screen.getByText('Hito más reclamado')).toBeInTheDocument()
+    })
+    expect(screen.getByText('Alcalde')).toBeInTheDocument()
+    expect(screen.getByText('Recompensa más conseguida')).toBeInTheDocument()
+    expect(screen.getByText('Banquero')).toBeInTheDocument()
+  })
+
+  it('shows descriptive empty message when no milestone or award claimed', async () => {
+    vi.mocked(getEloSummary).mockResolvedValue(null as never)
+    vi.mocked(getPlayerProfile).mockResolvedValue({
+      ...fixtureProfile,
+      stats: {
+        ...fixtureProfile.stats,
+        most_claimed_milestones: null,
+        most_claimed_awards: null,
+      },
+    })
+
+    renderRoute()
+
+    await waitFor(() => {
+      expect(screen.getByText('Todavía no reclamó ningún hito.')).toBeInTheDocument()
+    })
+    expect(screen.getByText('Todavía no consiguió ninguna recompensa.')).toBeInTheDocument()
   })
 
   it('summary failure does not block profile', async () => {

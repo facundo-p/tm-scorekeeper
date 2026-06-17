@@ -26,6 +26,10 @@ export interface PlayerStatsDTO {
   games_played: number
   games_won: number
   win_rate: number
+  avg_milestones: number
+  avg_awards: number
+  most_claimed_milestones: string[] | null
+  most_claimed_awards: string[] | null
 }
 
 export interface PlayerGameSummaryDTO {

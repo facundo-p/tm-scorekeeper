@@ -117,6 +117,33 @@ export default function PlayerProfile() {
                       <span className={styles.statLabel}>Win rate</span>
                     </div>
                   </div>
+
+                  <div className={styles.highlights}>
+                    <div className={styles.highlightRow}>
+                      <span className={styles.highlightLabel}>Hito más reclamado</span>
+                      {profile.stats.most_claimed_milestones && profile.stats.most_claimed_milestones.length > 0 ? (
+                        <span className={styles.highlightValue}>
+                          {profile.stats.most_claimed_milestones.join(', ')}
+                        </span>
+                      ) : (
+                        <span className={styles.highlightEmpty}>
+                          Todavía no reclamó ningún hito.
+                        </span>
+                      )}
+                    </div>
+                    <div className={styles.highlightRow}>
+                      <span className={styles.highlightLabel}>Recompensa más conseguida</span>
+                      {profile.stats.most_claimed_awards && profile.stats.most_claimed_awards.length > 0 ? (
+                        <span className={styles.highlightValue}>
+                          {profile.stats.most_claimed_awards.join(', ')}
+                        </span>
+                      ) : (
+                        <span className={styles.highlightEmpty}>
+                          Todavía no consiguió ninguna recompensa.
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </section>
 
                 {eloSummary && (

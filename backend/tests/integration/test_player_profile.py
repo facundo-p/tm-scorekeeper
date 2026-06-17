@@ -276,3 +276,135 @@ def test_player_with_multiple_games_and_one_win_has_correct_win_rate(
     assert positions.count(1) == 1
 
 
+def test_player_most_claimed_milestone_and_award(
+    player_profile_service, players_repo, games_repo
+):
+    # prepare players
+    players_repo.create(Player(player_id="p1", name="Test", is_active=True))
+    players_repo.create(Player(player_id="p2", name="Opponent", is_active=True))
+
+    from schemas.award import AwardResultDTO
+    from models.enums import Award, Milestone
+
+    # Game 1: p1 gets Mayor milestone and Landlord award
+    player_g1 = PlayerResultDTO(
+        player_id="p1",
+        corporation=Corporation.THARSIS_REPUBLIC,
+        scores=PlayerScoreDTO(
+            terraform_rating=35,
+            milestone_points=5,
+            milestones=[Milestone.MAYOR],
+            award_points=8,
+            card_points=6,
+            card_resource_points=2,
+            greenery_points=7,
+            city_points=3,
+            turmoil_points=0,
+        ),
+        end_stats=PlayerEndStatsDTO(mc_total=10),
+    )
+
+    opponent_g1 = PlayerResultDTO(
+        player_id="p2",
+        corporation=Corporation.ECOLINE,
+        scores=PlayerScoreDTO(
+            terraform_rating=30,
+            milestone_points=0,
+            milestones=[],
+            award_points=5,
+            card_points=4,
+            card_resource_points=1,
+            greenery_points=5,
+            city_points=2,
+            turmoil_points=0,
+        ),
+        end_stats=PlayerEndStatsDTO(mc_total=5),
+    )
+
+    award_result_g1 = AwardResultDTO(
+        name=Award.LANDLORD,
+        opened_by="p2",
+        first_place=["p1"],
+        second_place=["p2"],
+    )
+
+    game1 = GameDTO(
+        id="game-1",
+        date=date(2026, 1, 1),
+        map="Hellas",
+        expansions=[],
+        draft=False,
+        generations=10,
+        player_results=[player_g1, opponent_g1],
+        awards=[award_result_g1],
+    )
+
+    # Game 2: p1 gets Mayor milestone again and Banker award
+    player_g2 = PlayerResultDTO(
+        player_id="p1",
+        corporation=Corporation.THARSIS_REPUBLIC,
+        scores=PlayerScoreDTO(
+            terraform_rating=35,
+            milestone_points=5,
+            milestones=[Milestone.MAYOR],
+            award_points=8,
+            card_points=6,
+            card_resource_points=2,
+            greenery_points=7,
+            city_points=3,
+            turmoil_points=0,
+        ),
+        end_stats=PlayerEndStatsDTO(mc_total=10),
+    )
+
+    opponent_g2 = PlayerResultDTO(
+        player_id="p2",
+        corporation=Corporation.ECOLINE,
+        scores=PlayerScoreDTO(
+            terraform_rating=30,
+            milestone_points=0,
+            milestones=[],
+            award_points=5,
+            card_points=4,
+            card_resource_points=1,
+            greenery_points=5,
+            city_points=2,
+            turmoil_points=0,
+        ),
+        end_stats=PlayerEndStatsDTO(mc_total=5),
+    )
+
+    award_result_g2 = AwardResultDTO(
+        name=Award.BANKER,
+        opened_by="p2",
+        first_place=["p1"],
+        second_place=["p2"],
+    )
+
+    game2 = GameDTO(
+        id="game-2",
+        date=date(2026, 1, 5),
+        map="Hellas",
+        expansions=[],
+        draft=False,
+        generations=10,
+        player_results=[player_g2, opponent_g2],
+        awards=[award_result_g2],
+    )
+
+    games_repo.create(game_dto_to_model(game1))
+    games_repo.create(game_dto_to_model(game2))
+
+    profile = player_profile_service.get_profile("p1")
+
+    # Check that Mayor is the most claimed milestone (appears twice)
+    assert profile.stats.most_claimed_milestones is not None
+    assert "Alcalde" in profile.stats.most_claimed_milestones
+
+    # Check that both awards are equally claimed (one each)
+    assert profile.stats.most_claimed_awards is not None
+    assert len(profile.stats.most_claimed_awards) == 2
+    assert "Terrateniente" in profile.stats.most_claimed_awards
+    assert "Banquero" in profile.stats.most_claimed_awards
+
+
