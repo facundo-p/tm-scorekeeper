@@ -158,6 +158,7 @@ ALL_MAPS = AchievementDefinition(
         AchievementTier(level=1, threshold=2, title="Explorador"),
         AchievementTier(level=2, threshold=3, title="Cartógrafo"),
         AchievementTier(level=3, threshold=5, title="Conquistador de Marte"),
+        AchievementTier(level=4, threshold=7, title="Señor de Marte"),
     ],
     show_progress=True,
 )

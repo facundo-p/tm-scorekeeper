@@ -7,6 +7,8 @@ export enum MapName {
   ELYSIUM = 'Elysium',
   BOREALIS = 'Vastitas Borealis',
   AMAZONIS = 'Amazonis Planitia',
+  UTOPIA = 'Utopia Planitia',
+  CIMMERIA = 'Terra Cimmeria',
 }
 
 export enum Expansion {
@@ -47,6 +49,18 @@ export enum Milestone {
   MERCHANT = 'Merchant',
   SPONSOR = 'Sponsor',
   LOBBYIST = 'Lobbyist',
+  // Utopia Planitia
+  MANAGER = 'Manager',
+  PIONEER = 'Pioneer',
+  TRADER = 'Trader',
+  METALLURGIST = 'Metallurgist',
+  RESEARCHER = 'Researcher',
+  // Terra Cimmeria
+  PLANETOLOGIST = 'Planetologist',
+  ARCHITECT = 'Architect',
+  COASTGUARD = 'Coastguard',
+  FORESTER = 'Forester',
+  FUNDRAISER = 'Fundraiser',
   // Venus Next
   HOVERLORD = 'Hoverlord',
 }
@@ -82,6 +96,18 @@ export enum Award {
   CONSTRUCTOR = 'Constructor',
   MANUFACTURER = 'Manufacturer',
   PHYSICIST = 'Physicist',
+  // Utopia Planitia
+  SUBURBIAN = 'Suburbian',
+  INVESTOR = 'Investor',
+  BOTANIST = 'Botanist',
+  INCORPORATOR = 'Incorporator',
+  METROPOLIST = 'Metropolist',
+  // Terra Cimmeria
+  ELECTRICIAN = 'Electrician',
+  FOUNDER = 'Founder',
+  MOGUL = 'Mogul',
+  ZOOLOGIST = 'Zoologist',
+  FORECASTER = 'Forecaster',
   // Venus Next
   VENUPHILE = 'Venuphile',
 }
