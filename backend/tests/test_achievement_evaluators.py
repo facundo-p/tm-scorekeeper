@@ -267,6 +267,7 @@ ALL_MAPS_DEF = AchievementDefinition(
         AchievementTier(level=1, threshold=2, title="Explorador"),
         AchievementTier(level=2, threshold=3, title="Cartógrafo"),
         AchievementTier(level=3, threshold=5, title="Conquistador de Marte"),
+        AchievementTier(level=4, threshold=7, title="Señor de Marte"),
     ],
     show_progress=True,
 )
@@ -361,11 +362,18 @@ class TestAllMapsEvaluator:
         ]
         assert ev.compute_tier("p1", games) == 2
 
-    def test_compute_tier_3_all_five_maps(self):
+    def test_compute_tier_3_five_maps(self):
         ev = AllMapsEvaluator(ALL_MAPS_DEF)
         maps = [MapName.THARSIS, MapName.HELLAS, MapName.ELYSIUM, MapName.BOREALIS, MapName.AMAZONIS]
         games = [make_game(["p1"], map_name=m, game_date=date(2026, 1, i+1)) for i, m in enumerate(maps)]
         assert ev.compute_tier("p1", games) == 3
+
+    def test_compute_tier_4_all_seven_maps(self):
+        ev = AllMapsEvaluator(ALL_MAPS_DEF)
+        maps = list(MapName)
+        assert len(maps) == 7
+        games = [make_game(["p1"], map_name=m, game_date=date(2026, 1, i+1)) for i, m in enumerate(maps)]
+        assert ev.compute_tier("p1", games) == 4
 
     def test_compute_tier_ignores_duplicate_maps(self):
         ev = AllMapsEvaluator(ALL_MAPS_DEF)

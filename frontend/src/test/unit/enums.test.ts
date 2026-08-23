@@ -11,10 +11,12 @@ describe('MapName enum values', () => {
     expect(MapName.ELYSIUM).toBe('Elysium')
     expect(MapName.BOREALIS).toBe('Vastitas Borealis')
     expect(MapName.AMAZONIS).toBe('Amazonis Planitia')
+    expect(MapName.UTOPIA).toBe('Utopia Planitia')
+    expect(MapName.CIMMERIA).toBe('Terra Cimmeria')
   })
 
-  it('has exactly 5 maps', () => {
-    expect(Object.keys(MapName)).toHaveLength(5)
+  it('has exactly 7 maps', () => {
+    expect(Object.keys(MapName)).toHaveLength(7)
   })
 })
 
@@ -32,8 +34,8 @@ describe('Expansion enum values', () => {
 })
 
 describe('Milestone enum values', () => {
-  it('has exactly 26 milestones (5 per map + 1 Venus Next)', () => {
-    expect(Object.keys(Milestone)).toHaveLength(26)
+  it('has exactly 36 milestones (5 per map + 1 Venus Next)', () => {
+    expect(Object.keys(Milestone)).toHaveLength(36)
   })
 
   it('all values are non-empty strings', () => {
@@ -45,8 +47,8 @@ describe('Milestone enum values', () => {
 })
 
 describe('Award enum values', () => {
-  it('has exactly 26 awards (5 per map + 1 Venus Next)', () => {
-    expect(Object.keys(Award)).toHaveLength(26)
+  it('has exactly 36 awards (5 per map + 1 Venus Next)', () => {
+    expect(Object.keys(Award)).toHaveLength(36)
   })
 
   it('all values are non-empty strings', () => {

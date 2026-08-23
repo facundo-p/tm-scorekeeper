@@ -44,6 +44,20 @@ export const MAP_MILESTONES: Record<MapName, Milestone[]> = {
     Milestone.SPONSOR,
     Milestone.LOBBYIST,
   ],
+  [MapName.UTOPIA]: [
+    Milestone.MANAGER,
+    Milestone.PIONEER,
+    Milestone.TRADER,
+    Milestone.METALLURGIST,
+    Milestone.RESEARCHER,
+  ],
+  [MapName.CIMMERIA]: [
+    Milestone.PLANETOLOGIST,
+    Milestone.ARCHITECT,
+    Milestone.COASTGUARD,
+    Milestone.FORESTER,
+    Milestone.FUNDRAISER,
+  ],
 }
 
 export const MAP_AWARDS: Record<MapName, Award[]> = {
@@ -81,6 +95,20 @@ export const MAP_AWARDS: Record<MapName, Award[]> = {
     Award.CONSTRUCTOR,
     Award.MANUFACTURER,
     Award.PHYSICIST,
+  ],
+  [MapName.UTOPIA]: [
+    Award.SUBURBIAN,
+    Award.INVESTOR,
+    Award.BOTANIST,
+    Award.INCORPORATOR,
+    Award.METROPOLIST,
+  ],
+  [MapName.CIMMERIA]: [
+    Award.ELECTRICIAN,
+    Award.FOUNDER,
+    Award.MOGUL,
+    Award.ZOOLOGIST,
+    Award.FORECASTER,
   ],
 }
 

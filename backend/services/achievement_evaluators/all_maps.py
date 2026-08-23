@@ -7,7 +7,8 @@ from services.achievement_evaluators.base import AchievementEvaluator
 class AllMapsEvaluator(AchievementEvaluator):
     """
     Custom evaluator for the "play on all maps" achievement.
-    MapName enum has exactly 5 values. Tiers: 2 maps (tier 1), 3 maps (tier 2), 5 maps (tier 3).
+    MapName enum has exactly 7 values.
+    Tiers: 2 maps (tier 1), 3 maps (tier 2), 5 maps (tier 3), 7 maps (tier 4).
     Counts unique maps in games where the player participated.
     """
 
