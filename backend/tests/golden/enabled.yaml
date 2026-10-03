@@ -1,0 +1,5 @@
+# Claves de fixtures/golden.json que el backend ya reproduce. Cada fase amplía
+# la lista (y los alcances) a medida que agrega endpoints. Un alcance es `all`
+# (sin filtro) o un tamaño de mesa (2..5).
+positions: [all]
+elo: [all]

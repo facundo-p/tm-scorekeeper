@@ -115,6 +115,10 @@ class GamesRepository:
 
         return orm
 
+    def to_orm(self, game: Game) -> GameORM:
+        """ORM nuevo para una partida de dominio (lo usa el cargador de fixtures)."""
+        return self._domain_to_orm(game)
+
     def create(self, game: Game) -> str:
         if not game.id:
             game_id = str(uuid4())
