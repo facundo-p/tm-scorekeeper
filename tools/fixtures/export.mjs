@@ -14,8 +14,8 @@ const TABLE_SIZES = [2, 3, 4, 5];
 
 const { generateGames } = await import(`${DATA}/seed.js`);
 const { PLAYERS_SEED } = await import(`${DATA}/catalog.js`);
-const { buildModel } = await import(`${DATA}/derive.js`);
-const { buildGolden } = await import('./golden.mjs');
+const { buildModel, modelFor, seasonRace, SEASON_CATEGORIES } = await import(`${DATA}/derive.js`);
+const { buildGolden, seasonRaces } = await import('./golden.mjs');
 
 function seed() {
   const games = generateGames().sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.id < b.id ? -1 : 1));
@@ -25,9 +25,15 @@ function seed() {
   };
 }
 
+// Season races are over the whole group's seasons, restricted to the table size.
+function racesFor(n) {
+  const full = modelFor();
+  return { season_races: seasonRaces({ ...full, playerCount: n }, seasonRace, SEASON_CATEGORIES) };
+}
+
 function golden() {
-  const out = { all: buildGolden(buildModel()), mesa: {} };
-  for (const n of TABLE_SIZES) out.mesa[n] = buildGolden(buildModel({ playerCount: n }));
+  const out = { all: buildGolden(buildModel(), racesFor(null)), mesa: {} };
+  for (const n of TABLE_SIZES) out.mesa[n] = buildGolden(buildModel({ playerCount: n }), racesFor(n));
   return out;
 }
 

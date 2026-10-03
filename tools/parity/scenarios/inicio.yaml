@@ -4,3 +4,21 @@
   ref: { hash: '#inicio' }
   cand: { path: / }
   gateFromPhase: 28
+- id: home-race-mesa3
+  screen: inicio
+  ref: { hash: '#inicio?mesa=3' }
+  cand: { path: /, search: '?mesa=3' }
+  gateFromPhase: 28
+- id: home-race-cat
+  screen: inicio
+  ref: { hash: '#inicio?cat=card_points' }
+  cand: { path: /, search: '?cat=card_points' }
+  gateFromPhase: 28
+- id: season-rules
+  screen: inicio
+  ref: { hash: '#inicio' }
+  cand: { path: / }
+  actions:
+    - click: { role: button, name: Cómo avanza la temporada }
+      expect: { role: dialog }
+  gateFromPhase: 28

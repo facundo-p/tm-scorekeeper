@@ -184,6 +184,35 @@ function archetype(comp, groupShare) {
   return { key: best.key, name, desc, share: comp.share[best.key], group: groupShare[best.key], ratio: best.ratio };
 }
 
+// --- Fairness (owner's points 6 and 7) ----------------------------------------------
+// Expected wins = Σ 1/n over the player's games; relative position = mean of
+// (n − pos)/(n − 1): 1 always first, 0 always last.
+function equity(rows) {
+  const expected = sum(rows, (r) => 1 / r.n);
+  const wins = rows.filter((r) => r.position === 1).length;
+  return {
+    expected,
+    winsVsExpected: wins - expected,
+    winsRatio: expected ? wins / expected : null,
+    relPos: rows.length ? avg(rows, (r) => (r.n - r.position) / (r.n - 1)) : null,
+  };
+}
+
+export const TABLE_SIZES = [2, 3, 4, 5];
+
+function byTable(rows) {
+  return TABLE_SIZES.map((n) => {
+    const sub = rows.filter((r) => r.n === n);
+    return {
+      n,
+      games: sub.length,
+      wins: sub.filter((r) => r.position === 1).length,
+      avgPoints: sub.length ? roundHalfEven(avg(sub, (r) => r.total)) : null,
+      ...equity(sub),
+    };
+  });
+}
+
 function playerRows(games, pid) {
   return games.flatMap((g) => {
     const r = g.results.find((x) => x.player_id === pid);
@@ -259,16 +288,15 @@ function evaluateAchievements(rows) {
 // --- Seasons: the group's own Mars ----------------------------------------------
 const SEASON = { tempPerGame: 0.8, oxygenPerGreenery: 1 / 52, oceansPerGame: 0.375 };
 
-function seasons(games) {
+function seasonSpans(games) {
   const list = [];
   let cur = null;
   for (const g of games) {
-    if (!cur) cur = { number: list.length + 1, start: g.date, games: [], temp: 0, oxygen: 0, oceans: 0, contrib: {} };
+    if (!cur) cur = { number: list.length + 1, start: g.date, games: [], temp: 0, oxygen: 0, oceans: 0 };
     cur.games.push(g.id);
     cur.temp = Math.min(19, cur.temp + SEASON.tempPerGame);
     cur.oxygen = Math.min(14, cur.oxygen + sum(g.results, (r) => r.scores.greenery_points) * SEASON.oxygenPerGreenery);
     cur.oceans = Math.min(9, cur.oceans + SEASON.oceansPerGame);
-    for (const r of g.results) cur.contrib[r.player_id] = (cur.contrib[r.player_id] ?? 0) + (r.scores.terraform_rating - 20);
     if (cur.temp >= 19 && cur.oxygen >= 14 && cur.oceans >= 9) {
       cur.end = g.date;
       list.push(cur);
@@ -276,17 +304,59 @@ function seasons(games) {
     }
   }
   if (cur) list.push(cur);
-  return list.map((s) => {
+  return list;
+}
+
+export const MIN_SEASON_GAMES = 3;
+export const SEASON_CATEGORIES = ['total', ...CATEGORIES.map((c) => c.key)];
+
+const valueOf = (r, category) => (category === 'total' ? r.total : r.scores[category] ?? 0);
+
+// Per-player averages of one category over some games of a season.
+function raceRows(games, category) {
+  const pool = category === 'turmoil_points' ? games.filter((g) => g.expansions.includes('Turmoil')) : games;
+  const acc = {};
+  for (const g of pool) {
+    for (const r of g.results) {
+      const a = (acc[r.player_id] ??= { player_id: r.player_id, values: [] });
+      a.values.push(valueOf(r, category));
+    }
+  }
+  return Object.values(acc).map(({ player_id, values }) => ({
+    player_id, games: values.length, avg: sum(values) / values.length, best: Math.max(...values),
+  }));
+}
+
+// D-15 order: average, then more games, then best game; player id keeps it stable.
+const raceOrder = (a, b) => b.avg - a.avg || b.games - a.games || b.best - a.best || (a.player_id < b.player_id ? -1 : 1);
+
+// The season race (owner's point 4): average per game, optionally on one table
+// size; 3 games to qualify, the rest listed apart with what they're missing.
+// `gameById` must be the full model's: filtered models share the full seasons (D-36).
+export function seasonRace(season, gameById, { category = 'total', playerCount = null } = {}) {
+  const games = season.games.map((id) => gameById[id]).filter((g) => !playerCount || g.results.length === playerCount);
+  const rows = raceRows(games, category).sort(raceOrder);
+  return {
+    category,
+    games: games.length,
+    qualified: rows.filter((r) => r.games >= MIN_SEASON_GAMES),
+    pending: rows.filter((r) => r.games < MIN_SEASON_GAMES).map((r) => ({ ...r, missing: MIN_SEASON_GAMES - r.games })),
+  };
+}
+
+function seasons(games) {
+  const gameById = Object.fromEntries(games.map((g) => [g.id, g]));
+  return seasonSpans(games).map((s) => {
     const pct = (Math.floor(s.temp) / 19 + Math.floor(s.oxygen) / 14 + Math.floor(s.oceans) / 9) / 3;
-    const ranking = Object.entries(s.contrib).sort((a, b) => b[1] - a[1]).map(([player_id, tr]) => ({ player_id, tr }));
+    const race = seasonRace(s, gameById);
     return {
       ...s,
       temperature: -30 + Math.floor(s.temp) * 2,
       oxygenPct: Math.floor(s.oxygen),
       oceanCount: Math.floor(s.oceans),
       pct,
-      ranking,
-      champion: s.end ? ranking[0].player_id : null,
+      race,
+      champion: s.end ? race.qualified[0]?.player_id ?? null : null,
     };
   });
 }
@@ -378,6 +448,8 @@ export function buildModel({ playerCount = null, map = null, expansion = null } 
       avgAwards: avg(rows, (r) => r.game.awards.filter((a) => a.first_place.includes(p.id)).length),
       pointsPerGen: avg(rows, (r) => r.total / r.generations),
       favorites: favorites(rows, p.id),
+      equity: equity(rows),
+      byTable: byTable(rows),
       composition: comp,
       archetype: rows.length ? archetype(comp, groupComp.share) : null,
       corps: splitStats(rows, (r) => r.corporation),
@@ -425,7 +497,9 @@ export function buildModel({ playerCount = null, map = null, expansion = null } 
     }
   });
 
-  const seasonList = seasons(games);
+  // Seasons belong to the whole group: a filtered model reuses the unfiltered ones.
+  const filtered = playerCount || map || expansion;
+  const seasonList = filtered ? modelFor().seasons : seasons(games);
   const feed = buildFeed(games, players, achievementsByPlayer, seasonList);
   const byCorp = splitStats(games.flatMap((g) => g.results), (r) => r.corporation);
   const byMap = splitStats(games.map((g) => ({ ...g.results[0], map: g.map })), (r) => r.map);

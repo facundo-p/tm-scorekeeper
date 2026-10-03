@@ -278,7 +278,7 @@ function layoutLabels(items) {
 }
 
 // --- Head-to-head heatmap (diverging: ocean = ahead, rust = behind) ----------------------------
-export function H2HMatrix({ players }) {
+export function H2HMatrix({ players, h2h = MODEL.h2h }) {
   const ids = players.map((p) => p.id);
   return html`<div class="h2h-wrap" tabindex="0" role="region" aria-label="Matriz cara a cara (se desplaza horizontalmente)"><table class="h2h">
     <caption class="vh">Porcentaje de partidas en que el jugador de la fila terminó por delante del de la columna</caption>
@@ -287,7 +287,7 @@ export function H2HMatrix({ players }) {
       <th scope="row"><span class="h2h__row"><${Cube} color=${a.color} size=${13} />${a.name}</span></th>
       ${ids.map((b) => {
         if (a.id === b) return html`<td class="h2h__self" aria-hidden="true"></td>`;
-        const c = MODEL.h2h[a.id]?.[b];
+        const c = h2h[a.id]?.[b];
         if (!c || c.games < 2) return html`<td class="h2h__na"><span class="vh">Sin datos</span></td>`;
         const rate = c.ahead / c.games;
         const tone = rate >= 0.5 ? 'a' : 'b';

@@ -7,13 +7,14 @@ import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Cube, CorpEmblem, ExpansionTags, Empty, NewBadge } from '../ui/atoms.js';
 import { ScoreTrack } from '../ui/instruments.js';
 import { Sheet } from '../ui/sheet.js';
+import { MesaFilter, MesaNotice, useMesa } from '../ui/mesa.js';
 
 const P = (id) => MODEL.playerById[id];
-const EMPTY = { map: '', players: [], size: 0 };
+const EMPTY = { map: '', players: [] };
 
-function applyFilters(games, f) {
+function applyFilters(games, f, mesa) {
   return games.filter((g) => (!f.map || g.map === f.map)
-    && (!f.size || g.results.length === f.size)
+    && (!mesa || g.results.length === mesa)
     && f.players.every((id) => g.results.some((r) => r.player_id === id)));
 }
 
@@ -40,21 +41,11 @@ function PlayerFilter({ value, onChange }) {
   </div>`;
 }
 
-function SizeFilter({ value, onChange }) {
-  return html`<div class="fgroup" role="group" aria-label="Jugadores por partida">
-    <span class="fgroup__label">Mesa</span>
-    <div class="fchips">
-      ${[0, 2, 3, 4, 5].map((n) => html`<button type="button" class=${cls('fchip', value === n && 'is-on')} aria-pressed=${value === n}
-        onClick=${() => onChange(n)}>${n ? `${n} jugadores` : 'Cualquiera'}</button>`)}
-    </div>
-  </div>`;
-}
-
-function Filters({ f, set }) {
+function Filters({ f, set, mesa, setMesa }) {
   return html`<div class="filters">
     <${MapFilter} value=${f.map} onChange=${(map) => set({ ...f, map })} />
     <${PlayerFilter} value=${f.players} onChange=${(players) => set({ ...f, players })} />
-    <${SizeFilter} value=${f.size} onChange=${(size) => set({ ...f, size })} />
+    <${MesaFilter} value=${mesa} onChange=${setMesa} />
   </div>`;
 }
 
@@ -139,12 +130,14 @@ function groupByMonth(games) {
   return groups;
 }
 
-export function Games() {
+export function Games({ query = {} }) {
   const [f, setF] = useState(EMPTY);
+  const [mesa, setMesa] = useMesa(query);
   const [sort, setSort] = useState(DEFAULT_SORT);
   const [sheet, setSheet] = useState(false);
-  const list = useMemo(() => sortGames(applyFilters(MODEL.games, f), sort, (id) => P(id).name), [f, sort]);
-  const active = (f.map ? 1 : 0) + f.players.length + (f.size ? 1 : 0);
+  const list = useMemo(() => sortGames(applyFilters(MODEL.games, f, mesa), sort, (id) => P(id).name), [f, sort, mesa]);
+  const active = (f.map ? 1 : 0) + f.players.length;
+  const clearAll = () => { setF(EMPTY); if (mesa) setMesa(null); };
   const groups = sort.by === 'date' ? groupByMonth(list) : null;
   const first = new Date(`${MODEL.group.first}T12:00:00`);
   return html`
@@ -159,16 +152,18 @@ export function Games() {
     </header>
     <div class="games-tools reveal" style="--i:1">
       <${ActivityStrip} />
-      <div class="games-filters"><${Filters} f=${f} set=${setF} />
+      <div class="games-filters"><${Filters} f=${f} set=${setF} mesa=${mesa} setMesa=${setMesa} />
         <div class="filters games-sort-row"><${SortBar} sort=${sort} onChange=${setSort} /></div></div>
     </div>
+    ${query.aviso === 'eliminada' && html`<p class="notice" role="status"><${Icon} name="check" size=${16} />Partida eliminada. Se recalcularon el ELO, los récords y los logros.</p>`}
+    <${MesaNotice} value=${mesa} onClear=${() => setMesa(null)}>${list.length} de ${MODEL.games.length} partidas</${MesaNotice}>
     ${active > 0 && html`<div class="activef">
       <span>${list.length} de ${MODEL.games.length} partidas</span>
-      <${Button} variant="ghost" size="s" icon="close" onClick=${() => setF(EMPTY)}>Limpiar filtros</${Button}>
+      <${Button} variant="ghost" size="s" icon="close" onClick=${clearAll}>Limpiar filtros</${Button}>
     </div>`}
     ${list.length === 0
       ? html`<${Empty} icon="search" title="Ninguna partida coincide"
-          action=${html`<${Button} onClick=${() => setF(EMPTY)}>Limpiar filtros</${Button}>`}>
+          action=${html`<${Button} onClick=${clearAll}>Limpiar filtros</${Button}>`}>
           Probá con otro mapa o sacá algún jugador del filtro.</${Empty}>`
       : groups ? groups.map((grp, gi) => {
         const [y, m] = grp.key.split('-');
@@ -181,10 +176,10 @@ export function Games() {
           <ol class="mlist">${list.map((g) => html`<${GameRow} key=${g.id} g=${g} flat />`)}</ol>
         </section>`}
     ${sheet && html`<${Sheet} title="Filtrar partidas" onClose=${() => setSheet(false)}>
-      <${Filters} f=${f} set=${setF} />
+      <${Filters} f=${f} set=${setF} mesa=${mesa} setMesa=${setMesa} />
       <div class="filters games-sort-row"><${SortBar} sort=${sort} onChange=${setSort} /></div>
       <div class="sheet-actions">
-        <${Button} variant="ghost" onClick=${() => setF(EMPTY)}>Limpiar</${Button}>
+        <${Button} variant="ghost" onClick=${clearAll}>Limpiar</${Button}>
         <${Button} variant="primary" onClick=${() => setSheet(false)}>Ver ${list.length} partidas</${Button}>
       </div>
     </${Sheet}>`}

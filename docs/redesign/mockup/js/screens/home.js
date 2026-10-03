@@ -1,6 +1,7 @@
-import { html, useState, fmt } from '../lib.js';
-import { MODEL } from '../data/derive.js';
-import { corpLabel } from '../data/catalog.js';
+import { html, useState, cls, fmt } from '../lib.js';
+import { MODEL, seasonRace, SEASON_CATEGORIES, MIN_SEASON_GAMES } from '../data/derive.js';
+import { CATEGORIES, corpLabel } from '../data/catalog.js';
+import { MesaFilter, MesaNotice, useMesa } from '../ui/mesa.js';
 import { useNav } from '../router.js';
 import { Icon } from '../ui/icons.js';
 import { Button, Plate, SectionHead, PlayerTag, CorpEmblem, MapBadge, ExpansionTags, Delta, Cube, NewBadge, CountUp, fmtDate } from '../ui/atoms.js';
@@ -35,7 +36,7 @@ function SeasonHero({ onRules }) {
       <h1 class="hero__title" id="hero-title">Marte, temporada ${s.number}</h1>
       <p class="hero__lede">
         <b>${Math.round(s.pct * 100)} % terraformado.</b> Cada partida registrada sube la temperatura, el oxígeno y los océanos
-        de este planeta. Al completar los tres termina la temporada, y el título es para quien más TR aportó.
+        de este planeta. Al completar los tres termina la temporada, y el título es para el mejor promedio de puntos.
       </p>
       <div class="hero__console plate plate--glass" data-sheen>
         <${Thermometer} value=${s.temperature} />
@@ -139,19 +140,50 @@ function Logbook() {
   </${Plate}>`;
 }
 
-function SeasonRace() {
+const CAT_LABEL = { total: 'Total', ...Object.fromEntries(CATEGORIES.map((c) => [c.key, c.label])) };
+
+function RaceRow({ r, max, i }) {
+  return html`<li class="race__row" style=${`--w:${((r.avg / max) * 100).toFixed(1)};--i:${i}`}>
+    <${PlayerTag} player=${P(r.player_id)} size="s" sub=${`${r.games} ${r.games === 1 ? 'partida' : 'partidas'}`} />
+    <span class="race__bar"><i></i></span>
+    <span class="race__val">${fmt.dec(r.avg)}</span>
+  </li>`;
+}
+
+function CategoryPicker({ value, onChange }) {
+  return html`<div class="fgroup race__cats" role="group" aria-label="Categoría de la carrera">
+    <span class="fgroup__label">Promedio de</span>
+    <div class="fchips">${SEASON_CATEGORIES.map((c) => html`<button type="button" class=${cls('fchip', value === c && 'is-on')}
+      aria-pressed=${value === c} onClick=${() => onChange(c)}>${CAT_LABEL[c]}</button>`)}</div>
+  </div>`;
+}
+
+function raceLede(category, games) {
+  const what = category === 'total' ? 'puntos' : CAT_LABEL[category].toLowerCase();
+  const pool = category === 'turmoil_points' ? `${games} partidas con Turmoil` : `${games} partidas`;
+  return `Promedio de ${what} por partida en las ${pool} de esta temporada. Hacen falta ${MIN_SEASON_GAMES} partidas para clasificar.`;
+}
+
+// The season race (owner's point 4): average per game, by category and table size.
+function SeasonRace({ query }) {
   const s = MODEL.season;
-  const max = s.ranking[0]?.tr || 1;
+  const [mesa, setMesa] = useMesa(query);
+  const nav = useNav();
+  const category = SEASON_CATEGORIES.includes(query.cat) ? query.cat : 'total';
+  const race = seasonRace(s, MODEL.gameById, { category, playerCount: mesa });
+  const max = race.qualified[0]?.avg || race.pending[0]?.avg || 1;
+  const setCat = (c) => nav.go('home', {}, { ...query, cat: c === 'total' ? '' : c });
   return html`<${Plate} class="race reveal" label="Carrera de la temporada">
     <${SectionHead} title="Carrera por la temporada ${s.number}"><${NewBadge} /></${SectionHead}>
-    <p class="race__lede">TR que cada jugador sumó por encima de 20 en las ${s.games.length} partidas de esta temporada.</p>
-    <ol class="race__list">
-      ${s.ranking.slice(0, 6).map((r, i) => html`<li class="race__row" style=${`--w:${((r.tr / max) * 100).toFixed(1)};--i:${i}`}>
-        <${PlayerTag} player=${P(r.player_id)} size="s" />
-        <span class="race__bar"><i></i></span>
-        <span class="race__val">${r.tr}</span>
-      </li>`)}
-    </ol>
+    <p class="race__lede">${raceLede(category, race.games)}</p>
+    <div class="race__tools"><${CategoryPicker} value=${category} onChange=${setCat} /><${MesaFilter} value=${mesa} onChange=${setMesa} /></div>
+    <${MesaNotice} value=${mesa} onClear=${() => setMesa(null)} />
+    ${race.qualified.length === 0 && race.pending.length === 0
+      ? html`<p class="muted">Todavía no hay partidas para esta carrera.</p>`
+      : html`<ol class="race__list">${race.qualified.slice(0, 6).map((r, i) => html`<${RaceRow} r=${r} max=${max} i=${i} />`)}</ol>`}
+    ${race.pending.length > 0 && html`<div class="race__pending"><h3 class="race__h">Sin clasificar</h3>
+      <ul>${race.pending.map((r) => html`<li><${PlayerTag} player=${P(r.player_id)} size="s" /><span>${fmt.dec(r.avg)}</span>
+        <small class="faint">le ${r.missing === 1 ? 'falta 1 partida' : `faltan ${r.missing} partidas`}</small></li>`)}</ul></div>`}
   </${Plate}>`;
 }
 
@@ -165,7 +197,8 @@ function SeasonRules({ onClose }) {
         <li><${Icon} name="oxygen" size=${20} /><span><b>Oxígeno:</b> cada 52 puntos de vegetación del grupo suben 1 % (hasta 14 %).</span></li>
         <li><${Icon} name="ocean" size=${20} /><span><b>Océanos:</b> se coloca uno cada dos o tres partidas (9 en total).</span></li>
       </ul>
-      <p>Cuando los tres llegan al máximo, Marte queda terraformado: la temporada se cierra y el campeón es quien más TR aportó por encima de 20.</p>
+      <p>Cuando los tres llegan al máximo, Marte queda terraformado y la temporada se cierra. La carrera se ordena por <b>promedio</b> de puntos por partida; hacen falta ${MIN_SEASON_GAMES} partidas para clasificar.</p>
+      <p>El campeón es el primer clasificado por promedio total al cierre. Si dos empatan, gana quien jugó más partidas, y después quien hizo el mejor puntaje.</p>
       <h3 class="rules__h">Temporadas anteriores</h3>
       <ol class="rules__past">
         ${past.map((s) => html`<li><span>Temporada ${s.number}</span><span>${fmtDate(s.start, { short: true })} a ${fmtDate(s.end, { short: true })}</span>
@@ -176,7 +209,7 @@ function SeasonRules({ onClose }) {
   </${Sheet}>`;
 }
 
-export function Home() {
+export function Home({ query = {} }) {
   const [rules, setRules] = useState(false);
   return html`
     <${SeasonHero} onRules=${() => setRules(true)} />
@@ -184,7 +217,7 @@ export function Home() {
       <${LastGame} />
       <${Logbook} />
       <${Council} />
-      <${SeasonRace} />
+      <${SeasonRace} query=${query} />
     </div>
     ${rules && html`<${SeasonRules} onClose=${() => setRules(false)} />`}
   `;

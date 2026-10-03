@@ -4,6 +4,7 @@ import { MAPS, MAP_ORDER, EXPANSIONS } from '../data/catalog.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, Cube, PlayerTag, NewBadge, Empty, useTilt, fmtDate } from '../ui/atoms.js';
+import { MesaFilter, MesaNotice, useMesa } from '../ui/mesa.js';
 
 const P = (id) => MODEL.playerById[id];
 // Position of a date on the whole archive's timeline (same scale for every filter).
@@ -122,21 +123,23 @@ const MAP_OPTIONS = MAP_ORDER.map((m) => ({ id: m, label: m, icon: html`<${MapGl
 const EXP_OPTIONS = Object.values(EXPANSIONS).map((e) => ({ id: e.id, label: e.label, icon: html`<${Icon} name=${e.glyph} size=${15} />` }));
 
 // Records over a subset of games (#37): by map and by expansion, from the URL.
-function RecordFilters({ query }) {
+function RecordFilters({ query, mesa, setMesa }) {
   const nav = useNav();
   const set = (patch) => nav.go('records', {}, { ...query, ...patch });
   return html`<div class="filters records-filters reveal" style="--i:1">
+    <${MesaFilter} value=${mesa} onChange=${setMesa} />
     <${Filter} label="Mapa" value=${query.mapa ?? ''} options=${MAP_OPTIONS} onChange=${(mapa) => set({ mapa })} />
     <${Filter} label="Expansión" value=${query.exp ?? ''} options=${EXP_OPTIONS} onChange=${(exp) => set({ exp })} />
   </div>`;
 }
 
 export function Records({ query = {} }) {
-  const model = modelFor({ map: query.mapa || null, expansion: query.exp || null });
+  const [mesa, setMesa] = useMesa(query);
+  const model = modelFor({ playerCount: mesa, map: query.mapa || null, expansion: query.exp || null });
   const all = model.records;
   const top = all.find((r) => r.code === 'highest_single_game_score');
   const rest = all.filter((r) => r !== top);
-  const filtered = !!(query.mapa || query.exp);
+  const filtered = !!(query.mapa || query.exp) && !mesa;
   return html`
     <${TrophyNav} current="records" />
     <header class="screen-head reveal" style="--i:0">
@@ -145,7 +148,8 @@ export function Records({ query = {} }) {
         <p class="screen-head__sub">Las mejores marcas del grupo. Un récord cambia de dueño solo cuando alguien lo supera; quien lo iguala lo comparte.</p>
       </div>
     </header>
-    <${RecordFilters} query=${query} />
+    <${RecordFilters} query=${query} mesa=${mesa} setMesa=${setMesa} />
+    <${MesaNotice} value=${mesa} onClear=${() => setMesa(null)}>${model.group.games} ${model.group.games === 1 ? 'partida' : 'partidas'}</${MesaNotice}>
     ${filtered && html`<p class="activef"><span>${model.group.games} ${model.group.games === 1 ? 'partida' : 'partidas'} con este filtro</span></p>`}
     ${model.group.games === 0
       ? html`<${Empty} icon="trophy" title="Sin partidas con este filtro">Probá con otro mapa o expansión.</${Empty}>`

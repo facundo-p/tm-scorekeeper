@@ -9,3 +9,8 @@
   ref: { hash: '#ceremonia-g-063' }
   cand: { path: /partidas/g-063/ceremonia }
   gateFromPhase: 31
+- id: register-edit
+  screen: registrar
+  ref: { hash: '#editar-g-063' }
+  cand: { path: /partidas/g-063/editar }
+  gateFromPhase: 30

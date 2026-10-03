@@ -1,4 +1,4 @@
-import { html, useReducer, useState, useEffect, useRef, cls, fmt } from '../lib.js';
+import { html, useReducer, useState, useEffect, useRef, cls, fmt, reducedMotion } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { MAPS, MAP_ORDER, EXPANSIONS, CORPS, CATEGORIES, EXPANSION_MILESTONES, EXPANSION_AWARDS, corpLabel } from '../data/catalog.js';
 import { milestoneLabel, awardLabel } from '../data/labels.js';
@@ -16,16 +16,15 @@ const MAX_PLAYERS = 5;
 // Lets the prototype index open the wizard on a given step.
 export const registerStart = { step: +(new URLSearchParams(location.search).get('step') ?? 0) || 0 };
 
-// The example comes pre-filled with the 27 September session so every step shows real content.
-function exampleState() {
-  const g = MODEL.gameById['g-063'];
+// A saved game as wizard state: the example (27 September session) and edit mode.
+function stateFromGame(id, extra) {
+  const g = MODEL.gameById[id];
   const milestones = {};
   g.results.forEach((r) => r.scores.milestones.forEach((m) => { milestones[m] = r.player_id; }));
-  const step = registerStart.step;
-  registerStart.step = 0;
   return {
-    step,
-    example: true,
+    step: 0,
+    example: false,
+    editing: null,
     date: g.date, map: g.map, expansions: [...g.expansions], draft: g.draft, generations: g.generations,
     players: g.player_results.map((r) => ({
       id: r.player_id, corp: r.corporation, mc: r.end_stats.mc_total,
@@ -33,8 +32,19 @@ function exampleState() {
     })),
     milestones,
     awards: g.awards.map((a) => ({ name: a.name, opened_by: a.opened_by, first: [...a.first_place], second: [...a.second_place] })),
+    ...extra,
   };
 }
+
+// The example comes pre-filled with the 27 September session so every step shows real content.
+function exampleState() {
+  const step = registerStart.step;
+  registerStart.step = 0;
+  return stateFromGame('g-063', { step, example: true });
+}
+
+// Edit mode (owner's point 8): the saved game, pre-filled; saving recomputes everything.
+const editState = (id) => stateFromGame(MODEL.gameById[id] ? id : 'g-063', { editing: MODEL.gameById[id] ? id : 'g-063' });
 
 const blankState = () => ({
   step: 0, example: false, date: today(), map: '', expansions: ['Prelude'], draft: true, generations: 10,
@@ -368,13 +378,16 @@ function Preview({ s }) {
   </aside>`;
 }
 
-export function Register() {
+export function Register({ params = {} }) {
   const nav = useNav();
-  const [s, d] = useReducer(reducer, null, exampleState);
+  const editing = nav.route.name === 'edit';
+  const [s, d] = useReducer(reducer, params.id, editing ? editState : exampleState);
   const [errors, setErrors] = useState([]);
   const [saved, setSaved] = useState(false);
   const top = useRef(null);
   useEffect(() => {
+    // The draft is stored right away; the short delay only animates the badge.
+    if (reducedMotion()) { setSaved(true); return undefined; }
     setSaved(false);
     const t = setTimeout(() => setSaved(true), 700);
     return () => clearTimeout(t);
@@ -390,8 +403,9 @@ export function Register() {
   return html`
     <header class="screen-head reveal" style="--i:0" ref=${top}>
       <div>
-        <h1 class="screen-head__title">Registrar partida</h1>
-        <p class="screen-head__sub">${s.example ? 'Ejemplo precargado con la partida del 27 de septiembre.' : 'Partida nueva.'}
+        <h1 class="screen-head__title">${s.editing ? 'Editar partida' : 'Registrar partida'}</h1>
+        <p class="screen-head__sub">${s.editing ? `Partida del ${fmtDate(MODEL.gameById[s.editing].date)} en ${MODEL.gameById[s.editing].map}. Al guardar se recalculan el ELO, los récords y los logros.`
+          : s.example ? 'Ejemplo precargado con la partida del 27 de septiembre.' : 'Partida nueva.'}
           <span class=${cls('draftnote', saved && 'is-saved')}><${Icon} name="check" size=${14} />Borrador guardado <${NewBadge} /></span></p>
       </div>
       <div class="screen-head__aside">
@@ -408,7 +422,9 @@ export function Register() {
           ${s.step > 0 ? html`<${Button} icon="back" onClick=${() => go(s.step - 1)}>Atrás</${Button}>` : html`<span></span>`}
           ${s.step < STEPS.length - 1
             ? html`<${Button} variant="primary" onClick=${next}>Siguiente: ${STEPS[s.step + 1]}</${Button}>`
-            : html`<${Button} variant="primary" size="l" icon="check" onClick=${() => nav.go('ceremony', { id: 'g-063' })}>Guardar partida</${Button}>`}
+            : s.editing
+              ? html`<${Button} variant="primary" size="l" icon="check" onClick=${() => nav.go('game', { id: s.editing }, { aviso: 'editada' })}>Guardar cambios</${Button}>`
+              : html`<${Button} variant="primary" size="l" icon="check" onClick=${() => nav.go('ceremony', { id: 'g-063' })}>Guardar partida</${Button}>`}
         </div>
       </${Plate}>
       <${Preview} s=${s} />

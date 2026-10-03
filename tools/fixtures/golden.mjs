@@ -32,22 +32,32 @@ export function achievements(model) {
 
 const PLAYER_KEYS = ['games', 'wins', 'winRate', 'podiumRate', 'avgPoints', 'avgPos', 'best', 'bestGame', 'avgMilestones', 'favorites',
   'avgAwards', 'pointsPerGen', 'composition', 'archetype', 'corps', 'maps', 'streak', 'form', 'nemesis', 'victim',
-  'recordsHeld', 'rank', 'rankTotal'];
+  'recordsHeld', 'rank', 'rankTotal', 'equity', 'byTable', 'elo', 'peak', 'lastDelta'];
 
 export function players(model) {
   return byId(model.players.map((p) => [p.id, Object.fromEntries(PLAYER_KEYS.map((k) => [k, p[k] ?? null]))]));
 }
 
 export function seasons(model) {
-  return model.seasons.map(({ contrib, ...s }) => s);
+  return model.seasons;
+}
+
+// Season race for every category and table size (owner's point 4, D-15).
+export function seasonRaces(model, seasonRace, categories) {
+  const out = {};
+  for (const s of model.seasons) {
+    out[s.number] = Object.fromEntries(categories.map((c) => [c, seasonRace(s, model.gameById, { category: c, playerCount: model.playerCount ?? null })]));
+  }
+  return out;
 }
 
 export function summary(model) {
   return model.group;
 }
 
-export function buildGolden(model) {
+export function buildGolden(model, extra = {}) {
   return {
+    ...extra,
     positions: positions(model),
     elo: elo(model),
     records: records(model),

@@ -1,11 +1,13 @@
 import { html, useState, cls, fmt } from '../lib.js';
-import { MODEL } from '../data/derive.js';
+import { MODEL, modelFor } from '../data/derive.js';
 import { MAPS, MAP_ORDER, CATEGORIES, ACHIEVEMENTS, RECORDS, corpLabel } from '../data/catalog.js';
 import { milestoneLabel, awardLabel } from '../data/labels.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, SectionHead, Cube, PlayerTag, CorpEmblem, Delta, Tabs, Medal, TierPips, NewBadge, Readout, useTilt, Empty, CountUp, fmtDate } from '../ui/atoms.js';
 import { EloChart, CompositionBar, FormStrip, CategoryLegend } from '../ui/instruments.js';
+import { MesaFilter, MesaNotice, useMesa } from '../ui/mesa.js';
+import { ByTablePanel, InfoTip, RelPos, TIPS, VsExpected } from '../ui/fairness.js';
 
 const P = (id) => MODEL.playerById[id];
 
@@ -34,7 +36,7 @@ function Favorites({ p }) {
   </dl>`;
 }
 
-function ProfileHero({ p }) {
+function ProfileHero({ p, mesa }) {
   const nav = useNav();
   const fav = p.corps[0];
   return html`<section class="phero reveal" style="--i:0" aria-labelledby="phero-name">
@@ -48,7 +50,7 @@ function ProfileHero({ p }) {
     </div>
     <div class="phero__stats plate plate--glass" data-sheen>
       <div class="phero__elo">
-        <span class="phero__elo-label">ELO</span>
+        <span class="phero__elo-label">${mesa ? `ELO de mesa ${mesa}` : 'ELO'}</span>
         <span class="phero__elo-value"><${CountUp} value=${p.elo} from=${1000} duration=${1200} /></span>
         <span class="phero__elo-meta">${p.rank ? html`<b>#${p.rank}</b> de ${p.rankTotal}` : 'Sin ranking'}<${Delta} value=${p.lastDelta} size="s" /></span>
       </div>
@@ -67,8 +69,8 @@ function ProfileHero({ p }) {
   </section>`;
 }
 
-function ScoreDNA({ p }) {
-  const g = MODEL.group.composition;
+function ScoreDNA({ p, model }) {
+  const g = model.group.composition;
   return html`<${Plate} class="reveal dna" label="ADN de puntaje">
     <${SectionHead} title="ADN de puntaje"><${NewBadge} /></${SectionHead}>
     <p class="muted dna__lede">De dónde salen sus puntos, comparado con el promedio del grupo.</p>
@@ -149,13 +151,26 @@ function RivalsPanel({ p }) {
   </${Plate}>`;
 }
 
-function Summary({ p }) {
+function Fairness({ p }) {
+  return html`<${Plate} class="reveal fairness" label="Equidad">
+    <${SectionHead} title="Equidad"><${NewBadge} /></${SectionHead}>
+    <div class="fairness__grid">
+      <div><span class="faint">Victorias vs. esperado <${InfoTip} text=${TIPS.expected} /></span><${VsExpected} e=${p.equity} /></div>
+      <div><span class="faint">Posición relativa <${InfoTip} text=${TIPS.relPos} /></span><${RelPos} e=${p.equity} /></div>
+      <div><span class="faint">Victorias esperadas</span><b>${fmt.dec(p.equity.expected)}</b></div>
+    </div>
+  </${Plate}>`;
+}
+
+function Summary({ p, model, mesa }) {
   return html`<div class="profile-grid">
     <${Plate} class="reveal pelo" label="Evolución del ELO">
       <${SectionHead} title="Evolución del ELO"><span>${p.eloSeries.length} partidas</span></${SectionHead}>
       <${EloChart} players=${[p]} highlight=${[p.id]} height=${240} />
     </${Plate}>
-    <${ScoreDNA} p=${p} />
+    <${ScoreDNA} p=${p} model=${model} />
+    <${Fairness} p=${p} />
+    <${ByTablePanel} p=${p} mesa=${mesa} />
     <${RivalsPanel} p=${p} />
     <${MapsPanel} p=${p} />
     <${CorpsPanel} p=${p} />
@@ -178,9 +193,9 @@ function History({ p }) {
   </${Plate}>`;
 }
 
-function RecordsHeld({ p }) {
+function RecordsHeld({ p, model }) {
   const nav = useNav();
-  const held = MODEL.records.filter((r) => p.recordsHeld.includes(r.code));
+  const held = model.records.filter((r) => p.recordsHeld.includes(r.code));
   if (!held.length) return html`<${Empty} icon="trophy" title="Sin récords por ahora"
     action=${html`<${Button} onClick=${() => nav.go('records')}>Ver todos los récords</${Button}>`}>
     ${p.name} todavía no tiene ningún récord del grupo.</${Empty}>`;
@@ -218,7 +233,9 @@ const TABS = ['resumen', 'partidas', 'records', 'logros'];
 
 export function Profile({ params, query = {} }) {
   const nav = useNav();
-  const p = P(params.id) ?? MODEL.players[0];
+  const [mesa, setMesa] = useMesa(query);
+  const model = modelFor({ playerCount: mesa });
+  const p = model.playerById[params.id] ?? model.players[0];
   const tab = TABS.includes(query.tab) ? query.tab : 'resumen';
   const setTab = (t) => nav.go('profile', { id: p.id }, { ...query, tab: t === 'resumen' ? '' : t });
   const unlocked = ACHIEVEMENTS.filter((d) => p.achievements[d.code].tier > 0).length;
@@ -229,11 +246,16 @@ export function Profile({ params, query = {} }) {
     { id: 'logros', label: 'Logros', icon: 'crown', count: unlocked },
   ];
   return html`
-    <${ProfileHero} p=${p} />
+    <${ProfileHero} p=${p} mesa=${mesa} />
     <div class="ptabs"><${Tabs} items=${tabs} value=${tab} onChange=${setTab} label="Secciones del perfil" /></div>
-    ${tab === 'resumen' && html`<${Summary} p=${p} />`}
-    ${tab === 'partidas' && html`<${History} p=${p} />`}
-    ${tab === 'records' && html`<${RecordsHeld} p=${p} />`}
-    ${tab === 'logros' && html`<${AchievementsTab} p=${p} />`}
+    <div class="profile-tools"><${MesaFilter} value=${mesa} onChange=${setMesa} /></div>
+    <${MesaNotice} value=${mesa} onClear=${() => setMesa(null)}>${mesa && tab === 'logros' ? 'vista calculada: los logros oficiales no cambian' : `${p.games} ${p.games === 1 ? 'partida' : 'partidas'} de ${p.name}`}</${MesaNotice}>
+    ${p.games === 0
+      ? html`<${Empty} icon="players" title=${`${p.name} no jugó partidas de ${mesa} jugadores`}
+          action=${html`<${Button} onClick=${() => setMesa(null)}>Ver todas las mesas</${Button}>`}>Probá con otro tamaño de mesa.</${Empty}>`
+      : html`${tab === 'resumen' && html`<${Summary} p=${p} model=${model} mesa=${mesa} />`}
+        ${tab === 'partidas' && html`<${History} p=${p} />`}
+        ${tab === 'records' && html`<${RecordsHeld} p=${p} model=${model} />`}
+        ${tab === 'logros' && html`<${AchievementsTab} p=${p} />`}`}
   `;
 }
