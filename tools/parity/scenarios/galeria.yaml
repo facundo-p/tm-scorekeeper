@@ -5,7 +5,7 @@
   cand: { path: /__galeria }
   planet: none
   gateFromPhase: 19
-- id: 404
+- id: '404'
   screen: shell
   ref: { hash: '#no-existe' }
   cand: { path: /no-existe }

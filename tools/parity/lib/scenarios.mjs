@@ -9,6 +9,7 @@ const REQUIRED = ['id', 'screen', 'ref', 'cand'];
 
 function validate(s, file) {
   for (const key of REQUIRED) if (s[key] === undefined) throw new Error(`${file}: escenario sin '${key}'`);
+  if (typeof s.id !== 'string') throw new Error(`${file}: el id ${s.id} debe ser texto (entre comillas)`);
   for (const [metric, t] of Object.entries(s.thresholds ?? {})) {
     if (!t?.reason) throw new Error(`${file}:${s.id}: el umbral '${metric}' necesita un 'reason'`);
   }
