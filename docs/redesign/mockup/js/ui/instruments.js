@@ -280,7 +280,7 @@ function layoutLabels(items) {
 // --- Head-to-head heatmap (diverging: ocean = ahead, rust = behind) ----------------------------
 export function H2HMatrix({ players }) {
   const ids = players.map((p) => p.id);
-  return html`<div class="h2h-wrap"><table class="h2h">
+  return html`<div class="h2h-wrap" tabindex="0" role="region" aria-label="Matriz cara a cara (se desplaza horizontalmente)"><table class="h2h">
     <caption class="vh">Porcentaje de partidas en que el jugador de la fila terminó por delante del de la columna</caption>
     <thead><tr><th></th>${players.map((p) => html`<th scope="col"><span class="h2h__col"><${Cube} color=${p.color} size=${13} />${p.name}</span></th>`)}</tr></thead>
     <tbody>${players.map((a) => html`<tr>

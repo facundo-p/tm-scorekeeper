@@ -1,7 +1,7 @@
 import { html, useState, useMemo, cls } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { SORTS, DEFAULT_SORT, sortGames, nextSort } from '../data/sort.js';
-import { MAPS, MAP_ORDER, MONTHS, WEEKDAYS, corpLabel } from '../data/catalog.js';
+import { MAPS, MAP_ORDER, MONTHS, MONTHS_SHORT, WEEKDAYS, corpLabel } from '../data/catalog.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Cube, CorpEmblem, ExpansionTags, Empty, NewBadge } from '../ui/atoms.js';
@@ -81,15 +81,17 @@ function ActivityStrip() {
   </div>`;
 }
 
-function GameRow({ g }) {
+// Grouped by month the row shows the weekday; in other orders, month and year.
+function GameRow({ g, flat }) {
   const nav = useNav();
   const d = new Date(`${g.date}T12:00:00`);
+  const sub = flat ? `${MONTHS_SHORT[d.getMonth()]} ${String(d.getFullYear()).slice(2)}` : WEEKDAYS[d.getDay()];
   const w = g.results[0];
   const winner = P(w.player_id);
   return html`<li>
     <button type="button" class="mrow" data-sheen onClick=${() => nav.go('game', { id: g.id })}
       aria-label=${`Partida del ${g.date} en ${g.map}, ganó ${winner.name} con ${w.total} puntos`}>
-      <span class="mrow__date"><b>${d.getDate()}</b><span>${WEEKDAYS[d.getDay()]}</span></span>
+      <span class="mrow__date"><b>${d.getDate()}</b><span>${sub}</span></span>
       <span class="mrow__map">
         <span class="mrow__mapname"><${MapGlyph} glyph=${MAPS[g.map].glyph} size=${22} />${g.map}</span>
         <span class="mrow__meta">
@@ -175,10 +177,11 @@ export function Games() {
         </section>`;
       })
       : html`<section class="month reveal" style="--i:2" aria-label=${`Partidas ordenadas por ${SORTS.find((o) => o.id === sort.by).label}`}>
-          <ol class="mlist">${list.map((g) => html`<${GameRow} key=${g.id} g=${g} />`)}</ol>
+          <ol class="mlist">${list.map((g) => html`<${GameRow} key=${g.id} g=${g} flat />`)}</ol>
         </section>`}
     ${sheet && html`<${Sheet} title="Filtrar partidas" onClose=${() => setSheet(false)}>
       <${Filters} f=${f} set=${setF} />
+      <${SortBar} sort=${sort} onChange=${setSort} />
       <div class="sheet-actions">
         <${Button} variant="ghost" onClick=${() => setF(EMPTY)}>Limpiar</${Button}>
         <${Button} variant="primary" onClick=${() => setSheet(false)}>Ver ${list.length} partidas</${Button}>

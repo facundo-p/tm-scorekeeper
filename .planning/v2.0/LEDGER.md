@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F16 · Arnés de comparación, fixtures y golden |
-| Issue | 16.1–16.4 (#83–#86) |
-| Paso | WAIT_CI + revisión PR (Fase 16) |
+| Fase | F17 · Mockup I: contenido, semántica y ganchos |
+| Issue | 17.1–17.3 (#87–#89) |
+| Paso | Verificación de fase |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 066edb7 (merge #145 en origin/staging) |
+| Último commit | 750e6a2 (merge #146 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** revisión y CI del PR de F16; con aprobación y CI verde → merge, cerrar #83–#86, reset de la rama. Después F17.
+**Próximo paso:** cerrar la verificación de F17 (--self completo y --ref mockup@750e6a2), PR «Fase 17», revisión, merge. Después F18.
 
 ## Tablero (GitHub)
 
@@ -57,3 +57,5 @@
 - 2026-10-03 — F15 mergeada (#145 → `066edb7`, CI verde, sin bloqueo de protección de rama). Issues #79–#82 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F16: arnés, exportador, cargador y golden implementados. Golden de posiciones y ELO pasa (el ELO del backend coincide exactamente con el mockup con half-even). Comparación --self: 25/26; el restante (ranking móvil) es rasterización sub-píxel bajo carga → `--disable-gpu-rasterization`.
 - 2026-10-03 — F16 verificada: --self 26/26 (90 frames, 0 %) dos veces; juez 10×16/16; golden OK; 215 pytest; 14 tests del arnés.
+- 2026-10-03 — F16 mergeada (#146 → `750e6a2`; revisión: ronda 1 CHANGES_REQUESTED por la validación de la base de la candidata, ronda 2 APPROVE). Issues #83–#86 cerrados.
+- 2026-10-03 — F17 implementada: SEMANTICS.md, semántica de récords/logros en derive.js con 9 tests en Node, contenido (oficiales, castellano, #65, #66, #37, login, 404, salir en móvil), ganchos (links reales, query en el hash, reloj, galería).

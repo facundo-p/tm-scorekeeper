@@ -164,5 +164,5 @@ Partidas, generaciones totales, promedio del ganador (half-even), generaciones p
 
 Columnas: fecha, ganador (nombre del primer ganador), mapa y jugadores (tamaño de mesa); cada una ascendente o descendente. Por defecto, fecha descendente.
 - Desempate: en las columnas que no son fecha, por fecha descendente (y después id); en fecha, por cantidad de jugadores ascendente.
-- Solo el orden por fecha agrupa la lista por mes; los demás muestran una lista corrida.
+- Solo el orden por fecha agrupa la lista por mes; los demás muestran una lista corrida donde cada partida indica mes y año.
 - Tocar la columna activa invierte el sentido; tocar otra empieza descendente.
