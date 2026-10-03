@@ -91,12 +91,10 @@ def test_trigger_achievements_returns_200(client, players_repo):
 
 
 def test_trigger_achievements_nonexistent_game(client):
-    """POST /games/nonexistent/achievements returns 200 with empty achievements_by_player (service catches, never 500)."""
+    """POST /games/nonexistent/achievements responde 404 desde v2.0 (F21, TXN-04); antes, 200 vacío.
+    El frontend ya trata el error como «sin logros» (useGames.fetchAchievements)."""
     response = client.post("/games/nonexistent-game-id/achievements")
-    assert response.status_code == 200
-    data = response.json()
-    assert "achievements_by_player" in data
-    assert data["achievements_by_player"] == {}
+    assert response.status_code == 404
 
 
 def test_get_player_achievements(client, players_repo):
