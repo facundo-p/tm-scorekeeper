@@ -1,7 +1,7 @@
 from uuid import uuid4
 from typing import Optional, List, Dict
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from db.session import get_session
 from db.uow import session_scope
@@ -18,6 +18,11 @@ from models.enums import (
     Award,
 )
 from repositories.game_filters import GameFilter
+
+
+def _with_children(query):
+    """Resultados y recompensas en dos consultas más, no una por partida (F21, TXN-03)."""
+    return query.options(selectinload(GameORM.player_results), selectinload(GameORM.awards))
 
 
 class GamesRepository:
@@ -135,7 +140,7 @@ class GamesRepository:
 
     def list(self) -> Dict[str, Game]:
         with session_scope(self._session_factory) as session:
-            orm_games = session.query(GameORM).all()
+            orm_games = _with_children(session.query(GameORM)).all()
             return {g.id: self._orm_to_domain(g) for g in orm_games}
 
     def update(self, game_id: str, game: Game) -> bool:
@@ -169,7 +174,7 @@ class GamesRepository:
     def get_games_by_player(self, player_id: str) -> List[Game]:
         with session_scope(self._session_factory) as session:
             orm_games = (
-                session.query(GameORM)
+                _with_children(session.query(GameORM))
                 .join(GameORM.player_results)
                 .filter(PlayerResultORM.player_id == player_id)
                 .all()
@@ -178,7 +183,7 @@ class GamesRepository:
 
     def list_games(self, filters: Optional[GameFilter] = None) -> List[Game]:
         with session_scope(self._session_factory) as session:
-            query = session.query(GameORM)
+            query = _with_children(session.query(GameORM))
             if filters and filters.game_ids is not None:
                 query = query.filter(GameORM.id.in_(filters.game_ids))
             if filters and filters.date_from is not None:

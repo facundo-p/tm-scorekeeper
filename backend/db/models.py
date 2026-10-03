@@ -69,8 +69,8 @@ class PlayerResult(Base):
     )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
-    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
     corporation = Column(corporation_enum, nullable=False)
 
     terraform_rating = Column(Integer, nullable=False)
@@ -92,7 +92,7 @@ class Award(Base):
     __tablename__ = "awards"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
     award_name = Column(award_enum, nullable=False)
     opened_by = Column(String, ForeignKey("players.id"), nullable=False)
     first_place = Column(ARRAY(String), nullable=False)
@@ -130,6 +130,6 @@ class PlayerEloHistory(Base):
     elo_before = Column(Integer, nullable=False)
     elo_after = Column(Integer, nullable=False)
     delta = Column(Integer, nullable=False)
-    recorded_at = Column(Date, nullable=False)
+    recorded_at = Column(Date, nullable=False, index=True)
 
     player = relationship("Player", back_populates="elo_history")
