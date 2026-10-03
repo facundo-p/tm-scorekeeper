@@ -53,6 +53,14 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
 
 - Fase 20: toda la API salvo `/health` y `/auth/login` exige `Authorization: Bearer`; `GET /elo/admin/recompute` pasó a `POST /admin/recompute`.
 - Fase 21: `tied` vale `true` para todo el grupo empatado; partidas o jugadores inexistentes responden 404 también en `/games/{id}/records`, `/games/{id}/elo`, `POST /games/{id}/achievements` y `/players/{id}/achievements` (antes, 200 con datos vacíos); el hito Spacecrafter se llama Spacefarer (la entrada acepta los dos).
+- Fase 22: `GET /records` devuelve los 16 récords oficiales y acepta el subconjunto `?player_count=2..5&map=&expansion=` (fuera de rango → 422). Cada ítem conserva `code`, `title`, `description`, `emoji` y `record` (primer poseedor y fecha, para el frontend previo) y suma `scope`, `unit`, `lower_is_better`, `value`, `holders` (todos los poseedores) e `history` (`set`/`broken`/`tied`, D-05 y D-18). Nuevo `GET /records/{code}/history` (404 si el código no existe). `RecordResultDTO.value` puede ser decimal (`points_per_generation`).
+
+## Estadísticas y récords (v2.0)
+
+- `models/game_subset.py` y `routes/dependencies.py::game_subset`: el filtro único de subconjunto. Filtrar nunca escribe.
+- `services/stats/context.py`: `StatsContext` lee las partidas una vez, en orden canónico, con posiciones, ganadores y margen.
+- `services/stats/elo_replay.py`: ELO reproducido sobre el subconjunto, desde 1000 (ELO de mesa). Sin filtro coincide con el historial guardado.
+- `services/records/`: motor de récords v2 (definiciones, métricas por partida, seguimiento D-05, carrera D-18, contexto «roto/cerca» por partida). Para agregar un récord: skill `new-record`.
 
 ## Tests
 

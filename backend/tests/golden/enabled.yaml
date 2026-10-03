@@ -2,4 +2,5 @@
 # la lista (y los alcances) a medida que agrega endpoints. Un alcance es `all`
 # (sin filtro) o un tamaño de mesa (2..5).
 positions: [all]
-elo: [all]
+elo: [all, 2, 3, 4, 5]
+records: [all, 2, 3, 4, 5]
