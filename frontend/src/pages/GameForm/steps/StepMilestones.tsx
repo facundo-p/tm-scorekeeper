@@ -76,7 +76,7 @@ export default function StepMilestones({ state, onChange }: Props) {
               <span className={styles.fontMedium}>{milestone}</span>
             </label>
             {entry.claimed && (
-              <div style={{ marginTop: 'var(--spacing-sm)' }}>
+              <div className={styles.claimedBy}>
                 <Select
                   label="Reclamado por"
                   options={playerOptions}

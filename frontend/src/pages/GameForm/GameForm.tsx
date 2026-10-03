@@ -152,7 +152,7 @@ export default function GameForm() {
           <Link to="/home"><Button variant="ghost" size="sm">← Inicio</Button></Link>
           <h1 className={styles.headerTitle}>Cargar Partida</h1>
         </div>
-        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-muted)' }}>
+        <span className={styles.stepCount}>
           Paso {step + 1} de {totalSteps}
         </span>
       </header>
@@ -185,7 +185,7 @@ export default function GameForm() {
         {renderStep()}
 
         {submitError && (
-          <div className={styles.errors} style={{ marginTop: 'var(--spacing-md)' }}>
+          <div className={`${styles.errors} ${styles.submitError}`}>
             <p className={styles.errorItem}>{submitError}</p>
           </div>
         )}

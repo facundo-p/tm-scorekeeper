@@ -56,7 +56,7 @@ export default function GameRecords() {
       // D-04 / D-10: hook returns null on retry exhaustion; null state → ELO section omitted
       setEloChanges(data)
     })
-  }, [gameId])
+  }, [gameId, fetchAchievements, fetchEloChanges])
 
   const playersMap = new Map(players.map((p) => [p.player_id, p.name]))
 

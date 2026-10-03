@@ -15,7 +15,7 @@ const TABS: { id: Tab; label: string }[] = [
 
 export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
   return (
-    <nav className={styles.tabBar} role="tablist">
+    <div className={styles.tabBar} role="tablist">
       {TABS.map((tab) => (
         <button
           key={tab.id}
@@ -29,6 +29,6 @@ export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
           {tab.label}
         </button>
       ))}
-    </nav>
+    </div>
   )
 }

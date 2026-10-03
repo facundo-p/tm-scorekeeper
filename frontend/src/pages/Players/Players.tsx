@@ -6,6 +6,7 @@ import Spinner from '@/components/Spinner/Spinner'
 import Modal from '@/components/Modal/Modal'
 import Input from '@/components/Input/Input'
 import type { PlayerResponseDTO } from '@/types'
+import { onActivateKey } from '@/utils/a11y'
 import styles from './Players.module.css'
 
 interface PlayerFormProps {
@@ -127,12 +128,15 @@ export default function Players() {
             <div
               key={player.player_id}
               className={styles.playerCard}
+              role="link"
+              tabIndex={0}
               onClick={() => navigate(`/players/${player.player_id}/profile`)}
+              onKeyDown={onActivateKey(() => navigate(`/players/${player.player_id}/profile`))}
             >
               <div className={styles.playerInfo}>
                 <span className={styles.playerName}>{player.name}</span>
               </div>
-              <div className={styles.actions} onClick={(e) => e.stopPropagation()}>
+              <div className={styles.actions} onClick={(e) => e.stopPropagation()} role="presentation">
                 <Button variant="ghost" size="sm" onClick={() => setEditing(player)}>
                   Editar
                 </Button>

@@ -277,3 +277,16 @@
   background: var(--color-surface-hover);
   border-color: var(--color-accent);
 }
+
+.stepCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.submitError {
+  margin-top: var(--spacing-md);
+}
+
+.claimedBy {
+  margin-top: var(--spacing-sm);
+}
