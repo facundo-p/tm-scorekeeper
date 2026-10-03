@@ -8,7 +8,8 @@ export const TIPS = {
   relPos: 'Posición relativa: 100 % es salir siempre primero y 0 % siempre último, sin importar el tamaño de la mesa.',
 };
 
-const signed = (x) => (x > 0 ? `+${fmt.dec(x)}` : x < 0 ? `−${fmt.dec(Math.abs(x))}` : '±0,0');
+const SIGN = { 1: '+', '-1': '−', 0: '±' };
+const signed = (x) => `${SIGN[Math.sign(x)]}${fmt.dec(Math.abs(x))}`;
 
 export function InfoTip({ text }) {
   return html`<button type="button" class="infotip" data-tip=${text} aria-label=${text}>?</button>`;

@@ -332,6 +332,7 @@ const raceOrder = (a, b) => b.avg - a.avg || b.games - a.games || b.best - a.bes
 
 // The season race (owner's point 4): average per game, optionally on one table
 // size; 3 games to qualify, the rest listed apart with what they're missing.
+// `gameById` must be the full model's: filtered models share the full seasons (D-36).
 export function seasonRace(season, gameById, { category = 'total', playerCount = null } = {}) {
   const games = season.games.map((id) => gameById[id]).filter((g) => !playerCount || g.results.length === playerCount);
   const rows = raceRows(games, category).sort(raceOrder);

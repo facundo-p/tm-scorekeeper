@@ -187,3 +187,23 @@ test('season race: Turmoil only over games with Turmoil; D-15 tie-breaks', async
   const tie = seasonRace({ games: ['a', 'b', 'c', 'd'] }, games);
   assert.deepEqual(tie.qualified.map((r) => r.player_id), ['x', 'y']);
 });
+
+test('season race: best game, then player id; no champion without qualifiers', async () => {
+  const { seasonRace } = await import('../../docs/redesign/mockup/js/data/derive.js');
+  const g = (id, rows) => ({ id, expansions: [], results: rows.map(([player_id, total]) => ({ player_id, total, scores: {} })) });
+  const byBest = { a: g('a', [['x', 90], ['y', 100]]), b: g('b', [['x', 90], ['y', 80]]), c: g('c', [['x', 90], ['y', 90]]) };
+  assert.deepEqual(seasonRace({ games: ['a', 'b', 'c'] }, byBest).qualified.map((r) => r.player_id), ['y', 'x']);
+  const flat = { a: g('a', [['y', 90], ['x', 90]]), b: g('b', [['y', 90], ['x', 90]]), c: g('c', [['y', 90], ['x', 90]]) };
+  assert.deepEqual(seasonRace({ games: ['a', 'b', 'c'] }, flat).qualified.map((r) => r.player_id), ['x', 'y']);
+  const short = seasonRace({ games: ['a', 'b'] }, flat);
+  assert.deepEqual(short.qualified, []);
+  assert.deepEqual(short.pending.map((r) => r.missing), [1, 1]);
+  const none = seasonRace({ games: ['a', 'b', 'c'] }, flat, { playerCount: 5 });
+  assert.deepEqual([none.games, none.qualified, none.pending], [0, [], []]);
+});
+
+test('closed seasons crown the race leader, or nobody without qualifiers', () => {
+  for (const s of MODEL.seasons.filter((x) => x.end)) {
+    assert.equal(s.champion === null, s.race.qualified.length === 0);
+  }
+});
