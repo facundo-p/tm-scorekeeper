@@ -1,6 +1,6 @@
 ---
 name: test-backend
-description: Run backend pytest safely inside Docker (never on host — protects dev database)
+description: Run backend pytest safely against a *_test database (Docker, or the local PostgreSQL of the cloud environment) — never against the dev database
 allowed-tools: Bash
 argument-hint: [optional: test path or -k filter]
 ---
@@ -38,14 +38,23 @@ Examples:
 - `/test-backend tests/ -v` — verbose output
 - `/test-backend tests/ --tb=short` — short tracebacks
 
+### Without Docker (cloud environment or no Docker daemon)
+
+```bash
+bash scripts/dev/bootstrap.sh   # PG16 local, rol tm_user, bases *_test, backend/.venv (idempotente)
+DATABASE_URL=postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper_test \
+  backend/.venv/bin/python -m pytest backend/tests -q $ARGUMENTS
+```
+
+O todos los gates del backend: `bash scripts/dev/gates.sh backend`.
+
 ## CRITICAL SAFETY RULE
 
-**NEVER** run any of these on the host:
-- `pytest`
-- `python -m pytest`
-- Any direct test invocation outside Docker
+The tests delete every table of the database in `DATABASE_URL`. `backend/tests/conftest.py`
+aborts with exit code 2 unless the database name ends in `_test`, but still:
 
-The host's `DATABASE_URL` points to the dev database. Running pytest there **will delete all game data**.
+- **NEVER** point `DATABASE_URL` at the dev or production database when running pytest.
+- Only use `tm_scorekeeper_test` (or another `*_test` database).
 
 ## On failure
 

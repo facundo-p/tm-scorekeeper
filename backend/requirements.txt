@@ -1,9 +1,9 @@
-
-fastapi>=0.112.0
-uvicorn>=0.40.0
-pydantic>=2.12.5
-pytest>=8.0.0
-httpx>=0.28.0
-sqlalchemy>=1.4,<2.1
-alembic>=1.18.4
-psycopg2-binary
+# Versiones fijadas a lo que resolvía pip el 2026-10-03 (F15, v2.0).
+fastapi==0.142.2
+uvicorn==0.54.0
+pydantic==2.13.5
+# SQLAlchemy 2.1 usa psycopg 3 como driver por defecto y rompía CI con
+# psycopg2 (PR #70). Se mantiene en la serie 2.0 hasta migrar el driver (#144).
+sqlalchemy>=2.0,<2.1
+alembic==1.20.0
+psycopg2-binary==2.9.13
