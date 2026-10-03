@@ -1,6 +1,7 @@
 import { html, useState, useMemo, cls, fmt } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { useNav } from '../router.js';
+import { today, monthsBefore } from '../clock.js';
 import { Icon } from '../ui/icons.js';
 import { Button, Plate, SectionHead, Cube, Delta, NewBadge, Empty } from '../ui/atoms.js';
 import { EloChart, Sparkline, FormStrip, H2HMatrix } from '../ui/instruments.js';
@@ -10,8 +11,8 @@ const P = (id) => MODEL.playerById[id];
 const RANGES = [
   { id: 'all', label: 'Todo', from: null },
   { id: 'season', label: `Temporada ${MODEL.season.number}`, from: MODEL.season.start },
-  { id: 'year', label: '2026', from: '2026-01-01' },
-  { id: 'q', label: 'Últimos 3 meses', from: '2026-06-27' },
+  { id: 'year', label: today().slice(0, 4), from: `${today().slice(0, 4)}-01-01` },
+  { id: 'q', label: 'Últimos 3 meses', from: monthsBefore(today(), 3) },
 ];
 const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco'];
 

@@ -1,5 +1,6 @@
 import { html, useState, useMemo, cls } from '../lib.js';
 import { MODEL } from '../data/derive.js';
+import { SORTS, DEFAULT_SORT, sortGames, nextSort } from '../data/sort.js';
 import { MAPS, MAP_ORDER, MONTHS, WEEKDAYS, corpLabel } from '../data/catalog.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
@@ -110,6 +111,21 @@ function GameRow({ g }) {
   </li>`;
 }
 
+function SortBar({ sort, onChange }) {
+  return html`<div class="fgroup games-sort" role="group" aria-label="Ordenar partidas">
+    <span class="fgroup__label">Ordenar</span>
+    <div class="fchips">
+      ${SORTS.map((o) => {
+        const on = sort.by === o.id;
+        const dir = on ? (sort.dir === 'asc' ? 'ascendente' : 'descendente') : '';
+        return html`<button type="button" class=${cls('fchip', on && 'is-on')} aria-pressed=${on}
+          aria-label=${on ? `Ordenar por ${o.label}, ${dir}` : `Ordenar por ${o.label}`} onClick=${() => onChange(nextSort(sort, o.id))}>
+          ${o.label}${on && html`<span class="games-sort__dir" aria-hidden="true">${sort.dir === 'asc' ? '▲' : '▼'}</span>`}</button>`;
+      })}
+    </div>
+  </div>`;
+}
+
 function groupByMonth(games) {
   const groups = [];
   for (const g of games) {
@@ -123,15 +139,17 @@ function groupByMonth(games) {
 
 export function Games() {
   const [f, setF] = useState(EMPTY);
+  const [sort, setSort] = useState(DEFAULT_SORT);
   const [sheet, setSheet] = useState(false);
-  const list = useMemo(() => applyFilters(MODEL.games, f), [f]);
+  const list = useMemo(() => sortGames(applyFilters(MODEL.games, f), sort, (id) => P(id).name), [f, sort]);
   const active = (f.map ? 1 : 0) + f.players.length + (f.size ? 1 : 0);
-  const groups = groupByMonth(list);
+  const groups = sort.by === 'date' ? groupByMonth(list) : null;
+  const first = new Date(`${MODEL.group.first}T12:00:00`);
   return html`
     <header class="screen-head reveal" style="--i:0">
       <div>
         <h1 class="screen-head__title">Partidas</h1>
-        <p class="screen-head__sub">${MODEL.group.games} misiones archivadas desde marzo de 2025.</p>
+        <p class="screen-head__sub">${MODEL.group.games} misiones archivadas desde ${MONTHS[first.getMonth()]} de ${first.getFullYear()}.</p>
       </div>
       <div class="screen-head__aside games-head__btns">
         <${Button} icon="filter" onClick=${() => setSheet(true)}>Filtros${active ? ` (${active})` : ''}</${Button}>
@@ -139,7 +157,7 @@ export function Games() {
     </header>
     <div class="games-tools reveal" style="--i:1">
       <${ActivityStrip} />
-      <div class="games-filters"><${Filters} f=${f} set=${setF} /></div>
+      <div class="games-filters"><${Filters} f=${f} set=${setF} /><${SortBar} sort=${sort} onChange=${setSort} /></div>
     </div>
     ${active > 0 && html`<div class="activef">
       <span>${list.length} de ${MODEL.games.length} partidas</span>
@@ -149,13 +167,16 @@ export function Games() {
       ? html`<${Empty} icon="search" title="Ninguna partida coincide"
           action=${html`<${Button} onClick=${() => setF(EMPTY)}>Limpiar filtros</${Button}>`}>
           Probá con otro mapa o sacá algún jugador del filtro.</${Empty}>`
-      : groups.map((grp, gi) => {
+      : groups ? groups.map((grp, gi) => {
         const [y, m] = grp.key.split('-');
         return html`<section class="month reveal" style=${`--i:${Math.min(gi + 2, 6)}`} aria-label=${`${MONTHS[+m - 1]} ${y}`}>
           <h2 class="month__title"><span>${MONTHS[+m - 1]}</span> ${y}<small>${grp.games.length} ${grp.games.length === 1 ? 'partida' : 'partidas'}</small></h2>
           <ol class="mlist">${grp.games.map((g) => html`<${GameRow} key=${g.id} g=${g} />`)}</ol>
         </section>`;
-      })}
+      })
+      : html`<section class="month reveal" style="--i:2" aria-label=${`Partidas ordenadas por ${SORTS.find((o) => o.id === sort.by).label}`}>
+          <ol class="mlist">${list.map((g) => html`<${GameRow} key=${g.id} g=${g} />`)}</ol>
+        </section>`}
     ${sheet && html`<${Sheet} title="Filtrar partidas" onClose=${() => setSheet(false)}>
       <${Filters} f=${f} set=${setF} />
       <div class="sheet-actions">

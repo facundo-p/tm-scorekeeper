@@ -1798,6 +1798,32 @@
   font-size: var(--t-small);
 }
 
+.phero__picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s2) var(--s4);
+  margin: 0;
+  padding-top: var(--s3);
+  border-top: 1px solid var(--edge);
+  font-size: var(--t-small);
+}
+
+.phero__picks dt {
+  margin-bottom: 2px;
+}
+
+.phero__picks dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: 0;
+}
+
+.phero__picks small {
+  color: var(--ink-3);
+}
+
 /* Translucent 3D player cube */
 .cube3d {
   --c: var(--p-blanco);
@@ -2565,6 +2591,12 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 14px;
+}
+
+.plaque__holder {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .plaque__game {
@@ -4387,4 +4419,45 @@
 
 .atlas__notes b {
   color: var(--ink);
+}
+
+/* ---------- 404 ---------- */
+.notfound {
+  display: grid;
+  justify-items: center;
+  gap: var(--s3);
+  max-width: 560px;
+  margin: var(--s8) auto;
+  text-align: center;
+}
+
+.notfound__code {
+  font-family: var(--display);
+  font-size: clamp(64px, 18cqi, 140px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mars);
+}
+
+.notfound__title {
+  font-family: var(--display);
+  font-size: var(--t-h2);
+}
+
+.notfound__go {
+  text-decoration: none;
+}
+
+/* ---------- Gallery (comparison hook) ---------- */
+.gallery__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+/* ---------- Games archive order (#65) ---------- */
+.games-sort__dir {
+  margin-left: 4px;
+  font-size: .75em;
 }

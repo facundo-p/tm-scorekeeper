@@ -34,6 +34,10 @@ const GROUPS = [
     ['Salón de récords', 'records', {}, 'Placas con la historia de cada récord.'],
     ['Logros', 'achievements', {}, 'Medallas por material, progreso por jugador.'],
   ]],
+  ['Sistema', [
+    ['Galería', 'gallery', {}, 'Átomos e instrumentos con datos de ejemplo.'],
+    ['Página no encontrada', 'notFound', {}, 'Una dirección que no existe.'],
+  ]],
 ];
 
 export function Atlas({ onClose, device, setDevice, demo, setDemo }) {

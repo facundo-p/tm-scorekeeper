@@ -1,14 +1,13 @@
 import { html, cls } from '../lib.js';
-import { MODEL } from '../data/derive.js';
-import { MAPS } from '../data/catalog.js';
+import { MODEL, modelFor } from '../data/derive.js';
+import { MAPS, MAP_ORDER, EXPANSIONS } from '../data/catalog.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
-import { Button, Plate, Cube, PlayerTag, NewBadge, useTilt, fmtDate } from '../ui/atoms.js';
+import { Button, Plate, Cube, PlayerTag, NewBadge, Empty, useTilt, fmtDate } from '../ui/atoms.js';
 
 const P = (id) => MODEL.playerById[id];
-const FIRST = MODEL.group.first;
-const LAST = MODEL.group.last;
-const t = (d) => (new Date(d) - new Date(FIRST)) / (new Date(LAST) - new Date(FIRST));
+// Position of a date on the whole archive's timeline (same scale for every filter).
+const t = (d) => (new Date(d) - new Date(MODEL.group.first)) / (new Date(MODEL.group.last) - new Date(MODEL.group.first));
 
 export function TrophyNav({ current }) {
   const nav = useNav();
@@ -53,22 +52,22 @@ function Holders({ rec }) {
   if (rec.scope === 'career') {
     return html`<span class="plaque__holders">${rec.holders.map((x) => html`<${PlayerTag} player=${P(x.player_id)} />`)}</span>`;
   }
+  // Co-holders (D-05): each one with the game where they reached the value.
   return html`<span class="plaque__holders">
-    <${PlayerTag} player=${P(h.player_id)} />
-    <button type="button" class="plaque__game" onClick=${() => nav.go('game', { id: h.game_id })}>
-      <${MapGlyph} glyph=${MAPS[h.map].glyph} size=${16} />${fmtDate(h.date, { short: true })}</button>
+    ${rec.holders.map((x) => html`<span class="plaque__holder"><${PlayerTag} player=${P(x.player_id)} />
+      <button type="button" class="plaque__game" onClick=${() => nav.go('game', { id: x.game_id })}>
+        <${MapGlyph} glyph=${MAPS[x.map].glyph} size=${16} />${fmtDate(x.date, { short: true })}</button></span>`)}
   </span>`;
 }
 
 function Plaque({ rec, i }) {
   const ref = useTilt(6);
   return html`<li class="plaque-wrap reveal" style=${`--i:${Math.min(i + 2, 8)}`}>
-    <div class=${cls('plaque', rec.proposed && 'plaque--proposed')} ref=${ref} data-sheen>
+    <div class="plaque" ref=${ref} data-sheen>
       <span class="plaque__glare" aria-hidden="true"></span>
       <div class="plaque__top">
         <span class="tagdisc tagdisc--blue"><${Icon} name=${rec.icon} size=${15} /></span>
         <span class="plaque__title">${rec.title}</span>
-        ${rec.proposed && html`<${NewBadge}>Propuesto</${NewBadge}>`}
       </div>
       <p class="plaque__desc">${rec.description}</p>
       <div class="plaque__value">${rec.value ?? '—'}<small>${rec.code === 'closest_win' && rec.value === 0 ? 'pts, definida por M€' : rec.unit}</small></div>
@@ -108,25 +107,49 @@ function Monument({ rec }) {
   </section>`;
 }
 
-export function Records() {
-  const all = MODEL.records;
+function Filter({ label, value, options, onChange }) {
+  return html`<div class="fgroup" role="group" aria-label=${label}>
+    <span class="fgroup__label">${label}</span>
+    <div class="fchips">
+      <button type="button" class=${cls('fchip', !value && 'is-on')} aria-pressed=${!value} onClick=${() => onChange('')}>Todos</button>
+      ${options.map((o) => html`<button type="button" class=${cls('fchip', value === o.id && 'is-on')} aria-pressed=${value === o.id}
+        onClick=${() => onChange(value === o.id ? '' : o.id)}>${o.icon}${o.label}</button>`)}
+    </div>
+  </div>`;
+}
+
+const MAP_OPTIONS = MAP_ORDER.map((m) => ({ id: m, label: m, icon: html`<${MapGlyph} glyph=${MAPS[m].glyph} size=${18} />` }));
+const EXP_OPTIONS = Object.values(EXPANSIONS).map((e) => ({ id: e.id, label: e.label, icon: html`<${Icon} name=${e.glyph} size=${15} />` }));
+
+// Records over a subset of games (#37): by map and by expansion, from the URL.
+function RecordFilters({ query }) {
+  const nav = useNav();
+  const set = (patch) => nav.go('records', {}, { ...query, ...patch });
+  return html`<div class="filters records-filters reveal" style="--i:1">
+    <${Filter} label="Mapa" value=${query.mapa ?? ''} options=${MAP_OPTIONS} onChange=${(mapa) => set({ mapa })} />
+    <${Filter} label="Expansión" value=${query.exp ?? ''} options=${EXP_OPTIONS} onChange=${(exp) => set({ exp })} />
+  </div>`;
+}
+
+export function Records({ query = {} }) {
+  const model = modelFor({ map: query.mapa || null, expansion: query.exp || null });
+  const all = model.records;
   const top = all.find((r) => r.code === 'highest_single_game_score');
-  const current = all.filter((r) => !r.proposed && r !== top);
-  const proposed = all.filter((r) => r.proposed);
+  const rest = all.filter((r) => r !== top);
+  const filtered = !!(query.mapa || query.exp);
   return html`
     <${TrophyNav} current="records" />
     <header class="screen-head reveal" style="--i:0">
       <div>
         <h1 class="screen-head__title">Salón de récords</h1>
-        <p class="screen-head__sub">Las mejores marcas del grupo. Un récord cambia de dueño solo cuando alguien lo supera; el empate no alcanza.</p>
+        <p class="screen-head__sub">Las mejores marcas del grupo. Un récord cambia de dueño solo cuando alguien lo supera; quien lo iguala lo comparte.</p>
       </div>
     </header>
-    <${Monument} rec=${top} />
-    <ul class="plaques">${current.map((r, i) => html`<${Plaque} key=${r.code} rec=${r} i=${i} />`)}</ul>
-    <section class="proposed reveal" aria-labelledby="prop-title">
-      <h2 class="proposed__title" id="prop-title">Récords propuestos</h2>
-      <p class="muted proposed__lede">Se calculan con datos que ya se guardan en cada partida. Así se verían con el historial de ejemplo.</p>
-      <ul class="plaques">${proposed.map((r, i) => html`<${Plaque} key=${r.code} rec=${r} i=${i} />`)}</ul>
-    </section>
+    <${RecordFilters} query=${query} />
+    ${filtered && html`<p class="activef"><span>${model.group.games} ${model.group.games === 1 ? 'partida' : 'partidas'} con este filtro</span></p>`}
+    ${model.group.games === 0
+      ? html`<${Empty} icon="trophy" title="Sin partidas con este filtro">Probá con otro mapa o expansión.</${Empty}>`
+      : html`${top.value != null && html`<${Monument} rec=${top} />`}
+        <ul class="plaques">${rest.map((r, i) => html`<${Plaque} key=${r.code} rec=${r} i=${i} />`)}</ul>`}
   `;
 }

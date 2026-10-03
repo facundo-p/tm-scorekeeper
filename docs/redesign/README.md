@@ -42,7 +42,7 @@ Todo está en `mockup/css/tokens.css`. Es un tema oscuro único y deliberado (Ma
 
 TR `#d95926` · Recompensas `#c95fb8` · Hitos `#c98500` · Recursos de cartas `#16a39b` · Cartas `#3f82e8` · Vegetación `#4c9a2f` · Ciudades `#9283e6` · Turmoil `#e45f5f`
 
-**Jugadores:** cada uno tiene un color de cubo propio (rojo, verde, azul, amarillo, negro como en la caja, más naranja, violeta, rosa y blanco). El color nunca identifica solo: siempre va con el nombre. En el gráfico de ELO se resalta a quien elijas y el resto queda en gris, con etiquetas directas.
+**Jugadores:** cada uno tiene un color de cubo propio (rojo, verde, azul, amarillo, negro como en la caja, más naranja, violeta, rosa, blanco y gris). Requiere el campo nuevo `players.color` en el backend (v2.0, fase 24). El color nunca identifica solo: siempre va con el nombre. En el gráfico de ELO se resalta a quien elijas y el resto queda en gris, con etiquetas directas.
 
 **Estados:** subida `--up` y bajada `--down`, siempre con ▲ ▼ y signo.
 
@@ -85,7 +85,7 @@ Los cortes de diseño se resuelven con **container queries** (`@container app`),
 | **Ceremonia** | Secuencia única al guardar: suma por categoría, reordenamiento, ganador con lluvia de cubos, ELO, récords, logros. "Saltar animación" siempre visible. | Respuesta de `POST /games/` (ver REVIEW S5) |
 | **Ranking** | Clasificación con forma reciente y tendencia; gráfico de ELO con énfasis y rangos (todo, temporada, año, 3 meses); cara a cara; rivalidades; gestión de jugadores con color de cubo. | `GET /players/`, `GET /elo/history` |
 | **Perfil** | Cubo 3D, arquetipo, ELO con rango y pico, seis lecturas, corporación favorita; pestañas Resumen, Partidas, Récords, Logros. Resumen con ELO, ADN de puntaje, rivales, rendimiento por mapa y por corporación. | `GET /players/{id}/profile`, `/elo-summary`, `/achievements`, `GET /elo/history` |
-| **Récords** | Monumento para el récord máximo con su historia; placas con banda azul (cartas activas) y gráfico escalonado de cómo cambió de dueño; récords propuestos aparte. | `GET /records/` + historial (nuevo) |
+| **Récords** | Monumento para el récord máximo con su historia; placas con banda azul (cartas activas) y gráfico escalonado de cómo cambió de dueño; co-poseedores; filtros por mapa y expansión (#37). | `GET /records/` + historial (nuevo) |
 | **Logros** | Medallas hexagonales cuyo material sube con el nivel: acero, titanio, oro M€, plasma, Gaia. Vista "progreso de" por jugador; ficha con la escalera de niveles, quién está en cada uno y desde cuándo. | `GET /achievements/catalog`, `GET /players/{id}/achievements` |
 | **Estados** | Carga (radar + esqueleto), error de conexión con causa probable (servidor dormido en Render) y reintento, vacíos con acción. | — |
 
@@ -106,14 +106,14 @@ El grupo terraforma un planeta propio. Cada partida suma 0,8 pasos de temperatur
 - **Historia de cada récord:** cada vez que cambió de dueño.
 - **Calendario de actividad:** partidas por semana del último año.
 
-### Récords propuestos
+### Récords nuevos (oficiales desde v2.0)
 Aplanadora (mayor margen), Por un pelo (victoria más ajustada), Motor perfecto (puntos por generación), Blitz (victoria con menos generaciones), Cima del Consejo (ELO más alto), Imparable (racha más larga), Tesorería (más M€ al final).
 
-### Logros propuestos
+### Logros nuevos (oficiales desde v2.0)
 Coleccionista de corporaciones (5/10/20/30 distintas), Fotofinish (ganar por 2 o menos), Blitz (ganar en 9 generaciones o menos), Matagigantes (ganar con el n.º 1 del ranking en la mesa: 1/3/6), Mesa llena (ganar con 5 jugadores), Urbanista (10/15/20/25 puntos de ciudades).
 
 ### Pequeñas mejoras de uso
-Color de cubo elegible por jugador, borrador automático del formulario, "Empezar en blanco", errores con foco y scroll, desempate explicado antes de guardar, "Saltar animación", vista de tabla en los gráficos.
+Color de cubo elegible por jugador (campo nuevo `players.color`), borrador automático del formulario, "Empezar en blanco", errores con foco y scroll, desempate explicado antes de guardar, "Saltar animación", vista de tabla en los gráficos.
 
 ## 5. Accesibilidad
 
@@ -140,15 +140,19 @@ Se integra con lo que pide [`REVIEW.md`](REVIEW.md). Por fases, cada una con sus
 4. **Pantallas de consulta (5 a 6 días).** Inicio, Partidas, Informe, Ranking, Perfil, Récords, Logros, con TanStack Query. Gráficos en SVG propio (sale `recharts`, ~107 kB gzip). *Verificación:* tests por pantalla con API mockeada, estados de carga, error y vacío.
 5. **Métricas nuevas (backend, 3 a 4 días).** Endpoints o campos para cara a cara, ADN de puntaje, por mapa y corporación, historia de récords, temporadas, récords y logros propuestos. *Verificación:* tests unitarios de cada cálculo con empates.
 
-## 8. Decisiones abiertas
+## 8. Decisiones (cerradas en v2.0)
 
-1. **Nombre visible:** "Archivo de Terraformación" o mantener "TM Scorekeeper".
-2. **Temporadas:** ¿se quieren? ¿con esta calibración (unas 24 partidas) o por fecha (por ejemplo, trimestres)?
-3. **Colores de cubo:** ¿los elige cada jugador o se asignan fijos?
-4. **Nombres de hitos y recompensas:** quedan en inglés como hoy; ¿traducirlos al español de la edición local?
-5. **Récords y logros propuestos:** cuáles entran y con qué umbrales.
-6. **Ceremonia:** ¿se abre siempre al guardar o con opción de saltarla por defecto?
-7. **Hito "Spacecrafter"** de Vastitas Borealis: en la edición actual parece llamarse "Spacefarer". Cambiarlo requiere migración de enum (REVIEW).
+Las decisiones abiertas de la propuesta se cerraron en el milestone v2.0 (`.planning/v2.0/SPEC.md` §1 y `DECISIONS.md`):
+
+1. **Nombre visible:** «Archivo de Terraformación».
+2. **Temporadas:** sí, con esta calibración; la carrera se ordena por **promedio** de puntos por partida (total o categoría, filtro de mesa, mínimo 3 partidas) y el campeón sale del promedio total al cierre (D-15).
+3. **Colores de cubo:** los elige cada jugador (campo `players.color`, único entre activos).
+4. **Nombres de hitos y recompensas:** en castellano en toda la app (`mockup/js/data/labels.js`); la API sigue con las claves del enum.
+5. **Récords y logros nuevos:** los 7 récords y 6 logros pasan a ser oficiales.
+6. **Ceremonia:** se abre al guardar, con «Saltar animación» siempre visible y «Repetir ceremonia» desde el informe.
+7. **Spacefarer:** el enum se renombra en el backend (fase 21); en la UI se ve el nombre en castellano.
+
+La semántica exacta de cada número está en [`SEMANTICS.md`](SEMANTICS.md).
 
 ## 9. Estructura del prototipo
 

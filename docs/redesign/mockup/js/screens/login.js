@@ -4,6 +4,18 @@ import { Icon } from '../ui/icons.js';
 import { Button } from '../ui/atoms.js';
 import { PlanetSlot } from '../ui/planet-slot.js';
 
+// The real login answers 401 for wrong credentials and 429 after 5 failures in a
+// row (D-03). The prototype accepts a single demo account to show both states.
+const DEMO = { user: 'grupo', pass: 'marte' };
+const MAX_FAILS = 5;
+
+function checkLogin(user, pass, fails) {
+  if (!user.trim() || !pass) return { error: 'Completá usuario y contraseña para entrar al archivo.', fail: false };
+  if (fails >= MAX_FAILS) return { error: 'Demasiados intentos fallidos. Esperá 30 segundos y volvé a probar.', fail: false };
+  if (user.trim() !== DEMO.user || pass !== DEMO.pass) return { error: 'Usuario o contraseña incorrectos.', fail: true };
+  return { error: '', fail: false };
+}
+
 export function Login() {
   const nav = useNav();
   const [user, setUser] = useState('');
@@ -11,13 +23,13 @@ export function Login() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [fails, setFails] = useState(0);
   const submit = (e) => {
     e.preventDefault();
-    if (!user.trim() || !pass) {
-      setError('Completá usuario y contraseña para entrar al archivo.');
-      return;
-    }
-    setError('');
+    const res = checkLogin(user, pass, fails);
+    if (res.fail) setFails(fails + 1);
+    setError(res.error);
+    if (res.error) return;
     setBusy(true);
     setTimeout(() => nav.go('home'), 700);
   };
@@ -49,6 +61,7 @@ export function Login() {
           </span></label>
         <${Button} type="submit" variant="primary" size="l" full disabled=${busy}>${busy ? 'Entrando…' : 'Ingresar'}</${Button}>
         <p class="login__help faint">La cuenta es compartida por el grupo. Si no la tenés, pedísela a quien administra la app.</p>
+        <p class="login__help faint proto-only">Prototipo: usuario <b>${DEMO.user}</b>, contraseña <b>${DEMO.pass}</b>.</p>
       </form>
       <p class="login__status"><span class="login__dot" aria-hidden="true"></span>Enlace con el archivo estable</p>
     </div>
