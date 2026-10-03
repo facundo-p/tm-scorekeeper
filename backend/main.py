@@ -1,6 +1,7 @@
 import os
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routes.admin_routes import router as admin_router
 from routes.auth_routes import router as auth_router
 from routes.dependencies import require_auth
 from routes.games_routes import router as games_router
@@ -28,5 +29,5 @@ def health():
 # Públicos: /health y /auth/login (D-03). Todo lo demás exige un token Bearer.
 app.include_router(auth_router)
 _protected = [Depends(require_auth)]
-for router in (games_router, players_router, records_router, achievements_router, elo_router):
+for router in (games_router, players_router, records_router, achievements_router, elo_router, admin_router):
     app.include_router(router, dependencies=_protected)

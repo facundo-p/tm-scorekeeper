@@ -21,7 +21,7 @@ Estado verificado al revisar: `tsc -b` limpio, 243 tests de frontend pasan (25 a
 | S3 | Escrituras no atómicas y recálculo de ELO con carrera posible | `repositories/elo_repository.py:21-33`, `player_repository.py:83-93` | Sesión por request, una sola transacción por operación y `pg_advisory_xact_lock` durante el recálculo. Unique `(player_id, game_id)` en el historial. |
 | S4 | Los tests borran todas las tablas de la base apuntada por `DATABASE_URL`, que por defecto es la de desarrollo | `tests/conftest.py:12-17`, `db/session.py:7` | Abortar si el nombre de la base no termina en `_test`. Corregir el README, que sugiere SQLite. **Resuelto en v2.0, fase 15 (#81).** |
 | S5 | Logros evaluados por un POST desde la pantalla de resumen; sólo devuelve los *nuevos* | `frontend/src/pages/GameRecords/GameRecords.tsx:51-53`, `backend/services/achievements_service.py:40-81` | Evaluar logros dentro de `POST /games` y devolverlos en la respuesta. La pantalla de resumen sólo lee. Usar la fecha de la partida como `unlocked_at`. |
-| S6 | `GET /elo/admin/recompute?secret=` compara el secreto con `!=` y lo pasa por query string | `routes/elo_routes.py:25-31` | POST con header, `secrets.compare_digest`, documentar `ADMIN_SECRET`. |
+| S6 | `GET /elo/admin/recompute?secret=` compara el secreto con `!=` y lo pasa por query string | `routes/elo_routes.py:25-31` | POST con header, `secrets.compare_digest`, documentar `ADMIN_SECRET`. **Resuelto en v2.0, fase 20 (`POST /admin/recompute`).** |
 
 ## Prioridad 2: rendimiento
 
