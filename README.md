@@ -46,6 +46,16 @@ make typechecks                       # Typecheck de TypeScript (tsc -b)
 make restore-prod FILE=<backup.sql.gz>  # Restaura un backup de prod a la DB local (DESTRUCTIVO — pisa todo)
 ```
 
+Sin Docker (por ejemplo, en el entorno cloud de Claude Code):
+
+```bash
+bash scripts/dev/bootstrap.sh         # PostgreSQL 16 local, bases *_test, venv del backend y node_modules (idempotente)
+bash scripts/dev/gates.sh quick       # pytest + typecheck + vitest
+bash scripts/dev/gates.sh all         # todos los gates (backend, frontend, e2e, comparación y tamaño de PR)
+```
+
+Los tests del backend solo corren contra una base cuyo nombre termine en `_test`.
+
 ---
 
 ## Migraciones
@@ -84,7 +94,8 @@ tm-scorekeeper/
 │   ├── mappers/                # Conversión modelo ↔ DTO
 │   ├── db/                     # Sesión, modelos ORM y migraciones Alembic
 │   ├── tests/                  # Tests unitarios, integración y e2e
-│   ├── requirements.txt        # Dependencias Python
+│   ├── requirements.txt        # Dependencias Python (producción, versiones fijas)
+│   ├── requirements-dev.txt    # Dependencias de tests (pytest, httpx, requests)
 │   └── conftest.py
 ├── frontend/                   # SPA React + TypeScript + Vite
 │   ├── src/

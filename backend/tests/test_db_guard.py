@@ -33,3 +33,20 @@ def test_rejects_anything_else(url):
 
 def test_database_name_ignores_query_string():
     assert database_name("postgresql://u:p@h/x_test?sslmode=require") == "x_test"
+
+
+def test_pytest_exits_with_code_2_on_a_non_test_database():
+    """La guarda corta la sesión antes de conectarse a la base (REVIEW S4)."""
+    import os
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    backend = Path(__file__).resolve().parents[1]
+    env = {**os.environ, "DATABASE_URL": "postgresql://u:p@localhost:1/produccion"}
+    proc = subprocess.run(
+        [sys.executable, "-m", "pytest", "tests/test_db_guard.py", "-q", "-p", "no:cacheprovider"],
+        cwd=backend, env=env, capture_output=True, text=True, timeout=120,
+    )
+    assert proc.returncode == 2
+    assert "produccion" in proc.stdout + proc.stderr

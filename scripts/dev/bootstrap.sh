@@ -11,6 +11,16 @@ start_postgres() {
   else
     log "pg_ctlcluster no está: se asume un PostgreSQL ya disponible en ${PG_HOST}:${PG_PORT}"
   fi
+  wait_postgres
+}
+
+wait_postgres() {
+  have pg_isready || return 0
+  for _ in $(seq 30); do
+    pg_isready -q -h "$PG_HOST" -p "$PG_PORT" && return 0
+    sleep 1
+  done
+  log "PostgreSQL no acepta conexiones en ${PG_HOST}:${PG_PORT} después de 30 s"; exit 1
 }
 
 ensure_role_and_dbs() {
@@ -53,7 +63,7 @@ ensure_node_modules() {
 find_chromium() {
   local base="${PLAYWRIGHT_BROWSERS_PATH:-/opt/pw-browsers}"
   if [ -n "${PARITY_CHROMIUM:-}" ] && [ -x "$PARITY_CHROMIUM" ]; then echo "$PARITY_CHROMIUM"; return; fi
-  find "$base" -maxdepth 4 -type f -name chrome -path '*chromium-*' 2>/dev/null | sort | tail -1
+  find "$base" -maxdepth 4 -type f -name chrome -path '*chromium-*' 2>/dev/null | sort -V | tail -1
 }
 
 write_env_agent() {

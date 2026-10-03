@@ -16,11 +16,18 @@ have() { command -v "$1" >/dev/null 2>&1; }
 # Hash de un archivo, o vacío si no existe.
 file_hash() { [ -f "$1" ] && sha256sum "$1" | cut -d' ' -f1 || true; }
 
-# psql como superusuario postgres (cloud: corremos como root).
+# psql administrativo: como el usuario postgres si corremos como root (cloud),
+# si no, con las credenciales de PG_* contra la base `postgres`.
 pg_admin() {
   if [ "$(id -u)" = "0" ] && id postgres >/dev/null 2>&1; then
-    su postgres -c "psql -v ON_ERROR_STOP=1 -qtAc \"$1\""
+    runuser -u postgres -- psql -v ON_ERROR_STOP=1 -qtAc "$1"
   else
-    psql -v ON_ERROR_STOP=1 -qtAc "$1"
+    PGPASSWORD="$PG_PASS" psql -h "$PG_HOST" -p "$PG_PORT" -U "$PG_USER" -d postgres -v ON_ERROR_STOP=1 -qtAc "$1"
   fi
+}
+
+# Falla con un mensaje claro si la rama base no está disponible localmente.
+require_base() {
+  git -C "$ROOT" rev-parse --verify -q "$BASE_REF" >/dev/null \
+    || { echo "falta ${BASE_REF}: corré 'git fetch origin staging'" >&2; exit 2; }
 }

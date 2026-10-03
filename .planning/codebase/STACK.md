@@ -48,7 +48,7 @@
 - SQLAlchemy 2.0.x (`>=2.0,<2.1`: 2.1 usa psycopg 3 por defecto; migración pendiente en #144) - Python ORM for database abstraction
 - Pydantic 2.13.5 - Data validation for FastAPI request/response schemas
 - psycopg2-binary 2.9.13 - PostgreSQL adapter for Python database connections
-- httpx 0.28.0+ - HTTP client library for async operations
+- httpx 0.28.1 - HTTP client library for async operations
 
 **Testing Libraries:**
 - @testing-library/react 16.1.0 - Utilities for testing React components
@@ -90,7 +90,7 @@
 **Production:**
 - Render.com - Backend deployment (Python ASGI)
 - Vercel - Frontend deployment (assumed, referenced in docs)
-- PostgreSQL 15 - Production database (Supabase or compatible)
+- PostgreSQL 17 - Production database (Supabase or compatible)
 
 ---
 

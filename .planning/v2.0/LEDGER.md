@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | Fase | F15 · Specs, infra y guardas |
-| Issue | 15.2 Scripts de desarrollo (#80) |
-| Paso | Implementación |
-| PR | — |
-| Ronda de revisión | 0 |
+| Issue | F15 completa (#79–#82) |
+| Paso | WAIT_CI PR#145 |
+| PR | #145 |
+| Ronda de revisión | 1 (APPROVE; minors corregidos) |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
 | Último commit | 1b37ec2 (origin/staging) |
@@ -16,7 +16,7 @@
 | Reset pendiente | no |
 | Agentes | `.claude/agents/*` no se cargan en esta sesión (se crearon después del arranque): se usa `general-purpose` con `model: sonnet` y el mismo prompt |
 
-**Próximo paso:** 15.2 (scripts de desarrollo).
+**Próximo paso:** con CI verde en #145 → merge commit, cerrar #79–#82, reset de la rama a `origin/staging`. Trabajo de F16 adelantado en el worktree local `wip/f16` (scratchpad); si se perdió, rehacer desde SPEC § F16.
 
 ## Tablero (GitHub)
 
@@ -53,3 +53,4 @@
 - 2026-10-03 — Paso 0: rama reseteada a `origin/staging` (1b37ec2, sin commits nuevos desde el PR #69). PG16 levantado; rol `tm_user`; bases `tm_scorekeeper_test`, `tm_parity`, `tm_migrations_test`; `backend/.venv`; `npm ci`. Baseline: 193 pytest, 243 vitest, `tsc -b` limpio.
 - 2026-10-03 — Paso 1: SPEC, RUNBOOK, DECISIONS (D-01..D-20) y LEDGER escritos.
 - 2026-10-03 — Tablero creado: paraguas #71, épicas #72–#78, issues #79–#143, seguimiento #144. Label `epic` creado. Rutina horaria `trig_01H3TMK3swrz77ryGCf4zLqa`.
+- 2026-10-03 — F15: PR #145 abierto. Revisor (ronda 1): APPROVE con 5 minor y 3 nit, todos corregidos.

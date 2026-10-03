@@ -32,7 +32,11 @@ run_gate() {
 skip_gate() { RESULTS+=("--    $1 ($2)"); }
 summary() { printf '%s\n' "${RESULTS[@]}"; }
 npm_has_script() { (cd "$ROOT/frontend" && node -e "process.exit(require('./package.json').scripts['$1'] ? 0 : 1)"); }
-changed_since_base() { [ -n "$(git -C "$ROOT" diff --name-only "$(git -C "$ROOT" merge-base HEAD "$BASE_REF")" -- "$1")" ]; }
+# Cambios (commiteados, en el árbol o sin trackear) respecto de la base.
+changed_since_base() {
+  require_base
+  [ -n "$(git -C "$ROOT" diff --name-only "$(git -C "$ROOT" merge-base HEAD "$BASE_REF")" -- "$1")$(git -C "$ROOT" ls-files --others --exclude-standard -- "$1")" ]
+}
 
 gate_pytest() {
   (cd "$ROOT" && DATABASE_URL="$(db_url "$TEST_DB")" "$PY" -m pytest backend/tests -q)

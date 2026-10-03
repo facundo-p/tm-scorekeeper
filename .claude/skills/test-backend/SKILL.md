@@ -5,9 +5,9 @@ allowed-tools: Bash
 argument-hint: [optional: test path or -k filter]
 ---
 
-# Run Backend Tests (Docker)
+# Run Backend Tests
 
-Run backend tests safely using `docker-compose.test.yml`. NEVER run pytest directly on the host machine — it uses the dev database and will wipe data.
+Never run pytest against a database that is not `*_test`: the tests delete every table. Use Docker (`docker-compose.test.yml`) or the Docker-free flow below, both against `tm_scorekeeper_test`.
 
 ## Execution
 

@@ -9,11 +9,11 @@
 ## Data Storage
 
 **Databases:**
-- PostgreSQL 15
+- PostgreSQL 17 (local cloud: 16)
   - Connection: `DATABASE_URL` environment variable
   - Format: `postgresql://tm_user:tm_pass@host:5432/tm_scorekeeper`
   - Client: SQLAlchemy 2.0.x (`>=2.0,<2.1`) with psycopg2-binary adapter (migración a psycopg 3 en #144)
-  - Dev Docker Compose: `postgres:15` service at `localhost:5432`
+  - Dev Docker Compose: `postgres:17` service at `localhost:5432`
   - Prod: Supabase (inferred from docs) - connection string set manually in Render dashboard
 
 **File Storage:**

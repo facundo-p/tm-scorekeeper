@@ -14,6 +14,7 @@ EXCLUDES=(
 )
 
 cd "$ROOT"
+require_base
 total="$(git diff --numstat "$(git merge-base HEAD "$BASE_REF")" -- . "${EXCLUDES[@]}" \
   | awk '$1 != "-" { s += $1 + $2 } END { print s + 0 }')"
 if [ "$total" -gt "$MAX" ]; then
