@@ -1,6 +1,7 @@
 // Tiny router: screen state lives in memory and mirrors to a plain #token, so the
-// browser's back button works and any screen can be deep-linked. Filters travel in
-// the hash as a query: #partidas?mesa=3, #jugador-p-facu?tab=games.
+// browser's back button works and any screen can be deep-linked. Filters and tabs
+// travel in the hash as a query: #records?mapa=Tharsis, #jugador-p-facu?tab=partidas
+// (the per-screen table filter ?mesa=N arrives in phase 18).
 import { createContext, useContext } from './lib.js';
 
 export const NavCtx = createContext(null);
@@ -23,18 +24,21 @@ export function toHash(route) {
   const q = queryString(route.query);
   if (SIMPLE_REV[route.name]) return `${SIMPLE_REV[route.name]}${q}`;
   const prefix = Object.keys(PREFIXED).find((k) => PREFIXED[k] === route.name);
-  return prefix ? `${prefix}${route.params.id}${q}` : `no-encontrada${q}`;
+  return prefix ? `${prefix}${encodeURIComponent(route.params.id)}${q}` : `no-encontrada${q}`;
 }
 
 export const hrefOf = (name, params = {}, query = {}) => `#${toHash({ name, params, query })}`;
 
 export function parseHash(hash) {
-  const [h, qs = ''] = hash.replace(/^#/, '').split('?');
+  const raw = hash.replace(/^#/, '');
+  const cut = raw.indexOf('?');
+  const h = cut < 0 ? raw : raw.slice(0, cut);
+  const qs = cut < 0 ? '' : raw.slice(cut + 1);
   const query = Object.fromEntries(new URLSearchParams(qs));
   if (!h) return null;
   if (SIMPLE[h]) return { name: SIMPLE[h], params: {}, query };
   for (const [prefix, name] of Object.entries(PREFIXED)) {
-    if (h.startsWith(prefix)) return { name, params: { id: h.slice(prefix.length) }, query };
+    if (h.startsWith(prefix)) return { name, params: { id: decodeURIComponent(h.slice(prefix.length)) }, query };
   }
   return { name: 'notFound', params: {}, query };
 }

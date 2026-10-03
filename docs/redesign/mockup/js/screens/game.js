@@ -102,7 +102,7 @@ function Awards({ g }) {
 }
 
 function RecordsInGame({ g }) {
-  const ctx = gameRecordContext(g);
+  const ctx = gameRecordContext(g, MODEL);
   const broken = ctx.filter((c) => c.broken);
   const near = nearRecords(ctx);
   return html`<${Plate} class="reveal report-records" label="Récords">
@@ -119,7 +119,9 @@ function RecordsInGame({ g }) {
     ${near.length > 0 && html`<h3 class="near__title">Cerca del récord <${NewBadge} /></h3>
       <ul class="near">${near.map((c) => html`<li>
         <${Cube} color=${P(c.best.player_id).color} size=${13} />
-        <span>${P(c.best.player_id).name} quedó a <b>${c.gap}</b> de «${c.def.title}» (${c.best.value} contra ${c.before.value})</span>
+        <span>${c.gap === 0
+          ? html`${P(c.best.player_id).name} <b>igualó</b> «${c.def.title}» (${c.best.value})`
+          : html`${P(c.best.player_id).name} quedó a <b>${c.gap}</b> de «${c.def.title}» (${c.best.value} contra ${c.before.value})`}</span>
       </li>`)}</ul>`}
   </${Plate}>`;
 }

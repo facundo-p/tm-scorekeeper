@@ -159,7 +159,8 @@ export function Games() {
     </header>
     <div class="games-tools reveal" style="--i:1">
       <${ActivityStrip} />
-      <div class="games-filters"><${Filters} f=${f} set=${setF} /><${SortBar} sort=${sort} onChange=${setSort} /></div>
+      <div class="games-filters"><${Filters} f=${f} set=${setF} />
+        <div class="filters games-sort-row"><${SortBar} sort=${sort} onChange=${setSort} /></div></div>
     </div>
     ${active > 0 && html`<div class="activef">
       <span>${list.length} de ${MODEL.games.length} partidas</span>
@@ -181,7 +182,7 @@ export function Games() {
         </section>`}
     ${sheet && html`<${Sheet} title="Filtrar partidas" onClose=${() => setSheet(false)}>
       <${Filters} f=${f} set=${setF} />
-      <${SortBar} sort=${sort} onChange=${setSort} />
+      <div class="filters games-sort-row"><${SortBar} sort=${sort} onChange=${setSort} /></div>
       <div class="sheet-actions">
         <${Button} variant="ghost" onClick=${() => setF(EMPTY)}>Limpiar</${Button}>
         <${Button} variant="primary" onClick=${() => setSheet(false)}>Ver ${list.length} partidas</${Button}>

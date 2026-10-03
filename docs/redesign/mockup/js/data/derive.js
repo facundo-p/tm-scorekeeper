@@ -3,6 +3,7 @@
 import { generateGames } from './seed.js';
 import { PLAYERS_SEED, CATEGORIES, RECORDS, ACHIEVEMENTS, MAPS } from './catalog.js';
 import { roundHalfEven, roundHalfEven1 } from './round.js';
+import { byDate } from './sort.js';
 
 const K = 32;
 const sum = (list, f = (x) => x) => list.reduce((s, x) => s + f(x), 0);
@@ -336,7 +337,7 @@ export function buildModel({ playerCount = null, map = null, expansion = null } 
   const games = generateGames()
     .filter((g) => (!playerCount || g.player_results.length === playerCount)
       && (!map || g.map === map) && (!expansion || g.expansions.includes(expansion)))
-    .sort((a, b) => (a.date < b.date ? -1 : 1));
+    .sort(byDate);
   const ratings = {};
   const eloSeries = {};
   const activeIds = new Set(PLAYERS_SEED.filter((p) => !p.inactiveFrom).map((p) => p.id));
@@ -555,12 +556,13 @@ export function modelFor({ playerCount = null, map = null, expansion = null } = 
 
 export const MODEL = modelFor();
 
-// Canonical game order (D-19): date, then id.
-const playedBefore = (h, g) => h.date < g.date || (h.date === g.date && h.game_id < g.id);
+// Canonical game order (D-19), on a history entry vs a game.
+const playedBefore = (h, g) => byDate({ date: h.date, id: h.game_id }, g) < 0;
 
 // Per-game record context: what the game did to each per-game record, and the
 // record that stood before it.
-export function gameRecordContext(g, model = MODEL) {
+// `model` must be the one `g` comes from: `before` and `gap` read its record history.
+export function gameRecordContext(g, model) {
   return RECORDS.filter((d) => GAME_METRICS[d.code]).map((def) => {
     const best = gameBest(def, g);
     if (!best) return null;

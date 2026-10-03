@@ -135,7 +135,7 @@ Sobre las partidas del jugador (del subconjunto si hay filtro), con `n` = mesa d
 
 ## 9. Filtros
 
-- **Mesa** (`?mesa=N`, N ∈ 2..5): subconjunto de partidas con exactamente N jugadores. Todo lo de §3–§8 se recalcula **solo** sobre ese subconjunto, incluido el ELO (ELO de mesa) y los logros (vista calculada y rotulada). Filtrar nunca escribe en la base.
+- **Mesa** (`?mesa=N`, N ∈ 2..5; la UI del filtro llega al mockup en F18): subconjunto de partidas con exactamente N jugadores. Todo lo de §3–§8 se recalcula **solo** sobre ese subconjunto, incluido el ELO (ELO de mesa) y los logros (vista calculada y rotulada). Filtrar nunca escribe en la base.
 - **Mapa y expansión** (Récords, #37): subconjunto de partidas de ese mapa / que incluyen esa expansión; se combinan con la mesa.
 - Un subconjunto vacío devuelve estructuras vacías (sin errores).
 
@@ -145,8 +145,8 @@ El grupo terraforma su propio Marte (punto 4 del dueño):
 - Cada partida suma +0,8 pasos de temperatura (tope 19; cada paso son 2 °C desde −30), O₂ += Σ vegetación de la partida / 52 (tope 14) y océanos +0,375 (tope 9).
 - La temporada **cierra** en la partida en que los tres parámetros llegan al tope; la siguiente partida abre la temporada nueva.
 - Lecturas: temperatura = −30 + 2 × ⌊pasos⌋, O₂ = ⌊O₂⌋ %, océanos = ⌊océanos⌋; % terraformado = promedio de ⌊t⌋/19, ⌊O₂⌋/14 y ⌊océanos⌋/9.
-- **Carrera** (desde F18): por **promedio** de puntos por partida de la temporada (total o una categoría; Turmoil solo sobre partidas con Turmoil), con filtro de mesa. Hacen falta **3 partidas** para clasificar; los demás se listan aparte con su promedio y «le faltan N partidas».
-- **Campeón** (D-15): el primer clasificado por promedio total al cierre; desempate por más partidas y después por mejor puntaje.
+- **Carrera** (en el mockup desde F18; hasta entonces `derive.js` ordena por TR aportado por encima de 20 y el golden lo refleja): por **promedio** de puntos por partida de la temporada (total o una categoría; Turmoil solo sobre partidas con Turmoil), con filtro de mesa. Hacen falta **3 partidas** para clasificar; los demás se listan aparte con su promedio y «le faltan N partidas».
+- **Campeón** (D-15, en el mockup desde F18): el primer clasificado por promedio total al cierre; desempate por más partidas y después por mejor puntaje.
 
 ## 11. Bitácora
 

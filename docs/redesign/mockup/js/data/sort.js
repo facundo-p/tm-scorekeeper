@@ -10,7 +10,8 @@ export const SORTS = [
 export const DEFAULT_SORT = { by: 'date', dir: 'desc' };
 
 const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
-const byDate = (a, b) => cmp(a.date, b.date) || cmp(a.id, b.id);
+// Canonical game order (D-19): date, then id.
+export const byDate = (a, b) => cmp(a.date, b.date) || cmp(a.id, b.id);
 const KEYS = {
   winner: (g, name) => name(g.winners[0]),
   map: (g) => g.map,
@@ -30,7 +31,7 @@ function compareKey(by, name) {
 export function sortGames(games, { by, dir }, name) {
   const sign = dir === 'asc' ? 1 : -1;
   if (by === 'date') {
-    return games.slice().sort((a, b) => sign * byDate(a, b) || a.results.length - b.results.length);
+    return games.slice().sort((a, b) => sign * cmp(a.date, b.date) || a.results.length - b.results.length || sign * cmp(a.id, b.id));
   }
   const primary = compareKey(by, name);
   return games.slice().sort((a, b) => sign * primary(a, b) || -byDate(a, b));

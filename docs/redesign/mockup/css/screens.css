@@ -4457,6 +4457,10 @@
 }
 
 /* ---------- Games archive order (#65) ---------- */
+.games-sort-row {
+  margin-top: var(--s3);
+}
+
 .games-sort__dir {
   margin-left: 4px;
   font-size: .75em;

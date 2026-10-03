@@ -8,9 +8,12 @@ export function today() {
   return q && /^\d{4}-\d{2}-\d{2}$/.test(q) ? q : iso(new Date());
 }
 
-// ISO date `months` months before `day` (same day of month, clamped by Date).
+// ISO date `months` months before `day`: same day of month, clamped to the last
+// day of the target month (31 March − 1 month = 28/29 February).
 export function monthsBefore(day, months) {
-  const d = new Date(`${day}T12:00:00`);
-  d.setMonth(d.getMonth() - months);
-  return iso(d);
+  const [y, m, d] = day.split('-').map(Number);
+  const target = new Date(y, m - 1 - months, 1, 12);
+  const last = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+  target.setDate(Math.min(d, last));
+  return iso(target);
 }

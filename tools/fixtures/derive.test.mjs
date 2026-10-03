@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import { MODEL, gameBest, stepRecord, gameRecordContext, nearRecords } from '../../docs/redesign/mockup/js/data/derive.js';
 import { RECORDS } from '../../docs/redesign/mockup/js/data/catalog.js';
 import { sortGames, nextSort } from '../../docs/redesign/mockup/js/data/sort.js';
+import { monthsBefore } from '../../docs/redesign/mockup/js/clock.js';
 
 const def = (code) => RECORDS.find((r) => r.code === code);
 const game = (id, date, totals, extra = {}) => ({
@@ -85,7 +86,7 @@ test('ties share the first position and are all winners', () => {
 
 test('near records: at most 3, never broken, gap ≤ 3, closest first', () => {
   for (const g of MODEL.games) {
-    const near = nearRecords(gameRecordContext(g));
+    const near = nearRecords(gameRecordContext(g, MODEL));
     assert.ok(near.length <= 3);
     assert.ok(near.every((c) => !c.broken && c.gap <= 3));
     assert.deepEqual(near.map((c) => c.gap), near.map((c) => c.gap).slice().sort((a, b) => a - b));
@@ -103,4 +104,28 @@ test('archive order: date desc by default, other columns tie-break by date desc'
   }
   assert.deepEqual(nextSort({ by: 'map', dir: 'desc' }, 'map'), { by: 'map', dir: 'asc' });
   assert.deepEqual(nextSort({ by: 'map', dir: 'asc' }, 'date'), { by: 'date', dir: 'desc' });
+});
+
+const mini = (id, date, n, map = 'Tharsis', winner = 'a') => ({ id, date, map, winners: [winner], results: Array.from({ length: n }, () => ({})) });
+
+test('date order: same day ties by fewest players, then id', () => {
+  const games = [mini('g-3', '2025-01-01', 4), mini('g-1', '2025-01-01', 2), mini('g-2', '2025-01-02', 3), mini('g-4', '2025-01-01', 2)];
+  const name = (id) => id;
+  assert.deepEqual(sortGames(games, { by: 'date', dir: 'asc' }, name).map((g) => g.id), ['g-1', 'g-4', 'g-3', 'g-2']);
+  assert.deepEqual(sortGames(games, { by: 'date', dir: 'desc' }, name).map((g) => g.id), ['g-2', 'g-4', 'g-1', 'g-3']);
+});
+
+test('other columns tie-break by date, newest first', () => {
+  const games = [mini('g-1', '2025-01-01', 3, 'Hellas'), mini('g-2', '2025-02-01', 3, 'Hellas'), mini('g-3', '2025-01-15', 4, 'Elysium')];
+  const name = (id) => id;
+  assert.deepEqual(sortGames(games, { by: 'map', dir: 'desc' }, name).map((g) => g.id), ['g-2', 'g-1', 'g-3']);
+  assert.deepEqual(sortGames(games, { by: 'players', dir: 'asc' }, name).map((g) => g.id), ['g-2', 'g-1', 'g-3']);
+  assert.deepEqual(sortGames(games, { by: 'winner', dir: 'asc' }, name).map((g) => g.id), ['g-2', 'g-3', 'g-1']);
+});
+
+test('months before clamps to the end of the target month', () => {
+  assert.equal(monthsBefore('2026-03-31', 1), '2026-02-28');
+  assert.equal(monthsBefore('2024-03-30', 1), '2024-02-29');
+  assert.equal(monthsBefore('2026-09-27', 3), '2026-06-27');
+  assert.equal(monthsBefore('2026-01-15', 2), '2025-11-15');
 });
