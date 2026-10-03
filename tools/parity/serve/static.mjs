@@ -1,7 +1,7 @@
 // Servidor estático mínimo (node:http) para el mockup y otros directorios.
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, join, normalize, relative, resolve } from 'node:path';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
@@ -21,7 +21,8 @@ async function resolveFile(root, urlPath) {
   const clean = cleanPath(urlPath);
   if (clean === null) return null;
   let file = resolve(join(root, clean));
-  if (!file.startsWith(resolve(root))) return null;
+  const rel = relative(resolve(root), file);
+  if (rel.startsWith('..')) return null;
   const info = await stat(file).catch(() => null);
   if (info?.isDirectory()) file = join(file, 'index.html');
   return (await stat(file).catch(() => null))?.isFile() ? file : null;
