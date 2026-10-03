@@ -1,0 +1,6 @@
+# Ranking (F32).
+- id: ranking
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  gateFromPhase: 32

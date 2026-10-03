@@ -1,0 +1,11 @@
+# Registrar (F30) y ceremonia (F31).
+- id: register-1
+  screen: registrar
+  ref: { hash: '#registrar' }
+  cand: { path: /registrar }
+  gateFromPhase: 30
+- id: ceremony-g063
+  screen: ceremonia
+  ref: { hash: '#ceremonia-g-063' }
+  cand: { path: /partidas/g-063/ceremonia }
+  gateFromPhase: 31

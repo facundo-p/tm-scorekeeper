@@ -1,0 +1,6 @@
+# Inicio (F28).
+- id: home
+  screen: inicio
+  ref: { hash: '#inicio' }
+  cand: { path: / }
+  gateFromPhase: 28

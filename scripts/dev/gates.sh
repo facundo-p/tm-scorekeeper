@@ -83,7 +83,10 @@ e2e_gates() {
 parity_gates() {
   if [ ! -f "$ROOT/tools/parity/run.mjs" ]; then skip_gate comparación "todavía no existe"; return; fi
   if [ -z "${GATES_PHASE:-}" ]; then skip_gate comparación "falta GATES_PHASE"; return; fi
-  run_gate comparación node "$ROOT/tools/parity/run.mjs" --phase "$GATES_PHASE"
+  # Hasta F18 no hay app candidata: el mockup se compara consigo mismo.
+  local mode=(); [ "$GATES_PHASE" -le 18 ] && mode=(--self)
+  run_gate comparación node "$ROOT/tools/parity/run.mjs" --phase "$GATES_PHASE" "${mode[@]}"
+  run_gate arnés npm --prefix "$ROOT/tools/parity" test --silent
 }
 
 case "$SCOPE" in

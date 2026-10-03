@@ -1,0 +1,16 @@
+# Perfil (F33).
+- id: profile-facu-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-facu' }
+  cand: { path: /jugadores/p-facu }
+  gateFromPhase: 33
+- id: profile-juli-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-juli' }
+  cand: { path: /jugadores/p-juli }
+  gateFromPhase: 33
+- id: profile-pato-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-pato' }
+  cand: { path: /jugadores/p-pato }
+  gateFromPhase: 33

@@ -1,0 +1,11 @@
+# Partidas e informe (F29).
+- id: games
+  screen: partidas
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  gateFromPhase: 29
+- id: report-g063
+  screen: informe
+  ref: { hash: '#partida-g-063' }
+  cand: { path: /partidas/g-063 }
+  gateFromPhase: 29
