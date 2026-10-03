@@ -9,8 +9,17 @@ const MIME = {
   '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8',
 };
 
+function cleanPath(urlPath) {
+  try {
+    return normalize(decodeURIComponent(urlPath.split('?')[0])).replace(/^(\.\.[/\\])+/, '');
+  } catch {
+    return null;
+  }
+}
+
 async function resolveFile(root, urlPath) {
-  const clean = normalize(decodeURIComponent(urlPath.split('?')[0])).replace(/^(\.\.[/\\])+/, '');
+  const clean = cleanPath(urlPath);
+  if (clean === null) return null;
   let file = resolve(join(root, clean));
   if (!file.startsWith(resolve(root))) return null;
   const info = await stat(file).catch(() => null);

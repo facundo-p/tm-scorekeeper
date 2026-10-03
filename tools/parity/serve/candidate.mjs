@@ -6,6 +6,7 @@
 import { execFileSync, spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 import { ROOT } from '../config.mjs';
+import { assertDisposableDatabase } from '../lib/dbguard.mjs';
 
 const BACKEND = resolve(ROOT, 'backend');
 const FRONTEND = resolve(ROOT, 'frontend');
@@ -34,6 +35,7 @@ except ImportError:
     print("")`;
 
 function prepareDatabase(env) {
+  assertDisposableDatabase(DB_URL);
   execFileSync('psql', [DB_URL, '-qc', 'drop schema public cascade; create schema public;'], { stdio: 'ignore' });
   execFileSync(resolve(BACKEND, '.venv/bin/alembic'), ['upgrade', 'head'], { cwd: BACKEND, env, stdio: 'ignore' });
   execFileSync(PY, ['-m', 'scripts.load_fixture'], { cwd: BACKEND, env, stdio: 'ignore' });
