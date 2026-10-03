@@ -104,5 +104,9 @@ def list_players(active: Optional[bool] = Query(default=None)):
 
 @router.get("/{player_id}/achievements", response_model=PlayerAchievementsResponseDTO)
 def get_player_achievements(player_id: str):
+    try:
+        players_repository.get(player_id)
+    except KeyError:
+        raise HTTPException(status_code=404, detail="Player not found")
     items = achievements_service.get_player_achievements(player_id)
     return PlayerAchievementsResponseDTO(achievements=items)
