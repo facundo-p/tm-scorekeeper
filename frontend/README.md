@@ -61,46 +61,15 @@ npm test
 npm run test:ui
 ```
 
-Cobertura actual: **61 tests** distribuidos en 7 archivos:
+Los tests viven en `src/test/`: `unit/` (utilidades, dominio y la regla de estilos), `components/` (pantallas actuales), `ui/` (átomos, hoja y estados del sistema visual v2.0) y `hooks/`.
 
-| Archivo | Qué cubre |
-|---|---|
-| `unit/gameCalculations.test.ts` | `calcMilestonePoints`, `calcAwardPoints`, `calcRunningTotal` |
-| `unit/gameRules.test.ts` | Constantes del juego, milestones y awards por mapa |
-| `unit/enums.test.ts` | Valores y conteos de los enums del juego |
-| `unit/validation.test.ts` | Validadores de cada paso del wizard |
-| `components/Login.test.tsx` | Formulario de login con credenciales correctas e incorrectas |
-| `components/StepMilestones.test.tsx` | Límite de 3 hitos, bloqueo del 4to |
-| `components/StepAwards.test.tsx` | Reglas de recompensas: 2 jugadores, empate en 1ro, opciones filtradas |
-
-### Tests E2E (Playwright)
-
-Requieren **tanto el frontend como el backend corriendo** simultáneamente.
+### Lint
 
 ```bash
-# Terminal 1 — Backend (desde la raíz del repo)
-cd backend && uvicorn main:app --reload
-
-# Terminal 2 — Frontend
-cd frontend && npm run dev
-
-# Terminal 3 — Ejecutar los tests E2E
-cd frontend && npm run test:e2e
+npm run lint
 ```
 
-Los tests E2E crean jugadores de prueba en la base de datos (con nombre `E2E ...`) y cubren:
-
-- Login válido e inválido, persistencia de sesión, logout
-- Validaciones en cada paso del wizard de carga de partida (fecha faltante, mapa faltante, menos de 2 jugadores, recompensa duplicada)
-- Creación completa de una partida con recompensas, hitos y todos los campos de puntaje
-
-Para ver el reporte HTML generado tras la ejecución:
-
-```bash
-npx playwright show-report
-```
-
----
+ESLint 9 (`eslint.config.js`) con typescript-eslint, react-hooks y jsx-a11y. Corre en CI con `--max-warnings 0`. Regla del proyecto (D-09): sin estilos inline; los valores dinámicos llegan al CSS solo como custom properties con `style={cssVars({ ... })}` (`src/domain/cssVars.ts`).
 
 ## Build de producción
 
@@ -117,15 +86,23 @@ Los archivos quedan en `dist/`. Requiere que TypeScript compile sin errores.
 ```
 frontend/src/
 ├── api/              # Cliente HTTP y llamadas a la API
-├── components/       # Componentes reutilizables (Button, Input, Modal, etc.)
+├── components/       # Componentes de las pantallas actuales (se reemplazan en v2.0)
 ├── constants/        # Enums del juego (mapas, hitos, recompensas, corporaciones)
 ├── context/          # AuthContext (sesión en localStorage)
+├── domain/           # v2.0: catálogo, etiquetas en castellano, formato es-AR y cssVars()
 ├── hooks/            # usePlayers, useGames
-├── pages/            # Login, Home, Players, GameForm (wizard), GameRecords, Records
+├── pages/            # Pantallas; Gallery/ es la galería de comparación (/__galeria, solo --mode parity)
+├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
-├── utils/            # gameCalculations.ts, validation.ts
+├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/
+├── utils/            # gameCalculations.ts, validation.ts, a11y.ts
 └── test/
-    ├── unit/         # Tests de utilidades y constantes
-    ├── components/   # Tests de componentes con React Testing Library
+    ├── unit/         # Utilidades, dominio y regla de estilos
+    ├── components/   # Componentes con React Testing Library
+    ├── ui/           # Sistema visual v2.0
     └── e2e/          # Tests de integración con Playwright
 ```
+
+### Sistema visual v2.0
+
+Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los nombres BEM del mockup como claves (`styles['btn--primary']`, D-44); las tipografías se sirven desde `public/fonts/` y se declaran en `src/styles/fonts.css`. La galería `/__galeria` muestra los átomos con datos fijos y existe solo en `vite build --mode parity`, que usa el arnés de comparación (`tools/parity/`).

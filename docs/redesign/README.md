@@ -175,7 +175,9 @@ mockup/
     ├── data/       catálogo (enums del backend), generador de 63 partidas, derivaciones (ELO K=32, récords, logros, temporadas)
     ├── fx/         planeta WebGL (shaders + motor), estrellas, confeti
     ├── ui/         íconos, átomos, instrumentos (termómetro, oxígeno, océanos, pista de TR, barras, ELO, cara a cara), sheet, estados
-    └── screens/    una por pantalla + índice del prototipo
+    └── screens/    una por pantalla + índice del prototipo + galería (#galeria)
 ```
+
+`#galeria` es una página lisa, sin navegación, cielo ni planeta (D-42): muestra los átomos, los campos, los estados y la hoja con datos fijos, y `#galeria?parte=instrumentos` los instrumentos. El arnés la compara con `/__galeria` de la app (`vite --mode parity`) para validar el sistema visual antes de portar las pantallas.
 
 Los datos son de ejemplo, generados con las mismas reglas que el backend: posiciones con desempate por M€, ELO por pares con K = 32, récords con desempate estricto y logros con los umbrales de `backend/services/achievement_evaluators/definitions.py`.

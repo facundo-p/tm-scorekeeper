@@ -240,7 +240,8 @@ export function createPlanetStage(host) {
   // px, and whether a still globe already shows its current target.
   let drawn = null;
   window.__TM_PLANET__ = {
-    drawRect: () => drawn,
+    // null when the canvas isn't shown (plain gallery, D-42): there is no planet to mask.
+    drawRect: () => (canvas.checkVisibility() ? drawn : null),
     settled: () => stage.ready && lastStill !== null && lastStill === stillKey(targets()),
   };
 
