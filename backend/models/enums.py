@@ -100,7 +100,7 @@ class Award(Enum):
     ESTATE_DEALER = "Estate Dealer"
     BENEFACTOR = "Benefactor"
 
-    # Vastitas Borealis (Spacefarer; antes del F21 el enum lo llamaba Spacecrafter, D-31)
+    # Vastitas Borealis
     TRAVELLER = "Traveller"
     LANDSCAPER = "Landscaper"
     HIGHLANDER = "Highlander"

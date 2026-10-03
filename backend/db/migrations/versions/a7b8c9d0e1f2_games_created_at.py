@@ -1,7 +1,7 @@
 """games.created_at para el orden canónico (fecha, created_at, id) (F21, TXN-02, D-56)
 
 El backfill respeta el orden anterior (fecha, id): dentro de cada fecha, created_at sube
-de a un segundo siguiendo el id. Las partidas nuevas toman now().
+de a un segundo siguiendo el id. Las partidas nuevas toman clock_timestamp(): la hora real del INSERT, después de tomar el lock.
 
 Revision ID: a7b8c9d0e1f2
 Revises: f6a7b8c9d0e1
@@ -33,7 +33,7 @@ BACKFILL = sa.text("""
 def upgrade() -> None:
     op.add_column("games", sa.Column("created_at", sa.DateTime(timezone=True), nullable=True))
     op.execute(BACKFILL)
-    op.alter_column("games", "created_at", nullable=False, server_default=sa.func.now())
+    op.alter_column("games", "created_at", nullable=False, server_default=sa.func.clock_timestamp())
 
 
 def downgrade() -> None:

@@ -49,6 +49,11 @@ no, confirman solos. El orden canónico de las partidas es (fecha, `created_at`,
 backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`winners()`);
 `tied` vale `true` para todo el grupo empatado.
 
+## Cambios de contrato en v2.0
+
+- Fase 20: toda la API salvo `/health` y `/auth/login` exige `Authorization: Bearer`; `GET /elo/admin/recompute` pasó a `POST /admin/recompute`.
+- Fase 21: `tied` vale `true` para todo el grupo empatado; partidas o jugadores inexistentes responden 404 también en `/games/{id}/records`, `/games/{id}/elo`, `POST /games/{id}/achievements` y `/players/{id}/achievements` (antes, 200 con datos vacíos); el hito Spacecrafter se llama Spacefarer (la entrada acepta los dos).
+
 ## Tests
 
 Los tests **borran todas las tablas** de la base a la que apunten, así que

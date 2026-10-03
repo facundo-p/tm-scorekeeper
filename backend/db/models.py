@@ -56,7 +56,8 @@ class Game(Base):
     draft = Column(Boolean, nullable=False)
     generations = Column(Integer, nullable=False)
     # Orden canónico (fecha, created_at, id): dentro de un mismo día, la que se cargó antes (F21, D-56).
-    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    # clock_timestamp(): la hora real del INSERT (now() sería la del inicio de la transacción, antes del lock).
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.clock_timestamp())
 
     player_results = relationship("PlayerResult", cascade="all, delete-orphan")
     awards = relationship("Award", cascade="all, delete-orphan")

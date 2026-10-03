@@ -1,3 +1,4 @@
+from collections import Counter
 from typing import List
 from schemas.result import GameResultDTO, PlayerResultDTO
 from models.game import Game
@@ -15,6 +16,10 @@ def _compute_total_points_from_scores(scores) -> int:
         + scores.city_points
         + turmoil
     )
+
+def _score_key(row: dict) -> tuple[int, int]:
+    return row["total_points"], row["mc_total"]
+
 
 def _ranked(game: Game) -> list[dict]:
     rows = [
@@ -34,15 +39,12 @@ def calculate_results(game: Game) -> GameResultDTO:
      - tied = True para TODOS los miembros de un grupo empatado (D-17), incluido el primero
     """
     rows = _ranked(game)
-    key = lambda r: (r["total_points"], r["mc_total"])  # noqa: E731
-    group_size: dict[tuple, int] = {}
-    for r in rows:
-        group_size[key(r)] = group_size.get(key(r), 0) + 1
+    group_size = Counter(_score_key(r) for r in rows)
     results: List[PlayerResultDTO] = []
     for idx, r in enumerate(rows):
-        same_as_prev = idx > 0 and key(rows[idx - 1]) == key(r)
+        same_as_prev = idx > 0 and _score_key(rows[idx - 1]) == _score_key(r)
         position = results[-1].position if same_as_prev else idx + 1
-        results.append(PlayerResultDTO(**r, position=position, tied=group_size[key(r)] > 1))
+        results.append(PlayerResultDTO(**r, position=position, tied=group_size[_score_key(r)] > 1))
     return GameResultDTO(game_id=str(getattr(game, "id", "")), date=game.date, results=results)
 
 
