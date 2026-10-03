@@ -49,8 +49,25 @@ jobs:
       - run: npm test -- --run
         working-directory: frontend
 
+  test-tools:
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Fixtures del mockup al día
+        run: node tools/fixtures/export.mjs --check
+      - run: npm ci
+        working-directory: tools/parity
+      - name: Tests del arnés de comparación
+        run: npm test
+        working-directory: tools/parity
+
   migrate-and-deploy:
-    needs: [test-backend, test-frontend]
+    needs: [test-backend, test-frontend, test-tools]
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:

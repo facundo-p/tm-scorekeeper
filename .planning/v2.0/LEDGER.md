@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F15 · Specs, infra y guardas |
-| Issue | F15 completa (#79–#82) |
-| Paso | WAIT_CI PR#145 |
-| PR | #145 |
-| Ronda de revisión | 1 (APPROVE; minors corregidos) |
+| Fase | F16 · Arnés de comparación, fixtures y golden |
+| Issue | 16.1–16.4 (#83–#86) |
+| Paso | WAIT_CI + revisión PR (Fase 16) |
+| PR | — |
+| Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 1b37ec2 (origin/staging) |
+| Último commit | 066edb7 (merge #145 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
-| Agentes | `.claude/agents/*` no se cargan en esta sesión (se crearon después del arranque): se usa `general-purpose` con `model: sonnet` y el mismo prompt |
+| Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** con CI verde en #145 → merge commit, cerrar #79–#82, reset de la rama a `origin/staging`. Trabajo de F16 adelantado en el worktree local `wip/f16` (scratchpad); si se perdió, rehacer desde SPEC § F16.
+**Próximo paso:** revisión y CI del PR de F16; con aprobación y CI verde → merge, cerrar #83–#86, reset de la rama. Después F17.
 
 ## Tablero (GitHub)
 
@@ -54,3 +54,6 @@
 - 2026-10-03 — Paso 1: SPEC, RUNBOOK, DECISIONS (D-01..D-20) y LEDGER escritos.
 - 2026-10-03 — Tablero creado: paraguas #71, épicas #72–#78, issues #79–#143, seguimiento #144. Label `epic` creado. Rutina horaria `trig_01H3TMK3swrz77ryGCf4zLqa`.
 - 2026-10-03 — F15: PR #145 abierto. Revisor (ronda 1): APPROVE con 5 minor y 3 nit, todos corregidos.
+- 2026-10-03 — F15 mergeada (#145 → `066edb7`, CI verde, sin bloqueo de protección de rama). Issues #79–#82 cerrados. Rama reseteada a `origin/staging`.
+- 2026-10-03 — F16: arnés, exportador, cargador y golden implementados. Golden de posiciones y ELO pasa (el ELO del backend coincide exactamente con el mockup con half-even). Comparación --self: 25/26; el restante (ranking móvil) es rasterización sub-píxel bajo carga → `--disable-gpu-rasterization`.
+- 2026-10-03 — F16 verificada: --self 26/26 (90 frames, 0 %) dos veces; juez 10×16/16; golden OK; 215 pytest; 14 tests del arnés.

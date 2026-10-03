@@ -82,8 +82,10 @@ export function createSky(host) {
   }).observe(host);
 
   let frame = 0;
+  const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   host.addEventListener('pointermove', (e) => {
-    if (frame) return;
+    // Reduced motion: no parallax (D-11), the sky stays where it was painted.
+    if (frame || still()) return;
     frame = requestAnimationFrame(() => {
       frame = 0;
       const r = host.getBoundingClientRect();
@@ -93,7 +95,7 @@ export function createSky(host) {
   }, { passive: true });
 
   const launch = () => {
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
+    if (!still() && !document.hidden) {
       meteor.style.top = `${8 + Math.random() * 35}%`;
       meteor.style.left = `${25 + Math.random() * 60}%`;
       meteor.classList.remove('is-on');

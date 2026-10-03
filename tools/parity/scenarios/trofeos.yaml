@@ -1,0 +1,11 @@
+# Récords y logros (F34).
+- id: records
+  screen: records
+  ref: { hash: '#records' }
+  cand: { path: /records }
+  gateFromPhase: 34
+- id: achievements
+  screen: logros
+  ref: { hash: '#logros' }
+  cand: { path: /logros }
+  gateFromPhase: 34

@@ -2,6 +2,7 @@
 // the backend uses (positions with M€ tie-break, pairwise ELO K=32, records, tiers).
 import { generateGames } from './seed.js';
 import { PLAYERS_SEED, CATEGORIES, RECORDS, ACHIEVEMENTS, MAPS } from './catalog.js';
+import { roundHalfEven, roundHalfEven1 } from './round.js';
 
 const K = 32;
 const sum = (list, f = (x) => x) => list.reduce((s, x) => s + f(x), 0);
@@ -36,7 +37,7 @@ function applyElo(game, ratings) {
       const e = 1 / (1 + 10 ** ((before[b.player_id] - before[a.player_id]) / 400));
       acc += s - e;
     }
-    const delta = Math.round(K * acc);
+    const delta = roundHalfEven(K * acc);
     return { player_id: a.player_id, before: before[a.player_id], after: before[a.player_id] + delta, delta };
   });
   game.eloChanges.forEach((c) => { ratings[c.player_id] = c.after; });
@@ -58,7 +59,7 @@ const GAME_METRICS = {
   highest_turmoil_points: (g) => g.results.filter((r) => (r.scores.turmoil_points ?? 0) > 0).map((r) => [r.player_id, r.scores.turmoil_points]),
   biggest_margin: (g) => (g.winners.length === 1 ? [[g.winners[0], g.margin]] : []),
   closest_win: (g) => (g.winners.length === 1 ? [[g.winners[0], g.margin]] : []),
-  points_per_generation: (g) => g.results.map((r) => [r.player_id, Math.round((r.total / g.generations) * 10) / 10]),
+  points_per_generation: (g) => g.results.map((r) => [r.player_id, roundHalfEven1(r.total / g.generations)]),
   fastest_win: (g) => g.winners.map((id) => [id, g.generations]),
   richest_finish: (g) => g.results.map((r) => [r.player_id, r.mc]),
 };
@@ -104,7 +105,7 @@ function splitStats(rows, key) {
       name,
       games: list.length,
       wins: list.filter((r) => r.position === 1).length,
-      avg: Math.round(avg(list, (r) => r.total)),
+      avg: roundHalfEven(avg(list, (r) => r.total)),
       avgPos: avg(list, (r) => r.position),
     }))
     .sort((a, b) => b.games - a.games || b.wins - a.wins);
@@ -281,8 +282,12 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
 }
 
 // --- Model ---------------------------------------------------------------------------
-export function buildModel() {
-  const games = generateGames().sort((a, b) => (a.date < b.date ? -1 : 1));
+// `playerCount` restricts every derivation to games with exactly that many
+// players (the "mesa" filter): ELO is replayed from 1000 over that subset only.
+export function buildModel({ playerCount = null } = {}) {
+  const games = generateGames()
+    .filter((g) => !playerCount || g.player_results.length === playerCount)
+    .sort((a, b) => (a.date < b.date ? -1 : 1));
   const ratings = {};
   const eloSeries = {};
   const activeIds = new Set(PLAYERS_SEED.filter((p) => !p.inactiveFrom).map((p) => p.id));
@@ -315,7 +320,7 @@ export function buildModel() {
       wins: rows.filter((r) => r.position === 1).length,
       winRate: rows.length ? rows.filter((r) => r.position === 1).length / rows.length : 0,
       podiumRate: rows.length ? rows.filter((r) => r.position <= 2).length / rows.length : 0,
-      avgPoints: Math.round(avg(rows, (r) => r.total)),
+      avgPoints: roundHalfEven(avg(rows, (r) => r.total)),
       avgPos: avg(rows, (r) => r.position),
       best: rows.length ? Math.max(...rows.map((r) => r.total)) : 0,
       bestGame: rows.slice().sort((a, b) => b.total - a.total)[0]?.game.id ?? null,
@@ -389,7 +394,7 @@ export function buildModel() {
     group: {
       games: games.length,
       generations: sum(games, (g) => g.generations),
-      avgWinner: Math.round(avg(games, (g) => g.results[0].total)),
+      avgWinner: roundHalfEven(avg(games, (g) => g.results[0].total)),
       avgGenerations: avg(games, (g) => g.generations),
       first: games[0].date,
       last: games[games.length - 1].date,

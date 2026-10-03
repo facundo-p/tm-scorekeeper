@@ -1,0 +1,15 @@
+# Acceso (F28). Rutas del mockup: #acceso · app: /acceso
+- id: login
+  screen: acceso
+  fresh: true
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  gateFromPhase: 28
+- id: login-invalid
+  screen: acceso
+  fresh: true
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  actions:
+    - click: { role: button, name: Ingresar }
+  gateFromPhase: 28
