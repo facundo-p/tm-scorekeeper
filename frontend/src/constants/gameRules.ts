@@ -33,7 +33,7 @@ export const MAP_MILESTONES: Record<MapName, Milestone[]> = {
   [MapName.BOREALIS]: [
     Milestone.AGRONOMIST,
     Milestone.ENGINEER,
-    Milestone.SPACECRAFTER,
+    Milestone.SPACEFARER,
     Milestone.GEOLOGIST,
     Milestone.FARMER,
   ],

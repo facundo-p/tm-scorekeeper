@@ -24,7 +24,7 @@ export const MAPS = {
   'Vastitas Borealis': {
     name: 'Vastitas Borealis', lat: 64, lon: -15, glyph: 'borealis', since: '2025-06-01',
     blurb: 'Las llanuras del norte, alrededor del casquete polar.',
-    milestones: ['Agronomist', 'Engineer', 'Spacecrafter', 'Geologist', 'Farmer'],
+    milestones: ['Agronomist', 'Engineer', 'Spacefarer', 'Geologist', 'Farmer'],
     awards: ['Traveller', 'Landscaper', 'Highlander', 'Promoter', 'Blacksmith'],
   },
   'Amazonis Planitia': {

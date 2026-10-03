@@ -68,7 +68,7 @@ Estado verificado al revisar: `tsc -b` limpio, 243 tests de frontend pasan (25 a
 - Tests faltantes: wizard, 5 de 7 pasos, Players, GamesList, GameDetail, Records, Modal, auth, cliente de API; en backend, PUT, rutas de récords, CRUD de jugadores y empates. Playwright no corre en CI y `full-flow.spec.ts:90-99` está desactualizado.
 - Documentación desactualizada: `frontend/README.md` dice 61 tests; `backend/README.md` sugiere SQLite.
 - Ops: dependencias de Python sin versión fija; falta `requests` (lo usa `scripts/seed_games.py`); CI crea el esquema con `create_all`, así que las migraciones no se prueban.
-- A confirmar: el hito de Vastitas Borealis figura como "Spacecrafter" en `backend/models/enums.py:44`, `frontend/src/constants/enums.ts:43`, los tests y una migración, pero las fichas comerciales del mapa lo llaman "Spacefarer". Corregirlo requiere una migración del enum en Postgres.
+- A confirmar: el hito de Vastitas Borealis figura como "Spacecrafter" en `backend/models/enums.py:44`, `frontend/src/constants/enums.ts:43`, los tests y una migración, pero las fichas comerciales del mapa lo llaman "Spacefarer". Corregirlo requiere una migración del enum en Postgres. **Resuelto en v2.0, fase 21 (D-31).**
 - A confirmar: `stolen_awards` se mide por partida aunque su descripción suena acumulativa, y las corporaciones "Terralabs Research" y "Terralabs Investigation" parecen duplicadas.
 
 ## Datos guardados que la UI no usa

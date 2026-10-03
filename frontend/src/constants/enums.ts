@@ -40,7 +40,7 @@ export enum Milestone {
   // Vastitas Borealis
   AGRONOMIST = 'Agronomist',
   ENGINEER = 'Engineer',
-  SPACECRAFTER = 'Spacecrafter',
+  SPACEFARER = 'Spacefarer',
   GEOLOGIST = 'Geologist',
   FARMER = 'Farmer',
   // Amazonis Planitia
