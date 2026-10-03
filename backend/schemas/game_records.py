@@ -7,7 +7,7 @@ class RecordAttributeDTO(BaseModel):
 
 
 class RecordResultDTO(BaseModel):
-    value: int
+    value: int | float
     title: str | None = None
     emoji: str | None = None
     attributes: list[RecordAttributeDTO]

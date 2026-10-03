@@ -1,7 +1,11 @@
 """Dependencias compartidas por las rutas."""
-from fastapi import Depends, HTTPException
+from typing import Optional
+
+from fastapi import Depends, HTTPException, Query
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
+from models.enums import Expansion, MapName
+from models.game_subset import GameSubset
 from services.auth_service import InvalidToken
 from services.container import auth_service
 
@@ -19,3 +23,12 @@ def require_auth(credentials: HTTPAuthorizationCredentials | None = Depends(_bea
         return auth_service.verify(credentials.credentials)
     except InvalidToken:
         raise _UNAUTHORIZED
+
+
+def game_subset(
+    player_count: Optional[int] = Query(None, ge=2, le=5, description="Solo partidas de N jugadores"),
+    map: Optional[MapName] = Query(None, description="Solo partidas en este mapa"),
+    expansion: Optional[Expansion] = Query(None, description="Solo partidas con esta expansión"),
+) -> GameSubset:
+    """Filtro único de subconjunto (STAT-01); fuera de rango o valor desconocido → 422."""
+    return GameSubset(player_count=player_count, map=map, expansion=expansion)

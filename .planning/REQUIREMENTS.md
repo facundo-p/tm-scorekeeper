@@ -49,10 +49,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **SEC-02**: El frontend actual se autentica contra la API y cierra sesión ante un 401
 - [x] **SEC-03**: Validación compartida de partidas en crear/editar, UNIQUE(game_id, player_id) y 409
 - [x] **SEC-04**: `POST /admin/recompute` autenticado con `compare_digest`; se retira el GET
-- [ ] **TXN-01**: Unidad de trabajo y advisory lock en escrituras y recálculos; UNIQUE en historial de ELO
-- [ ] **TXN-02**: `games.created_at` con backfill que respeta el orden actual
-- [ ] **TXN-03**: `selectinload` e índices; `/games/` en ≤ 3 queries
-- [ ] **TXN-04**: `winners()` único, récords con todos los poseedores, Spacefarer, 404 coherentes y migraciones probadas en CI
+- [x] **TXN-01**: Unidad de trabajo y advisory lock en escrituras y recálculos; UNIQUE en historial de ELO
+- [x] **TXN-02**: `games.created_at` con backfill que respeta el orden actual
+- [x] **TXN-03**: `selectinload` e índices; `/games/` en ≤ 3 queries
+- [x] **TXN-04**: `winners()` único, récords con todos los poseedores, Spacefarer, 404 coherentes y migraciones probadas en CI
 
 ### Estadísticas, mesa y temporadas
 
@@ -130,10 +130,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SEC-02 | Phase 20 | Complete |
 | SEC-03 | Phase 20 | Complete |
 | SEC-04 | Phase 20 | Complete |
-| TXN-01 | Phase 21 | Pending |
-| TXN-02 | Phase 21 | Pending |
-| TXN-03 | Phase 21 | Pending |
-| TXN-04 | Phase 21 | Pending |
+| TXN-01 | Phase 21 | Complete |
+| TXN-02 | Phase 21 | Complete |
+| TXN-03 | Phase 21 | Complete |
+| TXN-04 | Phase 21 | Complete |
 | STAT-01 | Phase 22 | Pending |
 | STAT-02 | Phase 22 | Pending |
 | STAT-03 | Phase 22 | Pending |
