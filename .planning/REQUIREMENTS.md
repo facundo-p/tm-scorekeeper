@@ -56,9 +56,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 
 ### Estadísticas, mesa y temporadas
 
-- [ ] **STAT-01**: Filtro único de subconjunto (`GameSubset`, `StatsContext`, dependencia `game_subset`)
-- [ ] **STAT-02**: ELO de mesa por reproducción; reproducir todo da el historial guardado
-- [ ] **STAT-03**: Récords v2: 7 nuevos, co-poseedores, historial, contexto roto/cerca, `GET /records/{code}/history`
+- [x] **STAT-01**: Filtro único de subconjunto (`GameSubset`, `StatsContext`, dependencia `game_subset`)
+- [x] **STAT-02**: ELO de mesa por reproducción; reproducir todo da el historial guardado
+- [x] **STAT-03**: Récords v2: 7 nuevos, co-poseedores, historial, contexto roto/cerca, `GET /records/{code}/history`
 - [ ] **STAT-04**: Desbloqueos de logros por nivel en `achievement_unlocks`
 - [ ] **STAT-05**: Recálculo de logros dentro de crear/editar/borrar; lectura repetible; D-13
 - [ ] **STAT-06**: 6 logros nuevos con íconos
@@ -134,9 +134,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | TXN-02 | Phase 21 | Complete |
 | TXN-03 | Phase 21 | Complete |
 | TXN-04 | Phase 21 | Complete |
-| STAT-01 | Phase 22 | Pending |
-| STAT-02 | Phase 22 | Pending |
-| STAT-03 | Phase 22 | Pending |
+| STAT-01 | Phase 22 | Complete |
+| STAT-02 | Phase 22 | Complete |
+| STAT-03 | Phase 22 | Complete |
 | STAT-04 | Phase 23 | Pending |
 | STAT-05 | Phase 23 | Pending |
 | STAT-06 | Phase 23 | Pending |

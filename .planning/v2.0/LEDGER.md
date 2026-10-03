@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F22 · Subconjuntos, ELO de mesa y récords v2 |
-| Issue | 22.1–22.3 (#106–#108) |
+| Fase | F23 · Logros derivados, nuevos y vista por mesa |
+| Issue | 23.1–23.4 (#109–#112) |
 | Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | b7f86c9 (merge #152 en origin/staging) |
+| Último commit | 245e02e (merge #153 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F22 — `GameSubset` y `StatsContext`, filtro `?player_count&map&expansion`, ELO de mesa por reproducción, 7 récords nuevos con poseedores, historial y contexto «roto/cerca»; golden de récords.
+**Próximo paso:** F23 — tabla `achievement_unlocks` y bucle de niveles único, recálculo derivado en crear/editar/borrar después del ELO, `app_meta.derived_version` (D-13), 6 logros nuevos, vista por mesa sin escritura; golden de logros.
 
 ## Tablero (GitHub)
 
@@ -69,3 +69,4 @@
 - 2026-10-03 — F20 mergeada (#151 → `45a9283`; revisión: ronda 1 CHANGES_REQUESTED por la IP del limitador falsificable con X-Forwarded-For, ronda 2 APPROVE). Issues #98–#101 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F21 implementada: unidad de trabajo con advisory lock, UNIQUE del historial de ELO, `created_at` y orden canónico, `selectinload` e índices, co-ganadores y `tied` de grupo, récords con todos los poseedores, Spacefarer, 404 y job de migraciones. Gates verdes (pytest 306, vitest 305). Artifact republicado (versión 6).
 - 2026-10-03 — F21 mergeada (#152 → `b7f86c9`; revisión: ronda 1 APPROVE con 1 minor y 3 nit, todos corregidos). Issues #102–#105 cerrados. Rama reseteada a `origin/staging`.
+- 2026-10-03 — F22 mergeada (#153 → `245e02e`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: 4 corregidos, el tipo del frontend queda para F28). Golden de récords y ELO de mesa en 5 alcances; pytest 344. Issues #106–#108 cerrados. Rama reseteada a `origin/staging`.
