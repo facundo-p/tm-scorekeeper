@@ -6,17 +6,17 @@
 |---|---|
 | Fase | F18 · Mockup II: mesa, equidad, temporadas y corrección |
 | Issue | 18.1–18.4 (#90–#93) |
-| Paso | Implementación |
+| Paso | WAIT_CI + revisión del PR |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | b630a3d (merge #147 en origin/staging) |
+| Último commit | a21b4d6 (rama, sobre b630a3d) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F18 — UI del filtro de mesa, equidad, por mesa, carrera por promedio, editar/eliminar/repetir; golden, capturas, README y artifact.
+**Próximo paso:** F18 — abrir el PR, revisor, CI verde, merge, cerrar #90–#93, reset.
 
 ## Tablero (GitHub)
 
@@ -60,3 +60,4 @@
 - 2026-10-03 — F16 mergeada (#146 → `750e6a2`; revisión: ronda 1 CHANGES_REQUESTED por la validación de la base de la candidata, ronda 2 APPROVE). Issues #83–#86 cerrados.
 - 2026-10-03 — F17 implementada: SEMANTICS.md, semántica de récords/logros en derive.js con 9 tests en Node, contenido (oficiales, castellano, #65, #66, #37, login, 404, salir en móvil), ganchos (links reales, query en el hash, reloj, galería).
 - 2026-10-03 — F17 mergeada (#147 → `b630a3d`; revisión: ronda 1 CHANGES_REQUESTED con 3 major de semántica/orden, ronda 2 APPROVE). Issues #87–#89 cerrados.
+- 2026-10-03 — F18 implementada: filtro de mesa (`mesa.js`), equidad y «Por tamaño de mesa» (`fairness.js`), carrera de temporada por promedio con categorías y campeón D-15, Editar/Eliminar desde el informe. `--self --phase 18`: 73/73 (273 frames, 0 %, 1 reintento). Artifact republicado (versión 4).
