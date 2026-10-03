@@ -158,11 +158,11 @@ Plans:
 
 ### v2.0 «Archivo de Terraformación» — IN PROGRESS
 
-- [ ] **Phase 15: Specs, infra y guardas** (E1)
-- [ ] **Phase 16: Arnés de comparación, fixtures y golden** (E1)
-- [ ] **Phase 17: Mockup I: contenido, semántica y ganchos** (E2)
-- [ ] **Phase 18: Mockup II: mesa, equidad, temporadas y corrección** (E2)
-- [ ] **Phase 19: Base visual del frontend** (E5)
+- [x] **Phase 15: Specs, infra y guardas** (E1)
+- [x] **Phase 16: Arnés de comparación, fixtures y golden** (E1)
+- [x] **Phase 17: Mockup I: contenido, semántica y ganchos** (E2)
+- [x] **Phase 18: Mockup II: mesa, equidad, temporadas y corrección** (E2)
+- [x] **Phase 19: Base visual del frontend** (E5)
 - [ ] **Phase 20: Autenticación y validación** (E3)
 - [ ] **Phase 21: Transacciones, orden, rendimiento y empates** (E3)
 - [ ] **Phase 22: Subconjuntos, ELO de mesa y récords v2** (E4)

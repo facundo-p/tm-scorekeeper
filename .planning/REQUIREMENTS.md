@@ -9,33 +9,33 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 
 ### Ejecución y verificación
 
-- [ ] **INFRA-01**: El plan v2.0 (SPEC, RUNBOOK, LEDGER, DECISIONS), GSD y el tablero de GitHub existen y son la fuente de verdad
-- [ ] **INFRA-02**: `scripts/dev/bootstrap.sh`, `gates.sh` y `pr-size.sh` preparan el entorno de forma idempotente y corren los gates
-- [ ] **INFRA-03**: pytest aborta con código 2 si la base de `DATABASE_URL` no termina en `_test`; CI usa `tm_scorekeeper_test`
-- [ ] **INFRA-04**: `requirements.txt` con versiones fijas y `sqlalchemy>=2.0,<2.1` documentado
-- [ ] **INFRA-05**: `requirements-dev.txt` (pytest, httpx, requests) instalado por CI
-- [ ] **PAR-01**: Arnés `tools/parity/` compara mockup y app (píxeles, alto, a11y, estilos, consola, axe) con umbrales por frame
-- [ ] **PAR-02**: `tools/fixtures/export.mjs` genera `fixtures/seed.json` y `fixtures/golden.json` desde el mockup; `--check` en CI
-- [ ] **PAR-03**: `backend/scripts/load_fixture.py` carga la semilla con ids en bases `_test`/`_parity` en menos de 30 s
-- [ ] **PAR-04**: Tests golden en `backend/tests/golden/` comparan endpoints contra `golden.json` sin filtro y por mesa
-- [ ] **PAR-05**: Manifiesto `enabled.yaml` habilita claves golden por fase; posiciones y ELO desde F16
+- [x] **INFRA-01**: El plan v2.0 (SPEC, RUNBOOK, LEDGER, DECISIONS), GSD y el tablero de GitHub existen y son la fuente de verdad
+- [x] **INFRA-02**: `scripts/dev/bootstrap.sh`, `gates.sh` y `pr-size.sh` preparan el entorno de forma idempotente y corren los gates
+- [x] **INFRA-03**: pytest aborta con código 2 si la base de `DATABASE_URL` no termina en `_test`; CI usa `tm_scorekeeper_test`
+- [x] **INFRA-04**: `requirements.txt` con versiones fijas y `sqlalchemy>=2.0,<2.1` documentado
+- [x] **INFRA-05**: `requirements-dev.txt` (pytest, httpx, requests) instalado por CI
+- [x] **PAR-01**: Arnés `tools/parity/` compara mockup y app (píxeles, alto, a11y, estilos, consola, axe) con umbrales por frame
+- [x] **PAR-02**: `tools/fixtures/export.mjs` genera `fixtures/seed.json` y `fixtures/golden.json` desde el mockup; `--check` en CI
+- [x] **PAR-03**: `backend/scripts/load_fixture.py` carga la semilla con ids en bases `_test`/`_parity` en menos de 30 s
+- [x] **PAR-04**: Tests golden en `backend/tests/golden/` comparan endpoints contra `golden.json` sin filtro y por mesa
+- [x] **PAR-05**: Manifiesto `enabled.yaml` habilita claves golden por fase; posiciones y ELO desde F16
 
 ### Especificación (mockup)
 
-- [ ] **MOCK-01**: El mockup refleja las decisiones de contenido: récords/logros oficiales, castellano, Spacefarer, orden del archivo, favoritos, filtros de récords, error de login, 404, salir en móvil
-- [ ] **MOCK-02**: `docs/redesign/SEMANTICS.md` documenta D-04..D-08, D-15, filtros, equidad y temporadas; `derive.js` lo implementa
-- [ ] **MOCK-03**: El mockup expone ganchos de comparación: `data-scroll-root`, `data-planet-slot`, `__TM_PLANET__.drawRect()`, reduced-motion, `?demo=`, reloj inyectable, links reales, `#galeria`
-- [ ] **MOCK-04**: El mockup tiene filtro de mesa por pantalla, ELO de mesa, logros por mesa, paneles por tamaño de mesa y equidad
-- [ ] **MOCK-05**: La temporada del mockup ordena por promedio con categoría, mesa, mínimo de 3 y campeón D-15
-- [ ] **MOCK-06**: El mockup permite editar, eliminar y repetir la ceremonia desde el informe
-- [ ] **MOCK-07**: Golden, capturas, README del rediseño y artifact actualizados
+- [x] **MOCK-01**: El mockup refleja las decisiones de contenido: récords/logros oficiales, castellano, Spacefarer, orden del archivo, favoritos, filtros de récords, error de login, 404, salir en móvil
+- [x] **MOCK-02**: `docs/redesign/SEMANTICS.md` documenta D-04..D-08, D-15, filtros, equidad y temporadas; `derive.js` lo implementa
+- [x] **MOCK-03**: El mockup expone ganchos de comparación: `data-scroll-root`, `data-planet-slot`, `__TM_PLANET__.drawRect()`, reduced-motion, `?demo=`, reloj inyectable, links reales, `#galeria`
+- [x] **MOCK-04**: El mockup tiene filtro de mesa por pantalla, ELO de mesa, logros por mesa, paneles por tamaño de mesa y equidad
+- [x] **MOCK-05**: La temporada del mockup ordena por promedio con categoría, mesa, mínimo de 3 y campeón D-15
+- [x] **MOCK-06**: El mockup permite editar, eliminar y repetir la ceremonia desde el informe
+- [x] **MOCK-07**: Golden, capturas, README del rediseño y artifact actualizados
 
 ### Base visual, shell y efectos
 
-- [ ] **VIS-01**: ESLint (typescript-eslint, react-hooks, jsx-a11y, regla D-09) corre en CI
-- [ ] **VIS-02**: Tokens, base y tipografías locales del mockup portados a `frontend/src/styles/`; íconos en `src/ui/icons`
-- [ ] **VIS-03**: Átomos con CSS Modules, Sheet accesible y estados de carga/error/vacío con tests
-- [ ] **VIS-04**: Dominio `src/domain/{catalog,labels,format,cssVars}.ts` y galería de comparación
+- [x] **VIS-01**: ESLint (typescript-eslint, react-hooks, jsx-a11y, regla D-09) corre en CI
+- [x] **VIS-02**: Tokens, base y tipografías locales del mockup portados a `frontend/src/styles/`; íconos en `src/ui/icons`
+- [x] **VIS-03**: Átomos con CSS Modules, Sheet accesible y estados de carga/error/vacío con tests
+- [x] **VIS-04**: Dominio `src/domain/{catalog,labels,format,cssVars}.ts` y galería de comparación
 - [ ] **SHELL-01**: Shell con escenario, cielo, barra superior, rail en escritorio y dock con FAB en móvil, con container queries
 - [ ] **SHELL-02**: Rutas D-02 con redirecciones, carga diferida, 404 y error boundary
 - [ ] **SHELL-03**: Cliente HTTP con Bearer, timeout, abort y errores tipados; TanStack Query en hooks
@@ -99,27 +99,27 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 15 | Pending |
-| INFRA-02 | Phase 15 | Pending |
-| INFRA-03 | Phase 15 | Pending |
-| INFRA-04 | Phase 15 | Pending |
-| INFRA-05 | Phase 15 | Pending |
-| PAR-01 | Phase 16 | Pending |
-| PAR-02 | Phase 16 | Pending |
-| PAR-03 | Phase 16 | Pending |
-| PAR-04 | Phase 16 | Pending |
-| PAR-05 | Phase 16 | Pending |
-| MOCK-01 | Phase 17 | Pending |
-| MOCK-02 | Phase 17 | Pending |
-| MOCK-03 | Phase 17 | Pending |
-| MOCK-04 | Phase 18 | Pending |
-| MOCK-05 | Phase 18 | Pending |
-| MOCK-06 | Phase 18 | Pending |
-| MOCK-07 | Phase 18 | Pending |
-| VIS-01 | Phase 19 | Pending |
-| VIS-02 | Phase 19 | Pending |
-| VIS-03 | Phase 19 | Pending |
-| VIS-04 | Phase 19 | Pending |
+| INFRA-01 | Phase 15 | Complete |
+| INFRA-02 | Phase 15 | Complete |
+| INFRA-03 | Phase 15 | Complete |
+| INFRA-04 | Phase 15 | Complete |
+| INFRA-05 | Phase 15 | Complete |
+| PAR-01 | Phase 16 | Complete |
+| PAR-02 | Phase 16 | Complete |
+| PAR-03 | Phase 16 | Complete |
+| PAR-04 | Phase 16 | Complete |
+| PAR-05 | Phase 16 | Complete |
+| MOCK-01 | Phase 17 | Complete |
+| MOCK-02 | Phase 17 | Complete |
+| MOCK-03 | Phase 17 | Complete |
+| MOCK-04 | Phase 18 | Complete |
+| MOCK-05 | Phase 18 | Complete |
+| MOCK-06 | Phase 18 | Complete |
+| MOCK-07 | Phase 18 | Complete |
+| VIS-01 | Phase 19 | Complete |
+| VIS-02 | Phase 19 | Complete |
+| VIS-03 | Phase 19 | Complete |
+| VIS-04 | Phase 19 | Complete |
 | SHELL-01 | Phase 26 | Pending |
 | SHELL-02 | Phase 26 | Pending |
 | SHELL-03 | Phase 26 | Pending |
