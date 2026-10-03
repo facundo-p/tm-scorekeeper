@@ -31,6 +31,6 @@
 - React funcional con hooks.
 - Mobile-first.
 - Componentes pequeños y reutilizables.
-- Sin inline styling.
+- Sin inline styling (única excepción: custom properties con `style={cssVars(...)}`, D-09; lo controla `npm run lint`).
 - CSS separado y reutilizable.
 - Parametrizar colores y variables comunes.

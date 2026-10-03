@@ -1,3 +1,4 @@
+import { cssVars } from '@/domain/cssVars'
 import styles from './ProgressBar.module.css'
 
 interface ProgressBarProps {
@@ -15,7 +16,7 @@ export default function ProgressBar({ value }: ProgressBarProps) {
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      <div className={styles.fill} style={{ width: `${clamped}%` }} />
+      <div className={styles.fill} style={cssVars({ w: `${clamped}%` })} />
     </div>
   )
 }

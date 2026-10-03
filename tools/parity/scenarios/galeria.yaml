@@ -5,6 +5,22 @@
   cand: { path: /__galeria }
   planet: none
   gateFromPhase: 19
+- id: gal-sheet
+  screen: galeria
+  ref: { hash: '#galeria' }
+  cand: { path: /__galeria }
+  planet: none
+  actions:
+    - click: { role: button, name: Abrir hoja }
+      expect: { role: dialog }
+  frames: 1
+  gateFromPhase: 19
+- id: gal-instruments
+  screen: galeria
+  ref: { hash: '#galeria?parte=instrumentos' }
+  cand: { path: /__galeria, search: '?parte=instrumentos' }
+  planet: none
+  gateFromPhase: 27
 - id: '404'
   screen: shell
   ref: { hash: '#no-existe' }

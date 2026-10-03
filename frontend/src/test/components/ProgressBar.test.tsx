@@ -6,31 +6,31 @@ describe('ProgressBar', () => {
   it('renders fill at 0% width when value=0', () => {
     const { container } = render(<ProgressBar value={0} />)
     const fill = container.querySelector('[style]') as HTMLElement
-    expect(fill.style.width).toBe('0%')
+    expect(fill.style.getPropertyValue('--w')).toBe('0%')
   })
 
   it('renders fill at 50% width when value=50', () => {
     const { container } = render(<ProgressBar value={50} />)
     const fill = container.querySelector('[style]') as HTMLElement
-    expect(fill.style.width).toBe('50%')
+    expect(fill.style.getPropertyValue('--w')).toBe('50%')
   })
 
   it('renders fill at 100% width when value=100', () => {
     const { container } = render(<ProgressBar value={100} />)
     const fill = container.querySelector('[style]') as HTMLElement
-    expect(fill.style.width).toBe('100%')
+    expect(fill.style.getPropertyValue('--w')).toBe('100%')
   })
 
   it('clamps value to 0 when negative', () => {
     const { container } = render(<ProgressBar value={-10} />)
     const fill = container.querySelector('[style]') as HTMLElement
-    expect(fill.style.width).toBe('0%')
+    expect(fill.style.getPropertyValue('--w')).toBe('0%')
   })
 
   it('clamps value to 100 when over 100', () => {
     const { container } = render(<ProgressBar value={150} />)
     const fill = container.querySelector('[style]') as HTMLElement
-    expect(fill.style.width).toBe('100%')
+    expect(fill.style.getPropertyValue('--w')).toBe('100%')
   })
 
   it('has role="progressbar" with aria-valuenow', () => {

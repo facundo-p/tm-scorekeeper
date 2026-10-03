@@ -1,5 +1,6 @@
 import AchievementIcon from '@/components/AchievementIcon/AchievementIcon'
 import ProgressBar from '@/components/ProgressBar/ProgressBar'
+import { onActivateKey } from '@/utils/a11y'
 import styles from './AchievementCard.module.css'
 
 interface AchievementCardProps {
@@ -41,6 +42,7 @@ export default function AchievementCard({
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? onActivateKey(onClick) : undefined}
     >
       <AchievementIcon fallback_icon={fallback_icon} size={24} unlocked={unlocked} />
       <div className={styles.rightColumn}>

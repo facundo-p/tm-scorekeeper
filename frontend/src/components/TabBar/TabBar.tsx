@@ -15,20 +15,22 @@ const TABS: { id: Tab; label: string }[] = [
 
 export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
   return (
-    <nav className={styles.tabBar} role="tablist">
-      {TABS.map((tab) => (
-        <button
-          key={tab.id}
-          role="tab"
-          aria-selected={activeTab === tab.id}
-          className={[styles.tab, activeTab === tab.id ? styles.active : '']
-            .filter(Boolean)
-            .join(' ')}
-          onClick={() => onTabChange(tab.id)}
-        >
-          {tab.label}
-        </button>
-      ))}
+    <nav aria-label="Secciones del perfil">
+      <div className={styles.tabBar} role="tablist">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            className={[styles.tab, activeTab === tab.id ? styles.active : '']
+              .filter(Boolean)
+              .join(' ')}
+            onClick={() => onTabChange(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
     </nav>
   )
 }

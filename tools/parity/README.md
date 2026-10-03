@@ -15,7 +15,7 @@ Sale con 1 si falla un escenario exigido (`gateFromPhase` ≤ fase; en `--self`,
 
 ## Cómo funciona
 
-- **Referencia** (`serve/reference.mjs`): el mockup estático; jsdelivr se responde con los paquetes de `node_modules` (versiones fijas), Google Fonts con las tipografías locales de `frontend/public/fonts/`, `fonts.gstatic.com` y toda otra red externa se bloquean; se ocultan los controles del prototipo.
+- **Referencia** (`serve/reference.mjs`): el mockup estático; jsdelivr se responde con los paquetes de `node_modules` (versiones fijas), Google Fonts con las tipografías locales (`frontend/src/styles/fonts.css` y los archivos de `frontend/public/fonts/`), `fonts.gstatic.com` y toda otra red externa se bloquean; se ocultan los controles del prototipo.
 - **Candidata** (`serve/candidate.mjs`): recrea `tm_parity`, `alembic upgrade head`, carga `fixtures/seed.json`, levanta uvicorn con credenciales de prueba, `vite build --mode parity` y `vite preview`; inyecta la sesión en `localStorage` salvo en escenarios `fresh: true`.
 - **Congelado**: viewport a 1x, `reducedMotion: reduce`, `es-AR`, `America/Argentina/Buenos_Aires`, reloj fijo `2026-09-27T21:00:00-03:00`, mouse quieto, capturas con animaciones deshabilitadas y sin cursor de texto.
 - **Listo** cuando: fuentes cargadas, `html[data-planet]` en `ready` o `fallback` y el planeta quieto (`__TM_PLANET__.settled()`), red en reposo 500 ms, 2 frames, ningún `aria-busy`.

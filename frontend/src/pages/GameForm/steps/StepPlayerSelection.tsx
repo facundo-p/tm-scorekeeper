@@ -2,6 +2,7 @@ import { usePlayers } from '@/hooks/usePlayers'
 import Spinner from '@/components/Spinner/Spinner'
 import { MIN_PLAYERS, MAX_PLAYERS } from '@/constants/gameRules'
 import type { GameFormState } from '../GameForm.types'
+import { onActivateKey } from '@/utils/a11y'
 import styles from '../GameForm.module.css'
 
 interface Props {
@@ -37,7 +38,12 @@ export default function StepPlayerSelection({ state, onChange }: Props) {
           <div
             key={player.player_id}
             className={`${styles.playerCard} ${selected ? styles.cardActive : ''} ${disabled ? styles.cardDisabled : ''}`}
+            role="checkbox"
+            aria-checked={selected}
+            aria-disabled={disabled}
+            tabIndex={disabled ? -1 : 0}
             onClick={() => { if (!disabled) toggle(player.player_id) }}
+            onKeyDown={onActivateKey(() => { if (!disabled) toggle(player.player_id) })}
           >
             <span className={selected ? styles.accentBold : styles.textMuted}>
               {selected ? '✓' : '○'}

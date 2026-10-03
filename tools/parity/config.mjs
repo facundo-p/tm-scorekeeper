@@ -6,6 +6,7 @@ export const PARITY_DIR = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(PARITY_DIR, '../..');
 export const MOCKUP_DIR = resolve(ROOT, 'docs/redesign/mockup');
 export const FONTS_DIR = resolve(ROOT, 'frontend/public/fonts');
+export const FONTS_CSS = resolve(ROOT, 'frontend/src/styles/fonts.css');
 export const OUT_DIR = resolve(PARITY_DIR, 'out');
 
 export const VIEWPORTS = {
