@@ -11,6 +11,9 @@ interface IconProps {
 const a11y = (label?: string | null) =>
   label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true as const }
 
+// Invariante: ICONS y MAP_GLYPHS son constantes del código (glyphs.ts). Nunca armar su
+// contenido con datos del usuario: se insertan como HTML.
+
 /** Ícono del set del mockup; desconocido → `dot`. Con `label` es una imagen accesible. */
 export function Icon({ name, size = 20, label, className }: IconProps) {
   const body = ICONS[name] ?? ICONS.dot

@@ -20,6 +20,10 @@ describe('regla D-09 (sin estilos inline)', () => {
     expect(await styleErrors(code)).toHaveLength(0)
   })
 
+  it('rechaza un spread literal con style', async () => {
+    expect(await styleErrors("export const A = () => <div {...{ style: { color: 'red' } }} />\n")).toHaveLength(1)
+  })
+
   it('rechaza otra función o una variable', async () => {
     const code = "const s = {}\nconst f = () => s\nexport const A = () => <><div style={s} /><div style={f()} /></>\n"
     expect(await styleErrors(code)).toHaveLength(2)

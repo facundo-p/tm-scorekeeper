@@ -15,7 +15,8 @@ const TABS: { id: Tab; label: string }[] = [
 
 export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
   return (
-    <div className={styles.tabBar} role="tablist">
+    <nav aria-label="Secciones del perfil">
+      <div className={styles.tabBar} role="tablist">
       {TABS.map((tab) => (
         <button
           key={tab.id}
@@ -29,6 +30,7 @@ export default function TabBar({ activeTab, onTabChange }: TabBarProps) {
           {tab.label}
         </button>
       ))}
-    </div>
+      </div>
+    </nav>
   )
 }

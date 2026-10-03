@@ -12,7 +12,7 @@ Criterio para resolver ambigüedades, en orden: (1) el prompt del milestone / `S
 - **D-06** Redondeo half-even en todos lados, mockup incluido, para que el ELO de producción no cambie.
 - **D-07** Gana quien queda en la posición 1; los co-ganadores cuentan todos. Helper único `winners()`.
 - **D-08** `giant_killer`: ganar teniendo un ELO previo estrictamente menor que el máximo ELO previo de la mesa.
-- **D-09** Sin estilos inline, salvo custom properties (`--w`, `--i`) puestas con el helper `cssVars()`. Lo controla ESLint y queda como aclaración en CLAUDE.md. **revisar**
+- **D-09** Sin estilos inline, salvo custom properties (`--w`, `--i`) puestas con el helper `cssVars()`. Lo controla ESLint (`no-restricted-syntax` sobre el atributo `style` y los spreads literales con `style`; un objeto armado aparte y pasado por spread o `createElement` no se detecta) y queda como aclaración en CLAUDE.md. **revisar**
 - **D-10** TanStack Query envuelto en hooks con la forma del skill `new-hook`. El filtro va en las claves de cache.
 - **D-11** `prefers-reduced-motion` también congela las capturas: planeta, ticker, contadores, inclinaciones, confeti, meteoros y ceremonia.
 - **D-12** Las tipografías (Chakra Petch, Saira variable y Crimson Pro itálica, OFL) se guardan en el repo.
