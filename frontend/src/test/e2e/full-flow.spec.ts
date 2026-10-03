@@ -4,7 +4,11 @@ import { test, expect } from '@playwright/test'
  * E2E: Full flow test
  * Requires backend running on localhost:8000 and frontend on localhost:5173.
  * Tests: login → navigate → players page → game form entry
+ * Credenciales del backend de prueba: E2E_USER y E2E_PASSWORD (ver backend/.env.example).
  */
+
+const E2E_USER = process.env.E2E_USER ?? 'admin'
+const E2E_PASSWORD = process.env.E2E_PASSWORD ?? 'admin'
 
 test.describe('Full flow integration', () => {
   test.beforeEach(async ({ page }) => {
@@ -15,8 +19,8 @@ test.describe('Full flow integration', () => {
 
   test('login with valid credentials navigates to home', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
     await expect(page).toHaveURL('/home')
     await expect(page.getByText('Terraforming Mars')).toBeVisible()
@@ -38,8 +42,8 @@ test.describe('Full flow integration', () => {
 
   test('session persists after page reload', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
     await expect(page).toHaveURL('/home')
 
@@ -49,8 +53,8 @@ test.describe('Full flow integration', () => {
 
   test('logout redirects to login', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
     await expect(page).toHaveURL('/home')
 
@@ -60,8 +64,8 @@ test.describe('Full flow integration', () => {
 
   test('navigate to players page from home', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
 
     await page.getByText('Jugadores').click()
@@ -71,8 +75,8 @@ test.describe('Full flow integration', () => {
 
   test('game form wizard: validates step 1 before advancing', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
 
     await page.goto('/games/new')
@@ -89,8 +93,8 @@ test.describe('Full flow integration', () => {
 
   test('records placeholder shows "próximamente"', async ({ page }) => {
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
 
     await page.goto('/records')
@@ -104,8 +108,8 @@ test.describe('Game form — validation edge cases', () => {
     await page.goto('/')
     await page.evaluate(() => localStorage.clear())
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
     await expect(page).toHaveURL('/home')
   })
@@ -195,8 +199,8 @@ test.describe('Game form — full game creation', () => {
     // Login
     await page.evaluate(() => localStorage.clear())
     await page.goto('/login')
-    await page.fill('input[type="text"]', 'admin')
-    await page.fill('input[type="password"]', 'admin')
+    await page.fill('input[type="text"]', E2E_USER)
+    await page.fill('input[type="password"]', E2E_PASSWORD)
     await page.click('button[type="submit"]')
     await expect(page).toHaveURL('/home')
 

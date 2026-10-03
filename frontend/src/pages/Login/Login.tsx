@@ -11,18 +11,18 @@ export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [pending, setPending] = useState(false)
 
   if (isAuthenticated) return <Navigate to="/home" replace />
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setError('')
-    const ok = login(username, password)
-    if (ok) {
-      navigate('/home')
-    } else {
-      setError('Usuario o contraseña incorrectos.')
-    }
+    setPending(true)
+    const result = await login(username, password)
+    setPending(false)
+    if (result.ok) navigate('/home')
+    else setError(result.error)
   }
 
   return (
@@ -33,7 +33,7 @@ export default function Login() {
           <p className={styles.subtitle}>Terraforming Mars — Registro de partidas</p>
         </div>
         <form className={styles.form} onSubmit={handleSubmit}>
-          {error && <p className={styles.error}>{error}</p>}
+          {error && <p className={styles.error} role="alert">{error}</p>}
           <Input
             label="Usuario"
             type="text"
@@ -51,8 +51,8 @@ export default function Login() {
             required
             autoComplete="current-password"
           />
-          <Button type="submit" fullWidth>
-            Ingresar
+          <Button type="submit" fullWidth disabled={pending}>
+            {pending ? 'Ingresando…' : 'Ingresar'}
           </Button>
         </form>
       </div>

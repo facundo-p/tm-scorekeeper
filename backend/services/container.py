@@ -11,6 +11,7 @@ from repositories.container import (
     players_repository,
 )
 from services.achievements_service import AchievementsService
+from services.auth_service import AuthService
 from services.elo_service import EloService
 
 
@@ -25,3 +26,5 @@ achievements_service = AchievementsService(
     achievement_repository=achievement_repository,
     players_repository=players_repository,
 )
+
+auth_service = AuthService()

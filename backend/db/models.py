@@ -60,6 +60,9 @@ class Game(Base):
 
 class PlayerResult(Base):
     __tablename__ = "player_results"
+    __table_args__ = (
+        UniqueConstraint("game_id", "player_id", name="uq_player_result_game_player"),
+    )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)

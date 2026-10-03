@@ -16,9 +16,8 @@ const API_PORT = Number(process.env.PARITY_API_PORT ?? 8765);
 const WEB_PORT = Number(process.env.PARITY_WEB_PORT ?? 4765);
 export const PARITY_USER = 'parity';
 export const PARITY_PASSWORD = 'parity-password';
-// Claves de localStorage que lee el frontend (D-03): el token y la marca de sesión vieja.
+// Clave de localStorage del token que lee el frontend (D-25).
 export const TOKEN_KEY = 'tm_token';
-const LEGACY_SESSION_KEY = 'tm_session';
 
 const backendEnv = () => ({
   ...process.env, DATABASE_URL: DB_URL, FRONTEND_URL: `http://127.0.0.1:${WEB_PORT}`,
@@ -26,13 +25,9 @@ const backendEnv = () => ({
   AUTH_PASSWORD_HASH: execFileSync(PY, ['-c', passwordHashScript()], { cwd: BACKEND }).toString().trim(),
 });
 
-// El script de hash existe desde F20; antes devuelve vacío y el backend no exige login.
 const passwordHashScript = () => `
-try:
-    from scripts.hash_password import hash_password
-    print(hash_password(${JSON.stringify(PARITY_PASSWORD)}))
-except ImportError:
-    print("")`;
+from scripts.hash_password import hash_password
+print(hash_password(${JSON.stringify(PARITY_PASSWORD)}))`;
 
 function prepareDatabase(env) {
   assertDisposableDatabase(DB_URL);
@@ -79,7 +74,8 @@ export async function startCandidate() {
   const stopWeb = startProcess('npx', ['vite', 'preview', '--outDir', 'dist-parity', '--host', '127.0.0.1', '--port', String(WEB_PORT), '--strictPort'], { cwd: FRONTEND });
   await waitHttp(`http://127.0.0.1:${WEB_PORT}/`);
   const token = await login(api);
-  const storage = { [LEGACY_SESSION_KEY]: 'true', ...(token ? { [TOKEN_KEY]: token } : {}) };
+  if (!token) throw new Error('la candidata no pudo iniciar sesión en el backend');
+  const storage = { [TOKEN_KEY]: token };
   return {
     name: 'app',
     url: (scenario) => `http://127.0.0.1:${WEB_PORT}${scenario.cand?.path ?? '/'}${scenario.cand?.search ?? ''}`,

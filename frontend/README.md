@@ -36,11 +36,9 @@ Todas las llamadas a `/api/*` se redirigen automáticamente al backend en `http:
 
 > **El backend debe estar corriendo** antes de usar la aplicación. Ver instrucciones en el `README.md` de la raíz del repo.
 
-### Credenciales de acceso (mock)
+### Credenciales de acceso
 
-| Usuario | Contraseña |
-|---|---|
-| `admin` | `admin` |
+El login es real (v2.0, D-03): el backend valida contra `AUTH_USERNAME` y `AUTH_PASSWORD_HASH` (ver `backend/.env.example`) y devuelve un token que el cliente guarda en `localStorage` (`tm_token`) y manda como `Authorization: Bearer`. Un 401 de cualquier llamada cierra la sesión.
 
 ---
 
