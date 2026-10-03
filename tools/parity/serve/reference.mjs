@@ -1,12 +1,12 @@
 // Lado de referencia: el mockup servido estático, sin red externa.
 // - jsdelivr → paquetes de npm de tools/parity/node_modules
-// - Google Fonts → tipografías locales de la app (frontend/public/fonts); fonts.gstatic.com bloqueado
+// - Google Fonts → tipografías locales de la app (frontend/src/styles/fonts.css y public/fonts); fonts.gstatic.com bloqueado
 // - Se ocultan los controles del prototipo
 // - `ref = 'mockup@<sha>'` sirve una versión vieja del mockup (git archive a un directorio temporal)
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { FONTS_DIR, MOCKUP_DIR, OUT_DIR, PARITY_DIR, ROOT } from '../config.mjs';
+import { FONTS_CSS, FONTS_DIR, MOCKUP_DIR, OUT_DIR, PARITY_DIR, ROOT } from '../config.mjs';
 import { serveStatic } from './static.mjs';
 
 const HIDE_PROTOTYPE = '.protobar, .sample-chip, .proto-only { display: none !important; }';
@@ -30,7 +30,7 @@ function npmFile(url) {
 }
 
 function fontsCss() {
-  return readFileSync(resolve(FONTS_DIR, 'fonts.css'), 'utf8');
+  return readFileSync(FONTS_CSS, 'utf8');
 }
 
 async function routeNetwork(context) {

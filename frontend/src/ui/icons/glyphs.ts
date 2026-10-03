@@ -1,12 +1,11 @@
-// Hand-drawn 24px icon set. UI icons are strokes in currentColor; game glyphs
-// (tiles, resources, maps) use fill classes defined in css/components.css.
-import { html } from '../lib.js';
+// Íconos de 24 px dibujados a mano: port literal de docs/redesign/mockup/js/ui/icons.js.
+// Los de interfaz son trazos en currentColor; los del juego usan las clases globales
+// de icons.css (D-44). Son textos fijos del código, nunca datos del usuario.
+const st = (d: string) => `<path d="${d}" class="i-st"/>`;
+export const HEX_PATH = 'M12 2l8.66 5v10L12 22l-8.66-5V7z';
+export const HEX_SMALL_PATH = 'M12 4.5l6.5 3.75v7.5L12 19.5l-6.5-3.75v-7.5z';
 
-const st = (d) => `<path d="${d}" class="i-st"/>`;
-const HEX = 'M12 2l8.66 5v10L12 22l-8.66-5V7z';
-const HEX_SM = 'M12 4.5l6.5 3.75v7.5L12 19.5l-6.5-3.75v-7.5z';
-
-const ICONS = {
+export const ICONS: Record<string, string> = {
   // Navigation and UI
   home: st('M3 20h18M5 20v-5.5a7 7 0 0 1 14 0V20M10 20v-4h4v4M12 7.5V4M10.5 4h3'),
   games: st('M6 3h9l4 4v14H6zM15 3v4h4M9 11.5h7M9 15.5h7M9 7.5h3'),
@@ -40,14 +39,14 @@ const ICONS = {
   mute: st('M4 9.5h4L13 5v14l-5-4.5H4zM17 9.5l4.5 5M21.5 9.5L17 14.5'),
 
   // Score categories and game concepts
-  tr: `<path d="${HEX}" class="g-tr-bg"/><path d="M7.5 15.5l4.5-6 4.5 6" class="g-ink-st"/><path d="M12 9.5v8" class="g-ink-st"/>`,
+  tr: `<path d="${HEX_PATH}" class="g-tr-bg"/><path d="M7.5 15.5l4.5-6 4.5 6" class="g-ink-st"/><path d="M12 9.5v8" class="g-ink-st"/>`,
   award: `<circle cx="12" cy="9.5" r="5.5" class="g-award"/><path d="M8.6 13.6L7 21l5-2.6 5 2.6-1.6-7.4" class="g-award-dk"/><circle cx="12" cy="9.5" r="2.4" class="g-ink"/>`,
   milestone: `<path d="M6.5 21.5V3.5" class="g-ink-st g-thin"/><path d="M7 4h11.5l-2.6 4.2 2.6 4.3H7z" class="g-milestone"/>`,
   resource: `<ellipse cx="12" cy="15" rx="4.6" ry="3.8" class="g-resource"/><circle cx="6.4" cy="9.6" r="2" class="g-resource"/><circle cx="10" cy="6.4" r="2" class="g-resource"/><circle cx="14" cy="6.4" r="2" class="g-resource"/><circle cx="17.6" cy="9.6" r="2" class="g-resource"/>`,
   card: `<rect x="5.5" y="2.5" width="13" height="19" rx="1.5" class="g-card"/><path d="M8 6.5h8" class="g-ink-st g-thin"/><circle cx="12" cy="14.5" r="3.6" class="g-card-vp"/>`,
-  greenery: `<path d="${HEX}" class="g-greenery"/><path d="M12 17.5c-3.6-1.4-4.4-5.2-1.6-9.5 2.6 1.4 4.7 5.2 1.6 9.5zM12 17.5v-6" class="g-leaf"/>`,
-  city: `<path d="${HEX}" class="g-city"/><path d="M7 17V11.5h3V17M10 17V8h4v9M14 17v-6h3v6M6.5 17h11" class="g-city-ink"/>`,
-  ocean: `<path d="${HEX}" class="g-ocean"/><path d="M6.5 11c1.8-1.4 3.7-1.4 5.5 0s3.7 1.4 5.5 0M6.5 14.5c1.8-1.4 3.7-1.4 5.5 0s3.7 1.4 5.5 0" class="g-wave"/>`,
+  greenery: `<path d="${HEX_PATH}" class="g-greenery"/><path d="M12 17.5c-3.6-1.4-4.4-5.2-1.6-9.5 2.6 1.4 4.7 5.2 1.6 9.5zM12 17.5v-6" class="g-leaf"/>`,
+  city: `<path d="${HEX_PATH}" class="g-city"/><path d="M7 17V11.5h3V17M10 17V8h4v9M14 17v-6h3v6M6.5 17h11" class="g-city-ink"/>`,
+  ocean: `<path d="${HEX_PATH}" class="g-ocean"/><path d="M6.5 11c1.8-1.4 3.7-1.4 5.5 0s3.7 1.4 5.5 0M6.5 14.5c1.8-1.4 3.7-1.4 5.5 0s3.7 1.4 5.5 0" class="g-wave"/>`,
   turmoil: `<circle cx="12" cy="7.5" r="3.4" class="g-turmoil"/><path d="M5 20.5c0-4.2 3.1-7 7-7s7 2.8 7 7z" class="g-turmoil"/>`,
   mc: `<rect x="3" y="3" width="18" height="18" rx="4" class="g-mc"/><text x="12" y="16.2" class="g-mc-txt">M€</text>`,
   steel: `<rect x="3" y="3" width="18" height="18" rx="3" class="g-steel"/><path d="M7 8h10M7 16h10M12 8v8" class="g-ink-st"/>`,
@@ -85,7 +84,7 @@ const ICONS = {
 };
 
 // Map glyphs: a hexagon frame with the region's signature landform.
-const MAP_GLYPHS = {
+export const MAP_GLYPHS: Record<string, string> = {
   tharsis: '<path d="M4.5 16.5l3-5 3 5M9.5 16.5l3-6 3 6M14.5 16.5l3-5 3 5" class="m-st"/><path d="M6.5 9.5l2-3.5 2 3.5" class="m-st m-thin"/>',
   hellas: '<circle cx="12" cy="12" r="5.5" class="m-st"/><circle cx="12" cy="12" r="2.5" class="m-st m-thin"/>',
   elysium: '<path d="M5.5 16.5l5-8.5h3l5 8.5" class="m-st"/><path d="M10.5 8l1.5 1.4L13.5 8" class="m-st m-thin"/>',
@@ -94,20 +93,3 @@ const MAP_GLYPHS = {
   borealis: '<path d="M6 10.5a7 4 0 0 1 12 0c-1.8 1.4-3.8 2-6 2s-4.2-.6-6-2z" class="m-fill"/><path d="M6 15c2-.9 4-.9 6 0s4 .9 6 0" class="m-st m-thin"/>',
   amazonis: '<path d="M4.5 14c3-3 6-3 9 0s4.5 2.2 6 1M4.5 10c3-2 6-2 9 0" class="m-st m-thin"/>',
 };
-
-export function Icon({ name, size = 20, label, class: className }) {
-  const body = ICONS[name] ?? ICONS.dot;
-  return html`<svg class=${`icon ${className ?? ''}`} width=${size} height=${size} viewBox="0 0 24 24"
-    role=${label ? 'img' : null} aria-label=${label ?? null} aria-hidden=${label ? null : 'true'}
-    dangerouslySetInnerHTML=${{ __html: body }}></svg>`;
-}
-
-export function MapGlyph({ map, glyph, size = 28, label }) {
-  const body = `<path d="${HEX}" class="m-hex"/>${MAP_GLYPHS[glyph] ?? ''}`;
-  return html`<svg class="map-glyph" data-map=${glyph} width=${size} height=${size} viewBox="0 0 24 24"
-    role=${label ? 'img' : null} aria-label=${label ?? map ?? null} aria-hidden=${label || map ? null : 'true'}
-    dangerouslySetInnerHTML=${{ __html: body }}></svg>`;
-}
-
-export const HEX_PATH = HEX;
-export const HEX_SMALL_PATH = HEX_SM;

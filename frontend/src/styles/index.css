@@ -1,0 +1,5 @@
+/* Sistema visual v2.0 (D-43): lo carga el marco nuevo (src/ui/frame), no la app vieja. */
+@import './tokens.css';
+@import './fonts.css';
+@import './base.css';
+@import '../ui/icons/icons.css';

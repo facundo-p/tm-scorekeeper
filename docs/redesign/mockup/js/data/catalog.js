@@ -172,7 +172,7 @@ export const ACHIEVEMENTS = [
   { code: 'giant_killer', description: 'Ganar una partida en la que jugaba el n.º 1 del ranking', glyph: 'giant', kind: 'sum', metric: 'giantKills',
     flavor: 'Hasta los volcanes más altos tienen una ladera.',
     tiers: tiers([[1, 'Retador'], [3, 'Matagigantes'], [6, 'Verdugo del Consejo']]) },
-  { code: 'full_table', description: 'Ganar una partida de 5 jugadores', glyph: 'table', kind: 'flag', metric: 'fullTableWin',
+  { code: 'full_table', description: 'Ganar una partida de 5 jugadores', glyph: 'fullTable', kind: 'flag', metric: 'fullTableWin',
     flavor: 'Cinco corporaciones, un solo planeta.', tiers: tiers([[1, 'Mesa llena']]) },
   { code: 'city_planner', description: 'Alcanzar X puntos de ciudades en una partida', glyph: 'city', kind: 'max', metric: 'cities',
     flavor: 'Domos, calles, luces en la noche marciana.',
