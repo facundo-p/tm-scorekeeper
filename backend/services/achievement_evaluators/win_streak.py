@@ -3,6 +3,7 @@ from models.achievement_definition import AchievementDefinition
 from models.achievement_progress import Progress
 from services.achievement_evaluators.base import AchievementEvaluator
 from services.helpers.results import calculate_results
+from services.helpers.order import chronological
 
 
 class WinStreakEvaluator(AchievementEvaluator):
@@ -11,7 +12,7 @@ class WinStreakEvaluator(AchievementEvaluator):
     compute_tier uses the maximum streak over the player's entire history.
     get_progress uses the current active streak (from end of chronological history).
 
-    CRITICAL: Games are sorted by date before calculating streaks.
+    CRITICAL: Games are sorted in canonical order (date, created_at, id) before calculating streaks.
     GamesRepository.get_games_by_player() does NOT guarantee order.
     """
 
@@ -35,7 +36,7 @@ class WinStreakEvaluator(AchievementEvaluator):
 
     def _calculate_max_streak(self, player_id: str, games: list[Game]) -> int:
         """Maximum consecutive wins over entire history (chronological)."""
-        sorted_games = sorted(games, key=lambda g: g.date)
+        sorted_games = chronological(games)
         streak = 0
         max_streak = 0
         for game in sorted_games:
@@ -53,7 +54,7 @@ class WinStreakEvaluator(AchievementEvaluator):
 
     def _calculate_current_streak(self, player_id: str, games: list[Game]) -> int:
         """Active streak from the END of chronological history (for progress display)."""
-        sorted_games = sorted(games, key=lambda g: g.date)
+        sorted_games = chronological(games)
         streak = 0
         for game in reversed(sorted_games):
             # Skip games where player didn't participate

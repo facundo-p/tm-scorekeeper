@@ -1,6 +1,7 @@
 from datetime import date
 from db.models import PlayerAchievement
 from db.session import get_session
+from db.uow import session_scope
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 
@@ -28,13 +29,12 @@ class AchievementRepository:
             },
             where=PlayerAchievement.tier < stmt.excluded.tier,
         )
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             session.execute(stmt)
-            session.commit()
 
     def get_for_player(self, player_id: str) -> list[PlayerAchievement]:
         """Return all achievement rows for a player."""
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             return (
                 session.query(PlayerAchievement)
                 .filter(PlayerAchievement.player_id == player_id)
@@ -43,5 +43,5 @@ class AchievementRepository:
 
     def get_all(self) -> list[PlayerAchievement]:
         """Return all achievement rows across all players."""
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             return session.query(PlayerAchievement).all()

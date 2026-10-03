@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 
 from db.session import get_session
+from db.uow import session_scope
 from db.models import Player as PlayerORM
 from models.player import Player
 
@@ -16,7 +17,7 @@ class PlayersRepository:
 
             player.player_id = str(uuid4())
 
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             existing = session.get(PlayerORM, player.player_id)
             if existing:
                 # conflict; could raise or update
@@ -28,11 +29,10 @@ class PlayersRepository:
                 elo=player.elo,
             )
             session.add(orm)
-            session.commit()
         return player
 
     def get(self, player_id: str) -> Player:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(PlayerORM, player_id)
             if not orm:
                 raise KeyError(f"Player '{player_id}' not found")
@@ -44,7 +44,7 @@ class PlayersRepository:
             )
 
     def update(self, player: Player) -> None:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(PlayerORM, player.player_id)
             if not orm:
                 raise KeyError(f"Player '{player.player_id}' not found")
@@ -52,10 +52,9 @@ class PlayersRepository:
             orm.is_active = player.is_active
             orm.elo = player.elo
             session.add(orm)
-            session.commit()
 
     def get_all(self) -> list[Player]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orms = session.query(PlayerORM).all()
             return [
                 Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo)
@@ -68,7 +67,7 @@ class PlayersRepository:
         Position = index+1 in this list. Total = len(this list). Order is
         deterministic (CONTEXT D-06: stable order by player_id, NOT dense rank).
         """
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orms = (
                 session.query(PlayerORM)
                 .filter(PlayerORM.is_active.is_(True))
@@ -84,10 +83,9 @@ class PlayersRepository:
         """Persist new ELO values for several players in a single transaction."""
         if not elo_by_player:
             return
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             for player_id, new_elo in elo_by_player.items():
                 orm = session.get(PlayerORM, player_id)
                 if orm is None:
                     raise KeyError(f"Player '{player_id}' not found")
                 orm.elo = new_elo
-            session.commit()

@@ -3,6 +3,7 @@ from datetime import date
 
 from sqlalchemy.exc import IntegrityError
 
+from db.uow import unit_of_work
 from models.game_rules import allowed_awards, allowed_milestones
 from models.player_result import PlayerResult
 from models.award_result import AwardResult
@@ -200,12 +201,13 @@ class GamesService:
         self._validate_board(game)
 
     def create_game(self, game_dto: GameDTO) -> str:
+        """Guarda la partida y recalcula el ELO en una sola transacción, en serie (D-55)."""
         game = game_dto_to_model(game_dto)
         self._validate_game(game)
-        with _conflicts_as_409():
+        with unit_of_work(lock=True), _conflicts_as_409():
             game_id = self.games_repository.create(game)
-        game.id = game_id
-        self._recompute_elo_from(game.date)
+            game.id = game_id
+            self._recompute_elo_from(game.date)
         return game_id
 
 
@@ -215,30 +217,23 @@ class GamesService:
 
 
     def update_game(self, game_id: str, game_dto: GameDTO) -> None:
-        old_game = self.games_repository.get(game_id)
-        if old_game is None:
-            raise GameNotFound("Game not found")
         new_game = game_dto_to_model(game_dto)
         self._validate_game(new_game)
-        with _conflicts_as_409():
+        with unit_of_work(lock=True), _conflicts_as_409():
+            old_game = self.games_repository.get(game_id)
+            if old_game is None:
+                raise GameNotFound("Game not found")
             self.games_repository.update(game_id, new_game)
-        self._recompute_elo_from(min(old_game.date, new_game.date))
+            self._recompute_elo_from(min(old_game.date, new_game.date))
 
 
     def delete_game(self, game_id: str) -> None:
-        """
-        Elimina una partida.
-        Lanza error si no existe.
-        """
-        old_game = self.games_repository.get(game_id)
-        if old_game is None:
-            raise GameNotFound("Game not found")
-
-        deleted = self.games_repository.delete(game_id)
-        if not deleted:
-            raise GameNotFound("Game not found")
-
-        self._recompute_elo_from(old_game.date)
+        """Elimina una partida y recalcula el ELO desde su fecha. GameNotFound si no existe."""
+        with unit_of_work(lock=True):
+            old_game = self.games_repository.get(game_id)
+            if old_game is None or not self.games_repository.delete(game_id):
+                raise GameNotFound("Game not found")
+            self._recompute_elo_from(old_game.date)
 
     def get_game_results(self, game_id: str) -> GameResultDTO:
         game = self.games_repository.get(game_id)

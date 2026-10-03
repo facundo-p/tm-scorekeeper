@@ -3,9 +3,19 @@ from datetime import date
 from sqlalchemy import func
 
 from db.session import get_session
-from db.models import PlayerEloHistory as PlayerEloHistoryORM
+from db.uow import session_scope
+from db.models import Game as GameORM, PlayerEloHistory as PlayerEloHistoryORM
 from repositories.elo_filters import EloHistoryFilter
 from models.elo_change import EloChange
+
+
+# Orden canónico de las filas (D-56): fecha, created_at de la partida e id de la partida.
+_CHRONOLOGICAL = (PlayerEloHistoryORM.recorded_at, GameORM.created_at, PlayerEloHistoryORM.game_id)
+_REVERSE_CHRONOLOGICAL = tuple(col.desc() for col in _CHRONOLOGICAL)
+
+
+def _with_game(query):
+    return query.join(GameORM, GameORM.id == PlayerEloHistoryORM.game_id)
 
 
 class EloRepository:
@@ -18,7 +28,7 @@ class EloRepository:
         recorded_at: date,
         changes: list[EloChange],
     ) -> None:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             for change in changes:
                 session.add(
                     PlayerEloHistoryORM(
@@ -30,10 +40,9 @@ class EloRepository:
                         recorded_at=recorded_at,
                     )
                 )
-            session.commit()
 
     def get_changes_for_game(self, game_id: str) -> list[EloChange]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orms = (
                 session.query(PlayerEloHistoryORM)
                 .filter(PlayerEloHistoryORM.game_id == game_id)
@@ -50,22 +59,20 @@ class EloRepository:
             ]
 
     def delete_changes_for_game(self, game_id: str) -> None:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             session.query(PlayerEloHistoryORM).filter(
                 PlayerEloHistoryORM.game_id == game_id
             ).delete(synchronize_session=False)
-            session.commit()
 
     def has_any_history(self) -> bool:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             return session.query(PlayerEloHistoryORM.id).first() is not None
 
     def delete_changes_from_date(self, start_date: date) -> None:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             session.query(PlayerEloHistoryORM).filter(
                 PlayerEloHistoryORM.recorded_at >= start_date
             ).delete(synchronize_session=False)
-            session.commit()
 
     def get_baseline_elo_before(self, start_date: date) -> dict[str, int]:
         """
@@ -73,15 +80,11 @@ class EloRepository:
         recorded_at < start_date. Jugadores sin historial previo quedan ausentes
         (el caller asigna DEFAULT_ELO).
         """
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             rows = (
-                session.query(PlayerEloHistoryORM)
+                _with_game(session.query(PlayerEloHistoryORM))
                 .filter(PlayerEloHistoryORM.recorded_at < start_date)
-                .order_by(
-                    PlayerEloHistoryORM.player_id,
-                    PlayerEloHistoryORM.recorded_at,
-                    PlayerEloHistoryORM.game_id,
-                )
+                .order_by(PlayerEloHistoryORM.player_id, *_CHRONOLOGICAL)
                 .all()
             )
             baseline: dict[str, int] = {}
@@ -95,7 +98,7 @@ class EloRepository:
         Per CONTEXT D-03: peak is computed on-the-fly from PlayerEloHistory.elo_after.
         No new column. Recalculates automatically after `recompute_from_date`.
         """
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             return (
                 session.query(func.max(PlayerEloHistoryORM.elo_after))
                 .filter(PlayerEloHistoryORM.player_id == player_id)
@@ -105,17 +108,13 @@ class EloRepository:
     def get_last_change_for_player(self, player_id: str) -> EloChange | None:
         """Return the most recent EloChange for the player.
 
-        Order: recorded_at DESC, then game_id DESC for deterministic same-day
-        tie-break. Used to derive `last_delta` for the elo-summary endpoint.
+        Order: canonical order reversed (recorded_at, game created_at, game_id; D-56). Used to derive `last_delta` for the elo-summary endpoint.
         """
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = (
-                session.query(PlayerEloHistoryORM)
+                _with_game(session.query(PlayerEloHistoryORM))
                 .filter(PlayerEloHistoryORM.player_id == player_id)
-                .order_by(
-                    PlayerEloHistoryORM.recorded_at.desc(),
-                    PlayerEloHistoryORM.game_id.desc(),
-                )
+                .order_by(*_REVERSE_CHRONOLOGICAL)
                 .first()
             )
             if orm is None:
@@ -129,19 +128,15 @@ class EloRepository:
 
     def get_history(self, filter: EloHistoryFilter) -> list[PlayerEloHistoryORM]:
         """
-        Devuelve filas de PlayerEloHistory ordenadas por (player_id, recorded_at, game_id),
+        Devuelve filas de PlayerEloHistory ordenadas por jugador y en orden canónico (D-56),
         opcionalmente filtradas por fecha desde y/o conjunto de player_ids.
         UNA sola query indexada (recorded_at y player_id son index=True).
         """
-        with self._session_factory() as session:
-            query = session.query(PlayerEloHistoryORM)
+        with session_scope(self._session_factory) as session:
+            query = _with_game(session.query(PlayerEloHistoryORM))
             if filter.date_from is not None:
                 query = query.filter(PlayerEloHistoryORM.recorded_at >= filter.date_from)
             if filter.player_ids is not None:
                 query = query.filter(PlayerEloHistoryORM.player_id.in_(filter.player_ids))
-            rows = query.order_by(
-                PlayerEloHistoryORM.player_id,
-                PlayerEloHistoryORM.recorded_at,
-                PlayerEloHistoryORM.game_id,
-            ).all()
+            rows = query.order_by(PlayerEloHistoryORM.player_id, *_CHRONOLOGICAL).all()
             return list(rows)

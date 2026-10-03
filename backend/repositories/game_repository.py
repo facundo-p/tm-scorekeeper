@@ -4,6 +4,7 @@ from typing import Optional, List, Dict
 from sqlalchemy.orm import Session
 
 from db.session import get_session
+from db.uow import session_scope
 from db.models import Game as GameORM, PlayerResult as PlayerResultORM, Award as AwardORM, Player as PlayerORM
 from models.game import Game
 from models.player_result import PlayerResult, PlayerEndStats
@@ -69,6 +70,7 @@ class GamesRepository:
             generations=orm.generations,
             player_results=player_results,
             awards=awards,
+            created_at=orm.created_at,
         )
 
     def _domain_to_orm(self, game: Game, orm: Optional[GameORM] = None) -> GameORM:
@@ -126,19 +128,18 @@ class GamesRepository:
         else:
             game_id = game.id
 
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = self._domain_to_orm(game)
             session.add(orm)
-            session.commit()
         return game_id
 
     def list(self) -> Dict[str, Game]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm_games = session.query(GameORM).all()
             return {g.id: self._orm_to_domain(g) for g in orm_games}
 
     def update(self, game_id: str, game: Game) -> bool:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             if not orm:
                 return False
@@ -150,25 +151,23 @@ class GamesRepository:
             session.flush()
             orm = self._domain_to_orm(game, orm)
             session.add(orm)
-            session.commit()
             return True
 
     def delete(self, game_id: str) -> bool:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             if not orm:
                 return False
             session.delete(orm)
-            session.commit()
             return True
 
     def get(self, game_id: str) -> Optional[Game]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             return self._orm_to_domain(orm) if orm else None
 
     def get_games_by_player(self, player_id: str) -> List[Game]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm_games = (
                 session.query(GameORM)
                 .join(GameORM.player_results)
@@ -178,12 +177,13 @@ class GamesRepository:
             return [self._orm_to_domain(g) for g in orm_games]
 
     def list_games(self, filters: Optional[GameFilter] = None) -> List[Game]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             query = session.query(GameORM)
             if filters and filters.game_ids is not None:
                 query = query.filter(GameORM.id.in_(filters.game_ids))
             if filters and filters.date_from is not None:
                 query = query.filter(GameORM.date >= filters.date_from)
+            query = query.order_by(GameORM.date, GameORM.created_at, GameORM.id)
             return [self._orm_to_domain(g) for g in query.all()]
 
     def list_games_from_date(self, start_date) -> List[Game]:
