@@ -199,24 +199,27 @@ export function App() {
   const Screen = SCREENS[route.name] ?? Home;
   const section = SECTION[route.name];
   const bare = route.name === 'login' || route.name === 'ceremony';
+  // The gallery is plain (D-42): no navigation, sky or planet, so atoms compare on their own.
+  const plain = route.name === 'gallery';
+  const chrome = !bare && !plain;
   const routeKey = `${route.name}-${route.params.id ?? ''}-${demo}`;
 
   return html`<${NavCtx.Provider} value=${nav}>
     <${StageCtx.Provider} value=${stage}>
       <div class=${cls('stage', `stage--${device}`)}>
         <div class="device-fit">
-          <div class=${cls('device', bare && 'device--bare')} ref=${deviceRef}>
+          <div class=${cls('device', bare && 'device--bare', plain && 'device--plain')} ref=${deviceRef}>
             <div class="fx" ref=${fxRef}></div>
-            ${!bare && html`<${Rail} section=${section} />`}
+            ${chrome && html`<${Rail} section=${section} />`}
             <div class="scroller" ref=${scrollRef} data-scroll-root>
-              ${!bare && html`<${TopBar} go=${go} />`}
+              ${chrome && html`<${TopBar} go=${go} />`}
               <main class=${cls('screen', `screen--${route.name}`)} key=${routeKey}>
                 ${demo === 'loading' && !bare ? html`<${LoadingState} />`
                   : demo === 'error' && !bare ? html`<${ErrorState} onRetry=${() => setDemo('normal')} />`
                   : html`<${Screen} params=${route.params} query=${route.query ?? {}} />`}
               </main>
             </div>
-            ${!bare && html`<${Dock} section=${section} />`}
+            ${chrome && html`<${Dock} section=${section} />`}
             <div class="overlays" id="overlays"></div>
           </div>
         </div>

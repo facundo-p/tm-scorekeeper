@@ -210,6 +210,15 @@
   min-height: 100%;
 }
 
+/* Gallery (D-42): no sky, planet or navigation */
+.device--plain .fx {
+  display: none;
+}
+
+.device--plain .scroller {
+  padding: 0;
+}
+
 /* Orchestrated entrance: plates unfold from their chamfered corner, in order */
 .reveal {
   animation: plate-in var(--d-4) var(--ease-out) backwards;
