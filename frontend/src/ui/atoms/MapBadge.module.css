@@ -1,0 +1,14 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.mapbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.mapbadge__name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

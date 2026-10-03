@@ -1,0 +1,135 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.btn {
+  --cut: 9px;
+  --bg: var(--hull-2);
+  --fg: var(--ink);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  color: var(--fg);
+  font-weight: 650;
+  font-stretch: 84%;
+  font-size: .95rem;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  transition: color var(--d-1), transform var(--d-1);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--edge-2), inset 0 1px 0 rgba(255, 230, 200, .08);
+  transition: background var(--d-1), filter var(--d-1);
+}
+
+.btn:hover::before {
+  filter: brightness(1.18);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.btn--s {
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: var(--t-small);
+  --cut: 7px;
+}
+
+.btn--l {
+  min-height: 54px;
+  padding: 0 26px;
+  font-size: 1.05rem;
+  --cut: 12px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn--icon {
+  padding: 0;
+  width: 44px;
+}
+
+.btn--s.btn--icon {
+  width: 36px;
+}
+
+.btn--primary {
+  --fg: var(--ink-inv);
+  text-transform: uppercase;
+  font-weight: 750;
+  font-stretch: 74%;
+  letter-spacing: .06em;
+}
+
+.btn--primary::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .35), rgba(255, 255, 255, 0) 45%),
+    linear-gradient(160deg, var(--mc-hi), var(--mc) 40%, var(--mc-lo));
+  box-shadow: inset 0 -2px 0 rgba(90, 50, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+.btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .55) 50%, transparent 65%) no-repeat;
+  background-size: 250% 100%;
+  background-position: 130% 0;
+  pointer-events: none;
+}
+
+.btn--primary:hover::after {
+  animation: sweep .9s var(--ease-out);
+}
+
+@keyframes sweep {
+  from { background-position: 130% 0; }
+  to { background-position: -30% 0; }
+}
+
+.btn--ghost::before {
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn--ghost {
+  --fg: var(--ink-2);
+}
+
+.btn--ghost:hover {
+  --fg: var(--ink);
+}
+
+.btn--ghost:hover::before {
+  background: var(--hull-2);
+  filter: none;
+}
+
+.btn--danger {
+  --fg: var(--down);
+}
+
+.btn--danger::before {
+  background: rgba(255, 138, 122, .08);
+  box-shadow: inset 0 0 0 1px rgba(255, 138, 122, .45);
+}

@@ -1,0 +1,31 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.readout {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+  min-width: 0;
+}
+
+.readout__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.readout__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-stretch: 92%;
+  line-height: 1.05;
+}
+
+.readout__sub {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+}
+
+.readout--accent .readout__value {
+  color: var(--mc);
+}
