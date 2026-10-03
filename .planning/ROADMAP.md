@@ -164,7 +164,7 @@ Plans:
 - [x] **Phase 18: Mockup II: mesa, equidad, temporadas y corrección** (E2)
 - [x] **Phase 19: Base visual del frontend** (E5)
 - [x] **Phase 20: Autenticación y validación** (E3)
-- [ ] **Phase 21: Transacciones, orden, rendimiento y empates** (E3)
+- [x] **Phase 21: Transacciones, orden, rendimiento y empates** (E3)
 - [ ] **Phase 22: Subconjuntos, ELO de mesa y récords v2** (E4)
 - [ ] **Phase 23: Logros derivados, nuevos y vista por mesa** (E4)
 - [ ] **Phase 24: Jugadores, partidas e informe** (E4)
