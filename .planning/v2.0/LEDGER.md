@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F19 · Base visual del frontend |
 | Issue | 19.1–19.4 (#94–#97) |
-| Paso | Planificación |
+| Paso | WAIT_CI + revisión del PR 19-A |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -16,7 +16,7 @@
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F19 — ESLint con regla D-09, tokens/base/fuentes, átomos con CSS Modules, dominio y `/__galeria` (escenario `gal-atoms`).
+**Próximo paso:** F19-A (lint, estilos, íconos, dominio) en revisión; después F19-B (átomos, hoja, estados, galería) desde la rama local `f19-rest` (D-47).
 
 ## Tablero (GitHub)
 
@@ -62,3 +62,4 @@
 - 2026-10-03 — F17 mergeada (#147 → `b630a3d`; revisión: ronda 1 CHANGES_REQUESTED con 3 major de semántica/orden, ronda 2 APPROVE). Issues #87–#89 cerrados.
 - 2026-10-03 — F18 implementada: filtro de mesa (`mesa.js`), equidad y «Por tamaño de mesa» (`fairness.js`), carrera de temporada por promedio con categorías y campeón D-15, Editar/Eliminar desde el informe. `--self --phase 18`: 73/73 (273 frames, 0 %, 1 reintento). Artifact republicado (versión 4).
 - 2026-10-03 — F18 mergeada (#148 → `5cd15e9`; revisión: ronda 1 APPROVE con 2 minor y 1 nit, corregidos). Issues #90–#93 cerrados. Rama reseteada a `origin/staging`.
+- 2026-10-03 — F19 implementada: ESLint + D-09 en CI, estilos e íconos, dominio, átomos, hoja, estados, marco y `/__galeria`. Galería contra el mockup 4/4 (máx. 0,0014 %), juez 16/16, mockup contra sí mismo 77/77. Supera 3000 líneas: se parte en 19-A y 19-B (D-47).
