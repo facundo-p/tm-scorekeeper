@@ -54,3 +54,9 @@ Criterio para resolver ambigüedades, en orden: (1) el prompt del milestone / `S
 - **D-45** La galería de la app usa datos de ejemplo fijos (`frontend/src/pages/Gallery/sample.ts`), no la API; solo existe con `vite --mode parity`.
 - **D-46** El set de íconos del mockup tenía dos claves `table`: la segunda (la medalla «Mesa completa») pisaba al ícono de tabla, así que «Ver tabla» en el informe mostraba la medalla. La medalla pasa a `fullTable` (también en el catálogo) y `table` vuelve a ser la tabla.
 - **D-47** F19 supera el máximo de 3000 líneas por PR: se parte en 19-A (19.1 lint, 19.2 estilos e íconos y el dominio de 19.4) y 19-B (19.3 átomos, hoja y estados, y la galería de 19.4). La comparación `gal-atoms`/`gal-sheet` se exige en 19-B.
+- **D-48** En los tests del backend `require_auth` se reemplaza por un usuario fijo (autouse en `tests/conftest.py`); los tests de autenticación la quitan con el fixture `real_auth`.
+- **D-49** Hash de contraseña `pbkdf2_sha256$<iteraciones>$<sal>$<hash>` (base64 url-safe sin relleno, 600 000 iteraciones); `python -m scripts.hash_password` lo genera sin eco.
+- **D-50** Fail-closed: sin `AUTH_USERNAME`, `AUTH_PASSWORD_HASH` o `AUTH_SECRET`, el login responde 503 y las rutas protegidas 401. Cinco fallos seguidos desde una IP la bloquean 30 s (429 con `Retry-After`); un login correcto limpia el contador. En Render uvicorn corre con `--proxy-headers`.
+- **D-51** Reglas por mapa en `backend/models/game_rules.py`, espejo de `frontend/src/constants/gameRules.ts`: hitos y recompensas válidos son los del mapa y los de las expansiones elegidas.
+- **D-52** Partidas: validación → 400, inexistente → 404, jugador repetido detectado por la base → 409.
+- **D-53** `GET /auth/me` → `{"username": ...}`; el frontend guarda el token en `tm_token` y un 401 de cualquier llamada cierra la sesión.
