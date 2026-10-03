@@ -22,33 +22,33 @@
 - npm 10 (Node.js package manager)
   - Lockfile: `package-lock.json` (present)
 - pip - Python package manager
-  - Lockfile: `requirements.txt` (present)
+  - `backend/requirements.txt` (producción, versiones fijas) y `backend/requirements-dev.txt` (tests: pytest, httpx, requests)
 
 ## Frameworks
 
 **Core:**
 - React 18.3.1 - Frontend UI library
-- FastAPI 0.112.0+ - Backend REST API framework
+- FastAPI 0.142.2 - Backend REST API framework
 - react-router-dom 6.28.0 - Frontend client-side routing
 
 **Build/Dev:**
 - Vite 6.0.5 - Frontend build tool and dev server
-- Uvicorn 0.40.0+ - ASGI application server for FastAPI
-- Alembic 1.18.4 - Database migration tool for SQLAlchemy
+- Uvicorn 0.54.0 - ASGI application server for FastAPI
+- Alembic 1.20.0 - Database migration tool for SQLAlchemy
 
 **Testing:**
 - Vitest 3.2.4 - Frontend unit test runner
 - Playwright 1.49.1 - End-to-end testing framework
-- pytest 8.0.0+ - Backend unit and integration testing
+- pytest 9.1.1 - Backend unit and integration testing (solo contra bases `*_test`)
 - jsdom 25.0.1 - DOM environment for testing React components
 
 ## Key Dependencies
 
 **Critical:**
-- SQLAlchemy 1.4+ - Python ORM for database abstraction
-- Pydantic 2.12.5+ - Data validation for FastAPI request/response schemas
-- psycopg2-binary - PostgreSQL adapter for Python database connections
-- httpx 0.28.0+ - HTTP client library for async operations
+- SQLAlchemy 2.0.x (`>=2.0,<2.1`: 2.1 usa psycopg 3 por defecto; migración pendiente en #144) - Python ORM for database abstraction
+- Pydantic 2.13.5 - Data validation for FastAPI request/response schemas
+- psycopg2-binary 2.9.13 - PostgreSQL adapter for Python database connections
+- httpx 0.28.1 - HTTP client library for async operations
 
 **Testing Libraries:**
 - @testing-library/react 16.1.0 - Utilities for testing React components
@@ -90,7 +90,7 @@
 **Production:**
 - Render.com - Backend deployment (Python ASGI)
 - Vercel - Frontend deployment (assumed, referenced in docs)
-- PostgreSQL 15 - Production database (Supabase or compatible)
+- PostgreSQL 17 - Production database (Supabase or compatible)
 
 ---
 

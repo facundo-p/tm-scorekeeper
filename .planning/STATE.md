@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: Visualización de ELO en Frontend — IN PROGRESS
+milestone: v2.0
+milestone_name: Archivo de Terraformación — IN PROGRESS
 status: executing
-stopped_at: Phase 14 context gathered
-last_updated: "2026-05-03T00:55:27.982Z"
-last_activity: 2026-05-03
+stopped_at: Phase 15 started
+last_updated: "2026-10-03T00:00:00.000Z"
+last_activity: 2026-10-03
 progress:
-  total_phases: 7
-  completed_phases: 5
-  total_plans: 20
-  completed_plans: 20
-  percent: 100
+  total_phases: 22
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -20,15 +20,15 @@ progress:
 
 See: .planning/PROJECT.md (updated 2026-03-21)
 
-**Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes.
-**Current focus:** Phase 14 — elo-evolution-chart-in-player-profile-stats
+**Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros se derivan del historial (D-04 v2.0).
+**Current focus:** v2.0 Phase 15 — specs-infra-guardas (estado vivo en `.planning/v2.0/LEDGER.md`)
 
 ## Current Position
 
-Phase: 14
-Plan: Not started
-Status: Executing Phase 14
-Last activity: 2026-05-03 - Completed quick task 260502-vc2: agregar opciones Venus Next a selects de hitos y recompensas en creacion de partida
+Phase: 15
+Plan: 15-01
+Status: Executing Phase 15
+Last activity: 2026-10-03 - Inicio del milestone v2.0
 
 Progress: [          ] 0%
 

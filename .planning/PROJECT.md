@@ -6,7 +6,7 @@ App de seguimiento de estadísticas para partidas de Terraforming Mars. Incluye 
 
 ## Core Value
 
-Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros son permanentes — una vez ganados, no se pierden.
+Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Desde v2.0 los logros se derivan del historial: cada nivel queda fechado con la partida que lo alcanzó, y editar o borrar una partida (o cargar una vieja) puede quitar un nivel (D-04 de v2.0).
 
 ## Current State
 
@@ -21,19 +21,20 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 - Tests: 303 tests (122 frontend / 181 backend), todos en CI
 - Stack: FastAPI + SQLAlchemy + PostgreSQL 17 + Alembic / React 18 + TypeScript + Vite + CSS Modules
 
-## Current Milestone: v1.1 Visualización de ELO en Frontend
+## Current Milestone: v2.0 «Archivo de Terraformación»
 
-**Goal:** Hacer visible el sistema ELO ya existente en backend, comunicando rating actual, evolución por partida, y comparativas históricas entre jugadores.
+**Goal:** Llevar la app real a verse y funcionar como el mockup navegable del rediseño (`docs/redesign/mockup/`), con datos reales, login real, filtros de mesa, equidad, temporadas, récords y logros nuevos, y edición/borrado de partidas con recálculo en cascada.
+
+**Plan y estado:** `.planning/v2.0/SPEC.md` (plan), `.planning/v2.0/LEDGER.md` (estado), `.planning/v2.0/DECISIONS.md` (decisiones), `.planning/v2.0/RUNBOOK.md` (operación). Fases 15 a 36.
 
 **Target features:**
-- ELO actual de cada jugador en su perfil (PlayerProfile)
-- ELO antes/después por jugador en pantalla de fin de partida (junto a records y achievements)
-- Sección "Ranking" con gráfica de evolución de ELO en el tiempo, con multi-selector de jugadores y filtro de fecha desde
+- Auth real (JWT) en toda la API; validación compartida; transacciones con advisory lock
+- Récords v2 (16 en total, con co-poseedores e historial) y logros derivados del historial (18 en total)
+- Filtro de mesa por pantalla con ELO de mesa; equidad; desglose por tamaño de mesa; temporadas por promedio
+- Frontend nuevo: sistema visual del mockup, shell con rail/dock, planeta WebGL2, instrumentos SVG, 10 pantallas
+- Arnés de comparación visual mockup ↔ app y golden del backend
 
-**Key context:**
-- Backend ELO ya implementado y mergeado (PR #42): modelo `EloChange`, `elo_service.py`, `elo_repository.py`, schemas en `backend/schemas/elo.py`, routes en players + games, recomputer cascada en mutaciones, seeds y tests.
-- Solo falta la capa de UI en frontend.
-- Necesita decisión sobre librería de gráficas (a tomar en research o discuss-phase).
+**v1.1 (cerrado parcialmente):** las fases 8–14 quedaron mergeadas; sus requisitos pendientes se absorben en v2.0 (Ranking y Perfil rediseñados).
 
 ## Requirements
 
@@ -67,6 +68,7 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 
 - Rediseño visual de records — milestone separado
 - Logros basados en records — rompe permanencia (records cambian)
+- Multi-usuario / cuentas por jugador — v2.0 usa una cuenta compartida (D-03)
 - Notificaciones push/email — innecesario
 - Logros multijugador/cooperativos — complejidad sin valor
 - SVG custom per-logro — deferred, Lucide fallbacks work well
@@ -90,7 +92,7 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 | Lucide icons con fallback chain | Arrancar rápido, SVG custom en v2 | ✓ Good — vite-plugin-svgr deferred |
 | Perfil con tabs (Stats/Records/Logros) | Escala al agregar secciones | ✓ Good |
 | No incluir rediseño de records | Foco en logros | ✓ Good — records funciona |
-| Logros persistentes (no se pierden) | Motivación acumulativa | ✓ Good |
+| Logros persistentes (no se pierden) | Motivación acumulativa | ⚠️ Reemplazada en v2.0 por logros derivados del historial (D-04) |
 | Definiciones en código, no en DB | Consistente con records | ✓ Good |
 | Reconciliador como endpoint POST | Permite backfill y corrección | ✓ Good — POST /achievements/reconcile |
 | Progreso on-demand (no persistido) | Cambia con cada partida | ✓ Good |
@@ -114,4 +116,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-28 — milestone v1.1 ELO Frontend started*
+*Last updated: 2026-10-03 — milestone v2.0 «Archivo de Terraformación» started*

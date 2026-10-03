@@ -27,10 +27,19 @@ To stop and wipe data:
 docker compose down -v
 ```
 
-For a quick smoke test, simply run the integration tests with the container running:
+## Tests
+
+Los tests **borran todas las tablas** de la base a la que apunten, así que
+`backend/tests/conftest.py` aborta con código 2 si el nombre de la base de
+`DATABASE_URL` no termina en `_test`. Solo PostgreSQL (los modelos usan `ARRAY` y enums nativos).
+
+- Con Docker: `make test-backend` (levanta `docker-compose.test.yml` con `tm_scorekeeper_test`).
+- Sin Docker (por ejemplo en el entorno cloud): `bash scripts/dev/bootstrap.sh` y después
 
 ```bash
-PYTHONPATH=backend python -m pytest backend/tests/integration -q
+DATABASE_URL=postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper_test \
+  backend/.venv/bin/python -m pytest backend/tests -q
 ```
 
-(Alternatively, you may use SQLite by setting `DATABASE_URL` accordingly.)
+Dependencias: `requirements.txt` (producción) y `requirements-dev.txt` (tests).
+Gates completos: `bash scripts/dev/gates.sh backend`.

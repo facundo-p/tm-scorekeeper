@@ -9,11 +9,11 @@
 ## Data Storage
 
 **Databases:**
-- PostgreSQL 15
+- PostgreSQL 17 (local cloud: 16)
   - Connection: `DATABASE_URL` environment variable
   - Format: `postgresql://tm_user:tm_pass@host:5432/tm_scorekeeper`
-  - Client: SQLAlchemy 1.4+ with psycopg2-binary adapter
-  - Dev Docker Compose: `postgres:15` service at `localhost:5432`
+  - Client: SQLAlchemy 2.0.x (`>=2.0,<2.1`) with psycopg2-binary adapter (migración a psycopg 3 en #144)
+  - Dev Docker Compose: `postgres:17` service at `localhost:5432`
   - Prod: Supabase (inferred from docs) - connection string set manually in Render dashboard
 
 **File Storage:**
@@ -94,10 +94,10 @@
 - GitHub Actions (`.github/workflows/deploy.yml`)
   - Trigger: Push to `main` or PR to `main`/`staging`
   - Jobs:
-    1. `test-backend` - Runs pytest on PostgreSQL 15 (localhost:5432)
+    1. `test-backend` - Runs pytest on PostgreSQL 17 against `tm_scorekeeper_test` (pytest aborta con código 2 si la base no termina en `_test`)
     2. `test-frontend` - Runs TypeScript type check and Vitest
     3. `migrate-and-deploy` - Runs Alembic migrations and triggers Render deploy hook (main branch only)
-  - Database for tests: PostgreSQL 15 via GitHub Actions service
+  - Database for tests: PostgreSQL 17 (`tm_scorekeeper_test`) via GitHub Actions service; dependencias de `backend/requirements-dev.txt`
 
 **Deployment Flow:**
 1. Code pushed to `main`
