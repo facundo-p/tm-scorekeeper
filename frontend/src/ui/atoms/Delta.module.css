@@ -1,0 +1,21 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.delta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.delta__glyph {
+  font-size: .62em;
+  transform: translateY(-.08em);
+}
+
+.delta--up { color: var(--up); }
+.delta--down { color: var(--down); }
+.delta--flat,
+.delta--none { color: var(--ink-3); }
+.delta--l { font-size: 1.25rem; }
+.delta--s { font-size: var(--t-small); }

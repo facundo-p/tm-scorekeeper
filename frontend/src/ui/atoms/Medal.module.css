@@ -1,0 +1,101 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.medal {
+  --rim-a: #6a5a52;
+  --rim-b: #2a2125;
+  --face-a: #2b2226;
+  --face-b: #181216;
+  --glyph: #6f625c;
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  flex: none;
+  transform: perspective(500px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .5s var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+.medal.is-tilting {
+  transition: transform .08s linear;
+}
+
+.medal--s {
+  width: 40px;
+  height: 40px;
+}
+
+.medal--l {
+  width: 116px;
+  height: 116px;
+}
+
+.medal__hex {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.medal__rim {
+  fill: var(--rim-a);
+}
+
+.medal__face {
+  fill: var(--face-a);
+}
+
+.medal__bevel {
+  fill: none;
+  stroke: rgba(255, 255, 255, .18);
+  stroke-width: 1.5;
+}
+
+.medal__glyph {
+  position: relative;
+  color: var(--glyph);
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .5));
+  transform: translateZ(18px);
+}
+
+.medal__glare {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 3%, 90.7% 26.5%, 90.7% 73.5%, 50% 97%, 9.3% 73.5%, 9.3% 26.5%);
+  background: radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), rgba(255, 255, 255, .38), transparent 46%);
+  mix-blend-mode: overlay;
+  opacity: .7;
+  pointer-events: none;
+}
+
+.medal--locked .medal__glare {
+  opacity: .15;
+}
+
+.medal--steel { --rim-a: #c98a5a; --face-a: #5a3a28; --glyph: #f0c49b; }
+.medal--titanium { --rim-a: #dfe6ee; --face-a: #3d4652; --glyph: #eef3f8; }
+.medal--gold { --rim-a: var(--mc-hi); --face-a: #6b4a12; --glyph: #ffe2a3; }
+.medal--plasma { --rim-a: #c9a2ff; --face-a: #3c2463; --glyph: #e9dbff; }
+.medal--gaia { --rim-a: #9de6a8; --face-a: #14445a; --glyph: #d8fbe0; }
+
+.medal--steel .medal__face,
+.medal--titanium .medal__face,
+.medal--gold .medal__face,
+.medal--plasma .medal__face,
+.medal--gaia .medal__face {
+  fill: var(--face-a);
+}
+
+.medal--gold {
+  filter: drop-shadow(0 0 14px rgba(242, 182, 62, .28));
+}
+
+.medal--plasma {
+  filter: drop-shadow(0 0 14px rgba(176, 124, 242, .3));
+}
+
+.medal--gaia {
+  filter: drop-shadow(0 0 16px rgba(127, 216, 138, .3));
+}

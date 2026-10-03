@@ -1,0 +1,62 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.stepper {
+  display: inline-flex;
+  align-items: stretch;
+  height: 46px;
+  background: rgba(10, 7, 10, .65);
+  box-shadow: inset 0 0 0 1px var(--edge-2);
+  border-radius: 2px;
+}
+
+.stepper__btn {
+  width: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-2);
+}
+
+.stepper__btn:hover {
+  color: var(--ink);
+  background: var(--hull-2);
+}
+
+.stepper__btn:active {
+  background: var(--hull-3);
+}
+
+.stepper__val {
+  width: 58px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  -moz-appearance: textfield;
+}
+
+.stepper__val::-webkit-outer-spin-button,
+.stepper__val::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.stepper__val:focus {
+  outline: none;
+  box-shadow: inset 0 -2px 0 var(--mc);
+}
+
+/* De docs/redesign/mockup/css/screens.css (planilla): variante chica */
+.stepper--s {
+  height: 38px;
+}
+
+.stepper--s .stepper__btn {
+  width: 32px;
+}
+
+.stepper--s .stepper__val {
+  width: 42px;
+  font-size: 1rem;
+}
