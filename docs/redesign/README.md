@@ -78,7 +78,7 @@ Los cortes de diseño se resuelven con **container queries** (`@container app`),
 | Pantalla | Qué cambia | Datos (API actual) |
 |---|---|---|
 | **Acceso** | Horizonte de Marte árido; mostrar/ocultar contraseña; error inline. | Requiere auth real (ver REVIEW S1). |
-| **Inicio** | Planeta de la temporada con sus tres parámetros, lecturas en órbita (partidas, generaciones, puntaje medio del ganador, corporación más usada), última partida, bitácora de récords y logros, top 5 de ELO, carrera de la temporada. | `GET /games/`, `GET /elo/history`, `GET /records/`, logros por partida |
+| **Inicio** | Planeta de la temporada con sus tres parámetros, lecturas en órbita (partidas, generaciones, puntaje medio del ganador, corporación más usada), última partida, bitácora de récords y logros, top 5 de ELO, carrera de la temporada por promedio (categoría y mesa). | `GET /games/`, `GET /elo/history`, `GET /records/`, logros por partida |
 | **Partidas** | Filtros en una fila (mapa con su glifo, jugadores por cubo, tamaño de mesa); calendario de 52 semanas; cada partida es una "tira de misión" con los cubos ubicados sobre una pista de puntaje común, ganador, corporación y margen. Estado vacío diseñado. | `GET /games/` |
 | **Informe de partida** | Planeta en la región del mapa con la grilla del tablero; pista de TR con los cubos; barras apiladas por categoría con vista de tabla; hitos y recompensas como en el tablero (con "robada"); ELO divergente; récords rotos y "cerca del récord"; logros desbloqueados. | `GET /games/{id}/results`, `/records`, `/elo`, logros |
 | **Registrar partida** | **5 pasos en vez de 11**: partida (mapas visuales que giran el planeta), mesa (jugadores y corporaciones filtradas por expansión), hitos y recompensas (se tocan cubos; reglas de 3 máximo, empates y 2 jugadores aplicadas), planilla de puntaje con totales en vivo (tabla en escritorio, pestañas por jugador en móvil), revisión con desempate por M€. Borrador automático. | `POST /games/` |
@@ -94,7 +94,17 @@ Los cortes de diseño se resuelven con **container queries** (`@container app`),
 Todas salen de datos que el backend **ya guarda**; ninguna requiere cargar nada nuevo al registrar una partida.
 
 ### Temporadas: el Marte del grupo
-El grupo terraforma un planeta propio. Cada partida suma 0,8 pasos de temperatura, 1 % de oxígeno cada 52 puntos de vegetación del grupo y 0,375 océanos. Cuando los tres parámetros llegan al máximo, la temporada termina y gana quien más TR aportó por encima de 20. Con el historial de ejemplo, una temporada dura unas 24 partidas. *Calibración a decidir.*
+El grupo terraforma un planeta propio. Cada partida suma 0,8 pasos de temperatura, 1 % de oxígeno cada 52 puntos de vegetación del grupo y 0,375 océanos. Cuando los tres parámetros llegan al máximo, la temporada termina. Con el historial de ejemplo, una temporada dura unas 24 partidas.
+
+La **carrera** se ordena por **promedio** de puntos por partida (total o una categoría: TR, hitos, recompensas, cartas, recursos, vegetación, ciudades o Turmoil, esta última solo sobre partidas con Turmoil), con filtro de mesa. Hacen falta 3 partidas para clasificar; el resto aparece aparte con «le faltan N partidas». El **campeón** es el primer clasificado por promedio total al cierre (desempate: más partidas, después mejor puntaje).
+
+### Filtro de mesa y equidad
+- **Filtro de mesa** (Todas · 2 · 3 · 4 · 5), independiente por pantalla y en la URL (`?mesa=3`): Inicio (la carrera), Partidas, Ranking, Perfil, Récords y Logros. Con el filtro puesto, el ELO se recalcula desde 1000 solo con esas partidas («ELO de mesa N») y los logros son una vista calculada y rotulada; nunca se escribe nada.
+- **Equidad** en Ranking y Perfil: «Victorias vs. esperado» (victorias − Σ 1/n, y victorias ÷ Σ 1/n en %) y «Posición relativa» (promedio de (n − pos)/(n − 1)), con explicación en un tooltip.
+- **Por tamaño de mesa** en Perfil y Ranking: partidas, victorias, % vs. esperado, promedio de puntos y posición relativa para mesas de 2, 3, 4 y 5.
+
+### Corrección de partidas
+Desde el informe: **Editar** abre el registro precargado y **Eliminar** pide confirmación; en los dos casos se recalculan ELO, récords y logros. **Repetir ceremonia** vuelve a mostrar la secuencia.
 
 ### Métricas
 - **Cara a cara:** porcentaje de partidas compartidas en que cada jugador terminó delante de otro. Rivalidades con más partidas.

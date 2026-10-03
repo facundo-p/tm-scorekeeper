@@ -29,21 +29,31 @@ async function captureSide(browser, side, scenario, viewport) {
   const { context, page, log } = await newPage(browser, viewport, side, scenario);
   try {
     await openScenario(page, side, scenario);
+    const state = await page.evaluate(() => ({ hash: location.hash, dialogs: document.querySelectorAll('[role="dialog"]').length }));
     const shot = await captureFrames(page, scenario.frames);
-    return { ...shot, aria: await ariaTree(page), styles: await probeStyles(page, scenario.probes), axe: await axeSerious(page), errors: log.errors };
+    return { ...shot, state, aria: await ariaTree(page), styles: await probeStyles(page, scenario.probes), axe: await axeSerious(page), errors: log.errors };
   } finally {
     await context.close();
   }
 }
 
+// A failing scenario is captured once more before it counts (RUNBOOK: an unstable
+// comparison is repeated once); the retry is recorded in the summary.
 async function runEntry(ctx, scenario, viewport) {
+  const first = await runEntryOnce(ctx, scenario, viewport);
+  if (first.pass) return first;
+  const second = await runEntryOnce(ctx, scenario, viewport);
+  return { ...second, retried: true, firstFailures: first.failures };
+}
+
+async function runEntryOnce(ctx, scenario, viewport) {
   const key = `${scenario.id}-${viewport}`;
   try {
     const ref = await captureSide(ctx.browser, ctx.ref, scenario, viewport);
     const cand = await captureSide(ctx.browser, ctx.cand, scenario, viewport);
     const result = evaluate(scenario, viewport, ref, cand, ctx.opts.mode);
     const files = writeImages(ctx.dir, key, ref, cand, result);
-    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe } };
+    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe }, state: { ref: ref.state, cand: cand.state } };
   } catch (err) {
     return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: false, failures: [`excepción: ${err.message}`], result: { frames: [] }, files: [] };
   }
@@ -84,7 +94,7 @@ async function main() {
   await browser.close(); await ref.close(); await cand.close();
   const summary = summarize(opts, entries, run);
   writeReport(dir, summary, entries);
-  for (const e of entries) console.log(`${e.pass ? 'ok   ' : e.gated ? 'FALLA' : 'aviso'} ${e.id} · ${e.viewport}${e.pass ? '' : ` — ${e.failures[0]}`}`);
+  for (const e of entries) console.log(`${e.pass ? 'ok   ' : e.gated ? 'FALLA' : 'aviso'} ${e.id} · ${e.viewport}${e.retried ? ' (reintentado)' : ''}${e.pass ? '' : ` — ${e.failures[0]}`}`);
   console.log(`${summary.passed}/${summary.total} OK · reporte: ${resolve(dir, 'report.html')}`);
   process.exit(summary.gatedFailures.length ? 1 : 0);
 }

@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F17 · Mockup I: contenido, semántica y ganchos |
-| Issue | 17.1–17.3 (#87–#89) |
-| Paso | Verificación de fase |
+| Fase | F18 · Mockup II: mesa, equidad, temporadas y corrección |
+| Issue | 18.1–18.4 (#90–#93) |
+| Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 750e6a2 (merge #146 en origin/staging) |
+| Último commit | b630a3d (merge #147 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** cerrar la verificación de F17 (--self completo y --ref mockup@750e6a2), PR «Fase 17», revisión, merge. Después F18.
+**Próximo paso:** F18 — UI del filtro de mesa, equidad, por mesa, carrera por promedio, editar/eliminar/repetir; golden, capturas, README y artifact.
 
 ## Tablero (GitHub)
 
@@ -59,3 +59,4 @@
 - 2026-10-03 — F16 verificada: --self 26/26 (90 frames, 0 %) dos veces; juez 10×16/16; golden OK; 215 pytest; 14 tests del arnés.
 - 2026-10-03 — F16 mergeada (#146 → `750e6a2`; revisión: ronda 1 CHANGES_REQUESTED por la validación de la base de la candidata, ronda 2 APPROVE). Issues #83–#86 cerrados.
 - 2026-10-03 — F17 implementada: SEMANTICS.md, semántica de récords/logros en derive.js con 9 tests en Node, contenido (oficiales, castellano, #65, #66, #37, login, 404, salir en móvil), ganchos (links reales, query en el hash, reloj, galería).
+- 2026-10-03 — F17 mergeada (#147 → `b630a3d`; revisión: ronda 1 CHANGES_REQUESTED con 3 major de semántica/orden, ronda 2 APPROVE). Issues #87–#89 cerrados.

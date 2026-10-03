@@ -28,11 +28,21 @@ async function networkIdle(page, quietMs = 500) {
   }
 }
 
+// Finite animations (1 ms under reduced motion) must have run: one still pending
+// keeps its `from` keyframe (a sheet at opacity 0, for instance).
+async function animationsDone(page) {
+  await page.evaluate(() => Promise.race([
+    Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))),
+    new Promise((ok) => setTimeout(ok, 5000)),
+  ]));
+}
+
 export async function waitReady(page, { planet = 'required' } = {}) {
   await page.evaluate(() => document.fonts.ready);
   await planetReady(page, planet);
   await networkIdle(page);
   await twoFrames(page);
   await page.waitForFunction(() => !document.querySelector('[aria-busy="true"]'), null, { timeout: READY_TIMEOUT_MS });
+  await animationsDone(page);
   await twoFrames(page);
 }

@@ -1,6 +1,8 @@
 // Acciones por rol accesible, para que los mismos pasos sirvan en el mockup y en la app.
 // Formas: { click: Target } · { fill: Target, value } · { press: 'Tab' | Target, key } · { scroll: Target | number }
 // Target = { role, name, exact?, nth? } | { label } | { text } | { selector }
+// `expect: Target` waits until that element is visible; if it isn't after the
+// first try, the action is repeated once (clicks lost while the page settles).
 function locate(page, target) {
   let loc;
   if (target.role) loc = page.getByRole(target.role, { name: target.name, exact: target.exact ?? false });
@@ -28,8 +30,18 @@ async function runOne(page, action) {
   throw new Error(`acción desconocida: ${JSON.stringify(action)}`);
 }
 
+async function runChecked(page, action) {
+  await runOne(page, action);
+  if (!action.expect) return;
+  const target = locate(page, action.expect);
+  const visible = await target.waitFor({ state: 'visible', timeout: 5000 }).then(() => true, () => false);
+  if (visible) return;
+  await runOne(page, action);
+  await target.waitFor({ state: 'visible', timeout: 10000 });
+}
+
 export async function runActions(page, actions = []) {
-  for (const action of actions) await runOne(page, action);
+  for (const action of actions) await runChecked(page, action);
   // El mouse queda quieto en la esquina en los dos lados (sin hover residual).
   if (actions.length) await page.mouse.move(0, 0);
 }

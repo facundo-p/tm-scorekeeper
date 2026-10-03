@@ -33,6 +33,32 @@
   cand: { path: /partidas }
   actions:
     - click: { role: button, name: Filtros }
+      expect: { role: dialog }
     - click: { role: button, name: Ordenar por Ganador }
     - click: { role: button, name: Ver 63 partidas }
+  gateFromPhase: 29
+- id: games-mesa3
+  screen: partidas
+  ref: { hash: '#partidas?mesa=3' }
+  cand: { path: /partidas, search: '?mesa=3' }
+  gateFromPhase: 29
+- id: report-turmoil
+  screen: informe
+  ref: { hash: '#partida-g-060' }
+  cand: { path: /partidas/g-060 }
+  gateFromPhase: 29
+- id: report-tie
+  # Empate en puntos decidido por M€ (la semilla no tiene empates totales).
+  screen: informe
+  ref: { hash: '#partida-g-016' }
+  cand: { path: /partidas/g-016 }
+  gateFromPhase: 29
+- id: report-delete
+  screen: informe
+  ref: { hash: '#partida-g-063' }
+  cand: { path: /partidas/g-063 }
+  actions:
+    - click: { role: button, name: Eliminar, exact: true }
+      expect: { role: dialog }
+  frames: 1
   gateFromPhase: 29

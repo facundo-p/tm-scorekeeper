@@ -75,6 +75,9 @@ export function createSky(host) {
     const h = host.offsetHeight;
     canvases.forEach((c, i) => paint(c, LAYERS[i], w, h, 11 + i * 97));
   };
+  // Paint once right away (the host already has its size) so the sky is never
+  // empty on the first frames; later resizes repaint on the next frame.
+  draw();
   let pending = 0;
   new ResizeObserver(() => {
     cancelAnimationFrame(pending);

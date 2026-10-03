@@ -1,10 +1,11 @@
 import { html, useState, cls } from '../lib.js';
-import { MODEL } from '../data/derive.js';
+import { MODEL, modelFor } from '../data/derive.js';
 import { TIER_MATERIALS } from '../data/catalog.js';
 import { Icon } from '../ui/icons.js';
 import { Cube, PlayerTag, Medal, TierPips, fmtDate } from '../ui/atoms.js';
 import { Sheet } from '../ui/sheet.js';
 import { TrophyNav } from './records.js';
+import { MesaFilter, MesaNotice, useMesa } from '../ui/mesa.js';
 
 const P = (id) => MODEL.playerById[id];
 const active = () => MODEL.players.filter((p) => p.active && p.games);
@@ -26,8 +27,8 @@ function PlayerPicker({ value, onChange }) {
   </div>`;
 }
 
-function Tile({ a, who, onOpen, i }) {
-  const mine = who ? P(who).achievements[a.code] : null;
+function Tile({ a, who, onOpen, i, model }) {
+  const mine = who ? model.playerById[who].achievements[a.code] : null;
   const tier = who ? mine.tier : Math.max(0, ...a.holders.map((h) => h.tier));
   const title = (a.tiers.find((t) => t.level === tier) ?? a.tiers[0]).title;
   const holders = a.holders;
@@ -46,9 +47,9 @@ function Tile({ a, who, onOpen, i }) {
   </li>`;
 }
 
-function Detail({ a, who, onClose }) {
+function Detail({ a, who, onClose, model }) {
   const top = Math.max(0, ...a.holders.map((h) => h.tier));
-  const mine = who ? P(who).achievements[a.code] : null;
+  const mine = who ? model.playerById[who].achievements[a.code] : null;
   return html`<${Sheet} title=${a.tiers.length > 1 ? a.tiers[a.tiers.length - 1].title : a.tiers[0].title} onClose=${onClose} wide>
     <div class="adetail">
       <div class="adetail__hero">
@@ -79,11 +80,14 @@ function Detail({ a, who, onClose }) {
   </${Sheet}>`;
 }
 
-export function Achievements() {
+export function Achievements({ query = {} }) {
   const [who, setWho] = useState(null);
   const [open, setOpen] = useState(null);
-  const current = MODEL.achievements;
-  const unlocked = who ? current.filter((a) => P(who).achievements[a.code].tier > 0).length : null;
+  const [mesa, setMesa] = useMesa(query);
+  const model = modelFor({ playerCount: mesa });
+  const current = model.achievements;
+  const unlocked = who ? current.filter((a) => model.playerById[who].achievements[a.code].tier > 0).length : null;
+  const openDef = open && current.find((a) => a.code === open.code);
   return html`
     <${TrophyNav} current="achievements" />
     <header class="screen-head reveal" style="--i:0">
@@ -95,9 +99,11 @@ export function Achievements() {
     <div class="reveal ach-tools" style="--i:1">
       <${MaterialStrip} />
       <${PlayerPicker} value=${who} onChange=${setWho} />
-      ${who && html`<p class="ach-count"><${Cube} color=${P(who).color} size=${14} /><b>${P(who).name}</b> tiene ${unlocked} de ${current.length} logros.</p>`}
+      <${MesaFilter} value=${mesa} onChange=${setMesa} />
+      ${who && html`<p class="ach-count"><${Cube} color=${P(who).color} size=${14} /><b>${P(who).name}</b> tiene ${unlocked} de ${current.length} logros${mesa ? ` en mesas de ${mesa}` : ''}.</p>`}
     </div>
-    <ul class="mgrid">${current.map((a, i) => html`<${Tile} key=${a.code} a=${a} who=${who} onOpen=${setOpen} i=${i} />`)}</ul>
-    ${open && html`<${Detail} a=${open} who=${who} onClose=${() => setOpen(null)} />`}
+    <${MesaNotice} value=${mesa} onClear=${() => setMesa(null)}>vista calculada: los logros oficiales no cambian</${MesaNotice}>
+    <ul class="mgrid">${current.map((a, i) => html`<${Tile} key=${a.code} a=${a} who=${who} onOpen=${setOpen} i=${i} model=${model} />`)}</ul>
+    ${openDef && html`<${Detail} a=${openDef} who=${who} model=${model} onClose=${() => setOpen(null)} />`}
   `;
 }

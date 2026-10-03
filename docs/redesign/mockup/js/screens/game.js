@@ -7,6 +7,7 @@ import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, SectionHead, Cube, PlayerTag, CorpEmblem, Medal, Chip, NewBadge, fmtDate } from '../ui/atoms.js';
 import { ScoreBars, CategoryLegend, TRTrack, EloShift } from '../ui/instruments.js';
 import { PlanetSlot } from '../ui/planet-slot.js';
+import { Sheet } from '../ui/sheet.js';
 
 const P = (id) => MODEL.playerById[id];
 
@@ -149,10 +150,29 @@ function AchievementsInGame({ g }) {
   </${Plate}>`;
 }
 
-export function GameReport({ params }) {
+const NOTICES = {
+  editada: 'Cambios guardados. Se recalcularon el ELO, los récords y los logros desde esta partida.',
+};
+
+// Delete asks first: everything after this game is recomputed (owner's point 8, #44).
+function DeleteSheet({ g, onClose }) {
   const nav = useNav();
+  return html`<${Sheet} title="Eliminar partida" onClose=${onClose}>
+    <p>¿Eliminar la partida del <b>${fmtDate(g.date)}</b> en <b>${g.map}</b>? Se recalculan el ELO, los récords y los logros
+      de todas las partidas posteriores. No se puede deshacer.</p>
+    <div class="sheet-actions">
+      <${Button} variant="ghost" onClick=${onClose}>Cancelar</${Button}>
+      <${Button} variant="danger" icon="close" onClick=${() => nav.go('games', {}, { aviso: 'eliminada' })}>Eliminar partida</${Button}>
+    </div>
+  </${Sheet}>`;
+}
+
+export function GameReport({ params, query = {} }) {
+  const nav = useNav();
+  const [confirm, setConfirm] = useState(false);
   const g = MODEL.gameById[params.id] ?? MODEL.games[0];
   return html`
+    ${NOTICES[query.aviso] && html`<p class="notice" role="status"><${Icon} name="check" size=${16} />${NOTICES[query.aviso]}</p>`}
     <${ReportHero} g=${g} />
     <div class="report-grid">
       <${FinalScore} g=${g} />
@@ -169,7 +189,9 @@ export function GameReport({ params }) {
     </div>
     <div class="report-actions">
       <${Button} icon="spark" onClick=${() => nav.go('ceremony', { id: g.id })}>Repetir ceremonia</${Button}>
-      <${Button} variant="ghost" icon="edit">Editar partida</${Button}>
+      <${Button} variant="ghost" icon="edit" onClick=${() => nav.go('edit', { id: g.id })}>Editar partida</${Button}>
+      <${Button} variant="danger" icon="close" onClick=${() => setConfirm(true)}>Eliminar</${Button}>
     </div>
+    ${confirm && html`<${DeleteSheet} g=${g} onClose=${() => setConfirm(false)} />`}
   `;
 }

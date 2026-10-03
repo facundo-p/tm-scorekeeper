@@ -29,3 +29,8 @@
   ref: { hash: '#jugador-p-facu?tab=logros' }
   cand: { path: /jugadores/p-facu, search: '?tab=logros' }
   gateFromPhase: 33
+- id: profile-facu-mesa3
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?mesa=3' }
+  cand: { path: /jugadores/p-facu, search: '?mesa=3' }
+  gateFromPhase: 33

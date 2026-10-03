@@ -350,7 +350,7 @@
 
 .race__row {
   display: grid;
-  grid-template-columns: 92px 1fr 40px;
+  grid-template-columns: minmax(120px, 160px) 1fr 48px;
   align-items: center;
   gap: 10px;
 }
@@ -380,6 +380,46 @@
   font-weight: 700;
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+.race__tools {
+  display: grid;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+}
+
+.race__tools .fchips {
+  gap: 6px;
+}
+
+.race__pending {
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--edge);
+  font-size: var(--t-small);
+}
+
+.race__h {
+  margin-bottom: var(--s2);
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+.race__pending ul {
+  display: grid;
+  gap: 6px;
+}
+
+.race__pending li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.home-grid .mesa-notice {
+  margin-bottom: var(--s3);
 }
 
 /* Rules sheet */
@@ -1413,6 +1453,7 @@
   padding: 6px 10px;
   text-align: left;
   color: var(--ink);
+  text-decoration: none;
   border-bottom: 1px solid var(--edge);
   transition: background var(--d-1);
   animation: plate-in var(--d-4) var(--ease-out) backwards;
@@ -1656,7 +1697,7 @@
 @container app (min-width: 760px) {
   .lb__head,
   .lb__row {
-    grid-template-columns: 34px minmax(140px, 1.4fr) 110px 60px 70px 76px 200px 96px;
+    grid-template-columns: 34px minmax(120px, 1fr) 116px 56px 64px 68px 112px 104px 168px 92px;
   }
 
   .lb__x {
@@ -2350,6 +2391,8 @@
   .rivals-panel { grid-column: span 5; }
   .maps-panel { grid-column: span 7; }
   .corps-panel { grid-column: span 12; }
+  .profile-grid .fairness { grid-column: span 5; }
+  .profile-grid .bytable { grid-column: span 7; }
 }
 
 /* ======================================================================
@@ -4464,4 +4507,121 @@
 .games-sort__dir {
   margin-left: 4px;
   font-size: .75em;
+}
+
+/* ---------- Table-size filter (owner's point 5) ---------- */
+.mesa-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--mc);
+  background: var(--hull-1);
+  font-size: var(--t-small);
+}
+
+.mesa-notice__clear {
+  color: var(--mc);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Fairness (owner's points 6 and 7) ---------- */
+.infotip {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  border: 1px solid var(--edge-2);
+  border-radius: 50%;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.vsexp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.vsexp small {
+  color: var(--ink-3);
+}
+
+.bytable__t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.bytable__t th,
+.bytable__t td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--edge);
+  text-align: left;
+}
+
+.bytable__t .n {
+  text-align: right;
+}
+
+.bytable__t thead th {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.bytable__t tr.is-empty {
+  color: var(--ink-3);
+}
+
+.bytable__wrap {
+  overflow-x: auto;
+}
+
+.bytable__pick select {
+  min-width: 140px;
+}
+
+.profile-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.fairness__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s3);
+}
+
+.fairness__grid > div {
+  display: grid;
+  gap: 4px;
+  font-size: var(--t-small);
+}
+
+.fairness__grid b {
+  font-family: var(--display);
+  font-size: var(--t-h3, 1.125rem);
+}
+
+/* ---------- Edit / delete notices (owner's point 8) ---------- */
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--up);
+  background: var(--hull-1);
+  font-size: var(--t-small);
 }

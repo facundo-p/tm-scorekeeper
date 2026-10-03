@@ -4,3 +4,8 @@
   ref: { hash: '#ranking' }
   cand: { path: /ranking }
   gateFromPhase: 32
+- id: ranking-mesa5
+  screen: ranking
+  ref: { hash: '#ranking?mesa=5' }
+  cand: { path: /ranking, search: '?mesa=5' }
+  gateFromPhase: 32

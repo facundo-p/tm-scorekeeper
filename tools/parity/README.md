@@ -35,6 +35,7 @@ Sale con 1 si falla un escenario exigido (`gateFromPhase` ≤ fase; en `--self`,
   planet: required               # none: la pantalla no tiene planeta
   actions:                       # por rol accesible, iguales en los dos lados
     - click: { role: button, name: Ganador }
+      expect: { role: dialog }     # opcional: espera ese elemento (y reintenta la acción una vez)
   frames: all                    # o un número
   masks: [{ x: 0, y: 0, w: 100, h: 20 }]
   probes: [{ id: title, selector: 'h1' }]

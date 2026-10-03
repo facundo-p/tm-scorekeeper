@@ -139,3 +139,51 @@ test('routes: hash round trip with special characters, query and malformed ids',
   assert.equal(parseHash('#no-existe').name, 'notFound');
   assert.equal(parseHash(''), null);
 });
+
+test('equity: expected wins, ratio and relative position', async () => {
+  const { modelFor } = await import('../../docs/redesign/mockup/js/data/derive.js');
+  const p = modelFor().playerById['p-facu'];
+  const rows = p.history;
+  const expected = rows.reduce((s, h) => s + 1 / h.n, 0);
+  assert.ok(Math.abs(p.equity.expected - expected) < 1e-9);
+  assert.ok(Math.abs(p.equity.winsVsExpected - (p.wins - expected)) < 1e-9);
+  const rel = rows.reduce((s, h) => s + (h.n - h.position) / (h.n - 1), 0) / rows.length;
+  assert.ok(Math.abs(p.equity.relPos - rel) < 1e-9);
+  assert.deepEqual(p.byTable.map((r) => r.n), [2, 3, 4, 5]);
+  assert.equal(p.byTable.reduce((s, r) => s + r.games, 0), p.games);
+});
+
+test('table filter replays ELO from 1000 and never touches other tables', async () => {
+  const { modelFor } = await import('../../docs/redesign/mockup/js/data/derive.js');
+  const m3 = modelFor({ playerCount: 3 });
+  assert.ok(m3.games.every((g) => g.results.length === 3));
+  const first = m3.games[m3.games.length - 1];
+  assert.ok(first.eloChanges.every((c) => c.before === 1000));
+});
+
+test('season race: averages, 3 games to qualify, D-15 champion', async () => {
+  const { seasonRace, MIN_SEASON_GAMES } = await import('../../docs/redesign/mockup/js/data/derive.js');
+  for (const s of MODEL.seasons) {
+    const race = seasonRace(s, MODEL.gameById);
+    assert.ok(race.qualified.every((r) => r.games >= MIN_SEASON_GAMES));
+    assert.ok(race.pending.every((r) => r.games < MIN_SEASON_GAMES && r.missing === MIN_SEASON_GAMES - r.games));
+    for (let i = 1; i < race.qualified.length; i++) {
+      const [a, b] = [race.qualified[i - 1], race.qualified[i]];
+      assert.ok(a.avg > b.avg || (a.avg === b.avg && (a.games > b.games || (a.games === b.games && a.best >= b.best))));
+    }
+    assert.equal(s.champion, s.end ? race.qualified[0]?.player_id ?? null : null);
+  }
+});
+
+test('season race: Turmoil only over games with Turmoil; D-15 tie-breaks', async () => {
+  const { seasonRace } = await import('../../docs/redesign/mockup/js/data/derive.js');
+  const s = MODEL.seasons[0];
+  const race = seasonRace(s, MODEL.gameById, { category: 'turmoil_points' });
+  const withTurmoil = s.games.filter((id) => MODEL.gameById[id].expansions.includes('Turmoil')).length;
+  assert.equal(race.games, s.games.length);
+  assert.ok([...race.qualified, ...race.pending].every((r) => r.games <= withTurmoil));
+  const g = (id, rows) => ({ id, expansions: [], results: rows.map(([player_id, total]) => ({ player_id, total, scores: {} })) });
+  const games = { a: g('a', [['x', 90], ['y', 90]]), b: g('b', [['x', 80], ['y', 100]]), c: g('c', [['x', 100], ['y', 80]]), d: g('d', [['x', 90]]) };
+  const tie = seasonRace({ games: ['a', 'b', 'c', 'd'] }, games);
+  assert.deepEqual(tie.qualified.map((r) => r.player_id), ['x', 'y']);
+});
