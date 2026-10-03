@@ -143,6 +143,11 @@ class GamesRepository:
             if not orm:
                 return False
             game.id = game_id
+            # Borrar primero los resultados viejos: si no, los nuevos se insertan antes y
+            # chocan con UNIQUE(game_id, player_id).
+            orm.player_results.clear()
+            orm.awards.clear()
+            session.flush()
             orm = self._domain_to_orm(game, orm)
             session.add(orm)
             session.commit()

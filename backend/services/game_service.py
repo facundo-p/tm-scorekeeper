@@ -1,5 +1,9 @@
+from contextlib import contextmanager
 from datetime import date
 
+from sqlalchemy.exc import IntegrityError
+
+from models.game_rules import allowed_awards, allowed_milestones
 from models.player_result import PlayerResult
 from models.award_result import AwardResult
 from models.enums import Corporation, Milestone, Award, Expansion
@@ -9,6 +13,22 @@ from services.helpers.results import calculate_results
 from mappers.game_mapper import game_dto_to_model, game_model_to_dto
 from repositories.game_filters import GameFilter
 
+
+
+class GameNotFound(ValueError):
+    """La partida no existe (404)."""
+
+
+class GameConflict(Exception):
+    """La base rechazó la partida por una restricción única (409, D-52)."""
+
+
+@contextmanager
+def _conflicts_as_409():
+    try:
+        yield
+    except IntegrityError as e:
+        raise GameConflict("The game conflicts with stored data (duplicate player result)") from e
 
 
 class GamesService:
@@ -151,11 +171,20 @@ class GamesService:
                 "Expansion 'Venus Next' is required when using HOVERLORD milestone or VENUPHILE award"
             )
 
-    def create_game(self, game_dto: GameDTO) -> str:
-        # Mapear a dominio
-        game = game_dto_to_model(game_dto)
+    def _validate_board(self, game) -> None:
+        """Hitos y recompensas del mapa o de una expansión elegida (D-51)."""
+        milestones_ok = allowed_milestones(game.map_name, game.expansions)
+        for player in game.player_results:
+            for milestone in player.scores.milestones:
+                if milestone not in milestones_ok:
+                    raise ValueError(f"Milestone '{milestone.value}' is not available on {game.map_name.value}")
+        awards_ok = allowed_awards(game.map_name, game.expansions)
+        for award in game.awards:
+            if award.award not in awards_ok:
+                raise ValueError(f"Award '{award.award.value}' is not available on {game.map_name.value}")
 
-        # Validaciones usando modelo dominio
+    def _validate_game(self, game) -> None:
+        """Validación completa, compartida por crear y editar."""
         self._validate_date(game.date)
         self._validate_players(game.player_results)
         self._validate_corporations(game.player_results)
@@ -168,10 +197,14 @@ class GamesService:
         self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
         self._validate_venus_requirements(game)
+        self._validate_board(game)
 
-        game_id = self.games_repository.create(game)
+    def create_game(self, game_dto: GameDTO) -> str:
+        game = game_dto_to_model(game_dto)
+        self._validate_game(game)
+        with _conflicts_as_409():
+            game_id = self.games_repository.create(game)
         game.id = game_id
-
         self._recompute_elo_from(game.date)
         return game_id
 
@@ -182,16 +215,14 @@ class GamesService:
 
 
     def update_game(self, game_id: str, game_dto: GameDTO) -> None:
-        new_game = game_dto_to_model(game_dto)
-
         old_game = self.games_repository.get(game_id)
         if old_game is None:
-            raise ValueError("Game not found")
-
-        self.games_repository.update(game_id, new_game)
-
-        affected_date = min(old_game.date, new_game.date)
-        self._recompute_elo_from(affected_date)
+            raise GameNotFound("Game not found")
+        new_game = game_dto_to_model(game_dto)
+        self._validate_game(new_game)
+        with _conflicts_as_409():
+            self.games_repository.update(game_id, new_game)
+        self._recompute_elo_from(min(old_game.date, new_game.date))
 
 
     def delete_game(self, game_id: str) -> None:
@@ -201,11 +232,11 @@ class GamesService:
         """
         old_game = self.games_repository.get(game_id)
         if old_game is None:
-            raise ValueError("Game not found")
+            raise GameNotFound("Game not found")
 
         deleted = self.games_repository.delete(game_id)
         if not deleted:
-            raise ValueError("Game not found")
+            raise GameNotFound("Game not found")
 
         self._recompute_elo_from(old_game.date)
 
@@ -213,7 +244,7 @@ class GamesService:
         game = self.games_repository.get(game_id)
 
         if game is None:
-            raise ValueError("Game not found")
+            raise GameNotFound("Game not found")
 
         return calculate_results(game)
 

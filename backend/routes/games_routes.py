@@ -6,7 +6,7 @@ from mappers.elo_mapper import elo_changes_to_dtos
 from schemas.game_records import RecordComparisonDTO
 from schemas.elo import EloChangeDTO
 from services.game_records_service import GameRecordsService
-from services.game_service import GamesService
+from services.game_service import GameConflict, GameNotFound, GamesService
 from schemas.game import GameDTO, GameCreatedResponseDTO
 from schemas.result import GameResultDTO
 from repositories.container import (
@@ -40,6 +40,8 @@ def create_game(game: GameDTO):
     try:
         game_id = games_service.create_game(game)
         return {"id": game_id, "game": game}
+    except GameConflict as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -62,8 +64,12 @@ def get_game_results(game_id: str):
 def update_game(game_id: str, game: GameDTO):
     try:
         games_service.update_game(game_id, game)
-    except ValueError:
+    except GameNotFound:
         raise HTTPException(status_code=404, detail="Game not found")
+    except GameConflict as e:
+        raise HTTPException(status_code=409, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
     return {"message": "Game updated successfully"}
 

@@ -16,6 +16,9 @@ def pytest_configure(config):
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_db():
+    # Se recrea en cada sesión para que el esquema siga a los modelos (restricciones nuevas
+    # incluidas); la guarda de arriba garantiza que es una base *_test.
+    Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
     yield
 
