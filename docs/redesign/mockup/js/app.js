@@ -1,4 +1,4 @@
-import { html, useState, useEffect, useRef, useMemo, useCallback, cls } from './lib.js';
+import { html, useState, useEffect, useRef, useMemo, useCallback, cls, reducedMotion } from './lib.js';
 import { NavCtx, toHash, parseHash, SECTION } from './router.js';
 import { Icon } from './ui/icons.js';
 import { Cube } from './ui/atoms.js';
@@ -70,6 +70,7 @@ function Ticker({ go }) {
   const items = useMemo(() => MODEL.feed.filter((f) => f.type !== 'game').slice(0, 8), []);
   const [i, setI] = useState(0);
   useEffect(() => {
+    if (reducedMotion()) return undefined;
     const t = setInterval(() => setI((x) => (x + 1) % items.length), 6500);
     return () => clearInterval(t);
   }, []);

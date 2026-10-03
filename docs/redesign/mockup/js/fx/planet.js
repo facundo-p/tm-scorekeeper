@@ -71,7 +71,7 @@ export function createPlanetStage(host) {
     listeners: new Set(),
     onReady(fn) { this.listeners.add(fn); if (this.ready) fn(); return () => this.listeners.delete(fn); },
   };
-  if (!gl) { canvas.remove(); return stage; }
+  if (!gl) { canvas.remove(); document.documentElement.dataset.planet = 'fallback'; return stage; }
 
   let render, quad, textures, W = 0, H = 0, dpr = 1, running = false, raf = 0, last = 0, time = 0;
   let spin = 0, spinVel = 0, dragging = false;
@@ -92,6 +92,7 @@ export function createPlanetStage(host) {
     console.warn('Planet disabled:', err);
     stage.supported = false;
     canvas.remove();
+    document.documentElement.dataset.planet = 'fallback';
     return stage;
   }
 
@@ -128,7 +129,6 @@ export function createPlanetStage(host) {
       gl.deleteFramebuffer(fb);
       gl.deleteProgram(bk.p);
       stage.ready = true;
-      document.documentElement.dataset.planet = 'ready';
       stage.listeners.forEach((fn) => fn());
     };
     requestAnimationFrame(step);
@@ -171,18 +171,31 @@ export function createPlanetStage(host) {
     };
   }
 
+  // With reduced motion the globe is a still image: clouds stop (time stays 0) and
+  // it only redraws when its target, size or readiness changes (D-11).
+  let lastStill = null;
+  const stillKey = (t) => JSON.stringify([stage.ready, W, H, t.x, t.y, t.r, t.region, t.terra, t.fill, t.board, t.bright, t.glow, t.tilt, stage.pointer]);
+
   let skip = false;
   function frame(now) {
     raf = requestAnimationFrame(frame);
     const t0 = targets();
+    const frozen = reduceMotion() && !dragging;
+    if (frozen) {
+      const key = stillKey(t0);
+      if (key === lastStill) return;
+      lastStill = key;
+    } else {
+      lastStill = null;
+    }
     const settling = Math.abs(t0.x - cur.x) + Math.abs(t0.y - cur.y) + Math.abs(t0.r - cur.r) > 0.5;
     // Idle globes only need 30 fps: halve GPU work unless something is moving.
     skip = !skip;
-    if (skip && !dragging && !settling && Math.abs(spinVel) < 0.01) return;
+    if (skip && !frozen && !dragging && !settling && Math.abs(spinVel) < 0.01) return;
     const dt = Math.min(0.05, (now - (last || now)) / 1000);
     last = now;
     const still = reduceMotion();
-    time += dt;
+    if (!still) time += dt;
     const t = t0;
     const k = still || !initialised ? 1 : 1 - Math.exp(-dt * 5.5);
     const ks = still || !initialised ? 1 : 1 - Math.exp(-dt * 3.2);
@@ -223,8 +236,26 @@ export function createPlanetStage(host) {
     draw();
   }
 
+  // Comparison hooks (tools/parity): where the globe was last drawn, in viewport
+  // px, and whether a still globe already shows its current target.
+  let drawn = null;
+  window.__TM_PLANET__ = {
+    drawRect: () => drawn,
+    settled: () => stage.ready && lastStill !== null && lastStill === stillKey(targets()),
+  };
+
+  function markDrawn(rect) {
+    const box = host.getBoundingClientRect();
+    drawn = rect && { x: box.left + rect[0] / dpr, y: box.top + (H - rect[3]) / dpr, w: (rect[2] - rect[0]) / dpr, h: (rect[3] - rect[1]) / dpr };
+    if (document.documentElement.dataset.planet !== 'ready') document.documentElement.dataset.planet = 'ready';
+  }
+
   function draw() {
     if (!stage.ready || gl.isContextLost()) return;
+    paint();
+  }
+
+  function paint() {
     gl.disable(gl.SCISSOR_TEST);
     gl.viewport(0, 0, W, H);
     gl.clearColor(0, 0, 0, 0);
@@ -232,13 +263,14 @@ export function createPlanetStage(host) {
     const cx = cur.x * dpr;
     const cy = H - cur.y * dpr;
     const r = cur.r * dpr;
-    if (r < 2) return;
+    if (r < 2) { markDrawn(null); return; }
     const m = r * 1.45;
     const x0 = Math.max(0, Math.floor(cx - m));
     const y0 = Math.max(0, Math.floor(cy - m));
     const x1 = Math.min(W, Math.ceil(cx + m));
     const y1 = Math.min(H, Math.ceil(cy + m));
-    if (x1 <= x0 || y1 <= y0) return;
+    if (x1 <= x0 || y1 <= y0) { markDrawn(null); return; }
+    markDrawn([x0, y0, x1, y1]);
     gl.enable(gl.SCISSOR_TEST);
     gl.scissor(x0, y0, x1 - x0, y1 - y0);
     gl.useProgram(render.p);
