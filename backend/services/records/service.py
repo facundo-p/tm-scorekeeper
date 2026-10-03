@@ -59,9 +59,10 @@ def game_record_context(ctx: StatsContext, game_id: str) -> list[GameRecordConte
     gs = ctx.get(game_id)
     if gs is None:
         return []
-    broken = track_game_records(ctx).broken.get(game_id, set())
+    track = track_game_records(ctx)
+    broken = track.broken.get(game_id, set())
     position = {g.id: i for i, g in enumerate(ctx.games)}
-    views = [v for v in build_records(ctx) if v.definition.scope == "game"]
+    views = [RecordView(RECORD_BY_CODE[code], state) for code, state in track.states.items()]
     return [c for c in (_context_for(v, gs, broken, position) for v in views) if c is not None]
 
 

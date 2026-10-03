@@ -18,11 +18,6 @@ def _single_winner_margin(gs: GameStats) -> Candidates:
     return [(gs.winners[0], gs.margin)] if len(gs.winners) == 1 else []
 
 
-def _turmoil(gs: GameStats) -> Candidates:
-    values = [(pid, v) for pid, v in _score("turmoil_points")(gs)]
-    return [(pid, v) for pid, v in values if v > 0]
-
-
 def _points_per_generation(gs: GameStats, r) -> float:
     return round(r.total_points / gs.game.generations * 10) / 10  # half-even (D-06)
 
@@ -34,7 +29,7 @@ GAME_METRICS: dict[str, Callable[[GameStats], Candidates]] = {
     "highest_card_resource_points": _score("card_resource_points"),
     "highest_greenery_points": _score("greenery_points"),
     "highest_city_points": _score("city_points"),
-    "highest_turmoil_points": _turmoil,
+    "highest_turmoil_points": _score("turmoil_points"),  # el 0 lo descarta game_best (D-30)
     "biggest_margin": _single_winner_margin,
     "closest_win": _single_winner_margin,
     "points_per_generation": _per_player(_points_per_generation),

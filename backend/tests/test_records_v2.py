@@ -138,3 +138,26 @@ def test_subset_filters_by_table_size_map_and_expansion():
 
 def test_definitions_are_indexed_by_code():
     assert RECORD_BY_CODE["fastest_win"].unit == "gen"
+
+
+def test_a_single_winner_by_tiebreak_sets_closest_win_at_zero_but_not_biggest_margin():
+    games = [game("g1", 1, result("a", 40, mc=5), result("b", 40, mc=1))]
+    assert record(games, "closest_win").value == 0
+    assert record(games, "biggest_margin").value is None
+
+
+def test_game_context_skips_records_the_game_cannot_set():
+    ctx = StatsContext([game("g1", 1, result("a", 40), result("b", 30))])
+    codes = {c.definition.code for c in game_record_context(ctx, "g1")}
+    assert "highest_turmoil_points" not in codes and SCORE in codes
+
+
+def test_highest_elo_on_a_subset_replays_from_1000():
+    games = [game("g1", 1, result("a", 40), result("b", 30)),
+             game("g2", 2, result("a", 40), result("b", 30), result("c", 20))]
+    two = next(v.state for v in build_records(StatsContext(games, GameSubset(player_count=2)))
+               if v.definition.code == "highest_elo")
+    three = next(v.state for v in build_records(StatsContext(games, GameSubset(player_count=3)))
+                 if v.definition.code == "highest_elo")
+    assert [h.player_id for h in two.holders] == ["a"] and two.value > 1000
+    assert [h.game_id for h in three.history] == ["g2"] and three.value > 1000

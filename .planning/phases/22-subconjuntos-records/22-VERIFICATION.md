@@ -10,4 +10,4 @@
 | Contexto roto/cerca | `test_game_context_*`, `test_near_records_*` | ✅ |
 | `GET /records` aditivo y `/history` | `test_records_routes.py` (contrato viejo, campos nuevos, subconjunto, 404) | ✅ |
 | Golden de récords | `test_records` en 5 alcances: 16 récords con valor, poseedores e historial exactos | ✅ |
-| Gates | `gates.sh all`: pytest 340, lint, typecheck, vitest, build, fixtures, semántica, tamaño del PR | ✅ |
+| Gates | `gates.sh all`: pytest 344, lint, typecheck, vitest, build, fixtures, semántica, tamaño del PR | ✅ |

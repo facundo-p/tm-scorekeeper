@@ -25,9 +25,9 @@ def _entry(e, names: dict) -> RecordHistoryEntryDTO:
 def _legacy_record(view: RecordView, holders: list[RecordHolderDTO]) -> RecordResultDTO | None:
     if not holders:
         return None
-    attrs = [RecordAttributeDTO(label=LABEL_PLAYER, value=", ".join(h.player_name for h in holders))]
-    if holders[0].date:
-        attrs.insert(0, RecordAttributeDTO(label=LABEL_DATE, value=holders[0].date.isoformat()))
+    # Misma forma que antes de v2 (`entry_to_result`): una fecha por poseedor y los nombres juntos.
+    attrs = [RecordAttributeDTO(label=LABEL_DATE, value=h.date.isoformat()) for h in holders if h.date]
+    attrs.append(RecordAttributeDTO(label=LABEL_PLAYER, value=", ".join(h.player_name for h in holders)))
     return RecordResultDTO(value=view.state.value, title=view.definition.title, attributes=attrs)
 
 

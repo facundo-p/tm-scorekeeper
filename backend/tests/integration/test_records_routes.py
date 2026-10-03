@@ -54,6 +54,17 @@ def test_records_follow_the_subset(client, seeded):
     assert played["value"] == 0 and played["holders"] == []
 
 
+def test_a_shared_record_keeps_every_holder_in_the_old_contract(client, seeded):
+    played = by_code(client.get("/records/"))["most_games_played"]
+    assert played["record"]["attributes"] == [{"label": "Jugador", "value": "Alice, Bob"}]
+    _post_game(client, _game_payload("g-tie", "2026-03-01", [_pr("p3", 60), _pr("p1", 10)]))
+    score = by_code(client.get("/records/"))["highest_single_game_score"]
+    assert score["record"]["attributes"] == [{"label": "Fecha", "value": "2026-02-15"},
+                                             {"label": "Fecha", "value": "2026-03-01"},
+                                             {"label": "Jugador", "value": "Bob, Cara"}]
+    assert [h["kind"] for h in score["history"]] == ["set", "broken", "tied"]
+
+
 def test_record_history(client, seeded):
     res = client.get("/records/most_games_played/history")
     assert res.status_code == 200
