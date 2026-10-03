@@ -1,7 +1,9 @@
 import { html, useReducer, useState, useEffect, useRef, cls, fmt } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { MAPS, MAP_ORDER, EXPANSIONS, CORPS, CATEGORIES, EXPANSION_MILESTONES, EXPANSION_AWARDS, corpLabel } from '../data/catalog.js';
+import { milestoneLabel, awardLabel } from '../data/labels.js';
 import { useNav } from '../router.js';
+import { today, monthsBefore } from '../clock.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, Cube, CorpEmblem, NewBadge, Chip, fmtDate } from '../ui/atoms.js';
 import { PlanetSlot } from '../ui/planet-slot.js';
@@ -35,7 +37,7 @@ function exampleState() {
 }
 
 const blankState = () => ({
-  step: 0, example: false, date: '2026-10-03', map: '', expansions: ['Prelude'], draft: true, generations: 10,
+  step: 0, example: false, date: today(), map: '', expansions: ['Prelude'], draft: true, generations: 10,
   players: [], milestones: {}, awards: [],
 });
 
@@ -91,7 +93,7 @@ function validate(s) {
   const e = [];
   if (s.step === 0) {
     if (!s.map) e.push({ field: 'map', msg: 'Elegí el mapa en el que jugaron.' });
-    if (s.date > '2026-10-03') e.push({ field: 'date', msg: 'La fecha no puede ser posterior a hoy.' });
+    if (s.date > today()) e.push({ field: 'date', msg: 'La fecha no puede ser posterior a hoy.' });
   }
   if (s.step === 1) {
     if (s.players.length < 2) e.push({ field: 'players', msg: 'Elegí entre 2 y 5 jugadores.' });
@@ -99,8 +101,8 @@ function validate(s) {
   }
   if (s.step === 2) {
     s.awards.forEach((w) => {
-      if (!w.opened_by) e.push({ field: `aw-${w.name}`, msg: `Indicá quién financió ${w.name}.` });
-      if (!w.first.length) e.push({ field: `aw-${w.name}`, msg: `Indicá el 1.º puesto de ${w.name}.` });
+      if (!w.opened_by) e.push({ field: `aw-${w.name}`, msg: `Indicá quién financió ${awardLabel(w.name)}.` });
+      if (!w.first.length) e.push({ field: `aw-${w.name}`, msg: `Indicá el 1.º puesto de ${awardLabel(w.name)}.` });
     });
   }
   return e;
@@ -144,13 +146,13 @@ function StepGame({ s, d, errors }) {
           <${MapGlyph} glyph=${MAPS[name].glyph} size=${34} />
           <span class="maptile__name">${name}</span>
           <span class="maptile__blurb">${MAPS[name].blurb}</span>
-          ${MAPS[name].since >= '2026-01-01' && html`<span class="maptile__new">Nuevo mapa</span>`}
+          ${MAPS[name].since >= monthsBefore(today(), 12) && html`<span class="maptile__new">Nuevo mapa</span>`}
         </label>`)}
       </div>
     </fieldset>
     <div class="wrow">
       <label class="field"><span class="field__label">Fecha</span>
-        <input class=${cls('input', bad('date') && 'is-bad')} type="date" id="game-date" value=${s.date} max="2026-10-03"
+        <input class=${cls('input', bad('date') && 'is-bad')} type="date" id="game-date" value=${s.date} max=${today()}
           onInput=${(e) => d({ type: 'set', patch: { date: e.target.value } })} /></label>
       <div class="field"><span class="field__label" id="gens-l">Generaciones</span>
         <${Stepper2} value=${s.generations} min=${1} max=${30} labelledby="gens-l" onChange=${(v) => d({ type: 'set', patch: { generations: v } })} /></div>
@@ -175,7 +177,7 @@ function StepGame({ s, d, errors }) {
 export function Stepper2({ value, onChange, min = 0, max = 999, labelledby, label, small }) {
   return html`<span class=${cls('stepper', small && 'stepper--s')} role="group" aria-labelledby=${labelledby ?? null} aria-label=${label ?? null}>
     <button type="button" class="stepper__btn" aria-label="Restar 1" onClick=${() => onChange(Math.max(min, value - 1))}><${Icon} name="minus" size=${16} /></button>
-    <input class="stepper__val" type="number" inputmode="numeric" min=${min} max=${max} value=${value}
+    <input class="stepper__val" type="number" inputmode="numeric" min=${min} max=${max} value=${value} aria-label=${label ?? 'Cantidad'}
       onFocus=${(e) => e.target.select()} onInput=${(e) => e.target.value !== '' && onChange(Math.max(min, Math.min(max, parseInt(e.target.value, 10) || 0)))} />
     <button type="button" class="stepper__btn" aria-label="Sumar 1" onClick=${() => onChange(Math.min(max, value + 1))}><${Icon} name="plus" size=${16} /></button>
   </span>`;
@@ -244,8 +246,8 @@ function StepBoard({ s, d, errors }) {
       <h3 class="board-row__title"><${Icon} name="milestone" size=${18} />Hitos <span>${claimed} de 3 reclamados, 5 PV cada uno</span></h3>
       <ul class="wslots">
         ${milestones.map((m) => html`<li class=${cls('wslot', s.milestones[m] && 'is-claimed', !s.milestones[m] && claimed >= 3 && 'is-off')}>
-          <span class="wslot__name">${m}</span>
-          <${CubeChoice} ids=${ids} value=${s.milestones[m] ?? ''} label=${`Quién reclamó ${m}`}
+          <span class="wslot__name">${milestoneLabel(m)}</span>
+          <${CubeChoice} ids=${ids} value=${s.milestones[m] ?? ''} label=${`Quién reclamó ${milestoneLabel(m)}`}
             disabled=${() => !s.milestones[m] && claimed >= 3} onPick=${(id) => d({ type: 'milestone', name: m, id })} />
         </li>`)}
       </ul>
@@ -257,14 +259,14 @@ function StepBoard({ s, d, errors }) {
           const w = funded(name);
           const noSecond = ids.length === 2 || (w && w.first.length > 1);
           return html`<li class=${cls('wslot wslot--award', w && 'is-claimed', errors.some((e) => e.field === `aw-${name}`) && 'is-bad')}>
-            <span class="wslot__name">${name}</span>
+            <span class="wslot__name">${awardLabel(name)}</span>
             <label class="switch switch--s"><input type="checkbox" checked=${!!w} disabled=${!w && s.awards.length >= 3} onChange=${() => toggleFund(name)} />
               <span class="switch__track"></span><span>${w ? 'Financiada' : 'Sin financiar'}</span></label>
             ${w && html`<div class="wslot__grid">
-              <span>Financió</span><${CubeChoice} ids=${ids} value=${w.opened_by} label=${`Quién financió ${name}`} onPick=${(id) => setAward(name, { opened_by: id })} />
-              <span>1.º</span><${CubeChoice} ids=${ids} value=${w.first} multi label=${`Primer puesto en ${name}`}
+              <span>Financió</span><${CubeChoice} ids=${ids} value=${w.opened_by} label=${`Quién financió ${awardLabel(name)}`} onPick=${(id) => setAward(name, { opened_by: id })} />
+              <span>1.º</span><${CubeChoice} ids=${ids} value=${w.first} multi label=${`Primer puesto en ${awardLabel(name)}`}
                 disabled=${(id) => w.second.includes(id)} onPick=${(id) => setAward(name, { first: flip(w.first, id), second: flip(w.first, id).length > 1 ? [] : w.second })} />
-              ${!noSecond && html`<span>2.º</span><${CubeChoice} ids=${ids} value=${w.second} multi label=${`Segundo puesto en ${name}`}
+              ${!noSecond && html`<span>2.º</span><${CubeChoice} ids=${ids} value=${w.second} multi label=${`Segundo puesto en ${awardLabel(name)}`}
                 disabled=${(id) => w.first.includes(id)} onPick=${(id) => setAward(name, { second: flip(w.second, id) })} />`}
             </div>`}
           </li>`;

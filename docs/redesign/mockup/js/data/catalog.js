@@ -1,6 +1,6 @@
 // Static game knowledge: mirrors backend enums (models/enums.py), record calculators
-// and achievement definitions, plus the proposals introduced by the redesign
-// (flagged `proposed: true`).
+// and achievement definitions. The 7 records and 6 achievements added by the
+// redesign are official since v2.0 (owner's decision 2).
 
 export const MAPS = {
   Tharsis: {
@@ -119,13 +119,13 @@ export const RECORDS = [
   { code: 'highest_turmoil_points', title: 'Maestro de la política', description: 'Más puntos de Turmoil en una partida', icon: 'turmoil', unit: 'pts', scope: 'game' },
   { code: 'most_games_played', title: 'Colono persistente', description: 'Más partidas jugadas', icon: 'generation', unit: 'partidas', scope: 'career' },
   { code: 'most_games_won', title: 'Estratega extraordinario', description: 'Más partidas ganadas', icon: 'crown', unit: 'victorias', scope: 'career' },
-  { code: 'biggest_margin', title: 'Aplanadora', description: 'Mayor diferencia entre el ganador y el segundo', icon: 'margin', unit: 'pts', scope: 'game', proposed: true },
-  { code: 'closest_win', title: 'Por un pelo', description: 'Victoria más ajustada (menor diferencia con el segundo)', icon: 'photo', unit: 'pts', scope: 'game', proposed: true, lowerIsBetter: true },
-  { code: 'points_per_generation', title: 'Motor perfecto', description: 'Más puntos por generación en una partida', icon: 'engine', unit: 'pts/gen', scope: 'game', proposed: true },
-  { code: 'fastest_win', title: 'Blitz', description: 'Victoria en la partida con menos generaciones', icon: 'blitz', unit: 'gen', scope: 'game', proposed: true, lowerIsBetter: true },
-  { code: 'highest_elo', title: 'Cima del Consejo', description: 'ELO más alto alcanzado', icon: 'peak', unit: 'ELO', scope: 'career', proposed: true },
-  { code: 'longest_streak', title: 'Imparable', description: 'Racha de victorias consecutivas más larga', icon: 'flame', unit: 'seguidas', scope: 'career', proposed: true },
-  { code: 'richest_finish', title: 'Tesorería', description: 'Más M€ al terminar una partida', icon: 'mc', unit: 'M€', scope: 'game', proposed: true },
+  { code: 'biggest_margin', title: 'Aplanadora', description: 'Mayor diferencia entre el ganador y el segundo', icon: 'margin', unit: 'pts', scope: 'game' },
+  { code: 'closest_win', title: 'Por un pelo', description: 'Victoria más ajustada (menor diferencia con el segundo)', icon: 'photo', unit: 'pts', scope: 'game', lowerIsBetter: true },
+  { code: 'points_per_generation', title: 'Motor perfecto', description: 'Más puntos por generación en una partida', icon: 'engine', unit: 'pts/gen', scope: 'game' },
+  { code: 'fastest_win', title: 'Blitz', description: 'Victoria en la partida con menos generaciones', icon: 'blitz', unit: 'gen', scope: 'game', lowerIsBetter: true },
+  { code: 'highest_elo', title: 'Cima del Consejo', description: 'ELO más alto alcanzado', icon: 'peak', unit: 'ELO', scope: 'career' },
+  { code: 'longest_streak', title: 'Imparable', description: 'Racha de victorias consecutivas más larga', icon: 'flame', unit: 'seguidas', scope: 'career' },
+  { code: 'richest_finish', title: 'Tesorería', description: 'Más M€ al terminar una partida', icon: 'mc', unit: 'M€', scope: 'game' },
 ];
 
 const tiers = (list) => list.map(([threshold, title], i) => ({ level: i + 1, threshold, title }));
@@ -162,19 +162,19 @@ export const ACHIEVEMENTS = [
     flavor: 'Tres podios, un solo nombre.', tiers: tiers([[1, 'Rey de las Recompensas']]) },
   { code: 'no_award_win', description: 'Ganar una partida sin quedar 1.º en ninguna recompensa', glyph: 'eye', kind: 'flag', metric: 'noAwardWin',
     flavor: 'Nadie lo vio venir.', tiers: tiers([[1, 'Incomprendido']]) },
-  { code: 'corp_collector', description: 'Jugar con corporaciones distintas', glyph: 'corp', kind: 'sum', metric: 'corps', proposed: true,
+  { code: 'corp_collector', description: 'Jugar con corporaciones distintas', glyph: 'corp', kind: 'sum', metric: 'corps',
     flavor: 'Cada directorio tiene su manera de ver Marte.',
     tiers: tiers([[5, 'Consultor'], [10, 'Accionista'], [20, 'Holding'], [30, 'Conglomerado']]) },
-  { code: 'photo_finish', description: 'Ganar por 2 puntos o menos', glyph: 'photo', kind: 'flag', metric: 'photoFinish', proposed: true,
+  { code: 'photo_finish', description: 'Ganar por 2 puntos o menos', glyph: 'photo', kind: 'flag', metric: 'photoFinish',
     flavor: 'Hubo que contar dos veces.', tiers: tiers([[1, 'Fotofinish']]) },
-  { code: 'blitz', description: 'Ganar una partida de 9 generaciones o menos', glyph: 'blitz', kind: 'flag', metric: 'blitz', proposed: true,
+  { code: 'blitz', description: 'Ganar una partida de 9 generaciones o menos', glyph: 'blitz', kind: 'flag', metric: 'blitz',
     flavor: 'El oxígeno subió más rápido de lo previsto.', tiers: tiers([[1, 'Blitz']]) },
-  { code: 'giant_killer', description: 'Ganar una partida en la que jugaba el n.º 1 del ranking', glyph: 'giant', kind: 'sum', metric: 'giantKills', proposed: true,
+  { code: 'giant_killer', description: 'Ganar una partida en la que jugaba el n.º 1 del ranking', glyph: 'giant', kind: 'sum', metric: 'giantKills',
     flavor: 'Hasta los volcanes más altos tienen una ladera.',
     tiers: tiers([[1, 'Retador'], [3, 'Matagigantes'], [6, 'Verdugo del Consejo']]) },
-  { code: 'full_table', description: 'Ganar una partida de 5 jugadores', glyph: 'table', kind: 'flag', metric: 'fullTableWin', proposed: true,
+  { code: 'full_table', description: 'Ganar una partida de 5 jugadores', glyph: 'table', kind: 'flag', metric: 'fullTableWin',
     flavor: 'Cinco corporaciones, un solo planeta.', tiers: tiers([[1, 'Mesa llena']]) },
-  { code: 'city_planner', description: 'Alcanzar X puntos de ciudades en una partida', glyph: 'city', kind: 'max', metric: 'cities', proposed: true,
+  { code: 'city_planner', description: 'Alcanzar X puntos de ciudades en una partida', glyph: 'city', kind: 'max', metric: 'cities',
     flavor: 'Domos, calles, luces en la noche marciana.',
     tiers: tiers([[10, 'Loteador'], [15, 'Urbanista'], [20, 'Metrópolis'], [25, 'Megalópolis']]) },
 ];

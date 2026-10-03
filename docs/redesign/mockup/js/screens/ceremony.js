@@ -78,7 +78,7 @@ function EloBlock({ g }) {
 }
 
 function RecordsBlock({ g }) {
-  const broken = gameRecordContext(g).filter((c) => c.broken);
+  const broken = gameRecordContext(g, MODEL).filter((c) => c.broken);
   return html`<section class="cer-block" aria-label="Récords">
     <h3 class="cer-block__title"><${Icon} name="trophyNav" size=${18} />Récords</h3>
     ${broken.length === 0 ? html`<p class="faint">Ningún récord nuevo esta vez.</p>` : html`<ul class="cer-recs">

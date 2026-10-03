@@ -121,14 +121,14 @@ export function ScoreBars({ game, maxTotal, showTable }) {
     ${game.results.map((r, row) => {
       const p = MODEL.playerById[r.player_id];
       return html`<div class=${cls('sbars__row', r.position === 1 && 'is-win')} style=${`--row:${row}`}>
-        <span class="sbars__pos" aria-label=${`Posición ${r.position}`}>${r.position}</span>
+        <span class="sbars__pos"><span class="vh">Posición </span>${r.position}</span>
         <span class="sbars__who"><${Cube} color=${p.color} size=${15} /><span>${p.name}</span></span>
         <div class="sbars__track" style=${`--w:${((r.total / top) * 100).toFixed(2)}`}>
           ${cats.map((c) => {
             const v = r.scores[c.key] ?? 0;
             if (!v) return null;
             return html`<span class=${`sbars__seg catkey--${c.key}`} style=${`--v:${v}`} data-tip=${`${c.long}: ${v}`} tabindex="0"
-              aria-label=${`${c.long} ${v}`}></span>`;
+              role="img" aria-label=${`${c.long} ${v}`}></span>`;
           })}
         </div>
         <span class="sbars__total">${r.total}</span>
@@ -156,7 +156,7 @@ export function CompositionBar({ share, label }) {
         const v = share[c.key] ?? 0;
         if (v < 0.005) return null;
         return html`<span class=${`compbar__seg catkey--${c.key}`} style=${`--v:${(v * 100).toFixed(2)}`}
-          data-tip=${`${c.long}: ${fmt.pct(v)}`} tabindex="0" aria-label=${`${c.long} ${fmt.pct(v)}`}></span>`;
+          data-tip=${`${c.long}: ${fmt.pct(v)}`} tabindex="0" role="img" aria-label=${`${c.long} ${fmt.pct(v)}`}></span>`;
       })}
     </div>
   </div>`;
@@ -280,7 +280,7 @@ function layoutLabels(items) {
 // --- Head-to-head heatmap (diverging: ocean = ahead, rust = behind) ----------------------------
 export function H2HMatrix({ players }) {
   const ids = players.map((p) => p.id);
-  return html`<div class="h2h-wrap"><table class="h2h">
+  return html`<div class="h2h-wrap" tabindex="0" role="region" aria-label="Matriz cara a cara (se desplaza horizontalmente)"><table class="h2h">
     <caption class="vh">Porcentaje de partidas en que el jugador de la fila terminó por delante del de la columna</caption>
     <thead><tr><th></th>${players.map((p) => html`<th scope="col"><span class="h2h__col"><${Cube} color=${p.color} size=${13} />${p.name}</span></th>`)}</tr></thead>
     <tbody>${players.map((a) => html`<tr>

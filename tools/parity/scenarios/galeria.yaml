@@ -1,0 +1,22 @@
+# Galería de átomos e instrumentos (F19 / F27) y shell (F26).
+- id: gal-atoms
+  screen: galeria
+  ref: { hash: '#galeria' }
+  cand: { path: /__galeria }
+  planet: none
+  gateFromPhase: 19
+- id: '404'
+  screen: shell
+  ref: { hash: '#no-existe' }
+  cand: { path: /no-existe }
+  gateFromPhase: 26
+- id: state-loading
+  screen: shell
+  ref: { hash: '#inicio', search: '?demo=loading' }
+  cand: { path: /, search: '?demo=loading' }
+  gateFromPhase: 26
+- id: state-error
+  screen: shell
+  ref: { hash: '#inicio', search: '?demo=error' }
+  cand: { path: /, search: '?demo=error' }
+  gateFromPhase: 26

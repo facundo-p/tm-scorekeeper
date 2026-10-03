@@ -19,7 +19,7 @@ Estado verificado al revisar: `tsc -b` limpio, 243 tests de frontend pasan (25 a
 | S1 | API sin autenticación; credenciales mock en el bundle | `backend/main.py:14-26`, `frontend/src/constants/auth.ts`, `context/AuthContext.tsx` | Login real en el backend (token firmado, una cuenta admin compartida está bien para el grupo). Dependencia de auth en todas las rutas de escritura. Borrar las credenciales del frontend, `ProtectedRoute` como layout route y logout ante un 401. |
 | S2 | `PUT /games/{id}` no valida (fechas futuras, jugadores duplicados o inexistentes, más de 3 hitos) | `services/game_service.py:184-194` | Un único `_validate_game()` compartido por POST y PUT. `UniqueConstraint(game_id, player_id)` y mapear `IntegrityError` a 409. |
 | S3 | Escrituras no atómicas y recálculo de ELO con carrera posible | `repositories/elo_repository.py:21-33`, `player_repository.py:83-93` | Sesión por request, una sola transacción por operación y `pg_advisory_xact_lock` durante el recálculo. Unique `(player_id, game_id)` en el historial. |
-| S4 | Los tests borran todas las tablas de la base apuntada por `DATABASE_URL`, que por defecto es la de desarrollo | `tests/conftest.py:18-23`, `db/session.py:7` | Abortar si el nombre de la base no termina en `_test`. Corregir el README, que sugiere SQLite. |
+| S4 | Los tests borran todas las tablas de la base apuntada por `DATABASE_URL`, que por defecto es la de desarrollo | `tests/conftest.py:12-17`, `db/session.py:7` | Abortar si el nombre de la base no termina en `_test`. Corregir el README, que sugiere SQLite. **Resuelto en v2.0, fase 15 (#81).** |
 | S5 | Logros evaluados por un POST desde la pantalla de resumen; sólo devuelve los *nuevos* | `frontend/src/pages/GameRecords/GameRecords.tsx:51-53`, `backend/services/achievements_service.py:40-81` | Evaluar logros dentro de `POST /games` y devolverlos en la respuesta. La pantalla de resumen sólo lee. Usar la fecha de la partida como `unlocked_at`. |
 | S6 | `GET /elo/admin/recompute?secret=` compara el secreto con `!=` y lo pasa por query string | `routes/elo_routes.py:25-31` | POST con header, `secrets.compare_digest`, documentar `ADMIN_SECRET`. |
 
@@ -28,7 +28,7 @@ Estado verificado al revisar: `tsc -b` limpio, 243 tests de frontend pasan (25 a
 **Backend**
 
 - N+1 en `_orm_to_domain` (1 + 2N queries por listado) en `repositories/game_repository.py:31,53`. Usar `selectinload` para resultados y recompensas.
-- La tabla completa de partidas se carga en `/games/`, `/records/`, récords por partida y cada perfil (`services/player_records_service.py:117`). Filtrar en SQL y cachear los récords globales invalidando al escribir.
+- La tabla completa de partidas se carga en `/games/`, `/records/`, récords por partida y cada perfil (`services/player_records_service.py:11`). Filtrar en SQL y cachear los récords globales invalidando al escribir.
 - Faltan índices: `player_results(player_id)`, `player_results(game_id)`, `awards(game_id)`, `games(date)`, `player_elo_history(recorded_at)`. El docstring de `elo_repository.py:134` afirma que `recorded_at` está indexado y no lo está.
 - La línea base del ELO recorre todo el historial (`elo_repository.py:70-90`) y `bulk_update_elo` hace un SELECT por jugador. Usar `DISTINCT ON` y un UPDATE masivo.
 - Partidas del mismo día se ordenan por UUID aleatorio (`elo_service.py:105`). Agregar `games.created_at`.
@@ -45,7 +45,7 @@ Estado verificado al revisar: `tsc -b` limpio, 243 tests de frontend pasan (25 a
 - **Empates en victorias.** `results[0].tied` siempre es `False` (el primero de un grupo empatado lleva `tied=False`, `services/helpers/results.py:44-55`). Por eso `most_games_won`, la racha de victorias y el registro de logros acreditan sólo al primer co-ganador, mientras el perfil cuenta a todos. Un helper `winners()` único y tests de empates.
 - `GamesList` calcula el ganador por su cuenta e ignora el desempate por M€ (`GamesList.tsx:20-26`). Usar el resultado del backend.
 - Récords empatados: sin `ORDER BY`, el poseedor es arbitrario; un récord de Turmoil con valor 0 igual tiene "dueño".
-- `/games/{id_inexistente}/records` responde 200 con datos de todas las partidas (`game_records_service.py:144-148`).
+- `/games/{id_inexistente}/records` responde 200 con datos de todas las partidas (`game_records_service.py:10-28`).
 - La fecha por defecto del formulario sale de UTC al cargar el módulo (`GameForm.types.ts:53`): después de las 21 h en Argentina propone el día siguiente.
 - Campos numéricos: `parseInt(v) || 0` repone el 0 al borrar el campo, se aceptan negativos y falta `inputMode="numeric"`. Decisión pendiente: los PV de cartas pueden ser negativos en el juego real.
 - Estados de carga eternos: si falla el request, `ResultsSection` y `AchievementsSection` muestran el spinner para siempre; `Records.tsx` muestra "no hay récords" ante un error. Falta un error boundary raíz.

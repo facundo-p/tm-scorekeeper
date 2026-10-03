@@ -1,6 +1,7 @@
 import { html, useState, cls, fmt } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { MAPS, MAP_ORDER, CATEGORIES, ACHIEVEMENTS, RECORDS, corpLabel } from '../data/catalog.js';
+import { milestoneLabel, awardLabel } from '../data/labels.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, SectionHead, Cube, PlayerTag, CorpEmblem, Delta, Tabs, Medal, TierPips, NewBadge, Readout, useTilt, Empty, CountUp, fmtDate } from '../ui/atoms.js';
@@ -18,6 +19,19 @@ function Cube3D({ color }) {
     </div></div>
     <span class="cube3d__shadow"></span>
   </div>`;
+}
+
+// Most claimed milestone and most won award (#35, #66) with the per-game averages (#38).
+function Favorites({ p }) {
+  const pick = (fav, label) => (fav ? html`<b>${fav.names.map(label).join(', ')}</b><small>${fav.count} ${fav.count === 1 ? 'vez' : 'veces'}</small>` : null);
+  return html`<dl class="phero__picks">
+    <div><dt class="faint">Hito más reclamado</dt>
+      <dd>${pick(p.favorites.milestone, milestoneLabel) ?? html`<span class="faint">Todavía no reclamó ningún hito.</span>`}
+        <small>${fmt.dec(p.avgMilestones)} por partida</small></dd></div>
+    <div><dt class="faint">Recompensa más ganada</dt>
+      <dd>${pick(p.favorites.award, awardLabel) ?? html`<span class="faint">Todavía no ganó ninguna recompensa.</span>`}
+        <small>${fmt.dec(p.avgAwards)} por partida</small></dd></div>
+  </dl>`;
 }
 
 function ProfileHero({ p }) {
@@ -48,6 +62,7 @@ function ProfileHero({ p }) {
       </div>
       ${fav && html`<div class="phero__fav"><span class="faint">Corporación favorita</span>
         <${CorpEmblem} name=${fav.name} withName /><span class="faint">${fav.games} partidas, ${fav.wins} victorias</span></div>`}
+      <${Favorites} p=${p} />
     </div>
   </section>`;
 }
@@ -103,7 +118,7 @@ function CorpsPanel({ p }) {
       ${top.map((c) => html`<li class="corplist__row">
         <${CorpEmblem} name=${c.name} withName />
         <span class="corplist__bar" style=${`--g:${((c.games / max) * 100).toFixed(0)};--w:${((c.wins / max) * 100).toFixed(0)}`}
-          aria-label=${`${c.games} partidas, ${c.wins} victorias`}><i></i><b></b></span>
+          role="img" aria-label=${`${c.games} partidas, ${c.wins} victorias`}><i></i><b></b></span>
         <span class="corplist__n">${c.wins}/${c.games}</span>
       </li>`)}
     </ul>
@@ -174,7 +189,6 @@ function RecordsHeld({ p }) {
       <span class="tagdisc tagdisc--blue"><${Icon} name=${r.icon} size=${15} /></span>
       <div class="held__text"><b>${r.title}</b><span class="muted">${r.description}</span></div>
       <span class="held__val">${r.value}<small>${r.unit}</small></span>
-      ${r.proposed && html`<${NewBadge}>Propuesto</${NewBadge}>`}
     </${Plate}></li>`)}
   </ul>`;
 }
@@ -195,28 +209,31 @@ function AchievementsTab({ p }) {
           ${a.progress && html`<span class="pach__prog"><span class="pach__bar"><i style=${`--p:${((a.progress.current / a.progress.target) * 100).toFixed(0)}`}></i></span>
             <span class="faint">${a.progress.current}/${a.progress.target}${next ? ` para ${next.title}` : ''}</span></span>`}
         </div>
-        ${def.proposed && html`<${NewBadge}>Propuesto</${NewBadge}>`}
       </li>`;
     })}
   </ul>`;
 }
 
-export function Profile({ params }) {
+const TABS = ['resumen', 'partidas', 'records', 'logros'];
+
+export function Profile({ params, query = {} }) {
+  const nav = useNav();
   const p = P(params.id) ?? MODEL.players[0];
-  const [tab, setTab] = useState('summary');
+  const tab = TABS.includes(query.tab) ? query.tab : 'resumen';
+  const setTab = (t) => nav.go('profile', { id: p.id }, { ...query, tab: t === 'resumen' ? '' : t });
   const unlocked = ACHIEVEMENTS.filter((d) => p.achievements[d.code].tier > 0).length;
   const tabs = [
-    { id: 'summary', label: 'Resumen', icon: 'chart' },
-    { id: 'games', label: 'Partidas', icon: 'games', count: p.games },
+    { id: 'resumen', label: 'Resumen', icon: 'chart' },
+    { id: 'partidas', label: 'Partidas', icon: 'games', count: p.games },
     { id: 'records', label: 'Récords', icon: 'trophyNav', count: p.recordsHeld.length },
-    { id: 'ach', label: 'Logros', icon: 'crown', count: unlocked },
+    { id: 'logros', label: 'Logros', icon: 'crown', count: unlocked },
   ];
   return html`
     <${ProfileHero} p=${p} />
     <div class="ptabs"><${Tabs} items=${tabs} value=${tab} onChange=${setTab} label="Secciones del perfil" /></div>
-    ${tab === 'summary' && html`<${Summary} p=${p} />`}
-    ${tab === 'games' && html`<${History} p=${p} />`}
+    ${tab === 'resumen' && html`<${Summary} p=${p} />`}
+    ${tab === 'partidas' && html`<${History} p=${p} />`}
     ${tab === 'records' && html`<${RecordsHeld} p=${p} />`}
-    ${tab === 'ach' && html`<${AchievementsTab} p=${p} />`}
+    ${tab === 'logros' && html`<${AchievementsTab} p=${p} />`}
   `;
 }

@@ -1,0 +1,2 @@
+# 17-01 Summary — Contenido
+- Récords y logros nuevos oficiales; sin «Propuesto». Nombres en castellano (`js/data/labels.js`, D-32). Orden del archivo (#65, `js/data/sort.js`, también en la hoja de filtros del móvil). Favoritos y promedios en el perfil (#66, #35, #38). Récords por mapa y expansión (#37) con co-poseedores. Login 401/429 (D-33), 404, Salir en el móvil. REVIEW/README corregidos. axe limpio.

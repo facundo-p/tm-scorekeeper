@@ -9,3 +9,13 @@
   ref: { hash: '#logros' }
   cand: { path: /logros }
   gateFromPhase: 34
+- id: records-map
+  screen: records
+  ref: { hash: '#records?mapa=Tharsis' }
+  cand: { path: /records, search: '?mapa=Tharsis' }
+  gateFromPhase: 34
+- id: records-expansion
+  screen: records
+  ref: { hash: '#records?exp=Turmoil' }
+  cand: { path: /records, search: '?exp=Turmoil' }
+  gateFromPhase: 34

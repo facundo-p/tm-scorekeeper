@@ -9,3 +9,30 @@
   ref: { hash: '#partida-g-063' }
   cand: { path: /partidas/g-063 }
   gateFromPhase: 29
+- id: games-sort-winner
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Ganador }
+  gateFromPhase: 29
+- id: games-sort-players
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Jugadores }
+    - click: { role: button, name: 'Ordenar por Jugadores, descendente' }
+  gateFromPhase: 29
+- id: games-sort-winner-mobile
+  screen: partidas
+  viewports: [mobile]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Filtros }
+    - click: { role: button, name: Ordenar por Ganador }
+    - click: { role: button, name: Ver 63 partidas }
+  gateFromPhase: 29

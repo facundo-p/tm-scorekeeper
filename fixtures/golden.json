@@ -12,6 +12,7 @@
     {
      "player_id": "p-juli",
      "position": 2,
+     "tied": false,
      "total": 101,
      "mc": 20
     }
@@ -41,6 +42,7 @@
     {
      "player_id": "p-juli",
      "position": 4,
+     "tied": false,
      "total": 82,
      "mc": 11
     }
@@ -70,6 +72,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 73,
      "mc": 5
     }
@@ -99,6 +102,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 73,
      "mc": 23
     }
@@ -128,6 +132,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 81,
      "mc": 14
     }
@@ -150,6 +155,7 @@
     {
      "player_id": "p-juli",
      "position": 3,
+     "tied": false,
      "total": 55,
      "mc": 14
     }
@@ -179,6 +185,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 63,
      "mc": 6
     }
@@ -215,6 +222,7 @@
     {
      "player_id": "p-pato",
      "position": 5,
+     "tied": false,
      "total": 58,
      "mc": 26
     }
@@ -244,6 +252,7 @@
     {
      "player_id": "p-tomi",
      "position": 4,
+     "tied": false,
      "total": 78,
      "mc": 23
     }
@@ -266,6 +275,7 @@
     {
      "player_id": "p-juli",
      "position": 3,
+     "tied": false,
      "total": 88,
      "mc": 21
     }
@@ -288,6 +298,7 @@
     {
      "player_id": "p-meli",
      "position": 3,
+     "tied": false,
      "total": 86,
      "mc": 25
     }
@@ -324,6 +335,7 @@
     {
      "player_id": "p-tomi",
      "position": 5,
+     "tied": false,
      "total": 56,
      "mc": 7
     }
@@ -360,6 +372,7 @@
     {
      "player_id": "p-meli",
      "position": 5,
+     "tied": false,
      "total": 66,
      "mc": 27
     }
@@ -389,6 +402,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 69,
      "mc": 27
     }
@@ -418,6 +432,7 @@
     {
      "player_id": "p-juli",
      "position": 4,
+     "tied": false,
      "total": 72,
      "mc": 11
     }
@@ -440,6 +455,7 @@
     {
      "player_id": "p-santi",
      "position": 3,
+     "tied": false,
      "total": 81,
      "mc": 4
     }
@@ -469,6 +485,7 @@
     {
      "player_id": "p-nico",
      "position": 4,
+     "tied": false,
      "total": 72,
      "mc": 6
     }
@@ -491,6 +508,7 @@
     {
      "player_id": "p-lu",
      "position": 3,
+     "tied": false,
      "total": 76,
      "mc": 15
     }
@@ -520,6 +538,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 54,
      "mc": 25
     }
@@ -549,6 +568,7 @@
     {
      "player_id": "p-meli",
      "position": 4,
+     "tied": false,
      "total": 68,
      "mc": 15
     }
@@ -578,6 +598,7 @@
     {
      "player_id": "p-pato",
      "position": 4,
+     "tied": false,
      "total": 73,
      "mc": 30
     }
@@ -600,6 +621,7 @@
     {
      "player_id": "p-nico",
      "position": 3,
+     "tied": false,
      "total": 77,
      "mc": 22
     }
@@ -629,6 +651,7 @@
     {
      "player_id": "p-nico",
      "position": 4,
+     "tied": false,
      "total": 78,
      "mc": 12
     }
@@ -658,6 +681,7 @@
     {
      "player_id": "p-lu",
      "position": 4,
+     "tied": false,
      "total": 63,
      "mc": 14
     }
@@ -673,6 +697,7 @@
     {
      "player_id": "p-juli",
      "position": 2,
+     "tied": false,
      "total": 82,
      "mc": 20
     }
@@ -702,6 +727,7 @@
     {
      "player_id": "p-lu",
      "position": 4,
+     "tied": false,
      "total": 67,
      "mc": 15
     }
@@ -717,6 +743,7 @@
     {
      "player_id": "p-santi",
      "position": 2,
+     "tied": false,
      "total": 99,
      "mc": 15
     }
@@ -739,6 +766,7 @@
     {
      "player_id": "p-gonza",
      "position": 3,
+     "tied": false,
      "total": 71,
      "mc": 27
     }
@@ -775,6 +803,7 @@
     {
      "player_id": "p-facu",
      "position": 5,
+     "tied": false,
      "total": 71,
      "mc": 13
     }
@@ -804,6 +833,7 @@
     {
      "player_id": "p-santi",
      "position": 4,
+     "tied": false,
      "total": 65,
      "mc": 10
     }
@@ -833,6 +863,7 @@
     {
      "player_id": "p-gonza",
      "position": 4,
+     "tied": false,
      "total": 66,
      "mc": 24
     }
@@ -855,6 +886,7 @@
     {
      "player_id": "p-caro",
      "position": 3,
+     "tied": false,
      "total": 81,
      "mc": 13
     }
@@ -877,6 +909,7 @@
     {
      "player_id": "p-santi",
      "position": 3,
+     "tied": false,
      "total": 76,
      "mc": 29
     }
@@ -913,6 +946,7 @@
     {
      "player_id": "p-meli",
      "position": 5,
+     "tied": false,
      "total": 72,
      "mc": 23
     }
@@ -935,6 +969,7 @@
     {
      "player_id": "p-tomi",
      "position": 3,
+     "tied": false,
      "total": 67,
      "mc": 7
     }
@@ -971,6 +1006,7 @@
     {
      "player_id": "p-lu",
      "position": 5,
+     "tied": false,
      "total": 72,
      "mc": 6
     }
@@ -1007,6 +1043,7 @@
     {
      "player_id": "p-tomi",
      "position": 5,
+     "tied": false,
      "total": 68,
      "mc": 25
     }
@@ -1022,6 +1059,7 @@
     {
      "player_id": "p-nico",
      "position": 2,
+     "tied": false,
      "total": 78,
      "mc": 8
     }
@@ -1051,6 +1089,7 @@
     {
      "player_id": "p-meli",
      "position": 4,
+     "tied": false,
      "total": 58,
      "mc": 4
     }
@@ -1066,6 +1105,7 @@
     {
      "player_id": "p-lu",
      "position": 2,
+     "tied": false,
      "total": 87,
      "mc": 5
     }
@@ -1088,6 +1128,7 @@
     {
      "player_id": "p-juli",
      "position": 3,
+     "tied": false,
      "total": 76,
      "mc": 27
     }
@@ -1110,6 +1151,7 @@
     {
      "player_id": "p-tomi",
      "position": 3,
+     "tied": false,
      "total": 81,
      "mc": 18
     }
@@ -1139,6 +1181,7 @@
     {
      "player_id": "p-nico",
      "position": 4,
+     "tied": false,
      "total": 71,
      "mc": 18
     }
@@ -1168,6 +1211,7 @@
     {
      "player_id": "p-tomi",
      "position": 4,
+     "tied": false,
      "total": 68,
      "mc": 15
     }
@@ -1190,6 +1234,7 @@
     {
      "player_id": "p-santi",
      "position": 3,
+     "tied": false,
      "total": 81,
      "mc": 10
     }
@@ -1226,6 +1271,7 @@
     {
      "player_id": "p-gonza",
      "position": 5,
+     "tied": false,
      "total": 54,
      "mc": 29
     }
@@ -1248,6 +1294,7 @@
     {
      "player_id": "p-meli",
      "position": 3,
+     "tied": false,
      "total": 69,
      "mc": 8
     }
@@ -1277,6 +1324,7 @@
     {
      "player_id": "p-facu",
      "position": 4,
+     "tied": false,
      "total": 83,
      "mc": 7
     }
@@ -1306,6 +1354,7 @@
     {
      "player_id": "p-meli",
      "position": 4,
+     "tied": false,
      "total": 74,
      "mc": 17
     }
@@ -1328,6 +1377,7 @@
     {
      "player_id": "p-tomi",
      "position": 3,
+     "tied": false,
      "total": 84,
      "mc": 16
     }
@@ -1350,6 +1400,7 @@
     {
      "player_id": "p-meli",
      "position": 3,
+     "tied": false,
      "total": 79,
      "mc": 30
     }
@@ -1379,6 +1430,7 @@
     {
      "player_id": "p-gonza",
      "position": 4,
+     "tied": false,
      "total": 63,
      "mc": 23
     }
@@ -1408,6 +1460,7 @@
     {
      "player_id": "p-tomi",
      "position": 4,
+     "tied": false,
      "total": 75,
      "mc": 20
     }
@@ -1430,6 +1483,7 @@
     {
      "player_id": "p-santi",
      "position": 3,
+     "tied": false,
      "total": 81,
      "mc": 13
     }
@@ -1466,6 +1520,7 @@
     {
      "player_id": "p-lu",
      "position": 5,
+     "tied": false,
      "total": 62,
      "mc": 11
     }
@@ -1495,6 +1550,7 @@
     {
      "player_id": "p-nico",
      "position": 4,
+     "tied": false,
      "total": 70,
      "mc": 31
     }
@@ -1517,6 +1573,7 @@
     {
      "player_id": "p-santi",
      "position": 3,
+     "tied": false,
      "total": 70,
      "mc": 22
     }
@@ -1553,6 +1610,7 @@
     {
      "player_id": "p-tomi",
      "position": 5,
+     "tied": false,
      "total": 54,
      "mc": 5
     }
@@ -1582,6 +1640,7 @@
     {
      "player_id": "p-juli",
      "position": 4,
+     "tied": false,
      "total": 69,
      "mc": 13
     }
@@ -1618,6 +1677,7 @@
     {
      "player_id": "p-santi",
      "position": 5,
+     "tied": false,
      "total": 50,
      "mc": 24
     }
@@ -1647,6 +1707,7 @@
     {
      "player_id": "p-meli",
      "position": 4,
+     "tied": false,
      "total": 68,
      "mc": 26
     }
@@ -1669,6 +1730,7 @@
     {
      "player_id": "p-lu",
      "position": 3,
+     "tied": false,
      "total": 86,
      "mc": 28
     }
@@ -1698,6 +1760,7 @@
     {
      "player_id": "p-caro",
      "position": 4,
+     "tied": false,
      "total": 81,
      "mc": 12
     }
@@ -3279,32 +3342,52 @@
      {
       "value": 105,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 115,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-003",
-      "date": "2025-04-04"
+      "date": "2025-04-04",
+      "kind": "broken"
      },
      {
       "value": 117,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-025",
-      "date": "2025-10-26"
+      "date": "2025-10-26",
+      "kind": "broken"
      },
      {
       "value": 120,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-027",
-      "date": "2025-11-08"
+      "date": "2025-11-08",
+      "kind": "broken"
      },
      {
       "value": 130,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-054",
-      "date": "2026-07-14"
+      "date": "2026-07-14",
+      "kind": "broken"
      }
     ]
    },
@@ -3325,14 +3408,22 @@
      {
       "value": 48,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 53,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-027",
-      "date": "2025-11-08"
+      "date": "2025-11-08",
+      "kind": "broken"
      }
     ]
    },
@@ -3353,44 +3444,72 @@
      {
       "value": 21,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 27,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
      },
      {
       "value": 28,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-003",
-      "date": "2025-04-04"
+      "date": "2025-04-04",
+      "kind": "broken"
      },
      {
       "value": 32,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-006",
-      "date": "2025-05-02"
+      "date": "2025-05-02",
+      "kind": "broken"
      },
      {
       "value": 33,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-012",
-      "date": "2025-06-28"
+      "date": "2025-06-28",
+      "kind": "broken"
      },
      {
       "value": 34,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-017",
-      "date": "2025-08-30"
+      "date": "2025-08-30",
+      "kind": "broken"
      },
      {
       "value": 35,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-030",
-      "date": "2025-11-30"
+      "date": "2025-11-30",
+      "kind": "broken"
      }
     ]
    },
@@ -3409,40 +3528,84 @@
     ],
     "history": [
      {
-      "value": 4,
-      "player_id": "p-caro",
-      "game_id": "g-001",
-      "date": "2025-03-08"
-     },
-     {
       "value": 5,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 9,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
      },
      {
       "value": 10,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-005",
-      "date": "2025-04-25"
+      "date": "2025-04-25",
+      "kind": "broken"
+     },
+     {
+      "value": 10,
+      "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "kind": "tied"
+     },
+     {
+      "value": 10,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "kind": "tied"
+     },
+     {
+      "value": 10,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-025",
+      "date": "2025-10-26",
+      "kind": "tied"
      },
      {
       "value": 11,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-036",
-      "date": "2026-02-09"
+      "date": "2026-02-09",
+      "kind": "broken"
      },
      {
       "value": 12,
       "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
       "game_id": "g-048",
-      "date": "2026-05-26"
+      "date": "2026-05-26",
+      "kind": "broken"
      }
     ]
    },
@@ -3461,28 +3624,34 @@
     ],
     "history": [
      {
-      "value": 8,
-      "player_id": "p-caro",
-      "game_id": "g-001",
-      "date": "2025-03-08"
-     },
-     {
       "value": 15,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 20,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-013",
-      "date": "2025-07-19"
+      "date": "2025-07-19",
+      "kind": "broken"
      },
      {
       "value": 23,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-063",
-      "date": "2026-09-27"
+      "date": "2026-09-27",
+      "kind": "broken"
      }
     ]
    },
@@ -3501,52 +3670,84 @@
     ],
     "history": [
      {
-      "value": 4,
-      "player_id": "p-caro",
-      "game_id": "g-001",
-      "date": "2025-03-08"
-     },
-     {
       "value": 6,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 9,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
+     },
+     {
+      "value": 9,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-003",
+      "date": "2025-04-04",
+      "kind": "tied"
      },
      {
       "value": 11,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-004",
-      "date": "2025-04-11"
+      "date": "2025-04-11",
+      "kind": "broken"
      },
      {
       "value": 12,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-006",
-      "date": "2025-05-02"
+      "date": "2025-05-02",
+      "kind": "broken"
      },
      {
       "value": 13,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-007",
-      "date": "2025-05-09"
+      "date": "2025-05-09",
+      "kind": "broken"
      },
      {
       "value": 14,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-010",
-      "date": "2025-06-06"
+      "date": "2025-06-06",
+      "kind": "broken"
      },
      {
       "value": 21,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-063",
-      "date": "2026-09-27"
+      "date": "2026-09-27",
+      "kind": "broken"
      }
     ]
    },
@@ -3561,20 +3762,45 @@
       "game_id": "g-043",
       "date": "2026-04-21",
       "map": "Tharsis"
+     },
+     {
+      "player_id": "p-lu",
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "map": "Tharsis"
      }
     ],
     "history": [
      {
       "value": 5,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "set"
+     },
+     {
+      "value": 5,
+      "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "kind": "tied"
      },
      {
       "value": 6,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-lu"
+      ],
       "game_id": "g-043",
-      "date": "2026-04-21"
+      "date": "2026-04-21",
+      "kind": "broken"
      }
     ]
    },
@@ -3588,7 +3814,189 @@
       "player_id": "p-facu"
      }
     ],
-    "history": []
+    "history": [
+     {
+      "value": 1,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-juli"
+      ],
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "kind": "set"
+     },
+     {
+      "value": 4,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-004",
+      "date": "2025-04-11",
+      "kind": "broken"
+     },
+     {
+      "value": 5,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-juli"
+      ],
+      "game_id": "g-006",
+      "date": "2025-05-02",
+      "kind": "broken"
+     },
+     {
+      "value": 6,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "game_id": "g-007",
+      "date": "2025-05-09",
+      "kind": "broken"
+     },
+     {
+      "value": 6,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-juli",
+       "p-facu"
+      ],
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "kind": "tied"
+     },
+     {
+      "value": 7,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-juli"
+      ],
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "kind": "broken"
+     },
+     {
+      "value": 9,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "kind": "broken"
+     },
+     {
+      "value": 11,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-016",
+      "date": "2025-08-16",
+      "kind": "broken"
+     },
+     {
+      "value": 14,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-020",
+      "date": "2025-09-20",
+      "kind": "broken"
+     },
+     {
+      "value": 21,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-facu",
+       "p-nico"
+      ],
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "kind": "broken"
+     },
+     {
+      "value": 22,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "kind": "broken"
+     },
+     {
+      "value": 22,
+      "player_id": "p-nico",
+      "holders": [
+       "p-facu",
+       "p-nico"
+      ],
+      "game_id": "g-038",
+      "date": "2026-03-03",
+      "kind": "tied"
+     },
+     {
+      "value": 23,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "kind": "broken"
+     },
+     {
+      "value": 23,
+      "player_id": "p-nico",
+      "holders": [
+       "p-facu",
+       "p-nico"
+      ],
+      "game_id": "g-041",
+      "date": "2026-03-31",
+      "kind": "tied"
+     },
+     {
+      "value": 24,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-042",
+      "date": "2026-04-14",
+      "kind": "broken"
+     },
+     {
+      "value": 24,
+      "player_id": "p-nico",
+      "holders": [
+       "p-facu",
+       "p-nico"
+      ],
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "kind": "tied"
+     },
+     {
+      "value": 30,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-050",
+      "date": "2026-06-16",
+      "kind": "broken"
+     }
+    ]
    },
    {
     "code": "most_games_won",
@@ -3600,7 +4008,102 @@
       "player_id": "p-nico"
      }
     ],
-    "history": []
+    "history": [
+     {
+      "value": 1,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "kind": "set"
+     },
+     {
+      "value": 4,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-011",
+      "date": "2025-06-20",
+      "kind": "broken"
+     },
+     {
+      "value": 5,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "kind": "broken"
+     },
+     {
+      "value": 10,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "kind": "broken"
+     },
+     {
+      "value": 11,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-041",
+      "date": "2026-03-31",
+      "kind": "broken"
+     },
+     {
+      "value": 11,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "kind": "tied"
+     },
+     {
+      "value": 12,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-044",
+      "date": "2026-04-28",
+      "kind": "broken"
+     },
+     {
+      "value": 12,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-051",
+      "date": "2026-06-23",
+      "kind": "tied"
+     },
+     {
+      "value": 13,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-052",
+      "date": "2026-06-30",
+      "kind": "broken"
+     }
+    ]
    },
    {
     "code": "biggest_margin",
@@ -3619,32 +4122,52 @@
      {
       "value": 4,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 17,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
      },
      {
       "value": 25,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-011",
-      "date": "2025-06-20"
+      "date": "2025-06-20",
+      "kind": "broken"
      },
      {
       "value": 35,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-025",
-      "date": "2025-10-26"
+      "date": "2025-10-26",
+      "kind": "broken"
      },
      {
       "value": 37,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-047",
-      "date": "2026-05-19"
+      "date": "2026-05-19",
+      "kind": "broken"
      }
     ]
    },
@@ -3665,26 +4188,42 @@
      {
       "value": 4,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 2,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-004",
-      "date": "2025-04-11"
+      "date": "2025-04-11",
+      "kind": "broken"
      },
      {
       "value": 1,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-010",
-      "date": "2025-06-06"
+      "date": "2025-06-06",
+      "kind": "broken"
      },
      {
       "value": 0,
       "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
       "game_id": "g-016",
-      "date": "2025-08-16"
+      "date": "2025-08-16",
+      "kind": "broken"
      }
     ]
    },
@@ -3705,38 +4244,62 @@
      {
       "value": 8.1,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 10.3,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
      },
      {
       "value": 11.5,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-003",
-      "date": "2025-04-04"
+      "date": "2025-04-04",
+      "kind": "broken"
      },
      {
       "value": 11.6,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-007",
-      "date": "2025-05-09"
+      "date": "2025-05-09",
+      "kind": "broken"
      },
      {
       "value": 12.2,
       "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
       "game_id": "g-013",
-      "date": "2025-07-19"
+      "date": "2025-07-19",
+      "kind": "broken"
      },
      {
       "value": 12.8,
       "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
       "game_id": "g-060",
-      "date": "2026-09-08"
+      "date": "2026-09-08",
+      "kind": "broken"
      }
     ]
    },
@@ -3751,26 +4314,70 @@
       "game_id": "g-004",
       "date": "2025-04-11",
       "map": "Tharsis"
+     },
+     {
+      "player_id": "p-caro",
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria"
+     },
+     {
+      "player_id": "p-facu",
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia"
      }
     ],
     "history": [
      {
       "value": 13,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
      },
      {
       "value": 10,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-002",
-      "date": "2025-03-14"
+      "date": "2025-03-14",
+      "kind": "broken"
      },
      {
       "value": 8,
       "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
       "game_id": "g-004",
-      "date": "2025-04-11"
+      "date": "2025-04-11",
+      "kind": "broken"
+     },
+     {
+      "value": 8,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "kind": "tied"
+     },
+     {
+      "value": 8,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "kind": "tied"
      }
     ]
    },
@@ -3784,7 +4391,58 @@
       "player_id": "p-caro"
      }
     ],
-    "history": []
+    "history": [
+     {
+      "value": 1016,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "kind": "set"
+     },
+     {
+      "value": 1126,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "kind": "broken"
+     },
+     {
+      "value": 1160,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "kind": "broken"
+     },
+     {
+      "value": 1190,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-019",
+      "date": "2025-09-14",
+      "kind": "broken"
+     },
+     {
+      "value": 1191,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "kind": "broken"
+     }
+    ]
    },
    {
     "code": "longest_streak",
@@ -3796,7 +4454,39 @@
       "player_id": "p-nico"
      }
     ],
-    "history": []
+    "history": [
+     {
+      "value": 1,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "kind": "set"
+     },
+     {
+      "value": 3,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-nico"
+      ],
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "kind": "broken"
+     },
+     {
+      "value": 4,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "kind": "broken"
+     }
+    ]
    },
    {
     "code": "richest_finish",
@@ -3815,14 +4505,42 @@
      {
       "value": 33,
       "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
       "game_id": "g-001",
-      "date": "2025-03-08"
+      "date": "2025-03-08",
+      "kind": "set"
+     },
+     {
+      "value": 33,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "kind": "tied"
+     },
+     {
+      "value": 33,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "game_id": "g-015",
+      "date": "2025-08-08",
+      "kind": "tied"
      },
      {
       "value": 34,
       "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
       "game_id": "g-016",
-      "date": "2025-08-16"
+      "date": "2025-08-16",
+      "kind": "broken"
      }
     ]
    }
@@ -6710,6 +7428,20 @@
     "best": 130,
     "bestGame": "g-054",
     "avgMilestones": 0.6842105263157895,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Terraformer"
+      ],
+      "count": 5
+     },
+     "award": {
+      "names": [
+       "Venuphile"
+      ],
+      "count": 5
+     }
+    },
     "avgAwards": 0.7894736842105263,
     "pointsPerGen": 9.405720741247057,
     "composition": {
@@ -7057,7 +7789,8 @@
      "highest_card_points",
      "most_games_played",
      "biggest_margin",
-     "points_per_generation"
+     "points_per_generation",
+     "fastest_win"
     ],
     "rank": 1,
     "rankTotal": 9
@@ -7072,6 +7805,21 @@
     "best": 114,
     "bestGame": "g-011",
     "avgMilestones": 0.6388888888888888,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Builder",
+       "Planner"
+      ],
+      "count": 3
+     },
+     "award": {
+      "names": [
+       "Landlord"
+      ],
+      "count": 5
+     }
+    },
     "avgAwards": 0.6944444444444444,
     "pointsPerGen": 9.055218855218854,
     "composition": {
@@ -7397,6 +8145,20 @@
     "best": 111,
     "bestGame": "g-040",
     "avgMilestones": 0.5172413793103449,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Terraformer"
+      ],
+      "count": 3
+     },
+     "award": {
+      "names": [
+       "Contractor"
+      ],
+      "count": 4
+     }
+    },
     "avgAwards": 0.7586206896551724,
     "pointsPerGen": 8.853645205369345,
     "composition": {
@@ -7684,6 +8446,22 @@
     "best": 117,
     "bestGame": "g-025",
     "avgMilestones": 1.0303030303030303,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Planner"
+      ],
+      "count": 4
+     },
+     "award": {
+      "names": [
+       "Cultivator",
+       "Landlord",
+       "Miner"
+      ],
+      "count": 3
+     }
+    },
     "avgAwards": 0.8787878787878788,
     "pointsPerGen": 9.229664947846768,
     "composition": {
@@ -7978,6 +8756,7 @@
     },
     "recordsHeld": [
      "highest_turmoil_points",
+     "fastest_win",
      "highest_elo"
     ],
     "rank": 4,
@@ -7993,6 +8772,21 @@
     "best": 102,
     "bestGame": "g-032",
     "avgMilestones": 0.6111111111111112,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Terraformer"
+      ],
+      "count": 2
+     },
+     "award": {
+      "names": [
+       "Landlord",
+       "Thermalist"
+      ],
+      "count": 3
+     }
+    },
     "avgAwards": 1.1666666666666667,
     "pointsPerGen": 7.759686609686609,
     "composition": {
@@ -8243,6 +9037,28 @@
     "best": 107,
     "bestGame": "g-057",
     "avgMilestones": 0.36,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Ecologist",
+       "Fundraiser",
+       "Hoverlord",
+       "Pioneer",
+       "Rim Settler",
+       "Sponsor",
+       "Tactician",
+       "Terraformer",
+       "Terran"
+      ],
+      "count": 1
+     },
+     "award": {
+      "names": [
+       "Excentric"
+      ],
+      "count": 2
+     }
+    },
     "avgAwards": 0.56,
     "pointsPerGen": 8.217250194250193,
     "composition": {
@@ -8546,6 +9362,28 @@
     "best": 111,
     "bestGame": "g-059",
     "avgMilestones": 0.7222222222222222,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Mayor",
+       "Planner"
+      ],
+      "count": 2
+     },
+     "award": {
+      "names": [
+       "Banker",
+       "Benefactor",
+       "Celebrity",
+       "Estate Dealer",
+       "Landlord",
+       "Scientist",
+       "Space Baron",
+       "Suburbian"
+      ],
+      "count": 1
+     }
+    },
     "avgAwards": 0.4444444444444444,
     "pointsPerGen": 8.078236578236577,
     "composition": {
@@ -8803,6 +9641,22 @@
     "best": 100,
     "bestGame": "g-043",
     "avgMilestones": 0.8461538461538461,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Terraformer"
+      ],
+      "count": 2
+     },
+     "award": {
+      "names": [
+       "Highlander",
+       "Metropolist",
+       "Miner"
+      ],
+      "count": 1
+     }
+    },
     "avgAwards": 0.23076923076923078,
     "pointsPerGen": 8.04493006993007,
     "composition": {
@@ -9011,7 +9865,9 @@
      "behind": 2,
      "even": 0
     },
-    "recordsHeld": [],
+    "recordsHeld": [
+     "highest_turmoil_points"
+    ],
     "rank": 6,
     "rankTotal": 9
    },
@@ -9025,6 +9881,31 @@
     "best": 96,
     "bestGame": "g-050",
     "avgMilestones": 0.6153846153846154,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Ecologist",
+       "Engineer",
+       "Farmer",
+       "Gardener",
+       "Generalist",
+       "Hoverlord",
+       "Lobbyist",
+       "Metallurgist"
+      ],
+      "count": 1
+     },
+     "award": {
+      "names": [
+       "Banker",
+       "Cultivator",
+       "Excentric",
+       "Industrialist",
+       "Venuphile"
+      ],
+      "count": 1
+     }
+    },
     "avgAwards": 0.38461538461538464,
     "pointsPerGen": 7.928341103341102,
     "composition": {
@@ -9247,6 +10128,20 @@
     "best": 82,
     "bestGame": "g-012",
     "avgMilestones": 0.5454545454545454,
+    "favorites": {
+     "milestone": {
+      "names": [
+       "Energizer",
+       "Gardener",
+       "Generalist",
+       "Mayor",
+       "Planner",
+       "Specialist"
+      ],
+      "count": 1
+     },
+     "award": null
+    },
     "avgAwards": 0,
     "pointsPerGen": 7.252502295684113,
     "composition": {
@@ -10299,6 +11194,14 @@
    },
    {
     "date": "2026-09-08",
+    "type": "record",
+    "game_id": "g-060",
+    "player_id": "p-facu",
+    "code": "points_per_generation",
+    "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
+   },
+   {
+    "date": "2026-09-08",
     "type": "achievement",
     "game_id": "g-060",
     "player_id": "p-facu",
@@ -10709,6 +11612,14 @@
    },
    {
     "date": "2026-05-19",
+    "type": "record",
+    "game_id": "g-047",
+    "player_id": "p-facu",
+    "code": "biggest_margin",
+    "text": "Facu rompió «Aplanadora»: 37 (antes 35, Caro)"
+   },
+   {
+    "date": "2026-05-19",
     "type": "game",
     "game_id": "g-047",
     "player_id": "p-facu",
@@ -10795,7 +11706,7 @@
     "game_id": "g-043",
     "player_id": "p-caro",
     "code": "highest_turmoil_points",
-    "text": "Caro rompió «Maestro de la política»: 6 (antes 5, Caro)"
+    "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro y Meli)"
    },
    {
     "date": "2026-04-21",
@@ -10969,7 +11880,7 @@
     "game_id": "g-036",
     "player_id": "p-caro",
     "code": "highest_card_resource_points",
-    "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli)"
+    "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli y Nico y Caro)"
    },
    {
     "date": "2026-02-09",
@@ -11352,6 +12263,14 @@
    },
    {
     "date": "2025-10-26",
+    "type": "record",
+    "game_id": "g-025",
+    "player_id": "p-caro",
+    "code": "biggest_margin",
+    "text": "Caro rompió «Aplanadora»: 35 (antes 25, Nico)"
+   },
+   {
+    "date": "2025-10-26",
     "type": "achievement",
     "game_id": "g-025",
     "player_id": "p-caro",
@@ -11618,6 +12537,22 @@
    },
    {
     "date": "2025-08-16",
+    "type": "record",
+    "game_id": "g-016",
+    "player_id": "p-meli",
+    "code": "closest_win",
+    "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
+   },
+   {
+    "date": "2025-08-16",
+    "type": "record",
+    "game_id": "g-016",
+    "player_id": "p-meli",
+    "code": "richest_finish",
+    "text": "Meli rompió «Tesorería»: 34 (antes 33, Caro y Nico y Facu)"
+   },
+   {
+    "date": "2025-08-16",
     "type": "achievement",
     "game_id": "g-016",
     "player_id": "p-nico",
@@ -11716,6 +12651,14 @@
     "player_id": "p-juli",
     "code": "highest_greenery_points",
     "text": "Juli rompió «Rey de los bosques»: 20 (antes 15, Juli)"
+   },
+   {
+    "date": "2025-07-19",
+    "type": "record",
+    "game_id": "g-013",
+    "player_id": "p-juli",
+    "code": "points_per_generation",
+    "text": "Juli rompió «Motor perfecto»: 12.2 (antes 11.6, Facu)"
    },
    {
     "date": "2025-07-19",
@@ -11840,6 +12783,14 @@
    },
    {
     "date": "2025-06-20",
+    "type": "record",
+    "game_id": "g-011",
+    "player_id": "p-nico",
+    "code": "biggest_margin",
+    "text": "Nico rompió «Aplanadora»: 25 (antes 17, Caro)"
+   },
+   {
+    "date": "2025-06-20",
     "type": "achievement",
     "game_id": "g-011",
     "player_id": "p-nico",
@@ -11879,6 +12830,14 @@
     "player_id": "p-nico",
     "code": "highest_city_points",
     "text": "Nico rompió «Urbanista supremo»: 14 (antes 13, Nico)"
+   },
+   {
+    "date": "2025-06-06",
+    "type": "record",
+    "game_id": "g-010",
+    "player_id": "p-nico",
+    "code": "closest_win",
+    "text": "Nico rompió «Por un pelo»: 1 (antes 2, Nico)"
    },
    {
     "date": "2025-06-06",
@@ -11971,6 +12930,14 @@
     "player_id": "p-nico",
     "code": "highest_city_points",
     "text": "Nico rompió «Urbanista supremo»: 13 (antes 12, Nico)"
+   },
+   {
+    "date": "2025-05-09",
+    "type": "record",
+    "game_id": "g-007",
+    "player_id": "p-facu",
+    "code": "points_per_generation",
+    "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
    },
    {
     "date": "2025-05-09",
@@ -12167,7 +13134,23 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "highest_city_points",
-    "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu)"
+    "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
+   },
+   {
+    "date": "2025-04-11",
+    "type": "record",
+    "game_id": "g-004",
+    "player_id": "p-nico",
+    "code": "closest_win",
+    "text": "Nico rompió «Por un pelo»: 2 (antes 4, Caro)"
+   },
+   {
+    "date": "2025-04-11",
+    "type": "record",
+    "game_id": "g-004",
+    "player_id": "p-nico",
+    "code": "fastest_win",
+    "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
    },
    {
     "date": "2025-04-11",
@@ -12221,6 +13204,14 @@
    },
    {
     "date": "2025-04-04",
+    "type": "record",
+    "game_id": "g-003",
+    "player_id": "p-caro",
+    "code": "points_per_generation",
+    "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
+   },
+   {
+    "date": "2025-04-04",
     "type": "achievement",
     "game_id": "g-003",
     "player_id": "p-caro",
@@ -12258,6 +13249,30 @@
     "player_id": "p-facu",
     "code": "highest_city_points",
     "text": "Facu rompió «Urbanista supremo»: 9 (antes 6, Juli)"
+   },
+   {
+    "date": "2025-03-14",
+    "type": "record",
+    "game_id": "g-002",
+    "player_id": "p-caro",
+    "code": "biggest_margin",
+    "text": "Caro rompió «Aplanadora»: 17 (antes 4, Caro)"
+   },
+   {
+    "date": "2025-03-14",
+    "type": "record",
+    "game_id": "g-002",
+    "player_id": "p-caro",
+    "code": "points_per_generation",
+    "text": "Caro rompió «Motor perfecto»: 10.3 (antes 8.1, Caro)"
+   },
+   {
+    "date": "2025-03-14",
+    "type": "record",
+    "game_id": "g-002",
+    "player_id": "p-caro",
+    "code": "fastest_win",
+    "text": "Caro rompió «Blitz»: 10 (antes 13, Caro)"
    },
    {
     "date": "2025-03-14",
@@ -12301,30 +13316,6 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "text": "Caro ganó en Hellas por 17 puntos"
-   },
-   {
-    "date": "2025-03-08",
-    "type": "record",
-    "game_id": "g-001",
-    "player_id": "p-juli",
-    "code": "highest_card_resource_points",
-    "text": "Juli rompió «Barón de los recursos»: 5 (antes 4, Caro)"
-   },
-   {
-    "date": "2025-03-08",
-    "type": "record",
-    "game_id": "g-001",
-    "player_id": "p-juli",
-    "code": "highest_greenery_points",
-    "text": "Juli rompió «Rey de los bosques»: 15 (antes 8, Caro)"
-   },
-   {
-    "date": "2025-03-08",
-    "type": "record",
-    "game_id": "g-001",
-    "player_id": "p-juli",
-    "code": "highest_city_points",
-    "text": "Juli rompió «Urbanista supremo»: 6 (antes 4, Caro)"
    },
    {
     "date": "2025-03-08",
@@ -12548,6 +13539,7 @@
      {
       "player_id": "p-juli",
       "position": 2,
+      "tied": false,
       "total": 101,
       "mc": 20
      }
@@ -12563,6 +13555,7 @@
      {
       "player_id": "p-juli",
       "position": 2,
+      "tied": false,
       "total": 82,
       "mc": 20
      }
@@ -12578,6 +13571,7 @@
      {
       "player_id": "p-santi",
       "position": 2,
+      "tied": false,
       "total": 99,
       "mc": 15
      }
@@ -12593,6 +13587,7 @@
      {
       "player_id": "p-nico",
       "position": 2,
+      "tied": false,
       "total": 78,
       "mc": 8
      }
@@ -12608,6 +13603,7 @@
      {
       "player_id": "p-lu",
       "position": 2,
+      "tied": false,
       "total": 87,
       "mc": 5
      }
@@ -12723,20 +13719,32 @@
       {
        "value": 105,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 117,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-10-26",
+       "kind": "broken"
       },
       {
        "value": 120,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-027",
-       "date": "2025-11-08"
+       "date": "2025-11-08",
+       "kind": "broken"
       }
      ]
     },
@@ -12757,14 +13765,22 @@
       {
        "value": 48,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 53,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-027",
-       "date": "2025-11-08"
+       "date": "2025-11-08",
+       "kind": "broken"
       }
      ]
     },
@@ -12785,26 +13801,32 @@
       {
        "value": 21,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
-      },
-      {
-       "value": 24,
-       "player_id": "p-caro",
-       "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 25,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-10-26",
+       "kind": "broken"
       },
       {
        "value": 29,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-027",
-       "date": "2025-11-08"
+       "date": "2025-11-08",
+       "kind": "broken"
       }
      ]
     },
@@ -12823,22 +13845,24 @@
      ],
      "history": [
       {
-       "value": 4,
-       "player_id": "p-caro",
-       "game_id": "g-001",
-       "date": "2025-03-08"
-      },
-      {
        "value": 5,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 10,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-10-26",
+       "kind": "broken"
       }
      ]
     },
@@ -12857,16 +13881,14 @@
      ],
      "history": [
       {
-       "value": 8,
-       "player_id": "p-caro",
-       "game_id": "g-001",
-       "date": "2025-03-08"
-      },
-      {
        "value": 15,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       }
      ]
     },
@@ -12885,22 +13907,24 @@
      ],
      "history": [
       {
-       "value": 4,
-       "player_id": "p-caro",
-       "game_id": "g-001",
-       "date": "2025-03-08"
-      },
-      {
        "value": 6,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 12,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-027",
-       "date": "2025-11-08"
+       "date": "2025-11-08",
+       "kind": "broken"
       }
      ]
     },
@@ -12922,7 +13946,29 @@
        "player_id": "p-juli"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-juli"
+       ],
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "kind": "set"
+      },
+      {
+       "value": 3,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-040",
+       "date": "2026-03-17",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "most_games_won",
@@ -12934,7 +13980,18 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "kind": "set"
+      }
+     ]
     },
     {
      "code": "biggest_margin",
@@ -12953,14 +14010,22 @@
       {
        "value": 4,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 35,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-10-26",
+       "kind": "broken"
       }
      ]
     },
@@ -12981,8 +14046,12 @@
       {
        "value": 4,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       }
      ]
     },
@@ -13003,20 +14072,32 @@
       {
        "value": 8.1,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       },
       {
        "value": 9,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-025",
-       "date": "2025-10-26"
+       "date": "2025-10-26",
+       "kind": "broken"
       },
       {
        "value": 9.2,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-040",
-       "date": "2026-03-17"
+       "date": "2026-03-17",
+       "kind": "broken"
       }
      ]
     },
@@ -13037,14 +14118,32 @@
       {
        "value": 13,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
+      },
+      {
+       "value": 13,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
+       "game_id": "g-038",
+       "date": "2026-03-03",
+       "kind": "tied"
       },
       {
        "value": 12,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-040",
-       "date": "2026-03-17"
+       "date": "2026-03-17",
+       "kind": "broken"
       }
      ]
     },
@@ -13058,7 +14157,18 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1016,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "kind": "set"
+      }
+     ]
     },
     {
      "code": "longest_streak",
@@ -13070,7 +14180,18 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "kind": "set"
+      }
+     ]
     },
     {
      "code": "richest_finish",
@@ -13089,8 +14210,12 @@
       {
        "value": 33,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-001",
-       "date": "2025-03-08"
+       "date": "2025-03-08",
+       "kind": "set"
       }
      ]
     }
@@ -14779,6 +15904,20 @@
      "best": 120,
      "bestGame": "g-027",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Specialist"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Estate Dealer"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 1,
      "pointsPerGen": 8.571428571428571,
      "composition": {
@@ -14861,6 +16000,10 @@
      "best": 78,
      "bestGame": "g-038",
      "avgMilestones": 0,
+     "favorites": {
+      "milestone": null,
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 6,
      "composition": {
@@ -14938,6 +16081,24 @@
      "best": 111,
      "bestGame": "g-040",
      "avgMilestones": 0.6666666666666666,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Farmer",
+        "Spacecrafter"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Contractor",
+        "Promoter",
+        "Space Baron",
+        "Traveller"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 1.3333333333333333,
      "pointsPerGen": 7.7756410256410255,
      "composition": {
@@ -15051,6 +16212,27 @@
      "best": 117,
      "bestGame": "g-025",
      "avgMilestones": 2.5,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Diversifier",
+        "Energizer",
+        "Hoverlord",
+        "Polar Explorer",
+        "Rim Settler"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Cultivator",
+        "Magnate",
+        "Space Baron",
+        "Venuphile"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 2,
      "pointsPerGen": 8.538461538461538,
      "composition": {
@@ -15148,6 +16330,10 @@
      "best": 0,
      "bestGame": null,
      "avgMilestones": 0,
+     "favorites": {
+      "milestone": null,
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 0,
      "composition": {
@@ -15196,6 +16382,22 @@
      "best": 102,
      "bestGame": "g-038",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Terran"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Innovator",
+        "Manufacturer",
+        "Venuphile"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 3,
      "pointsPerGen": 7.846153846153846,
      "composition": {
@@ -15273,6 +16475,22 @@
      "best": 99,
      "bestGame": "g-027",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Ecologist"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Benefactor",
+        "Celebrity",
+        "Estate Dealer"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 3,
      "pointsPerGen": 7.071428571428571,
      "composition": {
@@ -15350,6 +16568,20 @@
      "best": 87,
      "bestGame": "g-040",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Agronomist"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Highlander"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 1,
      "pointsPerGen": 7.25,
      "composition": {
@@ -15427,6 +16659,10 @@
      "best": 0,
      "bestGame": null,
      "avgMilestones": 0,
+     "favorites": {
+      "milestone": null,
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 0,
      "composition": {
@@ -15475,6 +16711,10 @@
      "best": 0,
      "bestGame": null,
      "avgMilestones": 0,
+     "favorites": {
+      "milestone": null,
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 0,
      "composition": {
@@ -15632,6 +16872,22 @@
    "feed": [
     {
      "date": "2026-03-17",
+     "type": "record",
+     "game_id": "g-040",
+     "player_id": "p-juli",
+     "code": "points_per_generation",
+     "text": "Juli rompió «Motor perfecto»: 9.2 (antes 9, Caro)"
+    },
+    {
+     "date": "2026-03-17",
+     "type": "record",
+     "game_id": "g-040",
+     "player_id": "p-juli",
+     "code": "fastest_win",
+     "text": "Juli rompió «Blitz»: 12 (antes 13, Caro y Meli)"
+    },
+    {
+     "date": "2026-03-17",
      "type": "achievement",
      "game_id": "g-040",
      "player_id": "p-lu",
@@ -15785,17 +17041,9 @@
      "date": "2025-10-26",
      "type": "record",
      "game_id": "g-025",
-     "player_id": "p-caro",
-     "code": "highest_card_points",
-     "text": "Caro rompió «Magnate de proyectos»: 24 (antes 21, Caro)"
-    },
-    {
-     "date": "2025-10-26",
-     "type": "record",
-     "game_id": "g-025",
      "player_id": "p-juli",
      "code": "highest_card_points",
-     "text": "Juli rompió «Magnate de proyectos»: 25 (antes 24, Caro)"
+     "text": "Juli rompió «Magnate de proyectos»: 25 (antes 21, Caro)"
     },
     {
      "date": "2025-10-26",
@@ -15804,6 +17052,22 @@
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
      "text": "Caro rompió «Barón de los recursos»: 10 (antes 5, Juli)"
+    },
+    {
+     "date": "2025-10-26",
+     "type": "record",
+     "game_id": "g-025",
+     "player_id": "p-caro",
+     "code": "biggest_margin",
+     "text": "Caro rompió «Aplanadora»: 35 (antes 4, Caro)"
+    },
+    {
+     "date": "2025-10-26",
+     "type": "record",
+     "game_id": "g-025",
+     "player_id": "p-caro",
+     "code": "points_per_generation",
+     "text": "Caro rompió «Motor perfecto»: 9 (antes 8.1, Caro)"
     },
     {
      "date": "2025-10-26",
@@ -15820,30 +17084,6 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "text": "Caro ganó en Hellas por 35 puntos"
-    },
-    {
-     "date": "2025-03-08",
-     "type": "record",
-     "game_id": "g-001",
-     "player_id": "p-juli",
-     "code": "highest_card_resource_points",
-     "text": "Juli rompió «Barón de los recursos»: 5 (antes 4, Caro)"
-    },
-    {
-     "date": "2025-03-08",
-     "type": "record",
-     "game_id": "g-001",
-     "player_id": "p-juli",
-     "code": "highest_greenery_points",
-     "text": "Juli rompió «Rey de los bosques»: 15 (antes 8, Caro)"
-    },
-    {
-     "date": "2025-03-08",
-     "type": "record",
-     "game_id": "g-001",
-     "player_id": "p-juli",
-     "code": "highest_city_points",
-     "text": "Juli rompió «Urbanista supremo»: 6 (antes 4, Caro)"
     },
     {
      "date": "2025-03-08",
@@ -15992,6 +17232,7 @@
      {
       "player_id": "p-juli",
       "position": 3,
+      "tied": false,
       "total": 55,
       "mc": 14
      }
@@ -16014,6 +17255,7 @@
      {
       "player_id": "p-juli",
       "position": 3,
+      "tied": false,
       "total": 88,
       "mc": 21
      }
@@ -16036,6 +17278,7 @@
      {
       "player_id": "p-meli",
       "position": 3,
+      "tied": false,
       "total": 86,
       "mc": 25
      }
@@ -16058,6 +17301,7 @@
      {
       "player_id": "p-santi",
       "position": 3,
+      "tied": false,
       "total": 81,
       "mc": 4
      }
@@ -16080,6 +17324,7 @@
      {
       "player_id": "p-lu",
       "position": 3,
+      "tied": false,
       "total": 76,
       "mc": 15
      }
@@ -16102,6 +17347,7 @@
      {
       "player_id": "p-nico",
       "position": 3,
+      "tied": false,
       "total": 77,
       "mc": 22
      }
@@ -16124,6 +17370,7 @@
      {
       "player_id": "p-gonza",
       "position": 3,
+      "tied": false,
       "total": 71,
       "mc": 27
      }
@@ -16146,6 +17393,7 @@
      {
       "player_id": "p-caro",
       "position": 3,
+      "tied": false,
       "total": 81,
       "mc": 13
      }
@@ -16168,6 +17416,7 @@
      {
       "player_id": "p-santi",
       "position": 3,
+      "tied": false,
       "total": 76,
       "mc": 29
      }
@@ -16190,6 +17439,7 @@
      {
       "player_id": "p-tomi",
       "position": 3,
+      "tied": false,
       "total": 67,
       "mc": 7
      }
@@ -16212,6 +17462,7 @@
      {
       "player_id": "p-juli",
       "position": 3,
+      "tied": false,
       "total": 76,
       "mc": 27
      }
@@ -16234,6 +17485,7 @@
      {
       "player_id": "p-tomi",
       "position": 3,
+      "tied": false,
       "total": 81,
       "mc": 18
      }
@@ -16256,6 +17508,7 @@
      {
       "player_id": "p-santi",
       "position": 3,
+      "tied": false,
       "total": 81,
       "mc": 10
      }
@@ -16278,6 +17531,7 @@
      {
       "player_id": "p-meli",
       "position": 3,
+      "tied": false,
       "total": 69,
       "mc": 8
      }
@@ -16300,6 +17554,7 @@
      {
       "player_id": "p-tomi",
       "position": 3,
+      "tied": false,
       "total": 84,
       "mc": 16
      }
@@ -16322,6 +17577,7 @@
      {
       "player_id": "p-meli",
       "position": 3,
+      "tied": false,
       "total": 79,
       "mc": 30
      }
@@ -16344,6 +17600,7 @@
      {
       "player_id": "p-santi",
       "position": 3,
+      "tied": false,
       "total": 81,
       "mc": 13
      }
@@ -16366,6 +17623,7 @@
      {
       "player_id": "p-santi",
       "position": 3,
+      "tied": false,
       "total": 70,
       "mc": 22
      }
@@ -16388,6 +17646,7 @@
      {
       "player_id": "p-lu",
       "position": 3,
+      "tied": false,
       "total": 86,
       "mc": 28
      }
@@ -16819,26 +18078,42 @@
       {
        "value": 101,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 114,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "broken"
       },
       {
        "value": 119,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-047",
-       "date": "2026-05-19"
+       "date": "2026-05-19",
+       "kind": "broken"
       },
       {
        "value": 130,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-054",
-       "date": "2026-07-14"
+       "date": "2026-07-14",
+       "kind": "broken"
       }
      ]
     },
@@ -16859,26 +18134,32 @@
       {
        "value": 37,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
-      },
-      {
-       "value": 42,
-       "player_id": "p-nico",
-       "game_id": "g-010",
-       "date": "2025-06-06"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 45,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-010",
-       "date": "2025-06-06"
+       "date": "2025-06-06",
+       "kind": "broken"
       },
       {
        "value": 46,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-057",
-       "date": "2026-08-11"
+       "date": "2026-08-11",
+       "kind": "broken"
       }
      ]
     },
@@ -16899,14 +18180,22 @@
       {
        "value": 32,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 35,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-054",
-       "date": "2026-07-14"
+       "date": "2026-07-14",
+       "kind": "broken"
       }
      ]
     },
@@ -16921,38 +18210,85 @@
        "game_id": "g-047",
        "date": "2026-05-19",
        "map": "Amazonis Planitia"
+      },
+      {
+       "player_id": "p-meli",
+       "game_id": "g-057",
+       "date": "2026-08-11",
+       "map": "Terra Cimmeria"
       }
      ],
      "history": [
       {
-       "value": 4,
-       "player_id": "p-nico",
+       "value": 6,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 6,
-       "player_id": "p-facu",
-       "game_id": "g-006",
-       "date": "2025-05-02"
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-010",
+       "date": "2025-06-06",
+       "kind": "tied"
       },
       {
        "value": 8,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "broken"
+      },
+      {
+       "value": 8,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "kind": "tied"
       },
       {
        "value": 9,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli",
+        "p-meli"
+       ],
        "game_id": "g-045",
-       "date": "2026-05-05"
+       "date": "2026-05-05",
+       "kind": "broken"
       },
       {
        "value": 10,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-047",
-       "date": "2026-05-19"
+       "date": "2026-05-19",
+       "kind": "broken"
+      },
+      {
+       "value": 10,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
+       "game_id": "g-057",
+       "date": "2026-08-11",
+       "kind": "tied"
       }
      ]
     },
@@ -16973,14 +18309,22 @@
       {
        "value": 10,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 13,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "broken"
       }
      ]
     },
@@ -17001,14 +18345,22 @@
       {
        "value": 12,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 14,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-010",
-       "date": "2025-06-06"
+       "date": "2025-06-06",
+       "kind": "broken"
       }
      ]
     },
@@ -17023,26 +18375,132 @@
        "game_id": "g-016",
        "date": "2025-08-16",
        "map": "Hellas"
+      },
+      {
+       "player_id": "p-nico",
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "map": "Hellas"
+      },
+      {
+       "player_id": "p-gonza",
+       "game_id": "g-028",
+       "date": "2025-11-16",
+       "map": "Tharsis"
+      },
+      {
+       "player_id": "p-caro",
+       "game_id": "g-032",
+       "date": "2025-12-15",
+       "map": "Vastitas Borealis"
+      },
+      {
+       "player_id": "p-facu",
+       "game_id": "g-033",
+       "date": "2025-12-22",
+       "map": "Hellas"
+      },
+      {
+       "player_id": "p-juli",
+       "game_id": "g-045",
+       "date": "2026-05-05",
+       "map": "Utopia Planitia"
+      },
+      {
+       "player_id": "p-santi",
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "map": "Tharsis"
+      },
+      {
+       "player_id": "p-lu",
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "map": "Tharsis"
       }
      ],
      "history": [
       {
-       "value": 2,
-       "player_id": "p-nico",
-       "game_id": "g-011",
-       "date": "2025-06-20"
-      },
-      {
        "value": 3,
        "player_id": "p-santi",
+       "holders": [
+        "p-santi",
+        "p-meli"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "set"
       },
       {
        "value": 4,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli",
+        "p-nico"
+       ],
        "game_id": "g-016",
-       "date": "2025-08-16"
+       "date": "2025-08-16",
+       "kind": "broken"
+      },
+      {
+       "value": 4,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-028",
+       "date": "2025-11-16",
+       "kind": "tied"
+      },
+      {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-032",
+       "date": "2025-12-15",
+       "kind": "tied"
+      },
+      {
+       "value": 4,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-033",
+       "date": "2025-12-22",
+       "kind": "tied"
+      },
+      {
+       "value": 4,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-045",
+       "date": "2026-05-05",
+       "kind": "tied"
+      },
+      {
+       "value": 4,
+       "player_id": "p-santi",
+       "holders": [
+        "p-santi"
+       ],
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "kind": "tied"
+      },
+      {
+       "value": 4,
+       "player_id": "p-lu",
+       "holders": [
+        "p-lu"
+       ],
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "kind": "tied"
       }
      ]
     },
@@ -17056,7 +18514,62 @@
        "player_id": "p-nico"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico",
+        "p-facu",
+        "p-juli"
+       ],
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "kind": "set"
+      },
+      {
+       "value": 2,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-010",
+       "date": "2025-06-06",
+       "kind": "broken"
+      },
+      {
+       "value": 3,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-011",
+       "date": "2025-06-20",
+       "kind": "broken"
+      },
+      {
+       "value": 8,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico",
+        "p-facu"
+       ],
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "kind": "broken"
+      },
+      {
+       "value": 9,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "most_games_won",
@@ -17068,7 +18581,18 @@
        "player_id": "p-nico"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "kind": "set"
+      }
+     ]
     },
     {
      "code": "biggest_margin",
@@ -17087,20 +18611,32 @@
       {
        "value": 4,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 25,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "broken"
       },
       {
        "value": 37,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-047",
-       "date": "2026-05-19"
+       "date": "2026-05-19",
+       "kind": "broken"
       }
      ]
     },
@@ -17121,20 +18657,32 @@
       {
        "value": 4,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 1,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-010",
-       "date": "2025-06-06"
+       "date": "2025-06-06",
+       "kind": "broken"
       },
       {
        "value": 0,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-016",
-       "date": "2025-08-16"
+       "date": "2025-08-16",
+       "kind": "broken"
       }
      ]
     },
@@ -17155,20 +18703,32 @@
       {
        "value": 10.1,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 11.4,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-011",
-       "date": "2025-06-20"
+       "date": "2025-06-20",
+       "kind": "broken"
       },
       {
        "value": 11.9,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-047",
-       "date": "2026-05-19"
+       "date": "2026-05-19",
+       "kind": "broken"
       }
      ]
     },
@@ -17189,14 +18749,42 @@
       {
        "value": 10,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
+      },
+      {
+       "value": 10,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "kind": "tied"
+      },
+      {
+       "value": 10,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-022",
+       "date": "2025-10-04",
+       "kind": "tied"
       },
       {
        "value": 9,
        "player_id": "p-lu",
+       "holders": [
+        "p-lu"
+       ],
        "game_id": "g-035",
-       "date": "2026-01-26"
+       "date": "2026-01-26",
+       "kind": "broken"
       }
      ]
     },
@@ -17210,7 +18798,38 @@
        "player_id": "p-nico"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1032,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "kind": "set"
+      },
+      {
+       "value": 1095,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "kind": "broken"
+      },
+      {
+       "value": 1110,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "longest_streak",
@@ -17222,7 +18841,18 @@
        "player_id": "p-nico"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "kind": "set"
+      }
+     ]
     },
     {
      "code": "richest_finish",
@@ -17239,22 +18869,24 @@
      ],
      "history": [
       {
-       "value": 24,
-       "player_id": "p-nico",
-       "game_id": "g-006",
-       "date": "2025-05-02"
-      },
-      {
        "value": 32,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-006",
-       "date": "2025-05-02"
+       "date": "2025-05-02",
+       "kind": "set"
       },
       {
        "value": 34,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-016",
-       "date": "2025-08-16"
+       "date": "2025-08-16",
+       "kind": "broken"
       }
      ]
     }
@@ -19485,6 +21117,22 @@
      "best": 130,
      "bestGame": "g-054",
      "avgMilestones": 0.875,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Gardener"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Estate Dealer",
+        "Industrialist",
+        "Venuphile"
+       ],
+       "count": 2
+      }
+     },
      "avgAwards": 1.25,
      "pointsPerGen": 9.264962121212122,
      "composition": {
@@ -19650,6 +21298,7 @@
       "highest_single_game_score",
       "highest_card_points",
       "highest_card_resource_points",
+      "highest_turmoil_points",
       "biggest_margin",
       "points_per_generation"
      ],
@@ -19666,6 +21315,20 @@
      "best": 114,
      "bestGame": "g-011",
      "avgMilestones": 0.6666666666666666,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Builder"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Landlord"
+       ],
+       "count": 3
+      }
+     },
      "avgAwards": 0.6666666666666666,
      "pointsPerGen": 9.325252525252525,
      "composition": {
@@ -19856,6 +21519,7 @@
      "recordsHeld": [
       "highest_greenery_points",
       "highest_city_points",
+      "highest_turmoil_points",
       "most_games_played",
       "most_games_won",
       "highest_elo",
@@ -19874,6 +21538,23 @@
      "best": 100,
      "bestGame": "g-033",
      "avgMilestones": 0.8333333333333334,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Terraformer"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Contractor",
+        "Excentric",
+        "Miner",
+        "Space Baron"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.6666666666666666,
      "pointsPerGen": 7.955555555555556,
      "composition": {
@@ -20023,7 +21704,9 @@
       "behind": 3,
       "even": 0
      },
-     "recordsHeld": [],
+     "recordsHeld": [
+      "highest_turmoil_points"
+     ],
      "rank": 3,
      "rankTotal": 9
     },
@@ -20037,6 +21720,22 @@
      "best": 101,
      "bestGame": "g-051",
      "avgMilestones": 0.8333333333333334,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Planner"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Highlander",
+        "Metropolist",
+        "Scientist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.5,
      "pointsPerGen": 8.230050505050505,
      "composition": {
@@ -20175,7 +21874,8 @@
      "nemesis": null,
      "victim": null,
      "recordsHeld": [
-      "highest_terraform_rating"
+      "highest_terraform_rating",
+      "highest_turmoil_points"
      ],
      "rank": 5,
      "rankTotal": 9
@@ -20190,6 +21890,23 @@
      "best": 102,
      "bestGame": "g-032",
      "avgMilestones": 0.5,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Geologist",
+        "Mayor",
+        "Terraformer"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Landlord",
+        "Thermalist"
+       ],
+       "count": 2
+      }
+     },
      "avgAwards": 1.6666666666666667,
      "pointsPerGen": 7.968537943537942,
      "composition": {
@@ -20341,6 +22058,26 @@
      "best": 107,
      "bestGame": "g-057",
      "avgMilestones": 0.7142857142857143,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Fundraiser",
+        "Hoverlord",
+        "Pioneer",
+        "Tactician",
+        "Terraformer"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Forecaster",
+        "Scientist",
+        "Zoologist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.42857142857142855,
      "pointsPerGen": 8.406493506493506,
      "composition": {
@@ -20524,6 +22261,7 @@
       "even": 0
      },
      "recordsHeld": [
+      "highest_card_resource_points",
       "highest_turmoil_points",
       "closest_win",
       "richest_finish"
@@ -20541,6 +22279,25 @@
      "best": 89,
      "bestGame": "g-011",
      "avgMilestones": 0.8571428571428571,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Diversifier",
+        "Forester",
+        "Planner",
+        "Polar Explorer",
+        "Researcher",
+        "Rim Settler"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Suburbian"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.14285714285714285,
      "pointsPerGen": 7.451293151293151,
      "composition": {
@@ -20709,7 +22466,9 @@
       "behind": 3,
       "even": 0
      },
-     "recordsHeld": [],
+     "recordsHeld": [
+      "highest_turmoil_points"
+     ],
      "rank": 9,
      "rankTotal": 9
     },
@@ -20723,6 +22482,16 @@
      "best": 86,
      "bestGame": "g-062",
      "avgMilestones": 0.6666666666666666,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Ecologist",
+        "Terraformer"
+       ],
+       "count": 1
+      },
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 8.317845117845117,
      "composition": {
@@ -20818,6 +22587,7 @@
      "nemesis": null,
      "victim": null,
      "recordsHeld": [
+      "highest_turmoil_points",
       "fastest_win"
      ],
      "rank": 7,
@@ -20833,6 +22603,25 @@
      "best": 96,
      "bestGame": "g-050",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Ecologist",
+        "Generalist",
+        "Hoverlord",
+        "Metallurgist"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Banker",
+        "Industrialist",
+        "Venuphile"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.75,
      "pointsPerGen": 7.86780303030303,
      "composition": {
@@ -20946,7 +22735,9 @@
      ],
      "nemesis": null,
      "victim": null,
-     "recordsHeld": [],
+     "recordsHeld": [
+      "highest_turmoil_points"
+     ],
      "rank": 4,
      "rankTotal": 9
     },
@@ -20960,6 +22751,15 @@
      "best": 79,
      "bestGame": "g-018",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Specialist"
+       ],
+       "count": 1
+      },
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 7.181818181818182,
      "composition": {
@@ -21684,7 +23484,23 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "highest_card_resource_points",
-     "text": "Facu rompió «Barón de los recursos»: 10 (antes 9, Juli)"
+     "text": "Facu rompió «Barón de los recursos»: 10 (antes 9, Juli y Meli)"
+    },
+    {
+     "date": "2026-05-19",
+     "type": "record",
+     "game_id": "g-047",
+     "player_id": "p-facu",
+     "code": "biggest_margin",
+     "text": "Facu rompió «Aplanadora»: 37 (antes 25, Nico)"
+    },
+    {
+     "date": "2026-05-19",
+     "type": "record",
+     "game_id": "g-047",
+     "player_id": "p-facu",
+     "code": "points_per_generation",
+     "text": "Facu rompió «Motor perfecto»: 11.9 (antes 11.4, Nico)"
     },
     {
      "date": "2026-05-19",
@@ -21717,7 +23533,7 @@
      "game_id": "g-045",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
-     "text": "Juli rompió «Barón de los recursos»: 9 (antes 8, Meli)"
+     "text": "Juli y Meli rompió «Barón de los recursos»: 9 (antes 8, Meli y Nico)"
     },
     {
      "date": "2026-05-05",
@@ -21829,6 +23645,14 @@
      "game_id": "g-041",
      "player_id": "p-nico",
      "text": "Nico ganó en Tharsis por 13 puntos"
+    },
+    {
+     "date": "2026-01-26",
+     "type": "record",
+     "game_id": "g-035",
+     "player_id": "p-lu",
+     "code": "fastest_win",
+     "text": "Lu rompió «Blitz»: 9 (antes 10, Nico y Meli y Juli)"
     },
     {
      "date": "2026-01-26",
@@ -22013,7 +23837,23 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
-     "text": "Meli rompió «Maestro de la política»: 4 (antes 3, Santi)"
+     "text": "Meli y Nico rompió «Maestro de la política»: 4 (antes 3, Santi y Meli)"
+    },
+    {
+     "date": "2025-08-16",
+     "type": "record",
+     "game_id": "g-016",
+     "player_id": "p-meli",
+     "code": "closest_win",
+     "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
+    },
+    {
+     "date": "2025-08-16",
+     "type": "record",
+     "game_id": "g-016",
+     "player_id": "p-meli",
+     "code": "richest_finish",
+     "text": "Meli rompió «Tesorería»: 34 (antes 32, Facu)"
     },
     {
      "date": "2025-08-16",
@@ -22072,7 +23912,7 @@
      "game_id": "g-011",
      "player_id": "p-meli",
      "code": "highest_card_resource_points",
-     "text": "Meli rompió «Barón de los recursos»: 8 (antes 6, Facu)"
+     "text": "Meli rompió «Barón de los recursos»: 8 (antes 6, Facu y Caro)"
     },
     {
      "date": "2025-06-20",
@@ -22086,9 +23926,17 @@
      "date": "2025-06-20",
      "type": "record",
      "game_id": "g-011",
-     "player_id": "p-santi",
-     "code": "highest_turmoil_points",
-     "text": "Santi rompió «Maestro de la política»: 3 (antes 2, Nico)"
+     "player_id": "p-nico",
+     "code": "biggest_margin",
+     "text": "Nico rompió «Aplanadora»: 25 (antes 4, Nico)"
+    },
+    {
+     "date": "2025-06-20",
+     "type": "record",
+     "game_id": "g-011",
+     "player_id": "p-nico",
+     "code": "points_per_generation",
+     "text": "Nico rompió «Motor perfecto»: 11.4 (antes 10.1, Nico)"
     },
     {
      "date": "2025-06-20",
@@ -22146,17 +23994,9 @@
      "date": "2025-06-06",
      "type": "record",
      "game_id": "g-010",
-     "player_id": "p-nico",
-     "code": "highest_terraform_rating",
-     "text": "Nico rompió «Arquitecto climático»: 42 (antes 37, Nico)"
-    },
-    {
-     "date": "2025-06-06",
-     "type": "record",
-     "game_id": "g-010",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
-     "text": "Caro rompió «Arquitecto climático»: 45 (antes 42, Nico)"
+     "text": "Caro rompió «Arquitecto climático»: 45 (antes 37, Nico)"
     },
     {
      "date": "2025-06-06",
@@ -22165,6 +24005,14 @@
      "player_id": "p-nico",
      "code": "highest_city_points",
      "text": "Nico rompió «Urbanista supremo»: 14 (antes 12, Nico)"
+    },
+    {
+     "date": "2025-06-06",
+     "type": "record",
+     "game_id": "g-010",
+     "player_id": "p-nico",
+     "code": "closest_win",
+     "text": "Nico rompió «Por un pelo»: 1 (antes 4, Nico)"
     },
     {
      "date": "2025-06-06",
@@ -22217,14 +24065,6 @@
      "game_id": "g-010",
      "player_id": "p-nico",
      "text": "Nico ganó en Tharsis por 1 punto"
-    },
-    {
-     "date": "2025-05-02",
-     "type": "record",
-     "game_id": "g-006",
-     "player_id": "p-facu",
-     "code": "highest_card_resource_points",
-     "text": "Facu rompió «Barón de los recursos»: 6 (antes 4, Nico)"
     },
     {
      "date": "2025-05-02",
@@ -22438,6 +24278,7 @@
      {
       "player_id": "p-juli",
       "position": 4,
+      "tied": false,
       "total": 82,
       "mc": 11
      }
@@ -22467,6 +24308,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 73,
       "mc": 5
      }
@@ -22496,6 +24338,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 73,
       "mc": 23
      }
@@ -22525,6 +24368,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 81,
       "mc": 14
      }
@@ -22554,6 +24398,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 63,
       "mc": 6
      }
@@ -22583,6 +24428,7 @@
      {
       "player_id": "p-tomi",
       "position": 4,
+      "tied": false,
       "total": 78,
       "mc": 23
      }
@@ -22612,6 +24458,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 69,
       "mc": 27
      }
@@ -22641,6 +24488,7 @@
      {
       "player_id": "p-juli",
       "position": 4,
+      "tied": false,
       "total": 72,
       "mc": 11
      }
@@ -22670,6 +24518,7 @@
      {
       "player_id": "p-nico",
       "position": 4,
+      "tied": false,
       "total": 72,
       "mc": 6
      }
@@ -22699,6 +24548,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 54,
       "mc": 25
      }
@@ -22728,6 +24578,7 @@
      {
       "player_id": "p-meli",
       "position": 4,
+      "tied": false,
       "total": 68,
       "mc": 15
      }
@@ -22757,6 +24608,7 @@
      {
       "player_id": "p-pato",
       "position": 4,
+      "tied": false,
       "total": 73,
       "mc": 30
      }
@@ -22786,6 +24638,7 @@
      {
       "player_id": "p-nico",
       "position": 4,
+      "tied": false,
       "total": 78,
       "mc": 12
      }
@@ -22815,6 +24668,7 @@
      {
       "player_id": "p-lu",
       "position": 4,
+      "tied": false,
       "total": 63,
       "mc": 14
      }
@@ -22844,6 +24698,7 @@
      {
       "player_id": "p-lu",
       "position": 4,
+      "tied": false,
       "total": 67,
       "mc": 15
      }
@@ -22873,6 +24728,7 @@
      {
       "player_id": "p-santi",
       "position": 4,
+      "tied": false,
       "total": 65,
       "mc": 10
      }
@@ -22902,6 +24758,7 @@
      {
       "player_id": "p-gonza",
       "position": 4,
+      "tied": false,
       "total": 66,
       "mc": 24
      }
@@ -22931,6 +24788,7 @@
      {
       "player_id": "p-meli",
       "position": 4,
+      "tied": false,
       "total": 58,
       "mc": 4
      }
@@ -22960,6 +24818,7 @@
      {
       "player_id": "p-nico",
       "position": 4,
+      "tied": false,
       "total": 71,
       "mc": 18
      }
@@ -22989,6 +24848,7 @@
      {
       "player_id": "p-tomi",
       "position": 4,
+      "tied": false,
       "total": 68,
       "mc": 15
      }
@@ -23018,6 +24878,7 @@
      {
       "player_id": "p-facu",
       "position": 4,
+      "tied": false,
       "total": 83,
       "mc": 7
      }
@@ -23047,6 +24908,7 @@
      {
       "player_id": "p-meli",
       "position": 4,
+      "tied": false,
       "total": 74,
       "mc": 17
      }
@@ -23076,6 +24938,7 @@
      {
       "player_id": "p-gonza",
       "position": 4,
+      "tied": false,
       "total": 63,
       "mc": 23
      }
@@ -23105,6 +24968,7 @@
      {
       "player_id": "p-tomi",
       "position": 4,
+      "tied": false,
       "total": 75,
       "mc": 20
      }
@@ -23134,6 +24998,7 @@
      {
       "player_id": "p-nico",
       "position": 4,
+      "tied": false,
       "total": 70,
       "mc": 31
      }
@@ -23163,6 +25028,7 @@
      {
       "player_id": "p-juli",
       "position": 4,
+      "tied": false,
       "total": 69,
       "mc": 13
      }
@@ -23192,6 +25058,7 @@
      {
       "player_id": "p-meli",
       "position": 4,
+      "tied": false,
       "total": 68,
       "mc": 26
      }
@@ -23221,6 +25088,7 @@
      {
       "player_id": "p-caro",
       "position": 4,
+      "tied": false,
       "total": 81,
       "mc": 12
      }
@@ -24000,14 +25868,22 @@
       {
        "value": 103,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 115,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-003",
-       "date": "2025-04-04"
+       "date": "2025-04-04",
+       "kind": "broken"
       }
      ]
     },
@@ -24028,44 +25904,122 @@
       {
        "value": 38,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 39,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-003",
-       "date": "2025-04-04"
+       "date": "2025-04-04",
+       "kind": "broken"
+      },
+      {
+       "value": 39,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "kind": "tied"
+      },
+      {
+       "value": 39,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "kind": "tied"
+      },
+      {
+       "value": 39,
+       "player_id": "p-tomi",
+       "holders": [
+        "p-tomi"
+       ],
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "kind": "tied"
+      },
+      {
+       "value": 39,
+       "player_id": "p-pato",
+       "holders": [
+        "p-pato"
+       ],
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "kind": "tied"
       },
       {
        "value": 40,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-043",
-       "date": "2026-04-21"
+       "date": "2026-04-21",
+       "kind": "broken"
+      },
+      {
+       "value": 40,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-044",
+       "date": "2026-04-28",
+       "kind": "tied"
+      },
+      {
+       "value": 40,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-049",
+       "date": "2026-06-02",
+       "kind": "tied"
       },
       {
        "value": 41,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-053",
-       "date": "2026-07-07"
+       "date": "2026-07-07",
+       "kind": "broken"
       },
       {
        "value": 42,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-056",
-       "date": "2026-07-28"
-      },
-      {
-       "value": 44,
-       "player_id": "p-juli",
-       "game_id": "g-063",
-       "date": "2026-09-27"
+       "date": "2026-07-28",
+       "kind": "broken"
       },
       {
        "value": 46,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-063",
-       "date": "2026-09-27"
+       "date": "2026-09-27",
+       "kind": "broken"
       }
      ]
     },
@@ -24086,26 +26040,52 @@
       {
        "value": 27,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 28,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-003",
-       "date": "2025-04-04"
+       "date": "2025-04-04",
+       "kind": "broken"
+      },
+      {
+       "value": 28,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "kind": "tied"
       },
       {
        "value": 34,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-017",
-       "date": "2025-08-30"
+       "date": "2025-08-30",
+       "kind": "broken"
       },
       {
        "value": 35,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-030",
-       "date": "2025-11-30"
+       "date": "2025-11-30",
+       "kind": "broken"
       }
      ]
     },
@@ -24126,26 +26106,62 @@
       {
        "value": 9,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 10,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-005",
-       "date": "2025-04-25"
+       "date": "2025-04-25",
+       "kind": "broken"
+      },
+      {
+       "value": 10,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "kind": "tied"
+      },
+      {
+       "value": 10,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "kind": "tied"
       },
       {
        "value": 11,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-039",
-       "date": "2026-03-10"
+       "date": "2026-03-10",
+       "kind": "broken"
       },
       {
        "value": 12,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-048",
-       "date": "2026-05-26"
+       "date": "2026-05-26",
+       "kind": "broken"
       }
      ]
     },
@@ -24164,28 +26180,24 @@
      ],
      "history": [
       {
-       "value": 8,
-       "player_id": "p-caro",
-       "game_id": "g-002",
-       "date": "2025-03-14"
-      },
-      {
-       "value": 9,
-       "player_id": "p-nico",
-       "game_id": "g-002",
-       "date": "2025-03-14"
-      },
-      {
        "value": 15,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 23,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-063",
-       "date": "2026-09-27"
+       "date": "2026-09-27",
+       "kind": "broken"
       }
      ]
     },
@@ -24204,34 +26216,54 @@
      ],
      "history": [
       {
-       "value": 6,
-       "player_id": "p-caro",
+       "value": 9,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 9,
-       "player_id": "p-facu",
-       "game_id": "g-002",
-       "date": "2025-03-14"
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "kind": "tied"
       },
       {
        "value": 11,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-004",
-       "date": "2025-04-11"
+       "date": "2025-04-11",
+       "kind": "broken"
       },
       {
        "value": 13,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-007",
-       "date": "2025-05-09"
+       "date": "2025-05-09",
+       "kind": "broken"
       },
       {
        "value": 21,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-063",
-       "date": "2026-09-27"
+       "date": "2026-09-27",
+       "kind": "broken"
       }
      ]
     },
@@ -24246,20 +26278,35 @@
        "game_id": "g-043",
        "date": "2026-04-21",
        "map": "Tharsis"
+      },
+      {
+       "player_id": "p-lu",
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "map": "Tharsis"
       }
      ],
      "history": [
       {
        "value": 5,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 6,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-lu"
+       ],
        "game_id": "g-043",
-       "date": "2026-04-21"
+       "date": "2026-04-21",
+       "kind": "broken"
       }
      ]
     },
@@ -24273,7 +26320,148 @@
        "player_id": "p-nico"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "kind": "set"
+      },
+      {
+       "value": 2,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-juli"
+       ],
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "kind": "broken"
+      },
+      {
+       "value": 3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu"
+       ],
+       "game_id": "g-004",
+       "date": "2025-04-11",
+       "kind": "broken"
+      },
+      {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "kind": "broken"
+      },
+      {
+       "value": 4,
+       "player_id": "p-facu",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-juli",
+        "p-pato"
+       ],
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "kind": "tied"
+      },
+      {
+       "value": 5,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-juli"
+       ],
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "kind": "broken"
+      },
+      {
+       "value": 5,
+       "player_id": "p-facu",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico",
+        "p-juli",
+        "p-pato"
+       ],
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "kind": "tied"
+      },
+      {
+       "value": 6,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "kind": "broken"
+      },
+      {
+       "value": 7,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico"
+       ],
+       "game_id": "g-017",
+       "date": "2025-08-30",
+       "kind": "broken"
+      },
+      {
+       "value": 9,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "kind": "broken"
+      },
+      {
+       "value": 13,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu",
+        "p-nico"
+       ],
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "kind": "broken"
+      },
+      {
+       "value": 14,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "most_games_won",
@@ -24288,7 +26476,92 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "kind": "set"
+      },
+      {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-nico"
+       ],
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "kind": "broken"
+      },
+      {
+       "value": 5,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-026",
+       "date": "2025-11-02",
+       "kind": "broken"
+      },
+      {
+       "value": 5,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-nico"
+       ],
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "kind": "tied"
+      },
+      {
+       "value": 6,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "kind": "broken"
+      },
+      {
+       "value": 7,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-nico"
+       ],
+       "game_id": "g-052",
+       "date": "2026-06-30",
+       "kind": "broken"
+      },
+      {
+       "value": 8,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "kind": "broken"
+      },
+      {
+       "value": 8,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-nico"
+       ],
+       "game_id": "g-056",
+       "date": "2026-07-28",
+       "kind": "tied"
+      }
+     ]
     },
     {
      "code": "biggest_margin",
@@ -24307,14 +26580,22 @@
       {
        "value": 17,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 23,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-044",
-       "date": "2026-04-28"
+       "date": "2026-04-28",
+       "kind": "broken"
       }
      ]
     },
@@ -24329,26 +26610,64 @@
        "game_id": "g-049",
        "date": "2026-06-02",
        "map": "Utopia Planitia"
+      },
+      {
+       "player_id": "p-nico",
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "map": "Tharsis"
       }
      ],
      "history": [
       {
        "value": 17,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 2,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-004",
-       "date": "2025-04-11"
+       "date": "2025-04-11",
+       "kind": "broken"
+      },
+      {
+       "value": 2,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-031",
+       "date": "2025-12-07",
+       "kind": "tied"
       },
       {
        "value": 1,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-049",
-       "date": "2026-06-02"
+       "date": "2026-06-02",
+       "kind": "broken"
+      },
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "kind": "tied"
       }
      ]
     },
@@ -24369,32 +26688,52 @@
       {
        "value": 10.3,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 11.5,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-003",
-       "date": "2025-04-04"
+       "date": "2025-04-04",
+       "kind": "broken"
       },
       {
        "value": 11.6,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-007",
-       "date": "2025-05-09"
+       "date": "2025-05-09",
+       "kind": "broken"
       },
       {
        "value": 11.7,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-030",
-       "date": "2025-11-30"
+       "date": "2025-11-30",
+       "kind": "broken"
       },
       {
        "value": 12.1,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-052",
-       "date": "2026-06-30"
+       "date": "2026-06-30",
+       "kind": "broken"
       }
      ]
     },
@@ -24415,14 +26754,22 @@
       {
        "value": 10,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 8,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-004",
-       "date": "2025-04-11"
+       "date": "2025-04-11",
+       "kind": "broken"
       }
      ]
     },
@@ -24436,7 +26783,38 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1048,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "kind": "set"
+      },
+      {
+       "value": 1144,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "kind": "broken"
+      },
+      {
+       "value": 1179,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "longest_streak",
@@ -24448,7 +26826,64 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "kind": "set"
+      },
+      {
+       "value": 2,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-facu"
+       ],
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "kind": "broken"
+      },
+      {
+       "value": 2,
+       "player_id": "p-nico",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico"
+       ],
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "kind": "tied"
+      },
+      {
+       "value": 2,
+       "player_id": "p-juli",
+       "holders": [
+        "p-caro",
+        "p-facu",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-024",
+       "date": "2025-10-18",
+       "kind": "tied"
+      },
+      {
+       "value": 3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "richest_finish",
@@ -24461,32 +26896,70 @@
        "game_id": "g-009",
        "date": "2025-05-30",
        "map": "Tharsis"
+      },
+      {
+       "player_id": "p-facu",
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "map": "Tharsis"
+      },
+      {
+       "player_id": "p-juli",
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "map": "Hellas"
       }
      ],
      "history": [
       {
-       "value": 17,
-       "player_id": "p-caro",
-       "game_id": "g-002",
-       "date": "2025-03-14"
-      },
-      {
        "value": 26,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-002",
-       "date": "2025-03-14"
+       "date": "2025-03-14",
+       "kind": "set"
       },
       {
        "value": 31,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-003",
-       "date": "2025-04-04"
+       "date": "2025-04-04",
+       "kind": "broken"
       },
       {
        "value": 33,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-009",
-       "date": "2025-05-30"
+       "date": "2025-05-30",
+       "kind": "broken"
+      },
+      {
+       "value": 33,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "kind": "tied"
+      },
+      {
+       "value": 33,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "kind": "tied"
       }
      ]
     }
@@ -26903,6 +29376,20 @@
      "best": 104,
      "bestGame": "g-007",
      "avgMilestones": 0.5714285714285714,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Terraformer"
+       ],
+       "count": 4
+      },
+      "award": {
+       "names": [
+        "Landlord"
+       ],
+       "count": 3
+      }
+     },
      "avgAwards": 0.7619047619047619,
      "pointsPerGen": 9.550456950456951,
      "composition": {
@@ -27169,7 +29656,8 @@
      },
      "recordsHeld": [
       "highest_card_points",
-      "closest_win"
+      "closest_win",
+      "richest_finish"
      ],
      "rank": 1,
      "rankTotal": 9
@@ -27184,6 +29672,20 @@
      "best": 108,
      "bestGame": "g-044",
      "avgMilestones": 0.6818181818181818,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Planner"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Banker"
+       ],
+       "count": 4
+      }
+     },
      "avgAwards": 0.6363636363636364,
      "pointsPerGen": 8.98255280073462,
      "composition": {
@@ -27439,6 +29941,7 @@
       "most_games_played",
       "most_games_won",
       "biggest_margin",
+      "closest_win",
       "points_per_generation",
       "fastest_win",
       "richest_finish"
@@ -27456,6 +29959,21 @@
      "best": 106,
      "bestGame": "g-063",
      "avgMilestones": 0.3125,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Gardener"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Scientist",
+        "Thermalist"
+       ],
+       "count": 2
+      }
+     },
      "avgAwards": 0.6875,
      "pointsPerGen": 8.993118686868685,
      "composition": {
@@ -27679,7 +30197,8 @@
       "even": 0
      },
      "recordsHeld": [
-      "highest_greenery_points"
+      "highest_greenery_points",
+      "richest_finish"
      ],
      "rank": 3,
      "rankTotal": 9
@@ -27694,6 +30213,20 @@
      "best": 115,
      "bestGame": "g-003",
      "avgMilestones": 1.0625,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Builder"
+       ],
+       "count": 3
+      },
+      "award": {
+       "names": [
+        "Landlord"
+       ],
+       "count": 3
+      }
+     },
      "avgAwards": 0.9375,
      "pointsPerGen": 9.660037878787879,
      "composition": {
@@ -27923,6 +30456,29 @@
      "best": 96,
      "bestGame": "g-061",
      "avgMilestones": 0.5,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Merchant",
+        "Rim Settler",
+        "Tactician"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Banker",
+        "Collector",
+        "Contractor",
+        "Estate Dealer",
+        "Innovator",
+        "Manufacturer",
+        "Miner",
+        "Space Baron"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 1.3333333333333333,
      "pointsPerGen": 8.076262626262627,
      "composition": {
@@ -28093,6 +30649,21 @@
      "best": 106,
      "bestGame": "g-048",
      "avgMilestones": 0.2222222222222222,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Rim Settler",
+        "Sponsor"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Excentric"
+       ],
+       "count": 2
+      }
+     },
      "avgAwards": 0.4444444444444444,
      "pointsPerGen": 7.8121212121212125,
      "composition": {
@@ -28303,6 +30874,22 @@
      "best": 111,
      "bestGame": "g-059",
      "avgMilestones": 0.8333333333333334,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Mayor"
+       ],
+       "count": 2
+      },
+      "award": {
+       "names": [
+        "Banker",
+        "Landlord",
+        "Scientist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.5,
      "pointsPerGen": 9.187962962962963,
      "composition": {
@@ -28459,6 +31046,22 @@
      "best": 100,
      "bestGame": "g-043",
      "avgMilestones": 0.75,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Generalist",
+        "Planner",
+        "Terraformer"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Miner"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.25,
      "pointsPerGen": 7.949999999999999,
      "composition": {
@@ -28558,7 +31161,9 @@
      ],
      "nemesis": null,
      "victim": null,
-     "recordsHeld": [],
+     "recordsHeld": [
+      "highest_turmoil_points"
+     ],
      "rank": 7,
      "rankTotal": 9
     },
@@ -28572,6 +31177,18 @@
      "best": 83,
      "bestGame": "g-043",
      "avgMilestones": 0.8,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Engineer",
+        "Farmer",
+        "Gardener",
+        "Lobbyist"
+       ],
+       "count": 1
+      },
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 7.615,
      "composition": {
@@ -28730,6 +31347,17 @@
      "best": 81,
      "bestGame": "g-005",
      "avgMilestones": 0.42857142857142855,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Gardener",
+        "Mayor",
+        "Planner"
+       ],
+       "count": 1
+      },
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 7.2597041847041845,
      "composition": {
@@ -29531,17 +32159,9 @@
      "date": "2026-09-27",
      "type": "record",
      "game_id": "g-063",
-     "player_id": "p-juli",
-     "code": "highest_terraform_rating",
-     "text": "Juli rompió «Arquitecto climático»: 44 (antes 42, Caro)"
-    },
-    {
-     "date": "2026-09-27",
-     "type": "record",
-     "game_id": "g-063",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
-     "text": "Caro rompió «Arquitecto climático»: 46 (antes 44, Juli)"
+     "text": "Caro rompió «Arquitecto climático»: 46 (antes 42, Caro)"
     },
     {
      "date": "2026-09-27",
@@ -29661,7 +32281,7 @@
      "game_id": "g-053",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
-     "text": "Caro rompió «Arquitecto climático»: 41 (antes 40, Caro)"
+     "text": "Caro rompió «Arquitecto climático»: 41 (antes 40, Caro y Nico y Juli)"
     },
     {
      "date": "2026-07-07",
@@ -29678,6 +32298,14 @@
      "game_id": "g-053",
      "player_id": "p-nico",
      "text": "Nico ganó en Tharsis por 1 punto"
+    },
+    {
+     "date": "2026-06-30",
+     "type": "record",
+     "game_id": "g-052",
+     "player_id": "p-nico",
+     "code": "points_per_generation",
+     "text": "Nico rompió «Motor perfecto»: 12.1 (antes 11.7, Caro)"
     },
     {
      "date": "2026-06-30",
@@ -29712,6 +32340,14 @@
      "game_id": "g-052",
      "player_id": "p-nico",
      "text": "Nico ganó en Vastitas Borealis por 14 puntos"
+    },
+    {
+     "date": "2026-06-02",
+     "type": "record",
+     "game_id": "g-049",
+     "player_id": "p-facu",
+     "code": "closest_win",
+     "text": "Facu rompió «Por un pelo»: 1 (antes 2, Nico y Facu)"
     },
     {
      "date": "2026-06-02",
@@ -29809,6 +32445,14 @@
     },
     {
      "date": "2026-04-28",
+     "type": "record",
+     "game_id": "g-044",
+     "player_id": "p-nico",
+     "code": "biggest_margin",
+     "text": "Nico rompió «Aplanadora»: 23 (antes 17, Caro)"
+    },
+    {
+     "date": "2026-04-28",
      "type": "game",
      "game_id": "g-044",
      "player_id": "p-nico",
@@ -29820,7 +32464,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
-     "text": "Caro rompió «Arquitecto climático»: 40 (antes 39, Caro)"
+     "text": "Caro rompió «Arquitecto climático»: 40 (antes 39, Caro y Juli y Facu y Tomi y Pato)"
     },
     {
      "date": "2026-04-21",
@@ -29828,7 +32472,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_turmoil_points",
-     "text": "Caro rompió «Maestro de la política»: 6 (antes 5, Caro)"
+     "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro)"
     },
     {
      "date": "2026-04-21",
@@ -29906,7 +32550,7 @@
      "game_id": "g-039",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
-     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli)"
+     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Nico y Caro)"
     },
     {
      "date": "2026-03-10",
@@ -29992,6 +32636,14 @@
      "player_id": "p-facu",
      "code": "highest_card_points",
      "text": "Facu rompió «Magnate de proyectos»: 35 (antes 34, Facu)"
+    },
+    {
+     "date": "2025-11-30",
+     "type": "record",
+     "game_id": "g-030",
+     "player_id": "p-caro",
+     "code": "points_per_generation",
+     "text": "Caro rompió «Motor perfecto»: 11.7 (antes 11.6, Facu)"
     },
     {
      "date": "2025-11-30",
@@ -30246,7 +32898,7 @@
      "game_id": "g-017",
      "player_id": "p-facu",
      "code": "highest_card_points",
-     "text": "Facu rompió «Magnate de proyectos»: 34 (antes 28, Juli)"
+     "text": "Facu rompió «Magnate de proyectos»: 34 (antes 28, Juli y Facu)"
     },
     {
      "date": "2025-08-30",
@@ -30361,6 +33013,14 @@
     },
     {
      "date": "2025-05-30",
+     "type": "record",
+     "game_id": "g-009",
+     "player_id": "p-nico",
+     "code": "richest_finish",
+     "text": "Nico rompió «Tesorería»: 33 (antes 31, Facu)"
+    },
+    {
+     "date": "2025-05-30",
      "type": "achievement",
      "game_id": "g-009",
      "player_id": "p-juli",
@@ -30400,6 +33060,14 @@
      "player_id": "p-nico",
      "code": "highest_city_points",
      "text": "Nico rompió «Urbanista supremo»: 13 (antes 11, Nico)"
+    },
+    {
+     "date": "2025-05-09",
+     "type": "record",
+     "game_id": "g-007",
+     "player_id": "p-facu",
+     "code": "points_per_generation",
+     "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
     },
     {
      "date": "2025-05-09",
@@ -30510,7 +33178,23 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "highest_city_points",
-     "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu)"
+     "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
+    },
+    {
+     "date": "2025-04-11",
+     "type": "record",
+     "game_id": "g-004",
+     "player_id": "p-nico",
+     "code": "closest_win",
+     "text": "Nico rompió «Por un pelo»: 2 (antes 17, Caro)"
+    },
+    {
+     "date": "2025-04-11",
+     "type": "record",
+     "game_id": "g-004",
+     "player_id": "p-nico",
+     "code": "fastest_win",
+     "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
     },
     {
      "date": "2025-04-11",
@@ -30572,6 +33256,22 @@
     },
     {
      "date": "2025-04-04",
+     "type": "record",
+     "game_id": "g-003",
+     "player_id": "p-caro",
+     "code": "points_per_generation",
+     "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
+    },
+    {
+     "date": "2025-04-04",
+     "type": "record",
+     "game_id": "g-003",
+     "player_id": "p-facu",
+     "code": "richest_finish",
+     "text": "Facu rompió «Tesorería»: 31 (antes 26, Facu)"
+    },
+    {
+     "date": "2025-04-04",
      "type": "achievement",
      "game_id": "g-003",
      "player_id": "p-juli",
@@ -30585,30 +33285,6 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "text": "Caro ganó en Tharsis por 17 puntos"
-    },
-    {
-     "date": "2025-03-14",
-     "type": "record",
-     "game_id": "g-002",
-     "player_id": "p-nico",
-     "code": "highest_greenery_points",
-     "text": "Nico rompió «Rey de los bosques»: 9 (antes 8, Caro)"
-    },
-    {
-     "date": "2025-03-14",
-     "type": "record",
-     "game_id": "g-002",
-     "player_id": "p-juli",
-     "code": "highest_greenery_points",
-     "text": "Juli rompió «Rey de los bosques»: 15 (antes 9, Nico)"
-    },
-    {
-     "date": "2025-03-14",
-     "type": "record",
-     "game_id": "g-002",
-     "player_id": "p-facu",
-     "code": "highest_city_points",
-     "text": "Facu rompió «Urbanista supremo»: 9 (antes 6, Caro)"
     },
     {
      "date": "2025-03-14",
@@ -30852,6 +33528,7 @@
      {
       "player_id": "p-pato",
       "position": 5,
+      "tied": false,
       "total": 58,
       "mc": 26
      }
@@ -30888,6 +33565,7 @@
      {
       "player_id": "p-tomi",
       "position": 5,
+      "tied": false,
       "total": 56,
       "mc": 7
      }
@@ -30924,6 +33602,7 @@
      {
       "player_id": "p-meli",
       "position": 5,
+      "tied": false,
       "total": 66,
       "mc": 27
      }
@@ -30960,6 +33639,7 @@
      {
       "player_id": "p-facu",
       "position": 5,
+      "tied": false,
       "total": 71,
       "mc": 13
      }
@@ -30996,6 +33676,7 @@
      {
       "player_id": "p-meli",
       "position": 5,
+      "tied": false,
       "total": 72,
       "mc": 23
      }
@@ -31032,6 +33713,7 @@
      {
       "player_id": "p-lu",
       "position": 5,
+      "tied": false,
       "total": 72,
       "mc": 6
      }
@@ -31068,6 +33750,7 @@
      {
       "player_id": "p-tomi",
       "position": 5,
+      "tied": false,
       "total": 68,
       "mc": 25
      }
@@ -31104,6 +33787,7 @@
      {
       "player_id": "p-gonza",
       "position": 5,
+      "tied": false,
       "total": 54,
       "mc": 29
      }
@@ -31140,6 +33824,7 @@
      {
       "player_id": "p-lu",
       "position": 5,
+      "tied": false,
       "total": 62,
       "mc": 11
      }
@@ -31176,6 +33861,7 @@
      {
       "player_id": "p-tomi",
       "position": 5,
+      "tied": false,
       "total": 54,
       "mc": 5
      }
@@ -31212,6 +33898,7 @@
      {
       "player_id": "p-santi",
       "position": 5,
+      "tied": false,
       "total": 50,
       "mc": 24
      }
@@ -31615,20 +34302,32 @@
       {
        "value": 105,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 106,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-012",
-       "date": "2025-06-28"
+       "date": "2025-06-28",
+       "kind": "broken"
       },
       {
        "value": 110,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
       }
      ]
     },
@@ -31649,14 +34348,52 @@
       {
        "value": 38,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 38,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
+      },
+      {
+       "value": 38,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "tied"
+      },
+      {
+       "value": 38,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "kind": "tied"
       },
       {
        "value": 41,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-036",
-       "date": "2026-02-09"
+       "date": "2026-02-09",
+       "kind": "broken"
       }
      ]
     },
@@ -31677,14 +34414,22 @@
       {
        "value": 28,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 33,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-012",
-       "date": "2025-06-28"
+       "date": "2025-06-28",
+       "kind": "broken"
       }
      ]
     },
@@ -31703,28 +34448,45 @@
      ],
      "history": [
       {
-       "value": 7,
-       "player_id": "p-facu",
+       "value": 9,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 9,
-       "player_id": "p-meli",
-       "game_id": "g-008",
-       "date": "2025-05-16"
+       "player_id": "p-pato",
+       "holders": [
+        "p-pato"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
       },
       {
        "value": 10,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli",
+        "p-meli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
       },
       {
        "value": 11,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-036",
-       "date": "2026-02-09"
+       "date": "2026-02-09",
+       "kind": "broken"
       }
      ]
     },
@@ -31743,22 +34505,34 @@
      ],
      "history": [
       {
-       "value": 10,
-       "player_id": "p-facu",
+       "value": 11,
+       "player_id": "p-tomi",
+       "holders": [
+        "p-tomi"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 11,
-       "player_id": "p-tomi",
-       "game_id": "g-008",
-       "date": "2025-05-16"
+       "player_id": "p-pato",
+       "holders": [
+        "p-pato"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
       },
       {
        "value": 20,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
       }
      ]
     },
@@ -31773,32 +34547,54 @@
        "game_id": "g-046",
        "date": "2026-05-12",
        "map": "Elysium"
+      },
+      {
+       "player_id": "p-nico",
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium"
       }
      ],
      "history": [
       {
-       "value": 7,
-       "player_id": "p-facu",
+       "value": 10,
+       "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
-      },
-      {
-       "value": 8,
-       "player_id": "p-tomi",
-       "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 10,
-       "player_id": "p-meli",
-       "game_id": "g-008",
-       "date": "2025-05-16"
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "kind": "tied"
       },
       {
        "value": 12,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-046",
-       "date": "2026-05-12"
+       "date": "2026-05-12",
+       "kind": "broken"
+      },
+      {
+       "value": 12,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "kind": "tied"
       }
      ]
     },
@@ -31813,26 +34609,58 @@
        "game_id": "g-037",
        "date": "2026-02-23",
        "map": "Hellas"
+      },
+      {
+       "player_id": "p-facu",
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia"
       }
      ],
      "history": [
       {
        "value": 3,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu",
+        "p-tomi",
+        "p-meli",
+        "p-pato"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
-       "value": 4,
-       "player_id": "p-lu",
-       "game_id": "g-037",
-       "date": "2026-02-23"
+       "value": 3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-gonza"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "tied"
       },
       {
        "value": 5,
        "player_id": "p-meli",
+       "holders": [
+        "p-meli"
+       ],
        "game_id": "g-037",
-       "date": "2026-02-23"
+       "date": "2026-02-23",
+       "kind": "broken"
+      },
+      {
+       "value": 5,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "kind": "tied"
       }
      ]
     },
@@ -31846,7 +34674,90 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu",
+        "p-tomi",
+        "p-caro",
+        "p-meli",
+        "p-pato"
+       ],
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 2,
+       "player_id": "p-tomi",
+       "holders": [
+        "p-tomi",
+        "p-caro",
+        "p-meli",
+        "p-pato"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "broken"
+      },
+      {
+       "value": 3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-meli",
+        "p-pato"
+       ],
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "kind": "broken"
+      },
+      {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "broken"
+      },
+      {
+       "value": 6,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-meli"
+       ],
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "kind": "broken"
+      },
+      {
+       "value": 6,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu",
+        "p-caro",
+        "p-meli"
+       ],
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "kind": "tied"
+      },
+      {
+       "value": 7,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "most_games_won",
@@ -31858,7 +34769,124 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-facu",
+        "p-nico"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-juli",
+       "holders": [
+        "p-facu",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-facu",
+        "p-caro",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-facu",
+        "p-caro",
+        "p-nico",
+        "p-juli",
+        "p-gonza"
+       ],
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "kind": "tied"
+      },
+      {
+       "value": 2,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "kind": "broken"
+      },
+      {
+       "value": 2,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-caro",
+        "p-gonza"
+       ],
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "kind": "tied"
+      },
+      {
+       "value": 2,
+       "player_id": "p-juli",
+       "holders": [
+        "p-caro",
+        "p-juli",
+        "p-gonza"
+       ],
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "kind": "tied"
+      },
+      {
+       "value": 2,
+       "player_id": "p-nico",
+       "holders": [
+        "p-caro",
+        "p-nico",
+        "p-juli",
+        "p-gonza"
+       ],
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "kind": "tied"
+      },
+      {
+       "value": 3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "biggest_margin",
@@ -31877,20 +34905,32 @@
       {
        "value": 9,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 23,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
       },
       {
        "value": 26,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-029",
-       "date": "2025-11-23"
+       "date": "2025-11-23",
+       "kind": "broken"
       }
      ]
     },
@@ -31911,14 +34951,22 @@
       {
        "value": 9,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 5,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-012",
-       "date": "2025-06-28"
+       "date": "2025-06-28",
+       "kind": "broken"
       }
      ]
     },
@@ -31939,26 +34987,42 @@
       {
        "value": 10.5,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 10.6,
        "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
        "game_id": "g-012",
-       "date": "2025-06-28"
+       "date": "2025-06-28",
+       "kind": "broken"
       },
       {
        "value": 12.2,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
       },
       {
        "value": 12.8,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-060",
-       "date": "2026-09-08"
+       "date": "2026-09-08",
+       "kind": "broken"
       }
      ]
     },
@@ -31973,26 +35037,74 @@
        "game_id": "g-058",
        "date": "2026-08-18",
        "map": "Terra Cimmeria"
+      },
+      {
+       "player_id": "p-facu",
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia"
       }
      ],
      "history": [
       {
        "value": 10,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 10,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
       },
       {
        "value": 9,
        "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
+      },
+      {
+       "value": 9,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "kind": "tied"
       },
       {
        "value": 8,
        "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
        "game_id": "g-058",
-       "date": "2026-08-18"
+       "date": "2026-08-18",
+       "kind": "broken"
+      },
+      {
+       "value": 8,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "kind": "tied"
       }
      ]
     },
@@ -32006,7 +35118,68 @@
        "player_id": "p-caro"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1064,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 1091,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "broken"
+      },
+      {
+       "value": 1092,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "kind": "broken"
+      },
+      {
+       "value": 1120,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ],
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "kind": "broken"
+      },
+      {
+       "value": 1129,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ],
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "kind": "broken"
+      },
+      {
+       "value": 1151,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ],
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "kind": "broken"
+      }
+     ]
     },
     {
      "code": "longest_streak",
@@ -32021,7 +35194,89 @@
        "player_id": "p-gonza"
       }
      ],
-     "history": []
+     "history": [
+      {
+       "value": 1,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "kind": "set"
+      },
+      {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-facu",
+        "p-nico"
+       ],
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-juli",
+       "holders": [
+        "p-facu",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-facu",
+        "p-caro",
+        "p-nico",
+        "p-juli"
+       ],
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "kind": "tied"
+      },
+      {
+       "value": 1,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-facu",
+        "p-caro",
+        "p-nico",
+        "p-juli",
+        "p-gonza"
+       ],
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "kind": "tied"
+      },
+      {
+       "value": 2,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "kind": "broken"
+      },
+      {
+       "value": 2,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli",
+        "p-gonza"
+       ],
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "kind": "tied"
+      }
+     ]
     },
     {
      "code": "richest_finish",
@@ -32038,34 +35293,45 @@
      ],
      "history": [
       {
-       "value": 9,
-       "player_id": "p-facu",
-       "game_id": "g-008",
-       "date": "2025-05-16"
-      },
-      {
        "value": 26,
        "player_id": "p-tomi",
+       "holders": [
+        "p-tomi",
+        "p-pato"
+       ],
        "game_id": "g-008",
-       "date": "2025-05-16"
-      },
-      {
-       "value": 28,
-       "player_id": "p-juli",
-       "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-05-16",
+       "kind": "set"
       },
       {
        "value": 32,
        "player_id": "p-santi",
+       "holders": [
+        "p-santi"
+       ],
        "game_id": "g-013",
-       "date": "2025-07-19"
+       "date": "2025-07-19",
+       "kind": "broken"
+      },
+      {
+       "value": 32,
+       "player_id": "p-gonza",
+       "holders": [
+        "p-gonza"
+       ],
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "kind": "tied"
       },
       {
        "value": 33,
        "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ],
        "game_id": "g-046",
-       "date": "2026-05-12"
+       "date": "2026-05-12",
+       "kind": "broken"
       }
      ]
     }
@@ -34214,6 +37480,27 @@
      "best": 105,
      "bestGame": "g-008",
      "avgMilestones": 0.75,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Mayor",
+        "Pioneer",
+        "Planner",
+        "Polar Explorer",
+        "Terraformer",
+        "Trader"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Magnate",
+        "Space Baron",
+        "Venuphile"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.375,
      "pointsPerGen": 9.270833333333334,
      "composition": {
@@ -34402,7 +37689,9 @@
       "even": 0
      },
      "recordsHeld": [
+      "highest_turmoil_points",
       "points_per_generation",
+      "fastest_win",
       "richest_finish"
      ],
      "rank": 4,
@@ -34418,6 +37707,21 @@
      "best": 106,
      "bestGame": "g-012",
      "avgMilestones": 0.5,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Generalist",
+        "Hoverlord"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Estate Dealer"
+       ],
+       "count": 2
+      }
+     },
      "avgAwards": 1.25,
      "pointsPerGen": 9.61111111111111,
      "composition": {
@@ -34526,6 +37830,7 @@
      "victim": null,
      "recordsHeld": [
       "highest_card_points",
+      "highest_city_points",
       "closest_win"
      ],
      "rank": 1,
@@ -34541,6 +37846,24 @@
      "best": 110,
      "bestGame": "g-013",
      "avgMilestones": 0.75,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Diversifier",
+        "Legend",
+        "Tycoon"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Contractor",
+        "Desert Settler",
+        "Mogul"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.75,
      "pointsPerGen": 10.45138888888889,
      "composition": {
@@ -34673,6 +37996,32 @@
      "best": 108,
      "bestGame": "g-029",
      "avgMilestones": 0.7777777777777778,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Architect",
+        "Gardener",
+        "Legend",
+        "Planetologist",
+        "Planner",
+        "Polar Explorer",
+        "Tactician"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Banker",
+        "Cultivator",
+        "Forecaster",
+        "Magnate",
+        "Miner",
+        "Thermalist",
+        "Zoologist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.7777777777777778,
      "pointsPerGen": 9.284567901234567,
      "composition": {
@@ -34889,6 +38238,26 @@
      "best": 96,
      "bestGame": "g-008",
      "avgMilestones": 0.8333333333333334,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Coastguard",
+        "Diversifier",
+        "Hoverlord",
+        "Terraformer",
+        "Tycoon"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Excentric",
+        "Landlord",
+        "Thermalist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.5,
      "pointsPerGen": 7.23425925925926,
      "composition": {
@@ -35059,6 +38428,23 @@
      "best": 101,
      "bestGame": "g-012",
      "avgMilestones": 0.125,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Ecologist"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Contractor",
+        "Cultivator",
+        "Industrialist",
+        "Investor"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.5,
      "pointsPerGen": 8.553819444444445,
      "composition": {
@@ -35255,6 +38641,20 @@
      "best": 78,
      "bestGame": "g-029",
      "avgMilestones": 0.25,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Energizer"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Space Baron"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.25,
      "pointsPerGen": 7.762499999999999,
      "composition": {
@@ -35394,6 +38794,24 @@
      "best": 85,
      "bestGame": "g-060",
      "avgMilestones": 1,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Legend",
+        "Manager",
+        "Polar Explorer",
+        "Rim Settler",
+        "Tactician"
+       ],
+       "count": 1
+      },
+      "award": {
+       "names": [
+        "Metropolist"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.2,
      "pointsPerGen": 8.11611111111111,
      "composition": {
@@ -35545,6 +38963,16 @@
      "best": 91,
      "bestGame": "g-034",
      "avgMilestones": 0,
+     "favorites": {
+      "milestone": null,
+      "award": {
+       "names": [
+        "Cultivator",
+        "Excentric"
+       ],
+       "count": 1
+      }
+     },
      "avgAwards": 0.5,
      "pointsPerGen": 8.380555555555556,
      "composition": {
@@ -35679,6 +39107,16 @@
      "best": 82,
      "bestGame": "g-012",
      "avgMilestones": 0.6666666666666666,
+     "favorites": {
+      "milestone": {
+       "names": [
+        "Energizer",
+        "Generalist"
+       ],
+       "count": 1
+      },
+      "award": null
+     },
      "avgAwards": 0,
      "pointsPerGen": 7.2592592592592595,
      "composition": {
@@ -36383,6 +39821,14 @@
    "feed": [
     {
      "date": "2026-09-08",
+     "type": "record",
+     "game_id": "g-060",
+     "player_id": "p-facu",
+     "code": "points_per_generation",
+     "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
+    },
+    {
+     "date": "2026-09-08",
      "type": "achievement",
      "game_id": "g-060",
      "player_id": "p-facu",
@@ -36453,6 +39899,14 @@
     },
     {
      "date": "2026-08-18",
+     "type": "record",
+     "game_id": "g-058",
+     "player_id": "p-caro",
+     "code": "fastest_win",
+     "text": "Caro rompió «Blitz»: 8 (antes 9, Juli y Gonza)"
+    },
+    {
+     "date": "2026-08-18",
      "type": "achievement",
      "game_id": "g-058",
      "player_id": "p-juli",
@@ -36507,7 +39961,15 @@
      "game_id": "g-046",
      "player_id": "p-juli",
      "code": "highest_city_points",
-     "text": "Juli rompió «Urbanista supremo»: 12 (antes 10, Meli)"
+     "text": "Juli rompió «Urbanista supremo»: 12 (antes 10, Meli y Caro)"
+    },
+    {
+     "date": "2026-05-12",
+     "type": "record",
+     "game_id": "g-046",
+     "player_id": "p-facu",
+     "code": "richest_finish",
+     "text": "Facu rompió «Tesorería»: 33 (antes 32, Santi y Gonza)"
     },
     {
      "date": "2026-05-12",
@@ -36556,17 +40018,9 @@
      "date": "2026-02-23",
      "type": "record",
      "game_id": "g-037",
-     "player_id": "p-lu",
-     "code": "highest_turmoil_points",
-     "text": "Lu rompió «Maestro de la política»: 4 (antes 3, Facu)"
-    },
-    {
-     "date": "2026-02-23",
-     "type": "record",
-     "game_id": "g-037",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
-     "text": "Meli rompió «Maestro de la política»: 5 (antes 4, Lu)"
+     "text": "Meli rompió «Maestro de la política»: 5 (antes 3, Facu y Tomi y Meli y Pato y Caro y Gonza)"
     },
     {
      "date": "2026-02-23",
@@ -36599,7 +40053,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
-     "text": "Caro rompió «Arquitecto climático»: 41 (antes 38, Facu)"
+     "text": "Caro rompió «Arquitecto climático»: 41 (antes 38, Facu y Meli y Caro y Gonza)"
     },
     {
      "date": "2026-02-09",
@@ -36607,7 +40061,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
-     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli)"
+     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli)"
     },
     {
      "date": "2026-02-09",
@@ -36679,6 +40133,14 @@
     },
     {
      "date": "2025-11-23",
+     "type": "record",
+     "game_id": "g-029",
+     "player_id": "p-caro",
+     "code": "biggest_margin",
+     "text": "Caro rompió «Aplanadora»: 26 (antes 23, Juli)"
+    },
+    {
+     "date": "2025-11-23",
      "type": "achievement",
      "game_id": "g-029",
      "player_id": "p-caro",
@@ -36743,7 +40205,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
-     "text": "Juli rompió «Barón de los recursos»: 10 (antes 9, Meli)"
+     "text": "Juli y Meli rompió «Barón de los recursos»: 10 (antes 9, Meli y Pato)"
     },
     {
      "date": "2025-07-19",
@@ -36751,7 +40213,39 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_greenery_points",
-     "text": "Juli rompió «Rey de los bosques»: 20 (antes 11, Tomi)"
+     "text": "Juli rompió «Rey de los bosques»: 20 (antes 11, Tomi y Pato)"
+    },
+    {
+     "date": "2025-07-19",
+     "type": "record",
+     "game_id": "g-013",
+     "player_id": "p-juli",
+     "code": "biggest_margin",
+     "text": "Juli rompió «Aplanadora»: 23 (antes 9, Facu)"
+    },
+    {
+     "date": "2025-07-19",
+     "type": "record",
+     "game_id": "g-013",
+     "player_id": "p-juli",
+     "code": "points_per_generation",
+     "text": "Juli rompió «Motor perfecto»: 12.2 (antes 10.6, Nico)"
+    },
+    {
+     "date": "2025-07-19",
+     "type": "record",
+     "game_id": "g-013",
+     "player_id": "p-juli",
+     "code": "fastest_win",
+     "text": "Juli rompió «Blitz»: 9 (antes 10, Facu y Nico)"
+    },
+    {
+     "date": "2025-07-19",
+     "type": "record",
+     "game_id": "g-013",
+     "player_id": "p-santi",
+     "code": "richest_finish",
+     "text": "Santi rompió «Tesorería»: 32 (antes 26, Tomi y Pato)"
     },
     {
      "date": "2025-07-19",
@@ -36850,6 +40344,22 @@
     },
     {
      "date": "2025-06-28",
+     "type": "record",
+     "game_id": "g-012",
+     "player_id": "p-nico",
+     "code": "closest_win",
+     "text": "Nico rompió «Por un pelo»: 5 (antes 9, Facu)"
+    },
+    {
+     "date": "2025-06-28",
+     "type": "record",
+     "game_id": "g-012",
+     "player_id": "p-nico",
+     "code": "points_per_generation",
+     "text": "Nico rompió «Motor perfecto»: 10.6 (antes 10.5, Facu)"
+    },
+    {
+     "date": "2025-06-28",
      "type": "achievement",
      "game_id": "g-012",
      "player_id": "p-nico",
@@ -36926,38 +40436,6 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "text": "Nico ganó en Elysium por 5 puntos"
-    },
-    {
-     "date": "2025-05-16",
-     "type": "record",
-     "game_id": "g-008",
-     "player_id": "p-meli",
-     "code": "highest_card_resource_points",
-     "text": "Meli rompió «Barón de los recursos»: 9 (antes 7, Facu)"
-    },
-    {
-     "date": "2025-05-16",
-     "type": "record",
-     "game_id": "g-008",
-     "player_id": "p-tomi",
-     "code": "highest_greenery_points",
-     "text": "Tomi rompió «Rey de los bosques»: 11 (antes 10, Facu)"
-    },
-    {
-     "date": "2025-05-16",
-     "type": "record",
-     "game_id": "g-008",
-     "player_id": "p-tomi",
-     "code": "highest_city_points",
-     "text": "Tomi rompió «Urbanista supremo»: 8 (antes 7, Facu)"
-    },
-    {
-     "date": "2025-05-16",
-     "type": "record",
-     "game_id": "g-008",
-     "player_id": "p-meli",
-     "code": "highest_city_points",
-     "text": "Meli rompió «Urbanista supremo»: 10 (antes 8, Tomi)"
     },
     {
      "date": "2025-05-16",

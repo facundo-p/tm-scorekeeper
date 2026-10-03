@@ -1,5 +1,5 @@
 import { html, useState, useEffect, useRef, useMemo, useCallback, cls, reducedMotion } from './lib.js';
-import { NavCtx, toHash, parseHash, SECTION } from './router.js';
+import { NavCtx, toHash, parseHash, hrefOf, SECTION } from './router.js';
 import { Icon } from './ui/icons.js';
 import { Cube } from './ui/atoms.js';
 import { MODEL } from './data/derive.js';
@@ -18,8 +18,13 @@ import { Ranking } from './screens/ranking.js';
 import { Profile } from './screens/profile.js';
 import { Records } from './screens/records.js';
 import { Achievements } from './screens/achievements.js';
+import { NotFound } from './screens/not-found.js';
+import { Gallery } from './screens/gallery.js';
 
-const SCREENS = { login: Login, home: Home, games: Games, game: GameReport, register: Register, ceremony: Ceremony, ranking: Ranking, profile: Profile, records: Records, achievements: Achievements };
+const SCREENS = {
+  login: Login, home: Home, games: Games, game: GameReport, register: Register, edit: Register, ceremony: Ceremony, ranking: Ranking,
+  profile: Profile, records: Records, achievements: Achievements, notFound: NotFound, gallery: Gallery,
+};
 
 const NAV = [
   { id: 'home', route: 'home', label: 'Inicio', icon: 'home' },
@@ -41,28 +46,28 @@ function Wordmark({ compact }) {
   </span>`;
 }
 
-function Rail({ section, go }) {
+// Navigation uses real links (#hash) so they can be opened, copied and read as links.
+function NavLink({ n, section, base }) {
+  return html`<a href=${hrefOf(n.route)} class=${cls(`${base}__item`, n.primary && `${base}__item--primary`, section === n.id && 'is-on')}
+    aria-current=${section === n.id ? 'page' : null}>
+    <span class=${`${base}__${base === 'rail' ? 'hex' : 'icon'}`}><${Icon} name=${n.icon} size=${base === 'rail' ? (n.primary ? 24 : 21) : (n.primary ? 26 : 22)} /></span>
+    <span class=${`${base}__label`}>${n.label}</span>
+  </a>`;
+}
+
+function Rail({ section }) {
   return html`<nav class="rail" aria-label="Secciones">
-    <button type="button" class="rail__brand" onClick=${() => go('home')} aria-label="Inicio"><${Wordmark} compact /></button>
+    <a href=${hrefOf('home')} class="rail__brand" aria-label="Inicio"><${Wordmark} compact /></a>
     <ul class="rail__list">
-      ${NAV.map((n) => html`<li>
-        <button type="button" class=${cls('rail__item', n.primary && 'rail__item--primary', section === n.id && 'is-on')}
-          aria-current=${section === n.id ? 'page' : null} onClick=${() => go(n.route)}>
-          <span class="rail__hex"><${Icon} name=${n.icon} size=${n.primary ? 24 : 21} /></span>
-          <span class="rail__label">${n.label}</span>
-        </button></li>`)}
+      ${NAV.map((n) => html`<li><${NavLink} n=${n} section=${section} base="rail" /></li>`)}
     </ul>
-    <button type="button" class="rail__exit" onClick=${() => go('login')} aria-label="Salir"><${Icon} name="power" size=${18} /></button>
+    <a href=${hrefOf('login')} class="rail__exit" aria-label="Salir"><${Icon} name="power" size=${18} /></a>
   </nav>`;
 }
 
-function Dock({ section, go }) {
+function Dock({ section }) {
   return html`<nav class="dock" aria-label="Secciones">
-    ${NAV.map((n) => html`<button type="button" class=${cls('dock__item', n.primary && 'dock__item--primary', section === n.id && 'is-on')}
-      aria-current=${section === n.id ? 'page' : null} onClick=${() => go(n.route)}>
-      <span class="dock__icon"><${Icon} name=${n.icon} size=${n.primary ? 26 : 22} /></span>
-      <span class="dock__label">${n.label}</span>
-    </button>`)}
+    ${NAV.map((n) => html`<${NavLink} n=${n} section=${section} base="dock" />`)}
   </nav>`;
 }
 
@@ -92,13 +97,14 @@ function SeasonChip({ go }) {
   </button>`;
 }
 
-function TopBar({ route, go }) {
+function TopBar({ go }) {
   return html`<header class="topbar">
-    <button type="button" class="topbar__brand" onClick=${() => go('home')} aria-label="Inicio"><${Wordmark} /></button>
+    <a href=${hrefOf('home')} class="topbar__brand" aria-label="Inicio"><${Wordmark} /></a>
     <${Ticker} go=${go} />
     <div class="topbar__aside">
       <span class="sample-chip" title="Las partidas y jugadores de este prototipo son de ejemplo">Datos de ejemplo</span>
       <${SeasonChip} go=${go} />
+      <a href=${hrefOf('login')} class="topbar__exit" aria-label="Salir"><${Icon} name="power" size=${18} /></a>
     </div>
   </header>`;
 }
@@ -117,14 +123,20 @@ function ProtoBar({ device, setDevice, openAtlas }) {
 }
 
 function initialRoute() {
-  return parseHash(location.hash) ?? { name: 'home', params: {} };
+  return parseHash(location.hash) ?? { name: 'home', params: {}, query: {} };
 }
+
+// ?demo=loading|error shows the loading or error state on every screen (comparison hooks).
+const initialDemo = () => {
+  const d = new URLSearchParams(location.search).get('demo');
+  return d === 'loading' || d === 'error' ? d : 'normal';
+};
 
 export function App() {
   const [route, setRoute] = useState(initialRoute);
   const [device, setDevice] = useState(() => (new URLSearchParams(location.search).get('device') === 'phone' ? 'phone' : 'desktop'));
   const [atlas, setAtlas] = useState(false);
-  const [demo, setDemo] = useState('normal');
+  const [demo, setDemo] = useState(initialDemo);
   const [stage, setStage] = useState(null);
   const fxRef = useRef(null);
   const deviceRef = useRef(null);
@@ -139,15 +151,17 @@ export function App() {
   useEffect(() => {
     const onHash = () => {
       if (skipHash.current) { skipHash.current = false; return; }
-      const r = parseHash(location.hash);
-      if (r) setRoute(r);
+      const r = parseHash(location.hash) ?? { name: 'home', params: {}, query: {} };
+      setRoute(r);
+      setAtlas(false);
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
     };
     addEventListener('hashchange', onHash);
     return () => removeEventListener('hashchange', onHash);
   }, []);
 
-  const go = useCallback((name, params = {}) => {
-    const next = { name, params };
+  const go = useCallback((name, params = {}, query = {}) => {
+    const next = { name, params, query };
     setRoute(next);
     setAtlas(false);
     try {
@@ -185,6 +199,7 @@ export function App() {
   const Screen = SCREENS[route.name] ?? Home;
   const section = SECTION[route.name];
   const bare = route.name === 'login' || route.name === 'ceremony';
+  const routeKey = `${route.name}-${route.params.id ?? ''}-${demo}`;
 
   return html`<${NavCtx.Provider} value=${nav}>
     <${StageCtx.Provider} value=${stage}>
@@ -192,16 +207,16 @@ export function App() {
         <div class="device-fit">
           <div class=${cls('device', bare && 'device--bare')} ref=${deviceRef}>
             <div class="fx" ref=${fxRef}></div>
-            ${!bare && html`<${Rail} section=${section} go=${go} />`}
-            <div class="scroller" ref=${scrollRef}>
-              ${!bare && html`<${TopBar} route=${route} go=${go} />`}
-              <main class=${cls('screen', `screen--${route.name}`)} key=${`${route.name}-${route.params.id ?? ''}-${demo}`}>
+            ${!bare && html`<${Rail} section=${section} />`}
+            <div class="scroller" ref=${scrollRef} data-scroll-root>
+              ${!bare && html`<${TopBar} go=${go} />`}
+              <main class=${cls('screen', `screen--${route.name}`)} key=${routeKey}>
                 ${demo === 'loading' && !bare ? html`<${LoadingState} />`
                   : demo === 'error' && !bare ? html`<${ErrorState} onRetry=${() => setDemo('normal')} />`
-                  : html`<${Screen} params=${route.params} />`}
+                  : html`<${Screen} params=${route.params} query=${route.query ?? {}} />`}
               </main>
             </div>
-            ${!bare && html`<${Dock} section=${section} go=${go} />`}
+            ${!bare && html`<${Dock} section=${section} />`}
             <div class="overlays" id="overlays"></div>
           </div>
         </div>

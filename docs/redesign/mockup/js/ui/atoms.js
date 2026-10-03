@@ -107,7 +107,7 @@ export function Chip({ children, icon, tone, title }) {
 }
 
 export function NewBadge({ children = 'Nuevo' }) {
-  return html`<span class="newbadge" title="Propuesta del rediseño">${children}</span>`;
+  return html`<span class="newbadge" title="Nuevo en v2.0">${children}</span>`;
 }
 
 export function useCountUp(target, { duration = 900, delay = 0, from = 0 } = {}) {

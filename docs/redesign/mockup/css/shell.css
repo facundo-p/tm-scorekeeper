@@ -1,3 +1,25 @@
+/* ---------- Navigation links: rendered like the buttons they replaced ---------- */
+.rail__brand,
+.rail__item,
+.rail__exit,
+.dock__item,
+.topbar__brand,
+.topbar__exit {
+  display: inline-block;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.rail__brand:hover,
+.rail__item:hover,
+.rail__exit:hover,
+.dock__item:hover,
+.topbar__brand:hover,
+.topbar__exit:hover {
+  color: inherit;
+}
+
 /* ---------- Stage: the page around the app (prototype chrome) ---------- */
 #app {
   height: 100%;
@@ -299,6 +321,20 @@
 
 .topbar__brand {
   flex: none;
+}
+
+.topbar__exit {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-3);
+  border-radius: 50%;
+}
+
+.topbar__exit:hover {
+  color: var(--down);
+  background: var(--hull-2);
 }
 
 .topbar__aside {
@@ -714,6 +750,10 @@
 
   .topbar__brand {
     display: block;
+  }
+
+  .topbar__exit {
+    display: none;
   }
 
   .ticker {

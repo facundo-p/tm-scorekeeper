@@ -13,3 +13,15 @@
   actions:
     - click: { role: button, name: Ingresar }
   gateFromPhase: 28
+- id: login-wrong
+  screen: acceso
+  fresh: true
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  actions:
+    - fill: { label: Usuario }
+      value: grupo
+    - fill: { label: Contraseña, exact: true }
+      value: equivocada
+    - click: { role: button, name: Ingresar }
+  gateFromPhase: 28

@@ -56,6 +56,7 @@ backend_gates() {
   fi
   if [ -f "$ROOT/tools/fixtures/export.mjs" ]; then
     run_gate fixtures node "$ROOT/tools/fixtures/export.mjs" --check
+    run_gate semántica node --test "$ROOT"/tools/fixtures/*.test.mjs
   else
     skip_gate fixtures "todavía no existe"
   fi

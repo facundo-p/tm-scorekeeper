@@ -60,6 +60,8 @@ jobs:
           node-version: "20"
       - name: Fixtures del mockup al día
         run: node tools/fixtures/export.mjs --check
+      - name: Semántica del mockup (casos borde)
+        run: node --test tools/fixtures/*.test.mjs
       - run: npm ci
         working-directory: tools/parity
       - name: Tests del arnés de comparación

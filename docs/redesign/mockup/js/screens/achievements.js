@@ -2,7 +2,7 @@ import { html, useState, cls } from '../lib.js';
 import { MODEL } from '../data/derive.js';
 import { TIER_MATERIALS } from '../data/catalog.js';
 import { Icon } from '../ui/icons.js';
-import { Cube, PlayerTag, Medal, TierPips, NewBadge, fmtDate } from '../ui/atoms.js';
+import { Cube, PlayerTag, Medal, TierPips, fmtDate } from '../ui/atoms.js';
 import { Sheet } from '../ui/sheet.js';
 import { TrophyNav } from './records.js';
 
@@ -42,7 +42,6 @@ function Tile({ a, who, onOpen, i }) {
       ${!who && html`<span class="mtile__holders">
         ${holders.slice(0, 5).map((h) => html`<${Cube} color=${P(h.player_id).color} size=${13} />`)}
         <small>${holders.length ? `${holders.length} ${holders.length === 1 ? 'jugador' : 'jugadores'}` : 'Nadie todavía'}</small></span>`}
-      ${a.proposed && html`<span class="mtile__new"><${NewBadge}>Propuesto</${NewBadge}></span>`}
     </button>
   </li>`;
 }
@@ -57,7 +56,6 @@ function Detail({ a, who, onClose }) {
         <div>
           <p class="adetail__desc">${a.description}</p>
           <p class="flavor">«${a.flavor}»</p>
-          ${a.proposed && html`<p class="faint adetail__note"><${NewBadge}>Propuesto</${NewBadge}> Se calcula con datos que ya existen; no requiere cargar nada nuevo.</p>`}
         </div>
       </div>
       <ol class="ladder">
@@ -84,15 +82,14 @@ function Detail({ a, who, onClose }) {
 export function Achievements() {
   const [who, setWho] = useState(null);
   const [open, setOpen] = useState(null);
-  const current = MODEL.achievements.filter((a) => !a.proposed);
-  const proposed = MODEL.achievements.filter((a) => a.proposed);
+  const current = MODEL.achievements;
   const unlocked = who ? current.filter((a) => P(who).achievements[a.code].tier > 0).length : null;
   return html`
     <${TrophyNav} current="achievements" />
     <header class="screen-head reveal" style="--i:0">
       <div>
         <h1 class="screen-head__title">Logros</h1>
-        <p class="screen-head__sub">Medallas permanentes: una vez ganadas no se pierden. Cada nivel cambia el material de la medalla.</p>
+        <p class="screen-head__sub">Cada nivel cambia el material de la medalla y queda fechado con la partida que lo alcanzó. Si se corrige o se borra una partida, los niveles se recalculan.</p>
       </div>
     </header>
     <div class="reveal ach-tools" style="--i:1">
@@ -101,11 +98,6 @@ export function Achievements() {
       ${who && html`<p class="ach-count"><${Cube} color=${P(who).color} size=${14} /><b>${P(who).name}</b> tiene ${unlocked} de ${current.length} logros.</p>`}
     </div>
     <ul class="mgrid">${current.map((a, i) => html`<${Tile} key=${a.code} a=${a} who=${who} onOpen=${setOpen} i=${i} />`)}</ul>
-    <section class="proposed reveal" aria-labelledby="pach-title">
-      <h2 class="proposed__title" id="pach-title">Logros propuestos</h2>
-      <p class="muted proposed__lede">Seis logros nuevos que salen de los datos actuales: corporaciones, márgenes, generaciones y el ranking.</p>
-      <ul class="mgrid">${proposed.map((a, i) => html`<${Tile} key=${a.code} a=${a} who=${who} onOpen=${setOpen} i=${i} />`)}</ul>
-    </section>
     ${open && html`<${Detail} a=${open} who=${who} onClose=${() => setOpen(null)} />`}
   `;
 }
