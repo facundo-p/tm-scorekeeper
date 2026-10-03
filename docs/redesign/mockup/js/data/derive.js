@@ -22,7 +22,8 @@ function rankResults(game) {
     const prev = rows[i - 1];
     const tied = prev && prev.total === row.total && prev.mc === row.mc;
     row.position = tied ? prev.position : i + 1;
-    row.tied = !!tied || (rows[i + 1] && rows[i + 1].total === row.total && rows[i + 1].mc === row.mc);
+    const next = rows[i + 1];
+    row.tied = !!tied || !!(next && next.total === row.total && next.mc === row.mc);
   });
   return rows;
 }
@@ -41,7 +42,7 @@ function applyElo(game, ratings) {
     return { player_id: a.player_id, before: before[a.player_id], after: before[a.player_id] + delta, delta };
   });
   game.eloChanges.forEach((c) => { ratings[c.player_id] = c.after; });
-  game.eloLeaderBefore = Object.entries(before).sort((x, y) => y[1] - x[1])[0][0];
+  game.eloBefore = before;
 }
 
 function leaderOf(ratings, activeIds) {
@@ -64,19 +65,48 @@ const GAME_METRICS = {
   richest_finish: (g) => g.results.map((r) => [r.player_id, r.mc]),
 };
 
+// Best value of a game for one record, and every player who reached it.
+// Higher-is-better records ignore 0 (a Turmoil-less game holds nothing, D-05);
+// for lower-is-better ones 0 is meaningful (a win decided by M€).
+export function gameBest(def, g) {
+  const cands = GAME_METRICS[def.code](g).filter(([, v]) => def.lowerIsBetter || v > 0);
+  if (!cands.length) return null;
+  const pick = def.lowerIsBetter ? Math.min : Math.max;
+  const value = pick(...cands.map(([, v]) => v));
+  const players = [...new Set(cands.filter(([, v]) => v === value).map(([pid]) => pid))];
+  return { value, players };
+}
+
+const beats = (def, a, b) => (def.lowerIsBetter ? a < b : a > b);
+const holderEntries = (players, g) => players.map((player_id) => ({ player_id, game_id: g.id, date: g.date, map: g.map }));
+
+// D-05: a record changes hands only when beaten; matching it makes a co-holder;
+// the first game sets records without "breaking" them; at most one break per
+// record and game.
+export function stepRecord(def, cur, best, g) {
+  const step = { value: best.value, player_id: best.players[0], holders: best.players, game_id: g.id, date: g.date };
+  if (!cur) return { next: { value: best.value, holders: holderEntries(best.players, g), history: [{ ...step, kind: 'set' }] } };
+  if (beats(def, best.value, cur.value)) {
+    const previous = { value: cur.value, player_id: cur.holders[0].player_id, holders: cur.holders.map((h) => h.player_id) };
+    const broken = { code: def.code, value: best.value, player_id: best.players[0], holders: best.players, previous };
+    return { broken, next: { value: best.value, holders: holderEntries(best.players, g), history: [...cur.history, { ...step, kind: 'broken' }] } };
+  }
+  const added = best.value === cur.value ? best.players.filter((pid) => !cur.holders.some((h) => h.player_id === pid)) : [];
+  if (!added.length) return { next: cur };
+  const tied = { ...step, player_id: added[0], holders: added, kind: 'tied' };
+  return { next: { ...cur, holders: [...cur.holders, ...holderEntries(added, g)], history: [...cur.history, tied] } };
+}
+
 function trackGameRecords(games) {
   const state = {};
   for (const g of games) {
     g.recordsBroken = [];
     for (const def of RECORDS.filter((d) => GAME_METRICS[d.code])) {
-      for (const [pid, value] of GAME_METRICS[def.code](g)) {
-        const cur = state[def.code];
-        const better = !cur || (def.lowerIsBetter ? value < cur.value : value > cur.value);
-        if (!better) continue;
-        const entry = { value, player_id: pid, game_id: g.id, date: g.date };
-        if (cur) g.recordsBroken.push({ code: def.code, player_id: pid, value, previous: cur });
-        state[def.code] = { ...entry, history: [...(cur?.history ?? []), entry] };
-      }
+      const best = gameBest(def, g);
+      if (!best) continue;
+      const { next, broken } = stepRecord(def, state[def.code], best, g);
+      state[def.code] = next;
+      if (broken) g.recordsBroken.push(broken);
     }
   }
   return state;
@@ -109,6 +139,21 @@ function splitStats(rows, key) {
       avgPos: avg(list, (r) => r.position),
     }))
     .sort((a, b) => b.games - a.games || b.wins - a.wins);
+}
+
+// Most claimed milestone / most won award (#35, #66): every name tied at the top.
+function mostCommon(names) {
+  const counts = {};
+  for (const n of names) counts[n] = (counts[n] ?? 0) + 1;
+  const top = Math.max(0, ...Object.values(counts));
+  return top ? { names: Object.keys(counts).filter((n) => counts[n] === top).sort(), count: top } : null;
+}
+
+function favorites(rows, pid) {
+  return {
+    milestone: mostCommon(rows.flatMap((r) => r.scores.milestones)),
+    award: mostCommon(rows.flatMap((r) => r.game.awards.filter((a) => a.first_place.includes(pid)).map((a) => a.name))),
+  };
 }
 
 function composition(rows) {
@@ -174,7 +219,8 @@ function achievementMetrics(rows, games) {
       if (g.winners.length === 1 && g.margin <= 2) metrics.photoFinish = 1;
       if (g.generations <= 9) metrics.blitz = 1;
       if (g.results.length === 5) metrics.fullTableWin = 1;
-      if (g.eloLeaderBefore !== r.player_id && g.results.some((x) => x.player_id === g.eloLeaderBefore)) metrics.giantKills += 1;
+      // D-08: won with a pre-game ELO strictly below the table's highest pre-game ELO.
+      if (g.eloBefore[r.player_id] < Math.max(...Object.values(g.eloBefore))) metrics.giantKills += 1;
     }
     timeline.push({ game: g, snapshot: { ...metrics, maps: metrics.maps.size, corps: metrics.corps.size } });
   }
@@ -245,6 +291,8 @@ function seasons(games) {
 }
 
 // --- Feed -------------------------------------------------------------------------
+const names = (ids, name) => ids.map(name).join(' y ');
+
 function buildFeed(games, players, achievementsByPlayer, seasonList) {
   const name = (id) => players.find((p) => p.id === id)?.name ?? id;
   const items = [];
@@ -256,9 +304,8 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
         : `${name(w.player_id)} ganó en ${g.map} por ${g.margin} ${g.margin === 1 ? 'punto' : 'puntos'}` });
     for (const b of g.recordsBroken) {
       const def = RECORDS.find((d) => d.code === b.code);
-      if (def.proposed) continue;
       items.push({ date: g.date, type: 'record', game_id: g.id, player_id: b.player_id, code: b.code,
-        text: `${name(b.player_id)} rompió «${def.title}»: ${b.value} (antes ${b.previous.value}, ${name(b.previous.player_id)})` });
+        text: `${names(b.holders, name)} rompió «${def.title}»: ${b.value} (antes ${b.previous.value}, ${names(b.previous.holders, name)})` });
     }
   }
   for (const [pid, achs] of Object.entries(achievementsByPlayer)) {
@@ -284,9 +331,11 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
 // --- Model ---------------------------------------------------------------------------
 // `playerCount` restricts every derivation to games with exactly that many
 // players (the "mesa" filter): ELO is replayed from 1000 over that subset only.
-export function buildModel({ playerCount = null } = {}) {
+// `map` and `expansion` restrict it to games on that map / with that expansion (#37).
+export function buildModel({ playerCount = null, map = null, expansion = null } = {}) {
   const games = generateGames()
-    .filter((g) => !playerCount || g.player_results.length === playerCount)
+    .filter((g) => (!playerCount || g.player_results.length === playerCount)
+      && (!map || g.map === map) && (!expansion || g.expansions.includes(expansion)))
     .sort((a, b) => (a.date < b.date ? -1 : 1));
   const ratings = {};
   const eloSeries = {};
@@ -327,6 +376,7 @@ export function buildModel({ playerCount = null } = {}) {
       avgMilestones: avg(rows, (r) => r.scores.milestones.length),
       avgAwards: avg(rows, (r) => r.game.awards.filter((a) => a.first_place.includes(p.id)).length),
       pointsPerGen: avg(rows, (r) => r.total / r.generations),
+      favorites: favorites(rows, p.id),
       composition: comp,
       archetype: rows.length ? archetype(comp, groupComp.share) : null,
       corps: splitStats(rows, (r) => r.corporation),
@@ -396,8 +446,8 @@ export function buildModel({ playerCount = null } = {}) {
       generations: sum(games, (g) => g.generations),
       avgWinner: roundHalfEven(avg(games, (g) => g.results[0].total)),
       avgGenerations: avg(games, (g) => g.generations),
-      first: games[0].date,
-      last: games[games.length - 1].date,
+      first: games[0]?.date ?? null,
+      last: games[games.length - 1]?.date ?? null,
       topCorp: byCorp[0],
       corpsUsed: byCorp.length,
       topMap: byMap[0],
@@ -435,42 +485,99 @@ function rivals(pid, h2h) {
   };
 }
 
-function careerRecord(def, players) {
-  const value = (p) => ({
-    most_games_played: p.games,
-    most_games_won: p.wins,
-    highest_elo: p.peak ?? 0,
-    longest_streak: p.streak.best,
-  })[def.code];
-  const best = Math.max(...players.map(value));
-  const holders = players.filter((p) => value(p) === best && best > 0).map((p) => ({ player_id: p.id }));
-  return { value: best, holders, history: [] };
-}
+const CAREER_VALUE = {
+  most_games_played: (p) => p.games,
+  most_games_won: (p) => p.wins,
+  highest_elo: (p) => p.peak ?? 0,
+  longest_streak: (p) => p.streak.best,
+};
 
-function buildRecords(state, players, games) {
-  return RECORDS.map((def) => {
-    if (def.scope === 'career') return { ...def, ...careerRecord(def, players) };
-    const s = state[def.code];
-    if (!s) return { ...def, value: null, holders: [], history: [] };
-    const g = games.find((x) => x.id === s.game_id);
-    return { ...def, value: s.value, holders: [{ player_id: s.player_id, game_id: s.game_id, date: s.date, map: g.map }], history: s.history };
+// Career standings after every game, to date the record's changes of hands (D-18).
+function careerSnapshots(games) {
+  const acc = {};
+  return games.map((g) => {
+    for (const r of g.results) {
+      const a = (acc[r.player_id] ??= { games: 0, wins: 0, peak: null, cur: 0, best: 0 });
+      a.games += 1;
+      if (r.position === 1) { a.wins += 1; a.cur += 1; } else a.cur = 0;
+      a.best = Math.max(a.best, a.cur);
+      const elo = g.eloChanges.find((c) => c.player_id === r.player_id).after;
+      a.peak = a.peak === null ? elo : Math.max(a.peak, elo);
+    }
+    const players = Object.entries(acc).map(([id, a]) => ({ id, ...a, streak: { best: a.best } }));
+    return { g, players };
   });
 }
 
-export const MODEL = buildModel();
+function leadersOf(def, players) {
+  const value = Math.max(0, ...players.map(CAREER_VALUE[def.code]));
+  const ids = value > 0 ? players.filter((p) => CAREER_VALUE[def.code](p) === value).map((p) => p.id) : [];
+  return { value, ids };
+}
 
-// Per-game record context: broken records, and near misses against the record
-// that stood before that game.
-export function gameRecordContext(g) {
-  return RECORDS.filter((d) => GAME_METRICS[d.code] && !d.proposed).map((def) => {
-    const rec = MODEL.records.find((r) => r.code === def.code);
-    const cands = GAME_METRICS[def.code](g);
-    if (!cands.length) return null;
-    const best = cands.reduce((a, b) => (def.lowerIsBetter ? (b[1] < a[1] ? b : a) : (b[1] > a[1] ? b : a)));
+// History keeps only changes of the holder set: someone overtakes or matches the top.
+function careerHistory(def, snapshots) {
+  const history = [];
+  for (const { g, players } of snapshots) {
+    const { value, ids } = leadersOf(def, players);
+    const last = history[history.length - 1];
+    if (!ids.length || (last && last.holders.join(',') === ids.join(','))) continue;
+    const tied = last && value === last.value && last.holders.every((id) => ids.includes(id));
+    const added = tied ? ids.filter((id) => !last.holders.includes(id)) : ids;
+    history.push({ value, player_id: added[0], holders: ids, game_id: g.id, date: g.date, kind: !last ? 'set' : tied ? 'tied' : 'broken' });
+  }
+  return history;
+}
+
+function careerRecord(def, players, snapshots) {
+  const { value, ids } = leadersOf(def, players);
+  return { value, holders: ids.map((player_id) => ({ player_id })), history: careerHistory(def, snapshots) };
+}
+
+function buildRecords(state, players, games) {
+  const snapshots = careerSnapshots(games);
+  return RECORDS.map((def) => {
+    if (def.scope === 'career') return { ...def, ...careerRecord(def, players, snapshots) };
+    const s = state[def.code];
+    if (!s) return { ...def, value: null, holders: [], history: [] };
+    return { ...def, value: s.value, holders: s.holders, history: s.history };
+  });
+}
+
+// Derived models are memoised per filter: filtering never writes, it only reads a
+// different subset of the same games (SEMANTICS §9).
+const models = new Map();
+export function modelFor({ playerCount = null, map = null, expansion = null } = {}) {
+  const key = JSON.stringify([playerCount, map, expansion]);
+  if (!models.has(key)) models.set(key, buildModel({ playerCount, map, expansion }));
+  return models.get(key);
+}
+
+export const MODEL = modelFor();
+
+// Canonical game order (D-19): date, then id.
+const playedBefore = (h, g) => h.date < g.date || (h.date === g.date && h.game_id < g.id);
+
+// Per-game record context: what the game did to each per-game record, and the
+// record that stood before it.
+export function gameRecordContext(g, model = MODEL) {
+  return RECORDS.filter((d) => GAME_METRICS[d.code]).map((def) => {
+    const best = gameBest(def, g);
+    if (!best) return null;
+    const rec = model.records.find((r) => r.code === def.code);
     const broken = g.recordsBroken.find((b) => b.code === def.code);
-    const before = rec.history.filter((h) => h.date < g.date || (h.date === g.date && h.game_id !== g.id)).pop();
-    const gap = before ? Math.abs(before.value - best[1]) : null;
-    return { def, broken, best: { player_id: best[0], value: best[1] }, before, gap };
+    const tied = rec.history.find((h) => h.game_id === g.id && h.kind === 'tied');
+    const before = rec.history.filter((h) => playedBefore(h, g)).pop();
+    const gap = before ? Math.abs(before.value - best.value) : null;
+    return { def, broken, tied, best: { player_id: best.players[0], players: best.players, value: best.value }, before, gap };
   }).filter(Boolean);
 }
+
+// "Cerca del récord": not broken, at 3 or less from the standing record (a tie
+// counts, gap 0), closest first, at most 3 per game.
+export const NEAR_GAP = 3;
+export function nearRecords(ctx) {
+  return ctx.filter((c) => !c.broken && c.before && c.gap <= NEAR_GAP).sort((a, b) => a.gap - b.gap).slice(0, 3);
+}
+
 export const mapInfo = (name) => MAPS[name];

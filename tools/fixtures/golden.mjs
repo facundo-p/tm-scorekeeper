@@ -30,7 +30,7 @@ export function achievements(model) {
   }]))]));
 }
 
-const PLAYER_KEYS = ['games', 'wins', 'winRate', 'podiumRate', 'avgPoints', 'avgPos', 'best', 'bestGame', 'avgMilestones',
+const PLAYER_KEYS = ['games', 'wins', 'winRate', 'podiumRate', 'avgPoints', 'avgPos', 'best', 'bestGame', 'avgMilestones', 'favorites',
   'avgAwards', 'pointsPerGen', 'composition', 'archetype', 'corps', 'maps', 'streak', 'form', 'nemesis', 'victim',
   'recordsHeld', 'rank', 'rankTotal'];
 

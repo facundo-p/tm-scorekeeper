@@ -1,0 +1,106 @@
+// Edge cases of the reference semantics (docs/redesign/SEMANTICS.md) implemented in
+// docs/redesign/mockup/js/data/derive.js. Run: node --test tools/fixtures/
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { MODEL, gameBest, stepRecord, gameRecordContext, nearRecords } from '../../docs/redesign/mockup/js/data/derive.js';
+import { RECORDS } from '../../docs/redesign/mockup/js/data/catalog.js';
+import { sortGames, nextSort } from '../../docs/redesign/mockup/js/data/sort.js';
+
+const def = (code) => RECORDS.find((r) => r.code === code);
+const game = (id, date, totals, extra = {}) => ({
+  id, date, map: 'Tharsis', generations: 10,
+  results: totals.map(([pid, total], i) => ({ player_id: pid, total, position: i + 1, mc: 0,
+    scores: { terraform_rating: total, card_points: 0, card_resource_points: 0, greenery_points: 0, city_points: 0, turmoil_points: null } })),
+  winners: [totals[0][0]], margin: totals.length > 1 ? totals[0][1] - totals[1][1] : 0, ...extra,
+});
+
+test('the first game sets a record without breaking it', () => {
+  const d = def('highest_single_game_score');
+  const g = game('g1', '2025-01-01', [['a', 80], ['b', 70]]);
+  const { next, broken } = stepRecord(d, undefined, gameBest(d, g), g);
+  assert.equal(broken, undefined);
+  assert.equal(next.value, 80);
+  assert.deepEqual(next.history.map((h) => h.kind), ['set']);
+});
+
+test('beating a record breaks it once even if several players beat it', () => {
+  const d = def('highest_single_game_score');
+  const g1 = game('g1', '2025-01-01', [['a', 80], ['b', 70]]);
+  const s1 = stepRecord(d, undefined, gameBest(d, g1), g1).next;
+  const g2 = game('g2', '2025-01-08', [['b', 95], ['c', 90]]);
+  const { next, broken } = stepRecord(d, s1, gameBest(d, g2), g2);
+  assert.equal(broken.value, 95);
+  assert.deepEqual(broken.holders, ['b']);
+  assert.deepEqual(broken.previous.holders, ['a']);
+  assert.deepEqual(next.holders.map((h) => h.player_id), ['b']);
+});
+
+test('two players reaching the new best in the same game are co-holders of one break', () => {
+  const d = def('highest_single_game_score');
+  const g1 = game('g1', '2025-01-01', [['a', 80], ['b', 70]]);
+  const s1 = stepRecord(d, undefined, gameBest(d, g1), g1).next;
+  const g2 = game('g2', '2025-01-08', [['b', 95], ['c', 95]]);
+  const { next, broken } = stepRecord(d, s1, gameBest(d, g2), g2);
+  assert.deepEqual(broken.holders, ['b', 'c']);
+  assert.equal(next.history.filter((h) => h.kind === 'broken').length, 1);
+});
+
+test('matching a record adds a co-holder without breaking it', () => {
+  const d = def('highest_single_game_score');
+  const g1 = game('g1', '2025-01-01', [['a', 80], ['b', 70]]);
+  const s1 = stepRecord(d, undefined, gameBest(d, g1), g1).next;
+  const g2 = game('g2', '2025-01-08', [['c', 80], ['a', 60]]);
+  const { next, broken } = stepRecord(d, s1, gameBest(d, g2), g2);
+  assert.equal(broken, undefined);
+  assert.deepEqual(next.holders.map((h) => h.player_id), ['a', 'c']);
+  assert.equal(next.history.at(-1).kind, 'tied');
+});
+
+test('higher-is-better records ignore 0; closest win keeps a 0 margin', () => {
+  const turmoil = def('highest_turmoil_points');
+  assert.equal(gameBest(turmoil, game('g', '2025-01-01', [['a', 50], ['b', 40]])), null);
+  const closest = def('closest_win');
+  const tie = game('g', '2025-01-01', [['a', 50], ['b', 50]], { margin: 0 });
+  assert.equal(gameBest(closest, tie).value, 0);
+});
+
+test('records on the example: one break per record per game, none on the first game', () => {
+  const first = MODEL.gameById['g-001'];
+  assert.equal(first.recordsBroken.length, 0);
+  for (const g of MODEL.games) {
+    const codes = g.recordsBroken.map((b) => b.code);
+    assert.equal(new Set(codes).size, codes.length, g.id);
+  }
+});
+
+test('ties share the first position and are all winners', () => {
+  for (const g of MODEL.games) {
+    assert.deepEqual(g.winners, g.results.filter((r) => r.position === 1).map((r) => r.player_id));
+    for (const r of g.results) {
+      const mates = g.results.filter((x) => x.position === r.position).length;
+      assert.equal(r.tied, mates > 1, `${g.id} ${r.player_id}`);
+    }
+  }
+});
+
+test('near records: at most 3, never broken, gap ≤ 3, closest first', () => {
+  for (const g of MODEL.games) {
+    const near = nearRecords(gameRecordContext(g));
+    assert.ok(near.length <= 3);
+    assert.ok(near.every((c) => !c.broken && c.gap <= 3));
+    assert.deepEqual(near.map((c) => c.gap), near.map((c) => c.gap).slice().sort((a, b) => a - b));
+  }
+});
+
+test('archive order: date desc by default, other columns tie-break by date desc', () => {
+  const name = (id) => MODEL.playerById[id].name;
+  const byDate = sortGames(MODEL.games, { by: 'date', dir: 'desc' }, name);
+  assert.equal(byDate[0].id, 'g-063');
+  const byMap = sortGames(MODEL.games, { by: 'map', dir: 'asc' }, name);
+  for (let i = 1; i < byMap.length; i++) {
+    const [a, b] = [byMap[i - 1], byMap[i]];
+    assert.ok(a.map.localeCompare(b.map, 'es') < 0 || (a.map === b.map && a.date >= b.date));
+  }
+  assert.deepEqual(nextSort({ by: 'map', dir: 'desc' }, 'map'), { by: 'map', dir: 'asc' });
+  assert.deepEqual(nextSort({ by: 'map', dir: 'asc' }, 'date'), { by: 'date', dir: 'desc' });
+});

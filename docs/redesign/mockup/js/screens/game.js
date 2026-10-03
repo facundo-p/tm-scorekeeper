@@ -1,6 +1,7 @@
 import { html, useState, cls } from '../lib.js';
-import { MODEL, gameRecordContext } from '../data/derive.js';
+import { MODEL, gameRecordContext, nearRecords } from '../data/derive.js';
 import { MAPS, EXPANSIONS, ACHIEVEMENTS, EXPANSION_MILESTONES, EXPANSION_AWARDS, CATEGORIES, corpLabel } from '../data/catalog.js';
+import { milestoneLabel, awardLabel } from '../data/labels.js';
 import { useNav } from '../router.js';
 import { Icon, MapGlyph } from '../ui/icons.js';
 import { Button, Plate, SectionHead, Cube, PlayerTag, CorpEmblem, Medal, Chip, NewBadge, fmtDate } from '../ui/atoms.js';
@@ -67,7 +68,7 @@ function Milestones({ g }) {
     <h3 class="board-row__title"><${Icon} name="milestone" size=${18} />Hitos <span>3 como máximo, 5 PV cada uno</span></h3>
     <ul class="slots">
       ${list.map((m) => html`<li class=${cls('slot', owner[m] && 'is-claimed')}>
-        <span class="slot__name">${m}</span>
+        <span class="slot__name">${milestoneLabel(m)}</span>
         ${owner[m]
           ? html`<span class="slot__who"><${Cube} color=${P(owner[m]).color} size=${18} label=${P(owner[m]).name} /><span>${P(owner[m]).name}</span></span>`
           : html`<span class="slot__empty">Sin reclamar</span>`}
@@ -87,7 +88,7 @@ function Awards({ g }) {
         const a = funded[name];
         const stolen = a && a.first_place.length === 1 && a.first_place[0] !== a.opened_by;
         return html`<li class=${cls('slot slot--award', a && 'is-claimed')}>
-          <span class="slot__name">${name}</span>
+          <span class="slot__name">${awardLabel(name)}</span>
           ${a ? html`<span class="slot__podium">
               <span class="slot__place"><b>1.º</b>${cubes(a.first_place)}</span>
               ${a.second_place.length > 0 && html`<span class="slot__place"><b>2.º</b>${cubes(a.second_place)}</span>`}
@@ -103,7 +104,7 @@ function Awards({ g }) {
 function RecordsInGame({ g }) {
   const ctx = gameRecordContext(g);
   const broken = ctx.filter((c) => c.broken);
-  const near = ctx.filter((c) => !c.broken && c.before && c.gap <= 3).slice(0, 3);
+  const near = nearRecords(ctx);
   return html`<${Plate} class="reveal report-records" label="Récords">
     <${SectionHead} title="Récords" />
     ${broken.length === 0 && html`<p class="muted">Esta partida no rompió récords.</p>`}
