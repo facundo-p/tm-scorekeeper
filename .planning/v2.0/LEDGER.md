@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F21 · Transacciones, orden, rendimiento y empates |
 | Issue | 21.1–21.4 (#102–#105) |
-| Paso | Planificación |
+| Paso | WAIT_CI + revisión del PR F21 |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -16,7 +16,7 @@
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F21 — sesión por request y transacciones, advisory lock en recálculos, `created_at` y orden canónico, índices y N+1, empates (`tied`) y renombre Spacecrafter→Spacefarer (D-17, D-24, D-31).
+**Próximo paso:** F21 en revisión; al mergear, cerrar #102–#105 y pasar a F22 (subconjuntos, ELO de mesa y récords v2).
 
 ## Tablero (GitHub)
 
@@ -67,3 +67,4 @@
 - 2026-10-03 — F19-B mergeada (#150 → `f9fdf4a`; revisión: ronda 1 APPROVE con 4 minor y 1 nit: 4 corregidos, 1 se mantiene por paridad del árbol de accesibilidad). Issues #96 y #97 cerrados. F19 completa. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F20 implementada: login real (PBKDF2, JWT, bloqueo por IP, fail-closed), `require_auth` en toda la API, cliente con Bearer y logout ante 401, validación compartida con reglas por mapa, UNIQUE de resultados (destapó un bug del update del repositorio), `POST /admin/recompute`. Gates verdes (pytest 275, vitest 305).
 - 2026-10-03 — F20 mergeada (#151 → `45a9283`; revisión: ronda 1 CHANGES_REQUESTED por la IP del limitador falsificable con X-Forwarded-For, ronda 2 APPROVE). Issues #98–#101 cerrados. Rama reseteada a `origin/staging`.
+- 2026-10-03 — F21 implementada: unidad de trabajo con advisory lock, UNIQUE del historial de ELO, `created_at` y orden canónico, `selectinload` e índices, co-ganadores y `tied` de grupo, récords con todos los poseedores, Spacefarer, 404 y job de migraciones. Gates verdes (pytest 306, vitest 305). Artifact republicado (versión 6).
