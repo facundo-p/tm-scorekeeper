@@ -14,3 +14,18 @@
   ref: { hash: '#jugador-p-pato' }
   cand: { path: /jugadores/p-pato }
   gateFromPhase: 33
+- id: profile-facu-games
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=partidas' }
+  cand: { path: /jugadores/p-facu, search: '?tab=partidas' }
+  gateFromPhase: 33
+- id: profile-facu-records
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=records' }
+  cand: { path: /jugadores/p-facu, search: '?tab=records' }
+  gateFromPhase: 33
+- id: profile-facu-achievements
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=logros' }
+  cand: { path: /jugadores/p-facu, search: '?tab=logros' }
+  gateFromPhase: 33

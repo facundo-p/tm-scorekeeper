@@ -9,7 +9,7 @@ import { resolve } from 'node:path';
 import { FONTS_DIR, MOCKUP_DIR, OUT_DIR, PARITY_DIR, ROOT } from '../config.mjs';
 import { serveStatic } from './static.mjs';
 
-const HIDE_PROTOTYPE = '.protobar, .sample-chip { display: none !important; }';
+const HIDE_PROTOTYPE = '.protobar, .sample-chip, .proto-only { display: none !important; }';
 
 function mockupAt(sha) {
   const dir = resolve(OUT_DIR, `.ref-${sha}`);

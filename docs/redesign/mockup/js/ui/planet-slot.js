@@ -19,7 +19,7 @@ export function PlanetSlot({ region = null, terra = 0.15, board = false, fill = 
   useEffect(() => { handle.current?.update(params); }, [region, terra, board, fill, interactive, bright, glow, tilt]);
 
   const fallback = stage && !stage.supported;
-  return html`<div ref=${ref} class=${cls('planet-slot', interactive && 'planet-slot--grab', fallback && 'planet-slot--fallback', className)}
+  return html`<div ref=${ref} data-planet-slot class=${cls('planet-slot', interactive && 'planet-slot--grab', fallback && 'planet-slot--fallback', className)}
     role=${label ? 'img' : null} aria-label=${label ?? null}>
     ${fallback && html`<span class="planet-fallback" aria-hidden="true"></span>`}
   </div>`;
