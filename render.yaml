@@ -4,11 +4,19 @@ services:
     runtime: python
     rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*'
     envVars:
       - key: DATABASE_URL
         sync: false   # set manually in Render dashboard (Supabase connection string)
       - key: FRONTEND_URL
         sync: false   # set manually in Render dashboard (Vercel URL)
+      - key: AUTH_USERNAME
+        sync: false   # usuario del grupo
+      - key: AUTH_PASSWORD_HASH
+        sync: false   # python -m scripts.hash_password
+      - key: AUTH_SECRET
+        sync: false   # 32+ caracteres al azar; firma los tokens
+      - key: ADMIN_SECRET
+        sync: false   # header X-Admin-Secret de POST /admin/recompute
       - key: PYTHON_VERSION
         value: "3.12.0"

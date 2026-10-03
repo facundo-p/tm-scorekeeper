@@ -26,3 +26,28 @@ def clean_tables():
     with engine.begin() as conn:
         for table in reversed(Base.metadata.sorted_tables):
             conn.execute(table.delete())
+
+
+TEST_USER = "test-user"
+
+
+@pytest.fixture(autouse=True)
+def authenticated():
+    """D-48: las rutas protegidas ven un usuario fijo; los tests de login usan `real_auth`."""
+    from main import app
+    from routes.dependencies import require_auth
+    app.dependency_overrides[require_auth] = lambda: TEST_USER
+    yield
+    app.dependency_overrides.pop(require_auth, None)
+
+
+@pytest.fixture
+def real_auth():
+    """Quita el reemplazo de `require_auth` y arranca con el limitador limpio."""
+    from main import app
+    from routes.dependencies import require_auth
+    from services.auth_service import LoginLimiter
+    from services.container import auth_service
+    app.dependency_overrides.pop(require_auth, None)
+    auth_service.limiter = LoginLimiter()
+    yield
