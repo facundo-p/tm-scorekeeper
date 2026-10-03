@@ -2,7 +2,7 @@ from models.game import Game
 from models.achievement_definition import AchievementDefinition
 from models.achievement_progress import Progress
 from services.achievement_evaluators.base import AchievementEvaluator
-from services.helpers.results import calculate_results
+from services.helpers.results import calculate_results, is_winner
 from services.helpers.order import chronological
 
 
@@ -43,9 +43,7 @@ class WinStreakEvaluator(AchievementEvaluator):
             # Only consider games where this player participated
             if not any(pr.player_id == player_id for pr in game.player_results):
                 continue
-            game_result = calculate_results(game)
-            winner = game_result.results[0]
-            if winner.player_id == player_id and not winner.tied:
+            if is_winner(calculate_results(game), player_id):
                 streak += 1
                 max_streak = max(max_streak, streak)
             else:
@@ -60,9 +58,7 @@ class WinStreakEvaluator(AchievementEvaluator):
             # Skip games where player didn't participate
             if not any(pr.player_id == player_id for pr in game.player_results):
                 continue
-            game_result = calculate_results(game)
-            winner = game_result.results[0]
-            if winner.player_id == player_id and not winner.tied:
+            if is_winner(calculate_results(game), player_id):
                 streak += 1
             else:
                 break

@@ -1,6 +1,7 @@
 from typing import List
 from models.game import Game
-from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER, LABEL_DATE
+from models.record_entry import RecordEntry
+from services.helpers.records import best_with_holders, holders_entry
 from services.record_calculators.base import RecordCalculator
 from services.helpers.results import calculate_results
 
@@ -13,30 +14,8 @@ class HighestSingleGameScoreCalculator(RecordCalculator):
     emoji = "🏆"
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
-        if not games:
-            return None
-
-        max_points = None
-        record_player_id = None
-        record_date = None
-
-        for game in games:
-            results = calculate_results(game)
-
-            for result in results.results:
-                if max_points is None or result.total_points > max_points:
-                    max_points = result.total_points
-                    record_player_id = result.player_id
-                    record_date = game.date
-
-        if max_points is None:
-            return None
-
-        return RecordEntry(
-            value=max_points,
-            title=self.title,
-            attributes=[
-                RecordAttribute(label=LABEL_PLAYER, value=record_player_id),
-                RecordAttribute(label=LABEL_DATE, value=str(record_date)),
-            ],
+        candidates = (
+            (r.total_points, r.player_id, g.date) for g in games for r in calculate_results(g).results
         )
+        best, holders = best_with_holders(candidates)
+        return None if best is None else holders_entry(best, holders, self.title)

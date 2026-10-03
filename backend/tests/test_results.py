@@ -161,9 +161,10 @@ def test_results_are_tied_when_points_and_mc_are_equal():
 
     result = calculate_results(game)
 
+    # D-17: tied vale True para todos los miembros del grupo empatado, incluido el primero.
     assert result.results[0].player_id == "p1"
     assert result.results[0].position == 1
-    assert result.results[0].tied is False
+    assert result.results[0].tied is True
 
     assert result.results[1].player_id == "p2"
     assert result.results[1].position == 1
@@ -254,7 +255,7 @@ def test_positions_skip_after_ties():
 
     assert result.results[1].player_id == "p2"
     assert result.results[1].position == 2
-    assert result.results[1].tied is False
+    assert result.results[1].tied is True
 
     assert result.results[2].player_id == "p3"
     assert result.results[2].position == 2
@@ -263,5 +264,14 @@ def test_positions_skip_after_ties():
     assert result.results[3].player_id == "p4"
     assert result.results[3].position == 4
     assert result.results[3].tied is False
-    # tied = True indica que el jugador comparte la posición con el jugador anterior (no abre una nueva posición).
-    # El primer jugador de un grupo empatado tiene tied = False.
+    # D-17: tied = True para todo el grupo empatado (p2 y p3); p1 y p4 no empatan con nadie.
+
+
+def test_winners_include_every_co_winner():
+    from services.helpers.results import winners, is_winner
+    from schemas.result import GameResultDTO, PlayerResultDTO
+    rows = [("a", 1, True), ("b", 1, True), ("c", 3, False)]
+    result = GameResultDTO(game_id="g", date=date(2026, 1, 1), results=[
+        PlayerResultDTO(player_id=p, total_points=50, mc_total=0, position=pos, tied=t) for p, pos, t in rows])
+    assert winners(result) == ["a", "b"]
+    assert is_winner(result, "b") and not is_winner(result, "c")
