@@ -64,6 +64,12 @@ make migrate
 
 ---
 
+## Rediseño propuesto
+
+Prototipo navegable del nuevo frontend, sistema de diseño y revisión técnica en [`docs/redesign/`](docs/redesign/README.md). Para verlo localmente: `npx serve docs/redesign/mockup`.
+
+---
+
 ## Estructura del proyecto
 
 ```
