@@ -243,6 +243,14 @@ vec3 rotY(vec3 p, float a) { float c = cos(a), s = sin(a); return vec3(p.x * c +
 float decSlope(float e) { float d = e * 2.0 - 1.0; return d / max(1.0 - abs(d), 0.02) / 0.22; }
 float hexDist(vec2 p) { p = abs(p); return max(dot(p, normalize(vec2(1.0, 1.7320508))), p.x); }
 float hash12(vec2 p) { vec3 p3 = fract(vec3(p.xyx) * 0.1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
+float hash13(vec3 p) { p = fract(p * 0.1031); p += dot(p, p.zyx + 31.32); return fract((p.x + p.y) * p.z); }
+float vnoise(vec3 p) {
+  vec3 i = floor(p);
+  vec3 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(hash13(i), hash13(i + vec3(1, 0, 0)), f.x), mix(hash13(i + vec3(0, 1, 0)), hash13(i + vec3(1, 1, 0)), f.x), f.y),
+             mix(mix(hash13(i + vec3(0, 0, 1)), hash13(i + vec3(1, 0, 1)), f.x), mix(hash13(i + vec3(0, 1, 1)), hash13(i + vec3(1, 1, 1)), f.x), f.y), f.z);
+}
 
 vec3 board(vec3 s, float viewZ, float day) {
   vec3 c = sph(uFocus.x, uFocus.y);
@@ -335,6 +343,14 @@ void main() {
 
   vec2 sl = vec2(decSlope(A.r), decSlope(A.g));
   vec3 sn = normalize(s - (E * sl.x + N * sl.y) * 0.9 * (1.0 - water) * (1.0 - ice * 0.6));
+  // Close-up globes (login, ceremony) get procedural micro-relief the baked map can't hold.
+  float detailAmt = smoothstep(380.0, 900.0, uPlanet.z) * (1.0 - water) * (1.0 - ice * 0.7);
+  if (detailAmt > 0.001) {
+    float dn = vnoise(s * 70.0) * 0.65 + vnoise(s * 185.0) * 0.35;
+    col *= mix(1.0, 0.87 + 0.26 * dn, detailAmt);
+    vec2 dd = vec2(dFdx(dn), dFdy(dn));
+    sn = normalize(sn + rotY(rotX(vec3(-dd * 1.6, 0.0), -uPitch), -uYaw) * detailAmt);
+  }
   float ndl = dot(sn, Lp);
   float ndlS = dot(s, Lp);
   float day = smoothstep(-0.08, 0.3, ndlS);
