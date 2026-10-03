@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes, useParams } from 'react-router-dom'
 import {
   Button, Chip, CorpEmblem, Delta, ExpansionTags, Medal, medalMaterial, NumberField, PlayerTag, Readout, SectionHead,
-  SelectField, Switch, Tabs, tabTarget, TextField, TierPips, clampInt,
+  SelectField, Switch, Tabs, tabPanelProps, tabTarget, TextField, TierPips, clampInt,
 } from '@/ui/atoms'
 
 const facu = { id: 'p-facu', name: 'Facu', color: 'rojo' }
@@ -102,6 +102,16 @@ describe('Tabs', () => {
     expect([tabTarget('ArrowRight', 2, 3), tabTarget('ArrowLeft', 0, 3), tabTarget('Home', 2, 3), tabTarget('End', 0, 3)])
       .toEqual([0, 2, 0, 2])
     expect(tabTarget('a', 0, 3)).toBeNull()
+  })
+
+  it('con idPrefix cada pestaña controla su panel', () => {
+    render(<>
+      <Tabs items={items} value="a" onChange={() => {}} label="Perfil" idPrefix="perfil" />
+      <div {...tabPanelProps('perfil', 'a')}>Resumen del jugador</div>
+    </>)
+    const tab = screen.getByRole('tab', { name: 'Resumen' })
+    expect(tab).toHaveAttribute('aria-controls', 'perfil-panel-a')
+    expect(screen.getByRole('tabpanel', { name: 'Resumen' })).toHaveTextContent('Resumen del jugador')
   })
 
   it('las teclas mueven la selección y el foco; solo la activa es tabulable', async () => {

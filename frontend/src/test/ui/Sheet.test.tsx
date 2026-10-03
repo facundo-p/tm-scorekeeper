@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Sheet, SheetActions } from '@/ui/sheet'
+import { focusables } from '@/ui/sheet/focus'
 import { Button } from '@/ui/atoms'
 
 function Host({ onClose = () => {} }: { onClose?: () => void }) {
@@ -68,5 +69,16 @@ describe('Sheet', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Abrir hoja' }))
     expect(layer.querySelector('[role="dialog"]')).not.toBeNull()
     layer.remove()
+  })
+
+  it('prefiere el control marcado con data-autofocus', () => {
+    render(<Sheet title="Nombre" onClose={() => {}}><input aria-label="Nombre" data-autofocus /></Sheet>)
+    expect(screen.getByRole('textbox', { name: 'Nombre' })).toHaveFocus()
+  })
+
+  it('focusables ignora controles ocultos y deshabilitados', () => {
+    const root = document.createElement('div')
+    root.innerHTML = '<button>a</button><div hidden><button>b</button></div><button disabled>c</button><input />'
+    expect(focusables(root).map((n) => n.textContent || n.tagName)).toEqual(['a', 'INPUT'])
   })
 })

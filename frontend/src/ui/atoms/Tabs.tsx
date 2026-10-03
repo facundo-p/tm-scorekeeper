@@ -15,7 +15,16 @@ interface TabsProps {
   value: string
   onChange: (id: string) => void
   label: string
+  /** Con prefijo, cada pestaña lleva `id` y `aria-controls` hacia su panel (`tabPanelProps`). */
+  idPrefix?: string
 }
+
+const tabId = (prefix: string, id: string) => `${prefix}-tab-${id}`
+const panelId = (prefix: string, id: string) => `${prefix}-panel-${id}`
+
+/** Atributos del panel de una pestaña, para usar con el mismo `idPrefix` que `Tabs`. */
+export const tabPanelProps = (prefix: string, id: string) =>
+  ({ role: 'tabpanel', id: panelId(prefix, id), 'aria-labelledby': tabId(prefix, id) }) as const
 
 /** Índice de la pestaña a la que lleva una tecla, o null si la tecla no navega. */
 export function tabTarget(key: string, index: number, count: number): number | null {
@@ -27,7 +36,7 @@ export function tabTarget(key: string, index: number, count: number): number | n
 }
 
 /** Pestañas accesibles: flechas, Inicio y Fin; solo la activa entra en el orden de tabulación. */
-export function Tabs({ items, value, onChange, label }: TabsProps) {
+export function Tabs({ items, value, onChange, label, idPrefix }: TabsProps) {
   const refs = useRef<(HTMLButtonElement | null)[]>([])
   const onKey = (e: KeyboardEvent, i: number) => {
     const next = tabTarget(e.key, i, items.length)
@@ -41,6 +50,7 @@ export function Tabs({ items, value, onChange, label }: TabsProps) {
       {items.map((t, i) => (
         <button key={t.id} type="button" role="tab" className={cx(styles.tabs__tab, t.id === value && styles['is-on'])}
           aria-selected={t.id === value} tabIndex={t.id === value ? 0 : -1} ref={(el) => { refs.current[i] = el }}
+          id={idPrefix && tabId(idPrefix, t.id)} aria-controls={idPrefix && panelId(idPrefix, t.id)}
           onClick={() => onChange(t.id)} onKeyDown={(e) => onKey(e, i)}>
           {t.icon && <Icon name={t.icon} size={16} />}<span>{t.label}</span>
           {t.count != null && <span className={styles.tabs__count}>{t.count}</span>}

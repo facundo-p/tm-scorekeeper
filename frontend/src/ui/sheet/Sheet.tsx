@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, type KeyboardEvent, type ReactNode } from 're
 import { createPortal } from 'react-dom'
 import { Button } from '../atoms/Button'
 import { cx } from '../cx'
-import { focusables, trapTab } from './focus'
+import { initialFocus, trapTab } from './focus'
 import styles from './Sheet.module.css'
 
 interface SheetProps {
@@ -17,7 +17,7 @@ const overlayRoot = () => document.getElementById('overlays') ?? document.body
 
 /**
  * Hoja inferior en el teléfono y diálogo centrado en pantallas anchas. Lleva el foco al
- * primer control, lo mantiene adentro, cierra con Escape o con un clic en el fondo y
+ * control con `data-autofocus` (o al primero), lo mantiene adentro, cierra con Escape o con un clic en el fondo y
  * devuelve el foco al cerrarse.
  */
 export function Sheet({ title, onClose, children, wide }: SheetProps) {
@@ -25,7 +25,7 @@ export function Sheet({ title, onClose, children, wide }: SheetProps) {
   const titleId = useId()
   useEffect(() => {
     const prev = document.activeElement as HTMLElement | null
-    if (ref.current) focusables(ref.current)[0]?.focus()
+    if (ref.current) initialFocus(ref.current)?.focus()
     return () => prev?.focus?.()
   }, [])
   const onKey = (e: KeyboardEvent) => {

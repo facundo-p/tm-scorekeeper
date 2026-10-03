@@ -4,7 +4,7 @@ import { cx } from '../cx'
 import styles from './Frame.module.css'
 
 interface FrameProps {
-  /** Nombre de la pantalla, como en `screen--<nombre>` del mockup. */
+  /** Nombre de la pantalla (`data-screen`); en el mockup es la clase `screen--<nombre>`. */
   screen: string
   /** `plain`: sin navegación, cielo ni planeta (galería, D-42). */
   variant?: 'plain'
@@ -42,7 +42,7 @@ export function Frame({ screen, variant, children }: FrameProps) {
         <div className={cx(styles.device, variant && styles[`device--${variant}`])} ref={device}>
           <div className={styles.fx} />
           <div className={styles.scroller} data-scroll-root>
-            <main className={cx(styles.screen, styles[`screen--${screen}`])}>{children}</main>
+            <main className={styles.screen} data-screen={screen}>{children}</main>
           </div>
           <div className={styles.overlays} id="overlays" />
         </div>
