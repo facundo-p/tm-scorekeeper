@@ -129,3 +129,13 @@ test('months before clamps to the end of the target month', () => {
   assert.equal(monthsBefore('2026-09-27', 3), '2026-06-27');
   assert.equal(monthsBefore('2026-01-15', 2), '2025-11-15');
 });
+
+test('routes: hash round trip with special characters, query and malformed ids', async () => {
+  const { toHash, parseHash } = await import('../../docs/redesign/mockup/js/routes.js');
+  const route = { name: 'profile', params: { id: 'p a/b?c' }, query: { tab: 'logros', mesa: '3' } };
+  assert.deepEqual(parseHash(`#${toHash(route)}`), route);
+  assert.deepEqual(parseHash('#records?mapa=Terra%20Cimmeria&exp=Turmoil').query, { mapa: 'Terra Cimmeria', exp: 'Turmoil' });
+  assert.equal(parseHash('#jugador-%E0%A4%A').name, 'notFound');
+  assert.equal(parseHash('#no-existe').name, 'notFound');
+  assert.equal(parseHash(''), null);
+});
