@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F16 · Arnés de comparación, fixtures y golden |
 | Issue | 16.1–16.4 (#83–#86) |
-| Paso | Verificación de fase |
+| Paso | WAIT_CI + revisión PR (Fase 16) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -16,7 +16,7 @@
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** cerrar la verificación de F16 (comparación --self completa en verde), commit, PR «Fase 16» y revisión.
+**Próximo paso:** revisión y CI del PR de F16; con aprobación y CI verde → merge, cerrar #83–#86, reset de la rama. Después F17.
 
 ## Tablero (GitHub)
 
@@ -56,3 +56,4 @@
 - 2026-10-03 — F15: PR #145 abierto. Revisor (ronda 1): APPROVE con 5 minor y 3 nit, todos corregidos.
 - 2026-10-03 — F15 mergeada (#145 → `066edb7`, CI verde, sin bloqueo de protección de rama). Issues #79–#82 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F16: arnés, exportador, cargador y golden implementados. Golden de posiciones y ELO pasa (el ELO del backend coincide exactamente con el mockup con half-even). Comparación --self: 25/26; el restante (ranking móvil) es rasterización sub-píxel bajo carga → `--disable-gpu-rasterization`.
+- 2026-10-03 — F16 verificada: --self 26/26 (90 frames, 0 %) dos veces; juez 10×16/16; golden OK; 215 pytest; 14 tests del arnés.
