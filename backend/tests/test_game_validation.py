@@ -173,3 +173,16 @@ class TestFrontendMirror:
     def test_awards_match(self):
         backend = {m.name: [x.name for x in v] for m, v in MAP_AWARDS.items()}
         assert self._frontend_table("MAP_AWARDS") == backend
+
+
+class TestSpacefarer:
+    """D-31: el hito de Vastitas Borealis es Spacefarer; la entrada acepta el nombre viejo."""
+
+    def test_old_name_is_accepted_and_returned_with_the_new_one(self, client, players):
+        body = with_milestone(payload(map="Vastitas Borealis"), "Spacecrafter")
+        game_id = _post_game(client, body)
+        stored = next(g for g in client.get("/games/").json() if g["id"] == game_id)
+        assert stored["player_results"][0]["scores"]["milestones"] == ["Spacefarer"]
+
+    def test_new_name_is_accepted(self, client, players):
+        assert _post_game(client, with_milestone(payload(map="Vastitas Borealis"), "Spacefarer"))

@@ -1,12 +1,14 @@
 from datetime import date
 from typing import Optional
 
+from db.uow import unit_of_work
 from mappers.elo_mapper import elo_history_changes_to_player_dto
 from models.elo_change import EloChange
 from models.game import Game
 from repositories.elo_filters import EloHistoryFilter
 from schemas.elo import PlayerEloHistoryDTO
 from schemas.elo_summary import EloRankDTO, PlayerEloSummaryDTO
+from services.helpers.order import chronological_key
 from services.helpers.results import calculate_results
 
 
@@ -87,11 +89,13 @@ class EloService:
         self.games_repository = games_repository
 
     def recompute_from_date(self, start_date: date) -> None:
-        baseline = self._build_baseline(start_date)
-        self.elo_repository.delete_changes_from_date(start_date)
-        games = self.games_repository.list_games_from_date(start_date)
-        self._walk_and_persist(games, baseline)
-        self.players_repository.bulk_update_elo(baseline)
+        """Todo en una transacción con el lock de partidas (D-55): o queda todo o nada."""
+        with unit_of_work(lock=True):
+            baseline = self._build_baseline(start_date)
+            self.elo_repository.delete_changes_from_date(start_date)
+            games = self.games_repository.list_games_from_date(start_date)
+            self._walk_and_persist(games, baseline)
+            self.players_repository.bulk_update_elo(baseline)
 
     def recompute_all(self) -> None:
         self.recompute_from_date(date.min)
@@ -102,7 +106,7 @@ class EloService:
         return baseline
 
     def _walk_and_persist(self, games: list[Game], baseline: dict[str, int]) -> None:
-        games.sort(key=lambda g: (g.date, g.id))
+        games.sort(key=chronological_key)
         for game in games:
             for pr in game.player_results:
                 baseline.setdefault(pr.player_id, DEFAULT_ELO)

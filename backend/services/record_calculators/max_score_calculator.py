@@ -1,6 +1,7 @@
 from typing import List, Callable
 from models.game import Game
-from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER, LABEL_DATE
+from models.record_entry import RecordEntry
+from services.helpers.records import best_with_holders, holders_entry
 from services.record_calculators.base import RecordCalculator
 
 
@@ -14,32 +15,6 @@ class MaxScoreCalculator(RecordCalculator):
         self.emoji = emoji
 
     def calculate(self, games: List[Game]) -> RecordEntry | None:
-
-        if not games:
-            return None
-
-        max_value = None
-        record_player_id = None
-        record_date = None
-
-        for game in games:
-            for p in game.player_results:
-
-                value = self.extractor(p)
-
-                if max_value is None or value > max_value:
-                    max_value = value
-                    record_player_id = p.player_id
-                    record_date = game.date
-
-        if max_value is None:
-            return None
-
-        return RecordEntry(
-            value=max_value,
-            title=self.title,
-            attributes=[
-                RecordAttribute(label=LABEL_PLAYER, value=record_player_id),
-                RecordAttribute(label=LABEL_DATE, value=str(record_date)),
-            ],
-        )
+        candidates = ((self.extractor(p), p.player_id, g.date) for g in games for p in g.player_results)
+        best, holders = best_with_holders(candidates)
+        return None if best is None else holders_entry(best, holders, self.title)

@@ -77,3 +77,6 @@ def downgrade() -> None:
     op.drop_table('players')
     op.drop_table('games')
     # ### end Alembic commands ###
+    # Los tipos enum los crea el upgrade junto con las tablas; sin borrarlos, un downgrade a
+    # base seguido de upgrade fallaba con «type already exists» (F21, job de migraciones).
+    op.execute("DROP TYPE IF EXISTS mapname, expansion, corporation, milestone, award")

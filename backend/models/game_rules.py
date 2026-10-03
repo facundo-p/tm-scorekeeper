@@ -10,7 +10,7 @@ MAP_MILESTONES: dict[MapName, tuple[Milestone, ...]] = {
     MapName.THARSIS: (Milestone.TERRAFORMER, Milestone.MAYOR, Milestone.GARDENER, Milestone.BUILDER, Milestone.PLANNER,),
     MapName.HELLAS: (Milestone.DIVERSIFIER, Milestone.TACTICIAN, Milestone.POLAR_EXPLORER, Milestone.ENERGIZER, Milestone.RIM_SETTLER,),
     MapName.ELYSIUM: (Milestone.GENERALIST, Milestone.SPECIALIST, Milestone.ECOLOGIST, Milestone.TYCOON, Milestone.LEGEND,),
-    MapName.BOREALIS: (Milestone.AGRONOMIST, Milestone.ENGINEER, Milestone.SPACECRAFTER, Milestone.GEOLOGIST, Milestone.FARMER,),
+    MapName.BOREALIS: (Milestone.AGRONOMIST, Milestone.ENGINEER, Milestone.SPACEFARER, Milestone.GEOLOGIST, Milestone.FARMER,),
     MapName.AMAZONIS: (Milestone.TERRAN, Milestone.LANDSHAPER, Milestone.MERCHANT, Milestone.SPONSOR, Milestone.LOBBYIST,),
     MapName.UTOPIA: (Milestone.MANAGER, Milestone.PIONEER, Milestone.TRADER, Milestone.METALLURGIST, Milestone.RESEARCHER,),
     MapName.CIMMERIA: (Milestone.PLANETOLOGIST, Milestone.ARCHITECT, Milestone.COASTGUARD, Milestone.FORESTER, Milestone.FUNDRAISER,),

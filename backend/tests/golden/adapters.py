@@ -2,15 +2,15 @@
 
 
 def positions_from_results(results_dto: dict) -> dict[str, dict]:
-    """GET /games/{id}/results → {player_id: {position, total, mc}}."""
+    """GET /games/{id}/results → {player_id: {position, total, mc, tied}} (tied desde F21, D-24)."""
     return {
-        r["player_id"]: {"position": r["position"], "total": r["total_points"], "mc": r["mc_total"]}
+        r["player_id"]: {"position": r["position"], "total": r["total_points"], "mc": r["mc_total"], "tied": r["tied"]}
         for r in results_dto["results"]
     }
 
 
 def positions_from_golden(rows: list[dict]) -> dict[str, dict]:
-    return {r["player_id"]: {"position": r["position"], "total": r["total"], "mc": r["mc"]} for r in rows}
+    return {r["player_id"]: {"position": r["position"], "total": r["total"], "mc": r["mc"], "tied": r["tied"]} for r in rows}
 
 
 def elo_from_changes(changes_dto: list[dict]) -> dict[str, dict]:

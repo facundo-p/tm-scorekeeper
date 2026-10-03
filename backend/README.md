@@ -40,6 +40,20 @@ Variables: `AUTH_USERNAME`, `AUTH_PASSWORD_HASH` (`python -m scripts.hash_passwo
 y opcional `AUTH_TOKEN_TTL_DAYS`; ver `.env.example`. Sin ellas el login responde 503 (fail-closed).
 En los tests `require_auth` se reemplaza por un usuario fijo; los de login usan el fixture `real_auth`.
 
+## Transacciones y orden
+
+Crear, editar o borrar una partida y recalcular el ELO ocurren en una sola transacción
+(`db/uow.py::unit_of_work`) con `pg_advisory_xact_lock`, así que dos escrituras simultáneas
+quedan en serie. Los repositorios usan la sesión de la unidad de trabajo activa si existe; si
+no, confirman solos. El orden canónico de las partidas es (fecha, `created_at`, id) en todo el
+backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`winners()`);
+`tied` vale `true` para todo el grupo empatado.
+
+## Cambios de contrato en v2.0
+
+- Fase 20: toda la API salvo `/health` y `/auth/login` exige `Authorization: Bearer`; `GET /elo/admin/recompute` pasó a `POST /admin/recompute`.
+- Fase 21: `tied` vale `true` para todo el grupo empatado; partidas o jugadores inexistentes responden 404 también en `/games/{id}/records`, `/games/{id}/elo`, `POST /games/{id}/achievements` y `/players/{id}/achievements` (antes, 200 con datos vacíos); el hito Spacecrafter se llama Spacefarer (la entrada acepta los dos).
+
 ## Tests
 
 Los tests **borran todas las tablas** de la base a la que apunten, así que

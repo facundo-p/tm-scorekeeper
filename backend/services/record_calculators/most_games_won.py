@@ -4,7 +4,7 @@ from services.helpers.records import max_counter_entries
 from models.game import Game
 from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER
 from services.record_calculators.base import RecordCalculator
-from services.helpers.results import calculate_results
+from services.helpers.results import calculate_results, winners
 
 
 class MostGamesWonCalculator(RecordCalculator):
@@ -25,10 +25,8 @@ class MostGamesWonCalculator(RecordCalculator):
         wins = Counter()
 
         for game in games:
-            results = calculate_results(game)
-
-            winner = results.results[0]
-            wins[winner.player_id] += 1
+            for player_id in winners(calculate_results(game)):
+                wins[player_id] += 1
 
         max_wins, players_with_record = max_counter_entries(wins)
 

@@ -11,7 +11,7 @@ def test_milestone_enum_contract():
         # Hellas
         "Diversifier", "Tactician", "Polar Explorer", "Energizer", "Rim Settler",
         # Vastitas Borealis
-        "Agronomist", "Engineer", "Spacecrafter", "Geologist", "Farmer",
+        "Agronomist", "Engineer", "Spacefarer", "Geologist", "Farmer",
         # Amazonis Planitia
         "Terran", "Landshaper", "Merchant", "Sponsor", "Lobbyist",
         # Utopia Planitia

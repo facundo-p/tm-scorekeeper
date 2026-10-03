@@ -11,7 +11,7 @@ export const MILESTONE_LABELS = {
   // Hellas
   Diversifier: 'Diversificador', Tactician: 'Táctico', 'Polar Explorer': 'Explorador Polar', Energizer: 'Energizador',
   'Rim Settler': 'Colonizador del Borde',
-  // Vastitas Borealis (Spacecrafter es el nombre viejo del enum; ambos muestran lo mismo)
+  // Vastitas Borealis (Spacecrafter es el nombre anterior a F21; se mantiene por datos viejos)
   Agronomist: 'Agrónomo', Engineer: 'Ingeniero', Spacefarer: 'Navegante Espacial', Spacecrafter: 'Navegante Espacial',
   Geologist: 'Geólogo', Farmer: 'Granjero',
   // Amazonis Planitia

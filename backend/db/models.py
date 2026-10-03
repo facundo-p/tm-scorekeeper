@@ -1,6 +1,7 @@
 from sqlalchemy import (
     Column,
     Date,
+    DateTime,
     Integer,
     String,
     Boolean,
@@ -9,6 +10,7 @@ from sqlalchemy import (
     Enum as PgEnum,
     ARRAY,
     UniqueConstraint,
+    func,
 )
 from sqlalchemy.orm import relationship, declarative_base
 from models.enums import (
@@ -53,6 +55,9 @@ class Game(Base):
     expansions = Column(ARRAY(expansion_enum), nullable=False)
     draft = Column(Boolean, nullable=False)
     generations = Column(Integer, nullable=False)
+    # Orden canónico (fecha, created_at, id): dentro de un mismo día, la que se cargó antes (F21, D-56).
+    # clock_timestamp(): la hora real del INSERT (now() sería la del inicio de la transacción, antes del lock).
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.clock_timestamp())
 
     player_results = relationship("PlayerResult", cascade="all, delete-orphan")
     awards = relationship("Award", cascade="all, delete-orphan")
@@ -65,8 +70,8 @@ class PlayerResult(Base):
     )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
-    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
     corporation = Column(corporation_enum, nullable=False)
 
     terraform_rating = Column(Integer, nullable=False)
@@ -88,7 +93,7 @@ class Award(Base):
     __tablename__ = "awards"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
     award_name = Column(award_enum, nullable=False)
     opened_by = Column(String, ForeignKey("players.id"), nullable=False)
     first_place = Column(ARRAY(String), nullable=False)
@@ -116,6 +121,9 @@ class PlayerAchievement(Base):
 
 class PlayerEloHistory(Base):
     __tablename__ = "player_elo_history"
+    __table_args__ = (
+        UniqueConstraint("player_id", "game_id", name="uq_elo_history_player_game"),
+    )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
@@ -123,6 +131,6 @@ class PlayerEloHistory(Base):
     elo_before = Column(Integer, nullable=False)
     elo_after = Column(Integer, nullable=False)
     delta = Column(Integer, nullable=False)
-    recorded_at = Column(Date, nullable=False)
+    recorded_at = Column(Date, nullable=False, index=True)
 
     player = relationship("Player", back_populates="elo_history")

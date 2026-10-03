@@ -31,6 +31,11 @@ games_service = GamesService(
 )
 
 
+def _require_game(game_id: str) -> None:
+    if games_repository.get(game_id) is None:
+        raise HTTPException(status_code=404, detail="Game not found")
+
+
 def _player_names_map() -> dict[str, str]:
     return {p.player_id: p.name for p in players_repository.get_all()}
 
@@ -85,6 +90,7 @@ def delete_game(game_id: str):
 
 @router.get("/{game_id}/records", response_model=list[RecordComparisonDTO])
 def get_game_records(game_id: str):
+    _require_game(game_id)
     service = GameRecordsService(games_repository)
     comparisons = service.get_records_for_game(game_id)
 
@@ -99,14 +105,13 @@ def get_game_records(game_id: str):
 
 @router.get("/{game_id}/elo", response_model=list[EloChangeDTO])
 def get_game_elo_changes(game_id: str):
-    if games_repository.get(game_id) is None:
-        raise HTTPException(status_code=404, detail="Game not found")
-
+    _require_game(game_id)
     changes = elo_repository.get_changes_for_game(game_id)
     return elo_changes_to_dtos(changes, _player_names_map())
 
 
 @router.post("/{game_id}/achievements", response_model=AchievementsByPlayerResponseDTO)
 def trigger_achievements(game_id: str):
+    _require_game(game_id)
     result = achievements_service.evaluate_for_game(game_id)
     return AchievementsByPlayerResponseDTO(achievements_by_player=result)

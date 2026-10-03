@@ -1,3 +1,4 @@
+from collections import Counter
 from typing import List
 from schemas.result import GameResultDTO, PlayerResultDTO
 from models.game import Game
@@ -16,71 +17,41 @@ def _compute_total_points_from_scores(scores) -> int:
         + turmoil
     )
 
+def _score_key(row: dict) -> tuple[int, int]:
+    return row["total_points"], row["mc_total"]
+
+
+def _ranked(game: Game) -> list[dict]:
+    rows = [
+        {"player_id": p.player_id, "total_points": _compute_total_points_from_scores(p.scores),
+         "mc_total": p.end_stats.mc_total}
+        for p in game.player_results
+    ]
+    rows.sort(key=lambda x: (-x["total_points"], -x["mc_total"]))
+    return rows
+
+
 def calculate_results(game: Game) -> GameResultDTO:
     """
-    Calcula GameResultDTO a partir de Game (modelo dominio).
-    Reglas:
-     - total_points = suma de campos de scores (MC no incluido)
-     - ordenar por (total_points desc, mc_total desc)
-     - desempate por mc_total
-     - si empatan en ambos => tie real (mismo position, tied=True)
-     - positions deben poder saltar (1,2,2,4)
+    Posiciones de la partida (SEMANTICS §1):
+     - total = suma de las categorías (sin M€); orden por (total desc, M€ desc)
+     - mismo total y mismos M€ => empate: comparten posición y la siguiente se saltea (1, 1, 3)
+     - tied = True para TODOS los miembros de un grupo empatado (D-17), incluido el primero
     """
-    # 1) calcular total_points y preparar lista intermedia
-    players_intermediate = []
-    for p in game.player_results:
-        total = _compute_total_points_from_scores(p.scores)
-        mc = p.end_stats.mc_total
-        players_intermediate.append({
-            "player_id": p.player_id,
-            "total_points": total,
-            "mc_total": mc,
-        })
-    
-    # 2) ordenar por total_points desc, mc_total desc
-    players_intermediate.sort(key=lambda x: ( -x["total_points"], -x["mc_total"] ))
-
-    # 3) asignar posiciones y tied
+    rows = _ranked(game)
+    group_size = Counter(_score_key(r) for r in rows)
     results: List[PlayerResultDTO] = []
-    prev_total = None
-    prev_mc = None
-    prev_position = None
+    for idx, r in enumerate(rows):
+        same_as_prev = idx > 0 and _score_key(rows[idx - 1]) == _score_key(r)
+        position = results[-1].position if same_as_prev else idx + 1
+        results.append(PlayerResultDTO(**r, position=position, tied=group_size[_score_key(r)] > 1))
+    return GameResultDTO(game_id=str(getattr(game, "id", "")), date=game.date, results=results)
 
-    for idx, item in enumerate(players_intermediate):
-        if idx == 0:
-            position = 1
-            tied = False
-        else:
-            # si coincide total y mc con anterior => mismo position (tie)
-            if item["total_points"] == prev_total and item["mc_total"] == prev_mc:
-                position = prev_position
-                tied = True
-            # tied = True indica que el jugador comparte la posición con el jugador anterior (no abre una nueva posición).
-            # El primer jugador de un grupo empatado tiene tied = False.
-            else:
-                position = idx + 1  # salta posiciones automáticamente si hubo empates
-                tied = False
 
-        prev_total = item["total_points"]
-        prev_mc = item["mc_total"]
-        prev_position = position
+def winners(result: GameResultDTO) -> list[str]:
+    """Ganadores (D-07): todos los que quedaron en la posición 1; los co-ganadores cuentan todos."""
+    return [r.player_id for r in result.results if r.position == 1]
 
-        p_result = PlayerResultDTO(
-            player_id=item["player_id"],
-            total_points=item["total_points"],
-            mc_total=item["mc_total"],
-            position=position,
-            tied=tied
-        )
-        results.append(p_result)
 
-        # 4) construir GameResultDTO
-    gr = GameResultDTO(
-        game_id=str(getattr(game, "id", "")),  # el repo debe proveer id; puede ser "" si no existe
-        date=game.date,
-        results=results
-    )
-
-    return gr
-
-    
+def is_winner(result: GameResultDTO, player_id: str) -> bool:
+    return player_id in winners(result)

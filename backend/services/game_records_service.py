@@ -1,3 +1,4 @@
+from services.helpers.order import chronological
 from services.record_calculators.registry import ALL_CALCULATORS
 
 
@@ -8,10 +9,7 @@ class GameRecordsService:
         self._calculators = ALL_CALCULATORS
 
     def get_records_for_game(self, game_id: str):
-        all_games = sorted(
-            self.games_repository.list_games(),
-            key=lambda g: (g.date, g.id)
-        )
+        all_games = chronological(self.games_repository.list_games())
 
         games_until_current = []
         for g in all_games:

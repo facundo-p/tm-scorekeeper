@@ -7,7 +7,7 @@ from services.achievement_evaluators.definitions import (
     MILESTONE_MASTER, NO_MILESTONE_WIN, AWARD_MASTER, NO_AWARD_WIN, STOLEN_AWARDS,
     CARD_POINTS,
 )
-from services.helpers.results import calculate_results
+from services.helpers.results import calculate_results, is_winner
 
 
 def _count_games(player_id, games):
@@ -19,13 +19,12 @@ def _count_games(player_id, games):
 
 
 def _count_wins(player_id, games):
-    """Count games where player won outright (not tied)."""
+    """Count games where player finished 1st; co-winners count (D-07)."""
     wins = 0
     for g in games:
         if not any(pr.player_id == player_id for pr in g.player_results):
             continue
-        results = calculate_results(g)
-        if results.results and results.results[0].player_id == player_id and not results.results[0].tied:
+        if is_winner(calculate_results(g), player_id):
             wins += 1
     return wins
 
@@ -42,7 +41,7 @@ def _milestone_master_extractor(player_id, game, game_result):
     """Return 1 if player won the game AND claimed all 3 milestones."""
     for pr in game.player_results:
         if pr.player_id == player_id and len(pr.scores.milestones) == 3:
-            if game_result.results and game_result.results[0].player_id == player_id and not game_result.results[0].tied:
+            if is_winner(game_result, player_id):
                 return 1
     return 0
 

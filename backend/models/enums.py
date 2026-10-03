@@ -38,10 +38,10 @@ class Milestone(Enum):
     ENERGIZER       = "Energizer"
     RIM_SETTLER     = "Rim Settler"
 
-    # Vastias Borealis
+    # Vastitas Borealis (Spacefarer; antes del F21 el enum lo llamaba Spacecrafter, D-31)
     AGRONOMIST      = "Agronomist"
     ENGINEER        = "Engineer"
-    SPACECRAFTER    = "Spacecrafter"
+    SPACEFARER      = "Spacefarer"
     GEOLOGIST       = "Geologist"
     FARMER          = "Farmer"
 
@@ -69,6 +69,11 @@ class Milestone(Enum):
     # Venus Next
     HOVERLORD       = "Hoverlord"
 
+    @classmethod
+    def _missing_(cls, value):
+        """La entrada acepta el nombre viejo del hito de Vastitas Borealis (D-31)."""
+        return cls.SPACEFARER if value == "Spacecrafter" else None
+
     def __str__(self) -> str:
         return self.value
 
@@ -95,7 +100,7 @@ class Award(Enum):
     ESTATE_DEALER = "Estate Dealer"
     BENEFACTOR = "Benefactor"
 
-    # Vastias Borealis
+    # Vastitas Borealis
     TRAVELLER = "Traveller"
     LANDSCAPER = "Landscaper"
     HIGHLANDER = "Highlander"
