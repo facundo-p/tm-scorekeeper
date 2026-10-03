@@ -5,7 +5,7 @@ import jwt
 import pytest
 
 from services.auth_service import (
-    BLOCK_SECONDS, MAX_FAILURES, AuthConfig, AuthNotConfigured, AuthService, InvalidCredentials, InvalidToken,
+    BLOCK_SECONDS, FAILURE_WINDOW, MAX_FAILURES, MAX_TRACKED, AuthConfig, AuthNotConfigured, AuthService, InvalidCredentials, InvalidToken,
     LoginLimiter, TooManyAttempts, hash_password, verify_password,
 )
 
@@ -114,6 +114,36 @@ def test_config_from_env(monkeypatch):
     monkeypatch.setenv("AUTH_USERNAME", "grupo")
     monkeypatch.setenv("AUTH_PASSWORD_HASH", FAST_HASH)
     assert AuthConfig.from_env() is None
-    monkeypatch.setenv("AUTH_SECRET", "s")
+    monkeypatch.setenv("AUTH_SECRET", SECRET)
     monkeypatch.setenv("AUTH_TOKEN_TTL_DAYS", "7")
     assert AuthConfig.from_env().ttl_days == 7
+
+
+@pytest.mark.parametrize("secret, ttl", [("corto", "30"), (SECRET, "treinta"), (SECRET, "0"), (SECRET, "-3")])
+def test_short_secret_or_bad_ttl_is_not_configured(monkeypatch, secret, ttl):
+    monkeypatch.setenv("AUTH_USERNAME", "grupo")
+    monkeypatch.setenv("AUTH_PASSWORD_HASH", FAST_HASH)
+    monkeypatch.setenv("AUTH_SECRET", secret)
+    monkeypatch.setenv("AUTH_TOKEN_TTL_DAYS", ttl)
+    assert AuthConfig.from_env() is None
+
+
+def test_failures_expire_after_the_window():
+    clock = Clock()
+    limiter = LoginLimiter(clock=clock)
+    for _ in range(MAX_FAILURES - 1):
+        limiter.fail("5.5.5.5")
+    clock.now += FAILURE_WINDOW
+    limiter.fail("5.5.5.5")
+    limiter.check("5.5.5.5")  # no bloquea: los fallos viejos se olvidaron
+
+
+def test_limiter_prunes_and_caps_tracked_ips():
+    clock = Clock()
+    limiter = LoginLimiter(clock=clock)
+    for i in range(MAX_TRACKED + 50):
+        limiter.fail(f"ip-{i}")
+    assert limiter.tracked() <= MAX_TRACKED
+    clock.now += FAILURE_WINDOW + BLOCK_SECONDS
+    limiter.fail("otra")
+    assert limiter.tracked() == 1

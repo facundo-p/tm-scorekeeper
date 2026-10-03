@@ -120,8 +120,9 @@ El backend lee estas variables, que se configuran a mano en el proveedor de host
 | `FRONTEND_URL` | URL del frontend en producción (Vercel) |
 | `AUTH_USERNAME` | Usuario del grupo |
 | `AUTH_PASSWORD_HASH` | Hash PBKDF2 de la contraseña: `cd backend && python -m scripts.hash_password` |
-| `AUTH_SECRET` | Clave para firmar los tokens (al menos 32 caracteres al azar, por ejemplo `python -c "import secrets; print(secrets.token_urlsafe(48))"`) |
+| `AUTH_SECRET` | Clave para firmar los tokens (al menos 32 caracteres al azar; más corta cuenta como ausente; por ejemplo `python -c "import secrets; print(secrets.token_urlsafe(48))"`) |
 | `AUTH_TOKEN_TTL_DAYS` | Opcional: días de validez del token (30 por defecto) |
-| `ADMIN_SECRET` | Secreto del header `X-Admin-Secret` de `POST /admin/recompute` |
+| `ADMIN_SECRET` | Secreto del header `X-Admin-Secret` de `POST /admin/recompute` (reemplaza a `GET /elo/admin/recompute?secret=`, que ya no existe) |
+| `TRUSTED_PROXY_HOPS` | Proxies propios delante del backend; en Render `1` (ya está en `render.yaml`). La IP del bloqueo por intentos se toma de `X-Forwarded-For` contando desde la derecha |
 
 Sin `AUTH_USERNAME`, `AUTH_PASSWORD_HASH` o `AUTH_SECRET` el login responde 503 y la API rechaza todo salvo `/health` (fail-closed, D-50). En desarrollo local, `docker-compose.yml` toma las de autenticación de un archivo `.env` en la raíz (ver `backend/.env.example`); el resto ya está definido ahí.

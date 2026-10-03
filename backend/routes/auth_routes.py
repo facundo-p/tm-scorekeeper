@@ -1,3 +1,5 @@
+import os
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 
 from routes.dependencies import require_auth
@@ -9,7 +11,18 @@ router = APIRouter(prefix="/auth", tags=["Auth"])
 
 
 def _client_ip(request: Request) -> str:
-    return request.client.host if request.client else "unknown"
+    """IP para el limitador (D-54). Con TRUSTED_PROXY_HOPS=N se toma la N-ésima entrada de
+    X-Forwarded-For contando desde la derecha: las de la izquierda las puede escribir el cliente,
+    las de la derecha las agregan los proxies propios. Sin proxies (0), la IP de la conexión."""
+    peer = request.client.host if request.client else "unknown"
+    try:
+        hops = int(os.getenv("TRUSTED_PROXY_HOPS", "0"))
+    except ValueError:
+        hops = 0
+    forwarded = [part.strip() for part in request.headers.get("x-forwarded-for", "").split(",") if part.strip()]
+    if hops <= 0 or len(forwarded) < hops:
+        return peer
+    return forwarded[-hops]
 
 
 @router.post("/login", response_model=TokenResponseDTO)

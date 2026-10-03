@@ -32,7 +32,9 @@ docker compose down -v
 Un solo usuario del grupo (D-03). `POST /auth/login` con `{"username", "password"}` devuelve un JWT
 (`access_token`, 30 días por defecto) que se manda como `Authorization: Bearer <token>`. Públicos:
 `/health` y `/auth/login`; todo lo demás responde 401 sin token. Cinco fallos seguidos desde una IP
-la bloquean 30 s (429).
+la bloquean 30 s (429); la IP sale de la derecha de `X-Forwarded-For` según `TRUSTED_PROXY_HOPS` (D-54).
+
+El recálculo administrativo es `POST /admin/recompute` con token y header `X-Admin-Secret`; el viejo `GET /elo/admin/recompute?secret=` ya no existe.
 
 Variables: `AUTH_USERNAME`, `AUTH_PASSWORD_HASH` (`python -m scripts.hash_password`), `AUTH_SECRET`
 y opcional `AUTH_TOKEN_TTL_DAYS`; ver `.env.example`. Sin ellas el login responde 503 (fail-closed).

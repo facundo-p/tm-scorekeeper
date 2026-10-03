@@ -18,6 +18,7 @@ def pytest_configure(config):
 def setup_db():
     # Se recrea en cada sesión para que el esquema siga a los modelos (restricciones nuevas
     # incluidas); la guarda de arriba garantiza que es una base *_test.
+    assert is_test_database(DATABASE_URL), "drop_all solo sobre una base *_test"
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
     yield

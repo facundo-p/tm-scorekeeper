@@ -95,3 +95,33 @@ def test_fail_closed_without_configuration(client, unconfigured):
 
 def test_login_validates_body(client, configured):
     assert client.post("/auth/login", json={"username": "", "password": "x"}).status_code == 422
+
+
+def test_spoofed_forwarded_for_does_not_bypass_the_block(client, configured, monkeypatch):
+    """D-54: con un proxy de confianza cuenta la entrada que agrega el proxy (la última)."""
+    monkeypatch.setenv("TRUSTED_PROXY_HOPS", "1")
+    for i in range(MAX_FAILURES):
+        res = client.post("/auth/login", json={"username": "grupo", "password": "mal"},
+                          headers={"X-Forwarded-For": f"10.9.9.{i}, 203.0.113.7"})
+        assert res.status_code == 401
+    res = client.post("/auth/login", json={"username": "grupo", "password": PASSWORD},
+                      headers={"X-Forwarded-For": "1.2.3.4, 203.0.113.7"})
+    assert res.status_code == 429
+
+
+def test_forwarded_for_is_ignored_without_trusted_proxies(client, configured, monkeypatch):
+    monkeypatch.delenv("TRUSTED_PROXY_HOPS", raising=False)
+    for i in range(MAX_FAILURES):
+        client.post("/auth/login", json={"username": "grupo", "password": "mal"},
+                    headers={"X-Forwarded-For": f"10.8.8.{i}"})
+    assert login(client).status_code == 429
+
+
+def test_trusted_proxy_ip_separates_real_clients(client, configured, monkeypatch):
+    monkeypatch.setenv("TRUSTED_PROXY_HOPS", "1")
+    for _ in range(MAX_FAILURES):
+        client.post("/auth/login", json={"username": "grupo", "password": "mal"},
+                    headers={"X-Forwarded-For": "203.0.113.7"})
+    ok = client.post("/auth/login", json={"username": "grupo", "password": PASSWORD},
+                     headers={"X-Forwarded-For": "198.51.100.2"})
+    assert ok.status_code == 200

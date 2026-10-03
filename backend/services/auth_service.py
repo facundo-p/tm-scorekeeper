@@ -23,6 +23,9 @@ JWT_ALGORITHM = "HS256"
 DEFAULT_TTL_DAYS = 30
 MAX_FAILURES = 5
 BLOCK_SECONDS = 30
+FAILURE_WINDOW = 15 * 60
+MAX_TRACKED = 10_000
+MIN_SECRET_LENGTH = 32
 
 
 class AuthNotConfigured(Exception):
@@ -79,21 +82,34 @@ class AuthConfig:
 
     @classmethod
     def from_env(cls) -> Optional["AuthConfig"]:
+        """None (fail-closed) si falta algo, el secreto es corto o el TTL no es un entero positivo."""
         username = os.getenv("AUTH_USERNAME", "")
         password_hash = os.getenv("AUTH_PASSWORD_HASH", "")
         secret = os.getenv("AUTH_SECRET", "")
-        if not (username and password_hash and secret):
+        ttl = _positive_int(os.getenv("AUTH_TOKEN_TTL_DAYS", str(DEFAULT_TTL_DAYS)))
+        if not (username and password_hash and len(secret) >= MIN_SECRET_LENGTH and ttl):
             return None
-        ttl = int(os.getenv("AUTH_TOKEN_TTL_DAYS", DEFAULT_TTL_DAYS))
         return cls(username, password_hash, secret, ttl)
 
 
+def _positive_int(raw: str) -> Optional[int]:
+    try:
+        value = int(raw)
+    except ValueError:
+        return None
+    return value if value > 0 else None
+
+
 class LoginLimiter:
-    """Bloqueo en memoria por IP: 5 fallos seguidos bloquean 30 s (D-50)."""
+    """Bloqueo en memoria por IP: 5 fallos seguidos bloquean 30 s (D-50).
+
+    Los fallos se olvidan tras FAILURE_WINDOW sin intentos y las entradas vencidas se podan,
+    con un tope de MAX_TRACKED IPs, para que la memoria no crezca sin límite.
+    """
 
     def __init__(self, clock: Callable[[], float] = time.monotonic):
         self._clock = clock
-        self._failures: dict[str, int] = {}
+        self._failures: dict[str, tuple[int, float]] = {}
         self._blocked_until: dict[str, float] = {}
         self._lock = threading.Lock()
 
@@ -106,16 +122,30 @@ class LoginLimiter:
 
     def fail(self, ip: str) -> None:
         with self._lock:
-            count = self._failures.get(ip, 0) + 1
+            now = self._clock()
+            self._prune(now)
+            count, last = self._failures.get(ip, (0, now))
+            count = (count if now - last < FAILURE_WINDOW else 0) + 1
             if count >= MAX_FAILURES:
-                self._blocked_until[ip] = self._clock() + BLOCK_SECONDS
+                self._blocked_until[ip] = now + BLOCK_SECONDS
                 count = 0
-            self._failures[ip] = count
+            self._failures[ip] = (count, now)
 
     def success(self, ip: str) -> None:
         with self._lock:
             self._failures.pop(ip, None)
             self._blocked_until.pop(ip, None)
+
+    def tracked(self) -> int:
+        return len(self._failures) + len(self._blocked_until)
+
+    def _prune(self, now: float) -> None:
+        self._blocked_until = {ip: t for ip, t in self._blocked_until.items() if t > now}
+        self._failures = {ip: f for ip, f in self._failures.items() if now - f[1] < FAILURE_WINDOW}
+        if len(self._failures) >= MAX_TRACKED:
+            oldest = sorted(self._failures, key=lambda ip: self._failures[ip][1])
+            for ip in oldest[: len(oldest) - MAX_TRACKED + 1]:
+                del self._failures[ip]
 
 
 class AuthService:
