@@ -3,7 +3,8 @@
 ## Milestones
 
 - v1.0 Sistema de Logros — Phases 1-4 (shipped 2026-04-01) + Cleanup Phases 5-7 (shipped 2026-04-28)
-- v1.1 Visualización de ELO en Frontend — Phases 8-12 (started 2026-04-28)
+- v1.1 Visualización de ELO en Frontend — Phases 8-14 (mergeado; requisitos pendientes absorbidos por v2.0)
+- v2.0 «Archivo de Terraformación» — Phases 15-36 (started 2026-10-03) — plan en `.planning/v2.0/SPEC.md`
 
 ## Phases
 
@@ -154,3 +155,215 @@ Plans:
 - [x] 14-01-PLAN.md — Extend `getEloHistory()` with optional `{ playerIds }` filter + unit tests (Wave 1)
 - [x] 14-02-PLAN.md — Add `showLegend?: boolean` prop to `EloLineChart` + tests (Wave 1, parallel with 14-01)
 - [x] 14-03-PLAN.md — Embed chart in `EloSummaryCard`, wire fetch + reorder Stats tab in `PlayerProfile`, human-verify checkpoint (Wave 2, depends on 14-01 + 14-02)
+
+### v2.0 «Archivo de Terraformación» — IN PROGRESS
+
+- [ ] **Phase 15: Specs, infra y guardas** (E1)
+- [ ] **Phase 16: Arnés de comparación, fixtures y golden** (E1)
+- [ ] **Phase 17: Mockup I: contenido, semántica y ganchos** (E2)
+- [ ] **Phase 18: Mockup II: mesa, equidad, temporadas y corrección** (E2)
+- [ ] **Phase 19: Base visual del frontend** (E5)
+- [ ] **Phase 20: Autenticación y validación** (E3)
+- [ ] **Phase 21: Transacciones, orden, rendimiento y empates** (E3)
+- [ ] **Phase 22: Subconjuntos, ELO de mesa y récords v2** (E4)
+- [ ] **Phase 23: Logros derivados, nuevos y vista por mesa** (E4)
+- [ ] **Phase 24: Jugadores, partidas e informe** (E4)
+- [ ] **Phase 25: Métricas del grupo, equidad y temporadas** (E4)
+- [ ] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
+- [ ] **Phase 27: Efectos e instrumentos** (E5)
+- [ ] **Phase 28: Pantallas: Acceso e Inicio** (E6)
+- [ ] **Phase 29: Pantallas: Partidas e Informe** (E6)
+- [ ] **Phase 30: Pantalla: Registrar** (E6)
+- [ ] **Phase 31: Pantalla: Ceremonia** (E6)
+- [ ] **Phase 32: Pantalla: Ranking y jugadores** (E6)
+- [ ] **Phase 33: Pantalla: Perfil** (E6)
+- [ ] **Phase 34: Pantallas: Récords y Logros** (E6)
+- [ ] **Phase 35: Limpieza y presupuestos** (E7)
+- [ ] **Phase 36: Documentación, entrega y cierre** (E7)
+
+## v2.0 Phase Details
+
+### Phase 15: Specs, infra y guardas
+**Goal**: ver `.planning/v2.0/SPEC.md` § F15
+**Epic**: E1 · **Depends on**: — · **Requirements**: INFRA-01..05
+**Success Criteria** (what must be TRUE):
+  1. SPEC, RUNBOOK, LEDGER, DECISIONS, GSD y tablero existen
+  2. `bootstrap.sh` es idempotente
+  3. pytest contra una base sin `_test` sale con código 2
+  4. El merge a `staging` funciona
+**Plans**: TBD
+
+### Phase 16: Arnés de comparación, fixtures y golden
+**Goal**: ver `.planning/v2.0/SPEC.md` § F16
+**Epic**: E1 · **Depends on**: 15 · **Requirements**: PAR-01..05
+**Success Criteria** (what must be TRUE):
+  1. El mockup comparado consigo mismo da ≤ 0,01 %
+  2. Las 63 partidas cargan en menos de 30 s
+  3. El golden de posiciones y ELO pasa
+**Plans**: TBD
+
+### Phase 17: Mockup I: contenido, semántica y ganchos
+**Goal**: ver `.planning/v2.0/SPEC.md` § F17
+**Epic**: E2 · **Depends on**: 16 · **Requirements**: MOCK-01..03
+**Success Criteria** (what must be TRUE):
+  1. Las pantallas no tocadas son idénticas antes y después
+  2. SEMANTICS.md escrito y `derive.js` alineado
+  3. Golden regenerado
+**Plans**: TBD
+
+### Phase 18: Mockup II: mesa, equidad, temporadas y corrección
+**Goal**: ver `.planning/v2.0/SPEC.md` § F18
+**Epic**: E2 · **Depends on**: 17 · **Requirements**: MOCK-04..07
+**Success Criteria** (what must be TRUE):
+  1. Filtro de mesa, equidad y temporada por promedio en el mockup
+  2. Editar/eliminar/repetir ceremonia en el mockup
+  3. Golden, capturas y artifact actualizados
+**Plans**: TBD
+
+### Phase 19: Base visual del frontend
+**Goal**: ver `.planning/v2.0/SPEC.md` § F19
+**Epic**: E5 · **Depends on**: 16 · **Requirements**: VIS-01..04
+**Success Criteria** (what must be TRUE):
+  1. `npm run lint` en CI
+  2. Átomos y estados con tests
+  3. Escenario `gal-atoms` en verde
+**Plans**: TBD
+
+### Phase 20: Autenticación y validación
+**Goal**: ver `.planning/v2.0/SPEC.md` § F20
+**Epic**: E3 · **Depends on**: 15 · **Requirements**: SEC-01..04
+**Success Criteria** (what must be TRUE):
+  1. Todo salvo login y health responde 401 sin token
+  2. El frontend viejo sigue andando con login real
+  3. PUT valida igual que POST; 409 en conflictos
+**Plans**: TBD
+
+### Phase 21: Transacciones, orden, rendimiento y empates
+**Goal**: ver `.planning/v2.0/SPEC.md` § F21
+**Epic**: E3 · **Depends on**: 20 · **Requirements**: TXN-01..04
+**Success Criteria** (what must be TRUE):
+  1. Escrituras atómicas con advisory lock; test de concurrencia
+  2. `/games/` en ≤ 3 queries
+  3. Empates acreditan a todos los co-ganadores
+  4. Migraciones probadas sobre base vacía en CI
+**Plans**: TBD
+
+### Phase 22: Subconjuntos, ELO de mesa y récords v2
+**Goal**: ver `.planning/v2.0/SPEC.md` § F22
+**Epic**: E4 · **Depends on**: 21 · **Requirements**: STAT-01..03
+**Success Criteria** (what must be TRUE):
+  1. Reproducir el ELO da el historial guardado
+  2. Golden de récords sin filtro y por mesa
+**Plans**: TBD
+
+### Phase 23: Logros derivados, nuevos y vista por mesa
+**Goal**: ver `.planning/v2.0/SPEC.md` § F23
+**Epic**: E4 · **Depends on**: 22 · **Requirements**: STAT-04..07
+**Success Criteria** (what must be TRUE):
+  1. Pedir logros dos veces da lo mismo
+  2. Editar o borrar actualiza los desbloqueos
+  3. La vista por mesa no escribe
+**Plans**: TBD
+
+### Phase 24: Jugadores, partidas e informe
+**Goal**: ver `.planning/v2.0/SPEC.md` § F24
+**Epic**: E4 · **Depends on**: 23 · **Requirements**: STAT-08..10
+**Success Criteria** (what must be TRUE):
+  1. Golden del informe de las 63 partidas
+  2. Crear y editar devuelven el informe
+**Plans**: TBD
+
+### Phase 25: Métricas del grupo, equidad y temporadas
+**Goal**: ver `.planning/v2.0/SPEC.md` § F25
+**Epic**: E4 · **Depends on**: 24 · **Requirements**: STAT-11..12, SEAS-01
+**Success Criteria** (what must be TRUE):
+  1. Golden sin filtro y por mesa
+  2. p95 < 300 ms en local
+**Plans**: TBD
+
+### Phase 26: Shell, rutas, datos y filtro de mesa
+**Goal**: ver `.planning/v2.0/SPEC.md` § F26
+**Epic**: E5 · **Depends on**: 19, 25 · **Requirements**: SHELL-01..04
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `shell`, `404`, `state-loading`, `state-error` en verde
+**Plans**: TBD
+
+### Phase 27: Efectos e instrumentos
+**Goal**: ver `.planning/v2.0/SPEC.md` § F27
+**Epic**: E5 · **Depends on**: 26 · **Requirements**: FX-01..02
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `gal-instruments` y `planet-parked` en verde
+  2. recharts sin uso
+**Plans**: TBD
+
+### Phase 28: Pantallas: Acceso e Inicio
+**Goal**: ver `.planning/v2.0/SPEC.md` § F28
+**Epic**: E6 · **Depends on**: 27 · **Requirements**: SCR-01..02
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `login*`, `home*`, `season-rules` en verde
+**Plans**: TBD
+
+### Phase 29: Pantallas: Partidas e Informe
+**Goal**: ver `.planning/v2.0/SPEC.md` § F29
+**Epic**: E6 · **Depends on**: 28 · **Requirements**: SCR-03..04
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `games*`, `report*` en verde
+  2. #65 cerrado
+**Plans**: TBD
+
+### Phase 30: Pantalla: Registrar
+**Goal**: ver `.planning/v2.0/SPEC.md` § F30
+**Epic**: E6 · **Depends on**: 29 · **Requirements**: SCR-05..06
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `register*` en verde
+  2. Playwright solo con teclado en 390 y 1440
+  3. #33 cerrado
+**Plans**: TBD
+
+### Phase 31: Pantalla: Ceremonia
+**Goal**: ver `.planning/v2.0/SPEC.md` § F31
+**Epic**: E6 · **Depends on**: 30 · **Requirements**: SCR-07
+**Success Criteria** (what must be TRUE):
+  1. `ceremony-g063` y `ceremony-skip` en verde
+**Plans**: TBD
+
+### Phase 32: Pantalla: Ranking y jugadores
+**Goal**: ver `.planning/v2.0/SPEC.md` § F32
+**Epic**: E6 · **Depends on**: 31 · **Requirements**: SCR-08..09
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `ranking*`, `player-*` en verde
+**Plans**: TBD
+
+### Phase 33: Pantalla: Perfil
+**Goal**: ver `.planning/v2.0/SPEC.md` § F33
+**Epic**: E6 · **Depends on**: 32 · **Requirements**: SCR-10..11
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `profile-*` en verde
+  2. #66, #35, #38 cerrados
+**Plans**: TBD
+
+### Phase 34: Pantallas: Récords y Logros
+**Goal**: ver `.planning/v2.0/SPEC.md` § F34
+**Epic**: E6 · **Depends on**: 33 · **Requirements**: SCR-12..13
+**Success Criteria** (what must be TRUE):
+  1. Escenarios `records*`, `achievements*` en verde
+  2. #37, #44 cerrados
+**Plans**: TBD
+
+### Phase 35: Limpieza y presupuestos
+**Goal**: ver `.planning/v2.0/SPEC.md` § F35
+**Epic**: E7 · **Depends on**: 34 · **Requirements**: CLOSE-01..03
+**Success Criteria** (what must be TRUE):
+  1. Catálogo completo de comparación en verde
+  2. JS inicial ≤ 100 kB gzip
+  3. axe sin serios ni críticos
+**Plans**: TBD
+
+### Phase 36: Documentación, entrega y cierre
+**Goal**: ver `.planning/v2.0/SPEC.md` § F36
+**Epic**: E7 · **Depends on**: 35 · **Requirements**: CLOSE-04..06
+**Success Criteria** (what must be TRUE):
+  1. Docs y checklist de despliegue
+  2. Issues, épicas y PRs absorbidos cerrados
+  3. Informe final entregado
+**Plans**: TBD

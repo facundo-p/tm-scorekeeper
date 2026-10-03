@@ -1,91 +1,176 @@
-# Requirements: Terraforming Mars Stats — v1.1 Visualización de ELO en Frontend
+# Requirements: Terraforming Mars Stats — v2.0 «Archivo de Terraformación»
 
-**Defined:** 2026-04-28
-**Core Value:** Hacer visible el sistema ELO ya existente en backend, comunicando rating actual, evolución por partida, y comparativas históricas entre jugadores.
+**Defined:** 2026-10-03
+**Core Value:** La app real se ve y funciona como el mockup del rediseño, con datos reales y estadísticas que sirven al grupo.
 
-## v1.1 Requirements
+Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivados en `.planning/milestones/v1.1-REQUIREMENTS.md`.
 
-Requirements for this milestone. Each maps to a roadmap phase. Backend ELO ya está implementado y mergeado vía PR #42 — esta entrega es principalmente de frontend con un único endpoint adicional.
+## v2.0 Requirements
 
-### ELO Backend API
+### Ejecución y verificación
 
-- [x] **ELO-API-01**: API expone `GET /elo/history` con filtros opcionales `from` (fecha) y `player_ids` (lista), devolviendo serie temporal de ELO por jugador para alimentar el chart de Ranking
+- [ ] **INFRA-01**: El plan v2.0 (SPEC, RUNBOOK, LEDGER, DECISIONS), GSD y el tablero de GitHub existen y son la fuente de verdad
+- [ ] **INFRA-02**: `scripts/dev/bootstrap.sh`, `gates.sh` y `pr-size.sh` preparan el entorno de forma idempotente y corren los gates
+- [ ] **INFRA-03**: pytest aborta con código 2 si la base de `DATABASE_URL` no termina en `_test`; CI usa `tm_scorekeeper_test`
+- [ ] **INFRA-04**: `requirements.txt` con versiones fijas y `sqlalchemy>=2.0,<2.1` documentado
+- [ ] **INFRA-05**: `requirements-dev.txt` (pytest, httpx, requests) instalado por CI
+- [ ] **PAR-01**: Arnés `tools/parity/` compara mockup y app (píxeles, alto, a11y, estilos, consola, axe) con umbrales por frame
+- [ ] **PAR-02**: `tools/fixtures/export.mjs` genera `fixtures/seed.json` y `fixtures/golden.json` desde el mockup; `--check` en CI
+- [ ] **PAR-03**: `backend/scripts/load_fixture.py` carga la semilla con ids en bases `_test`/`_parity` en menos de 30 s
+- [ ] **PAR-04**: Tests golden en `backend/tests/golden/` comparan endpoints contra `golden.json` sin filtro y por mesa
+- [ ] **PAR-05**: Manifiesto `enabled.yaml` habilita claves golden por fase; posiciones y ELO desde F16
 
-### PlayerProfile
+### Especificación (mockup)
 
-- [ ] **PROF-01**: Usuario ve el ELO actual del jugador en su perfil
-- [ ] **PROF-02**: Usuario ve la delta de ELO de la última partida del jugador (ej: `1523 (+23)`, color verde/rojo según signo)
-- [ ] **PROF-03**: Usuario ve el peak rating histórico del jugador
-- [ ] **PROF-04**: Usuario ve el ranking del jugador entre todos los jugadores (ej: `#3 de 8`)
+- [ ] **MOCK-01**: El mockup refleja las decisiones de contenido: récords/logros oficiales, castellano, Spacefarer, orden del archivo, favoritos, filtros de récords, error de login, 404, salir en móvil
+- [ ] **MOCK-02**: `docs/redesign/SEMANTICS.md` documenta D-04..D-08, D-15, filtros, equidad y temporadas; `derive.js` lo implementa
+- [ ] **MOCK-03**: El mockup expone ganchos de comparación: `data-scroll-root`, `data-planet-slot`, `__TM_PLANET__.drawRect()`, reduced-motion, `?demo=`, reloj inyectable, links reales, `#galeria`
+- [ ] **MOCK-04**: El mockup tiene filtro de mesa por pantalla, ELO de mesa, logros por mesa, paneles por tamaño de mesa y equidad
+- [ ] **MOCK-05**: La temporada del mockup ordena por promedio con categoría, mesa, mínimo de 3 y campeón D-15
+- [ ] **MOCK-06**: El mockup permite editar, eliminar y repetir la ceremonia desde el informe
+- [ ] **MOCK-07**: Golden, capturas, README del rediseño y artifact actualizados
 
-### End-of-game
+### Base visual, shell y efectos
 
-- [ ] **POST-01**: Al terminar una partida, el modal post-partida (refactor unificado) muestra una sección con records desbloqueados, achievements desbloqueados, y cambios de ELO en una sola pantalla
-- [ ] **POST-02**: La sección de ELO en el modal post-partida lista a cada jugador de la partida con su ELO anterior, ELO nuevo, y delta visualmente codificada (color por signo)
-- [ ] **POST-03**: Junto al delta de cada jugador se muestra la posición que ocupó en la partida (1°, 2°, 3°, …) que disparó ese cambio
+- [ ] **VIS-01**: ESLint (typescript-eslint, react-hooks, jsx-a11y, regla D-09) corre en CI
+- [ ] **VIS-02**: Tokens, base y tipografías locales del mockup portados a `frontend/src/styles/`; íconos en `src/ui/icons`
+- [ ] **VIS-03**: Átomos con CSS Modules, Sheet accesible y estados de carga/error/vacío con tests
+- [ ] **VIS-04**: Dominio `src/domain/{catalog,labels,format,cssVars}.ts` y galería de comparación
+- [ ] **SHELL-01**: Shell con escenario, cielo, barra superior, rail en escritorio y dock con FAB en móvil, con container queries
+- [ ] **SHELL-02**: Rutas D-02 con redirecciones, carga diferida, 404 y error boundary
+- [ ] **SHELL-03**: Cliente HTTP con Bearer, timeout, abort y errores tipados; TanStack Query en hooks
+- [ ] **SHELL-04**: `MesaFilter`, `useMesaParam()` y aviso reutilizables
+- [ ] **FX-01**: Planeta WebGL2 en TS (`PlanetStage` + `PlanetSlot`) en chunk aparte con respaldo CSS; estrellas y confeti
+- [ ] **FX-02**: Instrumentos SVG que reemplazan a recharts
 
-### Ranking page
+### Seguridad, integridad y rendimiento
 
-- [ ] **RANK-01**: Usuario accede a una sección "Ranking" desde la navegación principal (`/ranking`)
-- [x] **RANK-02**: Ranking page muestra un line chart con la evolución de ELO en el tiempo, una línea por jugador, paleta determinística por player ID
-- [ ] **RANK-03**: Ranking page incluye un selector multi-jugador con default = todos los jugadores activos
-- [ ] **RANK-04**: Ranking page incluye un filtro de fecha "desde" (input nativo `type=date`) que acota el rango del chart
-- [x] **RANK-05**: Bajo el chart hay una tabla leaderboard con columnas Posición, Jugador, ELO actual, Última delta — ordenada por ELO descendente
-- [ ] **RANK-06**: El estado de filtros (jugadores seleccionados + fecha desde) se persiste en URL search params (`?players=...&from=...`) para que la vista sea compartible y sobreviva reload; IDs inválidos en URL se filtran contra jugadores activos
+- [ ] **SEC-01**: Login real (JWT) y toda la API protegida salvo `/health` y `/auth/login`; límite de intentos
+- [ ] **SEC-02**: El frontend actual se autentica contra la API y cierra sesión ante un 401
+- [ ] **SEC-03**: Validación compartida de partidas en crear/editar, UNIQUE(game_id, player_id) y 409
+- [ ] **SEC-04**: `POST /admin/recompute` autenticado con `compare_digest`; se retira el GET
+- [ ] **TXN-01**: Unidad de trabajo y advisory lock en escrituras y recálculos; UNIQUE en historial de ELO
+- [ ] **TXN-02**: `games.created_at` con backfill que respeta el orden actual
+- [ ] **TXN-03**: `selectinload` e índices; `/games/` en ≤ 3 queries
+- [ ] **TXN-04**: `winners()` único, récords con todos los poseedores, Spacefarer, 404 coherentes y migraciones probadas en CI
 
-## v2 / Future Requirements
+### Estadísticas, mesa y temporadas
 
-Deferred — no entran en v1.1.
+- [ ] **STAT-01**: Filtro único de subconjunto (`GameSubset`, `StatsContext`, dependencia `game_subset`)
+- [ ] **STAT-02**: ELO de mesa por reproducción; reproducir todo da el historial guardado
+- [ ] **STAT-03**: Récords v2: 7 nuevos, co-poseedores, historial, contexto roto/cerca, `GET /records/{code}/history`
+- [ ] **STAT-04**: Desbloqueos de logros por nivel en `achievement_unlocks`
+- [ ] **STAT-05**: Recálculo de logros dentro de crear/editar/borrar; lectura repetible; D-13
+- [ ] **STAT-06**: 6 logros nuevos con íconos
+- [ ] **STAT-07**: Vista de logros por mesa que nunca escribe
+- [ ] **STAT-08**: Color de cubo y fecha de alta de jugadores
+- [ ] **STAT-09**: `GET /games/summaries` con filtros
+- [ ] **STAT-10**: `GET /games/{id}/report`; crear/editar devuelven el informe; DELETE recalcula
+- [ ] **STAT-11**: `GET /players/{id}/insights` con equidad, ADN, mapas, corporaciones, forma, favoritos y por mesa
+- [ ] **STAT-12**: Ranking con equidad, cara a cara, bitácora y resumen del grupo
+- [ ] **SEAS-01**: Temporadas por promedio con categoría, mesa, mínimo 3 y campeones
 
-### Ranking enhancements
+### Pantallas
 
-- **RANK-FUT-01**: Presets de rango temporal (Todo / 6 meses / 30 días) además del input de fecha
-- **RANK-FUT-02**: Tabla data-fallback accesible para screen readers (a11y)
-- **RANK-FUT-03**: Click-en-línea para resaltar un jugador (focus mode)
-- **RANK-FUT-04**: Eje X conmutable entre fecha y game-index
+- [ ] **SCR-01**: Acceso con error real y horizonte de Marte
+- [ ] **SCR-02**: Inicio con héroe de temporada, carrera por promedio, consejo, bitácora y reglas
+- [ ] **SCR-03**: Partidas con filtros, orden (#65), calendario y vacío
+- [ ] **SCR-04**: Informe de partida con editar y eliminar
+- [ ] **SCR-05**: Registrar en 5 pasos con borrador
+- [ ] **SCR-06**: Registrar operable con teclado y modo edición (PUT)
+- [ ] **SCR-07**: Ceremonia con secuencia, saltar y repetir
+- [ ] **SCR-08**: Ranking con filtros, ELO de mesa, equidad, cara a cara y por mesa
+- [ ] **SCR-09**: Alta y edición de jugadores con color de cubo
+- [ ] **SCR-10**: Perfil: cabecera, lecturas y favoritos (#66, #35, #38)
+- [ ] **SCR-11**: Perfil: pestañas con filtro, por mesa y equidad
+- [ ] **SCR-12**: Récords con historia y filtros de mesa, mapa y expansión (#37)
+- [ ] **SCR-13**: Logros con vista por mesa y escalera de niveles
 
-### Profile enhancements
+### Cierre
 
-- **PROF-FUT-01**: Mini-sparkline del ELO en el perfil
-- **PROF-FUT-02**: Banda de incertidumbre (Glicko-2) si se migra el sistema de rating
-
-## Out of Scope
-
-| Feature | Reason |
-|---------|--------|
-| Cambio de fórmula ELO | Backend decidió implementación; no se toca en este milestone |
-| Glicko-2 / TrueSkill / sistemas alternativos | Mayor complejidad, no aporta al uso casual entre amigos |
-| Real-time updates del Ranking | No hay multi-cliente concurrente; refresh on navigation alcanza |
-| Brush/zoom en chart | Multi-jugador + filtro de fecha cubre el caso de uso |
-| Notificaciones por cambio de ELO | Out of scope a nivel proyecto |
-| Predicciones de ELO futuro | Especulativo, no aporta valor |
-| Tier names visuales (Bronze/Silver/Gold) | Anti-feature del estilo "chess.com" — no encaja con el tono casual del proyecto |
-| Stacked-area / radar / scatter del ELO | Line chart es la convención y alcanza |
+- [ ] **CLOSE-01**: Se borra el frontend viejo, recharts, lucide y tokens viejos
+- [ ] **CLOSE-02**: Se retira la API deprecada
+- [ ] **CLOSE-03**: Presupuestos: axe, JS inicial ≤ 100 kB gzip, chequeo en CI
+- [ ] **CLOSE-04**: Documentación actualizada (READMEs, skills, CLAUDE.md)
+- [ ] **CLOSE-05**: Checklist de despliegue v2.0
+- [ ] **CLOSE-06**: Cierre del milestone, tablero y PRs absorbidos
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ELO-API-01 | Phase 8 | Complete |
-| PROF-01 | Phase 9 | Pending |
-| PROF-02 | Phase 9 | Pending |
-| PROF-03 | Phase 9 | Pending |
-| PROF-04 | Phase 9 | Pending |
-| POST-01 | Phase 10 | Pending |
-| POST-02 | Phase 10 | Pending |
-| POST-03 | Phase 10 | Pending |
-| RANK-01 | Phase 11 | Pending |
-| RANK-02 | Phase 12 | Complete |
-| RANK-03 | Phase 11 | Pending |
-| RANK-04 | Phase 11 | Pending |
-| RANK-05 | Phase 12 | Complete |
-| RANK-06 | Phase 11 | Pending |
+| INFRA-01 | Phase 15 | Pending |
+| INFRA-02 | Phase 15 | Pending |
+| INFRA-03 | Phase 15 | Pending |
+| INFRA-04 | Phase 15 | Pending |
+| INFRA-05 | Phase 15 | Pending |
+| PAR-01 | Phase 16 | Pending |
+| PAR-02 | Phase 16 | Pending |
+| PAR-03 | Phase 16 | Pending |
+| PAR-04 | Phase 16 | Pending |
+| PAR-05 | Phase 16 | Pending |
+| MOCK-01 | Phase 17 | Pending |
+| MOCK-02 | Phase 17 | Pending |
+| MOCK-03 | Phase 17 | Pending |
+| MOCK-04 | Phase 18 | Pending |
+| MOCK-05 | Phase 18 | Pending |
+| MOCK-06 | Phase 18 | Pending |
+| MOCK-07 | Phase 18 | Pending |
+| VIS-01 | Phase 19 | Pending |
+| VIS-02 | Phase 19 | Pending |
+| VIS-03 | Phase 19 | Pending |
+| VIS-04 | Phase 19 | Pending |
+| SHELL-01 | Phase 26 | Pending |
+| SHELL-02 | Phase 26 | Pending |
+| SHELL-03 | Phase 26 | Pending |
+| SHELL-04 | Phase 26 | Pending |
+| FX-01 | Phase 27 | Pending |
+| FX-02 | Phase 27 | Pending |
+| SEC-01 | Phase 20 | Pending |
+| SEC-02 | Phase 20 | Pending |
+| SEC-03 | Phase 20 | Pending |
+| SEC-04 | Phase 20 | Pending |
+| TXN-01 | Phase 21 | Pending |
+| TXN-02 | Phase 21 | Pending |
+| TXN-03 | Phase 21 | Pending |
+| TXN-04 | Phase 21 | Pending |
+| STAT-01 | Phase 22 | Pending |
+| STAT-02 | Phase 22 | Pending |
+| STAT-03 | Phase 22 | Pending |
+| STAT-04 | Phase 23 | Pending |
+| STAT-05 | Phase 23 | Pending |
+| STAT-06 | Phase 23 | Pending |
+| STAT-07 | Phase 23 | Pending |
+| STAT-08 | Phase 24 | Pending |
+| STAT-09 | Phase 24 | Pending |
+| STAT-10 | Phase 24 | Pending |
+| STAT-11 | Phase 25 | Pending |
+| STAT-12 | Phase 25 | Pending |
+| SEAS-01 | Phase 25 | Pending |
+| SCR-01 | Phase 28 | Pending |
+| SCR-02 | Phase 28 | Pending |
+| SCR-03 | Phase 29 | Pending |
+| SCR-04 | Phase 29 | Pending |
+| SCR-05 | Phase 30 | Pending |
+| SCR-06 | Phase 30 | Pending |
+| SCR-07 | Phase 31 | Pending |
+| SCR-08 | Phase 32 | Pending |
+| SCR-09 | Phase 32 | Pending |
+| SCR-10 | Phase 33 | Pending |
+| SCR-11 | Phase 33 | Pending |
+| SCR-12 | Phase 34 | Pending |
+| SCR-13 | Phase 34 | Pending |
+| CLOSE-01 | Phase 35 | Pending |
+| CLOSE-02 | Phase 35 | Pending |
+| CLOSE-03 | Phase 35 | Pending |
+| CLOSE-04 | Phase 36 | Pending |
+| CLOSE-05 | Phase 36 | Pending |
+| CLOSE-06 | Phase 36 | Pending |
 
 **Coverage:**
-- v1.1 requirements: 14 total
-- Mapped to phases: 14 (100%)
+- v2.0 requirements: 67 total
+- Mapped to phases: 67 (100%)
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-04-28*
-*Last updated: 2026-04-28 — roadmap mapped all 14 requirements to phases 8-12*
+*Requirements defined: 2026-10-03*
