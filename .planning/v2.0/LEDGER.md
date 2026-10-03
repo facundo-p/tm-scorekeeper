@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F20 · Autenticación y validación |
-| Issue | 20.1–20.4 (#98–#101) |
-| Paso | WAIT_CI + revisión del PR F20 |
+| Fase | F21 · Transacciones, orden, rendimiento y empates |
+| Issue | 21.1–21.4 (#102–#105) |
+| Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | f9fdf4a (merge #150 en origin/staging) |
+| Último commit | 45a9283 (merge #151 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F20 en revisión; al mergear, cerrar #98–#101 y pasar a F21 (transacciones, orden, rendimiento y empates).
+**Próximo paso:** F21 — sesión por request y transacciones, advisory lock en recálculos, `created_at` y orden canónico, índices y N+1, empates (`tied`) y renombre Spacecrafter→Spacefarer (D-17, D-24, D-31).
 
 ## Tablero (GitHub)
 
@@ -66,3 +66,4 @@
 - 2026-10-03 — F19-A mergeada (#149 → `45cff88`; revisión: ronda 1 CHANGES_REQUESTED por el teclado de las tarjetas, ronda 2 APPROVE). Issues #94 y #95 cerrados. Rama reseteada y 19-B rearmada encima (galería 4/4 otra vez).
 - 2026-10-03 — F19-B mergeada (#150 → `f9fdf4a`; revisión: ronda 1 APPROVE con 4 minor y 1 nit: 4 corregidos, 1 se mantiene por paridad del árbol de accesibilidad). Issues #96 y #97 cerrados. F19 completa. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F20 implementada: login real (PBKDF2, JWT, bloqueo por IP, fail-closed), `require_auth` en toda la API, cliente con Bearer y logout ante 401, validación compartida con reglas por mapa, UNIQUE de resultados (destapó un bug del update del repositorio), `POST /admin/recompute`. Gates verdes (pytest 275, vitest 305).
+- 2026-10-03 — F20 mergeada (#151 → `45a9283`; revisión: ronda 1 CHANGES_REQUESTED por la IP del limitador falsificable con X-Forwarded-For, ronda 2 APPROVE). Issues #98–#101 cerrados. Rama reseteada a `origin/staging`.
