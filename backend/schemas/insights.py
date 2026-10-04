@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import Literal, Optional
 
 from pydantic import BaseModel
@@ -68,6 +69,24 @@ class TableSizeDTO(EquityDTO):
     avg_points: Optional[int]
 
 
+class EloPointDTO(BaseModel):
+    date: dt.date
+    game_id: str
+    elo: int
+    delta: int
+
+
+class HistoryRowDTO(BaseModel):
+    game_id: str
+    date: dt.date
+    map: str
+    position: int
+    n: int
+    total: int
+    corporation: str
+    delta: int
+
+
 class PlayerInsightsDTO(BaseModel):
     """Ficha del jugador (STAT-11); con `?player_count=` todo sale de esa mesa (view: mesa)."""
     view: Literal["all", "mesa"]
@@ -99,3 +118,5 @@ class PlayerInsightsDTO(BaseModel):
     elo: int
     peak: Optional[int]
     last_delta: Optional[int]
+    elo_series: list[EloPointDTO]
+    history: list[HistoryRowDTO]

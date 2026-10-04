@@ -50,6 +50,13 @@ def elo_series(view: GroupView, pid: str) -> list[dict]:
             for r in view.rows_by_player[pid] for c in view.replay.per_game[r.gs.id] if c.player_id == pid]
 
 
+def history(view: GroupView, pid: str) -> list[dict]:
+    """Partidas del jugador, de la más nueva a la más vieja, con el cambio de ELO (de mesa con el filtro)."""
+    delta = {r.gs.id: next((c.delta for c in view.replay.per_game[r.gs.id] if c.player_id == pid), 0) for r in view.rows_by_player[pid]}
+    return [{"game_id": r.gs.id, "date": r.gs.game.date, "map": r.gs.game.map_name.value, "position": r.position, "n": r.n,
+             "total": r.total, "corporation": r.corporation, "delta": delta[r.gs.id]} for r in reversed(view.rows_by_player[pid])]
+
+
 def _elo(view: GroupView, pid: str, series: list[dict]) -> dict:
     return {"elo": view.replay.ratings.get(pid, 1000), "peak": max((s["elo"] for s in series), default=None),
             "last_delta": series[-1]["delta"] if series else None}
@@ -95,8 +102,15 @@ def player_insights(view: GroupView, pid: str) -> dict:
         **_basics(mine), **_averages(mine, pid), "favorites": favorites(mine), **_style(view, mine),
         "streak": streaks(mine), "form": _form(mine), **rivals(pid, view.h2h), "records_held": held,
         "rank": view.rank_of(pid), "rank_total": len(view.ranking), "equity": equity(mine),
-        "by_table": by_table(mine), **_elo(view, pid, elo_series(view, pid)),
+        "by_table": by_table(mine), **_elo_full(view, pid),
     }
+
+
+def _elo_full(view: GroupView, pid: str) -> dict:
+    if pid not in view.rows_by_player:
+        return {**_elo(view, pid, []), "elo_series": [], "history": []}
+    series = elo_series(view, pid)
+    return {**_elo(view, pid, series), "elo_series": series, "history": history(view, pid)}
 
 
 def ranking_row(view: GroupView, player, since: Optional[date]) -> dict:

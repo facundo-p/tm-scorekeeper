@@ -3,16 +3,9 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel
 
-from schemas.insights import CompositionDTO, EquityDTO, FormDTO, RivalDTO, SplitStatDTO
+from schemas.insights import CompositionDTO, EloPointDTO, EquityDTO, FormDTO, RivalDTO, SplitStatDTO
 
 View = Literal["all", "mesa"]
-
-
-class EloPointDTO(BaseModel):
-    date: dt.date
-    game_id: str
-    elo: int
-    delta: int
 
 
 class RankingRowDTO(BaseModel):
