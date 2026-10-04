@@ -3,6 +3,7 @@
 // y el planeta vuela hasta ahí, girando hacia la región del slot. Sin slot, se estaciona como
 // un horizonte tenue abajo. Va en un chunk aparte: lo carga `PlanetCanvas` con import().
 import { bake } from './bake'
+import { fallbackStage, setPlanetState } from './fallback'
 import { attachDrag } from './drag'
 import { fullscreenTriangle, program, type Program } from './gl'
 import { initialPose, parkedTarget, regionOf, settling, slotTarget, step, wrapAngle, type SlotParams, type Spin, type Target } from './motion'
@@ -27,26 +28,17 @@ interface ParityHook { drawRect(): DrawRect | null; settled(): boolean }
 declare global { interface Window { __TM_PLANET__?: ParityHook } }
 
 const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches
-const setPlanetState = (state: 'ready' | 'fallback' | null) => {
-  if (state) document.documentElement.dataset.planet = state
-  else delete document.documentElement.dataset.planet
-}
 
 /** Crea el motor sobre `canvas`, medido contra `host` (el dispositivo del marco). */
 export function createPlanetStage(host: HTMLElement, canvas: HTMLCanvasElement): PlanetStage {
   const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: 'high-performance' })
-  if (!gl) return unsupported()
+  if (!gl) return fallbackStage()
   try {
     return new Engine(host, canvas, gl)
   } catch (err) {
     console.warn('Planet disabled:', err)
-    return unsupported()
+    return fallbackStage()
   }
-}
-
-function unsupported(): PlanetStage {
-  setPlanetState('fallback')
-  return { supported: false, addSlot: () => ({ update() {}, remove() {} }), destroy: () => setPlanetState(null) }
 }
 
 class Engine implements PlanetStage {
@@ -93,13 +85,20 @@ class Engine implements PlanetStage {
   }
 
   addSlot(el: HTMLElement, params: Partial<SlotParams>): SlotHandle {
-    const slot: Slot = { el, params: { ...params } }
+    const slot: Slot = { el, params: {} }
     this.slots.push(slot)
-    if (params.interactive) slot.detach = attachDrag(el, this.spin, (dA) => this.turn(slot, dA))
+    this.configure(slot, params)
     return {
-      update: (next) => { slot.params = { ...next } },
+      update: (next) => this.configure(slot, next),
       remove: () => { slot.detach?.(); this.slots = this.slots.filter((s) => s !== slot) },
     }
+  }
+
+  /** Cambia los parámetros; si cambió `interactive`, engancha o suelta el arrastre. */
+  private configure(slot: Slot, params: Partial<SlotParams>) {
+    slot.params = { ...params }
+    if (params.interactive && !slot.detach) slot.detach = attachDrag(slot.el, this.spin, (dA) => this.turn(slot, dA))
+    if (!params.interactive && slot.detach) { slot.detach(); slot.detach = undefined }
   }
 
   destroy() {
