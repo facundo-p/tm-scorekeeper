@@ -1,7 +1,7 @@
 """Hitos y recompensas de cada mapa y expansión (D-51).
 
-Espejo de frontend/src/constants/gameRules.ts y del catálogo del mockup
-(docs/redesign/mockup/js/data/catalog.js). Un test compara las dos tablas del frontend.
+Espejo del catálogo del frontend (frontend/src/domain/catalog.ts) y del mockup
+(docs/redesign/mockup/js/data/catalog.js). Un test compara las tablas de mapas con las del frontend.
 """
 from models.enums import Award, Expansion, MapName, Milestone
 

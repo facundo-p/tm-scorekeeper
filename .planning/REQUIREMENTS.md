@@ -88,7 +88,7 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 
 ### Cierre
 
-- [ ] **CLOSE-01**: Se borra el frontend viejo, recharts, lucide y tokens viejos
+- [x] **CLOSE-01**: Se borra el frontend viejo, recharts, lucide y tokens viejos
 - [ ] **CLOSE-02**: Se retira la API deprecada
 - [ ] **CLOSE-03**: Presupuestos: axe, JS inicial ≤ 100 kB gzip, chequeo en CI
 - [ ] **CLOSE-04**: Documentación actualizada (READMEs, skills, CLAUDE.md)
@@ -160,7 +160,7 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SCR-11 | Phase 33 | Complete |
 | SCR-12 | Phase 34 | Complete |
 | SCR-13 | Phase 34 | Complete |
-| CLOSE-01 | Phase 35 | Pending |
+| CLOSE-01 | Phase 35 | Complete |
 | CLOSE-02 | Phase 35 | Pending |
 | CLOSE-03 | Phase 35 | Pending |
 | CLOSE-04 | Phase 36 | Pending |
