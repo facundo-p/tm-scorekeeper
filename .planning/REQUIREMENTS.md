@@ -93,7 +93,7 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **CLOSE-03**: Presupuestos: axe, JS inicial ≤ 100 kB gzip, chequeo en CI
 - [x] **CLOSE-04**: Documentación actualizada (READMEs, skills, CLAUDE.md)
 - [x] **CLOSE-05**: Checklist de despliegue v2.0
-- [ ] **CLOSE-06**: Cierre del milestone, tablero y PRs absorbidos
+- [x] **CLOSE-06**: Cierre del milestone, tablero y PRs absorbidos
 
 ## Traceability
 
@@ -165,7 +165,7 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | CLOSE-03 | Phase 35 | Complete |
 | CLOSE-04 | Phase 36 | Complete |
 | CLOSE-05 | Phase 36 | Complete |
-| CLOSE-06 | Phase 36 | Pending |
+| CLOSE-06 | Phase 36 | Complete |
 
 **Coverage:**
 - v2.0 requirements: 67 total
