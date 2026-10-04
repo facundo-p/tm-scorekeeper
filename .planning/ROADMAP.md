@@ -172,7 +172,7 @@ Plans:
 - [x] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
 - [x] **Phase 27: Efectos e instrumentos** (E5)
 - [x] **Phase 28: Pantallas: Acceso e Inicio** (E6)
-- [ ] **Phase 29: Pantallas: Partidas e Informe** (E6)
+- [x] **Phase 29: Pantallas: Partidas e Informe** (E6)
 - [ ] **Phase 30: Pantalla: Registrar** (E6)
 - [ ] **Phase 31: Pantalla: Ceremonia** (E6)
 - [ ] **Phase 32: Pantalla: Ranking y jugadores** (E6)
@@ -309,7 +309,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Escenarios `games*`, `report*` en verde
   2. #65 cerrado
-**Plans**: TBD
+**Plans**: 29-01
 
 ### Phase 30: Pantalla: Registrar
 **Goal**: ver `.planning/v2.0/SPEC.md` § F30

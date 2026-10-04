@@ -1,7 +1,7 @@
 // /__galeria?parte=instrumentos: los instrumentos con los datos reales de la candidata, para
 // compararlos con #galeria?parte=instrumentos del mockup (escenario gal-instruments, F27).
 import { useMemo } from 'react'
-import { eloSeries, eloShift, playerIndex, scoredGame } from '@/data/instruments'
+import { bySignup, eloSeries, eloShift, playerIndex, scoredGame } from '@/data/instruments'
 import { useEloHistory, useGameReport, useHeadToHead, usePlayerInsights, usePlayersList } from '@/data/hooks'
 import type { GameReport, HeadToHead, PlayerEloHistory, PlayerInsights, PlayerSummary } from '@/data/types'
 import {
@@ -9,16 +9,15 @@ import {
   Thermometer, TRTrack,
 } from '@/ui/instruments'
 import { ErrorState, LoadingState } from '@/ui/states'
-import { GALLERY_PLAYER_ORDER, SAMPLE_GAME_ID, SAMPLE_PLAYER } from './sample'
+import { SAMPLE_GAME_ID, SAMPLE_PLAYER } from './sample'
 import { Section } from './sections'
 
 interface Sources { report: GameReport; players: PlayerSummary[]; insights: PlayerInsights; history: PlayerEloHistory[]; h2h: HeadToHead }
 
-/** Lo que dibuja la galería, armado desde la API (jugadores activos con partidas, en el orden del mockup). */
+/** Lo que dibuja la galería, armado desde la API (jugadores activos con partidas, en orden de alta, D-74). */
 function galleryModel({ report, players, insights, history, h2h }: Sources) {
   const index = playerIndex(players)
-  const rank = (id: string) => GALLERY_PLAYER_ORDER.indexOf(id)
-  const shown = players.filter((p) => p.is_active && p.since).sort((a, b) => rank(a.player_id) - rank(b.player_id))
+  const shown = bySignup(players).filter((p) => p.is_active && p.since)
   const series = eloSeries(history, index)
   const seriesOf = (id: string) => series.find((s) => s.player.id === id)
   return {

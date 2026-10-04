@@ -42,6 +42,7 @@ def test_report_shows_broken_records_with_the_previous_holder_and_stolen_awards(
     score = {r["code"]: r for r in report["records_broken"]}["highest_single_game_score"]
     assert score["value"] == 60 and score["player_id"] == "p2"
     assert score["previous"] == {"value": 50, "player_id": "p1", "holders": ["p1"]}
+    assert score["description"]  # el informe muestra qué mide el récord (F29)
     assert report["stolen_awards"] == [{"award": "Magnate", "player_id": "p2", "opened_by": "p1"}]
 
 
@@ -50,7 +51,9 @@ def test_report_lists_near_records_and_unlocked_achievements(client, players):
     report = client.get(f"/games/{_post_game(client, _game_payload('g2', '2026-01-02', [_pr('p1', 48), _pr('p2', 30)]))}/report").json()
     near = {n["code"]: n for n in report["near"]}
     assert near["highest_single_game_score"]["gap"] == 2 and near["highest_single_game_score"]["before"] == 50
-    assert "win_streak" in {a["code"] for a in report["achievements_by_player"]["p1"]}
+    unlocks = {a["code"]: a for a in report["achievements_by_player"]["p1"]}
+    assert "win_streak" in unlocks
+    assert unlocks["win_streak"]["max_tier"] > 1 and unlocks["win_streak"]["levels"] >= 1  # «Nivel N de M» (F29)
 
 
 def test_report_of_a_missing_game_is_404(client):

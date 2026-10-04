@@ -1,0 +1,11 @@
+/* Port de docs/redesign/mockup/css/screens.css § Edit / delete notices. */
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--up);
+  background: var(--hull-1);
+  font-size: var(--t-small);
+}

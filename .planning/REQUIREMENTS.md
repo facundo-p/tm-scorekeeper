@@ -74,8 +74,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 
 - [x] **SCR-01**: Acceso con error real y horizonte de Marte
 - [x] **SCR-02**: Inicio con héroe de temporada, carrera por promedio, consejo, bitácora y reglas
-- [ ] **SCR-03**: Partidas con filtros, orden (#65), calendario y vacío
-- [ ] **SCR-04**: Informe de partida con editar y eliminar
+- [x] **SCR-03**: Partidas con filtros, orden (#65), calendario y vacío
+- [x] **SCR-04**: Informe de partida con editar y eliminar
 - [ ] **SCR-05**: Registrar en 5 pasos con borrador
 - [ ] **SCR-06**: Registrar operable con teclado y modo edición (PUT)
 - [ ] **SCR-07**: Ceremonia con secuencia, saltar y repetir
@@ -149,8 +149,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SEAS-01 | Phase 25 | Complete |
 | SCR-01 | Phase 28 | Complete |
 | SCR-02 | Phase 28 | Complete |
-| SCR-03 | Phase 29 | Pending |
-| SCR-04 | Phase 29 | Pending |
+| SCR-03 | Phase 29 | Complete |
+| SCR-04 | Phase 29 | Complete |
 | SCR-05 | Phase 30 | Pending |
 | SCR-06 | Phase 30 | Pending |
 | SCR-07 | Phase 31 | Pending |

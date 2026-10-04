@@ -15,6 +15,5 @@ export const SAMPLE_TABS: TabItem[] = [
 export const MEDAL_TIERS = [0, 1, 2, 3, 4, 5]
 
 // Galería de instrumentos (F27, D-73): los datos salen de la API de la candidata (tm_parity), como
-// MODEL en el mockup; solo el orden de los jugadores es fijo, el de PLAYERS_SEED del mockup.
+// MODEL en el mockup; los jugadores van en orden de alta (D-74).
 export const SAMPLE_GAME_ID = 'g-063'
-export const GALLERY_PLAYER_ORDER = ['p-facu', 'p-nico', 'p-juli', 'p-caro', 'p-tomi', 'p-meli', 'p-santi', 'p-lu', 'p-gonza', 'p-pato']

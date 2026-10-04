@@ -13,6 +13,8 @@ def test_players_come_in_signup_order_even_after_updates():
     client.patch(f"/players/{ids[0]}", json={"name": "Zoe B"})
     # GET /players/ sigue ordenado por nombre (contrato viejo); el orden de alta lo da el repositorio.
     assert [p.player_id for p in PlayersRepository().get_all()] == ids
+    by_seq = sorted(client.get("/players/").json(), key=lambda p: p["seq"])
+    assert [p["player_id"] for p in by_seq] == ids
 
 
 def test_a_game_can_give_several_levels_of_one_achievement():
