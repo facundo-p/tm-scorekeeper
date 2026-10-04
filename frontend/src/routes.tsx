@@ -1,12 +1,10 @@
 // Rutas de la app (F26, SHELL-02, D-02): en castellano, como el mockup; las viejas redirigen.
-// Las pantallas que todavía no se portaron muestran la página anterior dentro del shell (D-69).
-import { lazy, Suspense, type ComponentType, type LazyExoticComponent } from 'react'
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { PlanetProvider } from '@/fx/planet'
 import { ErrorBoundary } from '@/shell/ErrorBoundary'
 import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute'
 import { AppShell } from '@/shell/AppShell'
-import { Legacy } from '@/shell/Legacy'
 import { PATHS } from '@/shell/paths'
 
 const Login = lazy(() => import('@/screens/Login/Login'))
@@ -18,14 +16,12 @@ const Register = lazy(() => import('@/screens/Register/Register'))
 const Ceremony = lazy(() => import('@/screens/Ceremony/Ceremony'))
 const Ranking = lazy(() => import('@/screens/Ranking/Ranking'))
 const Profile = lazy(() => import('@/screens/Profile/Profile'))
-const OldRecords = lazy(() => import('@/pages/Records/Records'))
-const OldAchievements = lazy(() => import('@/pages/AchievementCatalog/AchievementCatalog'))
+const Records = lazy(() => import('@/screens/Records/Records'))
+const Achievements = lazy(() => import('@/screens/Achievements/Achievements'))
 
 // La galería de comparación solo existe en `vite --mode parity` (D-45); en producción
 // la condición es falsa en tiempo de build y el módulo no se empaqueta.
 const Gallery = import.meta.env.MODE === 'parity' ? lazy(() => import('@/pages/Gallery/Gallery')) : null
-
-const legacy = (Page: LazyExoticComponent<ComponentType>) => <Legacy><Page /></Legacy>
 
 /** Redirige una ruta vieja (`/games/:gameId` → `/partidas/:gameId`) conservando `?…` y `#…`. */
 function RedirectWith({ to }: { to: string | ((params: Record<string, string>) => string) }) {
@@ -59,8 +55,8 @@ export function AppRoutes() {
         <Route path="ranking" element={<Ranking />} />
         <Route path="jugadores" element={<RedirectWith to={PATHS.ranking} />} />
         <Route path="jugadores/:playerId" element={<Profile />} />
-        <Route path="records" element={legacy(OldRecords)} />
-        <Route path="logros" element={legacy(OldAchievements)} />
+        <Route path="records" element={<Records />} />
+        <Route path="logros" element={<Achievements />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

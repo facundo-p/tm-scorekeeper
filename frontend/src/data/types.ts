@@ -192,7 +192,7 @@ export interface CatalogAchievement {
   code: string
   description: string
   tiers: AchievementTier[]
-  holders: { player_id: string; player_name: string; tier: number }[]
+  holders: { player_id: string; player_name: string; tier: number; unlocked_at: string }[]
   kind: string
   glyph: string
   flavor: string
@@ -208,6 +208,8 @@ export interface GroupRecord {
   lower_is_better: boolean
   value: number | null
   holders: { player_id: string; player_name: string; game_id?: string | null; date?: string | null; map?: string | null }[]
+  /** Cómo llegó al valor actual: cada vez que se estableció, se rompió o se igualó. */
+  history: { value: number; player_id: string; date: string; game_id: string; kind: 'set' | 'broken' | 'tied' }[]
 }
 
 export interface HeadToHead {

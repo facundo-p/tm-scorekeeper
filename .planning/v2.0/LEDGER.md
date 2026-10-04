@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F33 · Perfil |
-| Issue | 33.1 #134 · 33.2 #135 |
+| Fase | F34 · Récords y Logros |
+| Issue | 34.1 #136 · 34.2 #137 |
 | Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | ad2f0ea (merge #168 en origin/staging) |
+| Último commit | 9c6aa11 (merge #169 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F33 — Perfil (backend: serie de ELO e historial en los insights; héroe, resumen y pestañas).
+**Próximo paso:** F34 — Récords (monumento, placas con historia, filtros de mapa/expansión/mesa) y Logros (grilla, selector de jugador, escalera en hoja, vista por mesa).
 
 ## Tablero (GitHub)
 
@@ -86,3 +86,4 @@
 - 2026-10-04 — F30 mergeada (#166 → `ef71531`; revisión: ronda 1 APPROVE con 7 minor: corregidos el 2.º puesto con 2 jugadores, la fecha vacía, `Awards` largo y tests de Turmoil y 422; quedan por paridad el chip de borrador y las pestañas del puntaje móvil). Issues #129, #130 y #33 cerrados. Rama reseteada.
 - 2026-10-04 — F31 mergeada (#167 → `6c88eea`; revisión: ronda 1 CHANGES_REQUESTED por el confetti que se cortaba al cambiar de fase (también en el mockup, corregido allí y republicado), h1 al final, foco al saltar y tests de la secuencia; ronda 2 APPROVE con 1 nit). Issue #131 cerrado. Rama reseteada.
 - 2026-10-04 — F32 mergeada (#168 → `ad2f0ea`; revisión: ronda 1 APPROVE con 4 minor y 2 nit: color inicial libre, componentes partidos, tests de por mesa y ranking vacío, orden de imports; foco inicial y variante de «Reactivar» quedan por paridad). `players.joined_on` (D-78). Uvicorn huérfano detectado: la candidata ahora se niega a arrancar si sus puertos responden. Issues #132 y #133 cerrados. Rama reseteada.
+- 2026-10-04 — F33 mergeada (#169 → `9c6aa11`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: progreso seguro y tests de error y orden de logros; botones del historial y rivales quedan por paridad, página vieja a F35). La ficha suma `elo_series` e `history` (D-79). 85/85 en la comparación. Issues #134, #135, #35 y #38 cerrados (#66 es un PR: se cierra al final). Rama reseteada.

@@ -1,0 +1,352 @@
+/* Port de docs/redesign/mockup/css/screens.css (Trofeos: récords, D-44). */
+.trophynav {
+  display: inline-flex;
+  justify-self: start;
+  gap: 4px;
+  padding: 4px;
+  background: var(--hull-0);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  border-radius: 3px;
+}
+
+.trophynav__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 2px;
+  color: var(--ink-2);
+  font-weight: 650;
+}
+
+.trophynav__tab:hover {
+  color: var(--ink);
+}
+
+.trophynav__tab.is-on {
+  background: var(--hull-3);
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--mc);
+}
+
+.monument__plate,
+.plaque {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  isolation: isolate;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .6s var(--ease-out);
+}
+
+.monument__plate.is-tilting,
+.plaque.is-tilting {
+  transition: transform .1s linear;
+}
+
+.monument__plate::before,
+.plaque::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  background:
+    radial-gradient(400px circle at var(--mx, -999px) var(--my, -999px), rgba(255, 214, 160, .07), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .012) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #2b2129, #1a1318 70%);
+  box-shadow: inset 0 0 0 1px var(--edge-2), inset 0 1px 0 rgba(255, 230, 200, .12);
+}
+
+.plaque__glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 240, 220, .12), transparent 45%);
+  opacity: 0;
+  transition: opacity var(--d-2);
+}
+
+.is-tilting .plaque__glare {
+  opacity: 1;
+}
+
+/* Monument: the top record */
+.monument__plate {
+  padding: var(--s5);
+  display: grid;
+  gap: var(--s3);
+}
+
+.monument__plate::before {
+  box-shadow: inset 0 0 0 1px var(--mc-lo), inset 0 1px 0 rgba(255, 224, 138, .4), 0 0 0 0 transparent;
+  background:
+    radial-gradient(500px circle at var(--mx, -999px) var(--my, -999px), rgba(255, 214, 160, .08), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 20%, rgba(244, 196, 58, .1), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .012) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #30241f, #1b1416 70%);
+}
+
+.monument__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.monument__title {
+  font-family: var(--display);
+  font-size: var(--t-title);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.monument__desc {
+  color: var(--ink-2);
+}
+
+.monument__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s4) var(--s6);
+  margin: var(--s2) 0;
+}
+
+.monument__value {
+  font-family: var(--display);
+  font-size: clamp(4rem, 2.5rem + 6cqi, 7rem);
+  font-weight: 700;
+  line-height: .85;
+  color: var(--mc);
+  text-shadow: 0 0 40px rgba(244, 196, 58, .35);
+}
+
+.monument__value small {
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-left: 8px;
+  text-shadow: none;
+}
+
+.monument__holder {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.monument__h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-h3);
+  margin-top: var(--s3);
+}
+
+.monument__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}
+
+.monument__steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.monument__steps b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.monument__steps small {
+  color: var(--ink-3);
+}
+
+/* Plaques */
+.plaques {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--s4);
+}
+
+.plaque {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  height: 100%;
+  padding: 0 var(--s4) var(--s4);
+}
+
+.plaque__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 calc(var(--s4) * -1) 4px;
+  padding: 10px var(--s4);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--frame-blue), black 10%), color-mix(in oklab, var(--frame-blue), black 40%));
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px);
+}
+
+.plaque--proposed .plaque__top {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--oxygen), black 45%), color-mix(in oklab, var(--oxygen), black 65%));
+}
+
+.plaque__title {
+  font-weight: 750;
+  font-stretch: 74%;
+  font-size: 1.02rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #fff;
+  flex: 1;
+}
+
+.plaque__desc {
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  min-height: 2.6em;
+}
+
+.plaque__value {
+  font-family: var(--display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.plaque__value small {
+  font-family: var(--font);
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-left: 6px;
+}
+
+.plaque__holders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+.plaque__holder {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plaque__game {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.plaque__game:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* Record history step chart */
+.rhist {
+  position: relative;
+  margin-top: 4px;
+}
+
+.rhist__svg {
+  display: block;
+  width: 100%;
+  height: 64px;
+  overflow: visible;
+}
+
+.monument .rhist__svg {
+  height: 110px;
+}
+
+.rhist__line {
+  fill: none;
+  stroke: var(--mc);
+  stroke-width: 1.6;
+  opacity: .7;
+}
+
+.rhist__pt {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.proposed {
+  display: grid;
+  gap: var(--s3);
+  margin-top: var(--s4);
+  padding-top: var(--s5);
+  border-top: 1px dashed var(--edge-2);
+}
+
+.proposed__title {
+  font-family: var(--display);
+  font-size: var(--t-h2);
+}
+
+.proposed__lede {
+  font-size: var(--t-small);
+  margin-bottom: var(--s2);
+}
+
+@container app (min-width: 1080px) {
+  .monument__plate {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--s7);
+    padding: var(--s6);
+  }
+
+  .monument__head,
+  .monument__desc,
+  .monument__body {
+    grid-column: 1;
+  }
+
+  .monument__h,
+  .monument .rhist,
+  .monument__steps {
+    grid-column: 2;
+  }
+
+  .monument__h {
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .monument .rhist {
+    grid-row: 2 / span 2;
+  }
+
+  .monument__steps {
+    grid-row: 4;
+  }
+}
+
+.activef {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  margin-top: calc(var(--s4) * -1);
+}

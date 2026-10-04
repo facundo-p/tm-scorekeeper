@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { achievementRows, corpRows, dnaRows, heldRecords, mapRows, progressPct, tabOf, timesText } from '@/screens/Profile/model'
+import { achievementRows, corpRows, dnaRows, heldRecords, mapRows, tabOf, timesText } from '@/screens/Profile/model'
+import { progressPct } from '@/ui/atoms'
 import type { CatalogAchievement, GroupRecord, PlayerAchievement, SplitStat } from '@/data/types'
 
 const split = (name: string, games: number, wins: number): SplitStat => ({ name, games, wins, avg: 80, avg_pos: 2 })
