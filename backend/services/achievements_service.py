@@ -1,22 +1,16 @@
-import logging
+"""Logros derivados del historial (F23, D-04): el estado sale siempre de las partidas; la tabla
+`achievement_unlocks` guarda la vista sin filtro y se regenera en cada escritura."""
 from dataclasses import dataclass, field
 
-from services.achievement_evaluators.registry import ALL_EVALUATORS
-from mappers.achievement_mapper import (
-    evaluation_result_to_unlocked_dto,
-    build_player_achievement_dto,
-    build_catalog_item_dto,
-)
-from schemas.achievement import (
-    AchievementUnlockedDTO,
-    PlayerAchievementDTO,
-    AchievementCatalogItemDTO,
-)
-
-logger = logging.getLogger(__name__)
+from models.game_subset import ALL_GAMES, GameSubset
+from repositories.achievement_repository import UnlockRow
+from services.achievement_evaluators.catalog import ACHIEVEMENTS
+from services.achievement_evaluators.derive import PlayerAchievements, derive_achievements
+from services.achievement_evaluators.tiers import AchievementState
+from services.stats.context import StatsContext
 
 
-@dataclass
+@dataclass(frozen=True)
 class PlayerReconcileChange:
     code: str
     old_tier: int
@@ -31,153 +25,95 @@ class ReconcileSummaryResult:
     errors: list = field(default_factory=list)
 
 
+@dataclass(frozen=True)
+class GameUnlock:
+    """Lo que una partida le dio a un jugador en un logro: el nivel más alto alcanzado ahí."""
+    code: str
+    tier: int
+    is_new: bool
+
+
+@dataclass(frozen=True)
+class CatalogHolder:
+    player_id: str
+    player_name: str
+    tier: int
+    unlocked_on: object
+
+
+def _rows(derived: PlayerAchievements) -> list[UnlockRow]:
+    return [UnlockRow(pid, s.definition.code, u.level, u.game_id, u.date)
+            for pid, states in derived.items() for s in states for u in s.unlocks]
+
+
+def _max_tiers(rows: list[UnlockRow]) -> dict[tuple[str, str], int]:
+    tiers: dict[tuple[str, str], int] = {}
+    for r in rows:
+        tiers[(r.player_id, r.code)] = max(tiers.get((r.player_id, r.code), 0), r.tier)
+    return tiers
+
+
+def _changes(before: list[UnlockRow], after: list[UnlockRow]) -> dict[str, list[PlayerReconcileChange]]:
+    old, new = _max_tiers(before), _max_tiers(after)
+    changes: dict[str, list[PlayerReconcileChange]] = {}
+    for key in sorted(old.keys() | new.keys()):
+        if old.get(key, 0) != new.get(key, 0):
+            changes.setdefault(key[0], []).append(PlayerReconcileChange(key[1], old.get(key, 0), new.get(key, 0)))
+    return changes
+
+
+def _game_unlocks(rows: list[UnlockRow]) -> dict[str, list[GameUnlock]]:
+    levels: dict[tuple[str, str], list[int]] = {}
+    for r in rows:
+        levels.setdefault((r.player_id, r.code), []).append(r.tier)
+    out: dict[str, list[GameUnlock]] = {}
+    for (pid, code), tiers in levels.items():
+        out.setdefault(pid, []).append(GameUnlock(code, max(tiers), is_new=min(tiers) == 1))
+    return out
+
+
+def _holders(states: dict[str, AchievementState], names: dict[str, str]) -> list[CatalogHolder]:
+    holders = [CatalogHolder(pid, names.get(pid, pid), s.tier, s.unlocked_on) for pid, s in states.items() if s.tier]
+    return sorted(holders, key=lambda h: (-h.tier, h.unlocked_on))
+
+
 class AchievementsService:
     def __init__(self, games_repository, achievement_repository, players_repository):
         self.games_repository = games_repository
         self.achievement_repository = achievement_repository
         self.players_repository = players_repository
 
-    def evaluate_for_game(self, game_id: str) -> dict[str, list[AchievementUnlockedDTO]]:
-        """
-        Evaluate all achievements for every player in the game.
+    def _derive(self, subset: GameSubset, player_ids=None) -> PlayerAchievements:
+        ids = player_ids or [p.player_id for p in self.players_repository.get_all()]
+        return derive_achievements(StatsContext.load(self.games_repository, subset), ids)
 
-        Returns a dict mapping player_id -> list of newly unlocked/upgraded DTOs.
-        Only players with at least one change appear in the result.
-        Never raises — returns {} on any error.
-        """
-        try:
-            game = self.games_repository.get(game_id)
-            if game is None:
-                return {}
-
-            player_ids = [pr.player_id for pr in game.player_results]
-            result: dict[str, list[AchievementUnlockedDTO]] = {}
-
-            for player_id in player_ids:
-                # Bulk-load games once per player (INTG-02: no N+1)
-                games = self.games_repository.get_games_by_player(player_id)
-                persisted = {
-                    a.code: a.tier
-                    for a in self.achievement_repository.get_for_player(player_id)
-                }
-
-                unlocked: list[AchievementUnlockedDTO] = []
-                for evaluator in ALL_EVALUATORS:
-                    current_tier = persisted.get(evaluator.code, 0)
-                    eval_result = evaluator.evaluate(player_id, games, current_tier)
-                    if eval_result.new_tier is not None:
-                        self.achievement_repository.upsert(
-                            player_id, evaluator.code, eval_result.new_tier
-                        )
-                        unlocked.append(evaluation_result_to_unlocked_dto(evaluator, eval_result))
-
-                if unlocked:
-                    result[player_id] = unlocked
-
-            return result
-
-        except Exception:
-            logger.exception("Error evaluating achievements for game %s", game_id)
-            return {}
-
-    def get_player_achievements(self, player_id: str) -> list[PlayerAchievementDTO]:
-        """
-        Return all achievements for a player (locked + unlocked).
-        Progress is computed on-demand for show_progress=True evaluators.
-        """
-        persisted = {
-            a.code: (a.tier, a.unlocked_at)
-            for a in self.achievement_repository.get_for_player(player_id)
-        }
-        games = self.games_repository.get_games_by_player(player_id)
-
-        result: list[PlayerAchievementDTO] = []
-        for evaluator in ALL_EVALUATORS:
-            tier, unlocked_at = persisted.get(evaluator.code, (0, None))
-            progress = None
-            if evaluator.definition.show_progress:
-                progress = evaluator.get_progress(player_id, games, tier)
-            result.append(
-                build_player_achievement_dto(evaluator, tier, unlocked_at, progress)
-            )
-
-        return result
-
-    def get_catalog(self) -> list[AchievementCatalogItemDTO]:
-        """
-        Return all achievement definitions with holders (players who unlocked them).
-        """
-        all_achievements = self.achievement_repository.get_all()
-        players = {p.player_id: p.name for p in self.players_repository.get_all()}
-
-        holders_by_code: dict[str, list[tuple]] = {}
-        for a in all_achievements:
-            entry = (a.player_id, players.get(a.player_id, "Unknown"), a.tier, a.unlocked_at)
-            holders_by_code.setdefault(a.code, []).append(entry)
-
-        result: list[AchievementCatalogItemDTO] = []
-        for evaluator in ALL_EVALUATORS:
-            holders = holders_by_code.get(evaluator.code, [])
-            result.append(build_catalog_item_dto(evaluator, holders))
-
-        return result
+    def recompute_all(self) -> dict[str, list[PlayerReconcileChange]]:
+        """Regenera la tabla desde el historial; devuelve los cambios de nivel por jugador.
+        Va dentro de la unidad de trabajo de la escritura, después del ELO (STAT-05)."""
+        before = self.achievement_repository.get_all()
+        after = _rows(self._derive(ALL_GAMES))
+        self.achievement_repository.replace_all(after)
+        return _changes(before, after)
 
     def reconcile_all(self) -> ReconcileSummaryResult:
-        """
-        Recalculate achievements for all players and apply corrections upward.
-        Never raises -- per-player errors are logged and skipped (D-05).
-        Returns summary of changes applied.
-        """
-        players = self.players_repository.get_all()
-        total_players = len(players)
-        players_updated = 0
-        achievements_applied: list[PlayerReconcileChange] = []
-        errors: list[str] = []
-
-        for player in players:
-            try:
-                games = self.games_repository.get_games_by_player(player.player_id)
-                persisted = {
-                    a.code: a.tier
-                    for a in self.achievement_repository.get_for_player(player.player_id)
-                }
-
-                player_changes: list[PlayerReconcileChange] = []
-                for evaluator in ALL_EVALUATORS:
-                    current_tier = persisted.get(evaluator.code, 0)
-                    computed = evaluator.compute_tier(player.player_id, games)
-
-                    if computed < current_tier:
-                        logger.info(
-                            "Reconciler skipping downgrade: player=%s code=%s "
-                            "computed=%d persisted=%d",
-                            player.player_id, evaluator.code, computed, current_tier,
-                        )
-                        continue
-
-                    if computed > current_tier:
-                        self.achievement_repository.upsert(
-                            player.player_id, evaluator.code, computed
-                        )
-                        player_changes.append(
-                            PlayerReconcileChange(
-                                code=evaluator.code,
-                                old_tier=current_tier,
-                                new_tier=computed,
-                            )
-                        )
-
-                if player_changes:
-                    players_updated += 1
-                    achievements_applied.extend(player_changes)
-
-            except Exception:
-                logger.exception("Reconciler error for player %s", player.player_id)
-                errors.append(player.player_id)
-
+        changes = self.recompute_all()
         return ReconcileSummaryResult(
-            total_players=total_players,
-            players_updated=players_updated,
-            achievements_applied=achievements_applied,
-            errors=errors,
+            total_players=len(self.players_repository.get_all()), players_updated=len(changes),
+            achievements_applied=[c for cs in changes.values() for c in cs],
         )
+
+    def unlocked_in_game(self, game_id: str) -> dict[str, list[GameUnlock]]:
+        """Lectura repetible de lo que la partida desbloqueó (STAT-05)."""
+        return _game_unlocks(self.achievement_repository.get_for_game(game_id))
+
+    def get_player_achievements(self, player_id: str, subset: GameSubset = ALL_GAMES) -> list[AchievementState]:
+        return self._derive(subset, [player_id])[player_id]
+
+    def get_catalog(self, subset: GameSubset = ALL_GAMES) -> list[tuple]:
+        """[(definición, poseedores)] con poseedores por nivel desc. y fecha."""
+        players = self.players_repository.get_all()
+        names = {p.player_id: p.name for p in players}
+        derived = self._derive(subset, [p.player_id for p in players])
+        by_code = {d.code: {pid: states[i] for pid, states in derived.items()} for i, d in enumerate(ACHIEVEMENTS)}
+        return [(d, _holders(by_code[d.code], names)) for d in ACHIEVEMENTS]
+

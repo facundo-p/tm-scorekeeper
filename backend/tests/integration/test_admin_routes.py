@@ -18,7 +18,7 @@ def admin_secret(monkeypatch):
 
 
 def test_recompute_with_secret(client, admin_secret):
-    with patch("routes.admin_routes.elo_service.recompute_all") as recompute:
+    with patch("routes.admin_routes.derived_service.recompute_all") as recompute:
         res = client.post("/admin/recompute", headers={"X-Admin-Secret": "secreto-admin"})
     assert res.status_code == 200
     recompute.assert_called_once()
@@ -26,7 +26,7 @@ def test_recompute_with_secret(client, admin_secret):
 
 @pytest.mark.parametrize("headers", [{}, {"X-Admin-Secret": "otro"}, {"X-Admin-Secret": ""}])
 def test_wrong_or_missing_secret_is_403(client, admin_secret, headers):
-    with patch("routes.admin_routes.elo_service.recompute_all") as recompute:
+    with patch("routes.admin_routes.derived_service.recompute_all") as recompute:
         assert client.post("/admin/recompute", headers=headers).status_code == 403
     recompute.assert_not_called()
 

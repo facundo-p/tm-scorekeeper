@@ -14,9 +14,10 @@ from repositories.container import (
     players_repository,
     elo_repository,
 )
-from services.container import achievements_service, elo_service
+from services.container import achievements_service, derived_service
 from repositories.game_filters import GameFilter
 from schemas.achievement import AchievementsByPlayerResponseDTO
+from mappers.achievement_mapper import game_unlock_to_dto
 
 
 router = APIRouter(
@@ -27,7 +28,7 @@ router = APIRouter(
 games_service = GamesService(
     games_repository=games_repository,
     players_repository=players_repository,
-    elo_service=elo_service,
+    derived_service=derived_service,
 )
 
 
@@ -113,5 +114,7 @@ def get_game_elo_changes(game_id: str):
 @router.post("/{game_id}/achievements", response_model=AchievementsByPlayerResponseDTO)
 def trigger_achievements(game_id: str):
     _require_game(game_id)
-    result = achievements_service.evaluate_for_game(game_id)
-    return AchievementsByPlayerResponseDTO(achievements_by_player=result)
+    unlocked = achievements_service.unlocked_in_game(game_id)
+    return AchievementsByPlayerResponseDTO(
+        achievements_by_player={pid: [game_unlock_to_dto(u) for u in us] for pid, us in unlocked.items()},
+    )

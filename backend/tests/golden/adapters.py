@@ -47,3 +47,11 @@ def record_shape(r: dict) -> dict:
 def elo_from_replay(changes: list) -> dict[str, dict]:
     """EloChange del servicio de reproducción → {player_id: {before, after, delta}}."""
     return {c.player_id: {"before": c.elo_before, "after": c.elo_after, "delta": c.delta} for c in changes}
+
+
+def achievements_from_api(body: dict) -> dict[str, dict]:
+    """GET /players/{id}/achievements → {code: {tier, value, unlocked, progress}} del golden."""
+    return {
+        a["code"]: {"tier": a["tier"], "value": a["value"], "unlocked": a["unlocks"], "progress": a["progress"]}
+        for a in body["achievements"]
+    }

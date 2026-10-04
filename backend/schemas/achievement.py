@@ -1,6 +1,10 @@
 from datetime import date
-from typing import Optional
+from typing import Literal, Optional
+
 from pydantic import BaseModel
+
+# «all»: todas las partidas; «mesa»: solo las de un tamaño de mesa, nunca se guarda (SEMANTICS §9).
+AchievementView = Literal["all", "mesa"]
 
 
 class AchievementUnlockedDTO(BaseModel):
@@ -11,6 +15,7 @@ class AchievementUnlockedDTO(BaseModel):
     is_upgrade: bool
     icon: Optional[str]
     fallback_icon: str
+    glyph: str
 
 
 class AchievementsByPlayerResponseDTO(BaseModel):
@@ -20,6 +25,12 @@ class AchievementsByPlayerResponseDTO(BaseModel):
 class ProgressDTO(BaseModel):
     current: int
     target: int
+
+
+class AchievementUnlockDTO(BaseModel):
+    level: int
+    date: date
+    game_id: str
 
 
 class PlayerAchievementDTO(BaseModel):
@@ -33,10 +44,17 @@ class PlayerAchievementDTO(BaseModel):
     unlocked: bool
     unlocked_at: Optional[date]
     progress: Optional[ProgressDTO]
+    # F23: campos aditivos
+    kind: str
+    glyph: str
+    flavor: str
+    value: int
+    unlocks: list[AchievementUnlockDTO]
 
 
 class PlayerAchievementsResponseDTO(BaseModel):
     achievements: list[PlayerAchievementDTO]
+    view: AchievementView = "all"
 
 
 class AchievementTierInfoDTO(BaseModel):
@@ -59,10 +77,14 @@ class AchievementCatalogItemDTO(BaseModel):
     fallback_icon: str
     tiers: list[AchievementTierInfoDTO]
     holders: list[HolderDTO]
+    kind: str
+    glyph: str
+    flavor: str
 
 
 class AchievementCatalogResponseDTO(BaseModel):
     achievements: list[AchievementCatalogItemDTO]
+    view: AchievementView = "all"
 
 
 class PlayerReconcileChangeDTO(BaseModel):

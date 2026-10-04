@@ -51,15 +51,14 @@ def load(seed: dict) -> None:
     """Reemplaza el contenido de la base actual por la semilla y recalcula."""
     from db.models import Base
     from db.session import SessionLocal, engine
-    from services.container import achievements_service, elo_service
+    from services.container import derived_service
 
     check_database(str(engine.url))
     Base.metadata.create_all(bind=engine)
     with SessionLocal.begin() as session:
         _clear(session, Base)
         _insert(session, seed)
-    elo_service.recompute_all()
-    achievements_service.reconcile_all()
+    derived_service.recompute_all()
 
 
 def main(argv: list[str]) -> None:
