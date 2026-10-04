@@ -21,7 +21,8 @@ export function ScreenHead({ title, sub, children, revealAt, asideClassName }: S
         <h1 className={styles['screen-head__title']}>{title}</h1>
         {sub && <p className={styles['screen-head__sub']}>{sub}</p>}
       </div>
-      {children && <div className={cx(styles['screen-head__aside'], asideClassName)}>{children}</div>}
+      {/* Como el mockup: si la pantalla pasa acciones (aunque hoy no muestre ninguna), el contenedor queda. */}
+      {children !== undefined && <div className={cx(styles['screen-head__aside'], asideClassName)}>{children}</div>}
     </header>
   )
 }

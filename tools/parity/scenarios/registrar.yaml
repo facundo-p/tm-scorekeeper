@@ -1,8 +1,10 @@
 # Registrar (F30) y ceremonia (F31).
+# El mockup abre Registrar con la partida del 27/9 precargada; la app, en blanco o con el borrador.
+# En modo comparación la app acepta ?ejemplo=<id> y ?step=N para mostrar lo mismo (D-76).
 - id: register-1
   screen: registrar
   ref: { hash: '#registrar' }
-  cand: { path: /registrar }
+  cand: { path: /registrar, search: '?ejemplo=g-063' }
   gateFromPhase: 30
 - id: ceremony-g063
   screen: ceremonia
@@ -13,4 +15,36 @@
   screen: registrar
   ref: { hash: '#editar-g-063' }
   cand: { path: /partidas/g-063/editar }
+  gateFromPhase: 30
+- id: register-2
+  screen: registrar
+  ref: { hash: '#registrar', search: '?step=1' }
+  cand: { path: /registrar, search: '?ejemplo=g-063&step=1' }
+  gateFromPhase: 30
+  thresholds:
+    pixels: { value: 2.5, reason: 'En 390 px el mockup saca de la placa el botón «Siguiente: Hitos y recompensas» (desborde horizontal); la app parte el texto en dos líneas (D-76)' }
+    planet: { value: 7, reason: 'El botón en dos líneas alarga la placa unos 2 px; el último frame se corre y el rect del planeta queda debajo de la grilla de jugadores (D-76)' }
+- id: register-3
+  screen: registrar
+  ref: { hash: '#registrar', search: '?step=2' }
+  cand: { path: /registrar, search: '?ejemplo=g-063&step=2' }
+  gateFromPhase: 30
+- id: register-4
+  screen: registrar
+  ref: { hash: '#registrar', search: '?step=3' }
+  cand: { path: /registrar, search: '?ejemplo=g-063&step=3' }
+  gateFromPhase: 30
+- id: register-5
+  screen: registrar
+  ref: { hash: '#registrar', search: '?step=4' }
+  cand: { path: /registrar, search: '?ejemplo=g-063&step=4' }
+  gateFromPhase: 30
+- id: register-errors
+  screen: registrar
+  ref: { hash: '#registrar' }
+  cand: { path: /registrar, search: '?ejemplo=g-063' }
+  actions:
+    - click: { role: button, name: Empezar en blanco }
+    - click: { role: button, name: 'Siguiente: Mesa' }
+      expect: { role: alert }
   gateFromPhase: 30

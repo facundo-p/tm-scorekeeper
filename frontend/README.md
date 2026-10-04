@@ -93,7 +93,7 @@ frontend/src/
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
-├── screens/          # v2.0: pantallas nuevas (Login, Home, Games, GameReport, NotFound, y las de F30–F34)
+├── screens/          # v2.0: pantallas nuevas (Login, Home, Games, GameReport, Register, NotFound, y las de F31–F34)
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
@@ -138,3 +138,4 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - Inicio (`/`, F28): temporada en curso con el planeta interactivo, última partida, bitácora, consejo y carrera por promedio; la categoría (`?cat=`) y la mesa (`?mesa=`) viven en la URL y solo filtran la carrera.
 - Partidas (`/partidas`, F29): archivo con actividad de 52 semanas, filtros (mapa, jugadores, mesa) y orden (`domain/sort.ts`); agrupado por mes cuando se ordena por fecha.
 - Informe (`/partidas/:id`, F29): héroe con el planeta en la región del mapa, puntaje final (barras o tabla), hitos y recompensas, ELO, récords y logros; eliminar pide confirmación e invalida todo el cache (`data/mutations.ts`).
+- Registrar (`/registrar`, F30) y editar (`/partidas/:id/editar`): asistente de 5 pasos con vista previa; el borrador vive en `sessionStorage`; guarda con `POST` (y abre la ceremonia) o `PUT` (y vuelve al informe). Lo puro (reductor, totales, validación) está en `screens/Register/model.ts` y la conversión con la API en `io.ts`.
