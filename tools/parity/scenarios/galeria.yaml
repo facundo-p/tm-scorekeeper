@@ -23,16 +23,19 @@
   gateFromPhase: 27
 - id: '404'
   screen: shell
+  planetFromPhase: 27  # el planeta estacionado llega en F27 (D-70)
   ref: { hash: '#no-existe' }
   cand: { path: /no-existe }
   gateFromPhase: 26
 - id: state-loading
   screen: shell
+  planetFromPhase: 27  # el planeta estacionado llega en F27 (D-70)
   ref: { hash: '#inicio', search: '?demo=loading' }
   cand: { path: /, search: '?demo=loading' }
   gateFromPhase: 26
 - id: state-error
   screen: shell
+  planetFromPhase: 27  # el planeta estacionado llega en F27 (D-70)
   ref: { hash: '#inicio', search: '?demo=error' }
   cand: { path: /, search: '?demo=error' }
   gateFromPhase: 26

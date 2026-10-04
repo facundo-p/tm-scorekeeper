@@ -169,7 +169,7 @@ Plans:
 - [x] **Phase 23: Logros derivados, nuevos y vista por mesa** (E4)
 - [x] **Phase 24: Jugadores, partidas e informe** (E4)
 - [x] **Phase 25: Métricas del grupo, equidad y temporadas** (E4)
-- [ ] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
+- [x] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
 - [ ] **Phase 27: Efectos e instrumentos** (E5)
 - [ ] **Phase 28: Pantallas: Acceso e Inicio** (E6)
 - [ ] **Phase 29: Pantallas: Partidas e Informe** (E6)
@@ -286,7 +286,7 @@ Plans:
 **Epic**: E5 · **Depends on**: 19, 25 · **Requirements**: SHELL-01..04
 **Success Criteria** (what must be TRUE):
   1. Escenarios `shell`, `404`, `state-loading`, `state-error` en verde
-**Plans**: TBD
+**Plans**: 26-01
 
 ### Phase 27: Efectos e instrumentos
 **Goal**: ver `.planning/v2.0/SPEC.md` § F27

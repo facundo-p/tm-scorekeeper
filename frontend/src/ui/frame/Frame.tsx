@@ -6,8 +6,13 @@ import styles from './Frame.module.css'
 interface FrameProps {
   /** Nombre de la pantalla (`data-screen`); en el mockup es la clase `screen--<nombre>`. */
   screen: string
-  /** `plain`: sin navegación, cielo ni planeta (galería, D-42). */
-  variant?: 'plain'
+  /** `plain`: sin navegación, cielo ni planeta (galería, D-42); `bare`: sin navegación (acceso, ceremonia). */
+  variant?: 'plain' | 'bare'
+  /** Cielo de fondo (lo pinta el shell). */
+  sky?: ReactNode
+  rail?: ReactNode
+  topbar?: ReactNode
+  dock?: ReactNode
   children: ReactNode
 }
 
@@ -29,21 +34,24 @@ function useSheen(host: React.RefObject<HTMLDivElement | null>) {
 }
 
 /**
- * Marco de la app nueva (D-43): escenario, dispositivo (raíz de las container queries),
- * scroller con `data-scroll-root`, pantalla y capa de hojas (#overlays). Carga los estilos
- * del sistema visual. F26 le agrega el shell.
+ * Marco de la app nueva (D-43): escenario, dispositivo (raíz de las container queries), cielo,
+ * rail, scroller con `data-scroll-root` (barra superior y pantalla), dock y capa de hojas
+ * (#overlays). Carga los estilos del sistema visual; el shell (src/shell) le pasa las piezas.
  */
-export function Frame({ screen, variant, children }: FrameProps) {
+export function Frame({ screen, variant, sky, rail, topbar, dock, children }: FrameProps) {
   const device = useRef<HTMLDivElement>(null)
   useSheen(device)
   return (
     <div className={cx(styles.stage, styles['stage--desktop'])}>
       <div className={styles['device-fit']}>
         <div className={cx(styles.device, variant && styles[`device--${variant}`])} ref={device}>
-          <div className={styles.fx} />
+          <div className={styles.fx}>{sky}</div>
+          {rail}
           <div className={styles.scroller} data-scroll-root>
-            <main className={styles.screen} data-screen={screen}>{children}</main>
+            {topbar}
+            <main className={cx(styles.screen, styles[`screen--${screen}`])} data-screen={screen}>{children}</main>
           </div>
+          {dock}
           <div className={styles.overlays} id="overlays" />
         </div>
       </div>

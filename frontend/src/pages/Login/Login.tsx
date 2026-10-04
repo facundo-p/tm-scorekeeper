@@ -13,7 +13,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
 
-  if (isAuthenticated) return <Navigate to="/home" replace />
+  if (isAuthenticated) return <Navigate to="/" replace />
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -21,7 +21,7 @@ export default function Login() {
     setPending(true)
     const result = await login(username, password)
     setPending(false)
-    if (result.ok) navigate('/home')
+    if (result.ok) navigate('/')
     else setError(result.error)
   }
 

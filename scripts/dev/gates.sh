@@ -87,7 +87,8 @@ parity_gates() {
   case "$GATES_PHASE" in *[!0-9]*) echo "GATES_PHASE debe ser un número: '$GATES_PHASE'"; exit 64 ;; esac
   # Hasta F18 no hay app candidata: el mockup se compara consigo mismo.
   local self=""; [ "$GATES_PHASE" -le 18 ] && self="--self"
-  run_gate comparación node "$ROOT/tools/parity/run.mjs" --phase "$GATES_PHASE" $self
+  local gated=""; [ -z "$self" ] && gated="--gated"
+  run_gate comparación node "$ROOT/tools/parity/run.mjs" --phase "$GATES_PHASE" $self $gated
   run_gate arnés npm --prefix "$ROOT/tools/parity" test --silent
 }
 

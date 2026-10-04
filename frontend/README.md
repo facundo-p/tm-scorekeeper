@@ -83,16 +83,21 @@ Los archivos quedan en `dist/`. Requiere que TypeScript compile sin errores.
 
 ```
 frontend/src/
-├── api/              # Cliente HTTP y llamadas a la API
+├── api/              # http.ts (Bearer, 15 s, cancelación, ApiError) y llamadas de las pantallas viejas
 ├── components/       # Componentes de las pantallas actuales (se reemplazan en v2.0)
 ├── constants/        # Enums del juego (mapas, hitos, recompensas, corporaciones)
 ├── context/          # AuthContext (sesión en localStorage)
+├── data/             # v2.0: TanStack Query (query.ts) y hooks de datos de la API v2 (hooks.ts)
 ├── domain/           # v2.0: catálogo, etiquetas en castellano, formato es-AR y cssVars()
 ├── hooks/            # usePlayers, useGames
-├── pages/            # Pantallas; Gallery/ es la galería de comparación (/__galeria, solo --mode parity)
+├── fx/               # v2.0: cielo (stars.ts) y generador determinístico (rand.ts)
+├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
+├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
+├── screens/          # v2.0: pantallas nuevas (NotFound, y las de F28–F34)
+├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
-├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/
+├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/
 ├── utils/            # gameCalculations.ts, validation.ts, a11y.ts
 └── test/
     ├── unit/         # Utilidades, dominio y regla de estilos
@@ -104,3 +109,11 @@ frontend/src/
 ### Sistema visual v2.0
 
 Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los nombres BEM del mockup como claves (`styles['btn--primary']`, D-44); las tipografías se sirven desde `public/fonts/` y se declaran en `src/styles/fonts.css`. La galería `/__galeria` muestra los átomos con datos fijos y existe solo en `vite build --mode parity`, que usa el arnés de comparación (`tools/parity/`).
+
+### Shell, rutas y datos (v2.0, F26)
+
+- Rutas en castellano (`/`, `/partidas`, `/partidas/:id`, `/registrar`, `/ranking`, `/jugadores/:id`, `/records`, `/logros`, `/acceso`); las viejas (`/home`, `/games/...`, `/players/...`) redirigen. Una ruta desconocida muestra la 404 dentro del shell.
+- Mientras una pantalla no se porte (F28–F34), su ruta nueva muestra la página vieja dentro del shell (D-69).
+- Datos: `useApiQuery` envuelve TanStack Query con la forma del skill `new-hook` (`{ dato, loading, error, refetch }`); la clave de cache es la ruta con su query string, así el filtro (`?player_count=`) separa las entradas (D-10).
+- Filtro de mesa: `useMesaParam()` lee y escribe `?mesa=2..5` en la URL; `MesaFilter` y `MesaNotice` en `ui/MesaFilter/`.
+- Con `vite --mode parity`, `?demo=loading|error` muestra el estado de carga o de error en cualquier pantalla (comparación).

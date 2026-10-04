@@ -12,10 +12,10 @@ function jsonResponse(status: number, body: unknown) {
 function renderLogin() {
   return render(
     <AuthProvider>
-      <MemoryRouter initialEntries={['/login']}>
+      <MemoryRouter initialEntries={['/acceso']}>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<p>inicio</p>} />
+          <Route path="/acceso" element={<Login />} />
+          <Route path="/" element={<p>inicio</p>} />
         </Routes>
       </MemoryRouter>
     </AuthProvider>,

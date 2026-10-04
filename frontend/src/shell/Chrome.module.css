@@ -1,0 +1,475 @@
+/* Port de docs/redesign/mockup/css/shell.css: marca, barra superior, transmisión, temporada,
+   rail y dock. El escenario, el dispositivo y el scroller están en ui/frame/Frame.module.css. */
+/* ---------- Navigation links: rendered like the buttons they replaced ---------- */
+.rail__brand,
+.rail__item,
+.rail__exit,
+.dock__item,
+.topbar__brand,
+.topbar__exit {
+  display: inline-block;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.rail__brand:hover,
+.rail__item:hover,
+.rail__exit:hover,
+.dock__item:hover,
+.topbar__brand:hover,
+.topbar__exit:hover {
+  color: inherit;
+}
+
+/* ---------- Wordmark ---------- */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.wordmark__mark {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+
+.wm-hex {
+  fill: var(--hull-2);
+  stroke: var(--bevel);
+  stroke-width: 1.2;
+}
+
+.wm-arc {
+  fill: none;
+  stroke: var(--mc);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 2 2.6;
+}
+
+.wm-planet {
+  fill: var(--mars);
+}
+
+.wm-moon {
+  fill: var(--ink-2);
+}
+
+.wordmark__text {
+  display: grid;
+  line-height: 1;
+  text-align: left;
+}
+
+.wordmark__text b {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-stretch: 118%;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.wordmark__text span {
+  font-size: .72rem;
+  font-weight: 500;
+  font-stretch: 88%;
+  color: var(--ink-2);
+  letter-spacing: .04em;
+  margin-top: 3px;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  height: var(--top-h);
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: 0 var(--gutter);
+  padding-right: calc(var(--gutter) + 48px);
+  background: linear-gradient(180deg, rgba(15, 11, 16, .92), rgba(15, 11, 16, .7));
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--edge);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mars-hi) 30%, var(--mc) 50%, var(--mars-hi) 70%, transparent);
+  opacity: .35;
+}
+
+.topbar__brand {
+  flex: none;
+}
+
+.topbar__exit {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-3);
+  border-radius: 50%;
+}
+
+.topbar__exit:hover {
+  color: var(--down);
+  background: var(--hull-2);
+}
+
+.topbar__aside {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.ticker {
+  display: none;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: var(--s3);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  text-align: left;
+  padding: 6px 10px;
+}
+
+.ticker:hover:enabled .ticker__msg {
+  color: var(--ink);
+}
+
+/* Ítem sin partida (por ejemplo, un cierre de temporada): se lee igual, pero no navega. */
+.ticker:disabled {
+  cursor: default;
+}
+
+.ticker__rec {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--down);
+  box-shadow: 0 0 10px var(--down);
+  animation: rec 2.4s steps(2, jump-none) infinite;
+  flex: none;
+}
+
+@keyframes rec {
+  50% { opacity: .25; }
+}
+
+.ticker__label {
+  font-weight: 700;
+  font-stretch: 72%;
+  font-size: var(--t-micro);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--down);
+  flex: none;
+}
+
+.ticker__msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: ticker-in var(--d-3) var(--ease-out) both;
+}
+
+@keyframes ticker-in {
+  from { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+}
+
+.season-chip {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--hull-0);
+  text-align: left;
+}
+
+.season-chip:hover {
+  border-color: var(--edge-2);
+}
+
+.season-chip__ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--hull-0) 58%, transparent 60%),
+    conic-gradient(var(--plant) calc(var(--pct) * 1%), var(--hull-3) 0);
+}
+
+.season-chip__t {
+  display: block;
+  font-size: var(--t-micro);
+  color: var(--ink-2);
+  line-height: 1.1;
+}
+
+.season-chip__v {
+  display: block;
+  font-size: var(--t-small);
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+/* ---------- Rail (tablet and desktop) ---------- */
+.rail {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--rail-w);
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 16px;
+  background: linear-gradient(90deg, rgba(23, 17, 23, .96), rgba(23, 17, 23, .86));
+  border-right: 1px solid var(--edge);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.rail::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: 1px;
+  background: repeating-linear-gradient(180deg, var(--mars) 0 8px, transparent 8px 14px);
+  opacity: .32;
+}
+
+.rail__brand {
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+}
+
+.rail__list {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.rail__item {
+  position: relative;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  color: var(--ink-2);
+  transition: color var(--d-2);
+}
+
+.rail__item:hover {
+  color: var(--ink);
+}
+
+.rail__hex {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: var(--hull-1);
+  transition: background var(--d-2), transform var(--d-2) var(--ease-spring);
+}
+
+.rail__item:hover .rail__hex {
+  background: var(--hull-3);
+  transform: scale(1.06);
+}
+
+.rail__item.is-on {
+  color: var(--ink);
+}
+
+.rail__item.is-on .rail__hex {
+  background: linear-gradient(160deg, var(--mars-hi), var(--mars-lo));
+  color: var(--ink);
+}
+
+.rail__item.is-on::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 26px;
+  translate: 0 -60%;
+  background: var(--mc);
+  box-shadow: 0 0 12px var(--mc);
+}
+
+.rail__item--primary {
+  margin: 10px 0;
+}
+
+.rail__item--primary .rail__hex {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(160deg, var(--mc-hi), var(--mc) 45%, var(--mc-lo));
+  color: var(--ink-inv);
+}
+
+.rail__item--primary:hover .rail__hex {
+  background: linear-gradient(160deg, #fff0c8, var(--mc-hi) 45%, var(--mc));
+}
+
+.rail__item--primary.is-on .rail__hex {
+  background: linear-gradient(160deg, #fff0c8, var(--mc-hi) 45%, var(--mc));
+  color: var(--ink-inv);
+}
+
+.rail__label {
+  font-size: .7rem;
+  font-weight: 600;
+  font-stretch: 80%;
+  letter-spacing: .03em;
+}
+
+.rail__exit {
+  margin-top: auto;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-3);
+  border-radius: 50%;
+}
+
+.rail__exit:hover {
+  color: var(--down);
+  background: var(--hull-2);
+}
+
+/* ---------- Dock (phone) ---------- */
+.dock {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  padding: 6px 8px calc(8px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, rgba(23, 17, 23, .78), rgba(15, 11, 16, .97) 40%);
+  border-top: 1px solid var(--edge);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dock__item {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  min-height: 52px;
+  padding: 6px 0 2px;
+  color: var(--ink-3);
+  position: relative;
+}
+
+.dock__item.is-on {
+  color: var(--ink);
+}
+
+.dock__item.is-on::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  width: 22px;
+  height: 3px;
+  background: var(--mc);
+  box-shadow: 0 0 10px var(--mc);
+}
+
+.dock__label {
+  font-size: .68rem;
+  font-weight: 600;
+  font-stretch: 82%;
+}
+
+.dock__item--primary .dock__icon {
+  width: 58px;
+  height: 58px;
+  margin-top: -26px;
+  display: grid;
+  place-items: center;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: linear-gradient(160deg, var(--mc-hi), var(--mc) 45%, var(--mc-lo));
+  color: var(--ink-inv);
+  filter: drop-shadow(0 6px 14px rgba(242, 182, 62, .35));
+}
+
+.dock__item--primary {
+  color: var(--ink);
+}
+
+.dock__item--primary.is-on::before {
+  display: none;
+}
+
+/* ---------- Container breakpoints ---------- */
+@container app (min-width: 560px) {
+  .season-chip {
+    display: flex;
+  }
+}
+
+@container app (min-width: 760px) {
+  .rail {
+    --rail-w: 84px;
+    display: flex;
+  }
+
+  .dock {
+    display: none;
+  }
+
+  .topbar__brand {
+    display: block;
+  }
+
+  .topbar__exit {
+    display: none;
+  }
+
+  .ticker {
+    display: flex;
+  }
+
+  .topbar {
+    padding-right: var(--gutter);
+  }
+}
+
+@container app (min-width: 1180px) {
+  .rail {
+    --rail-w: 96px;
+  }
+}

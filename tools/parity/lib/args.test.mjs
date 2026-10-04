@@ -15,6 +15,10 @@ test('parses lists and flags', () => {
   assert.equal(o.ref, 'mockup@abc');
 });
 
+test('--gated is a bare flag', () => {
+  assert.deepEqual(parseArgs(['--gated', '--phase', '26']), { mode: 'candidate', phase: 26, concurrency: 2, gated: true });
+});
+
 test('rejects unknown options', () => {
   assert.throws(() => parseArgs(['--nope', '1']));
 });

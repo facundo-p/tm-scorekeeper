@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Arnés de comparación visual y estructural mockup ↔ app (v2.0, F16).
-//   node tools/parity/run.mjs --phase NN [--screens …]       mockup contra la app
+//   node tools/parity/run.mjs --phase NN [--gated] [--screens …]  mockup contra la app (--gated: solo los exigidos)
 //   node tools/parity/run.mjs --self [--ref mockup@<sha>]     mockup contra sí mismo (o contra una versión vieja)
 // Sale con 1 si falla algún escenario exigido.
 import { mkdirSync } from 'node:fs';
@@ -9,7 +9,7 @@ import { OUT_DIR } from './config.mjs';
 import { parseArgs } from './lib/args.mjs';
 import { launch, newPage } from './lib/browser.mjs';
 import { ariaTree, axeSerious, captureFrames, probeStyles } from './lib/capture.mjs';
-import { evaluate } from './lib/evaluate.mjs';
+import { evaluate, normalizeAria, planetChecked } from './lib/evaluate.mjs';
 import { runActions } from './lib/actions.mjs';
 import { waitReady } from './lib/ready.mjs';
 import { writeImages, writeReport } from './lib/report.mjs';
@@ -50,10 +50,13 @@ async function runEntryOnce(ctx, scenario, viewport) {
   const key = `${scenario.id}-${viewport}`;
   try {
     const ref = await captureSide(ctx.browser, ctx.ref, scenario, viewport);
-    const cand = await captureSide(ctx.browser, ctx.cand, scenario, viewport);
-    const result = evaluate(scenario, viewport, ref, cand, ctx.opts.mode);
+    // Antes de `planetFromPhase` la candidata no tiene planeta: no se lo espera (D-70).
+    const candScenario = planetChecked(scenario, ctx.opts.phase) ? scenario : { ...scenario, planet: 'none' };
+    const cand = await captureSide(ctx.browser, ctx.cand, candScenario, viewport);
+    const result = evaluate(scenario, viewport, ref, cand, ctx.opts.mode, ctx.opts.phase);
     const files = writeImages(ctx.dir, key, ref, cand, result);
-    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe }, state: { ref: ref.state, cand: cand.state } };
+    const aria = JSON.stringify(normalizeAria(ref.aria)) === JSON.stringify(normalizeAria(cand.aria)) ? undefined : { ref: ref.aria, cand: cand.aria };
+    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe }, state: { ref: ref.state, cand: cand.state }, aria };
   } catch (err) {
     return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: false, failures: [`excepción: ${err.message}`], result: { frames: [] }, files: [] };
   }
@@ -84,9 +87,15 @@ async function main() {
   const opts = parseArgs(process.argv.slice(2));
   const run = `${new Date().toISOString().replace(/[:.]/g, '-')}-${opts.mode}`;
   const dir = resolve(opts.out ?? resolve(OUT_DIR, run));
-  mkdirSync(dir, { recursive: true });
-  const scenarios = loadScenarios(opts);
+  // --gated: solo los escenarios que ya bloquean en esta fase (los demás tardan y solo avisan).
+  const scenarios = loadScenarios(opts).filter((s) => !opts.gated || isGated(s, opts));
   const jobs = scenarios.flatMap((s) => s.viewports.filter((v) => !opts.viewports || opts.viewports.includes(v)).map((v) => [s, v]));
+  if (!jobs.length) {
+    console.log(opts.gated ? `ningún escenario exigido en la fase ${opts.phase}: nada que comparar` : 'ningún escenario coincide con el filtro');
+    process.exitCode = opts.gated ? 0 : 1;
+    return;
+  }
+  mkdirSync(dir, { recursive: true });
   const { ref, cand } = await sides(opts);
   const browser = await launch();
   const ctx = { browser, ref, cand, opts, dir };

@@ -13,3 +13,10 @@ test('filters by screen and id', () => {
   assert.ok(loadScenarios({ screens: ['perfil'] }).every((s) => s.screen === 'perfil'));
   assert.deepEqual(loadScenarios({ ids: ['home'] }).map((s) => s.id), ['home']);
 });
+
+test('planetFromPhase only waives the planet before that phase', async () => {
+  const { planetChecked } = await import('./evaluate.mjs');
+  assert.equal(planetChecked({ planetFromPhase: 27 }, 26), false);
+  assert.equal(planetChecked({ planetFromPhase: 27 }, 27), true);
+  assert.equal(planetChecked({}, 26), true);
+});
