@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F25 · Métricas del grupo, equidad y temporadas |
-| Issue | 25.1–25.3 (#116–#118) |
+| Fase | F26 · Shell, rutas, datos y filtro de mesa |
+| Issue | 26.x (#119–#122) |
 | Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | a419b35 (merge #157 en origin/staging) |
+| Último commit | d29d100 (merge #159 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F25 partida en 25-A (insights de jugador, STAT-11), 25-B (ranking con equidad, cara a cara, bitácora, resumen, cambios de líder; STAT-12) y 25-C (temporadas, SEAS-01). Golden: `players`, `head_to_head`, `feed`, `summary`, `lead_changes`, `seasons`, `season_races`.
+**Próximo paso:** F26 — shell del frontend nuevo (rutas, capa de datos contra la API v2, filtro de mesa) según SPEC § F26; primera comparación con la candidata real.
 
 ## Tablero (GitHub)
 
@@ -75,3 +75,4 @@
 - 2026-10-04 — F23-C mergeada (#156 → `7ceb5b0`; revisión: ronda 1 APPROVE con 2 minor y 1 nit de docs, corregidos). Issue #111 cerrado. F23 completa. Rama reseteada a `origin/staging`.
 - 2026-10-04 — F24 mergeada (#157 → `a419b35`; revisión: ronda 1 CHANGES_REQUESTED por la carrera de colores (500) y la falta de tests de la migración, ronda 2 APPROVE con 1 nit no aplicado: el único `IntegrityError` posible en ese bloque es el del índice de colores). Golden de `summaries` y `reports` agregado al exportador. Issues #113–#115 cerrados. Rama reseteada.
 - 2026-10-04 — F25-A mergeada (#158 → `67e64bc`; revisión: ronda 1 APPROVE con 2 minor y 2 nit: tests de bordes y rivales sin lambdas; el desempate por primera partida rompía el golden y queda por id). Issue #116 cerrado. Rama reseteada; 25-B encima.
+- 2026-10-04 — F25-B mergeada (#159 → `d29d100`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos). 25-C (temporadas y bitácora) encima; golden completo habilitado (todas las claves en 5 alcances, informe en todas las partidas). Latencias locales p95 ≤ 79 ms.

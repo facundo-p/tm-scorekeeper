@@ -1,4 +1,6 @@
 """Adaptadores entre las respuestas de la API y la forma de fixtures/golden.json."""
+import json
+from itertools import groupby
 
 
 def positions_from_results(results_dto: dict) -> dict[str, dict]:
@@ -120,3 +122,16 @@ def ranking_row_from_api(row: dict) -> dict:
     """Fila de GET /ranking → los campos equivalentes de `players` del golden."""
     return insights_from_api({k: row[k] for k in ("rank", "elo", "peak", "last_delta", "games", "wins", "win_rate",
                                                   "equity", "form")})
+
+
+def season_from_api(s: dict) -> dict:
+    """Temporada de la API → forma del golden (sin `end` mientras está abierta)."""
+    renamed = {"oxygen_pct": "oxygenPct", "ocean_count": "oceanCount"}
+    return {renamed.get(k, k): v for k, v in s.items() if not (k == "end" and v is None)}
+
+
+def feed_groups(items: list[dict]) -> list[list[str]]:
+    """La bitácora por (fecha, tipo), sin el orden dentro de cada grupo (D-68)."""
+    clean = [{k: v for k, v in i.items() if v is not None} for i in items]
+    return [sorted(json.dumps(x, sort_keys=True) for x in grp)
+            for _, grp in groupby(clean, key=lambda i: (i["date"], i["type"]))]

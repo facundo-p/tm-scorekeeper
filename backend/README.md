@@ -58,6 +58,7 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
 - Fase 24: `GET /players/` suma `color` (uno de 10, único entre activos) y `since` (fecha de la primera partida); `POST /players/` y `PATCH /players/{id}` aceptan `color` (409 si lo tiene otro activo). Nuevos `GET /games/summaries` (filas del archivo, con el subconjunto) y `GET /games/{id}/report` (posiciones, margen, desempate por M€, ELO, récords rotos, igualados y cerca, logros de la partida y recompensas robadas). Crear y editar una partida devuelven el informe (`report`); editar conserva `message`. **Antes de migrar**: la migración `f2a3b4c5d6e7` asigna colores y aborta si hay más de 10 jugadores activos (no alcanzan los colores); en ese caso, desactivar jugadores antes de desplegar.
 - Fase 25-A: nuevo `GET /players/{id}/insights?player_count=` (ficha del jugador frente al grupo: partidas, victorias, tasas, promedios, mejor partida, hitos y recompensas favoritos, composición del puntaje y arquetipo, corporaciones y mapas, racha y forma, némesis y víctima, récords que posee, puesto en el ranking, equidad, desglose por mesa y ELO —de mesa con el filtro—).
 - Fase 25-B: `GET /ranking?player_count=&from=` (activos con partidas, por ELO, con equidad, forma, arquetipo y serie de ELO —`from` recorta solo la serie— y los cambios de líder), `GET /stats/head-to-head?player_count=` (matriz y némesis/víctima de cada jugador) y `GET /stats/summary?player_count=` (totales del grupo, corporaciones y mapas).
+- Fase 25-C: `GET /seasons` (temporadas del grupo con su Marte, carrera y campeón, e historial de campeones), `GET /seasons/current` y `GET /seasons/{n}` (`?category=total|<categoría>&player_count=` para la carrera, D-15) y `GET /feed?player_count=&limit=` (bitácora: partidas, récords rotos, logros y temporadas completas).
 
 ## Estadísticas y récords (v2.0)
 
@@ -65,6 +66,7 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
 - `services/stats/context.py`: `StatsContext` lee las partidas una vez, en orden canónico, con posiciones, ganadores y margen.
 - `services/stats/elo_replay.py`: ELO reproducido sobre el subconjunto, desde 1000 (ELO de mesa). Sin filtro coincide con el historial guardado.
 - `services/achievement_evaluators/`: logros derivados (definiciones, métricas por partida, bucle de niveles único). `services/derived_service.py` recalcula ELO y logros juntos; al arrancar compara `app_meta.derived_version` con `DERIVED_VERSION` y recalcula todo si quedó atrás (D-13). Para agregar un logro: skill `new-achievement`.
+- `services/stats/{insights,group,seasons,feed}.py`: ficha del jugador, ranking y resumen, temporadas y bitácora (espejo de `derive.js`; sumas de izquierda a derecha, D-67).
 - `services/records/`: motor de récords v2 (definiciones, métricas por partida, seguimiento D-05, carrera D-18, contexto «roto/cerca» por partida). Para agregar un récord: skill `new-record`.
 
 ## Tests
