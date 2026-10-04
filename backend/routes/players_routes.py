@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from schemas.player_profile import PlayerProfileDTO
 from services.player_profile_service import PlayerProfileService
 from repositories.container import games_repository, players_repository
@@ -8,6 +8,9 @@ from services.player_service import PlayerService
 from services.container import achievements_service, elo_service
 from typing import Optional
 from schemas.achievement import PlayerAchievementsResponseDTO
+from mappers.achievement_mapper import player_achievement_to_dto
+from models.game_subset import GameSubset
+from routes.dependencies import table_subset, view_of
 from schemas.elo_summary import PlayerEloSummaryDTO
 
 router = APIRouter(
@@ -103,10 +106,11 @@ def list_players(active: Optional[bool] = Query(default=None)):
 
 
 @router.get("/{player_id}/achievements", response_model=PlayerAchievementsResponseDTO)
-def get_player_achievements(player_id: str):
+def get_player_achievements(player_id: str, subset: GameSubset = Depends(table_subset)):
     try:
         players_repository.get(player_id)
     except KeyError:
         raise HTTPException(status_code=404, detail="Player not found")
-    items = achievements_service.get_player_achievements(player_id)
-    return PlayerAchievementsResponseDTO(achievements=items)
+    states = achievements_service.get_player_achievements(player_id, subset)
+    return PlayerAchievementsResponseDTO(achievements=[player_achievement_to_dto(s) for s in states],
+                                         view=view_of(subset))

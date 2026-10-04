@@ -54,12 +54,14 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
 - Fase 20: toda la API salvo `/health` y `/auth/login` exige `Authorization: Bearer`; `GET /elo/admin/recompute` pasó a `POST /admin/recompute`.
 - Fase 21: `tied` vale `true` para todo el grupo empatado; partidas o jugadores inexistentes responden 404 también en `/games/{id}/records`, `/games/{id}/elo`, `POST /games/{id}/achievements` y `/players/{id}/achievements` (antes, 200 con datos vacíos); el hito Spacecrafter se llama Spacefarer (la entrada acepta los dos).
 - Fase 22: `GET /records` devuelve los 16 récords oficiales y acepta el subconjunto `?player_count=2..5&map=&expansion=` (fuera de rango → 422). Cada ítem conserva `code`, `title`, `description`, `emoji` y `record` (primer poseedor y fecha, para el frontend previo) y suma `scope`, `unit`, `lower_is_better`, `value`, `holders` (todos los poseedores) e `history` (`set`/`broken`/`tied`, D-05 y D-18). Nuevo `GET /records/{code}/history` (404 si el código no existe). `RecordResultDTO.value` puede ser decimal (`points_per_generation`).
+- Fase 23: los logros se derivan del historial (D-04): son 18, se recalculan en cada alta, edición o borrado de partida dentro de la misma transacción, después del ELO, y un nivel puede perderse. `POST /games/{id}/achievements` ya no evalúa: devuelve, siempre igual, lo que esa partida desbloqueó. `GET /players/{id}/achievements` y `GET /achievements/catalog` aceptan `?player_count=2..5` (vista «mesa», nunca se guarda) y suman `view`, `kind`, `glyph`, `flavor`, `value` y `unlocks` (nivel, fecha y partida). El progreso aparece en todo logro que no sea de un solo nivel (`flag`). `POST /admin/recompute` recalcula ELO y logros. La tabla `player_achievements` se reemplaza por `achievement_unlocks`.
 
 ## Estadísticas y récords (v2.0)
 
 - `models/game_subset.py` y `routes/dependencies.py::game_subset`: el filtro único de subconjunto. Filtrar nunca escribe.
 - `services/stats/context.py`: `StatsContext` lee las partidas una vez, en orden canónico, con posiciones, ganadores y margen.
 - `services/stats/elo_replay.py`: ELO reproducido sobre el subconjunto, desde 1000 (ELO de mesa). Sin filtro coincide con el historial guardado.
+- `services/achievement_evaluators/`: logros derivados (definiciones, métricas por partida, bucle de niveles único). `services/derived_service.py` recalcula ELO y logros juntos; al arrancar compara `app_meta.derived_version` con `DERIVED_VERSION` y recalcula todo si quedó atrás (D-13). Para agregar un logro: skill `new-achievement`.
 - `services/records/`: motor de récords v2 (definiciones, métricas por partida, seguimiento D-05, carrera D-18, contexto «roto/cerca» por partida). Para agregar un récord: skill `new-record`.
 
 ## Tests

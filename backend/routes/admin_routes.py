@@ -4,7 +4,7 @@ import secrets
 
 from fastapi import APIRouter, Header, HTTPException
 
-from services.container import elo_service
+from services.container import derived_service
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
@@ -17,7 +17,7 @@ def _check_admin_secret(provided: str | None) -> None:
 
 @router.post("/recompute")
 def recompute(x_admin_secret: str | None = Header(default=None)):
-    """Recalcula el ELO de toda la historia."""
+    """Recalcula el ELO y los logros de toda la historia."""
     _check_admin_secret(x_admin_secret)
-    elo_service.recompute_all()
-    return {"status": "ok", "message": "ELO recomputed from all history"}
+    derived_service.recompute_all()
+    return {"status": "ok", "message": "ELO and achievements recomputed from all history"}

@@ -25,6 +25,17 @@ def require_auth(credentials: HTTPAuthorizationCredentials | None = Depends(_bea
         raise _UNAUTHORIZED
 
 
+def table_subset(
+    player_count: Optional[int] = Query(None, ge=2, le=5, description="Solo partidas de N jugadores (vista «mesa»)"),
+) -> GameSubset:
+    """Filtro de mesa de los logros (STAT-07): solo tamaño de mesa; fuera de 2..5 → 422."""
+    return GameSubset(player_count=player_count)
+
+
+def view_of(subset: GameSubset) -> str:
+    return "all" if subset.is_all else "mesa"
+
+
 def game_subset(
     player_count: Optional[int] = Query(None, ge=2, le=5, description="Solo partidas de N jugadores"),
     map: Optional[MapName] = Query(None, description="Solo partidas en este mapa"),

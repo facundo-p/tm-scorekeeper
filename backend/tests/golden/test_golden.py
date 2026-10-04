@@ -3,10 +3,10 @@ import pytest
 
 from models.game_subset import GameSubset
 from repositories.container import games_repository
-from services.achievement_evaluators.derive import derive_achievements
 from services.stats.context import StatsContext
 from services.stats.elo_replay import replay_elo
 from tests.golden.adapters import (
+    achievements_from_api,
     elo_from_changes,
     elo_from_golden,
     elo_from_replay,
@@ -80,13 +80,20 @@ def test_full_replay_equals_stored_history(client):
 
 
 @pytest.mark.parametrize("scope", enabled_scopes("achievements"))
-def test_derived_achievements(seeded, golden, scope):
-    """Motor de logros derivados (F23, STAT-04, STAT-06) contra el golden, sin filtro y por mesa."""
+def test_achievements(client, golden, scope):
+    """Logros derivados de cada jugador, sin filtro (guardados) y por mesa (STAT-04, STAT-07)."""
     expected = golden_scope(golden, scope)["achievements"]
-    derived = derive_achievements(StatsContext.load(games_repository, _subset(scope)), list(expected))
-    for pid, states in derived.items():
-        got = {s.definition.code: {
-            "tier": s.tier, "value": s.value, "progress": None if s.progress is None else vars(s.progress),
-            "unlocked": [{"level": u.level, "date": u.date.isoformat(), "game_id": u.game_id} for u in s.unlocks],
-        } for s in states}
-        assert got == expected[pid], pid
+    for pid, by_code in expected.items():
+        got = achievements_from_api(client.get(f"/players/{pid}/achievements{_query(scope)}").json())
+        assert got == by_code, pid
+
+
+def test_stored_unlocks_match_the_derived_view(client, golden):
+    """La tabla achievement_unlocks (escrita al cargar) es la vista sin filtro."""
+    from repositories.achievement_repository import AchievementRepository
+
+    stored = {(r.player_id, r.code, r.tier, r.game_id, r.unlocked_on.isoformat()) for r in AchievementRepository().get_all()}
+    derived = {(pid, code, u["level"], u["game_id"], u["date"])
+               for pid, by_code in golden["all"]["achievements"].items()
+               for code, a in by_code.items() for u in a["unlocked"]}
+    assert stored == derived

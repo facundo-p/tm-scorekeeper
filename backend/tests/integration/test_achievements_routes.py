@@ -1,15 +1,19 @@
-"""Integration tests for achievements-related REST endpoints."""
-from datetime import date
+"""Logros derivados por HTTP (F23, STAT-04..07): recálculo en cada escritura, lectura
+repetible de la partida, vista por mesa sin escritura y derived_version (D-13)."""
+from unittest.mock import patch
 
 import pytest
-
 from fastapi.testclient import TestClient
+
 from main import app
 from models.player import Player
-from mappers.game_mapper import game_dto_to_model
-from schemas.game import GameDTO
-from schemas.player import PlayerResultDTO, PlayerScoreDTO, PlayerEndStatsDTO
-from models.enums import Corporation
+from repositories.achievement_repository import AchievementRepository, AppMetaRepository
+from repositories.container import elo_repository, games_repository
+from repositories.player_repository import PlayersRepository
+from services.container import derived_service
+from services.derived_service import DERIVED_VERSION, VERSION_KEY
+
+from _elo_helpers import _game_payload, _post_game, _pr
 
 
 @pytest.fixture
@@ -18,134 +22,115 @@ def client():
 
 
 @pytest.fixture
-def session_factory():
-    from db.session import get_session
-    return get_session
+def players():
+    for pid, name in (("p1", "Alice"), ("p2", "Bob"), ("p3", "Cara")):
+        PlayersRepository().create(Player(player_id=pid, name=name))
 
 
-@pytest.fixture
-def players_repo(session_factory):
-    from repositories.player_repository import PlayersRepository
-    return PlayersRepository(session_factory=session_factory)
+def _win(game_id, day, winner, loser):
+    return _game_payload(game_id, f"2026-01-{day:02d}", [_pr(winner, 50), _pr(loser, 30)])
 
 
-@pytest.fixture
-def games_repo(session_factory):
-    from repositories.game_repository import GamesRepository
-    return GamesRepository(session_factory=session_factory)
+def _codes(client, path):
+    return {a["code"]: a for a in client.get(path).json()["achievements"]}
 
 
-def _make_player_result(player_id: str, corp: str, score: int) -> dict:
-    return {
-        "player_id": player_id,
-        "corporation": corp,
-        "scores": {
-            "terraform_rating": score,
-            "milestone_points": 0,
-            "milestones": [],
-            "award_points": 0,
-            "card_points": 0,
-            "card_resource_points": 0,
-            "greenery_points": 0,
-            "city_points": 0,
-            "turmoil_points": None,
-        },
-        "end_stats": {"mc_total": 5},
-    }
+def test_creating_games_unlocks_levels_dated_with_their_game(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    _post_game(client, _win("g2", 2, "p1", "p2"))
+    streak = _codes(client, "/players/p1/achievements")["win_streak"]
+    assert streak["tier"] == 1 and streak["value"] == 2 and streak["kind"] == "max"
+    assert streak["unlocks"] == [{"level": 1, "date": "2026-01-02", "game_id": "g2"}]
+    assert streak["unlocked_at"] == "2026-01-02" and streak["progress"] == {"current": 2, "target": 3}
 
 
-def _create_game(client, game_id: str, players: list[dict]) -> str:
-    payload = {
-        "id": game_id,
-        "date": "2026-01-01",
-        "map": "Hellas",
-        "expansions": [],
-        "draft": False,
-        "generations": 10,
-        "player_results": players,
-        "awards": [],
-    }
-    response = client.post("/games/", json=payload)
-    assert response.status_code == 200
-    return response.json()["id"]
+def test_post_game_achievements_is_a_repeatable_read(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    first = client.post("/games/g1/achievements").json()["achievements_by_player"]
+    assert client.post("/games/g1/achievements").json()["achievements_by_player"] == first
+    by_code = {a["code"]: a for a in first["p1"]}
+    assert by_code["no_milestone_win"]["is_new"] and not by_code["no_milestone_win"]["is_upgrade"]
+    assert by_code["no_milestone_win"]["title"] == "Lobo Solitario" and by_code["no_milestone_win"]["glyph"] == "lone"
 
 
-def test_trigger_achievements_returns_200(client, players_repo):
-    """POST /games/{game_id}/achievements returns 200 with achievements_by_player key."""
-    players_repo.create(Player(player_id="p1", name="Alice"))
-    players_repo.create(Player(player_id="p2", name="Bob"))
-
-    game_id = _create_game(
-        client,
-        "game-ach-1",
-        [
-            _make_player_result("p1", "Credicor", 30),
-            _make_player_result("p2", "Ecoline", 20),
-        ],
-    )
-
-    response = client.post(f"/games/{game_id}/achievements")
-    assert response.status_code == 200
-    data = response.json()
-    assert "achievements_by_player" in data
+def test_editing_and_deleting_games_update_the_unlocks(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    _post_game(client, _win("g2", 2, "p1", "p2"))
+    assert _codes(client, "/players/p1/achievements")["win_streak"]["tier"] == 1
+    assert client.put("/games/g2", json=_win("g2", 2, "p2", "p1")).status_code == 200
+    assert _codes(client, "/players/p1/achievements")["win_streak"]["tier"] == 0
+    assert client.delete("/games/g1").status_code in (200, 204)
+    assert {r.game_id for r in AchievementRepository().get_all()} == {"g2"}
 
 
-def test_trigger_achievements_nonexistent_game(client):
-    """POST /games/nonexistent/achievements responde 404 desde v2.0 (F21, TXN-04); antes, 200 vacío.
-    El frontend ya trata el error como «sin logros» (useGames.fetchAchievements)."""
-    response = client.post("/games/nonexistent-game-id/achievements")
-    assert response.status_code == 404
+def test_table_view_is_labelled_and_never_writes(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    stored = AchievementRepository().get_all()
+    body = client.get("/players/p1/achievements?player_count=3").json()
+    assert body["view"] == "mesa" and all(a["tier"] == 0 for a in body["achievements"])
+    assert client.get("/achievements/catalog?player_count=2").json()["view"] == "mesa"
+    assert client.get("/players/p1/achievements").json()["view"] == "all"
+    assert AchievementRepository().get_all() == stored
 
 
-def test_get_player_achievements(client, players_repo):
-    """GET /players/{player_id}/achievements returns 200 with achievements list containing all defined achievements (6 items)."""
-    players_repo.create(Player(player_id="p10", name="Charlie"))
-
-    response = client.get("/players/p10/achievements")
-    assert response.status_code == 200
-    data = response.json()
-    assert "achievements" in data
-    # All 7 evaluators from ALL_EVALUATORS should appear (locked or unlocked)
-    assert len(data["achievements"]) == 12
-    for item in data["achievements"]:
-        assert "code" in item
-        assert "title" in item
-        assert "tier" in item
-        assert "unlocked" in item
+@pytest.mark.parametrize("path", ["/players/p1/achievements?player_count=1", "/achievements/catalog?player_count=6"])
+def test_table_size_out_of_range_is_422(client, players, path):
+    assert client.get(path).status_code == 422
 
 
-def test_get_catalog(client):
-    """GET /achievements/catalog returns 200 with achievements list containing all defined achievements (6 items)."""
-    response = client.get("/achievements/catalog")
-    assert response.status_code == 200
-    data = response.json()
-    assert "achievements" in data
-    assert len(data["achievements"]) == 12
+def test_catalog_lists_the_eighteen_achievements_with_holders(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    catalog = {a["code"]: a for a in client.get("/achievements/catalog").json()["achievements"]}
+    assert len(catalog) == 18
+    assert catalog["corp_collector"]["glyph"] == "corp" and catalog["corp_collector"]["tiers"][0]["threshold"] == 5
+    holders = catalog["no_milestone_win"]["holders"]
+    assert holders == [{"player_id": "p1", "player_name": "Alice", "tier": 1, "unlocked_at": "2026-01-01"}]
 
 
-def test_catalog_has_tiers_and_holders(client):
-    """Each catalog item has tiers array and holders array."""
-    response = client.get("/achievements/catalog")
-    assert response.status_code == 200
-    data = response.json()
-    for item in data["achievements"]:
-        assert "tiers" in item
-        assert isinstance(item["tiers"], list)
-        assert "holders" in item
-        assert isinstance(item["holders"], list)
-        # Each tier has the expected fields
-        for tier in item["tiers"]:
-            assert "level" in tier
-            assert "threshold" in tier
-            assert "title" in tier
+def test_player_without_games_has_every_achievement_locked(client, players):
+    achievements = client.get("/players/p3/achievements").json()["achievements"]
+    assert len(achievements) == 18 and not any(a["unlocked"] for a in achievements)
 
 
-def test_reconcile_returns_200_with_summary(client):
-    """POST /achievements/reconcile returns 200 with summary shape."""
-    response = client.post("/achievements/reconcile")
-    assert response.status_code == 200
-    data = response.json()
-    assert "total_players" in data
-    assert "players_updated" in data
-    assert isinstance(data["achievements_applied"], list)
-    assert isinstance(data["errors"], list)
+def test_reconcile_regenerates_and_reports_changes(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    AchievementRepository().replace_all([])
+    body = client.post("/achievements/reconcile").json()
+    assert body["players_updated"] == 1 and body["errors"] == []
+    assert {c["code"] for c in body["achievements_applied"]} >= {"no_milestone_win", "no_award_win"}
+
+
+def test_startup_recomputes_when_derived_version_is_behind(players):
+    with TestClient(app):
+        pass
+    assert AppMetaRepository().get(VERSION_KEY) == str(DERIVED_VERSION)
+    assert derived_service.ensure_current() is False
+    AppMetaRepository().set(VERSION_KEY, "0")
+    assert derived_service.ensure_current() is True
+
+
+def test_table_view_counts_only_games_of_that_size(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    _post_game(client, _game_payload("g2", "2026-01-02", [_pr("p2", 50), _pr("p1", 30), _pr("p3", 20)]))
+    two = _codes(client, "/players/p1/achievements?player_count=2")
+    assert two["games_played"]["value"] == 1 and two["no_milestone_win"]["tier"] == 1
+    three = _codes(client, "/players/p1/achievements?player_count=3")
+    assert three["games_played"]["value"] == 1 and three["no_milestone_win"]["tier"] == 0
+    catalog = {a["code"]: a for a in client.get("/achievements/catalog?player_count=3").json()["achievements"]}
+    assert [h["player_id"] for h in catalog["no_milestone_win"]["holders"]] == ["p2"]
+
+
+def test_a_failing_recompute_rolls_back_the_whole_write(client, players):
+    with patch("services.container.achievements_service.recompute_all", side_effect=RuntimeError("boom")):
+        with pytest.raises(RuntimeError):
+            client.post("/games/", json=_win("g1", 1, "p1", "p2"))
+    assert games_repository.get("g1") is None
+    assert elo_repository.get_changes_for_game("g1") == []
+    assert AchievementRepository().get_all() == []
+
+
+def test_the_api_starts_even_if_the_startup_recompute_fails(players):
+    with patch("main.derived_service.ensure_current", side_effect=RuntimeError("boom")):
+        with TestClient(app) as started:
+            assert started.get("/health").status_code == 200
+    assert AppMetaRepository().get(VERSION_KEY) is None

@@ -33,10 +33,10 @@ def _conflicts_as_409():
 
 
 class GamesService:
-    def __init__(self, games_repository, players_repository, elo_service=None):
+    def __init__(self, games_repository, players_repository, derived_service=None):
         self.games_repository = games_repository
         self.players_repository = players_repository
-        self.elo_service = elo_service
+        self.derived_service = derived_service
 
 
     def _validate_date(self, game_date: date):
@@ -201,13 +201,13 @@ class GamesService:
         self._validate_board(game)
 
     def create_game(self, game_dto: GameDTO) -> str:
-        """Guarda la partida y recalcula el ELO en una sola transacción, en serie (D-55)."""
+        """Guarda la partida y recalcula ELO y logros en una sola transacción, en serie (D-55)."""
         game = game_dto_to_model(game_dto)
         self._validate_game(game)
         with unit_of_work(lock=True), _conflicts_as_409():
             game_id = self.games_repository.create(game)
             game.id = game_id
-            self._recompute_elo_from(game.date)
+            self._recompute_derived_from(game.date)
         return game_id
 
 
@@ -224,16 +224,16 @@ class GamesService:
             if old_game is None:
                 raise GameNotFound("Game not found")
             self.games_repository.update(game_id, new_game)
-            self._recompute_elo_from(min(old_game.date, new_game.date))
+            self._recompute_derived_from(min(old_game.date, new_game.date))
 
 
     def delete_game(self, game_id: str) -> None:
-        """Elimina una partida y recalcula el ELO desde su fecha. GameNotFound si no existe."""
+        """Elimina una partida y recalcula ELO y logros. GameNotFound si no existe."""
         with unit_of_work(lock=True):
             old_game = self.games_repository.get(game_id)
             if old_game is None or not self.games_repository.delete(game_id):
                 raise GameNotFound("Game not found")
-            self._recompute_elo_from(old_game.date)
+            self._recompute_derived_from(old_game.date)
 
     def get_game_results(self, game_id: str) -> GameResultDTO:
         game = self.games_repository.get(game_id)
@@ -243,7 +243,8 @@ class GamesService:
 
         return calculate_results(game)
 
-    def _recompute_elo_from(self, start_date: date) -> None:
-        if self.elo_service is None:
+    def _recompute_derived_from(self, start_date: date) -> None:
+        """ELO y después logros, en la transacción de la escritura (STAT-05)."""
+        if self.derived_service is None:
             return
-        self.elo_service.recompute_from_date(start_date)
+        self.derived_service.recompute_from(start_date)

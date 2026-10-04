@@ -79,7 +79,7 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 - **Patterns**: repository, service, mapper, strategy
 - **Mobile-first**: responsive, componentes pequeños
 - **CSS**: Modules con variables CSS, sin inline styles
-- **Extensibilidad**: agregar logros = agregar evaluador al registry
+- **Extensibilidad**: agregar logros = agregar una definición y su métrica al motor derivado (skill `new-achievement`; antes de v2.0, un evaluador en el registry)
 
 ## Key Decisions
 
