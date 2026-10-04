@@ -5,4 +5,5 @@
 - **Co-poseedores de carrera en orden de alta (D-80):** es el orden en que los muestra el mockup.
 - **`ProgressBar`:** átomo compartido con Perfil.
 - **Comparación:** las 8 escenas de Trofeos en verde en 390 y 1440 px.
-- **Tests:** `trophiesModel` (5) y `Trophies` (4).
+- **Revisión:** en la ronda 1 hubo CHANGES_REQUESTED por el dato prestado al cambiar de jugador. Se corrigió con `keepPrevious` por prefijo en `useApiQuery`, `retryFailed` y componentes partidos. La ronda 2 fue APPROVE.
+- **Tests:** `trophiesModel` (5) y `Trophies` (8).
