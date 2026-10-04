@@ -5,7 +5,7 @@ import { awardLabel, milestoneLabel } from '@/domain/labels'
 import { Cube, Switch } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
-import { MAX_AWARDS, MAX_MILESTONES, type WizardAward } from './model'
+import { MAX_AWARDS, MAX_MILESTONES, patchAward, toggleAward, type WizardAward } from './model'
 import type { StepProps } from './types'
 // El título de fila del tablero es el mismo del informe.
 import board from '../GameReport/GameReport.module.css'
@@ -72,27 +72,31 @@ function AwardGrid({ w, ids, players, set }: { w: WizardAward; ids: string[]; pl
   )
 }
 
+interface AwardItemProps { name: string; w?: WizardAward; full: boolean; bad: boolean; ids: string[]; players: PlayerIndex
+  onToggle: () => void; onSet: (patch: Partial<WizardAward>) => void }
+
+function AwardItem({ name, w, full, bad, ids, players, onToggle, onSet }: AwardItemProps) {
+  return (
+    <li className={cx(styles.wslot, styles['wslot--award'], w && styles['is-claimed'], bad && styles['is-bad'])}>
+      <span className={styles.wslot__name}>{awardLabel(name)}</span>
+      <Switch size="s" checked={!!w} disabled={!w && full} onChange={onToggle}>{w ? 'Financiada' : 'Sin financiar'}</Switch>
+      {w && <AwardGrid w={w} ids={ids} players={players} set={onSet} />}
+    </li>
+  )
+}
+
 function Awards({ s, d, errors, players }: StepProps) {
   const ids = s.players.map((p) => p.id)
   const list = [...(s.map ? mapInfo(s.map).awards : []), ...s.expansions.flatMap((e) => EXPANSION_AWARDS[e] ?? [])]
-  const funded = (n: string) => s.awards.find((w) => w.name === n)
-  const setAward = (name: string, patch: Partial<WizardAward>) => d({ type: 'award', awards: s.awards.map((w) => (w.name === name ? { ...w, ...patch } : w)) })
-  const toggle = (name: string) => d({ type: 'award', awards: funded(name) ? s.awards.filter((w) => w.name !== name)
-    : s.awards.length >= MAX_AWARDS ? s.awards : [...s.awards, { name, opened_by: '', first: [], second: [] }] })
   return (
     <section className={styles.wboard__col}>
       <h3 className={board['board-row__title']}><Icon name="award" size={18} />Recompensas <span>{s.awards.length} de {MAX_AWARDS} financiadas</span></h3>
       <ul className={styles.wslots}>
-        {list.map((name) => {
-          const w = funded(name)
-          return (
-            <li key={name} className={cx(styles.wslot, styles['wslot--award'], w && styles['is-claimed'], errors.some((e) => e.field === `aw-${name}`) && styles['is-bad'])}>
-              <span className={styles.wslot__name}>{awardLabel(name)}</span>
-              <Switch size="s" checked={!!w} disabled={!w && s.awards.length >= MAX_AWARDS} onChange={() => toggle(name)}>{w ? 'Financiada' : 'Sin financiar'}</Switch>
-              {w && <AwardGrid w={w} ids={ids} players={players} set={(patch) => setAward(name, patch)} />}
-            </li>
-          )
-        })}
+        {list.map((name) => (
+          <AwardItem key={name} name={name} w={s.awards.find((w) => w.name === name)} full={s.awards.length >= MAX_AWARDS} ids={ids} players={players}
+            bad={errors.some((e) => e.field === `aw-${name}`)} onToggle={() => d({ type: 'award', awards: toggleAward(s.awards, name) })}
+            onSet={(patch) => d({ type: 'award', awards: patchAward(s.awards, name, patch) })} />
+        ))}
       </ul>
       <p className={cx('faint', styles.wboard__note)}>Con empate en el 1.º puesto no se otorga 2.º. En partidas de 2 jugadores tampoco.</p>
     </section>

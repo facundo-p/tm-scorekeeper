@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { blankState, derived, hasTies, reducer, validate, type WizardState } from '@/screens/Register/model'
+import { blankState, derived, hasTies, reducer, toggleAward, validate, type WizardState } from '@/screens/Register/model'
 import { stateFromGame, toPayload, type SavedGame } from '@/screens/Register/io'
 
 const name = (id: string) => id.toUpperCase()
@@ -14,6 +14,21 @@ describe('asistente de registro (lo puro)', () => {
     s = reducer(s, { type: 'togglePlayer', id: 'a' })
     expect(s.milestones).toEqual({})
     expect(s.awards[0]).toMatchObject({ opened_by: '', first: [], second: ['b'] })
+  })
+
+  it('going down to two players drops every 2nd place (two-player games have none)', () => {
+    let s = withPlayers('a', 'b', 'c')
+    s = reducer(s, { type: 'award', awards: [{ name: 'Banker', opened_by: 'a', first: ['a'], second: ['b'] }] })
+    s = reducer(s, { type: 'togglePlayer', id: 'c' })
+    expect(s.awards[0].second).toEqual([])
+    expect(derived(s).rows.find((r) => r.id === 'b')!.sc.award_points).toBe(0)
+  })
+
+  it('three awards funded at most; toggling a funded one removes it', () => {
+    let awards = ['Banker', 'Scientist', 'Thermalist', 'Miner'].reduce(toggleAward, [] as WizardState['awards'])
+    expect(awards.map((w) => w.name)).toEqual(['Banker', 'Scientist', 'Thermalist'])
+    awards = toggleAward(awards, 'Scientist')
+    expect(awards.map((w) => w.name)).toEqual(['Banker', 'Thermalist'])
   })
 
   it('three milestones at most; touching the owner frees it', () => {
@@ -46,6 +61,7 @@ describe('asistente de registro (lo puro)', () => {
     expect(validate({ ...blankState(), map: 'Tharsis', date: '2999-01-01' }, name)[0].msg).toBe('La fecha no puede ser posterior a hoy.')
     const table: WizardState = { ...withPlayers('a'), step: 1 }
     expect(validate(table, name).map((e) => e.msg)).toEqual(['Elegí entre 2 y 5 jugadores.', 'Falta la corporación de A.'])
+    expect(validate({ ...blankState(), map: 'Tharsis', date: '' }, name).map((e) => e.msg)).toEqual(['Indicá la fecha de la partida.'])
     const board: WizardState = { ...withPlayers('a', 'b'), step: 2, awards: [{ name: 'Banker', opened_by: '', first: [], second: [] }] }
     expect(validate(board, name)).toHaveLength(2)
   })
@@ -68,5 +84,11 @@ describe('de y hacia la API', () => {
     const body = toPayload(s)
     expect(body.player_results[0].scores).toMatchObject({ milestones: ['Mayor'], milestone_points: 5, award_points: 5, turmoil_points: null })
     expect(body.awards).toEqual([{ name: 'Banker', opened_by: 'b', first_place: ['a'], second_place: [] }])
+  })
+
+  it('with Turmoil the payload carries the turmoil points; without it, null', () => {
+    const s = stateFromGame({ ...game, expansions: ['Turmoil'], player_results: game.player_results.map((r) => ({ ...r, scores: { ...r.scores, turmoil_points: 4 } })) }, {})
+    expect(toPayload(s).player_results.map((r) => r.scores.turmoil_points)).toEqual([4, 4])
+    expect(toPayload({ ...s, expansions: [] }).player_results.map((r) => r.scores.turmoil_points)).toEqual([null, null])
   })
 })

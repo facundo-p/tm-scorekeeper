@@ -91,4 +91,17 @@ describe('Registrar', () => {
     expect(calls.some((c) => c.init?.method === 'PUT' && c.url.endsWith('/games/g-1'))).toBe(true)
     expect(sessionStorage.getItem(DRAFT_KEY)).toBeNull()
   })
+
+  it('a rejected save stays on the review and shows the error; the edit is not kept as a draft', async () => {
+    vi.stubGlobal('fetch', vi.fn((url: string, init?: RequestInit) => (init?.method === 'PUT'
+      ? Promise.resolve(new Response(JSON.stringify({ detail: 'Ya existe esa partida' }), { status: 422 }))
+      : api(url, init))))
+    renderAt('/partidas/g-1/editar')
+    await screen.findByRole('heading', { level: 1, name: 'Editar partida' })
+    for (const step of ['Siguiente: Mesa', 'Siguiente: Hitos y recompensas', 'Siguiente: Puntaje', 'Siguiente: Revisión']) click(step)
+    click('Guardar cambios')
+    expect(await screen.findByRole('alert')).toHaveTextContent('Ya existe esa partida')
+    expect(screen.getByTestId('where')).toHaveTextContent('/partidas/g-1/editar')
+    expect(sessionStorage.getItem(DRAFT_KEY)).toBeNull()
+  })
 })

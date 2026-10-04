@@ -47,17 +47,18 @@ export type Action =
   | { type: 'milestone'; name: string; id: string }
   | { type: 'award'; awards: WizardAward[] }
 
-/** Sacar a un jugador también lo saca de los hitos y recompensas. */
+/** Sacar a un jugador también lo saca de los hitos y recompensas (en partidas de 2 no hay 2.º puesto). */
 function togglePlayer(s: WizardState, id: string): WizardState {
   const has = s.players.some((p) => p.id === id)
   if (!has && s.players.length >= MAX_PLAYERS) return s
   const players = has ? s.players.filter((p) => p.id !== id) : [...s.players, { id, corp: '', mc: 0, scores: blankScores() }]
   const keep = (pid: string) => players.some((p) => p.id === pid)
+  const second = (w: WizardAward) => (players.length === 2 ? [] : w.second.filter(keep))
   return {
     ...s,
     players,
     milestones: Object.fromEntries(Object.entries(s.milestones).filter(([, pid]) => keep(pid))),
-    awards: s.awards.map((w) => ({ ...w, opened_by: keep(w.opened_by) ? w.opened_by : '', first: w.first.filter(keep), second: w.second.filter(keep) })),
+    awards: s.awards.map((w) => ({ ...w, opened_by: keep(w.opened_by) ? w.opened_by : '', first: w.first.filter(keep), second: second(w) })),
   }
 }
 
@@ -68,6 +69,15 @@ function claimMilestone(s: WizardState, name: string, id: string): WizardState {
   else if (m[name] || Object.keys(m).length < MAX_MILESTONES) m[name] = id
   return { ...s, milestones: m }
 }
+
+/** Financiar o desfinanciar una recompensa (3 como máximo). */
+export function toggleAward(awards: WizardAward[], name: string): WizardAward[] {
+  if (awards.some((w) => w.name === name)) return awards.filter((w) => w.name !== name)
+  return awards.length >= MAX_AWARDS ? awards : [...awards, { name, opened_by: '', first: [], second: [] }]
+}
+
+export const patchAward = (awards: WizardAward[], name: string, patch: Partial<WizardAward>) =>
+  awards.map((w) => (w.name === name ? { ...w, ...patch } : w))
 
 const patchPlayer = (s: WizardState, id: string, f: (p: WizardPlayer) => WizardPlayer) =>
   ({ ...s, players: s.players.map((p) => (p.id === id ? f(p) : p)) })
@@ -111,7 +121,8 @@ export function validate(s: WizardState, name: (id: string) => string): WizardEr
   const e: WizardError[] = []
   if (s.step === 0) {
     if (!s.map) e.push({ field: 'map', msg: 'Elegí el mapa en el que jugaron.' })
-    if (s.date > today()) e.push({ field: 'date', msg: 'La fecha no puede ser posterior a hoy.' })
+    if (!s.date) e.push({ field: 'date', msg: 'Indicá la fecha de la partida.' })
+    else if (s.date > today()) e.push({ field: 'date', msg: 'La fecha no puede ser posterior a hoy.' })
   }
   if (s.step === 1) {
     if (s.players.length < 2) e.push({ field: 'players', msg: 'Elegí entre 2 y 5 jugadores.' })
