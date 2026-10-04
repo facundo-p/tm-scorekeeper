@@ -33,8 +33,6 @@ For details: [v1.0-cleanup-ROADMAP.md](milestones/v1.0-cleanup-ROADMAP.md)
 
 ---
 
----
-
 ## v2.0 Archivo de Terraformación (Shipped to staging: 2026-10-04)
 
 **Phases completed:** 22 phases (F15–F36), 33 PRs a `staging` (#145–#177). La promoción a `main` la hace el dueño con [`docs/deploy/v2.0-checklist.md`](../docs/deploy/v2.0-checklist.md).

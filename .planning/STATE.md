@@ -4,7 +4,7 @@ milestone: v2.0
 milestone_name: Archivo de Terraformación — COMPLETE (en staging)
 status: complete
 stopped_at: Milestone v2.0 complete
-last_updated: "2026-10-04T09:30:00.000Z"
+last_updated: "2026-10-04T11:10:00.000Z"
 last_activity: 2026-10-04
 progress:
   total_phases: 22
