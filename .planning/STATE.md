@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-03-21)
 Phase: 35
 Plan: 35-01
 Status: Fases 15–34 completas (backend v2.0; shell, planeta, instrumentos, acceso, inicio, partidas, informe, registrar, ceremonia, ranking, perfil, récords y logros)
-Last activity: 2026-10-04 - F34 implementada (récords y logros)
+Last activity: 2026-10-04 - F35.1 (borrar lo viejo) en cuatro PR
 
 Progress: [█████     ] 50%
 

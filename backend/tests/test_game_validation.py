@@ -11,7 +11,7 @@ from sqlalchemy.exc import IntegrityError
 
 from main import app
 from models.enums import Award, Expansion, MapName, Milestone
-from models.game_rules import EXPANSION_MILESTONES, MAP_AWARDS, MAP_MILESTONES, allowed_awards, allowed_milestones
+from models.game_rules import EXPANSION_AWARDS, EXPANSION_MILESTONES, MAP_AWARDS, MAP_MILESTONES, allowed_awards, allowed_milestones
 from services.game_service import GameConflict, GameNotFound, GamesService
 from tests.integration._elo_helpers import _game_payload, _post_game, _pr
 
@@ -156,23 +156,37 @@ class TestMigrationGuard:
 
 
 class TestFrontendMirror:
-    """models/game_rules.py es espejo de frontend/src/constants/gameRules.ts (D-51)."""
+    """models/game_rules.py es espejo del catálogo del frontend, frontend/src/domain/catalog.ts (D-51)."""
 
     @staticmethod
-    def _frontend_table(name):
+    def _frontend_table(field):
         import re
-        source = (Path(__file__).resolve().parents[2] / "frontend/src/constants/gameRules.ts").read_text()
-        block = source[source.index(f"export const {name}"):]
+        source = (Path(__file__).resolve().parents[2] / "frontend/src/domain/catalog.ts").read_text()
+        block = source[source.index("export const MAPS"):]
         block = block[:block.index("\n}\n")]
-        return {m: re.findall(r"\.(\w+),", body) for m, body in re.findall(r"\[MapName\.(\w+)\]: \[(.*?)\]", block, re.S)}
+        maps = re.findall(r"^  '?([\w ]+?)'?: \{(.*?)\n  \},", block, re.S | re.M)
+        return {name: re.findall(r"'([^']+)'", re.search(rf"{field}: \[(.*?)\]", body).group(1)) for name, body in maps}
 
     def test_milestones_match(self):
-        backend = {m.name: [x.name for x in v] for m, v in MAP_MILESTONES.items()}
-        assert self._frontend_table("MAP_MILESTONES") == backend
+        backend = {m.value: [x.value for x in v] for m, v in MAP_MILESTONES.items()}
+        assert self._frontend_table("milestones") == backend
 
     def test_awards_match(self):
-        backend = {m.name: [x.name for x in v] for m, v in MAP_AWARDS.items()}
-        assert self._frontend_table("MAP_AWARDS") == backend
+        backend = {m.value: [x.value for x in v] for m, v in MAP_AWARDS.items()}
+        assert self._frontend_table("awards") == backend
+
+    @staticmethod
+    def _frontend_expansions(name):
+        import re
+        source = (Path(__file__).resolve().parents[2] / "frontend/src/domain/catalog.ts").read_text()
+        line = source[source.index(f"export const {name}"):].split("\n", 1)[0]
+        body = line.split("= {", 1)[1]
+        return {e: re.findall(r"'([^']+)'", items) for e, items in re.findall(r"'([^']+)': \[(.*?)\]", body)}
+
+    def test_expansion_milestones_and_awards_match(self):
+        for name, table in (("EXPANSION_MILESTONES", EXPANSION_MILESTONES), ("EXPANSION_AWARDS", EXPANSION_AWARDS)):
+            backend = {e.value: [x.value for x in v] for e, v in table.items()}
+            assert self._frontend_expansions(name) == backend, name
 
 
 class TestSpacefarer:

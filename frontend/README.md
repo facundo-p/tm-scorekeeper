@@ -59,7 +59,7 @@ npm test
 npm run test:ui
 ```
 
-Los tests viven en `src/test/`: `unit/` (utilidades, dominio y la regla de estilos), `ui/` (átomos, hoja y estados del sistema visual v2.0), `shell/`, `fx/`, `instruments/` y `screens/`. Los recorridos de punta a punta (registrar solo con el teclado, saltar la ceremonia) son chequeos funcionales del arnés de comparación (`tools/parity/functional`, D-81).
+Los tests viven en `src/test/`: `unit/` (dominio, cliente HTTP, la regla de estilos y el catálogo frente a los enums del backend), `ui/` (átomos, hoja y estados del sistema visual v2.0), `shell/`, `fx/`, `instruments/` y `screens/`. Los recorridos de punta a punta (registrar solo con el teclado, saltar la ceremonia) son chequeos funcionales del arnés de comparación (`tools/parity/functional`, D-81).
 
 ### Lint
 
@@ -83,22 +83,18 @@ Los archivos quedan en `dist/`. Requiere que TypeScript compile sin errores.
 
 ```
 frontend/src/
-├── api/              # http.ts (Bearer, 15 s, cancelación, ApiError) y llamadas de las pantallas viejas
-├── constants/        # Enums del juego (mapas, hitos, recompensas, corporaciones)
+├── api/              # http.ts (Bearer, 15 s, cancelación, ApiError), client.ts y auth.ts (login y sesión)
 ├── context/          # AuthContext (sesión en localStorage)
-├── data/             # v2.0: TanStack Query (query.ts) y hooks de datos de la API v2 (hooks.ts)
-├── domain/           # v2.0: catálogo, etiquetas en castellano, formato es-AR y cssVars()
-├── hooks/            # usePlayers (de la app vieja; se borra en 35.1-D)
+├── data/             # v2.0: TanStack Query (query.ts), hooks de lectura (hooks.ts), escrituras (mutations.ts) y tipos de la API (types.ts)
+├── domain/           # v2.0: catálogo del juego (mapas con sus hitos y recompensas, expansiones, corporaciones), etiquetas en castellano, formato es-AR y cssVars()
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
 ├── screens/          # v2.0: pantallas (Login, Home, Games, GameReport, Register, Ceremony, Ranking, Profile, Records, Achievements, NotFound) y Gallery/, la galería de comparación
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts) y ProtectedRoute
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
-├── types/            # Interfaces TypeScript de los DTOs del backend
 ├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/
-├── utils/            # gameCalculations.ts y a11y.ts (de la app vieja; se borran en 35.1-D)
 └── test/
-    ├── unit/         # Utilidades, dominio y regla de estilos
+    ├── unit/         # Dominio, cliente HTTP, regla de estilos y catálogo frente al backend
     ├── ui/           # Sistema visual v2.0
     ├── shell/        # Shell, rutas y filtro de mesa (v2.0)
     ├── fx/           # Planeta (deriva de shaders, motor), confeti (v2.0)

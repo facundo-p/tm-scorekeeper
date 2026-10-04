@@ -1,117 +1,68 @@
 ---
 name: new-hook
-description: Scaffold a custom React hook for data fetching with loading/error states and CRUD operations
+description: Scaffold a data hook (TanStack Query read or mutation) for the v2.0 API with loading/error states
 argument-hint: [resourceName]
 ---
 
-# New Custom Hook Scaffold
+# New Data Hook Scaffold
 
-Generate a custom React hook for `$ARGUMENTS`.
-
-## v2.0 screens (F26 onward): TanStack Query
-
-Hooks for the new screens live in `frontend/src/data/hooks.ts` and wrap `useApiQuery` (`frontend/src/data/query.ts`), which keeps the same return shape as below (D-10). The cache key is the API path with its query string, so filters such as `?player_count=` separate entries:
-
-```typescript
-export function useRanking(options: { mesa?: TableSize | null } = {}) {
-  const { data, ...rest } = useApiQuery<RankingDTO>(apiPath('/ranking', { player_count: options.mesa }))
-  return { ranking: data, ...rest }   // { ranking, loading, error, refetch }
-}
-```
-
-Types for the v2 API go in `frontend/src/data/types.ts`. Writes use `http()` from `frontend/src/api/http.ts` and then invalidate the affected keys with the query client. The pattern below is for the pre-v2 pages, which are removed in F35.
+Generate a data hook for `$ARGUMENTS`.
 
 ## Pre-flight
 
 1. Ask the user for:
-   - **Resource name** (if not provided): camelCase singular (e.g. `player`, `game`)
-   - **API module**: which file in `frontend/src/api/` to import from (or create new)
-   - **Operations**: which CRUD ops to expose (fetch, add, edit, delete)
-   - **Fetch params**: any filtering options (e.g. `activeOnly?: boolean`)
+   - **Resource name** (if not provided): camelCase (e.g. `ranking`, `playerInsights`)
+   - **Endpoint**: path and query params (e.g. `/ranking?player_count=`)
+   - **Kind**: read (query) or write (mutation)
+   - **Response type**: whether it already exists in `frontend/src/data/types.ts`
 
 2. Confirm before generating.
 
-## Files to generate
+## Reads — `frontend/src/data/hooks.ts`
 
-### 1. Hook — `frontend/src/hooks/use{Resources}.ts`
-
-Follow this exact pattern from the codebase:
+Wrap `useApiQuery` (`frontend/src/data/query.ts`). It returns `{ data, loading, error, refetch }` (D-10); rename `data` to the resource. The cache key is the API path with its query string (`apiPath()` drops empty params), so filters such as `?player_count=` get separate entries:
 
 ```typescript
-import { useState, useEffect, useCallback } from 'react'
-import { get{Resources}, create{Resource}, update{Resource} } from '@/api/{resources}'
-import type { {Resource}ResponseDTO, {Resource}CreateDTO, {Resource}UpdateDTO } from '@/types'
-
-interface Use{Resources}Options {
-  // filtering params
-}
-
-export function use{Resources}(options: Use{Resources}Options = {}) {
-  const [{resources}, set{Resources}] = useState<{Resource}ResponseDTO[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  const fetch{Resources} = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    try {
-      const data = await get{Resources}(/* params from options */)
-      set{Resources}(data)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error al cargar {resources}')
-    } finally {
-      setLoading(false)
-    }
-  }, [/* deps from options */])
-
-  useEffect(() => { fetch{Resources}() }, [fetch{Resources}])
-
-  const add{Resource} = useCallback(async (data: {Resource}CreateDTO): Promise<void> => {
-    await create{Resource}(data)
-    await fetch{Resources}()
-  }, [fetch{Resources}])
-
-  const edit{Resource} = useCallback(async (id: string, data: {Resource}UpdateDTO): Promise<void> => {
-    await update{Resource}(id, data)
-    await fetch{Resources}()
-  }, [fetch{Resources}])
-
-  return { {resources}, loading, error, refetch: fetch{Resources}, add{Resource}, edit{Resource} }
+export function useRanking(options: { mesa?: TableSize | null } = {}) {
+  const { data, ...rest } = useApiQuery<Ranking>(apiPath('/ranking', { player_count: options.mesa }))
+  return { ranking: data, ...rest }   // { ranking, loading, error, refetch }
 }
 ```
 
-Reference: `frontend/src/hooks/usePlayers.ts`
+- `useApiQuery(path, enabled, keepPrevious)`:
+  - `enabled = false` skips the request (for example, until an id is known).
+  - `keepPrevious` keeps the previous data while the next one loads. Pass `true`, or a path prefix (e.g. `/players/<id>/`) so that data is only kept while the prefix matches and never lent to another entity.
+- Screens retry several failed queries with `retryFailed([...])`.
 
-### 2. API Service (if needed) — `frontend/src/api/{resources}.ts`
+Reference: `useRanking`, `usePlayerInsights` and `useRecords` in `frontend/src/data/hooks.ts`.
+
+## Writes — `frontend/src/data/mutations.ts`
+
+Use `useMutation` with `http()` (`frontend/src/api/http.ts`: Bearer, 15 s timeout, `ApiError`). After success, invalidate the whole cache: a game changes ELO, records, achievements and seasons downstream (D-04).
 
 ```typescript
-import { api } from './client'
-import type { {Resource}ResponseDTO, {Resource}CreateDTO } from '@/types'
-
-export function get{Resources}(): Promise<{Resource}ResponseDTO[]> {
-  return api.get<{Resource}ResponseDTO[]>('/{resources}/')
+export function useSavePlayer(onSaved: () => void) {
+  const client = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, body }: { id: string | null; body: PlayerWrite }) =>
+      http<unknown>(id ? `/players/${encodeURIComponent(id)}` : '/players/', { method: id ? 'PATCH' : 'POST', body: JSON.stringify(body) }),
+    onSuccess: () => { onSaved(); void client.invalidateQueries() },
+  })
 }
-
-export function create{Resource}(data: {Resource}CreateDTO): Promise<{ id: string }> {
-  return api.post<{ id: string }>('/{resources}/', data)
-}
-
-// ... more as needed
 ```
 
-Reference: `frontend/src/api/players.ts`
+Reference: `useSaveGame`, `useDeleteGame` and `useSavePlayer` in `frontend/src/data/mutations.ts`.
 
-### 3. Types (if needed) — add to `frontend/src/types/`
+## Types — `frontend/src/data/types.ts`
 
-- Interface for each DTO matching the backend schema
-- Export from types index if one exists
+One interface per response, matching the backend schema (`backend/schemas/`), with snake_case keys as the API sends them.
+
+## Tests
+
+Test the screen that uses the hook, with `fetch` mocked (e.g. `frontend/src/test/screens/Ranking.test.tsx`), and include the error and retry case. Pure transformations of the response go in the screen's `model.ts`, with their own test.
 
 ## Conventions
 
-- Hook name: `use{Resources}` (plural)
-- Always return: `{ items, loading, error, refetch, ...mutations }`
-- `useCallback` on all async functions
-- `useEffect` triggers initial fetch
-- Mutations auto-refetch after success
-- Error messages in Spanish
-- No error handling in mutations (let it bubble to the component)
+- Read hooks: `use{Resource}`, returning `{ resource, loading, error, refetch }`.
+- Write hooks: `use{Verb}{Resource}` with a success callback.
+- Error messages in Spanish are written by the screen (`ui/states`), not by the hook.
