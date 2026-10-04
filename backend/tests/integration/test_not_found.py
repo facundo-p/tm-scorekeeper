@@ -46,3 +46,5 @@ def test_retired_endpoints_are_gone(client, seeded_game, method, path):
     game_id, player_id = seeded_game
     url = path.format(id=game_id, pid=player_id)
     assert getattr(client, method)(url).status_code in (404, 405)
+    openapi = app.openapi()["paths"]
+    assert method not in openapi.get(path.replace("{id}", "{game_id}").replace("{pid}", "{player_id}"), {})

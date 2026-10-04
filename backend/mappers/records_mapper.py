@@ -2,6 +2,7 @@
 from schemas.records import GlobalRecordDTO, RecordHistoryDTO, RecordHistoryEntryDTO, RecordHolderDTO
 from services.records.service import RecordView
 
+
 def _holder(h, names: dict) -> RecordHolderDTO:
     return RecordHolderDTO(player_id=h.player_id, player_name=names.get(h.player_id, h.player_id),
                            game_id=h.game_id, date=h.date, map=h.map)
