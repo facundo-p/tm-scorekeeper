@@ -1,6 +1,7 @@
 // El catálogo del frontend (domain/catalog, domain/labels) tiene que cubrir los enums del backend:
 // si el backend suma o renombra un mapa, una expansión, un hito, una recompensa o una corporación,
-// este test lo detecta (reemplaza al test de constants/enums de la app vieja, F35).
+// este test lo detecta (reemplaza al test de constants/enums de la app vieja, F35). Lee el backend
+// del mismo repo y supone valores entre comillas dobles en una línea (`NOMBRE = "valor"`).
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, it, expect } from 'vitest'
