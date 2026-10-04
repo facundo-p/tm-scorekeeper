@@ -11,11 +11,13 @@ from tests.golden.adapters import (
     elo_from_golden,
     elo_from_replay,
     insights_from_api,
+    ranking_row_from_api,
     positions_from_golden,
     positions_from_results,
     record_shape,
     report_from_api,
     summary_from_api,
+    summary_stats_from_api,
 )
 from tests.golden.conftest import enabled_scopes, golden_scope
 
@@ -125,3 +127,31 @@ def test_player_insights(client, golden, scope):
     for pid, expected in golden_scope(golden, scope)["players"].items():
         got = insights_from_api(client.get(f"/players/{pid}/insights{_query(scope)}").json())
         assert got == expected, pid
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("summary"))
+def test_group_summary(client, golden, scope):
+    got = summary_stats_from_api(client.get(f"/stats/summary{_query(scope)}").json())
+    assert got == golden_scope(golden, scope)["summary"]
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("head_to_head"))
+def test_head_to_head(client, golden, scope):
+    body = client.get(f"/stats/head-to-head{_query(scope)}").json()
+    assert body["matrix"] == golden_scope(golden, scope)["head_to_head"]
+    players = golden_scope(golden, scope)["players"]
+    for pid, rivals in body["rivals"].items():
+        assert rivals == {"nemesis": players[pid]["nemesis"], "victim": players[pid]["victim"]}, pid
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("lead_changes"))
+def test_ranking_and_lead_changes(client, golden, scope):
+    body = client.get(f"/ranking{_query(scope)}").json()
+    assert body["lead_changes"] == golden_scope(golden, scope)["lead_changes"]
+    players, per_game = golden_scope(golden, scope)["players"], golden_scope(golden, scope)["elo"]["perGame"]
+    assert [r["rank"] for r in body["players"]] == list(range(1, len(body["players"]) + 1))
+    for row in body["players"]:
+        expected = {k: players[row["player_id"]][k] for k in ranking_row_from_api(row)}
+        assert ranking_row_from_api(row) == expected, row["player_id"]
+        assert [p["elo"] for p in row["elo_series"]] == [
+            c["after"] for g in row["elo_series"] for c in per_game[g["game_id"]] if c["player_id"] == row["player_id"]]

@@ -7,5 +7,5 @@ Exponer lo que el mockup calcula para el perfil, el ranking, la portada y las te
 
 ## Partición (D-67)
 - **25-A** ficha del jugador (`GET /players/{id}/insights`).
-- **25-B** ranking con equidad, cara a cara y rivalidades, bitácora, resumen y cambios de líder.
-- **25-C** temporadas y campeones.
+- **25-B** ranking con equidad, cara a cara y rivalidades, resumen y cambios de líder.
+- **25-C** temporadas y campeones, y la bitácora (que anuncia a los campeones).
