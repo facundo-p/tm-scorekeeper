@@ -46,5 +46,5 @@ export function burst(canvas, { x = 0.5, y = 0.35, colors = ['#f4c43a'], count =
     if (alive) raf = requestAnimationFrame(tick);
   };
   raf = requestAnimationFrame(tick);
-  return () => cancelAnimationFrame(raf);
+  return () => { cancelAnimationFrame(raf); ctx.clearRect(0, 0, w, h); };
 }

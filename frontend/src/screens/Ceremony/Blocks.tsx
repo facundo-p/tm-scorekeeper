@@ -9,23 +9,23 @@ import { CorpEmblem, CountUp, Cube, Medal } from '@/ui/atoms'
 import delta from '@/ui/atoms/Delta.module.css'
 import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
-import { unlocksOf, winSub } from '../GameReport/model'
+import { unlocksOf, winnerOf, winSub } from '../GameReport/model'
 import styles from './Ceremony.module.css'
 
 interface BlockProps { report: GameReport; players: PlayerIndex }
 const nameOf = (players: PlayerIndex, id: string) => players.get(id)?.name ?? id
 
 export function WinnerBanner({ report, players, nameRef }: BlockProps & { nameRef: RefObject<HTMLHeadingElement> }) {
-  const w = report.results[0]
+  const w = winnerOf(report)
   const p = players.get(w.player_id)
   return (
     <div className={styles['cer-win']}>
       <span className={styles['cer-win__kicker']}>Ganó la partida</span>
       <div className={styles['cer-win__row']}>
         <CorpEmblem name={w.corporation} size="l" />
-        <h2 className={styles['cer-win__name']} ref={nameRef}><Cube color={p?.color} size={30} />{p?.name}</h2>
+        <h2 className={styles['cer-win__name']} ref={nameRef} tabIndex={-1}><Cube color={p?.color} size={30} />{p?.name}</h2>
       </div>
-      <p className={styles['cer-win__sub']}>{winSub(report, (id) => nameOf(players, id), `${corpLabel(w.corporation)}, ${w.total_points} puntos`).replace(' puntos sobre ', ' sobre ')}</p>
+      <p className={styles['cer-win__sub']}>{winSub(report, (id) => nameOf(players, id), `${corpLabel(w.corporation)}, ${w.total_points} puntos`, '')}</p>
     </div>
   )
 }

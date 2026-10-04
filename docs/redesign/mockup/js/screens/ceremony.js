@@ -119,14 +119,17 @@ export function Ceremony({ params }) {
   const shown = Math.min(N, phase);
   const cv = useRef(null);
   const tallyDone = phase > N;
+  // The burst fires once and lives out its pieces; it is only cut (and cleared) on unmount (D-77).
+  const stopConfetti = useRef(null);
+  useEffect(() => () => stopConfetti.current?.(), []);
   useEffect(() => {
-    if (phase !== N + 1) return undefined;
+    if (phase !== N + 1 || stopConfetti.current) return;
     const colors = [...g.results.map((r) => COLOR_HEX[P(r.player_id).color]), '#f4c43a', '#f4c43a'];
     const c = cv.current.getBoundingClientRect();
     const w = cv.current.parentElement.querySelector('.cer-win__name')?.getBoundingClientRect();
     const x = w ? (w.left + w.width / 2 - c.left) / c.width : 0.5;
     const y = w ? (w.top + w.height / 2 - c.top) / c.height : 0.3;
-    return burst(cv.current, { colors, x, y });
+    stopConfetti.current = burst(cv.current, { colors, x, y });
   }, [phase]);
   const cur = cats[shown - 1];
   const status = !tallyDone ? (cur ? `Sumando ${cur.long}` : 'Fin de la partida') : 'Resultados finales';
@@ -140,6 +143,7 @@ export function Ceremony({ params }) {
     <div class="cer__main">
       <p class="cer__status" aria-live="polite">${status}</p>
       <div class="cer__cat" key=${shown}>
+        ${tallyDone && html`<h1 class="vh">Puntaje final</h1>`}
         ${!tallyDone && cur && html`<span class=${`cer__catchip catkey--${cur.key}`}><${Icon} name=${cur.icon} size=${22} />${cur.long}</span>`}
         ${!tallyDone && !cur && html`<h1 class="cer__title">Puntaje final</h1>`}
       </div>

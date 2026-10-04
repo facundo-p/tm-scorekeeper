@@ -1,4 +1,4 @@
-import { useEffect, type RefObject } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 import { burst } from '@/fx/confetti'
 
 /** Colores de los jugadores (tokens `--p-<color>`) y el dorado del M€, leídos del CSS. */
@@ -17,12 +17,18 @@ function originOf(canvas: HTMLCanvasElement, target: HTMLElement | null) {
   return { x: (w.left + w.width / 2 - c.left) / c.width, y: (w.top + w.height / 2 - c.top) / c.height }
 }
 
-/** Cuando `active` pasa a verdadero, estalla el confetti sobre el nombre del ganador. */
+/**
+ * La primera vez que `active` es verdadero estalla el confetti sobre el nombre del ganador. Corre
+ * hasta apagarse solo; se corta (y se limpia el lienzo) recién al desmontar. En el mockup el
+ * efecto dependía de la fase y se cortaba al pasar a la siguiente (D-77).
+ */
 export function useConfetti(active: boolean, canvas: RefObject<HTMLCanvasElement | null>, target: RefObject<HTMLElement | null>, colors: (string | undefined)[]) {
+  const cancel = useRef<(() => void) | null>(null)
   useEffect(() => {
-    if (!active || !canvas.current) return undefined
-    return burst(canvas.current, { colors: tokenColors(colors), ...originOf(canvas.current, target.current) })
+    if (!active || cancel.current || !canvas.current) return
+    cancel.current = burst(canvas.current, { colors: tokenColors(colors), ...originOf(canvas.current, target.current) })
     // Los colores salen del mismo informe: con `active` alcanza.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active])
+  useEffect(() => () => cancel.current?.(), [])
 }

@@ -61,7 +61,7 @@ function prepare(canvas: HTMLCanvasElement) {
   return { ctx, w, h }
 }
 
-/** Lanza el estallido sobre `canvas`; devuelve la cancelación. Con reduced-motion no hace nada. */
+/** Lanza el estallido sobre `canvas`; devuelve la cancelación (que también limpia el lienzo). Con reduced-motion no hace nada. */
 export function burst(canvas: HTMLCanvasElement | null, options: BurstOptions = {}): () => void {
   if (!canvas || reducedMotion()) return () => {}
   const { ctx, w, h } = prepare(canvas)
@@ -78,5 +78,5 @@ export function burst(canvas: HTMLCanvasElement | null, options: BurstOptions = 
     if (alive) raf = requestAnimationFrame(tick)
   }
   raf = requestAnimationFrame(tick)
-  return () => cancelAnimationFrame(raf)
+  return () => { cancelAnimationFrame(raf); ctx.clearRect(0, 0, w, h) }
 }

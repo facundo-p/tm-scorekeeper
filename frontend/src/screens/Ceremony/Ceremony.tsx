@@ -1,12 +1,12 @@
 // Ceremonia de fin de partida (F31, SCR-07): port de docs/redesign/mockup/js/screens/ceremony.js con
 // datos de la API. Una sola secuencia: se suma categoría por categoría (las filas se reordenan), y
 // después aterrizan el ganador (con confetti), el ELO, los récords y los logros.
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { bySignup, playerIndex, type PlayerIndex } from '@/data/instruments'
 import { useGameReport, usePlayersList } from '@/data/hooks'
 import type { GameReport } from '@/data/types'
-import { CATEGORIES, mapInfo } from '@/domain/catalog'
+import { mapInfo, type CategoryInfo } from '@/domain/catalog'
 import { fmtDate } from '@/domain/format'
 import { PlanetCanvas, PlanetSlot } from '@/fx/planet'
 import { PATHS } from '@/shell/paths'
@@ -18,7 +18,7 @@ import { Icon, MapGlyph } from '@/ui/icons'
 import instruments from '@/ui/instruments/instruments.module.css'
 import { EmptyState, ErrorState, LoadingState } from '@/ui/states'
 import { AchBlock, EloBlock, RecordsBlock, WinnerBanner } from './Blocks'
-import { statusText } from './model'
+import { ceremonyCats, statusText } from './model'
 import { Tally } from './Tally'
 import { useConfetti } from './useConfetti'
 import { useSequence } from './useSequence'
@@ -46,24 +46,45 @@ function Actions({ id }: { id: string }) {
   )
 }
 
-function CategoryCue({ cat, done }: { cat?: (typeof CATEGORIES)[number]; done: boolean }) {
-  if (done) return <div className={styles.cer__cat} />
+/** Qué se está sumando; al final queda un h1 oculto para que la pantalla no pierda su título. */
+function CategoryCue({ cat, done }: { cat?: CategoryInfo; done: boolean }) {
   return (
     <div className={styles.cer__cat}>
-      {cat ? <span className={cx(styles.cer__catchip, instruments[`catkey--${cat.key}`])}><Icon name={cat.icon} size={22} />{cat.long}</span>
-        : <h1 className={styles.cer__title}>Puntaje final</h1>}
+      {done ? <h1 className="vh">Puntaje final</h1>
+        : cat ? <span className={cx(styles.cer__catchip, instruments[`catkey--${cat.key}`])}><Icon name={cat.icon} size={22} />{cat.long}</span>
+          : <h1 className={styles.cer__title}>Puntaje final</h1>}
     </div>
   )
 }
 
-function Scene({ report, players, rank }: SceneProps) {
-  const cats = useMemo(() => CATEGORIES.filter((c) => c.key !== 'turmoil_points' || report.game.expansions.includes('Turmoil')), [report])
-  const N = cats.length
-  const [phase, skip] = useSequence(N + 5)
-  const shown = Math.min(N, phase)
-  const done = phase > N
-  const canvas = useRef<HTMLCanvasElement>(null)
+function After({ phase, N, report, players, rank }: SceneProps & { phase: number; N: number }) {
+  return (
+    <>
+      <div className={styles.cer__after}>
+        {phase >= N + 2 && <EloBlock report={report} players={players} />}
+        {phase >= N + 3 && <RecordsBlock report={report} players={players} />}
+        {phase >= N + 4 && <AchBlock report={report} players={players} rank={rank} />}
+      </div>
+      {phase >= N + 5 && <Actions id={report.game.id} />}
+    </>
+  )
+}
+
+/** Secuencia de la ceremonia; al saltarla, el foco va al nombre del ganador. */
+function useCeremony(report: GameReport) {
+  const cats = useMemo(() => ceremonyCats(report.game.expansions), [report])
+  const [phase, skip] = useSequence(cats.length + 5)
+  const [skipped, setSkipped] = useState(false)
   const winner = useRef<HTMLHeadingElement>(null)
+  const done = phase > cats.length
+  useEffect(() => { if (skipped && done) winner.current?.focus() }, [skipped, done])
+  return { cats, phase, done, winner, shown: Math.min(cats.length, phase), skip: () => { setSkipped(true); skip() } }
+}
+
+function Scene({ report, players, rank }: SceneProps) {
+  const { cats, phase, done, winner, shown, skip } = useCeremony(report)
+  const N = cats.length
+  const canvas = useRef<HTMLCanvasElement>(null)
   useConfetti(phase === N + 1, canvas, winner, report.results.map((r) => players.get(r.player_id)?.color))
   return (
     <div className={styles.cer}>
@@ -75,12 +96,7 @@ function Scene({ report, players, rank }: SceneProps) {
         <CategoryCue key={shown} cat={cats[shown - 1]} done={done} />
         {done && <WinnerBanner report={report} players={players} nameRef={winner} />}
         <Tally results={report.results} cats={cats} shown={shown} players={players} />
-        <div className={styles.cer__after}>
-          {phase >= N + 2 && <EloBlock report={report} players={players} />}
-          {phase >= N + 3 && <RecordsBlock report={report} players={players} />}
-          {phase >= N + 4 && <AchBlock report={report} players={players} rank={rank} />}
-        </div>
-        {phase >= N + 5 && <Actions id={report.game.id} />}
+        <After phase={phase} N={N} report={report} players={players} rank={rank} />
       </div>
     </div>
   )
