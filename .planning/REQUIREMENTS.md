@@ -59,10 +59,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **STAT-01**: Filtro único de subconjunto (`GameSubset`, `StatsContext`, dependencia `game_subset`)
 - [x] **STAT-02**: ELO de mesa por reproducción; reproducir todo da el historial guardado
 - [x] **STAT-03**: Récords v2: 7 nuevos, co-poseedores, historial, contexto roto/cerca, `GET /records/{code}/history`
-- [ ] **STAT-04**: Desbloqueos de logros por nivel en `achievement_unlocks`
-- [ ] **STAT-05**: Recálculo de logros dentro de crear/editar/borrar; lectura repetible; D-13
-- [ ] **STAT-06**: 6 logros nuevos con íconos
-- [ ] **STAT-07**: Vista de logros por mesa que nunca escribe
+- [x] **STAT-04**: Desbloqueos de logros por nivel en `achievement_unlocks`
+- [x] **STAT-05**: Recálculo de logros dentro de crear/editar/borrar; lectura repetible; D-13
+- [x] **STAT-06**: 6 logros nuevos con íconos
+- [x] **STAT-07**: Vista de logros por mesa que nunca escribe
 - [ ] **STAT-08**: Color de cubo y fecha de alta de jugadores
 - [ ] **STAT-09**: `GET /games/summaries` con filtros
 - [ ] **STAT-10**: `GET /games/{id}/report`; crear/editar devuelven el informe; DELETE recalcula
@@ -137,10 +137,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | STAT-01 | Phase 22 | Complete |
 | STAT-02 | Phase 22 | Complete |
 | STAT-03 | Phase 22 | Complete |
-| STAT-04 | Phase 23 | Pending |
-| STAT-05 | Phase 23 | Pending |
-| STAT-06 | Phase 23 | Pending |
-| STAT-07 | Phase 23 | Pending |
+| STAT-04 | Phase 23 | Complete |
+| STAT-05 | Phase 23 | Complete |
+| STAT-06 | Phase 23 | Complete |
+| STAT-07 | Phase 23 | Complete |
 | STAT-08 | Phase 24 | Pending |
 | STAT-09 | Phase 24 | Pending |
 | STAT-10 | Phase 24 | Pending |

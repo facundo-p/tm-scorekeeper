@@ -9,7 +9,9 @@ from models.record_entry import LABEL_PLAYER
 from services.helpers.records import best_with_holders
 from services.record_calculators.highest_single_game_score import HighestSingleGameScoreCalculator
 from services.record_calculators.most_games_won import MostGamesWonCalculator
-from services.achievement_evaluators.win_streak import WinStreakEvaluator
+from services.achievement_evaluators.metrics import timelines
+from services.stats.context import StatsContext
+from services.stats.elo_replay import replay_elo
 
 
 def result(pid, tr, mc=0, corp=Corporation.CREDICOR):
@@ -47,4 +49,5 @@ def test_co_winners_both_count_as_wins():
 def test_a_shared_win_keeps_the_streak_alive():
     games = [game("g1", 1, result("a", 40), result("b", 10)),
              game("g2", 2, result("a", 30, 5), result("b", 30, 5))]
-    assert WinStreakEvaluator.__new__(WinStreakEvaluator)._calculate_max_streak("a", games) == 2
+    ctx = StatsContext(games)
+    assert timelines(ctx, replay_elo(ctx))["a"][-1].metrics.streak == 2

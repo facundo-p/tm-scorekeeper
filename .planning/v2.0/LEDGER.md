@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F23 · Logros derivados, nuevos y vista por mesa |
-| Issue | 23.1–23.4 (#109–#112) |
+| Fase | F24 · Jugadores, partidas e informe |
+| Issue | 24.1–24.3 (#113–#115) |
 | Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 245e02e (merge #153 en origin/staging) |
+| Último commit | c47759c (merge #155 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F23 — tabla `achievement_unlocks` y bucle de niveles único, recálculo derivado en crear/editar/borrar después del ELO, `app_meta.derived_version` (D-13), 6 logros nuevos, vista por mesa sin escritura; golden de logros.
+**Próximo paso:** F24 — `players.color` y `since`, `GET /games/summaries` con subconjunto, `GET /games/{id}/report` (golden del informe: hay que sumarlo al exportador), crear/editar devuelven el informe.
 
 ## Tablero (GitHub)
 
@@ -71,3 +71,4 @@
 - 2026-10-03 — F21 mergeada (#152 → `b7f86c9`; revisión: ronda 1 APPROVE con 1 minor y 3 nit, todos corregidos). Issues #102–#105 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-03 — F22 mergeada (#153 → `245e02e`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: 4 corregidos, el tipo del frontend queda para F28). Golden de récords y ELO de mesa en 5 alcances; pytest 344. Issues #106–#108 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-04 — F23 partida en A/B/C (D-63). F23-A mergeada (#154 → `7ce7147`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos salvo el camelCase de métricas, que espeja el catálogo). Rama reseteada; 23-B encima.
+- 2026-10-04 — F23-B mergeada (#155 → `c47759c`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos). Issues #109, #110, #112 cerrados. Rama reseteada; 23-C encima.
