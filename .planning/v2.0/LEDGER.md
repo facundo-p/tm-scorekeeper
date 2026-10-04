@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F35 · Limpieza y presupuestos |
 | Issue | 35.1 #138 · 35.2 #139 · 35.3 #140 |
-| Paso | 35.1-B (páginas, Legacy e index.css) |
+| Paso | 35.1-C (componentes, recharts y lucide) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -89,3 +89,4 @@
 - 2026-10-04 — F33 mergeada (#169 → `9c6aa11`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: progreso seguro y tests de error y orden de logros; botones del historial y rivales quedan por paridad, página vieja a F35). La ficha suma `elo_series` e `history` (D-79). 85/85 en la comparación. Issues #134, #135, #35 y #38 cerrados (#66 es un PR: se cierra al final). Rama reseteada.
 - 2026-10-04 — F34 mergeada (#170 → `dd3c4f5`; revisión: ronda 1 CHANGES_REQUESTED por el dato prestado al cambiar de jugador (keepPrevious por prefijo, retryFailed, componentes partidos, tests), ronda 2 APPROVE con 1 minor corregido). D-80. **Todas las pantallas del mockup portadas (E6 completa).** Issues #136, #137, #37 y #44 cerrados. Rama reseteada.
 - 2026-10-04 — 35.1-A mergeada (#171 → `a76d787`; revisión: APPROVE con 2 minor: skill `new-component` corregido, los demás skills quedan en el plan para el PR que borra lo que citan). D-81: 35.1 en cuatro PR. Rama reseteada.
+- 2026-10-04 — 35.1-B mergeada (#172 → `1b7ff9f`; revisión: APPROVE con 2 minor (skill `new-hook` y ruta de D-45) y 1 nit (comentario de `api/elo.ts`, se va en 35.1-D)). La comparación completa sigue en verde sin `src/index.css`. Rama reseteada.

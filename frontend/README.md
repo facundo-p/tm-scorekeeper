@@ -84,7 +84,6 @@ Los archivos quedan en `dist/`. Requiere que TypeScript compile sin errores.
 ```
 frontend/src/
 ├── api/              # http.ts (Bearer, 15 s, cancelación, ApiError) y llamadas de las pantallas viejas
-├── components/       # Componentes de las pantallas actuales (se reemplazan en v2.0)
 ├── constants/        # Enums del juego (mapas, hitos, recompensas, corporaciones)
 ├── context/          # AuthContext (sesión en localStorage)
 ├── data/             # v2.0: TanStack Query (query.ts) y hooks de datos de la API v2 (hooks.ts)
@@ -93,7 +92,7 @@ frontend/src/
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
 ├── screens/          # v2.0: pantallas (Login, Home, Games, GameReport, Register, Ceremony, Ranking, Profile, Records, Achievements, NotFound) y Gallery/, la galería de comparación
-├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
+├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts) y ProtectedRoute
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
 ├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/

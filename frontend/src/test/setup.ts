@@ -16,9 +16,7 @@ const localStorageMock = (() => {
 
 Object.defineProperty(window, 'localStorage', { value: localStorageMock, writable: true })
 
-// Mock ResizeObserver so Recharts ResponsiveContainer doesn't crash in jsdom.
-// Required by recharts@3.8.1's <ResponsiveContainer> internal layout effect.
-// See .planning/phases/12-ranking-line-chart-leaderboard/12-CONTEXT.md D-01.
+// jsdom no implementa ResizeObserver; lo usan el gráfico de ELO, el cielo y el planeta (fx/planet/stage).
 global.ResizeObserver = class ResizeObserver {
   observe() {}
   unobserve() {}

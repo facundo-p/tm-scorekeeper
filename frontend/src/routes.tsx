@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { PlanetProvider } from '@/fx/planet'
 import { ErrorBoundary } from '@/shell/ErrorBoundary'
-import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute'
+import ProtectedRoute from '@/shell/ProtectedRoute'
 import { AppShell } from '@/shell/AppShell'
 import { PATHS } from '@/shell/paths'
 
