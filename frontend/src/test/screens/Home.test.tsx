@@ -71,3 +71,23 @@ describe('Inicio', () => {
     expect(screen.getAllByText('Nico').length).toBeGreaterThan(0)
   })
 })
+
+describe('Inicio sin partidas', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
+  it('shows empty states instead of blank panels', async () => {
+    const empty: Record<string, unknown> = {
+      ...API, '/games/summaries': [], '/feed': [], '/ranking': { view: 'all', lead_changes: [], players: [] },
+      '/seasons/current': { ...season, race: { category: 'total', games: 0, qualified: [], pending: [] } },
+    }
+    vi.stubGlobal('fetch', vi.fn((url: string) => {
+      const path = new URL(url, 'http://x').pathname.replace(/\/$/, '').replace(/^\/api/, '')
+      return Promise.resolve(new Response(JSON.stringify(empty[path] ?? {}), { status: 200 }))
+    }))
+    renderHome()
+    expect(await screen.findByText(/Todavía no hay partidas en el archivo/)).toBeInTheDocument()
+    expect(screen.getByText('Todavía no hay novedades en el archivo.')).toBeInTheDocument()
+    expect(screen.getByText('El ranking aparece con la primera partida.')).toBeInTheDocument()
+    expect(screen.getByText('Todavía no hay partidas para esta carrera.')).toBeInTheDocument()
+  })
+})

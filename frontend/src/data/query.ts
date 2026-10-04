@@ -32,9 +32,8 @@ export interface ApiQuery<T> {
   refetch: () => void
 }
 
-/** GET de la API con cache por ruta; `enabled: false` no pide nada. */
 /**
- * `keepPrevious`: al cambiar un filtro (otra clave de la misma vista) se sigue mostrando el dato
+ * GET de la API con cache por ruta; `enabled: false` no pide nada. `keepPrevious`: al cambiar un filtro (otra clave de la misma vista) se sigue mostrando el dato
  * anterior hasta que llega el nuevo, en vez de volver al estado de carga.
  */
 export function useApiQuery<T>(path: string, enabled = true, keepPrevious = false): ApiQuery<T> {

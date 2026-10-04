@@ -5,7 +5,7 @@ import { useSearchParam } from '@/ui/hooks/useSearchParam'
 import { ErrorState, LoadingState } from '@/ui/states'
 import { Council } from './Council'
 import { FeedList } from './FeedList'
-import { LastGame } from './LastGame'
+import { LastGame, NoGames } from './LastGame'
 import { categoryOf, logbookItems } from './model'
 import { SeasonHero } from './SeasonHero'
 import { SeasonRace } from './SeasonRace'
@@ -22,13 +22,13 @@ export default function Home() {
   const [cat] = useSearchParam('cat')
   const category = categoryOf(cat)
   const d = useHomeData(category, mesa)
-  if (d.error) return <ErrorState onRetry={() => window.location.reload()} />
+  if (d.error) return <ErrorState onRetry={d.refetch} />
   if (!d.ready) return <LoadingState />
   return (
     <>
       <SeasonHero season={d.season!} summary={d.summary!} onRules={() => setRules(true)} />
       <div className={styles['home-grid']}>
-        {d.report && <LastGame report={d.report} players={d.players} />}
+        {d.report ? <LastGame report={d.report} players={d.players} /> : <NoGames />}
         <Plate className={cx(styles.logbook, reveal.reveal)} label="Bitácora">
           <SectionHead title="Bitácora del archivo" />
           <FeedList items={logbookItems(d.feed!)} players={d.players} />

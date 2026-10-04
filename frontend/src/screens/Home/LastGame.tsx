@@ -63,3 +63,13 @@ export function LastGame({ report, players }: { report: GameReport; players: Pla
     </Plate>
   )
 }
+
+/** Archivo vacío: el lugar de la última partida invita a registrar la primera. */
+export function NoGames() {
+  return (
+    <Plate className={cx(styles.lastgame, reveal.reveal)} label="Última partida">
+      <SectionHead title="Última partida" />
+      <p className="muted">Todavía no hay partidas en el archivo. Registrá la primera para empezar a terraformar.</p>
+    </Plate>
+  )
+}

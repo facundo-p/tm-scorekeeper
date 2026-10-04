@@ -91,6 +91,7 @@ describe('Login', () => {
     fireEvent.click(screen.getByRole('button', { name: /ingresar/i }))
     expect(screen.getByRole('alert')).toHaveTextContent('Completá usuario y contraseña para entrar al archivo.')
     expect(screen.getByLabelText(/usuario/i)).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.getByLabelText(/usuario/i)).toHaveAccessibleDescription('Completá usuario y contraseña para entrar al archivo.')
     expect(fetchMock).not.toHaveBeenCalled()
   })
 

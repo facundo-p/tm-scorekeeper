@@ -8,16 +8,18 @@ import type { TableSize } from '@/ui/MesaFilter'
  * categoría; el resto es siempre del grupo completo (como en el mockup).
  */
 export function useHomeData(category: string, mesa: TableSize | null) {
-  const { season, error: e1 } = useCurrentSeason({ category: category === 'total' ? undefined : category, mesa })
-  const { summary, error: e2 } = useGroupSummary()
-  const { games, error: e3 } = useGameSummaries()
-  const lastId = games?.[0]?.id
-  const { report, error: e4 } = useGameReport(lastId ?? '', !!lastId)
-  const { ranking, error: e5 } = useRanking()
-  const { feed, error: e6 } = useFeed()
-  const { players: list, error: e7 } = usePlayersList()
-  const players = useMemo(() => playerIndex(list ?? []), [list])
-  const error = e1 ?? e2 ?? e3 ?? e4 ?? e5 ?? e6 ?? e7
-  const ready = !!(season && summary && games && (report || !lastId) && ranking && feed && list)
-  return { season, summary, report, ranking, feed, players, ready, error }
+  const s = useCurrentSeason({ category: category === 'total' ? undefined : category, mesa })
+  const sum = useGroupSummary()
+  const g = useGameSummaries()
+  const lastId = g.games?.[0]?.id
+  const r = useGameReport(lastId ?? '', !!lastId)
+  const rk = useRanking()
+  const f = useFeed()
+  const pl = usePlayersList()
+  const players = useMemo(() => playerIndex(pl.players ?? []), [pl.players])
+  const all = [s, sum, g, r, rk, f, pl]
+  const error = all.find((q) => q.error)?.error ?? null
+  const refetch = () => all.forEach((q) => q.error && q.refetch())
+  const ready = !!(s.season && sum.summary && g.games && (r.report || !lastId) && rk.ranking && f.feed && pl.players)
+  return { season: s.season, summary: sum.summary, report: r.report, ranking: rk.ranking, feed: f.feed, players, ready, error, refetch }
 }

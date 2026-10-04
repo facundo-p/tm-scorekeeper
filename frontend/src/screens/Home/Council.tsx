@@ -14,6 +14,7 @@ export function Council({ rows }: { rows: RankingRow[] }) {
   return (
     <Plate className={cx(styles.council, reveal.reveal)} label="Ranking">
       <SectionHead title="Consejo de Terraformación"><span>ELO</span></SectionHead>
+      {top.length === 0 && <p className="muted">El ranking aparece con la primera partida.</p>}
       <ol className={styles.council__list}>
         {top.map((p) => (
           <li key={p.player_id} className={cx(styles.council__row, styles[`council__row--${p.rank}`])}>
