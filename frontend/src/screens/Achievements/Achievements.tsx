@@ -25,7 +25,7 @@ function useAchievementsData(mesa: TableSize | null, who: string | null) {
   const withGames = new Set(q.ranking.ranking?.players.map((r) => r.player_id))
   const active = bySignup(q.players.players ?? []).filter((p) => p.is_active && withGames.has(p.player_id))
   const byCode = Object.fromEntries((who ? mine.achievements ?? [] : []).map((a) => [a.code, a]))
-  return { q, players, active, byCode, error: all.find((x) => x.error)?.error, retry: () => retryFailed(all) }
+  return { q, players, active, byCode, mineLoading: !!who && !mine.achievements, error: all.find((x) => x.error)?.error, retry: () => retryFailed(all) }
 }
 
 function Count({ who, list, byCode, mesa, players }: { who: string; list: CatalogAchievement[]; byCode: Record<string, PlayerAchievement>; mesa: TableSize | null; players: ReturnType<typeof playerIndex> }) {
@@ -45,7 +45,7 @@ function Tools({ d, who, setWho, mesa, setMesa }: ToolsProps) {
       <MaterialStrip />
       <PlayerPicker players={d.active} value={who} onChange={setWho} />
       <MesaFilter value={mesa} onChange={setMesa} />
-      {who && list && <Count who={who} list={list} byCode={d.byCode} mesa={mesa} players={d.players} />}
+      {who && list && !d.mineLoading && <Count who={who} list={list} byCode={d.byCode} mesa={mesa} players={d.players} />}
     </div>
   )
 }

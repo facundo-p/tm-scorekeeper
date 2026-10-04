@@ -108,9 +108,9 @@ describe('Trofeos', () => {
     fireEvent.click(await screen.findByRole('button', { name: 'Ana' }))
     expect(await screen.findByText(/tiene 1 de 1 logros/)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Beto' }))
-    expect(screen.queryByText(/Beto.*tiene 1 de 1/)).toBeNull()
-    expect(screen.getByText(/tiene 0 de 1 logros/)).toBeInTheDocument()
+    expect(screen.queryByText(/tiene \d+ de 1 logros/)).toBeNull()
     release()
+    expect(await screen.findByText(/tiene 0 de 1 logros/)).toBeInTheDocument()
     await waitFor(() => expect(screen.getByRole('button', { name: /Alcanzar X/ })).not.toHaveTextContent('60/75'))
   })
 
