@@ -77,6 +77,12 @@ npm run build
 
 Los archivos quedan en `dist/`. Requiere que TypeScript compile sin errores.
 
+Presupuesto (D-83): `node tools/budgets/check-bundle.mjs` (desde la raíz, después del build) lee `dist/.vite/manifest.json` y falla si:
+- el JS inicial pasa de 100 kB gzip. El JS inicial es la entrada y sus imports estáticos; las pantallas y el motor del planeta se cargan con `import()`.
+- el motor del planeta (`fx/planet/stage.ts`) no está en un chunk aparte.
+
+Lo corren CI y `gates.sh`.
+
 ---
 
 ## Estructura de carpetas relevante

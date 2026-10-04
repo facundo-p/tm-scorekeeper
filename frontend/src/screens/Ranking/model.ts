@@ -4,7 +4,8 @@ import { monthsBefore, today } from '@/domain/clock'
 import type { PlayerLike } from '@/ui/atoms'
 import type { EloSeries } from '@/ui/instruments'
 
-export const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco'] as const
+// Los 10 colores del backend (models/player_colors.py), únicos entre activos (D-84).
+export const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco', 'gris'] as const
 
 export interface Range { id: string; label: string; from: string | null }
 

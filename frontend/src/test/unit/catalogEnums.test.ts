@@ -7,6 +7,7 @@ import { resolve } from 'node:path'
 import { describe, it, expect } from 'vitest'
 import { CORP_BY_NAME, EXPANSIONS, MAP_ORDER } from '@/domain/catalog'
 import { AWARD_LABELS, MILESTONE_LABELS } from '@/domain/labels'
+import { COLORS } from '@/screens/Ranking/model'
 
 const source = readFileSync(resolve(__dirname, '../../../../backend/models/enums.py'), 'utf8')
 
@@ -30,5 +31,12 @@ describe('catálogo frente a los enums del backend', () => {
     for (const a of enumValues('Award')) expect(AWARD_LABELS[a], a).toBeDefined()
     for (const c of enumValues('Corporation')) expect(CORP_BY_NAME[c], c).toBeDefined()
     expect(enumValues('Corporation').length).toBeGreaterThan(20)
+  })
+
+  it('la hoja de jugador ofrece los mismos colores que el backend (D-84)', () => {
+    const colors = readFileSync(resolve(__dirname, '../../../../backend/models/player_colors.py'), 'utf8')
+    const tuple = colors.match(/PLAYER_COLORS = \(([^)]*)\)/)?.[1]
+    if (!tuple) throw new Error('No está la tupla PLAYER_COLORS en models/player_colors.py')
+    expect([...COLORS]).toEqual([...tuple.matchAll(/"([^"]+)"/g)].map((m) => m[1]))
   })
 })

@@ -80,6 +80,10 @@ jobs:
         working-directory: frontend
       - run: npm test -- --run
         working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+      - name: Presupuesto del bundle (JS inicial y planeta aparte)
+        run: node tools/budgets/check-bundle.mjs
 
   test-tools:
     runs-on: ubuntu-latest
@@ -94,6 +98,8 @@ jobs:
         run: node tools/fixtures/export.mjs --check
       - name: Semántica del mockup (casos borde)
         run: node --test tools/fixtures/*.test.mjs
+      - name: Presupuestos (lógica)
+        run: node --test tools/budgets/*.test.mjs
       - run: npm ci
         working-directory: tools/parity
       - name: Tests del arnés de comparación

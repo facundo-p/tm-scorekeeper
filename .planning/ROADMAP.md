@@ -178,7 +178,7 @@ Plans:
 - [x] **Phase 32: Pantalla: Ranking y jugadores** (E6)
 - [x] **Phase 33: Pantalla: Perfil** (E6)
 - [x] **Phase 34: Pantallas: Récords y Logros** (E6)
-- [ ] **Phase 35: Limpieza y presupuestos** (E7)
+- [x] **Phase 35: Limpieza y presupuestos** (E7)
 - [ ] **Phase 36: Documentación, entrega y cierre** (E7)
 
 ## v2.0 Phase Details

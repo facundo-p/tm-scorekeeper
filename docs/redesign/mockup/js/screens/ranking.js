@@ -16,7 +16,8 @@ const RANGES = [
   { id: 'year', label: today().slice(0, 4), from: `${today().slice(0, 4)}-01-01` },
   { id: 'q', label: 'Últimos 3 meses', from: monthsBefore(today(), 3) },
 ];
-const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco'];
+// Los 10 colores del backend (players.color, único entre activos; D-84).
+const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco', 'gris'];
 
 // With a table-size filter every figure (ELO included) is replayed on that subset.
 function ranked(model) {
@@ -153,8 +154,9 @@ function Roster({ onAdd }) {
 
 export function PlayerSheet({ player, onClose }) {
   const [name, setName] = useState(player?.name ?? '');
-  const [color, setColor] = useState(player?.color ?? 'rojo');
   const taken = new Set(MODEL.players.filter((p) => p.active && p.id !== player?.id).map((p) => p.color));
+  // Una alta arranca con el primer color libre (D-84), como la app.
+  const [color, setColor] = useState(player?.color ?? COLORS.find((c) => !taken.has(c)) ?? 'rojo');
   return html`<${Sheet} title=${player ? `Editar a ${player.name}` : 'Nuevo jugador'} onClose=${onClose}>
     <form class="pform" onSubmit=${(e) => { e.preventDefault(); onClose(); }}>
       <label class="field"><span class="field__label">Nombre</span>
