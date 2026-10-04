@@ -47,4 +47,3 @@ def record_shape(r: dict) -> dict:
 def elo_from_replay(changes: list) -> dict[str, dict]:
     """EloChange del servicio de reproducción → {player_id: {before, after, delta}}."""
     return {c.player_id: {"before": c.elo_before, "after": c.elo_after, "delta": c.delta} for c in changes}
-

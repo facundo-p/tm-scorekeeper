@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from models.achievement_tier import AchievementTier
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, eq=False)  # los evaluadores de v1 pasan `tiers` como lista
 class AchievementDefinition:
     """Un logro (SEMANTICS §5): `metric` nombra la métrica acumulada; `kind` es
     `max`, `sum` o `flag` (un solo nivel, sin progreso)."""

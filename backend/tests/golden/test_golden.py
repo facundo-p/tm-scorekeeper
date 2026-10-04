@@ -3,9 +3,9 @@ import pytest
 
 from models.game_subset import GameSubset
 from repositories.container import games_repository
+from services.achievement_evaluators.derive import derive_achievements
 from services.stats.context import StatsContext
 from services.stats.elo_replay import replay_elo
-from services.achievement_evaluators.derive import derive_achievements
 from tests.golden.adapters import (
     elo_from_changes,
     elo_from_golden,

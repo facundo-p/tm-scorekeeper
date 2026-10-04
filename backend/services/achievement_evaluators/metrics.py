@@ -73,9 +73,9 @@ def step(m: AchievementMetrics, gs: GameStats, pid: str, elo_before: dict[str, i
     player = next(p for p in gs.game.player_results if p.player_id == pid)
     m = replace(
         m, score=max(m.score, result.total_points), games=m.games + 1, cur_streak=cur, streak=max(m.streak, cur),
-        greenery=m.greenery + (scores.greenery_points or 0), maps=m.maps | {gs.game.map_name},
-        corps=m.corps | {player.corporation}, cards=max(m.cards, scores.card_points or 0),
-        cities=max(m.cities, scores.city_points or 0), stolen=max(m.stolen, _stolen(gs, pid)),
+        greenery=m.greenery + scores.greenery_points, maps=m.maps | {gs.game.map_name},
+        corps=m.corps | {player.corporation}, cards=max(m.cards, scores.card_points),
+        cities=max(m.cities, scores.city_points), stolen=max(m.stolen, _stolen(gs, pid)),
     )
     return _win_flags(m, gs, pid, elo_before) if won else m
 

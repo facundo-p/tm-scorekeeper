@@ -120,3 +120,24 @@ def test_table_view_only_counts_games_of_that_size():
     games = [game("g1", 1, result("a", 50), result("b", 40)),
              game("g2", 2, result("a", 50), result("b", 40), result("c", 30))]
     assert state(games, "a", "games_played", GameSubset(player_count=3)).value == 1
+
+
+def test_stolen_awards_takes_the_best_game_not_the_sum():
+    games = [game("g1", 1, result("a", 50), result("b", 40), awards=[award("b", ["a"])]),
+             game("g2", 2, result("a", 50), result("b", 40), awards=[award("b", ["a"])])]
+    assert state(games, "a", "stolen_awards").value == 1
+
+
+def test_losses_unlock_no_win_flags_and_break_the_streak():
+    games = [game("g1", 1, result("a", 50), result("b", 40)),
+             game("g2", 2, result("b", 50), result("a", 40)),
+             game("g3", 3, result("a", 50), result("b", 40))]
+    assert state(games, "a", "win_streak").value == 1
+    assert state(games[1:2], "a", "no_milestone_win").tier == 0
+    assert state(games[1:2], "a", "no_award_win").tier == 0
+
+
+def test_a_player_outside_the_subset_gets_everything_locked():
+    games = [game("g1", 1, result("a", 50), result("b", 40))]
+    states = derive_achievements(StatsContext(games, GameSubset(player_count=2)), ["z"])["z"]
+    assert len(states) == 18 and all(s.tier == 0 and s.value == 0 for s in states)
