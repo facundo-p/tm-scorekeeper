@@ -49,9 +49,11 @@ def _form(rows: list[PlayerRow]) -> list[dict]:
 
 
 def _ranking(players, games_by_player: dict, replay: EloReplay) -> list[str]:
-    """Activos con partidas en el subconjunto, por ELO (estable en el orden de los jugadores)."""
+    """Activos con partidas en el subconjunto, por ELO; a igual ELO, por id (D-67)."""
+    def order(p):
+        return -replay.ratings.get(p.player_id, 1000), p.player_id
     ranked = [p for p in players if p.is_active and games_by_player.get(p.player_id)]
-    return [p.player_id for p in sorted(ranked, key=lambda p: -replay.ratings.get(p.player_id, 1000))]
+    return [p.player_id for p in sorted(ranked, key=order)]
 
 
 class InsightsService:

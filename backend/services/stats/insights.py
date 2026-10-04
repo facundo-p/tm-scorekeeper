@@ -119,11 +119,18 @@ def _count_pair(cell: dict, mine: int, theirs: int) -> None:
     cell["ahead" if mine < theirs else "behind" if mine > theirs else "even"] += 1
 
 
+def _rate(pair: tuple) -> float:
+    return pair[1]["ahead"] / pair[1]["games"]
+
+
+def _rival(pair: Optional[tuple]) -> Optional[dict]:
+    return {"player_id": pair[0], **pair[1]} if pair else None
+
+
 def rivals(player_id: str, h2h: dict) -> dict:
-    """Némesis (le gana más seguido) y víctima, con al menos 4 partidas juntos."""
+    """Némesis (le gana más seguido) y víctima, con al menos 4 partidas juntos; a igual tasa,
+    el de más partidas (y después el primero que apareció)."""
     pairs = [(pid, c) for pid, c in h2h.get(player_id, {}).items() if c["games"] >= RIVAL_MIN_GAMES]
-    rate = lambda p: p[1]["ahead"] / p[1]["games"]  # noqa: E731
-    nemesis = min(pairs, key=lambda p: (rate(p), -p[1]["games"]), default=None)
-    victim = min(pairs, key=lambda p: (-rate(p), -p[1]["games"]), default=None)
-    as_dict = lambda p: {"player_id": p[0], **p[1]} if p else None  # noqa: E731
-    return {"nemesis": as_dict(nemesis), "victim": as_dict(victim)}
+    nemesis = min(pairs, key=lambda p: (_rate(p), -p[1]["games"]), default=None)
+    victim = min(pairs, key=lambda p: (-_rate(p), -p[1]["games"]), default=None)
+    return {"nemesis": _rival(nemesis), "victim": _rival(victim)}
