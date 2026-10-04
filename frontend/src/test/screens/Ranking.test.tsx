@@ -17,15 +17,16 @@ const PLAYERS = [
   { player_id: 'b', name: 'Beto', color: 'azul', is_active: true, elo: 1000, since: '2025-04-01', seq: 2 },
   { player_id: 'c', name: 'Ceci', color: 'verde', is_active: false, elo: 990, since: '2025-05-01', seq: 3 },
 ]
-const INSIGHTS = { by_table: [{ n: 3, games: 6, wins: 3, avg_points: 80, ...equity }], equity }
+const INSIGHTS = { by_table: [{ n: 3, games: 6, wins: 3, avg_points: 80, ...equity }, { n: 4, games: 2, wins: 0, avg_points: 70, ...equity }], equity }
 
 let calls: { url: string; init?: RequestInit }[] = []
 let writeStatus = 200
+let ranking: unknown = RANKING
 const ok = (body: unknown, status = 200) => Promise.resolve(new Response(JSON.stringify(body), { status }))
 function api(url: string, init?: RequestInit) {
   calls.push({ url, init })
   if (init?.method === 'POST' || init?.method === 'PATCH') return ok(writeStatus === 200 ? { player_id: 'n' } : { detail: 'Color taken' }, writeStatus)
-  if (url.includes('/ranking')) return ok(RANKING)
+  if (url.includes('/ranking')) return ok(ranking)
   if (url.includes('/head-to-head')) return ok(H2H)
   if (url.includes('/insights')) return ok(INSIGHTS)
   if (url.includes('/seasons/current')) return ok({ number: 3, start: '2026-05-01' })
@@ -48,7 +49,7 @@ const renderAt = (url = '/ranking') => render(
 const bodyOf = (method: string) => JSON.parse(String(calls.find((c) => c.init?.method === method)!.init!.body))
 
 describe('Ranking', () => {
-  beforeEach(() => { calls = []; writeStatus = 200; vi.stubGlobal('fetch', vi.fn(api)) })
+  beforeEach(() => { calls = []; writeStatus = 200; ranking = RANKING; vi.stubGlobal('fetch', vi.fn(api)) })
   afterEach(() => vi.unstubAllGlobals())
 
   it('lists the ranking with fairness readings; each row leads to the profile', async () => {
@@ -58,7 +59,7 @@ describe('Ranking', () => {
     expect(rows.map((r) => r.getAttribute('href'))).toEqual(['/jugadores/a', '/jugadores/b'])
     expect(rows[0]).toHaveTextContent('Urbanista')
     expect(rows[0]).toHaveTextContent('+1,0150 %')
-    await waitFor(() => expect(screen.getByRole('region', { name: 'Tabla por tamaño de mesa de Ana' })).toHaveTextContent('3 jugadores63+1,0150 %8060 %'))
+    await waitFor(() => expect(screen.getByRole('region', { name: 'Tabla por tamaño de mesa de Ana' })).toHaveTextContent('3 jugadores63+1,0150 %8060 %4 jugadores'))
     expect(screen.getByText('1 inactivo: no aparece en el ranking ni al registrar partidas, pero conserva su historial.')).toBeInTheDocument()
   })
 
@@ -72,11 +73,30 @@ describe('Ranking', () => {
     expect(screen.getByRole('status')).toHaveTextContent('Solo partidas de 5 jugadores')
   })
 
+  it('by table size: another player from the picker; with a table filter, only that row', async () => {
+    renderAt('/ranking?mesa=4')
+    fireEvent.change(await screen.findByRole('combobox', { name: /Jugador/ }), { target: { value: 'b' } })
+    await waitFor(() => expect(calls.some((c) => c.url.includes('/players/b/insights'))).toBe(true))
+    const region = await screen.findByRole('region', { name: 'Tabla por tamaño de mesa de Beto' })
+    await waitFor(() => expect(within(region).getAllByRole('row')).toHaveLength(2))
+    expect(region).toHaveTextContent('4 jugadores')
+    expect(region).not.toHaveTextContent('3 jugadores')
+  })
+
+  it('a table size nobody played leaves an empty ranking without breaking', async () => {
+    ranking = { ...RANKING, players: [] }
+    renderAt('/ranking?mesa=2')
+    expect(await screen.findByText('0 jugadores activos')).toBeInTheDocument()
+    expect(screen.queryByRole('combobox', { name: /Jugador/ })).toBeNull()
+    expect(screen.getByRole('heading', { name: 'Cara a cara' })).toBeInTheDocument()
+  })
+
   it('adds a player with a name and a free cube color', async () => {
     renderAt()
     fireEvent.click(await screen.findByRole('button', { name: 'Agregar jugador' }))
     const sheet = screen.getByRole('dialog', { name: 'Nuevo jugador' })
     expect(within(sheet).getByRole('radio', { name: /rojo \(en uso\)/ })).toBeInTheDocument()
+    expect(within(sheet).getByRole('radio', { name: /^verde/ })).toBeChecked()
     fireEvent.change(within(sheet).getByRole('textbox', { name: 'Nombre' }), { target: { value: '  Dani ' } })
     fireEvent.click(within(sheet).getByRole('radio', { name: /^naranja/ }))
     fireEvent.click(within(sheet).getByRole('button', { name: 'Agregar jugador' }))

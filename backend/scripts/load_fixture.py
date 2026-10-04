@@ -8,10 +8,10 @@ las tablas). Conserva los ids de jugadores y partidas, inserta todo en una sola
 transacción y después hace un único recálculo de ELO y logros.
 """
 import json
-from datetime import date
 import os
 import sys
 import time
+from datetime import date
 from pathlib import Path
 
 from sqlalchemy.engine import make_url

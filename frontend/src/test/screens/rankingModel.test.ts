@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 import { expectedTone, signedDec } from '@/ui/fairness'
-import { inactiveNote, ranges, rivalries, takenColors } from '@/screens/Ranking/model'
+import { firstFreeColor, inactiveNote, ranges, rivalries, takenColors } from '@/screens/Ranking/model'
 import type { PlayerSummary } from '@/data/types'
 
 const player = (player_id: string, color: string, is_active = true) => ({ player_id, name: player_id, color, is_active, elo: 1000, since: null }) as PlayerSummary
@@ -27,6 +27,8 @@ describe('ranking (lo puro)', () => {
     const players = [player('a', 'rojo'), player('b', 'verde'), player('c', 'azul', false)]
     expect([...takenColors(players)]).toEqual(['rojo', 'verde'])
     expect([...takenColors(players, 'a')]).toEqual(['verde'])
+    expect(firstFreeColor(takenColors(players))).toBe('azul')
+    expect(firstFreeColor(new Set(['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco']))).toBe('rojo')
   })
 
   it('texts: signed decimals, tone with a 0.05 band and the inactive note in singular and plural', () => {

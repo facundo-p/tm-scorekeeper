@@ -43,6 +43,9 @@ export function rivalries(ids: string[], matrix: HeadToHead['matrix']): Rivalry[
 export const takenColors = (players: PlayerSummary[], self?: string) =>
   new Set(players.filter((p) => p.is_active && p.player_id !== self).map((p) => p.color))
 
+/** Color inicial de un alta: el primero libre (o rojo si no queda ninguno, como el mockup). */
+export const firstFreeColor = (taken: Set<string>) => COLORS.find((c) => !taken.has(c)) ?? 'rojo'
+
 /** «1 inactivo: …» / «2 inactivos: …». */
 export const inactiveNote = (n: number) =>
   `${n} ${n === 1 ? 'inactivo' : 'inactivos'}: no aparece${n === 1 ? '' : 'n'} en el ranking ni al registrar partidas, pero conserva${n === 1 ? '' : 'n'} su historial.`
