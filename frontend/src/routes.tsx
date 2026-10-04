@@ -1,7 +1,8 @@
 // Rutas de la app (F26, SHELL-02, D-02): en castellano, como el mockup; las viejas redirigen.
 // Las pantallas que todavía no se portaron muestran la página anterior dentro del shell (D-69).
 import { lazy, Suspense, type ComponentType, type LazyExoticComponent } from 'react'
-import { Navigate, Route, Routes, useParams } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { ErrorBoundary } from '@/shell/ErrorBoundary'
 import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute'
 import { AppShell } from '@/shell/AppShell'
 import { Legacy } from '@/shell/Legacy'
@@ -26,10 +27,11 @@ const Gallery = import.meta.env.MODE === 'parity' ? lazy(() => import('@/pages/G
 
 const legacy = (Page: LazyExoticComponent<ComponentType>) => <Legacy><Page /></Legacy>
 
-/** Redirige una ruta vieja con parámetros (`/games/:gameId` → `/partidas/:gameId`). */
-function RedirectWith({ to }: { to: (params: Record<string, string>) => string }) {
+/** Redirige una ruta vieja (`/games/:gameId` → `/partidas/:gameId`) conservando `?…` y `#…`. */
+function RedirectWith({ to }: { to: string | ((params: Record<string, string>) => string) }) {
   const params = useParams() as Record<string, string>
-  return <Navigate to={to(params)} replace />
+  const { search, hash } = useLocation()
+  return <Navigate to={{ pathname: typeof to === 'string' ? to : to(params), search, hash }} replace />
 }
 
 const OLD_ROUTES: [string, string][] = [
@@ -42,7 +44,7 @@ export function AppRoutes() {
     <Routes>
       <Route path={PATHS.login} element={<Login />} />
       {Gallery && <Route path="/__galeria" element={<Gallery />} />}
-      {OLD_ROUTES.map(([from, to]) => <Route key={from} path={from} element={<Navigate to={to} replace />} />)}
+      {OLD_ROUTES.map(([from, to]) => <Route key={from} path={from} element={<RedirectWith to={to} />} />)}
       <Route path="/games/:gameId" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
       <Route path="/games/:gameId/records" element={<RedirectWith to={(p) => `${PATHS.game(p.gameId)}/records`} />} />
       <Route path="/players/:playerId/profile" element={<RedirectWith to={(p) => PATHS.profile(p.playerId)} />} />
@@ -65,6 +67,12 @@ export function AppRoutes() {
   )
 }
 
+/** El boundary de afuera cubre lo que queda fuera del shell (acceso, galería, redirecciones). */
 export function AppRouter() {
-  return <Suspense fallback={null}><AppRoutes /></Suspense>
+  const { pathname } = useLocation()
+  return (
+    <ErrorBoundary resetKey={pathname}>
+      <Suspense fallback={null}><AppRoutes /></Suspense>
+    </ErrorBoundary>
+  )
 }

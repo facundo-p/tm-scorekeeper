@@ -33,9 +33,11 @@ function Ticker() {
   const i = useRotation(items.length)
   const item = items[i]
   const color = players?.find((p) => p.player_id === item?.player_id)?.color
+  const gameId = item?.game_id
   return (
-    <button type="button" className={styles.ticker} aria-live="polite" title="Ver la partida"
-      onClick={() => item?.game_id && navigate(PATHS.game(item.game_id))}>
+    // Sin aria-live: rota cada 6,5 s y un lector de pantalla lo anunciaría sin parar.
+    <button type="button" className={styles.ticker} disabled={!gameId} title={gameId ? 'Ver la partida' : undefined}
+      onClick={() => gameId && navigate(PATHS.game(gameId))}>
       <span className={styles.ticker__rec} aria-hidden="true" />
       <span className={styles.ticker__label}>Transmisión</span>
       {item && <span className={styles.ticker__msg} key={i}>{color && <Cube color={color} size={13} />}{item.text}</span>}

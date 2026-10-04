@@ -87,10 +87,15 @@ async function main() {
   const opts = parseArgs(process.argv.slice(2));
   const run = `${new Date().toISOString().replace(/[:.]/g, '-')}-${opts.mode}`;
   const dir = resolve(opts.out ?? resolve(OUT_DIR, run));
-  mkdirSync(dir, { recursive: true });
   // --gated: solo los escenarios que ya bloquean en esta fase (los demás tardan y solo avisan).
   const scenarios = loadScenarios(opts).filter((s) => !opts.gated || isGated(s, opts));
   const jobs = scenarios.flatMap((s) => s.viewports.filter((v) => !opts.viewports || opts.viewports.includes(v)).map((v) => [s, v]));
+  if (!jobs.length) {
+    console.log(opts.gated ? `ningún escenario exigido en la fase ${opts.phase}: nada que comparar` : 'ningún escenario coincide con el filtro');
+    process.exitCode = opts.gated ? 0 : 1;
+    return;
+  }
+  mkdirSync(dir, { recursive: true });
   const { ref, cand } = await sides(opts);
   const browser = await launch();
   const ctx = { browser, ref, cand, opts, dir };

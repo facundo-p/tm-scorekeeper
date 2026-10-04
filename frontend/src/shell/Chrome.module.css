@@ -146,8 +146,13 @@
   padding: 6px 10px;
 }
 
-.ticker:hover .ticker__msg {
+.ticker:hover:enabled .ticker__msg {
   color: var(--ink);
+}
+
+/* Ítem sin partida (por ejemplo, un cierre de temporada): se lee igual, pero no navega. */
+.ticker:disabled {
+  cursor: default;
 }
 
 .ticker__rec {

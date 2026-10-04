@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { TOKEN_KEY } from '@/api/http'
@@ -21,7 +21,8 @@ function api(url: string) {
 }
 
 function Where() {
-  return <output data-testid="where">{useLocation().pathname}</output>
+  const { pathname, search } = useLocation()
+  return <output data-testid="where">{pathname + search}</output>
 }
 
 function renderAt(url: string) {
@@ -61,6 +62,7 @@ describe('shell y rutas', () => {
   it.each([
     ['/home', '/'], ['/games', '/partidas'], ['/games/new', '/registrar'], ['/achievements', '/logros'],
     ['/players/p-facu/profile', '/jugadores/p-facu'], ['/games/g-001', '/partidas/g-001'],
+    ['/games?page=2', '/partidas\\?page=2'],
   ])('old route %s redirects to %s (D-02)', async (from, to) => {
     localStorage.setItem(TOKEN_KEY, 'tok')
     renderAt(from)
@@ -92,5 +94,17 @@ describe('ErrorBoundary', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Se perdió el enlace con el archivo')
     rerender(<ErrorBoundary resetKey="/b"><p>ok</p></ErrorBoundary>)
     expect(screen.getByText('ok')).toBeInTheDocument()
+  })
+  it('a failed lazy chunk reloads the page on retry (React.lazy keeps the rejection)', () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+    const reload = vi.fn()
+    vi.stubGlobal('location', { ...window.location, reload })
+    function Chunk(): never {
+      throw new TypeError('Failed to fetch dynamically imported module: /assets/Ranking.js')
+    }
+    render(<ErrorBoundary resetKey="/a"><Chunk /></ErrorBoundary>)
+    fireEvent.click(screen.getByRole('button', { name: 'Reintentar' }))
+    expect(reload).toHaveBeenCalledOnce()
+    vi.unstubAllGlobals()
   })
 })

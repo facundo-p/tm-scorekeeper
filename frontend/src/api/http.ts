@@ -62,40 +62,50 @@ export interface HttpOptions extends Omit<RequestInit, 'signal'> {
   timeoutMs?: number
 }
 
-/** Une la cancelación externa con la de la espera máxima. */
+/** Une la cancelación externa con la de la espera máxima (que cubre también la lectura del cuerpo). */
 function deadline(signal: AbortSignal | undefined, timeoutMs: number) {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort('timeout'), timeoutMs)
   const forward = () => controller.abort(signal?.reason)
-  signal?.addEventListener('abort', forward, { once: true })
+  if (signal?.aborted) forward()
+  else signal?.addEventListener('abort', forward, { once: true })
   const done = () => { clearTimeout(timer); signal?.removeEventListener('abort', forward) }
   return { signal: controller.signal, done, timedOut: () => controller.signal.reason === 'timeout' }
 }
 
-async function send(path: string, options: HttpOptions): Promise<Response> {
-  const { headers, signal, timeoutMs = REQUEST_TIMEOUT_MS, ...rest } = options
-  const limit = deadline(signal, timeoutMs)
-  try {
-    return await fetch(`${BASE_URL}${path}`, {
-      ...rest, signal: limit.signal,
-      headers: { 'Content-Type': 'application/json', ...authHeader(), ...headers },
-    })
-  } catch (error) {
-    if (limit.timedOut()) throw new ApiError(0, 'El servidor no respondió a tiempo', 'timeout')
-    if (signal?.aborted) throw error
-    throw new ApiError(0, 'No se pudo conectar con el servidor', 'network')
-  } finally {
-    limit.done()
-  }
+type Deadline = ReturnType<typeof deadline>
+
+/** Traduce una falla de red o de espera a `ApiError`; la cancelación externa pasa tal cual. */
+function classify(error: unknown, limit: Deadline, signal?: AbortSignal) {
+  if (error instanceof ApiError || signal?.aborted) return error
+  if (limit.timedOut()) return new ApiError(0, 'El servidor no respondió a tiempo', 'timeout')
+  if (error instanceof SyntaxError) return error
+  return new ApiError(0, 'No se pudo conectar con el servidor', 'network')
 }
 
-/** Pide `path` y devuelve el JSON; un 401 cierra la sesión. */
-export async function http<T>(path: string, options: HttpOptions = {}): Promise<T> {
-  const response = await send(path, options)
+async function read<T>(path: string, options: Omit<HttpOptions, 'signal' | 'timeoutMs'>, limit: Deadline): Promise<T> {
+  const { headers, ...rest } = options
+  const response = await fetch(`${BASE_URL}${path}`, {
+    ...rest, signal: limit.signal,
+    headers: { 'Content-Type': 'application/json', ...authHeader(), ...headers },
+  })
   if (!response.ok) {
     if (response.status === 401) onUnauthorized?.()
     throw new ApiError(response.status, await errorMessage(response))
   }
   if (response.status === 204) return undefined as T
-  return response.json() as Promise<T>
+  return (await response.json()) as T
+}
+
+/** Pide `path` y devuelve el JSON; un 401 cierra la sesión. */
+export async function http<T>(path: string, options: HttpOptions = {}): Promise<T> {
+  const { signal, timeoutMs = REQUEST_TIMEOUT_MS, ...rest } = options
+  const limit = deadline(signal, timeoutMs)
+  try {
+    return await read<T>(path, rest, limit)
+  } catch (error) {
+    throw classify(error, limit, signal)
+  } finally {
+    limit.done()
+  }
 }

@@ -80,8 +80,8 @@ export function Sky() {
         <canvas key={layer.depth} className={styles.sky__layer} style={cssVars({ depth: `${layer.depth}px` })}
           ref={(c) => { canvases.current[i] = c }} />
       ))}
-      {stars.map((s) => (
-        <i key={`${s.left}${s.top}`} className={styles.sky__twinkle}
+      {stars.map((s, i) => (
+        <i key={i} className={styles.sky__twinkle}
           style={cssVars({ left: s.left, top: s.top, delay: s.delay, dur: s.duration })} />
       ))}
       <i className={styles.sky__meteor} ref={meteor} />

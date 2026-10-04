@@ -36,6 +36,25 @@ describe('http', () => {
     expect(error.name).toBe('AbortError')
   })
 
+  it('an already cancelled signal cancels the request at once', async () => {
+    fetchMock.mockImplementation((_url: string, init: RequestInit) =>
+      init.signal?.aborted ? Promise.reject(new DOMException('aborted', 'AbortError')) : hanging(_url, init))
+    const controller = new AbortController()
+    controller.abort()
+    const error = await http<never>('/feed', { signal: controller.signal }).catch((e: Error) => e)
+    expect(error.name).toBe('AbortError')
+  })
+
+  it('the timeout also covers a body that never arrives', async () => {
+    vi.useFakeTimers()
+    fetchMock.mockImplementation((_url: string, init: RequestInit) => Promise.resolve({
+      ok: true, status: 200, json: () => hanging(_url, init),
+    }))
+    const pending = http('/feed', { timeoutMs: 1000 }).catch((e) => e)
+    await vi.advanceTimersByTimeAsync(1000)
+    expect(await pending).toMatchObject({ kind: 'timeout' })
+  })
+
   it('http errors keep the status and the server detail', async () => {
     fetchMock.mockResolvedValue(new Response(JSON.stringify({ detail: 'Season not found' }), { status: 404 }))
     await expect(http('/seasons/9')).rejects.toMatchObject({ kind: 'http', status: 404, message: 'Season not found' })
