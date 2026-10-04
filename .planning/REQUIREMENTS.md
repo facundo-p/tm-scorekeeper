@@ -63,9 +63,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **STAT-05**: Recálculo de logros dentro de crear/editar/borrar; lectura repetible; D-13
 - [x] **STAT-06**: 6 logros nuevos con íconos
 - [x] **STAT-07**: Vista de logros por mesa que nunca escribe
-- [ ] **STAT-08**: Color de cubo y fecha de alta de jugadores
-- [ ] **STAT-09**: `GET /games/summaries` con filtros
-- [ ] **STAT-10**: `GET /games/{id}/report`; crear/editar devuelven el informe; DELETE recalcula
+- [x] **STAT-08**: Color de cubo y fecha de alta de jugadores
+- [x] **STAT-09**: `GET /games/summaries` con filtros
+- [x] **STAT-10**: `GET /games/{id}/report`; crear/editar devuelven el informe; DELETE recalcula
 - [ ] **STAT-11**: `GET /players/{id}/insights` con equidad, ADN, mapas, corporaciones, forma, favoritos y por mesa
 - [ ] **STAT-12**: Ranking con equidad, cara a cara, bitácora y resumen del grupo
 - [ ] **SEAS-01**: Temporadas por promedio con categoría, mesa, mínimo 3 y campeones
@@ -141,9 +141,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | STAT-05 | Phase 23 | Complete |
 | STAT-06 | Phase 23 | Complete |
 | STAT-07 | Phase 23 | Complete |
-| STAT-08 | Phase 24 | Pending |
-| STAT-09 | Phase 24 | Pending |
-| STAT-10 | Phase 24 | Pending |
+| STAT-08 | Phase 24 | Complete |
+| STAT-09 | Phase 24 | Complete |
+| STAT-10 | Phase 24 | Complete |
 | STAT-11 | Phase 25 | Pending |
 | STAT-12 | Phase 25 | Pending |
 | SEAS-01 | Phase 25 | Pending |

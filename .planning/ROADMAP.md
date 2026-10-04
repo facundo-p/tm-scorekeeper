@@ -167,7 +167,7 @@ Plans:
 - [x] **Phase 21: Transacciones, orden, rendimiento y empates** (E3)
 - [x] **Phase 22: Subconjuntos, ELO de mesa y récords v2** (E4)
 - [x] **Phase 23: Logros derivados, nuevos y vista por mesa** (E4)
-- [ ] **Phase 24: Jugadores, partidas e informe** (E4)
+- [x] **Phase 24: Jugadores, partidas e informe** (E4)
 - [ ] **Phase 25: Métricas del grupo, equidad y temporadas** (E4)
 - [ ] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
 - [ ] **Phase 27: Efectos e instrumentos** (E5)

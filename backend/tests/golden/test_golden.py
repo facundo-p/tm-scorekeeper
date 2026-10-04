@@ -10,6 +10,7 @@ from tests.golden.adapters import (
     elo_from_changes,
     elo_from_golden,
     elo_from_replay,
+    insights_from_api,
     positions_from_golden,
     positions_from_results,
     record_shape,
@@ -116,3 +117,11 @@ def test_reports(client, golden, scope):
         assert report_from_api(body) == expected, game_id
         assert positions_from_results({"results": body["results"]}) == positions_from_golden(
             golden_scope(golden, scope)["positions"][game_id]), game_id
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("players"))
+def test_player_insights(client, golden, scope):
+    """Ficha de cada jugador frente al grupo (STAT-11), sin filtro y por mesa."""
+    for pid, expected in golden_scope(golden, scope)["players"].items():
+        got = insights_from_api(client.get(f"/players/{pid}/insights{_query(scope)}").json())
+        assert got == expected, pid

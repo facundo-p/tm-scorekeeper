@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F24 · Jugadores, partidas e informe |
-| Issue | 24.1–24.3 (#113–#115) |
+| Fase | F25 · Métricas del grupo, equidad y temporadas |
+| Issue | 25.1–25.3 (#116–#118) |
 | Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | c47759c (merge #155 en origin/staging) |
+| Último commit | a419b35 (merge #157 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F24 — `players.color` y `since`, `GET /games/summaries` con subconjunto, `GET /games/{id}/report` (golden del informe: hay que sumarlo al exportador), crear/editar devuelven el informe.
+**Próximo paso:** F25 partida en 25-A (insights de jugador, STAT-11), 25-B (ranking con equidad, cara a cara, bitácora, resumen, cambios de líder; STAT-12) y 25-C (temporadas, SEAS-01). Golden: `players`, `head_to_head`, `feed`, `summary`, `lead_changes`, `seasons`, `season_races`.
 
 ## Tablero (GitHub)
 
@@ -73,3 +73,4 @@
 - 2026-10-04 — F23 partida en A/B/C (D-63). F23-A mergeada (#154 → `7ce7147`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos salvo el camelCase de métricas, que espeja el catálogo). Rama reseteada; 23-B encima.
 - 2026-10-04 — F23-B mergeada (#155 → `c47759c`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos). Issues #109, #110, #112 cerrados. Rama reseteada; 23-C encima.
 - 2026-10-04 — F23-C mergeada (#156 → `7ceb5b0`; revisión: ronda 1 APPROVE con 2 minor y 1 nit de docs, corregidos). Issue #111 cerrado. F23 completa. Rama reseteada a `origin/staging`.
+- 2026-10-04 — F24 mergeada (#157 → `a419b35`; revisión: ronda 1 CHANGES_REQUESTED por la carrera de colores (500) y la falta de tests de la migración, ronda 2 APPROVE con 1 nit no aplicado: el único `IntegrityError` posible en ese bloque es el del índice de colores). Golden de `summaries` y `reports` agregado al exportador. Issues #113–#115 cerrados. Rama reseteada.
