@@ -52,3 +52,8 @@ def test_head_to_head_and_summary_follow_the_table_size(client, games):
                                   "/stats/head-to-head?player_count=0", "/ranking?from=ayer"])
 def test_bad_filters_are_422(client, path):
     assert client.get(path).status_code == 422
+
+
+def test_a_table_size_without_games_is_empty(client, games):
+    assert client.get("/ranking?player_count=5").json() == {"view": "mesa", "players": [], "lead_changes": []}
+    assert client.get("/stats/summary?player_count=5").json()["games"] == 0

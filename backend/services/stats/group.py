@@ -10,8 +10,8 @@ from services.stats.player_rows import PlayerRow, all_rows
 
 def summary(ctx: StatsContext) -> dict:
     """Totales del grupo: partidas, generaciones, ganador promedio, corporaciones y mapas."""
-    games = ctx.games
-    by_corp = split_stats(all_rows(ctx), lambda r: r.corporation)
+    games, rows = ctx.games, all_rows(ctx)
+    by_corp = split_stats(rows, lambda r: r.corporation)
     winners = [PlayerRow(gs, gs.results[0]) for gs in games]
     by_map = split_stats(winners, lambda r: r.gs.game.map_name.value)
     return {
@@ -20,7 +20,7 @@ def summary(ctx: StatsContext) -> dict:
         "avg_generations": mean(games, lambda gs: gs.game.generations),
         "first": games[0].game.date if games else None, "last": games[-1].game.date if games else None,
         "top_corp": by_corp[0] if by_corp else None, "corps_used": len(by_corp),
-        "top_map": by_map[0] if by_map else None, "maps": by_map, "composition": composition(all_rows(ctx)),
+        "top_map": by_map[0] if by_map else None, "maps": by_map, "composition": composition(rows),
     }
 
 

@@ -15,8 +15,7 @@ router = APIRouter(tags=["Stats"])
 @router.get("/ranking", response_model=RankingDTO)
 def get_ranking(subset: GameSubset = Depends(table_subset),
                 since: Optional[date] = Query(None, alias="from", description="Recorta la serie de ELO desde esta fecha")):
-    return RankingDTO(view=view_of(subset), players=insights_service.ranking(subset, since),
-                      lead_changes=insights_service.lead_changes(subset))
+    return RankingDTO(view=view_of(subset), **insights_service.ranking(subset, since))
 
 
 @router.get("/stats/head-to-head", response_model=HeadToHeadDTO)

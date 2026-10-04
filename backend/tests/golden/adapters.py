@@ -102,6 +102,7 @@ def insights_from_api(value):
         return [insights_from_api(v) for v in value]
     return value
 
+
 _SUMMARY_KEYS = {"avg_winner": "avgWinner", "avg_generations": "avgGenerations", "top_corp": "topCorp",
                  "corps_used": "corpsUsed", "top_map": "topMap", "avg_pos": "avgPos"}
 

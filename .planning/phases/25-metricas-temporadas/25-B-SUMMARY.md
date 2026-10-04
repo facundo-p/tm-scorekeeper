@@ -4,4 +4,5 @@
 - `services/stats/group.py`: resumen del grupo y cambios de líder (a igual ELO, el que apareció primero, como el mockup).
 - Rutas `GET /ranking`, `GET /stats/head-to-head`, `GET /stats/summary` (`routes/stats_routes.py`).
 - Golden: `summary`, `head_to_head` (más némesis/víctima contra `players`), `lead_changes` y las filas del ranking contra `players` y `elo.perGame`, en 5 alcances.
-- Tests: `tests/integration/test_stats_routes.py` (8).
+- Tests: `tests/integration/test_stats_routes.py` (9) y `tests/test_group_stats.py` (4: empate de ELO, líder inactivo, cambio de mano, resumen vacío).
+- Revisión (ronda 1, APPROVE): una sola vista por pedido en `/ranking` (clasificación y cambios de líder juntos), serie de ELO y filas calculadas una vez, tests de bordes del líder y de mesa sin partidas.

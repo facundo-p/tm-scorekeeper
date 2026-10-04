@@ -50,8 +50,7 @@ def elo_series(view: GroupView, pid: str) -> list[dict]:
             for r in view.rows_by_player[pid] for c in view.replay.per_game[r.gs.id] if c.player_id == pid]
 
 
-def _elo(view: GroupView, pid: str) -> dict:
-    series = elo_series(view, pid)
+def _elo(view: GroupView, pid: str, series: list[dict]) -> dict:
     return {"elo": view.replay.ratings.get(pid, 1000), "peak": max((s["elo"] for s in series), default=None),
             "last_delta": series[-1]["delta"] if series else None}
 
@@ -96,20 +95,21 @@ def player_insights(view: GroupView, pid: str) -> dict:
         **_basics(mine), **_averages(mine, pid), "favorites": favorites(mine), **_style(view, mine),
         "streak": streaks(mine), "form": _form(mine), **rivals(pid, view.h2h), "records_held": held,
         "rank": view.rank_of(pid), "rank_total": len(view.ranking), "equity": equity(mine),
-        "by_table": by_table(mine), **_elo(view, pid),
+        "by_table": by_table(mine), **_elo(view, pid, elo_series(view, pid)),
     }
 
 
 def ranking_row(view: GroupView, player, since: Optional[date]) -> dict:
     """Una fila de la clasificación; `since` recorta solo la serie de ELO del gráfico."""
     rows = view.rows_by_player[player.player_id]
-    series = [s for s in elo_series(view, player.player_id) if since is None or s["date"] >= since]
+    full = elo_series(view, player.player_id)
     archetype_ = _archetype(view, rows)
     return {
         "player_id": player.player_id, "name": player.name, "color": player.color,
         "rank": view.rank_of(player.player_id), "games": len(rows), "wins": sum(1 for r in rows if r.won),
         "win_rate": _basics(rows)["win_rate"], "equity": equity(rows), "form": _form(rows),
-        "archetype": archetype_["name"] if archetype_ else None, **_elo(view, player.player_id), "elo_series": series,
+        "archetype": archetype_["name"] if archetype_ else None, **_elo(view, player.player_id, full),
+        "elo_series": [s for s in full if since is None or s["date"] >= since],
     }
 
 
@@ -124,14 +124,13 @@ class InsightsService:
     def insights(self, player_id: str, subset: GameSubset = ALL_GAMES) -> dict:
         return player_insights(self.view(subset), player_id)
 
-    def ranking(self, subset: GameSubset = ALL_GAMES, since: Optional[date] = None) -> list[dict]:
+    def ranking(self, subset: GameSubset = ALL_GAMES, since: Optional[date] = None) -> dict:
+        """Clasificación y cambios de líder sobre una sola vista del subconjunto."""
         view = self.view(subset)
         by_id = {p.player_id: p for p in view.players}
-        return [ranking_row(view, by_id[pid], since) for pid in view.ranking]
-
-    def lead_changes(self, subset: GameSubset = ALL_GAMES) -> list[dict]:
-        view = self.view(subset)
-        return lead_changes(view.ctx, view.replay, {p.player_id for p in view.players if p.is_active})
+        active = {p.player_id for p in view.players if p.is_active}
+        return {"players": [ranking_row(view, by_id[pid], since) for pid in view.ranking],
+                "lead_changes": lead_changes(view.ctx, view.replay, active)}
 
     def head_to_head(self, subset: GameSubset = ALL_GAMES) -> dict:
         view = self.view(subset)
