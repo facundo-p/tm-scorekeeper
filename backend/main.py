@@ -15,6 +15,7 @@ from routes.elo_routes import router as elo_router
 from routes.stats_routes import router as stats_router
 from routes.seasons_routes import router as seasons_router
 from services.container import derived_service
+from version import __version__
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +30,7 @@ async def lifespan(_app: FastAPI):
     yield
 
 
-app = FastAPI(title="Terraforming Mars API", lifespan=lifespan)
+app = FastAPI(title="Terraforming Mars API", version=__version__, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

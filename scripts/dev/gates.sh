@@ -58,6 +58,8 @@ backend_gates() {
     run_gate fixtures node "$ROOT/tools/fixtures/export.mjs" --check
     run_gate semántica node --test "$ROOT"/tools/fixtures/*.test.mjs
     run_gate presupuestos-lógica node --test "$ROOT"/tools/budgets/*.test.mjs
+    run_gate versionado node --test "$ROOT"/tools/release/*.test.mjs
+    run_gate versión node "$ROOT/tools/release/bump.mjs" --check
   else
     skip_gate fixtures "todavía no existe"
   fi

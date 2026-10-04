@@ -100,6 +100,10 @@ jobs:
         run: node --test tools/fixtures/*.test.mjs
       - name: Presupuestos (lógica)
         run: node --test tools/budgets/*.test.mjs
+      - name: Versionado (lógica)
+        run: node --test tools/release/*.test.mjs
+      - name: Versión consistente en VERSION, frontend y backend
+        run: node tools/release/bump.mjs --check
       - run: npm ci
         working-directory: tools/parity
       - name: Tests del arnés de comparación
