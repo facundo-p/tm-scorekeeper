@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F23 · Logros derivados, nuevos y vista por mesa |
-| Issue | 23.1–23.4 (#109–#112) |
+| Fase | F24 · Jugadores, partidas e informe |
+| Issue | 24.1–24.3 (#113–#115) |
 | Paso | Planificación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 245e02e (merge #153 en origin/staging) |
+| Último commit | c47759c (merge #155 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F23 — tabla `achievement_unlocks` y bucle de niveles único, recálculo derivado en crear/editar/borrar después del ELO, `app_meta.derived_version` (D-13), 6 logros nuevos, vista por mesa sin escritura; golden de logros.
+**Próximo paso:** F24 — `players.color` y `since`, `GET /games/summaries` con subconjunto, `GET /games/{id}/report` (golden del informe: hay que sumarlo al exportador), crear/editar devuelven el informe.
 
 ## Tablero (GitHub)
 
