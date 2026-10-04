@@ -14,6 +14,7 @@ class AchievementUnlockedDTO(BaseModel):
     is_new: bool
     is_upgrade: bool
     levels: int = 1  # niveles alcanzados en la partida (F28)
+    max_tier: int = 1  # niveles que tiene el logro (F29: «Nivel 2 de 5» o «Logro único»)
     icon: Optional[str]
     fallback_icon: str
     glyph: str

@@ -29,7 +29,8 @@ def _results(report: GameReport, names: dict) -> list[ReportResultDTO]:
 def _broken(c: GameRecordContext) -> RecordBrokenDTO:
     prev = c.previous
     return RecordBrokenDTO(
-        code=c.definition.code, title=c.definition.title, value=c.best.value, player_id=c.best.players[0],
+        code=c.definition.code, title=c.definition.title, description=c.definition.description, value=c.best.value,
+        player_id=c.best.players[0],
         holders=list(c.best.players),
         previous=PreviousRecordDTO(value=prev.value, player_id=prev.holders[0].player_id,
                                    holders=[h.player_id for h in prev.holders]),

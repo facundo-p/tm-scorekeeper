@@ -7,12 +7,12 @@ const players: PlayerSummary[] = [
   { player_id: 'p-nico', name: 'Nico', color: 'azul', is_active: true, elo: 990, since: '2025-03-08' },
 ]
 const report: GameReport = {
-  game: { id: 'g-1', date: '2025-03-08', map: 'Tharsis', expansions: ['Turmoil'], draft: false, generations: 10 },
+  game: { id: 'g-1', date: '2025-03-08', map: 'Tharsis', expansions: ['Turmoil'], draft: false, generations: 10, awards: [] },
   results: [
     { player_id: 'p-facu', player_name: 'Facu', corporation: 'Helion', position: 1, tied: false, total_points: 90, mc_total: 30, scores: { terraform_rating: 40 } },
     { player_id: 'p-gone', player_name: 'Viejo', corporation: 'Ecoline', position: 2, tied: false, total_points: 70, mc_total: 10, scores: {} },
   ],
-  winners: ['p-facu'], margin: 20, decided_by_mc: false, records_broken: [], achievements_by_player: {},
+  winners: ['p-facu'], margin: 20, decided_by_mc: false, records_broken: [], near: [], achievements_by_player: {},
   elo: [
     { player_id: 'p-gone', player_name: 'Viejo', elo_before: 1000, elo_after: 990, delta: -10 },
     { player_id: 'p-facu', player_name: 'Facu', elo_before: 1000, elo_after: 1010, delta: 10 },

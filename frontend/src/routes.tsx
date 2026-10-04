@@ -12,8 +12,8 @@ import { PATHS } from '@/shell/paths'
 const Login = lazy(() => import('@/screens/Login/Login'))
 const NotFound = lazy(() => import('@/screens/NotFound/NotFound'))
 const Home = lazy(() => import('@/screens/Home/Home'))
-const OldGames = lazy(() => import('@/pages/GamesList/GamesList'))
-const OldGame = lazy(() => import('@/pages/GameDetail/GameDetail'))
+const Games = lazy(() => import('@/screens/Games/Games'))
+const GameReport = lazy(() => import('@/screens/GameReport/GameReport'))
 const OldGameRecords = lazy(() => import('@/pages/GameRecords/GameRecords'))
 const OldRegister = lazy(() => import('@/pages/GameForm/GameForm'))
 const OldRanking = lazy(() => import('@/pages/Ranking/Ranking'))
@@ -51,8 +51,8 @@ export function AppRoutes() {
       <Route path="/players/:playerId/profile" element={<RedirectWith to={(p) => PATHS.profile(p.playerId)} />} />
       <Route element={<ProtectedRoute><AppShell /></ProtectedRoute>}>
         <Route index element={<Home />} />
-        <Route path="partidas" element={legacy(OldGames)} />
-        <Route path="partidas/:gameId" element={legacy(OldGame)} />
+        <Route path="partidas" element={<Games />} />
+        <Route path="partidas/:gameId" element={<GameReport />} />
         <Route path="partidas/:gameId/records" element={legacy(OldGameRecords)} />
         <Route path="partidas/:gameId/ceremonia" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
         <Route path="partidas/:gameId/editar" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />

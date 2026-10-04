@@ -1,1 +1,1 @@
-export { FilterChip, FilterGroup } from './Filters'
+export { FilterChip, FilterGroup, FilterPanel } from './Filters'

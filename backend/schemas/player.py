@@ -48,3 +48,4 @@ class PlayerResponseDTO(BaseModel):
     elo: int
     color: PlayerColor
     since: Optional[date] = None  # fecha de su primera partida (STAT-08)
+    seq: Optional[int] = None  # orden de alta (D-74): la lista sigue por nombre, esto permite reordenarla

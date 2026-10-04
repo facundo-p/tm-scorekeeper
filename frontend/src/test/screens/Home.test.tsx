@@ -14,7 +14,8 @@ const API: Record<string, unknown> = {
   '/games/g-063/report': {
     game: { id: 'g-063', date: '2026-09-27', map: 'Tharsis', expansions: [], draft: true, generations: 10 },
     results: [{ player_id: 'p-facu', player_name: 'Facu', corporation: 'Helion', position: 1, tied: false, total_points: 98, mc_total: 20, scores: {} }],
-    winners: ['p-facu'], margin: 7, decided_by_mc: false, elo: [], records_broken: [{ code: 'x', title: 'X', player_id: 'p-facu' }], achievements_by_player: {},
+    winners: ['p-facu'], margin: 7, decided_by_mc: false, elo: [], near: [], achievements_by_player: {},
+    records_broken: [{ code: 'x', title: 'X', description: '', value: 1, player_id: 'p-facu', holders: [], previous: { value: 0, player_id: 'p-facu', holders: [] } }],
   },
   '/ranking': { view: 'all', lead_changes: [], players: [{ player_id: 'p-facu', name: 'Facu', color: 'rojo', rank: 1, elo: 1172, peak: 1200, last_delta: 10, games: 30, wins: 10, win_rate: 0.3, form: [], archetype: null, elo_series: [] }] },
   '/feed': [{ date: '2026-09-27', type: 'record', game_id: 'g-063', player_id: 'p-facu', text: 'Facu rompió «X»' }],

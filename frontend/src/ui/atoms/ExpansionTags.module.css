@@ -24,3 +24,9 @@
 .exptag--draft {
   color: var(--ink-3);
 }
+
+/* Filas del archivo (`.mrow__meta .exptag` en el mockup). */
+.exptags--s .exptag {
+  width: 20px;
+  height: 20px;
+}

@@ -109,6 +109,7 @@ def list_players(active: Optional[bool] = Query(default=None)):
             elo=p.elo,
             color=p.color,
             since=since.get(p.player_id),
+            seq=p.seq,
         )
         for p in players
     ]

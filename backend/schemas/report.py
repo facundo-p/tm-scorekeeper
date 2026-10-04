@@ -30,6 +30,7 @@ class PreviousRecordDTO(BaseModel):
 class RecordBrokenDTO(BaseModel):
     code: str
     title: str
+    description: str = ""  # para el informe (F29)
     value: RecordValue
     player_id: str
     holders: list[str]

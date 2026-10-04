@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F28 · Acceso e inicio |
-| Issue | 28.x (#125–#126) |
+| Fase | F29 · Partidas e informe |
+| Issue | 29.x (#127–#128) |
 | Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | cad4b40 (merge #163 en origin/staging) |
+| Último commit | 5b7d0b1 (merge #164 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F28 — Acceso e Inicio (escenarios login*, home*, season-rules).
+**Próximo paso:** F29 — Partidas (lista, filtros, orden, actividad) e Informe (editar, eliminar); reemplaza el PR #65.
 
 ## Tablero (GitHub)
 
@@ -81,3 +81,4 @@
 - 2026-10-04 — F26 mergeada (#161 → `cc79972`; revisión: ronda 1 APPROVE con 4 minor y 3 nit: corregidos salvo el label repetido de rail/dock, que espeja el árbol del mockup). Issues #119–#122 cerrados. Rama reseteada a `origin/staging`. F27 partida en A/B (D-71).
 - 2026-10-04 — F27-A mergeada (#162 → `8cc3a7f`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos: respaldo si el chunk no carga, arrastre reactivo, tests de ciclo de vida, host por `[data-device]`). Planeta al 0 % en `planet-parked` y el shell. Issue #123 cerrado. Rama reseteada.
 - 2026-10-04 — F27-B mergeada (#163 → `cad4b40`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: casos vacíos, error en la galería; corregidos). `gal-instruments` al 0 %; el reset global viejo acotado a `[data-legacy]` (D-73). Issue #124 cerrado. **F27 completa.** Rama reseteada.
+- 2026-10-04 — F28 mergeada (#164 → `5b7d0b1`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: estados vacíos, bitácora sin botones mudos, error descrito, reintento sin recargar; corregidos salvo el ojo fuera del rótulo, que espeja el árbol del mockup). 28/28 en la comparación. `players.seq` y `levels` (D-74). Issues #125 y #126 cerrados. Rama reseteada.

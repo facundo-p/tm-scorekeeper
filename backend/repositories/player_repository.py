@@ -13,7 +13,7 @@ from models.player_colors import first_free
 
 
 def _to_model(o: PlayerORM) -> Player:
-    return Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo, color=o.color)
+    return Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo, color=o.color, seq=o.seq)
 
 
 class PlayersRepository:

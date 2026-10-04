@@ -1,9 +1,12 @@
 // De la API a los datos que dibujan los instrumentos (ui/instruments): jugador con nombre y color.
 import type { EloSeries, EloShiftRow, ResultRow, ScoredGame } from '@/ui/instruments'
 import type { PlayerLike } from '@/ui/atoms'
-import type { GameReport, PlayerEloHistory, PlayerSummary } from './types'
+import type { GameReport, GameSummary, PlayerEloHistory, PlayerSummary } from './types'
 
 export type PlayerIndex = Map<string, PlayerLike>
+
+/** Jugadores en orden de alta (D-74), como `PLAYERS_SEED` en el mockup. */
+export const bySignup = (players: PlayerSummary[]) => players.slice().sort((a, b) => (a.seq ?? Infinity) - (b.seq ?? Infinity))
 
 export const playerIndex = (players: PlayerSummary[]): PlayerIndex =>
   new Map(players.map((p) => [p.player_id, { id: p.player_id, name: p.name, color: p.color }]))
@@ -32,4 +35,9 @@ export function eloSeries(history: PlayerEloHistory[], index: PlayerIndex): EloS
     player: who(index, h.player_id, h.player_name),
     points: h.points.map((p) => ({ date: p.recorded_at, elo: p.elo_after })),
   }))
+}
+
+/** Resultados de una fila del archivo (sin desglose: alcanzan para la pista de puntaje). */
+export function summaryResults(game: GameSummary, index: PlayerIndex): ResultRow[] {
+  return game.scores.map((s) => ({ player: who(index, s.player_id, s.player_id), position: s.position, total: s.total_points, mc: 0, scores: {} }))
 }

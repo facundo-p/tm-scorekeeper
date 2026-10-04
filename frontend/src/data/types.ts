@@ -47,6 +47,8 @@ export interface PlayerSummary {
   elo: number
   color: string
   since: string | null
+  /** Orden de alta (D-74): la API lista por nombre; las pantallas que siguen al mockup ordenan por esto. */
+  seq?: number | null
 }
 
 export type ScoreMap = Partial<Record<
@@ -62,8 +64,24 @@ export interface ReportResult {
   tied: boolean
   total_points: number
   mc_total: number
-  scores: ScoreMap
+  scores: ScoreMap & { milestones?: string[] }
 }
+
+export interface AwardResult { name: string; opened_by: string; first_place: string[]; second_place: string[] }
+
+export interface RecordBroken {
+  code: string
+  title: string
+  description: string
+  value: number
+  player_id: string
+  holders: string[]
+  previous: { value: number; player_id: string; holders: string[] }
+}
+
+export interface NearRecord { code: string; title: string; gap: number; value: number; player_id: string; before: number }
+
+export interface GameUnlock { code: string; title: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
 
 export interface EloChange {
   player_id: string
@@ -75,15 +93,16 @@ export interface EloChange {
 
 /** Informe de una partida (GET /games/{id}/report); solo lo que usa el frontend por ahora. */
 export interface GameReport {
-  game: { id: string; date: string; map: string; expansions: string[]; draft: boolean; generations: number }
+  game: { id: string; date: string; map: string; expansions: string[]; draft: boolean; generations: number; awards: AwardResult[] }
   results: ReportResult[]
   winners: string[]
   margin: number
   decided_by_mc: boolean
   elo: EloChange[]
-  records_broken: { code: string; title: string; player_id: string }[]
+  records_broken: RecordBroken[]
+  near: NearRecord[]
   /** Por jugador, cada logro con el nivel más alto alcanzado y cuántos niveles subió en la partida. */
-  achievements_by_player: Record<string, { code: string; tier: number; levels: number }[]>
+  achievements_by_player: Record<string, GameUnlock[]>
 }
 
 export interface PlayerEloHistory {

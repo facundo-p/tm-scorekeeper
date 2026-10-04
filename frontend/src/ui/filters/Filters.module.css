@@ -43,3 +43,23 @@
   background: rgba(244, 196, 58, .12);
   box-shadow: inset 0 0 0 1px var(--mc), 0 0 12px rgba(244, 196, 58, .15);
 }
+
+/* Panel de grupos de filtros (`.filters` del mockup): en pantallas anchas, rótulo a la izquierda. */
+.filters {
+  display: grid;
+  gap: var(--s4);
+}
+
+@container app (min-width: 760px) {
+  .filters {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--s3) var(--s5);
+  }
+
+  .filters .fgroup {
+    grid-column: span 2;
+    grid-template-columns: 52px 1fr;
+    align-items: center;
+  }
+}

@@ -10,6 +10,7 @@ export { Field, TextField, SelectField, inputClass, inputClassFor, useFieldId, t
 export { MapBadge } from './MapBadge'
 export { Medal, medalMaterial } from './Medal'
 export { NewBadge } from './NewBadge'
+export { Notice } from './Notice'
 export { NumberField, Stepper, clampInt } from './NumberField'
 export { Plate } from './Plate'
 export { PlayerTag, profilePath } from './PlayerTag'

@@ -36,3 +36,8 @@ export function FilterChip({ on, onClick, ariaLabel, children }: FilterChipProps
     </button>
   )
 }
+
+/** Panel que apila grupos de filtros (`.filters` del mockup). */
+export function FilterPanel({ className, children }: { className?: string; children: ReactNode }) {
+  return <div className={cx(styles.filters, className)}>{children}</div>
+}
