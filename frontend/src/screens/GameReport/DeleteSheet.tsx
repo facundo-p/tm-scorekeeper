@@ -10,9 +10,9 @@ import styles from './GameReport.module.css'
 /** Eliminar pregunta antes: se recalcula todo lo que vino después de la partida (#44). */
 export function DeleteSheet({ report, onClose }: { report: GameReport; onClose: () => void }) {
   const navigate = useNavigate()
-  const del = useDeleteGame()
+  const del = useDeleteGame(() => navigate(`${PATHS.games}?aviso=eliminada`, { replace: true }))
   const { id, date, map } = report.game
-  const confirm = () => del.mutate(id, { onSuccess: () => navigate(`${PATHS.games}?aviso=eliminada`, { replace: true }) })
+  const confirm = () => del.mutate(id)
   return (
     <Sheet title="Eliminar partida" onClose={onClose}>
       <p>¿Eliminar la partida del <b>{fmtDate(date)}</b> en <b>{map}</b>? Se recalculan el ELO, los récords y los logros

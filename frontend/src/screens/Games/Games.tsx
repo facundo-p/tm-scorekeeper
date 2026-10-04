@@ -16,7 +16,7 @@ import { ErrorState, LoadingState } from '@/ui/states'
 import { ActivityStrip } from './ActivityStrip'
 import { GameFilters, type FilterState } from './GameFilters'
 import { GameList } from './GameList'
-import { activeCount, applyFilters, archiveSub, EMPTY_FILTERS, type GameFilters as Filters } from './model'
+import { activeCount, applyFilters, archiveSub, EMPTY_FILTERS, gamesText, type GameFilters as Filters } from './model'
 import styles from './Games.module.css'
 
 function useFilterState(): FilterState {
@@ -51,7 +51,7 @@ function FiltersSheet({ count, onClear, onClose, children }: { count: number; on
       {children}
       <SheetActions>
         <Button variant="ghost" onClick={onClear}>Limpiar</Button>
-        <Button variant="primary" onClick={onClose}>{`Ver ${count} partidas`}</Button>
+        <Button variant="primary" onClick={onClose}>{`Ver ${gamesText(count)}`}</Button>
       </SheetActions>
     </Sheet>
   )

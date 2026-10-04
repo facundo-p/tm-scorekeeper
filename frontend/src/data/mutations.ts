@@ -3,10 +3,18 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { http } from '@/api/http'
 
-export function useDeleteGame() {
+/**
+ * Borra una partida. `onDeleted` corre antes de invalidar (por ejemplo, para salir del informe):
+ * si no, el informe borrado se volvería a pedir, daría 404 y desmontaría a quien navega.
+ */
+export function useDeleteGame(onDeleted: () => void) {
   const client = useQueryClient()
   return useMutation({
     mutationFn: (gameId: string) => http<void>(`/games/${encodeURIComponent(gameId)}`, { method: 'DELETE' }),
-    onSuccess: () => client.invalidateQueries(),
+    onSuccess: (_, gameId) => {
+      onDeleted()
+      client.removeQueries({ queryKey: [`/games/${encodeURIComponent(gameId)}/report`] })
+      void client.invalidateQueries()
+    },
   })
 }

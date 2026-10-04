@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { summaryResults, type PlayerIndex } from '@/data/instruments'
 import type { GameSummary } from '@/data/types'
-import { corpLabel, MAPS } from '@/domain/catalog'
+import { corpLabel, mapInfo } from '@/domain/catalog'
 import { PATHS } from '@/shell/paths'
 import { CorpEmblem, Cube, ExpansionTags } from '@/ui/atoms'
 import { Icon, MapGlyph } from '@/ui/icons'
@@ -28,13 +28,14 @@ export function GameRow({ g, players, flat }: { g: GameSummary; players: PlayerI
   const navigate = useNavigate()
   const d = new Date(`${g.date}T12:00:00`)
   const w = g.scores[0]
+  if (!w) return null  // una partida siempre tiene resultados; por las dudas no rompe la lista
   return (
     <li>
       <button type="button" className={styles.mrow} data-sheen onClick={() => navigate(PATHS.game(g.id))}
         aria-label={`Partida del ${g.date} en ${g.map}, ganó ${players.get(w.player_id)?.name ?? w.player_id} con ${w.total_points} puntos`}>
         <span className={styles.mrow__date}><b>{d.getDate()}</b><span>{rowSub(g.date, !!flat)}</span></span>
         <span className={styles.mrow__map}>
-          <span className={styles.mrow__mapname}><MapGlyph glyph={MAPS[g.map].glyph} size={22} />{g.map}</span>
+          <span className={styles.mrow__mapname}><MapGlyph glyph={mapInfo(g.map).glyph} size={22} />{g.map}</span>
           <span className={styles.mrow__meta}>
             <span><Icon name="generation" size={14} />{g.generations}</span>
             <span><Icon name="players" size={14} />{g.player_count}</span>

@@ -1,10 +1,10 @@
 // Lo puro del informe de partida (port de docs/redesign/mockup/js/screens/game.js).
 import type { AwardResult, GameReport, GameUnlock } from '@/data/types'
-import { ACHIEVEMENT_GLYPH, EXPANSION_AWARDS, EXPANSION_MILESTONES, MAPS } from '@/domain/catalog'
+import { ACHIEVEMENT_GLYPH, EXPANSION_AWARDS, EXPANSION_MILESTONES, mapInfo } from '@/domain/catalog'
 
 /** «22° N / 147° E» (oeste con O). */
 export function coords(map: string) {
-  const { lat, lon } = MAPS[map]
+  const { lat, lon } = mapInfo(map)
   return `${lat}° ${lat >= 0 ? 'N' : 'S'} / ${Math.abs(lon)}° ${lon >= 0 ? 'E' : 'O'}`
 }
 
@@ -18,7 +18,7 @@ export function winSub(report: GameReport, name: (id: string) => string, corp: s
 /** Hitos del mapa y de las expansiones, con quién reclamó cada uno. */
 export function milestoneSlots(report: GameReport) {
   const { map, expansions } = report.game
-  const list = [...MAPS[map].milestones, ...expansions.flatMap((e) => EXPANSION_MILESTONES[e] ?? [])]
+  const list = [...mapInfo(map).milestones, ...expansions.flatMap((e) => EXPANSION_MILESTONES[e] ?? [])]
   const owner: Record<string, string> = {}
   report.results.forEach((r) => (r.scores.milestones ?? []).forEach((m) => { owner[m] = r.player_id }))
   return list.map((m) => ({ name: m, owner: owner[m] ?? null }))
@@ -30,7 +30,7 @@ export const isStolen = (a: AwardResult) => a.first_place.length === 1 && a.firs
 /** Recompensas del mapa y de las expansiones, con la financiada si la hubo. */
 export function awardSlots(report: GameReport) {
   const { map, expansions, awards } = report.game
-  const list = [...MAPS[map].awards, ...expansions.flatMap((e) => EXPANSION_AWARDS[e] ?? [])]
+  const list = [...mapInfo(map).awards, ...expansions.flatMap((e) => EXPANSION_AWARDS[e] ?? [])]
   const funded = new Map(awards.map((a) => [a.name, a]))
   return list.map((name) => ({ name, award: funded.get(name) ?? null }))
 }

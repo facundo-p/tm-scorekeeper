@@ -62,6 +62,10 @@ export const MAPS: Record<string, MapInfo> = {
   },
 };
 
+/** Datos del mapa; uno neutro si la API trae un mapa que el catálogo no conoce (no rompe la pantalla). */
+export const mapInfo = (name: string): MapInfo =>
+  MAPS[name] ?? { name, lat: 0, lon: 0, glyph: 'tharsis', since: '', blurb: '', milestones: [], awards: [] }
+
 export const MAP_ORDER: string[] = ['Tharsis', 'Hellas', 'Elysium', 'Utopia Planitia', 'Terra Cimmeria', 'Vastitas Borealis', 'Amazonis Planitia'];
 
 export const EXPANSIONS: Record<string, ExpansionInfo> = {

@@ -66,4 +66,17 @@ describe('Informe de partida', () => {
     setup((url) => (url.includes('/players') ? ok(PLAYERS) : new Response(JSON.stringify({ detail: 'Game not found' }), { status: 404 })))
     expect(await screen.findByText('Esta partida no está en el archivo')).toBeInTheDocument()
   })
+
+  it('after deleting, the gone report (404) does not stop the way back to the archive', async () => {
+    let deleted = false
+    setup((url, init) => {
+      if (init?.method === 'DELETE') { deleted = true; return new Response(null, { status: 204 }) }
+      if (url.includes('/players')) return ok(PLAYERS)
+      return deleted ? new Response(JSON.stringify({ detail: 'Game not found' }), { status: 404 }) : ok(REPORT)
+    })
+    fireEvent.click(await screen.findByRole('button', { name: 'Eliminar' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Eliminar partida' }))
+    await waitFor(() => expect(screen.getByTestId('where')).toHaveTextContent('/partidas?aviso=eliminada'))
+    expect(screen.getByText('archivo')).toBeInTheDocument()
+  })
 })

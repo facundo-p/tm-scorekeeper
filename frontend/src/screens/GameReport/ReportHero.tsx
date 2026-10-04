@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import type { PlayerIndex } from '@/data/instruments'
 import type { GameReport } from '@/data/types'
-import { corpLabel, EXPANSIONS, MAPS } from '@/domain/catalog'
+import { corpLabel, EXPANSIONS, mapInfo } from '@/domain/catalog'
 import { cssVars } from '@/domain/cssVars'
 import { fmtDate } from '@/domain/format'
 import { PlanetSlot } from '@/fx/planet'
@@ -54,11 +54,11 @@ export function ReportHero({ report, players }: { report: GameReport; players: P
       </div>
       <div className={styles['report-hero__text']}>
         <Button variant="ghost" size="s" icon="back" onClick={() => navigate(PATHS.games)}>Partidas</Button>
-        <h1 className={styles['report-hero__title']} id="report-title"><MapGlyph glyph={MAPS[g.map].glyph} size={40} />{g.map}</h1>
+        <h1 className={styles['report-hero__title']} id="report-title"><MapGlyph glyph={mapInfo(g.map).glyph} size={40} />{g.map}</h1>
         <p className={styles['report-hero__date']}>{fmtDate(g.date)}</p>
         <Chips report={report} />
         <WinPlate report={report} players={players} />
-        <p className={cx(styles['report-hero__flavor'], 'flavor')}>{MAPS[g.map].blurb}</p>
+        <p className={cx(styles['report-hero__flavor'], 'flavor')}>{mapInfo(g.map).blurb}</p>
       </div>
     </section>
   )
