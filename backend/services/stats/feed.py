@@ -55,9 +55,15 @@ def _achievement_items(achievements: dict, names: dict) -> list[dict]:
     return items
 
 
+def _season_text(season: dict, names: dict) -> str:
+    """Sin clasificados no hay campeón (el mockup escribe «null»; acá, «Sin campeón», D-68)."""
+    champion = season["champion"]
+    tail = f"Campeón: {names.get(champion, champion)}" if champion else "Sin campeón"
+    return f"Temporada {season['number']} completa: Marte terraformado. {tail}"
+
+
 def _season_items(seasons: list[dict], names: dict) -> list[dict]:
-    return [{"date": s["end"], "type": "season", "player_id": s["champion"],
-             "text": f"Temporada {s['number']} completa: Marte terraformado. Campeón: {names.get(s['champion'], s['champion'])}"}
+    return [{"date": s["end"], "type": "season", "player_id": s["champion"], "text": _season_text(s, names)}
             for s in seasons if s["end"]]
 
 

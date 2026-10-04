@@ -31,7 +31,7 @@ class SeasonsService:
         if span is None:
             raise UnknownSeason(number)
         by_id = {gs.id: gs for gs in ctx.games}
-        return {**season_view(span, by_id), "race": season_race(span, by_id, category, player_count)}
+        return season_view(span, by_id, season_race(span, by_id, category, player_count))
 
     def feed(self, subset: GameSubset = ALL_GAMES, limit: Optional[int] = None) -> list[dict]:
         players = self.players_repository.get_all()

@@ -77,10 +77,17 @@ def season_race(span: SeasonSpan, by_id: dict[str, GameStats], category: str = "
     }
 
 
-def season_view(span: SeasonSpan, by_id: dict[str, GameStats]) -> dict:
+def champion_of(span: SeasonSpan, by_id: dict[str, GameStats]) -> Optional[str]:
+    """D-15: el primero de la carrera total sin filtro de mesa, solo con la temporada cerrada."""
+    if not span.end:
+        return None
+    qualified = season_race(span, by_id)["qualified"]
+    return qualified[0]["player_id"] if qualified else None
+
+
+def season_view(span: SeasonSpan, by_id: dict[str, GameStats], race: dict) -> dict:
     t, o, w = floor(span.temp), floor(span.oxygen), floor(span.oceans)
-    race = season_race(span, by_id)
-    champion = (race["qualified"][0]["player_id"] if race["qualified"] else None) if span.end else None
+    champion = champion_of(span, by_id)
     return {
         "number": span.number, "start": span.start, "end": span.end, "games": span.games,
         "temp": span.temp, "oxygen": span.oxygen, "oceans": span.oceans,
@@ -92,4 +99,4 @@ def season_view(span: SeasonSpan, by_id: dict[str, GameStats]) -> dict:
 def seasons(ctx: StatsContext) -> list[dict]:
     """Siempre sobre todas las partidas (las temporadas son del grupo)."""
     by_id = {gs.id: gs for gs in ctx.games}
-    return [season_view(s, by_id) for s in season_spans(ctx)]
+    return [season_view(s, by_id, season_race(s, by_id)) for s in season_spans(ctx)]

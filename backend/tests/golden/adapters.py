@@ -1,4 +1,6 @@
 """Adaptadores entre las respuestas de la API y la forma de fixtures/golden.json."""
+import json
+from itertools import groupby
 
 
 def positions_from_results(results_dto: dict) -> dict[str, dict]:
@@ -130,9 +132,6 @@ def season_from_api(s: dict) -> dict:
 
 def feed_groups(items: list[dict]) -> list[list[str]]:
     """La bitácora por (fecha, tipo), sin el orden dentro de cada grupo (D-68)."""
-    import json
-    from itertools import groupby
-
     clean = [{k: v for k, v in i.items() if v is not None} for i in items]
     return [sorted(json.dumps(x, sort_keys=True) for x in grp)
             for _, grp in groupby(clean, key=lambda i: (i["date"], i["type"]))]

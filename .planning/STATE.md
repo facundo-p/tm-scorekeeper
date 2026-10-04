@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-03-21)
 Phase: 26
 Plan: 26-01
 Status: Fases 15–25 completas (backend v2.0 terminado)
-Last activity: 2026-10-04 - F25 mergeada (#158, #159, 25-C)
+Last activity: 2026-10-04 - F25: 25-A #158 y 25-B #159 mergeadas; 25-C en #160 (este cierre se mergea con él)
 
 Progress: [█████     ] 50%
 
