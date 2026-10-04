@@ -11,7 +11,7 @@ La versión 2.0 («Archivo de Terraformación») trae:
 - ceremonia de fin de partida;
 - la interfaz del rediseño (`docs/redesign/mockup/`).
 
-Para pasarla a producción, ver [`docs/deploy/v2.0-checklist.md`](docs/deploy/v2.0-checklist.md).
+Los despliegues a producción se hacen con el skill `/release` ([`docs/deploy/`](docs/deploy/README.md)); lo propio de v2.0 está en [`docs/deploy/v2.0-checklist.md`](docs/deploy/v2.0-checklist.md). Qué cambia en cada versión: [`docs/NOVEDADES.md`](docs/NOVEDADES.md).
 
 ---
 
