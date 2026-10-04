@@ -37,6 +37,32 @@
     - click: { role: button, name: Ordenar por Ganador }
     - click: { role: button, name: Ver 63 partidas }
   gateFromPhase: 29
+# Filtros y orden en escritorio (en el teléfono van en una hoja, como games-sort-winner-mobile).
+- id: games-filter-map
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Hellas, exact: true }
+  gateFromPhase: 35
+- id: games-sort-map
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Mapa }
+  gateFromPhase: 35
+# Ninguna partida de 2 jugadores en Terra Cimmeria: estado vacío con «Limpiar filtros».
+- id: games-empty
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas?mesa=2' }
+  cand: { path: /partidas, search: '?mesa=2' }
+  actions:
+    - click: { role: button, name: Terra Cimmeria, exact: true }
+  gateFromPhase: 35
 - id: games-mesa3
   screen: partidas
   ref: { hash: '#partidas?mesa=3' }

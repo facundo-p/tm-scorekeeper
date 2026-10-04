@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F35 · Limpieza y presupuestos |
-| Issue | 35.1 #138 · 35.2 #139 · 35.3 #140 |
-| Paso | 35.3 (presupuestos y recorridos funcionales) |
+| Fase | F36 · Documentación, entrega y cierre |
+| Issue | 36.1 #141 · 36.2 #142 · 36.3 #143 |
+| Paso | 36.1–36.2 (documentación y checklist) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | dd3c4f5 (merge #170 en origin/staging) |
+| Último commit | aa0f511 (merge #176 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** 35.2 retirar la API deprecada (D-82) → 35.3 presupuestos (axe, JS inicial ≤ 100 kB gzip, planeta en chunk aparte, check-bundle en CI), catálogo completo y los recorridos funcionales que faltan (login, navegación, editar, eliminar, filtros, ficha) → F36.
+**Próximo paso:** 36.1–36.2 (READMEs, checklist de despliegue, catálogo completo D-85) → 36.3 (MILESTONES, auditoría, cierre de issues y épicas, PRs #65/#66, artifact de comparación en #71, informe final, borrar rutina, DONE).
 
 ## Tablero (GitHub)
 
@@ -93,3 +93,4 @@
 - 2026-10-04 — 35.1-C mergeada (#173 → `3a5a869`; revisión: APPROVE con 1 nit (comentario del mock de ResizeObserver) corregido). Rama reseteada.
 - 2026-10-04 — 35.1-D mergeada (#174 → `a1cf6e5`; revisión: APPROVE con 1 minor (espejo de hitos y recompensas de expansión, agregado) y 1 nit). **35.1 completa: #138 cerrado.** Rama reseteada.
 - 2026-10-04 — 35.2 mergeada (#175 → `b54e9e4`; revisión: APPROVE con 2 nit corregidos). D-82: API deprecada retirada, motor de récords v1 borrado. #139 cerrado. Rama reseteada.
+- 2026-10-04 — 35.3 mergeada (#176 → `aa0f511`; revisión: APPROVE con 2 nit corregidos; la comparación detectó que el mockup arrancaba una alta en rojo aunque estuviera en uso, corregido y republicado v9). D-83 y D-84. #140 cerrado. **F35 completa.** Rama reseteada.

@@ -95,3 +95,11 @@ Criterio para resolver ambigüedades, en orden: (1) el prompt del milestone / `S
   - **axe:** ya corre en cada escena de la comparación y la candidata falla con violaciones serias o críticas, así que el catálogo completo en verde es la evidencia.
   - **Recorridos funcionales:** se suman al arnés los que pedía la SPEC: login, navegación, editar, eliminar, filtros y hoja de jugador.
 - **D-84** Colores de jugador: el backend admite 10 (`PLAYER_COLORS`, con gris), pero la hoja del mockup y de la app ofrecía 9. Con 9 activos (como en la semilla) no se podía dar de alta a nadie: el color por defecto siempre estaba tomado y el servidor respondía 409. La hoja ofrece los 10, también en el mockup (republicado), y en el mockup una alta arranca con el primer color libre como en la app (antes arrancaba en rojo aunque estuviera en uso). Un test compara la lista con `models/player_colors.py`.
+- **D-85** Catálogo de comparación (F36): al cerrar se contrastó la tabla de escenarios de la SPEC con `tools/parity/scenarios/`.
+  - Faltaban `games-filter-map`, `games-sort-map` y `games-empty`; se agregan, en escritorio. En el teléfono los filtros y el orden van en una hoja, que ya cubre `games-sort-winner-mobile`.
+  - `games-empty` es la mesa de 2 en Terra Cimmeria, que no tiene partidas en la semilla.
+  - `games-calendar` y `records-history` no son estados aparte, son partes fijas de la pantalla:
+    - el calendario de actividad de 52 semanas está en `games` y `games-mesa3`;
+    - la historia del récord (escalera y pasos del monumento) está en `records`, `records-map`, `records-expansion` y `records-mesa4`.
+
+    Como `shell` (D-70), quedan cubiertos por esos escenarios.
