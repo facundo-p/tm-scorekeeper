@@ -177,7 +177,7 @@ Plans:
 - [x] **Phase 31: Pantalla: Ceremonia** (E6)
 - [x] **Phase 32: Pantalla: Ranking y jugadores** (E6)
 - [x] **Phase 33: Pantalla: Perfil** (E6)
-- [ ] **Phase 34: Pantallas: Récords y Logros** (E6)
+- [x] **Phase 34: Pantallas: Récords y Logros** (E6)
 - [ ] **Phase 35: Limpieza y presupuestos** (E7)
 - [ ] **Phase 36: Documentación, entrega y cierre** (E7)
 
@@ -348,7 +348,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Escenarios `records*`, `achievements*` en verde
   2. #37, #44 cerrados
-**Plans**: TBD
+**Plans**: 34-01
 
 ### Phase 35: Limpieza y presupuestos
 **Goal**: ver `.planning/v2.0/SPEC.md` § F35

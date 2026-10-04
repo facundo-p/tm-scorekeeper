@@ -83,8 +83,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **SCR-09**: Alta y edición de jugadores con color de cubo
 - [x] **SCR-10**: Perfil: cabecera, lecturas y favoritos (#66, #35, #38)
 - [x] **SCR-11**: Perfil: pestañas con filtro, por mesa y equidad
-- [ ] **SCR-12**: Récords con historia y filtros de mesa, mapa y expansión (#37)
-- [ ] **SCR-13**: Logros con vista por mesa y escalera de niveles
+- [x] **SCR-12**: Récords con historia y filtros de mesa, mapa y expansión (#37)
+- [x] **SCR-13**: Logros con vista por mesa y escalera de niveles
 
 ### Cierre
 
@@ -158,8 +158,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SCR-09 | Phase 32 | Complete |
 | SCR-10 | Phase 33 | Complete |
 | SCR-11 | Phase 33 | Complete |
-| SCR-12 | Phase 34 | Pending |
-| SCR-13 | Phase 34 | Pending |
+| SCR-12 | Phase 34 | Complete |
+| SCR-13 | Phase 34 | Complete |
 | CLOSE-01 | Phase 35 | Pending |
 | CLOSE-02 | Phase 35 | Pending |
 | CLOSE-03 | Phase 35 | Pending |

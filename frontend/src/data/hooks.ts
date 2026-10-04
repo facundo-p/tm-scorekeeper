@@ -27,8 +27,8 @@ export function useGameReport(gameId: string, enabled = true) {
 }
 
 export function usePlayerInsights(playerId: string, options: { mesa?: TableSize | null; enabled?: boolean } = {}) {
-  const path = apiPath(`/players/${encodeURIComponent(playerId)}/insights`, { player_count: options.mesa })
-  const { data, ...rest } = useApiQuery<PlayerInsights>(path, options.enabled ?? true, true)
+  const own = `/players/${encodeURIComponent(playerId)}/`
+  const { data, ...rest } = useApiQuery<PlayerInsights>(apiPath(`${own}insights`, { player_count: options.mesa }), options.enabled ?? true, own)
   return { insights: data, ...rest }
 }
 
@@ -52,8 +52,12 @@ export function useGroupSummary(options: { mesa?: TableSize | null } = {}) {
   return { summary: data, ...rest }
 }
 
-export function useGameSummaries(options: { mesa?: TableSize | null } = {}) {
-  const { data, ...rest } = useApiQuery<GameSummary[]>(apiPath('/games/summaries', { player_count: options.mesa }))
+/** Subconjunto de partidas del archivo (STAT-01): mesa, mapa y expansión. */
+export interface SubsetOptions { mesa?: TableSize | null; map?: string | null; expansion?: string | null }
+const subsetQuery = (o: SubsetOptions) => ({ player_count: o.mesa, map: o.map, expansion: o.expansion })
+
+export function useGameSummaries(options: SubsetOptions = {}) {
+  const { data, ...rest } = useApiQuery<GameSummary[]>(apiPath('/games/summaries', subsetQuery(options)), true, true)
   return { games: data, ...rest }
 }
 
@@ -62,9 +66,10 @@ export function useSeasons() {
   return { seasons: data, ...rest }
 }
 
-export function usePlayerAchievements(playerId: string, options: { mesa?: TableSize | null } = {}) {
-  const path = apiPath(`/players/${encodeURIComponent(playerId)}/achievements`, { player_count: options.mesa })
-  const { data, ...rest } = useApiQuery<{ achievements: PlayerAchievement[] }>(path, true, true)
+export function usePlayerAchievements(playerId: string, options: { mesa?: TableSize | null; enabled?: boolean } = {}) {
+  const own = `/players/${encodeURIComponent(playerId)}/`
+  const path = apiPath(`${own}achievements`, { player_count: options.mesa })
+  const { data, ...rest } = useApiQuery<{ achievements: PlayerAchievement[] }>(path, options.enabled ?? true, own)
   return { achievements: data?.achievements, ...rest }
 }
 
@@ -73,7 +78,7 @@ export function useAchievementCatalog(options: { mesa?: TableSize | null } = {})
   return { catalog: data?.achievements, ...rest }
 }
 
-export function useRecords(options: { mesa?: TableSize | null } = {}) {
-  const { data, ...rest } = useApiQuery<GroupRecord[]>(apiPath('/records', { player_count: options.mesa }), true, true)
+export function useRecords(options: SubsetOptions = {}) {
+  const { data, ...rest } = useApiQuery<GroupRecord[]>(apiPath('/records', subsetQuery(options)), true, true)
   return { records: data, ...rest }
 }

@@ -3,6 +3,7 @@
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAchievementCatalog, useGroupSummary, usePlayerAchievements, usePlayerInsights, usePlayersList, useRecords } from '@/data/hooks'
+import { retryFailed } from '@/data/query'
 import { playerIndex } from '@/data/instruments'
 import { Button, Empty, Tabs, type TabItem } from '@/ui/atoms'
 import { useSearchParam } from '@/ui/hooks/useSearchParam'
@@ -22,7 +23,7 @@ function useProfileData(pid: string, mesa: TableSize | null) {
   const all = Object.values(q)
   const players = useMemo(() => playerIndex(q.players.players ?? []), [q.players.players])
   const ready = q.insights.insights && q.players.players && q.summary.summary && q.achievements.achievements && q.catalog.catalog && q.records.records
-  return { q, players, ready, error: all.find((x) => x.error)?.error, retry: () => all.forEach((x) => x.refetch()) }
+  return { q, players, ready, error: all.find((x) => x.error)?.error, retry: () => retryFailed(all) }
 }
 
 type Data = ReturnType<typeof useProfileData>

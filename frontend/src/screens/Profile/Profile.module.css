@@ -585,20 +585,6 @@
   font-size: var(--t-micro);
 }
 
-.pach__bar {
-  height: 5px;
-  background: var(--hull-3);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.pach__bar i {
-  display: block;
-  height: 100%;
-  width: calc(var(--p) * 1%);
-  background: linear-gradient(90deg, var(--mc-lo), var(--mc));
-}
-
 @container app (min-width: 760px) {
   .phero {
     grid-template-columns: 150px minmax(0, 1fr);

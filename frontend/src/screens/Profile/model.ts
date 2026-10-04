@@ -28,10 +28,6 @@ export function corpRows(corps: SplitStat[]) {
   return top.map((c) => ({ ...c, g: ((c.games / max) * 100).toFixed(0), w: ((c.wins / max) * 100).toFixed(0) }))
 }
 
-/** Avance hacia el próximo nivel, en porcentaje entero (0 a 100; 0 si no hay meta). */
-export const progressPct = (p: { current: number; target: number }) =>
-  p.target > 0 ? Math.min(100, Math.max(0, Math.round((p.current / p.target) * 100))) : 0
-
 export const timesText = (n: number) => `${n} ${n === 1 ? 'vez' : 'veces'}`
 
 /** Logros en el orden del catálogo, los desbloqueados primero y por nivel. */

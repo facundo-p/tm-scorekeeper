@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import type { CatalogAchievement, GroupRecord, HistoryRow, PlayerAchievement } from '@/data/types'
-import { cssVars } from '@/domain/cssVars'
 import { mapInfo, RECORD_ICON } from '@/domain/catalog'
 import { fmtDate } from '@/domain/format'
 import { PATHS } from '@/shell/paths'
-import { Button, CorpEmblem, Delta, Empty, Medal, Plate, TagDisc, TierPips } from '@/ui/atoms'
+import { Button, CorpEmblem, Delta, Empty, Medal, Plate, ProgressBar, TagDisc, TierPips } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import { MapGlyph } from '@/ui/icons'
 import reveal from '@/ui/reveal.module.css'
-import { achievementRows, progressPct } from './model'
+import { achievementRows } from './model'
 import styles from './Profile.module.css'
 
 function HistRow({ h }: { h: HistoryRow }) {
@@ -60,7 +59,7 @@ function AchItem({ def, a }: { def: CatalogAchievement; a: PlayerAchievement }) 
         <b>{tier?.title ?? def.tiers[0]?.title}</b><span className="muted">{def.description}</span>
         {multi && <TierPips tier={a.tier} max={def.tiers.length} />}
         {a.progress && <span className={styles.pach__prog}>
-          <span className={styles.pach__bar}><i style={cssVars({ p: progressPct(a.progress) })} /></span>
+          <ProgressBar progress={a.progress} />
           <span className="faint">{a.progress.current}/{a.progress.target}{next ? ` para ${next.title}` : ''}</span></span>}
       </div>
     </li>
