@@ -98,6 +98,18 @@ describe('Perfil', () => {
     expect(await screen.findByRole('tab', { name: /Resumen/ })).toBeInTheDocument()
   })
 
+  it('the achievements tab lists unlocked ones first', async () => {
+    renderAt('/jugadores/a?tab=logros')
+    const items = await screen.findAllByRole('listitem')
+    expect(items.map((li) => li.querySelector('b')?.textContent).filter(Boolean).slice(0, 2)).toEqual(['Pueblo', 'Pionero'])
+  })
+
+  it('a failed request offers a retry', async () => {
+    vi.stubGlobal('fetch', vi.fn((url: string) => (url.includes('/insights') ? Promise.resolve(new Response('{}', { status: 500 })) : api(url))))
+    renderAt('/jugadores/a')
+    expect(await screen.findByRole('button', { name: /Reintentar/ })).toBeInTheDocument()
+  })
+
   it('an unknown player says so', async () => {
     renderAt('/jugadores/nadie')
     expect(await screen.findByText('Este jugador no está en el archivo')).toBeInTheDocument()

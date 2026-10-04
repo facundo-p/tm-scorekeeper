@@ -8,7 +8,7 @@ import { Button, CorpEmblem, Delta, Empty, Medal, Plate, TagDisc, TierPips } fro
 import { cx } from '@/ui/cx'
 import { MapGlyph } from '@/ui/icons'
 import reveal from '@/ui/reveal.module.css'
-import { achievementRows } from './model'
+import { achievementRows, progressPct } from './model'
 import styles from './Profile.module.css'
 
 function HistRow({ h }: { h: HistoryRow }) {
@@ -60,7 +60,7 @@ function AchItem({ def, a }: { def: CatalogAchievement; a: PlayerAchievement }) 
         <b>{tier?.title ?? def.tiers[0]?.title}</b><span className="muted">{def.description}</span>
         {multi && <TierPips tier={a.tier} max={def.tiers.length} />}
         {a.progress && <span className={styles.pach__prog}>
-          <span className={styles.pach__bar}><i style={cssVars({ p: ((a.progress.current / a.progress.target) * 100).toFixed(0) })} /></span>
+          <span className={styles.pach__bar}><i style={cssVars({ p: progressPct(a.progress) })} /></span>
           <span className="faint">{a.progress.current}/{a.progress.target}{next ? ` para ${next.title}` : ''}</span></span>}
       </div>
     </li>

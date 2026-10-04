@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { achievementRows, corpRows, dnaRows, heldRecords, mapRows, tabOf, timesText } from '@/screens/Profile/model'
+import { achievementRows, corpRows, dnaRows, heldRecords, mapRows, progressPct, tabOf, timesText } from '@/screens/Profile/model'
 import type { CatalogAchievement, GroupRecord, PlayerAchievement, SplitStat } from '@/data/types'
 
 const split = (name: string, games: number, wins: number): SplitStat => ({ name, games, wins, avg: 80, avg_pos: 2 })
@@ -26,6 +26,7 @@ describe('perfil (lo puro)', () => {
     expect(corps).toHaveLength(6)
     expect(corps[1]).toMatchObject({ name: 'Ecoline', g: '50', w: '13' })
     expect([timesText(1), timesText(3)]).toEqual(['1 vez', '3 veces'])
+    expect([progressPct({ current: 4, target: 5 }), progressPct({ current: 9, target: 5 }), progressPct({ current: 1, target: 0 })]).toEqual([80, 100, 0])
   })
 
   it('achievements: catalog order, unlocked first by tier; held records keep the records order', () => {
