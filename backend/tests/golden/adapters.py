@@ -82,3 +82,22 @@ def report_from_api(r: dict) -> dict:
         "achievements": unlocks,
         "stolen_awards": r["stolen_awards"],
     }
+
+
+# Campos de GET /players/{id}/insights cuyo nombre en el golden (mockup) está en camelCase.
+_INSIGHT_KEYS = {
+    "win_rate": "winRate", "podium_rate": "podiumRate", "avg_points": "avgPoints", "avg_pos": "avgPos",
+    "best_game": "bestGame", "avg_milestones": "avgMilestones", "avg_awards": "avgAwards",
+    "points_per_gen": "pointsPerGen", "records_held": "recordsHeld", "rank_total": "rankTotal",
+    "wins_vs_expected": "winsVsExpected", "wins_ratio": "winsRatio", "rel_pos": "relPos",
+    "by_table": "byTable", "last_delta": "lastDelta",
+}
+
+
+def insights_from_api(value):
+    """Renombra los campos conocidos (no las claves de datos, como las categorías)."""
+    if isinstance(value, dict):
+        return {_INSIGHT_KEYS.get(k, k): insights_from_api(v) for k, v in value.items() if k != "view"}
+    if isinstance(value, list):
+        return [insights_from_api(v) for v in value]
+    return value

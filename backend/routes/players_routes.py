@@ -5,9 +5,10 @@ from repositories.container import games_repository, players_repository
 from services.player_records_service import PlayerRecordsService
 from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
-from services.container import achievements_service, elo_service
+from services.container import achievements_service, elo_service, insights_service
 from typing import Optional
 from schemas.achievement import PlayerAchievementsResponseDTO
+from schemas.insights import PlayerInsightsDTO
 from models.player_colors import ColorTaken
 from mappers.achievement_mapper import player_achievement_to_dto
 from models.game_subset import GameSubset
@@ -111,6 +112,16 @@ def list_players(active: Optional[bool] = Query(default=None)):
         )
         for p in players
     ]
+
+
+@router.get("/{player_id}/insights", response_model=PlayerInsightsDTO)
+def get_player_insights(player_id: str, subset: GameSubset = Depends(table_subset)):
+    """Ficha del jugador frente al grupo (STAT-11); con mesa, todo sale de ese tamaño de mesa."""
+    try:
+        players_repository.get(player_id)
+    except KeyError:
+        raise HTTPException(status_code=404, detail="Player not found")
+    return PlayerInsightsDTO(view=view_of(subset), **insights_service.insights(player_id, subset))
 
 
 @router.get("/{player_id}/achievements", response_model=PlayerAchievementsResponseDTO)
