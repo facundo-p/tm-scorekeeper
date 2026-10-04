@@ -18,3 +18,18 @@ export function useDeleteGame(onDeleted: () => void) {
     },
   })
 }
+
+interface GameWriteResponse { id: string }
+
+/** Crea (POST) o edita (PUT) una partida; el servidor recalcula todo lo posterior en la misma transacción. */
+export function useSaveGame(onSaved: (id: string) => void) {
+  const client = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, body }: { id: string | null; body: unknown }) =>
+      http<GameWriteResponse>(id ? `/games/${encodeURIComponent(id)}` : '/games/', { method: id ? 'PUT' : 'POST', body: JSON.stringify(body) }),
+    onSuccess: (res, { id }) => {
+      onSaved(id ?? res.id)
+      void client.invalidateQueries()
+    },
+  })
+}

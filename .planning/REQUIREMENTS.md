@@ -76,8 +76,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **SCR-02**: Inicio con héroe de temporada, carrera por promedio, consejo, bitácora y reglas
 - [x] **SCR-03**: Partidas con filtros, orden (#65), calendario y vacío
 - [x] **SCR-04**: Informe de partida con editar y eliminar
-- [ ] **SCR-05**: Registrar en 5 pasos con borrador
-- [ ] **SCR-06**: Registrar operable con teclado y modo edición (PUT)
+- [x] **SCR-05**: Registrar en 5 pasos con borrador
+- [x] **SCR-06**: Registrar operable con teclado y modo edición (PUT)
 - [ ] **SCR-07**: Ceremonia con secuencia, saltar y repetir
 - [ ] **SCR-08**: Ranking con filtros, ELO de mesa, equidad, cara a cara y por mesa
 - [ ] **SCR-09**: Alta y edición de jugadores con color de cubo
@@ -151,8 +151,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SCR-02 | Phase 28 | Complete |
 | SCR-03 | Phase 29 | Complete |
 | SCR-04 | Phase 29 | Complete |
-| SCR-05 | Phase 30 | Pending |
-| SCR-06 | Phase 30 | Pending |
+| SCR-05 | Phase 30 | Complete |
+| SCR-06 | Phase 30 | Complete |
 | SCR-07 | Phase 31 | Pending |
 | SCR-08 | Phase 32 | Pending |
 | SCR-09 | Phase 32 | Pending |

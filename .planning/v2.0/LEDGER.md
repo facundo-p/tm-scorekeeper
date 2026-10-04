@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F29 · Partidas e informe |
-| Issue | 29.x (#127–#128) |
+| Fase | F30 · Registrar |
+| Issue | 30.x (#129–#130) |
 | Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 5b7d0b1 (merge #164 en origin/staging) |
+| Último commit | 7f202c8 (merge #165 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F29 — Partidas (lista, filtros, orden, actividad) e Informe (editar, eliminar); reemplaza el PR #65.
+**Próximo paso:** F30 — Registrar (asistente de 5 pasos, borrador, edición con PUT, teclado).
 
 ## Tablero (GitHub)
 
@@ -82,3 +82,4 @@
 - 2026-10-04 — F27-A mergeada (#162 → `8cc3a7f`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos: respaldo si el chunk no carga, arrastre reactivo, tests de ciclo de vida, host por `[data-device]`). Planeta al 0 % en `planet-parked` y el shell. Issue #123 cerrado. Rama reseteada.
 - 2026-10-04 — F27-B mergeada (#163 → `cad4b40`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: casos vacíos, error en la galería; corregidos). `gal-instruments` al 0 %; el reset global viejo acotado a `[data-legacy]` (D-73). Issue #124 cerrado. **F27 completa.** Rama reseteada.
 - 2026-10-04 — F28 mergeada (#164 → `5b7d0b1`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: estados vacíos, bitácora sin botones mudos, error descrito, reintento sin recargar; corregidos salvo el ojo fuera del rótulo, que espeja el árbol del mockup). 28/28 en la comparación. `players.seq` y `levels` (D-74). Issues #125 y #126 cerrados. Rama reseteada.
+- 2026-10-04 — F29 mergeada (#165 → `7f202c8`; revisión: ronda 1 CHANGES_REQUESTED por eliminar (el refetch del informe borrado cortaba la navegación), ronda 2 APPROVE con 1 nit). Filtros duplicados del mockup conservados a propósito (uno siempre con display:none). Issues #127 y #128 cerrados. Rama reseteada.

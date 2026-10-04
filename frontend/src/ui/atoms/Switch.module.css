@@ -50,3 +50,10 @@
   outline: 2px solid var(--mc);
   outline-offset: 3px;
 }
+
+/* Variante chica (screens.css del mockup, registro: recompensas). */
+.switch--s {
+  min-height: 36px;
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}

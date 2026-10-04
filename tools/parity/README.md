@@ -47,3 +47,7 @@ Sale con 1 si falla un escenario exigido (`gateFromPhase` ≤ fase; en `--self`,
 ```
 
 Salidas en `out/<run>/` (ignorado por git): `report.html` (lado a lado, diferencias y deslizador), `summary.json` e `img/`, y `judge/` con las composiciones para el juez visual (`JUDGE_RUBRIC.md`).
+
+## Chequeos funcionales
+
+`node tools/parity/functional/run.mjs` levanta la candidata y recorre flujos que tienen que andar, sin comparar con el mockup: por ahora, registrar una partida solo con el teclado en 390 y 1440 px (F30). Lo corre `gates.sh e2e` (y `all`).

@@ -14,8 +14,7 @@ const NotFound = lazy(() => import('@/screens/NotFound/NotFound'))
 const Home = lazy(() => import('@/screens/Home/Home'))
 const Games = lazy(() => import('@/screens/Games/Games'))
 const GameReport = lazy(() => import('@/screens/GameReport/GameReport'))
-const OldGameRecords = lazy(() => import('@/pages/GameRecords/GameRecords'))
-const OldRegister = lazy(() => import('@/pages/GameForm/GameForm'))
+const Register = lazy(() => import('@/screens/Register/Register'))
 const OldRanking = lazy(() => import('@/pages/Ranking/Ranking'))
 const OldPlayers = lazy(() => import('@/pages/Players/Players'))
 const OldProfile = lazy(() => import('@/pages/PlayerProfile/PlayerProfile'))
@@ -47,16 +46,16 @@ export function AppRoutes() {
       {Gallery && <Route path="/__galeria" element={<Gallery />} />}
       {OLD_ROUTES.map(([from, to]) => <Route key={from} path={from} element={<RedirectWith to={to} />} />)}
       <Route path="/games/:gameId" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
-      <Route path="/games/:gameId/records" element={<RedirectWith to={(p) => `${PATHS.game(p.gameId)}/records`} />} />
+      <Route path="/games/:gameId/records" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
       <Route path="/players/:playerId/profile" element={<RedirectWith to={(p) => PATHS.profile(p.playerId)} />} />
       <Route element={<ProtectedRoute><AppShell /></ProtectedRoute>}>
         <Route index element={<Home />} />
         <Route path="partidas" element={<Games />} />
         <Route path="partidas/:gameId" element={<GameReport />} />
-        <Route path="partidas/:gameId/records" element={legacy(OldGameRecords)} />
+        <Route path="partidas/:gameId/records" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
         <Route path="partidas/:gameId/ceremonia" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
-        <Route path="partidas/:gameId/editar" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />
-        <Route path="registrar" element={legacy(OldRegister)} />
+        <Route path="partidas/:gameId/editar" element={<Register />} />
+        <Route path="registrar" element={<Register />} />
         <Route path="ranking" element={legacy(OldRanking)} />
         <Route path="jugadores" element={legacy(OldPlayers)} />
         <Route path="jugadores/:playerId" element={legacy(OldProfile)} />

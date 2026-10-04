@@ -173,7 +173,7 @@ Plans:
 - [x] **Phase 27: Efectos e instrumentos** (E5)
 - [x] **Phase 28: Pantallas: Acceso e Inicio** (E6)
 - [x] **Phase 29: Pantallas: Partidas e Informe** (E6)
-- [ ] **Phase 30: Pantalla: Registrar** (E6)
+- [x] **Phase 30: Pantalla: Registrar** (E6)
 - [ ] **Phase 31: Pantalla: Ceremonia** (E6)
 - [ ] **Phase 32: Pantalla: Ranking y jugadores** (E6)
 - [ ] **Phase 33: Pantalla: Perfil** (E6)
@@ -318,7 +318,7 @@ Plans:
   1. Escenarios `register*` en verde
   2. Playwright solo con teclado en 390 y 1440
   3. #33 cerrado
-**Plans**: TBD
+**Plans**: 30-01
 
 ### Phase 31: Pantalla: Ceremonia
 **Goal**: ver `.planning/v2.0/SPEC.md` § F31
