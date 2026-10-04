@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
-import { EloChart, EloShift, FormStrip, H2HMatrix, OceanSlots, OxygenArc, ScoreBars, Sparkline, Thermometer } from '@/ui/instruments'
+import { fireEvent, render, screen, within } from '@testing-library/react'
+import { EloChart, EloShift, FormStrip, H2HMatrix, OceanSlots, OxygenArc, ScoreBars, ScoreTrack, Sparkline, Thermometer, TRTrack } from '@/ui/instruments'
 import type { ScoredGame } from '@/ui/instruments'
 
 const facu = { id: 'p-facu', name: 'Facu', color: 'rojo' }
@@ -51,5 +51,29 @@ describe('instrumentos', () => {
     render(<EloChart showTable series={[{ player: facu, points: [{ date: '2025-01-01', elo: 1010 }] }, { player: nico, points: [{ date: '2025-01-02', elo: 990 }] }]} />)
     const rows = screen.getAllByRole('row')
     expect(rows.map((r) => r.textContent)).toEqual(['FechaFacuNico', '2025-01-011010—', '2025-01-02—990'])
+  })
+
+  it('empty data draws empty instruments without breaking', () => {
+    const { container } = render(<>
+      <ScoreBars game={{ expansions: [], results: [] }} />
+      <ScoreTrack results={[]} />
+      <TRTrack results={[]} />
+      <EloShift changes={[]} />
+    </>)
+    expect(screen.getByRole('img', { name: /^Puntajes:/ })).toBeInTheDocument()
+    expect(container.querySelectorAll('li')).toHaveLength(0)
+  })
+
+  it('an all-zero game still gives bars a valid width', () => {
+    const zero: ScoredGame = { expansions: [], results: [{ player: facu, position: 1, total: 0, mc: 0, scores: {} }] }
+    const { container } = render(<ScoreBars game={zero} />)
+    expect(container.innerHTML).not.toContain('NaN')
+  })
+
+  it('an ELO chart without games has no crosshair to show', () => {
+    const { container } = render(<EloChart series={[]} />)
+    const chart = container.firstElementChild as HTMLElement
+    fireEvent.pointerMove(chart, { clientX: 100 })
+    expect(container.querySelector('[class*="elochart__cross"]')).toBeNull()
   })
 })

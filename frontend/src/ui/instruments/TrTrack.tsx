@@ -7,6 +7,7 @@ import styles from './instruments.module.css'
 
 /** Casilleros de la pista: de 6 por debajo del menor a 4 por encima del mayor, en múltiplos de 5. */
 export function trSquares(totals: number[]) {
+  if (!totals.length) return []
   const lo = Math.max(0, Math.floor((Math.min(...totals) - 6) / 5) * 5)
   const hi = Math.ceil((Math.max(...totals) + 4) / 5) * 5
   return Array.from({ length: hi - lo + 1 }, (_, k) => lo + k)

@@ -65,6 +65,6 @@ interface ScoreBarsProps { game: ScoredGame; maxTotal?: number; showTable?: bool
 export function ScoreBars({ game, maxTotal, showTable }: ScoreBarsProps) {
   const cats = categoriesOf(game.expansions)
   if (showTable) return <ScoreTable results={game.results} cats={cats} />
-  const top = maxTotal ?? Math.max(...game.results.map((r) => r.total))
+  const top = maxTotal ?? Math.max(1, ...game.results.map((r) => r.total))
   return <div className={styles.sbars}>{game.results.map((r, row) => <BarRow key={r.player.id} r={r} row={row} top={top} cats={cats} />)}</div>
 }

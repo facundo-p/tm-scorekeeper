@@ -106,6 +106,7 @@ interface EloChartProps {
 function useHover(w: number, count: number) {
   const [hover, setHover] = useState<number | null>(null)
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (!count) return
     const r = e.currentTarget.getBoundingClientRect()
     const i = Math.round(((((e.clientX - r.left) / r.width) * w - PAD.l) / (w - PAD.l - PAD.r)) * (count - 1))
     setHover(Math.max(0, Math.min(count - 1, i)))

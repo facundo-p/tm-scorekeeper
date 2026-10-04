@@ -8,7 +8,7 @@ import {
   CategoryLegend, CompositionBar, EloChart, EloShift, FormStrip, H2HMatrix, OceanSlots, OxygenArc, ScoreBars, ScoreTrack, Sparkline,
   Thermometer, TRTrack,
 } from '@/ui/instruments'
-import { LoadingState } from '@/ui/states'
+import { ErrorState, LoadingState } from '@/ui/states'
 import { GALLERY_PLAYER_ORDER, SAMPLE_GAME_ID, SAMPLE_PLAYER } from './sample'
 import { Section } from './sections'
 
@@ -33,19 +33,21 @@ function galleryModel({ report, players, insights, history, h2h }: Sources) {
 }
 
 function useGalleryModel() {
-  const { report } = useGameReport(SAMPLE_GAME_ID)
-  const { players } = usePlayersList()
-  const { insights } = usePlayerInsights(SAMPLE_PLAYER.id)
-  const { history } = useEloHistory()
-  const { h2h } = useHeadToHead()
-  return useMemo(
+  const { report, error: e1 } = useGameReport(SAMPLE_GAME_ID)
+  const { players, error: e2 } = usePlayersList()
+  const { insights, error: e3 } = usePlayerInsights(SAMPLE_PLAYER.id)
+  const { history, error: e4 } = useEloHistory()
+  const { h2h, error: e5 } = useHeadToHead()
+  const model = useMemo(
     () => (report && players && insights && history && h2h ? galleryModel({ report, players, insights, history, h2h }) : null),
     [report, players, insights, history, h2h],
   )
+  return { model, failed: !!(e1 || e2 || e3 || e4 || e5) }
 }
 
 export function Instruments() {
-  const m = useGalleryModel()
+  const { model: m, failed } = useGalleryModel()
+  if (failed) return <ErrorState onRetry={() => window.location.reload()} />
   if (!m) return <LoadingState />
   return (
     <>

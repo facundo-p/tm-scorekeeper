@@ -36,4 +36,8 @@ describe('de la API a los instrumentos', () => {
     const [s] = eloSeries([{ player_id: 'p-nico', player_name: 'Nico', points: [{ recorded_at: '2025-03-08', game_id: 'g-1', elo_after: 990, delta: -10 }] }], index)
     expect(s).toEqual({ player: { id: 'p-nico', name: 'Nico', color: 'azul' }, points: [{ date: '2025-03-08', elo: 990 }] })
   })
+
+  it('a game without ELO changes gives no rows', () => {
+    expect(eloShift({ ...report, elo: [] }, index)).toEqual([])
+  })
 })
