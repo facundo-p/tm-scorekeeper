@@ -89,16 +89,15 @@ frontend/src/
 ├── context/          # AuthContext (sesión en localStorage)
 ├── data/             # v2.0: TanStack Query (query.ts) y hooks de datos de la API v2 (hooks.ts)
 ├── domain/           # v2.0: catálogo, etiquetas en castellano, formato es-AR y cssVars()
-├── hooks/            # usePlayers, useGames
+├── hooks/            # usePlayers (de la app vieja; se borra en 35.1-D)
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
-├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
-├── screens/          # v2.0: pantallas nuevas (Login, Home, Games, GameReport, Register, Ceremony, NotFound, y las de F32–F34)
+├── screens/          # v2.0: pantallas (Login, Home, Games, GameReport, Register, Ceremony, Ranking, Profile, Records, Achievements, NotFound) y Gallery/, la galería de comparación
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
 ├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/
-├── utils/            # gameCalculations.ts, validation.ts, a11y.ts
+├── utils/            # gameCalculations.ts y a11y.ts (de la app vieja; se borran en 35.1-D)
 └── test/
     ├── unit/         # Utilidades, dominio y regla de estilos
     ├── ui/           # Sistema visual v2.0
@@ -115,7 +114,6 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 ### Shell, rutas y datos (v2.0, F26)
 
 - Rutas en castellano (`/`, `/partidas`, `/partidas/:id`, `/registrar`, `/ranking`, `/jugadores/:id`, `/records`, `/logros`, `/acceso`); las viejas (`/home`, `/games/...`, `/players/...`) redirigen. Una ruta desconocida muestra la 404 dentro del shell.
-- Mientras una pantalla no se porte (F28–F34), su ruta nueva muestra la página vieja dentro del shell (D-69).
 - Datos: `useApiQuery` envuelve TanStack Query con la forma del skill `new-hook` (`{ dato, loading, error, refetch }`); la clave de cache es la ruta con su query string, así el filtro (`?player_count=`) separa las entradas (D-10).
 - Filtro de mesa: `useMesaParam()` lee y escribe `?mesa=2..5` en la URL; `MesaFilter` y `MesaNotice` en `ui/MesaFilter/`.
 - Con `vite --mode parity`, `?demo=loading|error` muestra el estado de carga o de error en cualquier pantalla (comparación).
@@ -128,7 +126,6 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - `fx/stars.ts` (cielo) y `fx/confetti.ts` (estallido de la ceremonia).
 - `ui/instruments/`: termómetro, arco de oxígeno, océanos, pista de puntaje, leyenda, barras de puntaje (con tabla), composición, sparkline, forma, gráfico de ELO (con tabla), matriz cara a cara, pista de TR y cambio de ELO. Reciben datos ya resueltos (`types.ts`); `data/instruments.ts` los arma desde la API. Lo puro (escalas, carriles, gradientes) está en funciones con tests.
 - `/__galeria?parte=instrumentos` (modo parity) los muestra con datos de la API, para compararlos con el mockup (D-73).
-- El CSS global de la app vieja (`src/index.css`) solo afecta a `[data-legacy]` (páginas viejas dentro de `Legacy`).
 
 ### Pantallas (v2.0, F28–F34)
 

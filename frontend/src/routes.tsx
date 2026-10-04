@@ -21,7 +21,7 @@ const Achievements = lazy(() => import('@/screens/Achievements/Achievements'))
 
 // La galería de comparación solo existe en `vite --mode parity` (D-45); en producción
 // la condición es falsa en tiempo de build y el módulo no se empaqueta.
-const Gallery = import.meta.env.MODE === 'parity' ? lazy(() => import('@/pages/Gallery/Gallery')) : null
+const Gallery = import.meta.env.MODE === 'parity' ? lazy(() => import('@/screens/Gallery/Gallery')) : null
 
 /** Redirige una ruta vieja (`/games/:gameId` → `/partidas/:gameId`) conservando `?…` y `#…`. */
 function RedirectWith({ to }: { to: string | ((params: Record<string, string>) => string) }) {

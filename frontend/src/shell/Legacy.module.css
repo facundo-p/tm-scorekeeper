@@ -1,5 +1,0 @@
-/* La página vieja usa sus propios estilos (tokens --color-*, hasta F35). */
-.legacy {
-  min-width: 0;
-  color: var(--color-text, var(--ink));
-}
