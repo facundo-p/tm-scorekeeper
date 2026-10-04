@@ -1,0 +1,19 @@
+/* Port de docs/redesign/mockup/css/screens.css (aviso del filtro de mesa). */
+.mesa-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--mc);
+  background: var(--hull-1);
+  font-size: var(--t-small);
+}
+
+.mesa-notice__clear {
+  color: var(--mc);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

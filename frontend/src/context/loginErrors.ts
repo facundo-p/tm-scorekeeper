@@ -9,6 +9,6 @@ const BY_STATUS: Record<number, string> = {
 
 /** Mensaje para la pantalla de acceso según la respuesta del login. */
 export function loginErrorMessage(error: unknown): string {
-  if (error instanceof ApiError) return BY_STATUS[error.status] ?? 'No se pudo ingresar. Probá de nuevo.'
+  if (error instanceof ApiError && error.kind === 'http') return BY_STATUS[error.status] ?? 'No se pudo ingresar. Probá de nuevo.'
   return 'No se pudo conectar con el servidor.'
 }

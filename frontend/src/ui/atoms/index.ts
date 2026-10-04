@@ -1,4 +1,4 @@
-export { Button, type ButtonVariant } from './Button'
+export { Button, ButtonLink, buttonClass, type ButtonVariant } from './Button'
 export { Chip } from './Chip'
 export { CorpEmblem } from './CorpEmblem'
 export { CountUp } from './CountUp'

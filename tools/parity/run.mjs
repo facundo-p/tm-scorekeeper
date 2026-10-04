@@ -9,7 +9,7 @@ import { OUT_DIR } from './config.mjs';
 import { parseArgs } from './lib/args.mjs';
 import { launch, newPage } from './lib/browser.mjs';
 import { ariaTree, axeSerious, captureFrames, probeStyles } from './lib/capture.mjs';
-import { evaluate } from './lib/evaluate.mjs';
+import { evaluate, normalizeAria, planetChecked } from './lib/evaluate.mjs';
 import { runActions } from './lib/actions.mjs';
 import { waitReady } from './lib/ready.mjs';
 import { writeImages, writeReport } from './lib/report.mjs';
@@ -50,10 +50,13 @@ async function runEntryOnce(ctx, scenario, viewport) {
   const key = `${scenario.id}-${viewport}`;
   try {
     const ref = await captureSide(ctx.browser, ctx.ref, scenario, viewport);
-    const cand = await captureSide(ctx.browser, ctx.cand, scenario, viewport);
-    const result = evaluate(scenario, viewport, ref, cand, ctx.opts.mode);
+    // Antes de `planetFromPhase` la candidata no tiene planeta: no se lo espera (D-70).
+    const candScenario = planetChecked(scenario, ctx.opts.phase) ? scenario : { ...scenario, planet: 'none' };
+    const cand = await captureSide(ctx.browser, ctx.cand, candScenario, viewport);
+    const result = evaluate(scenario, viewport, ref, cand, ctx.opts.mode, ctx.opts.phase);
     const files = writeImages(ctx.dir, key, ref, cand, result);
-    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe }, state: { ref: ref.state, cand: cand.state } };
+    const aria = JSON.stringify(normalizeAria(ref.aria)) === JSON.stringify(normalizeAria(cand.aria)) ? undefined : { ref: ref.aria, cand: cand.aria };
+    return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: !result.failures.length, failures: result.failures, result, files, axe: { ref: ref.axe, cand: cand.axe }, state: { ref: ref.state, cand: cand.state }, aria };
   } catch (err) {
     return { id: scenario.id, viewport, gated: isGated(scenario, ctx.opts), pass: false, failures: [`excepción: ${err.message}`], result: { frames: [] }, files: [] };
   }

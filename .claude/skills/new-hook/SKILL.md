@@ -8,6 +8,19 @@ argument-hint: [resourceName]
 
 Generate a custom React hook for `$ARGUMENTS`.
 
+## v2.0 screens (F26 onward): TanStack Query
+
+Hooks for the new screens live in `frontend/src/data/hooks.ts` and wrap `useApiQuery` (`frontend/src/data/query.ts`), which keeps the same return shape as below (D-10). The cache key is the API path with its query string, so filters such as `?player_count=` separate entries:
+
+```typescript
+export function useRanking(options: { mesa?: TableSize | null } = {}) {
+  const { data, ...rest } = useApiQuery<RankingDTO>(apiPath('/ranking', { player_count: options.mesa }))
+  return { ranking: data, ...rest }   // { ranking, loading, error, refetch }
+}
+```
+
+Types for the v2 API go in `frontend/src/data/types.ts`. Writes use `http()` from `frontend/src/api/http.ts` and then invalidate the affected keys with the query client. The pattern below is for the pre-v2 pages, which are removed in F35.
+
 ## Pre-flight
 
 1. Ask the user for:

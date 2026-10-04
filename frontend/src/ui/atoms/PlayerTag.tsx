@@ -1,3 +1,4 @@
+import { PATHS } from '@/shell/paths'
 import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Cube } from './Cube'
@@ -8,7 +9,7 @@ import styles from './PlayerTag.module.css'
 const CUBE_SIZE: Record<Size, number> = { s: 13, m: 16, l: 22 }
 
 /** Ruta del perfil de un jugador (D-02). */
-export const profilePath = (id: string) => `/jugadores/${encodeURIComponent(id)}`
+export const profilePath = PATHS.profile
 
 interface PlayerTagProps {
   player?: PlayerLike | null
