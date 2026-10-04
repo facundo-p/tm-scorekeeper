@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useRef } from 'react'
 import { Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
+import { PlanetCanvas } from '@/fx/planet'
 import { Frame } from '@/ui/frame'
 import { ErrorState, LoadingState } from '@/ui/states'
 import { ErrorBoundary } from './ErrorBoundary'
@@ -39,14 +40,14 @@ function ScreenContent() {
   )
 }
 
-/** Shell de la app (SHELL-01): cielo, rail, barra superior, pantalla y dock. */
+/** Shell de la app (SHELL-01): cielo, planeta (FX-01), rail, barra superior, pantalla y dock. */
 export function AppShell() {
   const { pathname } = useLocation()
   const { logout } = useAuth()
   const section = sectionOf(pathname)
   useScrollTop(pathname)
   return (
-    <Frame screen={section ?? 'notFound'} sky={<Sky />}
+    <Frame screen={section ?? 'notFound'} sky={<><Sky /><PlanetCanvas /></>}
       rail={<Rail section={section} onExit={logout} />} topbar={<TopBar onExit={logout} />} dock={<Dock section={section} />}>
       <ScreenContent />
     </Frame>

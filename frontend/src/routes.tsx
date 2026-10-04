@@ -2,6 +2,7 @@
 // Las pantallas que todavía no se portaron muestran la página anterior dentro del shell (D-69).
 import { lazy, Suspense, type ComponentType, type LazyExoticComponent } from 'react'
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { PlanetProvider } from '@/fx/planet'
 import { ErrorBoundary } from '@/shell/ErrorBoundary'
 import ProtectedRoute from '@/components/ProtectedRoute/ProtectedRoute'
 import { AppShell } from '@/shell/AppShell'
@@ -72,7 +73,9 @@ export function AppRouter() {
   const { pathname } = useLocation()
   return (
     <ErrorBoundary resetKey={pathname}>
-      <Suspense fallback={null}><AppRoutes /></Suspense>
+      <PlanetProvider>
+        <Suspense fallback={null}><AppRoutes /></Suspense>
+      </PlanetProvider>
     </ErrorBoundary>
   )
 }
