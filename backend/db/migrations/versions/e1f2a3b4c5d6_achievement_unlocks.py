@@ -3,7 +3,8 @@
 Los logros pasan a derivarse del historial: `player_achievements` (un nivel por logro, que
 nunca bajaba) se reemplaza por `achievement_unlocks` (un renglón por nivel, con la partida
 que lo alcanzó). Los datos son derivados: al arrancar, `derived_version` vacía dispara el
-recálculo (D-13), así que la migración no copia nada.
+recálculo (D-13), así que la migración no copia nada. La bajada conserva solo el nivel
+máximo de cada logro y usa como `unlocked_at` la fecha de la partida que lo dio.
 
 Revision ID: e1f2a3b4c5d6
 Revises: d0e1f2a3b4c5

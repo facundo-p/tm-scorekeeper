@@ -1,11 +1,14 @@
 """Logros derivados por HTTP (F23, STAT-04..07): recálculo en cada escritura, lectura
 repetible de la partida, vista por mesa sin escritura y derived_version (D-13)."""
+from unittest.mock import patch
+
 import pytest
 from fastapi.testclient import TestClient
 
 from main import app
 from models.player import Player
 from repositories.achievement_repository import AchievementRepository, AppMetaRepository
+from repositories.container import elo_repository, games_repository
 from repositories.player_repository import PlayersRepository
 from services.container import derived_service
 from services.derived_service import DERIVED_VERSION, VERSION_KEY
@@ -104,3 +107,30 @@ def test_startup_recomputes_when_derived_version_is_behind(players):
     assert derived_service.ensure_current() is False
     AppMetaRepository().set(VERSION_KEY, "0")
     assert derived_service.ensure_current() is True
+
+
+def test_table_view_counts_only_games_of_that_size(client, players):
+    _post_game(client, _win("g1", 1, "p1", "p2"))
+    _post_game(client, _game_payload("g2", "2026-01-02", [_pr("p2", 50), _pr("p1", 30), _pr("p3", 20)]))
+    two = _codes(client, "/players/p1/achievements?player_count=2")
+    assert two["games_played"]["value"] == 1 and two["no_milestone_win"]["tier"] == 1
+    three = _codes(client, "/players/p1/achievements?player_count=3")
+    assert three["games_played"]["value"] == 1 and three["no_milestone_win"]["tier"] == 0
+    catalog = {a["code"]: a for a in client.get("/achievements/catalog?player_count=3").json()["achievements"]}
+    assert [h["player_id"] for h in catalog["no_milestone_win"]["holders"]] == ["p2"]
+
+
+def test_a_failing_recompute_rolls_back_the_whole_write(client, players):
+    with patch("services.container.achievements_service.recompute_all", side_effect=RuntimeError("boom")):
+        with pytest.raises(RuntimeError):
+            client.post("/games/", json=_win("g1", 1, "p1", "p2"))
+    assert games_repository.get("g1") is None
+    assert elo_repository.get_changes_for_game("g1") == []
+    assert AchievementRepository().get_all() == []
+
+
+def test_the_api_starts_even_if_the_startup_recompute_fails(players):
+    with patch("main.derived_service.ensure_current", side_effect=RuntimeError("boom")):
+        with TestClient(app) as started:
+            assert started.get("/health").status_code == 200
+    assert AppMetaRepository().get(VERSION_KEY) is None

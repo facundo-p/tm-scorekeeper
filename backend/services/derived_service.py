@@ -17,6 +17,9 @@ VERSION_KEY = "derived_version"
 
 
 class DerivedService:
+    """Cada método público abre su unidad de trabajo con el lock; anidarlas es intencional (D-55):
+    la interna se suma a la externa y el lock es reentrante dentro de la transacción."""
+
     def __init__(self, elo_service, achievements_service, app_meta_repository):
         self.elo_service = elo_service
         self.achievements_service = achievements_service

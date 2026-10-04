@@ -114,6 +114,9 @@ class AchievementsService:
         players = self.players_repository.get_all()
         names = {p.player_id: p.name for p in players}
         derived = self._derive(subset, [p.player_id for p in players])
-        by_code = {d.code: {pid: states[i] for pid, states in derived.items()} for i, d in enumerate(ACHIEVEMENTS)}
+        by_code: dict[str, dict[str, AchievementState]] = {}
+        for pid, states in derived.items():
+            for s in states:
+                by_code.setdefault(s.definition.code, {})[pid] = s
         return [(d, _holders(by_code[d.code], names)) for d in ACHIEVEMENTS]
 
