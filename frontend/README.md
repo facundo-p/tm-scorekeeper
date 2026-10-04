@@ -90,7 +90,7 @@ frontend/src/
 ├── data/             # v2.0: TanStack Query (query.ts) y hooks de datos de la API v2 (hooks.ts)
 ├── domain/           # v2.0: catálogo, etiquetas en castellano, formato es-AR y cssVars()
 ├── hooks/            # usePlayers, useGames
-├── fx/               # v2.0: cielo (stars.ts) y generador determinístico (rand.ts)
+├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
 ├── screens/          # v2.0: pantallas nuevas (NotFound, y las de F28–F34)
@@ -103,6 +103,8 @@ frontend/src/
     ├── unit/         # Utilidades, dominio y regla de estilos
     ├── components/   # Componentes con React Testing Library
     ├── ui/           # Sistema visual v2.0
+    ├── shell/        # Shell, rutas y filtro de mesa (v2.0)
+    ├── fx/           # Planeta (deriva de shaders, motor), confeti (v2.0)
     └── e2e/          # Tests de integración con Playwright
 ```
 
@@ -117,3 +119,10 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - Datos: `useApiQuery` envuelve TanStack Query con la forma del skill `new-hook` (`{ dato, loading, error, refetch }`); la clave de cache es la ruta con su query string, así el filtro (`?player_count=`) separa las entradas (D-10).
 - Filtro de mesa: `useMesaParam()` lee y escribe `?mesa=2..5` en la URL; `MesaFilter` y `MesaNotice` en `ui/MesaFilter/`.
 - Con `vite --mode parity`, `?demo=loading|error` muestra el estado de carga o de error en cualquier pantalla (comparación).
+
+### Planeta y efectos (v2.0, F27)
+
+- `fx/planet/`: el Marte WebGL2 persistente del mockup. `PlanetProvider` (en `routes.tsx`) comparte el motor; `PlanetCanvas` va en la capa `.fx` del marco y carga el motor (`stage.ts`) en un chunk aparte; una pantalla pide el globo con `<PlanetSlot region="Hellas" />` y el planeta vuela ahí. Sin slot se estaciona abajo a la derecha.
+- Sin WebGL2 (o mientras carga), el slot pinta un globo CSS; con `prefers-reduced-motion`, el globo es una imagen fija.
+- `fx/planet/shaders.ts` es copia literal del mockup: no se edita a mano (lo vigila `src/test/fx/planetShaders.test.ts`). Lo puro del motor (objetivos y suavizado) está en `motion.ts`, con tests.
+- `fx/stars.ts` (cielo) y `fx/confetti.ts` (estallido de la ceremonia).

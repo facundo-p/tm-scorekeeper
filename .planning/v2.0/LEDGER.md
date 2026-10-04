@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F26 · Shell, rutas, datos y filtro de mesa |
-| Issue | 26.x (#119–#122) |
-| Paso | Verificación y PR |
+| Fase | F27 · Efectos e instrumentos |
+| Issue | 27.x (#123–#124) |
+| Paso | 27-A (planeta) en implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 7f2bcca (F26 en la rama) |
+| Último commit | cc79972 (merge #161 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** abrir el PR de F26, revisión y merge; después F27 (planeta WebGL e instrumentos).
+**Próximo paso:** F27-A (planeta WebGL2, D-71/D-72) y luego F27-B (instrumentos).
 
 ## Tablero (GitHub)
 
@@ -78,3 +78,4 @@
 - 2026-10-04 — F25-B mergeada (#159 → `d29d100`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos). 25-C (temporadas y bitácora) encima; golden completo habilitado (todas las claves en 5 alcances, informe en todas las partidas). Latencias locales p95 ≤ 79 ms.
 - 2026-10-04 — F25-C mergeada (#160 → `ab2c02c`; revisión: ronda 1 APPROVE con 3 minor y 2 nit, corregidos). Issues #117 y #118 cerrados. **Backend v2.0 completo.** Rama reseteada.
 - 2026-10-04 — F26 implementada: shell (cielo, barra, rail, dock), rutas D-02 con redirecciones y 404, `http.ts` con errores tipados, TanStack Query, filtro de mesa. Comparación: `404`, `state-loading` y `state-error` al 0 % en escritorio y móvil (planeta exento hasta F27, D-70). La corrida de `--phase 26` recorría los 77 escenarios y no entraba en 25 min: nuevo `--gated` (solo los exigidos), que usa `gates.sh`.
+- 2026-10-04 — F26 mergeada (#161 → `cc79972`; revisión: ronda 1 APPROVE con 4 minor y 3 nit: corregidos salvo el label repetido de rail/dock, que espeja el árbol del mockup). Issues #119–#122 cerrados. Rama reseteada a `origin/staging`. F27 partida en A/B (D-71).

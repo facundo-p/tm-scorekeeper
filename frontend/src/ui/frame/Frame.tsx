@@ -44,7 +44,7 @@ export function Frame({ screen, variant, sky, rail, topbar, dock, children }: Fr
   return (
     <div className={cx(styles.stage, styles['stage--desktop'])}>
       <div className={styles['device-fit']}>
-        <div className={cx(styles.device, variant && styles[`device--${variant}`])} ref={device}>
+        <div className={cx(styles.device, variant && styles[`device--${variant}`])} ref={device} data-device>
           <div className={styles.fx}>{sky}</div>
           {rail}
           <div className={styles.scroller} data-scroll-root>
