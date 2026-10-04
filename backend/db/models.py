@@ -10,9 +10,13 @@ from sqlalchemy import (
     Enum as PgEnum,
     ARRAY,
     UniqueConstraint,
+    CheckConstraint,
+    Index,
     func,
+    text,
 )
 from sqlalchemy.orm import relationship, declarative_base
+from models.player_colors import PLAYER_COLORS
 from models.enums import (
     MapName,
     Expansion,
@@ -39,6 +43,12 @@ class Player(Base):
     name = Column(String, nullable=False)
     is_active = Column(Boolean, nullable=False, default=True)
     elo = Column(Integer, nullable=False, default=1000)
+    color = Column(String, nullable=False)
+
+    __table_args__ = (
+        CheckConstraint(f"color IN ({', '.join(repr(c) for c in PLAYER_COLORS)})", name="ck_players_color"),
+        Index("uq_players_active_color", "color", unique=True, postgresql_where=text("is_active")),
+    )
 
     results = relationship("PlayerResult", back_populates="player")
     opened_awards = relationship("Award", back_populates="opened_by_player")

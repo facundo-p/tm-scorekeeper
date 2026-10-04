@@ -4,6 +4,7 @@ Se recorren sus partidas del subconjunto en orden canónico; «ganó» = posici�
 """
 from dataclasses import dataclass, field, replace
 
+from services.helpers.awards import stolen_awards
 from services.stats.context import GameStats, StatsContext
 from services.stats.elo_replay import EloReplay
 
@@ -43,7 +44,7 @@ class TimelineStep:
 
 def _stolen(gs: GameStats, pid: str) -> int:
     """Recompensas donde quedó 1.º solo y que financió otro."""
-    return sum(1 for a in gs.game.awards if a.first_place == [pid] and a.opened_by != pid)
+    return sum(1 for a in stolen_awards(gs.game) if a.first_place == [pid])
 
 
 def _giant_kill(elo_before: dict[str, int], pid: str) -> int:

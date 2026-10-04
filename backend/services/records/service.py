@@ -28,6 +28,7 @@ class GameRecordContext:
     tied: Optional[HistoryEntry]
     before: Optional[HistoryEntry]
     gap: Optional[float]
+    previous: Optional[RecordState] = None  # el récord que se rompió (solo si `broken`)
 
 
 class UnknownRecord(KeyError):
@@ -43,7 +44,7 @@ def build_records(ctx: StatsContext) -> list[RecordView]:
     ]
 
 
-def _context_for(view: RecordView, gs: GameStats, broken: set[str], position: dict[str, int]):
+def _context_for(view: RecordView, gs: GameStats, broken: dict[str, RecordState], position: dict[str, int]):
     best = game_best(view.definition, gs)
     if best is None:
         return None
@@ -51,7 +52,8 @@ def _context_for(view: RecordView, gs: GameStats, broken: set[str], position: di
     tied = next((h for h in history if h.game_id == gs.id and h.kind == "tied"), None)
     before = next((h for h in reversed(history) if position[h.game_id] < position[gs.id]), None)
     gap = abs(before.value - best.value) if before else None
-    return GameRecordContext(view.definition, best, view.definition.code in broken, tied, before, gap)
+    previous = broken.get(view.definition.code)
+    return GameRecordContext(view.definition, best, previous is not None, tied, before, gap, previous)
 
 
 def game_record_context(ctx: StatsContext, game_id: str) -> list[GameRecordContext]:
@@ -60,7 +62,7 @@ def game_record_context(ctx: StatsContext, game_id: str) -> list[GameRecordConte
     if gs is None:
         return []
     track = track_game_records(ctx)
-    broken = track.broken.get(game_id, set())
+    broken = track.broken.get(game_id, {})
     position = {g.id: i for i, g in enumerate(ctx.games)}
     views = [RecordView(RECORD_BY_CODE[code], state) for code, state in track.states.items()]
     return [c for c in (_context_for(v, gs, broken, position) for v in views) if c is not None]

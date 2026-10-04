@@ -1,6 +1,23 @@
+from contextlib import contextmanager
+
+from sqlalchemy.exc import IntegrityError
+
+from db.uow import unit_of_work
 from models.player import Player
+from models.player_colors import ColorTaken, first_free
 from schemas.player import PlayerCreateDTO
 from schemas.player import PlayerUpdateDTO
+
+
+@contextmanager
+def _serialized_color_write():
+    """Escritura de jugadores en serie (lock de partidas, D-55); si igual choca con el índice
+    único de colores activos, es un 409 (D-65)."""
+    try:
+        with unit_of_work(lock=True):
+            yield
+    except IntegrityError as e:
+        raise ColorTaken("Color is already used by an active player") from e
 
 
 class PlayerService:
@@ -16,8 +33,12 @@ class PlayerService:
             player_id=None,
             name=name,
             is_active=True,
+            color=dto.color,
         )
-        created_player = self.player_repository.create(player)
+        with _serialized_color_write():
+            if dto.color is not None:
+                self._check_color_free(dto.color)
+            created_player = self.player_repository.create(player)
 
         return created_player.player_id
     
@@ -34,7 +55,27 @@ class PlayerService:
         if dto.is_active is not None:
             player.is_active = dto.is_active
 
-        self.player_repository.update(player)
+        with _serialized_color_write():
+            self._apply_color(player, dto.color)
+            self.player_repository.update(player)
+
+    def _active_colors(self, exclude_id: str | None = None) -> list[str]:
+        return [p.color for p in self.player_repository.get_all() if p.is_active and p.player_id != exclude_id]
+
+    def _check_color_free(self, color: str, exclude_id: str | None = None) -> None:
+        if color in self._active_colors(exclude_id):
+            raise ColorTaken(f"Color '{color}' is already used by an active player")
+
+    def _apply_color(self, player: Player, color: str | None) -> None:
+        """Color pedido (409 si lo tiene otro activo); al reactivar con el color ocupado, el primero libre."""
+        if color is not None:
+            self._check_color_free(color, exclude_id=player.player_id)
+            player.color = color
+        elif player.is_active and player.color in self._active_colors(exclude_id=player.player_id):
+            player.color = first_free(self._active_colors(exclude_id=player.player_id))
+
+    def first_game_dates(self) -> dict:
+        return self.player_repository.first_game_dates()
 
     def _validate_unique_name(self, name: str, exclude_id: str | None = None) -> None:
         normalized = name.strip().lower()

@@ -18,11 +18,6 @@ class GameDTO(BaseModel):
     awards: List[AwardResultDTO]
 
 
-class GameCreatedResponseDTO(BaseModel):
-    id: str
-    game: GameDTO
-
-
 class GameListItemDTO(BaseModel):
     id: str
     game: GameDTO

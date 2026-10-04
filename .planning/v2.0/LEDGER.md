@@ -72,3 +72,4 @@
 - 2026-10-03 — F22 mergeada (#153 → `245e02e`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: 4 corregidos, el tipo del frontend queda para F28). Golden de récords y ELO de mesa en 5 alcances; pytest 344. Issues #106–#108 cerrados. Rama reseteada a `origin/staging`.
 - 2026-10-04 — F23 partida en A/B/C (D-63). F23-A mergeada (#154 → `7ce7147`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos salvo el camelCase de métricas, que espeja el catálogo). Rama reseteada; 23-B encima.
 - 2026-10-04 — F23-B mergeada (#155 → `c47759c`; revisión: ronda 1 APPROVE con 4 minor y 2 nit, corregidos). Issues #109, #110, #112 cerrados. Rama reseteada; 23-C encima.
+- 2026-10-04 — F23-C mergeada (#156 → `7ceb5b0`; revisión: ronda 1 APPROVE con 2 minor y 1 nit de docs, corregidos). Issue #111 cerrado. F23 completa. Rama reseteada a `origin/staging`.

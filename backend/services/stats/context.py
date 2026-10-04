@@ -22,6 +22,11 @@ class GameStats:
     def id(self) -> str:
         return self.game.id
 
+    @property
+    def decided_by_mc(self) -> bool:
+        """Los dos primeros empataron en puntos y desempató el M€ (o siguen empatados)."""
+        return len(self.results) > 1 and self.results[0].total_points == self.results[1].total_points
+
     def scores_of(self, player_id: str):
         return next(p.scores for p in self.game.player_results if p.player_id == player_id)
 

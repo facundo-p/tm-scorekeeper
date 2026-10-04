@@ -1672,6 +1672,4384 @@
     }
    }
   },
+  "reports": {
+   "g-001": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-caro",
+      "code": "high_score",
+      "level": 3
+     },
+     {
+      "player_id": "p-juli",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "high_score",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-002": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_points",
+      "value": 27,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 21,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "highest_card_resource_points",
+      "value": 9,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 5,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     },
+     {
+      "code": "highest_city_points",
+      "value": 9,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 6,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     },
+     {
+      "code": "biggest_margin",
+      "value": 17,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "points_per_generation",
+      "value": 10.3,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 8.1,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "fastest_win",
+      "value": 10,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 13,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_greenery_points",
+      "gap": 0,
+      "value": 15,
+      "player_id": "p-juli",
+      "before": 15
+     },
+     {
+      "code": "highest_single_game_score",
+      "gap": 2,
+      "value": 103,
+      "player_id": "p-caro",
+      "before": 105
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "stolen_awards",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "win_streak",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "high_score",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "high_score",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Excentric",
+      "player_id": "p-caro",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-003": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_single_game_score",
+      "value": 115,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 105,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "highest_card_points",
+      "value": 28,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "previous": {
+       "value": 27,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "points_per_generation",
+      "value": 11.5,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 10.3,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [
+     {
+      "code": "highest_city_points",
+      "value": 9,
+      "holders": [
+       "p-caro"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "highest_city_points",
+      "gap": 0,
+      "value": 9,
+      "player_id": "p-caro",
+      "before": 9
+     },
+     {
+      "code": "biggest_margin",
+      "gap": 0,
+      "value": 17,
+      "player_id": "p-caro",
+      "before": 17
+     },
+     {
+      "code": "fastest_win",
+      "gap": 0,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 10
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "games_won",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "win_streak",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-pato",
+      "code": "card_points",
+      "level": 1
+     },
+     {
+      "player_id": "p-pato",
+      "code": "high_score",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-caro",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-004": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 2,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_city_points",
+      "value": 11,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 9,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu",
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "closest_win",
+      "value": 2,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 4,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "fastest_win",
+      "value": 8,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 10,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 0.09999999999999964,
+      "value": 11.4,
+      "player_id": "p-nico",
+      "before": 11.5
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 8,
+      "player_id": "p-facu",
+      "before": 9
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-facu",
+      "before": 5
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "photo_finish",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "stolen_awards",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Miner",
+      "player_id": "p-caro",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Banker",
+      "player_id": "p-nico",
+      "opened_by": "p-caro"
+     }
+    ]
+   },
+   "g-005": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 10,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "previous": {
+       "value": 9,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 0.8000000000000007,
+      "value": 10.7,
+      "player_id": "p-caro",
+      "before": 11.5
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-caro",
+      "before": 5
+     },
+     {
+      "code": "highest_card_points",
+      "gap": 2,
+      "value": 26,
+      "player_id": "p-caro",
+      "before": 28
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-caro",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-pato",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "high_score",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "high_score",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "stolen_awards",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Industrialist",
+      "player_id": "p-caro",
+      "opened_by": "p-pato"
+     },
+     {
+      "award": "Estate Dealer",
+      "player_id": "p-tomi",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-006": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_points",
+      "value": 32,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 28,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     },
+     {
+      "code": "highest_city_points",
+      "value": 12,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 11,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 32,
+      "player_id": "p-facu",
+      "before": 33
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.4000000000000004,
+      "value": 10.1,
+      "player_id": "p-nico",
+      "before": 11.5
+     },
+     {
+      "code": "closest_win",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-nico",
+      "before": 2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "stolen_awards",
+      "level": 3
+     },
+     {
+      "player_id": "p-juli",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "card_points",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "high_score",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "win_streak",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Desert Settler",
+      "player_id": "p-facu",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Venuphile",
+      "player_id": "p-facu",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Estate Dealer",
+      "player_id": "p-facu",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-007": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_city_points",
+      "value": 13,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 12,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     },
+     {
+      "code": "points_per_generation",
+      "value": 11.6,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 11.5,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-facu",
+      "before": 8
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 7,
+      "player_id": "p-facu",
+      "before": 10
+     },
+     {
+      "code": "highest_greenery_points",
+      "gap": 3,
+      "value": 12,
+      "player_id": "p-facu",
+      "before": 15
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "high_score",
+      "level": 3
+     },
+     {
+      "player_id": "p-juli",
+      "code": "stolen_awards",
+      "level": 1
+     },
+     {
+      "player_id": "p-pato",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "greenery_tiles",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Contractor",
+      "player_id": "p-juli",
+      "opened_by": "p-facu"
+     },
+     {
+      "award": "Excentric",
+      "player_id": "p-facu",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-008": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-meli",
+      "before": 10
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.0999999999999996,
+      "value": 10.5,
+      "player_id": "p-facu",
+      "before": 11.6
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 3,
+      "player_id": "p-facu",
+      "before": 5
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "full_table",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "win_streak",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "card_points",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "high_score",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-pato",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "all_maps",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-tomi",
+      "opened_by": "p-meli"
+     }
+    ]
+   },
+   "g-009": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [
+     {
+      "code": "richest_finish",
+      "value": 33,
+      "holders": [
+       "p-nico"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 0,
+      "value": 33,
+      "player_id": "p-nico",
+      "before": 33
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 11,
+      "player_id": "p-nico",
+      "before": 13
+     },
+     {
+      "code": "biggest_margin",
+      "gap": 2,
+      "value": 15,
+      "player_id": "p-juli",
+      "before": 17
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "greenery_tiles",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Banker",
+      "player_id": "p-tomi",
+      "opened_by": "p-caro"
+     },
+     {
+      "award": "Landlord",
+      "player_id": "p-caro",
+      "opened_by": "p-tomi"
+     },
+     {
+      "award": "Venuphile",
+      "player_id": "p-nico",
+      "opened_by": "p-caro"
+     }
+    ]
+   },
+   "g-010": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_city_points",
+      "value": 14,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 13,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     },
+     {
+      "code": "closest_win",
+      "value": 1,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 2,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_terraform_rating",
+      "gap": 3,
+      "value": 45,
+      "player_id": "p-caro",
+      "before": 48
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_won",
+      "level": 1
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-011": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 25,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "biggest_margin",
+      "value": 25,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 17,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 0.1999999999999993,
+      "value": 11.4,
+      "player_id": "p-nico",
+      "before": 11.6
+     },
+     {
+      "code": "highest_single_game_score",
+      "gap": 1,
+      "value": 114,
+      "player_id": "p-nico",
+      "before": 115
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 1,
+      "value": 13,
+      "player_id": "p-nico",
+      "before": 14
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-nico",
+      "code": "stolen_awards",
+      "level": 2
+     },
+     {
+      "player_id": "p-santi",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-santi",
+      "code": "high_score",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Thermalist",
+      "player_id": "p-nico",
+      "opened_by": "p-meli"
+     },
+     {
+      "award": "Landlord",
+      "player_id": "p-nico",
+      "opened_by": "p-meli"
+     }
+    ]
+   },
+   "g-012": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 5,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_points",
+      "value": 33,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 32,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-meli",
+      "before": 10
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1,
+      "value": 10.6,
+      "player_id": "p-nico",
+      "before": 11.6
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "card_points",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "high_score",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "stolen_awards",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "full_table",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_won",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "win_streak",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Industrialist",
+      "player_id": "p-meli",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Estate Dealer",
+      "player_id": "p-nico",
+      "opened_by": "p-tomi"
+     }
+    ]
+   },
+   "g-013": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 23,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_greenery_points",
+      "value": 20,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "previous": {
+       "value": 15,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     },
+     {
+      "code": "points_per_generation",
+      "value": 12.2,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "previous": {
+       "value": 11.6,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ]
+      }
+     }
+    ],
+    "records_tied": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 10,
+      "holders": [
+       "p-meli"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 0,
+      "value": 10,
+      "player_id": "p-juli",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 32,
+      "player_id": "p-santi",
+      "before": 33
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "games_played",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "full_table",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "greenery_tiles",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-santi",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "stolen_awards",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Space Baron",
+      "player_id": "p-santi",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Magnate",
+      "player_id": "p-caro",
+      "opened_by": "p-santi"
+     }
+    ]
+   },
+   "g-014": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 5,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 10,
+      "holders": [
+       "p-nico"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 0,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-nico",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "greenery_tiles",
+      "level": 1
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-015": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [
+     {
+      "code": "richest_finish",
+      "value": 33,
+      "holders": [
+       "p-facu"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 0,
+      "value": 33,
+      "player_id": "p-facu",
+      "before": 33
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 3,
+      "player_id": "p-nico",
+      "before": 5
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "games_won",
+      "level": 2
+     },
+     {
+      "player_id": "p-caro",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "games_played",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-016": {
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 0,
+    "decided_by_mc": true,
+    "records_broken": [
+     {
+      "code": "closest_win",
+      "value": 0,
+      "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
+      "previous": {
+       "value": 1,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     },
+     {
+      "code": "richest_finish",
+      "value": 34,
+      "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
+      "previous": {
+       "value": 33,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-nico",
+        "p-facu"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-meli",
+      "before": 5
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 8,
+      "player_id": "p-nico",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-meli",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "photo_finish",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "greenery_tiles",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-017": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_points",
+      "value": 34,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 33,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-facu",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.299999999999999,
+      "value": 10.9,
+      "player_id": "p-facu",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 7,
+      "player_id": "p-santi",
+      "before": 10
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "card_points",
+      "level": 3
+     },
+     {
+      "player_id": "p-facu",
+      "code": "games_won",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "giant_killer",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "greenery_tiles",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-facu",
+      "opened_by": "p-santi"
+     }
+    ]
+   },
+   "g-018": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 20,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 7,
+      "player_id": "p-pato",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-facu",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-facu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-facu",
+      "code": "games_played",
+      "level": 2
+     },
+     {
+      "player_id": "p-lu",
+      "code": "card_points",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "high_score",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Industrialist",
+      "player_id": "p-facu",
+      "opened_by": "p-pato"
+     },
+     {
+      "award": "Venuphile",
+      "player_id": "p-facu",
+      "opened_by": "p-pato"
+     }
+    ]
+   },
+   "g-019": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-facu",
+      "before": 5
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-facu",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "greenery_tiles",
+      "level": 3
+     },
+     {
+      "player_id": "p-facu",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "games_won",
+      "level": 2
+     },
+     {
+      "player_id": "p-facu",
+      "code": "greenery_tiles",
+      "level": 3
+     },
+     {
+      "player_id": "p-facu",
+      "code": "win_streak",
+      "level": 2
+     },
+     {
+      "player_id": "p-pato",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-020": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 7,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-juli",
+      "before": 34
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 8
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-nico",
+      "before": 14
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-tomi",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "games_played",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Excentric",
+      "player_id": "p-meli",
+      "opened_by": "p-tomi"
+     }
+    ]
+   },
+   "g-021": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-nico",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.799999999999999,
+      "value": 10.4,
+      "player_id": "p-nico",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 7,
+      "player_id": "p-nico",
+      "before": 10
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-nico",
+      "code": "giant_killer",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Banker",
+      "player_id": "p-nico",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Thermalist",
+      "player_id": "p-facu",
+      "opened_by": "p-pato"
+     }
+    ]
+   },
+   "g-022": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-caro",
+      "before": 34
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.799999999999999,
+      "value": 9.4,
+      "player_id": "p-juli",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "games_won",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "giant_killer",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Miner",
+      "player_id": "p-juli",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-023": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.8999999999999986,
+      "value": 10.3,
+      "player_id": "p-juli",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "win_streak",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Celebrity",
+      "player_id": "p-caro",
+      "opened_by": "p-meli"
+     },
+     {
+      "award": "Estate Dealer",
+      "player_id": "p-meli",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-024": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 6,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 1.299999999999999,
+      "value": 10.9,
+      "player_id": "p-juli",
+      "before": 12.2
+     },
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-facu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "games_won",
+      "level": 2
+     },
+     {
+      "player_id": "p-juli",
+      "code": "win_streak",
+      "level": 2
+     },
+     {
+      "player_id": "p-lu",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "games_played",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-facu",
+      "opened_by": "p-santi"
+     },
+     {
+      "award": "Miner",
+      "player_id": "p-facu",
+      "opened_by": "p-santi"
+     }
+    ]
+   },
+   "g-025": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 35,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_single_game_score",
+      "value": 117,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 115,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "biggest_margin",
+      "value": 35,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 25,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 10,
+      "holders": [
+       "p-caro"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 0,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 10
+     },
+     {
+      "code": "highest_terraform_rating",
+      "gap": 3,
+      "value": 45,
+      "player_id": "p-caro",
+      "before": 48
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "milestone_master",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Cultivator",
+      "player_id": "p-caro",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-026": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-meli",
+      "before": 10
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.0999999999999996,
+      "value": 10.1,
+      "player_id": "p-nico",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "greenery_tiles",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-nico",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Scientist",
+      "player_id": "p-juli",
+      "opened_by": "p-meli"
+     }
+    ]
+   },
+   "g-027": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 21,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_single_game_score",
+      "value": 120,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 117,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     },
+     {
+      "code": "highest_terraform_rating",
+      "value": 53,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 48,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 8,
+      "player_id": "p-facu",
+      "before": 10
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 12,
+      "player_id": "p-facu",
+      "before": 14
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-santi",
+      "code": "all_maps",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Benefactor",
+      "player_id": "p-santi",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-028": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_city_points",
+      "gap": 1,
+      "value": 13,
+      "player_id": "p-nico",
+      "before": 14
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-gonza",
+      "before": 5
+     },
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-facu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-gonza",
+      "code": "card_points",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "high_score",
+      "level": 1
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_won",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-029": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 26,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 1.3999999999999986,
+      "value": 10.8,
+      "player_id": "p-caro",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 8,
+      "player_id": "p-caro",
+      "before": 10
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 3,
+      "player_id": "p-caro",
+      "before": 5
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "full_table",
+      "level": 1
+     },
+     {
+      "player_id": "p-caro",
+      "code": "giant_killer",
+      "level": 2
+     },
+     {
+      "player_id": "p-caro",
+      "code": "stolen_awards",
+      "level": 2
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "card_points",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Miner",
+      "player_id": "p-caro",
+      "opened_by": "p-gonza"
+     },
+     {
+      "award": "Landlord",
+      "player_id": "p-nico",
+      "opened_by": "p-gonza"
+     },
+     {
+      "award": "Thermalist",
+      "player_id": "p-caro",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-030": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_points",
+      "value": 35,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 34,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 0,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 10
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 0.5,
+      "value": 11.7,
+      "player_id": "p-caro",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-caro",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "all_maps",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "greenery_tiles",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-031": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 2,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-nico",
+      "before": 5
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-facu",
+      "before": 8
+     },
+     {
+      "code": "closest_win",
+      "gap": 2,
+      "value": 2,
+      "player_id": "p-facu",
+      "before": 0
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "photo_finish",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "all_maps",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-032": {
+    "winners": [
+     "p-tomi"
+    ],
+    "margin": 18,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-caro",
+      "before": 5
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.8999999999999986,
+      "value": 9.3,
+      "player_id": "p-tomi",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 7,
+      "player_id": "p-meli",
+      "before": 10
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-meli",
+      "code": "games_played",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "high_score",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-033": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 4,
+      "player_id": "p-facu",
+      "before": 5
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-juli",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-juli",
+      "code": "giant_killer",
+      "level": 3
+     },
+     {
+      "player_id": "p-juli",
+      "code": "greenery_tiles",
+      "level": 4
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-034": {
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 11,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-gonza",
+      "before": 8
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 8,
+      "player_id": "p-meli",
+      "before": 10
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.0999999999999996,
+      "value": 10.1,
+      "player_id": "p-gonza",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-gonza",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "full_table",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "high_score",
+      "level": 2
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Magnate",
+      "player_id": "p-facu",
+      "opened_by": "p-caro"
+     }
+    ]
+   },
+   "g-035": {
+    "winners": [
+     "p-lu"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-lu",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.799999999999999,
+      "value": 9.4,
+      "player_id": "p-lu",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-lu",
+      "code": "blitz",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "card_points",
+      "level": 2
+     },
+     {
+      "player_id": "p-lu",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "greenery_tiles",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "no_award_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "corp_collector",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-036": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 11,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro"
+      ],
+      "previous": {
+       "value": 10,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli",
+        "p-meli",
+        "p-nico",
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.299999999999999,
+      "value": 9.9,
+      "player_id": "p-caro",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "no_milestone_win",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "all_maps",
+      "level": 2
+     },
+     {
+      "player_id": "p-lu",
+      "code": "corp_collector",
+      "level": 1
+     },
+     {
+      "player_id": "p-lu",
+      "code": "games_played",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "greenery_tiles",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Cultivator",
+      "player_id": "p-caro",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-037": {
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [
+     {
+      "code": "highest_turmoil_points",
+      "value": 5,
+      "holders": [
+       "p-meli"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 0,
+      "value": 5,
+      "player_id": "p-meli",
+      "before": 5
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-gonza",
+      "before": 8
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 9,
+      "player_id": "p-meli",
+      "before": 11
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-gonza",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "stolen_awards",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "win_streak",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Cultivator",
+      "player_id": "p-gonza",
+      "opened_by": "p-facu"
+     },
+     {
+      "award": "Contractor",
+      "player_id": "p-meli",
+      "opened_by": "p-tomi"
+     }
+    ]
+   },
+   "g-038": {
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 24,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "all_maps",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "stolen_awards",
+      "level": 2
+     },
+     {
+      "player_id": "p-nico",
+      "code": "corp_collector",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Venuphile",
+      "player_id": "p-meli",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Innovator",
+      "player_id": "p-meli",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-039": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 0,
+      "value": 11,
+      "player_id": "p-caro",
+      "before": 11
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.8999999999999986,
+      "value": 9.3,
+      "player_id": "p-caro",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "games_won",
+      "level": 3
+     },
+     {
+      "player_id": "p-facu",
+      "code": "all_maps",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Traveller",
+      "player_id": "p-caro",
+      "opened_by": "p-facu"
+     },
+     {
+      "award": "Blacksmith",
+      "player_id": "p-caro",
+      "opened_by": "p-gonza"
+     }
+    ]
+   },
+   "g-040": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 24,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_city_points",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-juli",
+      "before": 14
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 3,
+      "value": 9.2,
+      "player_id": "p-juli",
+      "before": 12.2
+     },
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-juli",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "all_maps",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Traveller",
+      "player_id": "p-juli",
+      "opened_by": "p-lu"
+     }
+    ]
+   },
+   "g-041": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 12,
+      "player_id": "p-nico",
+      "before": 14
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.3999999999999986,
+      "value": 9.8,
+      "player_id": "p-nico",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 3,
+      "value": 8,
+      "player_id": "p-nico",
+      "before": 11
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-nico",
+      "code": "giant_killer",
+      "level": 3
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-042": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 20,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-facu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "greenery_tiles",
+      "level": 4
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Banker",
+      "player_id": "p-gonza",
+      "opened_by": "p-facu"
+     },
+     {
+      "award": "Thermalist",
+      "player_id": "p-tomi",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-043": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_turmoil_points",
+      "value": 6,
+      "player_id": "p-caro",
+      "holders": [
+       "p-caro",
+       "p-lu"
+      ],
+      "previous": {
+       "value": 5,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro",
+        "p-meli"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 1.799999999999999,
+      "value": 10.4,
+      "player_id": "p-caro",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 2,
+      "value": 32,
+      "player_id": "p-lu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-lu",
+      "code": "greenery_tiles",
+      "level": 2
+     },
+     {
+      "player_id": "p-lu",
+      "code": "high_score",
+      "level": 3
+     },
+     {
+      "player_id": "p-lu",
+      "code": "stolen_awards",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Banker",
+      "player_id": "p-caro",
+      "opened_by": "p-gonza"
+     },
+     {
+      "award": "Miner",
+      "player_id": "p-lu",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-044": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 23,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 1.3999999999999986,
+      "value": 10.8,
+      "player_id": "p-nico",
+      "before": 12.2
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 9,
+      "player_id": "p-meli",
+      "before": 11
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 12,
+      "player_id": "p-nico",
+      "before": 14
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "games_played",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "games_played",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "greenery_tiles",
+      "level": 4
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Excentric",
+      "player_id": "p-meli",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Space Baron",
+      "player_id": "p-nico",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-045": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 11
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-juli",
+      "before": 6
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-juli",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "greenery_tiles",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Suburbian",
+      "player_id": "p-santi",
+      "opened_by": "p-meli"
+     }
+    ]
+   },
+   "g-046": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 0.8999999999999986,
+      "value": 11.3,
+      "player_id": "p-juli",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-facu",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-gonza",
+      "code": "all_maps",
+      "level": 3
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Desert Settler",
+      "player_id": "p-juli",
+      "opened_by": "p-lu"
+     },
+     {
+      "award": "Estate Dealer",
+      "player_id": "p-nico",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-047": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 37,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "biggest_margin",
+      "value": 37,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 35,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 0.29999999999999893,
+      "value": 11.9,
+      "player_id": "p-facu",
+      "before": 12.2
+     },
+     {
+      "code": "highest_single_game_score",
+      "gap": 1,
+      "value": 119,
+      "player_id": "p-facu",
+      "before": 120
+     },
+     {
+      "code": "highest_card_resource_points",
+      "gap": 1,
+      "value": 10,
+      "player_id": "p-facu",
+      "before": 11
+     }
+    ],
+    "achievements": [],
+    "stolen_awards": []
+   },
+   "g-048": {
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_card_resource_points",
+      "value": 12,
+      "player_id": "p-meli",
+      "holders": [
+       "p-meli"
+      ],
+      "previous": {
+       "value": 11,
+       "player_id": "p-caro",
+       "holders": [
+        "p-caro"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 1.5999999999999996,
+      "value": 10.6,
+      "player_id": "p-meli",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-meli",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "all_maps",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "games_won",
+      "level": 1
+     },
+     {
+      "player_id": "p-meli",
+      "code": "giant_killer",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Physicist",
+      "player_id": "p-meli",
+      "opened_by": "p-caro"
+     },
+     {
+      "award": "Collector",
+      "player_id": "p-caro",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-049": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "closest_win",
+      "gap": 1,
+      "value": 1,
+      "player_id": "p-facu",
+      "before": 0
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-facu",
+      "before": 6
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-facu",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "corp_collector",
+      "level": 3
+     },
+     {
+      "player_id": "p-facu",
+      "code": "games_won",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "all_maps",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Investor",
+      "player_id": "p-juli",
+      "opened_by": "p-nico"
+     }
+    ]
+   },
+   "g-050": {
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-facu",
+      "before": 34
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-gonza",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.5999999999999996,
+      "value": 9.6,
+      "player_id": "p-gonza",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-gonza",
+      "code": "games_won",
+      "level": 1
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "giant_killer",
+      "level": 2
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "milestone_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "stolen_awards",
+      "level": 2
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Benefactor",
+      "player_id": "p-tomi",
+      "opened_by": "p-gonza"
+     },
+     {
+      "award": "Desert Settler",
+      "player_id": "p-tomi",
+      "opened_by": "p-gonza"
+     }
+    ]
+   },
+   "g-051": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 3,
+      "value": 9.2,
+      "player_id": "p-caro",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-caro",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "games_played",
+      "level": 3
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-gonza",
+      "code": "greenery_tiles",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-052": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 0,
+      "value": 8,
+      "player_id": "p-nico",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 0.09999999999999964,
+      "value": 12.1,
+      "player_id": "p-nico",
+      "before": 12.2
+     },
+     {
+      "code": "richest_finish",
+      "gap": 1,
+      "value": 33,
+      "player_id": "p-nico",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-nico",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "all_maps",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landscaper",
+      "player_id": "p-nico",
+      "opened_by": "p-santi"
+     }
+    ]
+   },
+   "g-053": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_points",
+      "gap": 1,
+      "value": 34,
+      "player_id": "p-facu",
+      "before": 35
+     },
+     {
+      "code": "closest_win",
+      "gap": 1,
+      "value": 1,
+      "player_id": "p-nico",
+      "before": 0
+     },
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 12,
+      "player_id": "p-nico",
+      "before": 14
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "greenery_tiles",
+      "level": 4
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "corp_collector",
+      "level": 2
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "greenery_tiles",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-caro",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Miner",
+      "player_id": "p-tomi",
+      "opened_by": "p-facu"
+     }
+    ]
+   },
+   "g-054": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 35,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_single_game_score",
+      "value": 130,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 120,
+       "player_id": "p-facu",
+       "holders": [
+        "p-facu"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_points",
+      "gap": 0,
+      "value": 35,
+      "player_id": "p-facu",
+      "before": 35
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-facu",
+      "before": 6
+     },
+     {
+      "code": "biggest_margin",
+      "gap": 2,
+      "value": 35,
+      "player_id": "p-facu",
+      "before": 37
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "high_score",
+      "level": 4
+     },
+     {
+      "player_id": "p-facu",
+      "code": "milestone_master",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Scientist",
+      "player_id": "p-facu",
+      "opened_by": "p-tomi"
+     }
+    ]
+   },
+   "g-055": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_city_points",
+      "gap": 2,
+      "value": 12,
+      "player_id": "p-nico",
+      "before": 14
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2,
+      "value": 10.2,
+      "player_id": "p-nico",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "games_played",
+      "level": 3
+     },
+     {
+      "player_id": "p-lu",
+      "code": "games_played",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-056": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 2,
+      "value": 10.2,
+      "player_id": "p-caro",
+      "before": 12.2
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-caro",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 2,
+      "value": 32,
+      "player_id": "p-lu",
+      "before": 34
+     }
+    ],
+    "achievements": [],
+    "stolen_awards": []
+   },
+   "g-057": {
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 21,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_card_resource_points",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-meli",
+      "before": 12
+     },
+     {
+      "code": "richest_finish",
+      "gap": 2,
+      "value": 32,
+      "player_id": "p-caro",
+      "before": 34
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.5,
+      "value": 9.7,
+      "player_id": "p-meli",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-caro",
+      "code": "all_maps",
+      "level": 4
+     },
+     {
+      "player_id": "p-caro",
+      "code": "corp_collector",
+      "level": 3
+     },
+     {
+      "player_id": "p-meli",
+      "code": "all_maps",
+      "level": 4
+     },
+     {
+      "player_id": "p-meli",
+      "code": "corp_collector",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-058": {
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [
+     {
+      "code": "fastest_win",
+      "value": 8,
+      "holders": [
+       "p-caro"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 0,
+      "value": 8,
+      "player_id": "p-caro",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 0.6999999999999993,
+      "value": 11.5,
+      "player_id": "p-caro",
+      "before": 12.2
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "all_maps",
+      "level": 4
+     },
+     {
+      "player_id": "p-juli",
+      "code": "all_maps",
+      "level": 4
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "all_maps",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Forecaster",
+      "player_id": "p-caro",
+      "opened_by": "p-meli"
+     },
+     {
+      "award": "Mogul",
+      "player_id": "p-juli",
+      "opened_by": "p-meli"
+     },
+     {
+      "award": "Zoologist",
+      "player_id": "p-caro",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-059": {
+    "winners": [
+     "p-santi"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "points_per_generation",
+      "gap": 1.0999999999999996,
+      "value": 11.1,
+      "player_id": "p-santi",
+      "before": 12.2
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-santi",
+      "before": 6
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-santi",
+      "before": 8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-santi",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "city_planner",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "giant_killer",
+      "level": 1
+     },
+     {
+      "player_id": "p-santi",
+      "code": "greenery_tiles",
+      "level": 3
+     },
+     {
+      "player_id": "p-santi",
+      "code": "high_score",
+      "level": 3
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-060": {
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "points_per_generation",
+      "value": 12.8,
+      "player_id": "p-facu",
+      "holders": [
+       "p-facu"
+      ],
+      "previous": {
+       "value": 12.2,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     }
+    ],
+    "records_tied": [
+     {
+      "code": "fastest_win",
+      "value": 8,
+      "holders": [
+       "p-facu"
+      ]
+     }
+    ],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 0,
+      "value": 8,
+      "player_id": "p-facu",
+      "before": 8
+     },
+     {
+      "code": "highest_turmoil_points",
+      "gap": 1,
+      "value": 5,
+      "player_id": "p-facu",
+      "before": 6
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-facu",
+      "code": "giant_killer",
+      "level": 3
+     },
+     {
+      "player_id": "p-lu",
+      "code": "all_maps",
+      "level": 3
+     },
+     {
+      "player_id": "p-lu",
+      "code": "corp_collector",
+      "level": 2
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-061": {
+    "winners": [
+     "p-tomi"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "fastest_win",
+      "gap": 1,
+      "value": 9,
+      "player_id": "p-tomi",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.1000000000000014,
+      "value": 10.7,
+      "player_id": "p-tomi",
+      "before": 12.8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-juli",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-meli",
+      "code": "games_played",
+      "level": 3
+     },
+     {
+      "player_id": "p-santi",
+      "code": "all_maps",
+      "level": 4
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "award_master",
+      "level": 1
+     },
+     {
+      "player_id": "p-tomi",
+      "code": "blitz",
+      "level": 1
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Innovator",
+      "player_id": "p-tomi",
+      "opened_by": "p-juli"
+     },
+     {
+      "award": "Manufacturer",
+      "player_id": "p-tomi",
+      "opened_by": "p-juli"
+     }
+    ]
+   },
+   "g-062": {
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "records_broken": [],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "highest_turmoil_points",
+      "gap": 2,
+      "value": 4,
+      "player_id": "p-nico",
+      "before": 6
+     },
+     {
+      "code": "fastest_win",
+      "gap": 2,
+      "value": 10,
+      "player_id": "p-nico",
+      "before": 8
+     },
+     {
+      "code": "points_per_generation",
+      "gap": 2.700000000000001,
+      "value": 10.1,
+      "player_id": "p-nico",
+      "before": 12.8
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-lu",
+      "code": "city_planner",
+      "level": 1
+     }
+    ],
+    "stolen_awards": []
+   },
+   "g-063": {
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "records_broken": [
+     {
+      "code": "highest_greenery_points",
+      "value": 23,
+      "player_id": "p-juli",
+      "holders": [
+       "p-juli"
+      ],
+      "previous": {
+       "value": 20,
+       "player_id": "p-juli",
+       "holders": [
+        "p-juli"
+       ]
+      }
+     },
+     {
+      "code": "highest_city_points",
+      "value": 21,
+      "player_id": "p-nico",
+      "holders": [
+       "p-nico"
+      ],
+      "previous": {
+       "value": 14,
+       "player_id": "p-nico",
+       "holders": [
+        "p-nico"
+       ]
+      }
+     }
+    ],
+    "records_tied": [],
+    "near": [
+     {
+      "code": "closest_win",
+      "gap": 3,
+      "value": 3,
+      "player_id": "p-juli",
+      "before": 0
+     },
+     {
+      "code": "fastest_win",
+      "gap": 3,
+      "value": 11,
+      "player_id": "p-juli",
+      "before": 8
+     },
+     {
+      "code": "richest_finish",
+      "gap": 3,
+      "value": 31,
+      "player_id": "p-nico",
+      "before": 34
+     }
+    ],
+    "achievements": [
+     {
+      "player_id": "p-juli",
+      "code": "games_won",
+      "level": 3
+     },
+     {
+      "player_id": "p-nico",
+      "code": "city_planner",
+      "level": 3
+     }
+    ],
+    "stolen_awards": [
+     {
+      "award": "Landlord",
+      "player_id": "p-juli",
+      "opened_by": "p-nico"
+     },
+     {
+      "award": "Banker",
+      "player_id": "p-facu",
+      "opened_by": "p-juli"
+     }
+    ]
+   }
+  },
   "positions": {
    "g-001": [
     {
@@ -15776,6 +20154,2294 @@
     "game_id": "g-062",
     "player_id": "p-facu"
    }
+  ],
+  "summaries": [
+   {
+    "id": "g-063",
+    "date": "2026-09-27",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 11,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 106,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 103,
+      "corporation": "Point Luna"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 89,
+      "corporation": "Tharsis Republic"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 4,
+      "total": 81,
+      "corporation": "Helion"
+     }
+    ]
+   },
+   {
+    "id": "g-062",
+    "date": "2026-09-22",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 101,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 89,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 3,
+      "total": 86,
+      "corporation": "Helion"
+     }
+    ]
+   },
+   {
+    "id": "g-061",
+    "date": "2026-09-15",
+    "map": "Amazonis Planitia",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-tomi"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-tomi",
+      "position": 1,
+      "total": 96,
+      "corporation": "Stormcraft Incorporated"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 2,
+      "total": 83,
+      "corporation": "Credicor"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 80,
+      "corporation": "Thorgate"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 4,
+      "total": 68,
+      "corporation": "Poseidon"
+     }
+    ]
+   },
+   {
+    "id": "g-060",
+    "date": "2026-09-08",
+    "map": "Utopia Planitia",
+    "player_count": 5,
+    "generations": 8,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 102,
+      "corporation": "Stormcraft Incorporated"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 2,
+      "total": 85,
+      "corporation": "Mining Guild"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 80,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 4,
+      "total": 62,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 5,
+      "total": 50,
+      "corporation": "Teractor"
+     }
+    ]
+   },
+   {
+    "id": "g-059",
+    "date": "2026-09-01",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-santi"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-santi",
+      "position": 1,
+      "total": 111,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 94,
+      "corporation": "Producciones Interplanetarias"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 82,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 4,
+      "total": 69,
+      "corporation": "Hoteles Lagoazul"
+     }
+    ]
+   },
+   {
+    "id": "g-058",
+    "date": "2026-08-18",
+    "map": "Terra Cimmeria",
+    "player_count": 5,
+    "generations": 8,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 92,
+      "corporation": "Philares"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 82,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 67,
+      "corporation": "Manutech"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 4,
+      "total": 62,
+      "corporation": "Morning Star Inc."
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 5,
+      "total": 54,
+      "corporation": "Spire"
+     }
+    ]
+   },
+   {
+    "id": "g-057",
+    "date": "2026-08-11",
+    "map": "Terra Cimmeria",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 21,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-meli",
+      "position": 1,
+      "total": 107,
+      "corporation": "Morning Star Inc."
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 86,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 70,
+      "corporation": "Valley Trust"
+     }
+    ]
+   },
+   {
+    "id": "g-056",
+    "date": "2026-07-28",
+    "map": "Elysium",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 102,
+      "corporation": "Recyclon"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 93,
+      "corporation": "Viron"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 3,
+      "total": 81,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 4,
+      "total": 70,
+      "corporation": "Spire"
+     }
+    ]
+   },
+   {
+    "id": "g-055",
+    "date": "2026-07-21",
+    "map": "Elysium",
+    "player_count": 5,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 102,
+      "corporation": "Point Luna"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 87,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 80,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 4,
+      "total": 66,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 5,
+      "total": 62,
+      "corporation": "Palladin Shipping"
+     }
+    ]
+   },
+   {
+    "id": "g-054",
+    "date": "2026-07-14",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 13,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 35,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 130,
+      "corporation": "Terralabs Investigation"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 2,
+      "total": 95,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 81,
+      "corporation": "Polyphemos"
+     }
+    ]
+   },
+   {
+    "id": "g-053",
+    "date": "2026-07-07",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 102,
+      "corporation": "Producciones Interplanetarias"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 101,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 94,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 4,
+      "total": 75,
+      "corporation": "Poseidon"
+     }
+    ]
+   },
+   {
+    "id": "g-052",
+    "date": "2026-06-30",
+    "map": "Vastitas Borealis",
+    "player_count": 4,
+    "generations": 8,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 97,
+      "corporation": "Inventrix"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 83,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 74,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 4,
+      "total": 63,
+      "corporation": "Recyclon"
+     }
+    ]
+   },
+   {
+    "id": "g-051",
+    "date": "2026-06-23",
+    "map": "Utopia Planitia",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 101,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 2,
+      "total": 88,
+      "corporation": "Helion"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 79,
+      "corporation": "Credicor"
+     }
+    ]
+   },
+   {
+    "id": "g-050",
+    "date": "2026-06-16",
+    "map": "Elysium",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-gonza",
+      "position": 1,
+      "total": 96,
+      "corporation": "Recyclon"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 88,
+      "corporation": "Helion"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 3,
+      "total": 84,
+      "corporation": "Arcadian Communities"
+     }
+    ]
+   },
+   {
+    "id": "g-049",
+    "date": "2026-06-02",
+    "map": "Utopia Planitia",
+    "player_count": 4,
+    "generations": 11,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 97,
+      "corporation": "Terralabs Research"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 96,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 91,
+      "corporation": "Valley Trust"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 4,
+      "total": 74,
+      "corporation": "Factorum"
+     }
+    ]
+   },
+   {
+    "id": "g-048",
+    "date": "2026-05-26",
+    "map": "Amazonis Planitia",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-meli",
+      "position": 1,
+      "total": 106,
+      "corporation": "Tharsis Republic"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 96,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 88,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 4,
+      "total": 83,
+      "corporation": "Phobolog"
+     }
+    ]
+   },
+   {
+    "id": "g-047",
+    "date": "2026-05-19",
+    "map": "Amazonis Planitia",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 37,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 119,
+      "corporation": "Valley Trust"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 82,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 69,
+      "corporation": "Poseidon"
+     }
+    ]
+   },
+   {
+    "id": "g-046",
+    "date": "2026-05-12",
+    "map": "Elysium",
+    "player_count": 5,
+    "generations": 9,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 102,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 92,
+      "corporation": "Celestic"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 85,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 4,
+      "total": 66,
+      "corporation": "Producciones Interplanetarias"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 5,
+      "total": 54,
+      "corporation": "Teractor"
+     }
+    ]
+   },
+   {
+    "id": "g-045",
+    "date": "2026-05-05",
+    "map": "Utopia Planitia",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 95,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 2,
+      "total": 91,
+      "corporation": "Arcadian Communities"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 81,
+      "corporation": "Hoteles Lagoazul"
+     }
+    ]
+   },
+   {
+    "id": "g-044",
+    "date": "2026-04-28",
+    "map": "Hellas",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 23,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 108,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 85,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 83,
+      "corporation": "Tharsis Republic"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 4,
+      "total": 68,
+      "corporation": "Recyclon"
+     }
+    ]
+   },
+   {
+    "id": "g-043",
+    "date": "2026-04-21",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 104,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 2,
+      "total": 100,
+      "corporation": "Hoteles Lagoazul"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 3,
+      "total": 83,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 4,
+      "total": 71,
+      "corporation": "Tharsis Republic"
+     }
+    ]
+   },
+   {
+    "id": "g-042",
+    "date": "2026-04-14",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 12,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 20,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 109,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 2,
+      "total": 89,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 3,
+      "total": 81,
+      "corporation": "Arklight"
+     }
+    ]
+   },
+   {
+    "id": "g-041",
+    "date": "2026-03-31",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 13,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 108,
+      "corporation": "Inventrix"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 2,
+      "total": 95,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 76,
+      "corporation": "Helion"
+     }
+    ]
+   },
+   {
+    "id": "g-040",
+    "date": "2026-03-17",
+    "map": "Vastitas Borealis",
+    "player_count": 2,
+    "generations": 12,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 24,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 111,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 2,
+      "total": 87,
+      "corporation": "Novel Corporation"
+     }
+    ]
+   },
+   {
+    "id": "g-039",
+    "date": "2026-03-10",
+    "map": "Vastitas Borealis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 93,
+      "corporation": "Helion"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 85,
+      "corporation": "Cheung Shing Mars"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 3,
+      "total": 69,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 4,
+      "total": 58,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     }
+    ]
+   },
+   {
+    "id": "g-038",
+    "date": "2026-03-03",
+    "map": "Amazonis Planitia",
+    "player_count": 2,
+    "generations": 13,
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 24,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-meli",
+      "position": 1,
+      "total": 102,
+      "corporation": "Manutech"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 78,
+      "corporation": "Producciones Interplanetarias"
+     }
+    ]
+   },
+   {
+    "id": "g-037",
+    "date": "2026-02-23",
+    "map": "Hellas",
+    "player_count": 5,
+    "generations": 9,
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 8,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-gonza",
+      "position": 1,
+      "total": 91,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 2,
+      "total": 83,
+      "corporation": "Aphrodite"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 83,
+      "corporation": "Inventrix"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 4,
+      "total": 77,
+      "corporation": "Recyclon"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 5,
+      "total": 68,
+      "corporation": "Robinson Industries"
+     }
+    ]
+   },
+   {
+    "id": "g-036",
+    "date": "2026-02-09",
+    "map": "Hellas",
+    "player_count": 5,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 99,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 84,
+      "corporation": "Saturn Systems"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 77,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 4,
+      "total": 73,
+      "corporation": "Arcadian Communities"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 5,
+      "total": 72,
+      "corporation": "Valley Trust"
+     }
+    ]
+   },
+   {
+    "id": "g-035",
+    "date": "2026-01-26",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 9,
+    "winners": [
+     "p-lu"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-lu",
+      "position": 1,
+      "total": 85,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 2,
+      "total": 68,
+      "corporation": "Recyclon"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 3,
+      "total": 67,
+      "corporation": "Robinson Industries"
+     }
+    ]
+   },
+   {
+    "id": "g-034",
+    "date": "2026-01-12",
+    "map": "Hellas",
+    "player_count": 5,
+    "generations": 9,
+    "winners": [
+     "p-gonza"
+    ],
+    "margin": 11,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-gonza",
+      "position": 1,
+      "total": 91,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 80,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 78,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 4,
+      "total": 76,
+      "corporation": "Cheung Shing Mars"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 5,
+      "total": 72,
+      "corporation": "Saturn Systems"
+     }
+    ]
+   },
+   {
+    "id": "g-033",
+    "date": "2025-12-22",
+    "map": "Hellas",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 100,
+      "corporation": "Cheung Shing Mars"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 86,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 76,
+      "corporation": "Helion"
+     }
+    ]
+   },
+   {
+    "id": "g-032",
+    "date": "2025-12-15",
+    "map": "Vastitas Borealis",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-tomi"
+    ],
+    "margin": 18,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-tomi",
+      "position": 1,
+      "total": 102,
+      "corporation": "Inventrix"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 2,
+      "total": 84,
+      "corporation": "Hoteles Lagoazul"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 81,
+      "corporation": "Cheung Shing Mars"
+     }
+    ]
+   },
+   {
+    "id": "g-031",
+    "date": "2025-12-07",
+    "map": "Amazonis Planitia",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 2,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 92,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 90,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 74,
+      "corporation": "Mons Insurance"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 4,
+      "total": 66,
+      "corporation": "Palladin Shipping"
+     }
+    ]
+   },
+   {
+    "id": "g-030",
+    "date": "2025-11-30",
+    "map": "Hellas",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 105,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 95,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 3,
+      "total": 69,
+      "corporation": "Arcadian Communities"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 4,
+      "total": 65,
+      "corporation": "Credicor"
+     }
+    ]
+   },
+   {
+    "id": "g-029",
+    "date": "2025-11-23",
+    "map": "Tharsis",
+    "player_count": 5,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 26,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 108,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 82,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 78,
+      "corporation": "Stormcraft Incorporated"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 4,
+      "total": 73,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 5,
+      "total": 71,
+      "corporation": "Mining Guild"
+     }
+    ]
+   },
+   {
+    "id": "g-028",
+    "date": "2025-11-16",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 98,
+      "corporation": "Credicor"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 86,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-gonza",
+      "position": 3,
+      "total": 71,
+      "corporation": "Sagitta"
+     }
+    ]
+   },
+   {
+    "id": "g-027",
+    "date": "2025-11-08",
+    "map": "Elysium",
+    "player_count": 2,
+    "generations": 14,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 21,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 120,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 2,
+      "total": 99,
+      "corporation": "Spire"
+     }
+    ]
+   },
+   {
+    "id": "g-026",
+    "date": "2025-11-02",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 101,
+      "corporation": "Nirgal Enterprises"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 98,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 79,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 4,
+      "total": 67,
+      "corporation": "Novel Corporation"
+     }
+    ]
+   },
+   {
+    "id": "g-025",
+    "date": "2025-10-26",
+    "map": "Hellas",
+    "player_count": 2,
+    "generations": 13,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 35,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 117,
+      "corporation": "Helion"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 82,
+      "corporation": "Point Luna"
+     }
+    ]
+   },
+   {
+    "id": "g-024",
+    "date": "2025-10-18",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 6,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 98,
+      "corporation": "Vitor"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 92,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 76,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 4,
+      "total": 63,
+      "corporation": "Factorum"
+     }
+    ]
+   },
+   {
+    "id": "g-023",
+    "date": "2025-10-11",
+    "map": "Elysium",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 3,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 93,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 90,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 85,
+      "corporation": "Viron"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 4,
+      "total": 78,
+      "corporation": "Point Luna"
+     }
+    ]
+   },
+   {
+    "id": "g-022",
+    "date": "2025-10-04",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 12,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 94,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 82,
+      "corporation": "Tharsis Republic"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 77,
+      "corporation": "Mining Guild"
+     }
+    ]
+   },
+   {
+    "id": "g-021",
+    "date": "2025-09-27",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 94,
+      "corporation": "Helion"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 84,
+      "corporation": "Credicor"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 3,
+      "total": 84,
+      "corporation": "Philares"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 73,
+      "corporation": "Arklight"
+     }
+    ]
+   },
+   {
+    "id": "g-020",
+    "date": "2025-09-20",
+    "map": "Hellas",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 7,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 82,
+      "corporation": "Saturn Systems"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 2,
+      "total": 75,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 70,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 4,
+      "total": 68,
+      "corporation": "Producciones Interplanetarias"
+     }
+    ]
+   },
+   {
+    "id": "g-019",
+    "date": "2025-09-14",
+    "map": "Elysium",
+    "player_count": 4,
+    "generations": 11,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 10,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 93,
+      "corporation": "Credicor"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 83,
+      "corporation": "Valley Trust"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 83,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 54,
+      "corporation": "Ecoline"
+     }
+    ]
+   },
+   {
+    "id": "g-018",
+    "date": "2025-09-07",
+    "map": "Elysium",
+    "player_count": 3,
+    "generations": 11,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 20,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 99,
+      "corporation": "Recyclon"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 2,
+      "total": 79,
+      "corporation": "Aphrodite"
+     },
+     {
+      "player_id": "p-lu",
+      "position": 3,
+      "total": 76,
+      "corporation": "Arcadian Communities"
+     }
+    ]
+   },
+   {
+    "id": "g-017",
+    "date": "2025-08-30",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 98,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 2,
+      "total": 89,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 78,
+      "corporation": "Thorgate"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 4,
+      "total": 72,
+      "corporation": "Vitor"
+     }
+    ]
+   },
+   {
+    "id": "g-016",
+    "date": "2025-08-16",
+    "map": "Hellas",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-meli"
+    ],
+    "margin": 0,
+    "decided_by_mc": true,
+    "scores": [
+     {
+      "player_id": "p-meli",
+      "position": 1,
+      "total": 97,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 97,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 81,
+      "corporation": "Point Luna"
+     }
+    ]
+   },
+   {
+    "id": "g-015",
+    "date": "2025-08-08",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 96,
+      "corporation": "Utopia Invest"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 87,
+      "corporation": "Inventrix"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 3,
+      "total": 86,
+      "corporation": "Arcadian Communities"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 4,
+      "total": 72,
+      "corporation": "Vitor"
+     }
+    ]
+   },
+   {
+    "id": "g-014",
+    "date": "2025-07-25",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 11,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 5,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 99,
+      "corporation": "Teractor"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 94,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 79,
+      "corporation": "Palladin Shipping"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 69,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     }
+    ]
+   },
+   {
+    "id": "g-013",
+    "date": "2025-07-19",
+    "map": "Hellas",
+    "player_count": 5,
+    "generations": 9,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 23,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 110,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 87,
+      "corporation": "Factorum"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 3,
+      "total": 75,
+      "corporation": "Saturn Systems"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 70,
+      "corporation": "Cheung Shing Mars"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 5,
+      "total": 66,
+      "corporation": "Phobolog"
+     }
+    ]
+   },
+   {
+    "id": "g-012",
+    "date": "2025-06-28",
+    "map": "Elysium",
+    "player_count": 5,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 5,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 106,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 2,
+      "total": 101,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 87,
+      "corporation": "Nirgal Enterprises"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 82,
+      "corporation": "Point Luna"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 5,
+      "total": 56,
+      "corporation": "Ecoline"
+     }
+    ]
+   },
+   {
+    "id": "g-011",
+    "date": "2025-06-20",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 25,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 114,
+      "corporation": "Terralabs Investigation"
+     },
+     {
+      "player_id": "p-santi",
+      "position": 2,
+      "total": 89,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 3,
+      "total": 86,
+      "corporation": "Septem Tribus"
+     }
+    ]
+   },
+   {
+    "id": "g-010",
+    "date": "2025-06-06",
+    "map": "Tharsis",
+    "player_count": 3,
+    "generations": 12,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 1,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 96,
+      "corporation": "Manutech"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 2,
+      "total": 95,
+      "corporation": "Point Luna"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 88,
+      "corporation": "Robinson Industries"
+     }
+    ]
+   },
+   {
+    "id": "g-009",
+    "date": "2025-05-30",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 11,
+    "winners": [
+     "p-juli"
+    ],
+    "margin": 15,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-juli",
+      "position": 1,
+      "total": 101,
+      "corporation": "Mining Guild"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 86,
+      "corporation": "Valley Trust"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 86,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 4,
+      "total": 78,
+      "corporation": "Aridor"
+     }
+    ]
+   },
+   {
+    "id": "g-008",
+    "date": "2025-05-16",
+    "map": "Tharsis",
+    "player_count": 5,
+    "generations": 10,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 105,
+      "corporation": "Arklight"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 2,
+      "total": 96,
+      "corporation": "Aridor"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 81,
+      "corporation": "Spire"
+     },
+     {
+      "player_id": "p-meli",
+      "position": 4,
+      "total": 77,
+      "corporation": "Robinson Industries"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 5,
+      "total": 58,
+      "corporation": "Ecoline"
+     }
+    ]
+   },
+   {
+    "id": "g-007",
+    "date": "2025-05-09",
+    "map": "Hellas",
+    "player_count": 4,
+    "generations": 9,
+    "winners": [
+     "p-facu"
+    ],
+    "margin": 9,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-facu",
+      "position": 1,
+      "total": 104,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 2,
+      "total": 95,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 81,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 63,
+      "corporation": "Tharsis Republic"
+     }
+    ]
+   },
+   {
+    "id": "g-006",
+    "date": "2025-05-02",
+    "map": "Elysium",
+    "player_count": 3,
+    "generations": 10,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 101,
+      "corporation": "Morning Star Inc."
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 97,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 55,
+      "corporation": "Credicor"
+     }
+    ]
+   },
+   {
+    "id": "g-005",
+    "date": "2025-04-25",
+    "map": "Elysium",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 14,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 107,
+      "corporation": "Pristar"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 93,
+      "corporation": "Sagitta"
+     },
+     {
+      "player_id": "p-tomi",
+      "position": 3,
+      "total": 89,
+      "corporation": "Nirgal Enterprises"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 81,
+      "corporation": "Inventrix"
+     }
+    ]
+   },
+   {
+    "id": "g-004",
+    "date": "2025-04-11",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 8,
+    "winners": [
+     "p-nico"
+    ],
+    "margin": 2,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-nico",
+      "position": 1,
+      "total": 91,
+      "corporation": "Phobolog"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 89,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-caro",
+      "position": 3,
+      "total": 84,
+      "corporation": "Ecotec"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 73,
+      "corporation": "United Nations Mars Initiative (UNMI)"
+     }
+    ]
+   },
+   {
+    "id": "g-003",
+    "date": "2025-04-04",
+    "map": "Tharsis",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 115,
+      "corporation": "Utopia Invest"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 98,
+      "corporation": "Valley Trust"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 3,
+      "total": 95,
+      "corporation": "Novel Corporation"
+     },
+     {
+      "player_id": "p-pato",
+      "position": 4,
+      "total": 73,
+      "corporation": "Septem Tribus"
+     }
+    ]
+   },
+   {
+    "id": "g-002",
+    "date": "2025-03-14",
+    "map": "Hellas",
+    "player_count": 4,
+    "generations": 10,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 17,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 103,
+      "corporation": "Terralabs Investigation"
+     },
+     {
+      "player_id": "p-facu",
+      "position": 2,
+      "total": 86,
+      "corporation": "Mining Guild"
+     },
+     {
+      "player_id": "p-nico",
+      "position": 3,
+      "total": 84,
+      "corporation": "Mons Insurance"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 4,
+      "total": 82,
+      "corporation": "Teractor"
+     }
+    ]
+   },
+   {
+    "id": "g-001",
+    "date": "2025-03-08",
+    "map": "Hellas",
+    "player_count": 2,
+    "generations": 13,
+    "winners": [
+     "p-caro"
+    ],
+    "margin": 4,
+    "decided_by_mc": false,
+    "scores": [
+     {
+      "player_id": "p-caro",
+      "position": 1,
+      "total": 105,
+      "corporation": "Ecoline"
+     },
+     {
+      "player_id": "p-juli",
+      "position": 2,
+      "total": 101,
+      "corporation": "Producciones Interplanetarias"
+     }
+    ]
+   }
   ]
  },
  "mesa": {
@@ -20917,6 +27583,138 @@
      "date": "2025-03-08",
      "game_id": "g-001",
      "player_id": "p-caro"
+    }
+   ],
+   "summaries": [
+    {
+     "id": "g-040",
+     "date": "2026-03-17",
+     "map": "Vastitas Borealis",
+     "player_count": 2,
+     "generations": 12,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 24,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 111,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 2,
+       "total": 87,
+       "corporation": "Novel Corporation"
+      }
+     ]
+    },
+    {
+     "id": "g-038",
+     "date": "2026-03-03",
+     "map": "Amazonis Planitia",
+     "player_count": 2,
+     "generations": 13,
+     "winners": [
+      "p-meli"
+     ],
+     "margin": 24,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-meli",
+       "position": 1,
+       "total": 102,
+       "corporation": "Manutech"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 78,
+       "corporation": "Producciones Interplanetarias"
+      }
+     ]
+    },
+    {
+     "id": "g-027",
+     "date": "2025-11-08",
+     "map": "Elysium",
+     "player_count": 2,
+     "generations": 14,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 21,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 120,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 2,
+       "total": 99,
+       "corporation": "Spire"
+      }
+     ]
+    },
+    {
+     "id": "g-025",
+     "date": "2025-10-26",
+     "map": "Hellas",
+     "player_count": 2,
+     "generations": 13,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 35,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 117,
+       "corporation": "Helion"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 82,
+       "corporation": "Point Luna"
+      }
+     ]
+    },
+    {
+     "id": "g-001",
+     "date": "2025-03-08",
+     "map": "Hellas",
+     "player_count": 2,
+     "generations": 13,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 4,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 105,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 101,
+       "corporation": "Producciones Interplanetarias"
+      }
+     ]
     }
    ]
   },
@@ -30363,6 +37161,616 @@
      "date": "2026-09-22",
      "game_id": "g-062",
      "player_id": "p-nico"
+    }
+   ],
+   "summaries": [
+    {
+     "id": "g-062",
+     "date": "2026-09-22",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 12,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 101,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 89,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 3,
+       "total": 86,
+       "corporation": "Helion"
+      }
+     ]
+    },
+    {
+     "id": "g-057",
+     "date": "2026-08-11",
+     "map": "Terra Cimmeria",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-meli"
+     ],
+     "margin": 21,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-meli",
+       "position": 1,
+       "total": 107,
+       "corporation": "Morning Star Inc."
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 86,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 70,
+       "corporation": "Valley Trust"
+      }
+     ]
+    },
+    {
+     "id": "g-054",
+     "date": "2026-07-14",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 13,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 35,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 130,
+       "corporation": "Terralabs Investigation"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 2,
+       "total": 95,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 81,
+       "corporation": "Polyphemos"
+      }
+     ]
+    },
+    {
+     "id": "g-051",
+     "date": "2026-06-23",
+     "map": "Utopia Planitia",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 13,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 101,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 2,
+       "total": 88,
+       "corporation": "Helion"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 79,
+       "corporation": "Credicor"
+      }
+     ]
+    },
+    {
+     "id": "g-050",
+     "date": "2026-06-16",
+     "map": "Elysium",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-gonza"
+     ],
+     "margin": 8,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-gonza",
+       "position": 1,
+       "total": 96,
+       "corporation": "Recyclon"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 88,
+       "corporation": "Helion"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 3,
+       "total": 84,
+       "corporation": "Arcadian Communities"
+      }
+     ]
+    },
+    {
+     "id": "g-047",
+     "date": "2026-05-19",
+     "map": "Amazonis Planitia",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 37,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 119,
+       "corporation": "Valley Trust"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 82,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 69,
+       "corporation": "Poseidon"
+      }
+     ]
+    },
+    {
+     "id": "g-045",
+     "date": "2026-05-05",
+     "map": "Utopia Planitia",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 4,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 95,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 2,
+       "total": 91,
+       "corporation": "Arcadian Communities"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 81,
+       "corporation": "Hoteles Lagoazul"
+      }
+     ]
+    },
+    {
+     "id": "g-042",
+     "date": "2026-04-14",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 12,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 20,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 109,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 2,
+       "total": 89,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 3,
+       "total": 81,
+       "corporation": "Arklight"
+      }
+     ]
+    },
+    {
+     "id": "g-041",
+     "date": "2026-03-31",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 13,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 108,
+       "corporation": "Inventrix"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 2,
+       "total": 95,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 76,
+       "corporation": "Helion"
+      }
+     ]
+    },
+    {
+     "id": "g-035",
+     "date": "2026-01-26",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 9,
+     "winners": [
+      "p-lu"
+     ],
+     "margin": 17,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-lu",
+       "position": 1,
+       "total": 85,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 2,
+       "total": 68,
+       "corporation": "Recyclon"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 3,
+       "total": 67,
+       "corporation": "Robinson Industries"
+      }
+     ]
+    },
+    {
+     "id": "g-033",
+     "date": "2025-12-22",
+     "map": "Hellas",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 14,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 100,
+       "corporation": "Cheung Shing Mars"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 86,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 76,
+       "corporation": "Helion"
+      }
+     ]
+    },
+    {
+     "id": "g-032",
+     "date": "2025-12-15",
+     "map": "Vastitas Borealis",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-tomi"
+     ],
+     "margin": 18,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-tomi",
+       "position": 1,
+       "total": 102,
+       "corporation": "Inventrix"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 2,
+       "total": 84,
+       "corporation": "Hoteles Lagoazul"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 81,
+       "corporation": "Cheung Shing Mars"
+      }
+     ]
+    },
+    {
+     "id": "g-028",
+     "date": "2025-11-16",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 12,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 98,
+       "corporation": "Credicor"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 86,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 3,
+       "total": 71,
+       "corporation": "Sagitta"
+      }
+     ]
+    },
+    {
+     "id": "g-022",
+     "date": "2025-10-04",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 12,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 94,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 82,
+       "corporation": "Tharsis Republic"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 77,
+       "corporation": "Mining Guild"
+      }
+     ]
+    },
+    {
+     "id": "g-018",
+     "date": "2025-09-07",
+     "map": "Elysium",
+     "player_count": 3,
+     "generations": 11,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 20,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 99,
+       "corporation": "Recyclon"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 2,
+       "total": 79,
+       "corporation": "Aphrodite"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 3,
+       "total": 76,
+       "corporation": "Arcadian Communities"
+      }
+     ]
+    },
+    {
+     "id": "g-016",
+     "date": "2025-08-16",
+     "map": "Hellas",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-meli"
+     ],
+     "margin": 0,
+     "decided_by_mc": true,
+     "scores": [
+      {
+       "player_id": "p-meli",
+       "position": 1,
+       "total": 97,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 97,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 81,
+       "corporation": "Point Luna"
+      }
+     ]
+    },
+    {
+     "id": "g-011",
+     "date": "2025-06-20",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 25,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 114,
+       "corporation": "Terralabs Investigation"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 2,
+       "total": 89,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 86,
+       "corporation": "Septem Tribus"
+      }
+     ]
+    },
+    {
+     "id": "g-010",
+     "date": "2025-06-06",
+     "map": "Tharsis",
+     "player_count": 3,
+     "generations": 12,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 1,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 96,
+       "corporation": "Manutech"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 95,
+       "corporation": "Point Luna"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 88,
+       "corporation": "Robinson Industries"
+      }
+     ]
+    },
+    {
+     "id": "g-006",
+     "date": "2025-05-02",
+     "map": "Elysium",
+     "player_count": 3,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 4,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 101,
+       "corporation": "Morning Star Inc."
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 97,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 55,
+       "corporation": "Credicor"
+      }
+     ]
     }
    ]
   },
@@ -41986,6 +49394,1072 @@
      "game_id": "g-063",
      "player_id": "p-facu"
     }
+   ],
+   "summaries": [
+    {
+     "id": "g-063",
+     "date": "2026-09-27",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 11,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 3,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 106,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 103,
+       "corporation": "Point Luna"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 89,
+       "corporation": "Tharsis Republic"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 4,
+       "total": 81,
+       "corporation": "Helion"
+      }
+     ]
+    },
+    {
+     "id": "g-061",
+     "date": "2026-09-15",
+     "map": "Amazonis Planitia",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-tomi"
+     ],
+     "margin": 13,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-tomi",
+       "position": 1,
+       "total": 96,
+       "corporation": "Stormcraft Incorporated"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 2,
+       "total": 83,
+       "corporation": "Credicor"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 80,
+       "corporation": "Thorgate"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 4,
+       "total": 68,
+       "corporation": "Poseidon"
+      }
+     ]
+    },
+    {
+     "id": "g-059",
+     "date": "2026-09-01",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-santi"
+     ],
+     "margin": 17,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-santi",
+       "position": 1,
+       "total": 111,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 94,
+       "corporation": "Producciones Interplanetarias"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 82,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 4,
+       "total": 69,
+       "corporation": "Hoteles Lagoazul"
+      }
+     ]
+    },
+    {
+     "id": "g-056",
+     "date": "2026-07-28",
+     "map": "Elysium",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 9,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 102,
+       "corporation": "Recyclon"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 93,
+       "corporation": "Viron"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 3,
+       "total": 81,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 4,
+       "total": 70,
+       "corporation": "Spire"
+      }
+     ]
+    },
+    {
+     "id": "g-053",
+     "date": "2026-07-07",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 1,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 102,
+       "corporation": "Producciones Interplanetarias"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 101,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 94,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 4,
+       "total": 75,
+       "corporation": "Poseidon"
+      }
+     ]
+    },
+    {
+     "id": "g-052",
+     "date": "2026-06-30",
+     "map": "Vastitas Borealis",
+     "player_count": 4,
+     "generations": 8,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 14,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 97,
+       "corporation": "Inventrix"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 83,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 74,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 4,
+       "total": 63,
+       "corporation": "Recyclon"
+      }
+     ]
+    },
+    {
+     "id": "g-049",
+     "date": "2026-06-02",
+     "map": "Utopia Planitia",
+     "player_count": 4,
+     "generations": 11,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 1,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 97,
+       "corporation": "Terralabs Research"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 96,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 91,
+       "corporation": "Valley Trust"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 4,
+       "total": 74,
+       "corporation": "Factorum"
+      }
+     ]
+    },
+    {
+     "id": "g-048",
+     "date": "2026-05-26",
+     "map": "Amazonis Planitia",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-meli"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-meli",
+       "position": 1,
+       "total": 106,
+       "corporation": "Tharsis Republic"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 96,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 88,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 4,
+       "total": 83,
+       "corporation": "Phobolog"
+      }
+     ]
+    },
+    {
+     "id": "g-044",
+     "date": "2026-04-28",
+     "map": "Hellas",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 23,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 108,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 85,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 83,
+       "corporation": "Tharsis Republic"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 4,
+       "total": 68,
+       "corporation": "Recyclon"
+      }
+     ]
+    },
+    {
+     "id": "g-043",
+     "date": "2026-04-21",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 4,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 104,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 2,
+       "total": 100,
+       "corporation": "Hoteles Lagoazul"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 3,
+       "total": 83,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 4,
+       "total": 71,
+       "corporation": "Tharsis Republic"
+      }
+     ]
+    },
+    {
+     "id": "g-039",
+     "date": "2026-03-10",
+     "map": "Vastitas Borealis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 8,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 93,
+       "corporation": "Helion"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 85,
+       "corporation": "Cheung Shing Mars"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 3,
+       "total": 69,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 4,
+       "total": 58,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      }
+     ]
+    },
+    {
+     "id": "g-031",
+     "date": "2025-12-07",
+     "map": "Amazonis Planitia",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 2,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 92,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 90,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 74,
+       "corporation": "Mons Insurance"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 4,
+       "total": 66,
+       "corporation": "Palladin Shipping"
+      }
+     ]
+    },
+    {
+     "id": "g-030",
+     "date": "2025-11-30",
+     "map": "Hellas",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 105,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 95,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 3,
+       "total": 69,
+       "corporation": "Arcadian Communities"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 4,
+       "total": 65,
+       "corporation": "Credicor"
+      }
+     ]
+    },
+    {
+     "id": "g-026",
+     "date": "2025-11-02",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 3,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 101,
+       "corporation": "Nirgal Enterprises"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 98,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 79,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 4,
+       "total": 67,
+       "corporation": "Novel Corporation"
+      }
+     ]
+    },
+    {
+     "id": "g-024",
+     "date": "2025-10-18",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 6,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 98,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 92,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 76,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 4,
+       "total": 63,
+       "corporation": "Factorum"
+      }
+     ]
+    },
+    {
+     "id": "g-023",
+     "date": "2025-10-11",
+     "map": "Elysium",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 3,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 93,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 90,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 85,
+       "corporation": "Viron"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 4,
+       "total": 78,
+       "corporation": "Point Luna"
+      }
+     ]
+    },
+    {
+     "id": "g-021",
+     "date": "2025-09-27",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 94,
+       "corporation": "Helion"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 84,
+       "corporation": "Credicor"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 3,
+       "total": 84,
+       "corporation": "Philares"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 73,
+       "corporation": "Arklight"
+      }
+     ]
+    },
+    {
+     "id": "g-020",
+     "date": "2025-09-20",
+     "map": "Hellas",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 7,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 82,
+       "corporation": "Saturn Systems"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 2,
+       "total": 75,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 70,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 4,
+       "total": 68,
+       "corporation": "Producciones Interplanetarias"
+      }
+     ]
+    },
+    {
+     "id": "g-019",
+     "date": "2025-09-14",
+     "map": "Elysium",
+     "player_count": 4,
+     "generations": 11,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 93,
+       "corporation": "Credicor"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 83,
+       "corporation": "Valley Trust"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 83,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 54,
+       "corporation": "Ecoline"
+      }
+     ]
+    },
+    {
+     "id": "g-017",
+     "date": "2025-08-30",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 9,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 98,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 2,
+       "total": 89,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 78,
+       "corporation": "Thorgate"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 4,
+       "total": 72,
+       "corporation": "Vitor"
+      }
+     ]
+    },
+    {
+     "id": "g-015",
+     "date": "2025-08-08",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 9,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 96,
+       "corporation": "Utopia Invest"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 87,
+       "corporation": "Inventrix"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 3,
+       "total": 86,
+       "corporation": "Arcadian Communities"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 4,
+       "total": 72,
+       "corporation": "Vitor"
+      }
+     ]
+    },
+    {
+     "id": "g-014",
+     "date": "2025-07-25",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 11,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 5,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 99,
+       "corporation": "Teractor"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 94,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 79,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 69,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      }
+     ]
+    },
+    {
+     "id": "g-009",
+     "date": "2025-05-30",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 11,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 15,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 101,
+       "corporation": "Mining Guild"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 86,
+       "corporation": "Valley Trust"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 86,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 4,
+       "total": 78,
+       "corporation": "Aridor"
+      }
+     ]
+    },
+    {
+     "id": "g-007",
+     "date": "2025-05-09",
+     "map": "Hellas",
+     "player_count": 4,
+     "generations": 9,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 9,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 104,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 95,
+       "corporation": "Ecoline"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 81,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 63,
+       "corporation": "Tharsis Republic"
+      }
+     ]
+    },
+    {
+     "id": "g-005",
+     "date": "2025-04-25",
+     "map": "Elysium",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 14,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 107,
+       "corporation": "Pristar"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 93,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 3,
+       "total": 89,
+       "corporation": "Nirgal Enterprises"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 81,
+       "corporation": "Inventrix"
+      }
+     ]
+    },
+    {
+     "id": "g-004",
+     "date": "2025-04-11",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 8,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 2,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 91,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 89,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 84,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 73,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      }
+     ]
+    },
+    {
+     "id": "g-003",
+     "date": "2025-04-04",
+     "map": "Tharsis",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 17,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 115,
+       "corporation": "Utopia Invest"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 98,
+       "corporation": "Valley Trust"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 95,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 73,
+       "corporation": "Septem Tribus"
+      }
+     ]
+    },
+    {
+     "id": "g-002",
+     "date": "2025-03-14",
+     "map": "Hellas",
+     "player_count": 4,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 17,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 103,
+       "corporation": "Terralabs Investigation"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 86,
+       "corporation": "Mining Guild"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 84,
+       "corporation": "Mons Insurance"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 4,
+       "total": 82,
+       "corporation": "Teractor"
+      }
+     ]
+    }
    ]
   },
   "5": {
@@ -51551,6 +60025,492 @@
      "date": "2026-09-08",
      "game_id": "g-060",
      "player_id": "p-nico"
+    }
+   ],
+   "summaries": [
+    {
+     "id": "g-060",
+     "date": "2026-09-08",
+     "map": "Utopia Planitia",
+     "player_count": 5,
+     "generations": 8,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 17,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 102,
+       "corporation": "Stormcraft Incorporated"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 2,
+       "total": 85,
+       "corporation": "Mining Guild"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 80,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 4,
+       "total": 62,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 5,
+       "total": 50,
+       "corporation": "Teractor"
+      }
+     ]
+    },
+    {
+     "id": "g-058",
+     "date": "2026-08-18",
+     "map": "Terra Cimmeria",
+     "player_count": 5,
+     "generations": 8,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 92,
+       "corporation": "Philares"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 2,
+       "total": 82,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 67,
+       "corporation": "Manutech"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 4,
+       "total": 62,
+       "corporation": "Morning Star Inc."
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 5,
+       "total": 54,
+       "corporation": "Spire"
+      }
+     ]
+    },
+    {
+     "id": "g-055",
+     "date": "2026-07-21",
+     "map": "Elysium",
+     "player_count": 5,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 15,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 102,
+       "corporation": "Point Luna"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 87,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-juli",
+       "position": 3,
+       "total": 80,
+       "corporation": "Vitor"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 4,
+       "total": 66,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 5,
+       "total": 62,
+       "corporation": "Palladin Shipping"
+      }
+     ]
+    },
+    {
+     "id": "g-046",
+     "date": "2026-05-12",
+     "map": "Elysium",
+     "player_count": 5,
+     "generations": 9,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 10,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 102,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 92,
+       "corporation": "Celestic"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 3,
+       "total": 85,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 4,
+       "total": 66,
+       "corporation": "Producciones Interplanetarias"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 5,
+       "total": 54,
+       "corporation": "Teractor"
+      }
+     ]
+    },
+    {
+     "id": "g-037",
+     "date": "2026-02-23",
+     "map": "Hellas",
+     "player_count": 5,
+     "generations": 9,
+     "winners": [
+      "p-gonza"
+     ],
+     "margin": 8,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-gonza",
+       "position": 1,
+       "total": 91,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 2,
+       "total": 83,
+       "corporation": "Aphrodite"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 83,
+       "corporation": "Inventrix"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 4,
+       "total": 77,
+       "corporation": "Recyclon"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 5,
+       "total": 68,
+       "corporation": "Robinson Industries"
+      }
+     ]
+    },
+    {
+     "id": "g-036",
+     "date": "2026-02-09",
+     "map": "Hellas",
+     "player_count": 5,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 15,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 99,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 84,
+       "corporation": "Saturn Systems"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 3,
+       "total": 77,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 4,
+       "total": 73,
+       "corporation": "Arcadian Communities"
+      },
+      {
+       "player_id": "p-lu",
+       "position": 5,
+       "total": 72,
+       "corporation": "Valley Trust"
+      }
+     ]
+    },
+    {
+     "id": "g-034",
+     "date": "2026-01-12",
+     "map": "Hellas",
+     "player_count": 5,
+     "generations": 9,
+     "winners": [
+      "p-gonza"
+     ],
+     "margin": 11,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-gonza",
+       "position": 1,
+       "total": 91,
+       "corporation": "Phobolog"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 2,
+       "total": 80,
+       "corporation": "Sagitta"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 78,
+       "corporation": "Novel Corporation"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 4,
+       "total": 76,
+       "corporation": "Cheung Shing Mars"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 5,
+       "total": 72,
+       "corporation": "Saturn Systems"
+      }
+     ]
+    },
+    {
+     "id": "g-029",
+     "date": "2025-11-23",
+     "map": "Tharsis",
+     "player_count": 5,
+     "generations": 10,
+     "winners": [
+      "p-caro"
+     ],
+     "margin": 26,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-caro",
+       "position": 1,
+       "total": 108,
+       "corporation": "Palladin Shipping"
+      },
+      {
+       "player_id": "p-nico",
+       "position": 2,
+       "total": 82,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 78,
+       "corporation": "Stormcraft Incorporated"
+      },
+      {
+       "player_id": "p-gonza",
+       "position": 4,
+       "total": 73,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-facu",
+       "position": 5,
+       "total": 71,
+       "corporation": "Mining Guild"
+      }
+     ]
+    },
+    {
+     "id": "g-013",
+     "date": "2025-07-19",
+     "map": "Hellas",
+     "player_count": 5,
+     "generations": 9,
+     "winners": [
+      "p-juli"
+     ],
+     "margin": 23,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-juli",
+       "position": 1,
+       "total": 110,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 2,
+       "total": 87,
+       "corporation": "Factorum"
+      },
+      {
+       "player_id": "p-santi",
+       "position": 3,
+       "total": 75,
+       "corporation": "Saturn Systems"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 70,
+       "corporation": "Cheung Shing Mars"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 5,
+       "total": 66,
+       "corporation": "Phobolog"
+      }
+     ]
+    },
+    {
+     "id": "g-012",
+     "date": "2025-06-28",
+     "map": "Elysium",
+     "player_count": 5,
+     "generations": 10,
+     "winners": [
+      "p-nico"
+     ],
+     "margin": 5,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-nico",
+       "position": 1,
+       "total": 106,
+       "corporation": "United Nations Mars Initiative (UNMI)"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 2,
+       "total": 101,
+       "corporation": "Ecotec"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 87,
+       "corporation": "Nirgal Enterprises"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 4,
+       "total": 82,
+       "corporation": "Point Luna"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 5,
+       "total": 56,
+       "corporation": "Ecoline"
+      }
+     ]
+    },
+    {
+     "id": "g-008",
+     "date": "2025-05-16",
+     "map": "Tharsis",
+     "player_count": 5,
+     "generations": 10,
+     "winners": [
+      "p-facu"
+     ],
+     "margin": 9,
+     "decided_by_mc": false,
+     "scores": [
+      {
+       "player_id": "p-facu",
+       "position": 1,
+       "total": 105,
+       "corporation": "Arklight"
+      },
+      {
+       "player_id": "p-tomi",
+       "position": 2,
+       "total": 96,
+       "corporation": "Aridor"
+      },
+      {
+       "player_id": "p-caro",
+       "position": 3,
+       "total": 81,
+       "corporation": "Spire"
+      },
+      {
+       "player_id": "p-meli",
+       "position": 4,
+       "total": 77,
+       "corporation": "Robinson Industries"
+      },
+      {
+       "player_id": "p-pato",
+       "position": 5,
+       "total": 58,
+       "corporation": "Ecoline"
+      }
+     ]
     }
    ]
   }

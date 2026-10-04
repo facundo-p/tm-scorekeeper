@@ -55,6 +55,50 @@ export function summary(model) {
   return model.group;
 }
 
+// Archive rows (STAT-09): what the list and its score track need, newest first.
+export function summaries(model) {
+  return model.games.map((g) => ({
+    id: g.id, date: g.date, map: g.map, player_count: g.results.length, generations: g.generations,
+    winners: g.winners, margin: g.margin, decided_by_mc: g.decidedByMc,
+    scores: g.results.map((r) => ({ player_id: r.player_id, position: r.position, total: r.total, corporation: r.corporation })),
+  }));
+}
+
+const bestUnlocks = (g) => {
+  const best = {};
+  for (const a of g.achievementsUnlocked) {
+    const k = `${a.player_id}|${a.code}`;
+    if (!best[k] || best[k].level < a.level) best[k] = { player_id: a.player_id, code: a.code, level: a.level };
+  }
+  return Object.values(best).sort((a, b) => (a.player_id + a.code < b.player_id + b.code ? -1 : 1));
+};
+
+const stolenAwards = (g) => g.awards
+  .filter((a) => a.first_place.length === 1 && a.first_place[0] !== a.opened_by)
+  .map((a) => ({ award: a.name, player_id: a.first_place[0], opened_by: a.opened_by }));
+
+function recordsOfGame(ctx, nearRecords) {
+  return {
+    records_broken: ctx.filter((c) => c.broken).map(({ broken: b }) => ({
+      code: b.code, value: b.value, player_id: b.player_id, holders: b.holders, previous: b.previous,
+    })),
+    records_tied: ctx.filter((c) => c.tied).map((c) => ({ code: c.def.code, value: c.tied.value, holders: c.tied.holders })),
+    near: nearRecords(ctx).map((c) => ({
+      code: c.def.code, gap: c.gap, value: c.best.value, player_id: c.best.player_id, before: c.before.value,
+    })),
+  };
+}
+
+// Game report (STAT-10), always over all games.
+export function reports(model, { gameRecordContext, nearRecords }) {
+  return byId(model.games.slice().reverse().map((g) => [g.id, {
+    winners: g.winners, margin: g.margin, decided_by_mc: g.decidedByMc,
+    ...recordsOfGame(gameRecordContext(g, model), nearRecords),
+    achievements: bestUnlocks(g),
+    stolen_awards: stolenAwards(g),
+  }]));
+}
+
 export function buildGolden(model, extra = {}) {
   return {
     ...extra,
@@ -68,5 +112,6 @@ export function buildGolden(model, extra = {}) {
     feed: model.feed,
     summary: summary(model),
     lead_changes: model.leadChanges,
+    summaries: summaries(model),
   };
 }

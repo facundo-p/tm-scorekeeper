@@ -55,3 +55,30 @@ def achievements_from_api(body: dict) -> dict[str, dict]:
         a["code"]: {"tier": a["tier"], "value": a["value"], "unlocked": a["unlocks"], "progress": a["progress"]}
         for a in body["achievements"]
     }
+
+
+def summary_from_api(s: dict) -> dict:
+    """GET /games/summaries → forma del golden."""
+    return {
+        "id": s["id"], "date": s["date"], "map": s["map"], "player_count": s["player_count"],
+        "generations": s["generations"], "winners": s["winners"], "margin": s["margin"],
+        "decided_by_mc": s["decided_by_mc"],
+        "scores": [{"player_id": r["player_id"], "position": r["position"], "total": r["total_points"],
+                    "corporation": r["corporation"]} for r in s["scores"]],
+    }
+
+
+def report_from_api(r: dict) -> dict:
+    """GET /games/{id}/report → forma del golden (logros: el nivel más alto por jugador y logro)."""
+    unlocks = sorted(({"player_id": pid, "code": a["code"], "level": a["tier"]}
+                      for pid, items in r["achievements_by_player"].items() for a in items),
+                     key=lambda a: a["player_id"] + a["code"])
+    return {
+        "winners": r["winners"], "margin": r["margin"], "decided_by_mc": r["decided_by_mc"],
+        "records_broken": [{k: b[k] for k in ("code", "value", "player_id", "holders", "previous")}
+                           for b in r["records_broken"]],
+        "records_tied": [{k: t[k] for k in ("code", "value", "holders")} for t in r["records_tied"]],
+        "near": [{k: n[k] for k in ("code", "gap", "value", "player_id", "before")} for n in r["near"]],
+        "achievements": unlocks,
+        "stolen_awards": r["stolen_awards"],
+    }
