@@ -1,9 +1,12 @@
-"""Color de cubo y `since` de los jugadores (F24, STAT-08)."""
+"""Color de cubo y `since` de los jugadores (F24, STAT-08; fecha de alta, D-78)."""
+from datetime import date
 from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
+from sqlalchemy import text
 
+from db.session import engine
 from main import app
 from models.player import Player
 from models.player_colors import PLAYER_COLORS
@@ -60,9 +63,21 @@ def test_eleven_active_players_do_not_fit(client):
     assert _create(client, "Once").status_code == 409
 
 
-def test_since_is_the_date_of_the_first_game(client):
+def test_since_is_the_signup_date(client):
+    PlayersRepository().create(Player(player_id="p1", name="Alice", joined_on=date(2025, 3, 15)))
+    PlayersRepository().create(Player(player_id="p2", name="Bob"))  # sin fecha: la del día
+    _post_game(client, _game_payload("g1", "2026-01-10", [_pr("p1", 50), _pr("p2", 30)]))
+    players = _players(client)
+    with engine.connect() as conn:
+        today = conn.execute(text("SELECT CURRENT_DATE")).scalar()
+    assert players["p1"]["since"] == "2025-03-15" and players["p2"]["since"] == today.isoformat()
+
+
+def test_without_a_signup_date_since_falls_back_to_the_first_game(client):
     for pid, name in (("p1", "Alice"), ("p2", "Bob"), ("p3", "Cara")):
         PlayersRepository().create(Player(player_id=pid, name=name))
+    with engine.begin() as conn:  # como las altas anteriores a D-78 que nunca jugaron
+        conn.execute(text("UPDATE players SET joined_on = NULL"))
     _post_game(client, _game_payload("g2", "2026-02-01", [_pr("p1", 50), _pr("p2", 30)]))
     _post_game(client, _game_payload("g1", "2026-01-10", [_pr("p1", 50), _pr("p3", 30)]))
     players = _players(client)

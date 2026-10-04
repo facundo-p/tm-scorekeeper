@@ -37,6 +37,11 @@ export function FilterChip({ on, onClick, ariaLabel, children }: FilterChipProps
   )
 }
 
+/** Fila de chips sin rótulo visible (`.fchips` con `role="group"` del mockup). */
+export function FilterChips({ label, children }: { label: string; children: ReactNode }) {
+  return <div className={styles.fchips} role="group" aria-label={label}>{children}</div>
+}
+
 /** Panel que apila grupos de filtros (`.filters` del mockup). */
 export function FilterPanel({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cx(styles.filters, className)}>{children}</div>

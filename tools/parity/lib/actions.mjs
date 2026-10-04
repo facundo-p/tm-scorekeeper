@@ -1,5 +1,5 @@
 // Acciones por rol accesible, para que los mismos pasos sirvan en el mockup y en la app.
-// Formas: { click: Target } · { fill: Target, value } · { press: 'Tab' | Target, key } · { scroll: Target | number }
+// Formas: { click: Target } · { fill: Target, value } · { select: Target, option } · { press: 'Tab' | Target, key } · { scroll: Target | number }
 // Target = { role, name, exact?, nth? } | { label } | { text } | { selector }
 // `expect: Target` waits until that element is visible; if it isn't after the
 // first try, the action is repeated once (clicks lost while the page settles).
@@ -23,6 +23,8 @@ async function scrollTo(page, target) {
 async function runOne(page, action) {
   if (action.click) return locate(page, action.click).click();
   if (action.fill) return locate(page, action.fill).fill(String(action.value ?? ''));
+  // `option` es el texto visible: los ids de las opciones pueden diferir entre el mockup y la app.
+  if (action.select) return locate(page, action.select).selectOption({ label: String(action.option) });
   if (action.press && typeof action.press === 'string') return page.keyboard.press(action.press);
   if (action.press) return locate(page, action.press).press(action.key);
   if (action.scroll !== undefined) return scrollTo(page, action.scroll);

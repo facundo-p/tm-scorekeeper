@@ -1,3 +1,4 @@
+from datetime import date
 from typing import Optional
 
 class Player:
@@ -9,6 +10,7 @@ class Player:
         elo: int = 1000,
         color: Optional[str] = None,  # sin color, el repositorio asigna el primero libre
         seq: Optional[int] = None,  # orden de alta (D-74); lo asigna la base
+        joined_on: Optional[date] = None,  # fecha de alta (D-78); la asigna la base
     ):
         self.player_id = player_id
         self.name = name
@@ -16,3 +18,4 @@ class Player:
         self.elo = elo
         self.color = color
         self.seq = seq
+        self.joined_on = joined_on

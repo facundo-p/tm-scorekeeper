@@ -175,7 +175,7 @@ Plans:
 - [x] **Phase 29: Pantallas: Partidas e Informe** (E6)
 - [x] **Phase 30: Pantalla: Registrar** (E6)
 - [x] **Phase 31: Pantalla: Ceremonia** (E6)
-- [ ] **Phase 32: Pantalla: Ranking y jugadores** (E6)
+- [x] **Phase 32: Pantalla: Ranking y jugadores** (E6)
 - [ ] **Phase 33: Pantalla: Perfil** (E6)
 - [ ] **Phase 34: Pantallas: Récords y Logros** (E6)
 - [ ] **Phase 35: Limpieza y presupuestos** (E7)
@@ -332,7 +332,7 @@ Plans:
 **Epic**: E6 · **Depends on**: 31 · **Requirements**: SCR-08..09
 **Success Criteria** (what must be TRUE):
   1. Escenarios `ranking*`, `player-*` en verde
-**Plans**: TBD
+**Plans**: 32-01
 
 ### Phase 33: Pantalla: Perfil
 **Goal**: ver `.planning/v2.0/SPEC.md` § F33

@@ -111,12 +111,30 @@ export interface PlayerEloHistory {
   points: { recorded_at: string; game_id: string; elo_after: number; delta: number }[]
 }
 
-/** Ficha del jugador (GET /players/{id}/insights); por ahora, composición y forma. */
+/** Equidad (owner's points 6 y 7): victorias contra lo esperado por tamaño de mesa y posición relativa. */
+export interface Equity {
+  expected: number
+  wins_vs_expected: number
+  wins_ratio: number | null
+  rel_pos: number | null
+}
+
+/** Una fila de «por tamaño de mesa». */
+export interface TableSizeStat extends Equity {
+  n: number
+  games: number
+  wins: number
+  avg_points: number | null
+}
+
+/** Ficha del jugador (GET /players/{id}/insights); lo que usa el frontend por ahora. */
 export interface PlayerInsights {
   view: 'all' | 'mesa'
   games: number
   composition: { avg: Record<string, number>; share: Record<string, number> }
   form: { position: number; n: number; game_id: string }[]
+  equity: Equity
+  by_table: TableSizeStat[]
 }
 
 export interface HeadToHead {
@@ -138,6 +156,7 @@ export interface RankingRow {
   games: number
   wins: number
   win_rate: number
+  equity: Equity
   form: FormEntry[]
   archetype: string | null
   elo_series: { date: string; game_id: string; elo: number; delta: number }[]

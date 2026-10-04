@@ -25,8 +25,9 @@ export function useGameReport(gameId: string, enabled = true) {
   return { report: data, ...rest }
 }
 
-export function usePlayerInsights(playerId: string, options: { mesa?: TableSize | null } = {}) {
-  const { data, ...rest } = useApiQuery<PlayerInsights>(apiPath(`/players/${encodeURIComponent(playerId)}/insights`, { player_count: options.mesa }))
+export function usePlayerInsights(playerId: string, options: { mesa?: TableSize | null; enabled?: boolean } = {}) {
+  const path = apiPath(`/players/${encodeURIComponent(playerId)}/insights`, { player_count: options.mesa })
+  const { data, ...rest } = useApiQuery<PlayerInsights>(path, options.enabled ?? true, true)
   return { insights: data, ...rest }
 }
 

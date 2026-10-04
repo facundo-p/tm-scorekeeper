@@ -13,7 +13,7 @@ from models.player_colors import first_free
 
 
 def _to_model(o: PlayerORM) -> Player:
-    return Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo, color=o.color, seq=o.seq)
+    return Player(player_id=o.id, name=o.name, is_active=o.is_active, elo=o.elo, color=o.color, seq=o.seq, joined_on=o.joined_on)
 
 
 class PlayersRepository:
@@ -27,8 +27,10 @@ class PlayersRepository:
             if session.get(PlayerORM, player.player_id):
                 raise ValueError(f"Player '{player.player_id}' already exists")
             player.color = player.color or first_free(self._active_colors(session))
+            # Sin fecha de alta, la base pone la del día (D-78).
+            joined = {"joined_on": player.joined_on} if player.joined_on else {}
             session.add(PlayerORM(id=player.player_id, name=player.name, is_active=player.is_active,
-                                  elo=player.elo, color=player.color))
+                                  elo=player.elo, color=player.color, **joined))
         return player
 
     def get(self, player_id: str) -> Player:

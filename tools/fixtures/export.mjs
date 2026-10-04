@@ -20,7 +20,7 @@ const { buildGolden, reports, seasonRaces } = await import('./golden.mjs');
 function seed() {
   const games = generateGames().sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.id < b.id ? -1 : 1));
   return {
-    players: PLAYERS_SEED.map((p) => ({ id: p.id, name: p.name, color: p.color, is_active: !p.inactiveFrom })),
+    players: PLAYERS_SEED.map((p) => ({ id: p.id, name: p.name, color: p.color, is_active: !p.inactiveFrom, since: p.since })),
     games,
   };
 }

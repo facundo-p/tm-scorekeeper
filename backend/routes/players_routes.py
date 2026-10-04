@@ -108,7 +108,7 @@ def list_players(active: Optional[bool] = Query(default=None)):
             is_active=p.is_active,
             elo=p.elo,
             color=p.color,
-            since=since.get(p.player_id),
+            since=p.joined_on or since.get(p.player_id),
             seq=p.seq,
         )
         for p in players

@@ -33,3 +33,18 @@ export function useSaveGame(onSaved: (id: string) => void) {
     },
   })
 }
+
+export interface PlayerWrite { name?: string; color?: string; is_active?: boolean }
+
+/** Alta (POST) o edición (PATCH) de un jugador; 409 si el color ya lo usa otro activo. */
+export function useSavePlayer(onSaved: () => void) {
+  const client = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, body }: { id: string | null; body: PlayerWrite }) =>
+      http<unknown>(id ? `/players/${encodeURIComponent(id)}` : '/players/', { method: id ? 'PATCH' : 'POST', body: JSON.stringify(body) }),
+    onSuccess: () => {
+      onSaved()
+      void client.invalidateQueries()
+    },
+  })
+}
