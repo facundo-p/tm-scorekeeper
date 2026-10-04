@@ -5,6 +5,7 @@ from models.game_subset import GameSubset
 from repositories.container import games_repository
 from services.stats.context import StatsContext
 from services.stats.elo_replay import replay_elo
+from services.achievement_evaluators.derive import derive_achievements
 from tests.golden.adapters import (
     elo_from_changes,
     elo_from_golden,
@@ -76,3 +77,16 @@ def test_full_replay_equals_stored_history(client):
     replay = replay_elo(StatsContext.load(games_repository))
     for game_id, changes in replay.per_game.items():
         assert elo_from_changes(client.get(f"/games/{game_id}/elo").json()) == elo_from_replay(changes), game_id
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("achievements"))
+def test_derived_achievements(seeded, golden, scope):
+    """Motor de logros derivados (F23, STAT-04, STAT-06) contra el golden, sin filtro y por mesa."""
+    expected = golden_scope(golden, scope)["achievements"]
+    derived = derive_achievements(StatsContext.load(games_repository, _subset(scope)), list(expected))
+    for pid, states in derived.items():
+        got = {s.definition.code: {
+            "tier": s.tier, "value": s.value, "progress": None if s.progress is None else vars(s.progress),
+            "unlocked": [{"level": u.level, "date": u.date.isoformat(), "game_id": u.game_id} for u in s.unlocks],
+        } for s in states}
+        assert got == expected[pid], pid

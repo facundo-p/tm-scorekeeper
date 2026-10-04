@@ -4,3 +4,4 @@
 positions: [all]
 elo: [all, 2, 3, 4, 5]
 records: [all, 2, 3, 4, 5]
+achievements: [all, 2, 3, 4, 5]
