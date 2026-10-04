@@ -93,7 +93,7 @@ frontend/src/
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
-├── screens/          # v2.0: pantallas nuevas (Login, Home, Games, GameReport, Register, NotFound, y las de F31–F34)
+├── screens/          # v2.0: pantallas nuevas (Login, Home, Games, GameReport, Register, Ceremony, NotFound, y las de F32–F34)
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
@@ -139,3 +139,4 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - Partidas (`/partidas`, F29): archivo con actividad de 52 semanas, filtros (mapa, jugadores, mesa) y orden (`domain/sort.ts`); agrupado por mes cuando se ordena por fecha.
 - Informe (`/partidas/:id`, F29): héroe con el planeta en la región del mapa, puntaje final (barras o tabla), hitos y recompensas, ELO, récords y logros; eliminar pide confirmación e invalida todo el cache (`data/mutations.ts`).
 - Registrar (`/registrar`, F30) y editar (`/partidas/:id/editar`): asistente de 5 pasos con vista previa; el borrador vive en `sessionStorage`; guarda con `POST` (y abre la ceremonia) o `PUT` (y vuelve al informe). Lo puro (reductor, totales, validación) está en `screens/Register/model.ts` y la conversión con la API en `io.ts`.
+- Ceremonia (`/partidas/:id/ceremonia`, F31): marco desnudo (sin navegación) con el conteo por categoría, el ganador con confetti, el ELO, los récords y los logros. Se puede saltar; con reduced-motion abre en el final. Lo puro está en `screens/Ceremony/model.ts`.

@@ -137,7 +137,7 @@ export function Ceremony({ params }) {
       <span class="cer__map"><${MapGlyph} glyph=${MAPS[g.map].glyph} size=${26} />${g.map}<small>${fmtDate(g.date)}, ${g.generations} generaciones</small></span>
       ${phase < N + 5 && html`<${Button} variant="ghost" size="s" onClick=${skip}>Saltar animación</${Button}>`}
     </header>
-    <main class="cer__main">
+    <div class="cer__main">
       <p class="cer__status" aria-live="polite">${status}</p>
       <div class="cer__cat" key=${shown}>
         ${!tallyDone && cur && html`<span class=${`cer__catchip catkey--${cur.key}`}><${Icon} name=${cur.icon} size=${22} />${cur.long}</span>`}
@@ -154,6 +154,6 @@ export function Ceremony({ params }) {
         <${Button} variant="primary" size="l" onClick=${() => nav.go('game', { id: g.id })}>Ver informe completo</${Button}>
         <${Button} variant="ghost" icon="home" onClick=${() => nav.go('home')}>Volver al inicio</${Button}>
       </div>`}
-    </main>
+    </div>
   </div>`;
 }

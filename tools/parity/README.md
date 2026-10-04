@@ -50,4 +50,4 @@ Salidas en `out/<run>/` (ignorado por git): `report.html` (lado a lado, diferenc
 
 ## Chequeos funcionales
 
-`node tools/parity/functional/run.mjs` levanta la candidata y recorre flujos que tienen que andar, sin comparar con el mockup: por ahora, registrar una partida solo con el teclado en 390 y 1440 px (F30). Lo corre `gates.sh e2e` (y `all`).
+`node tools/parity/functional/run.mjs` levanta la candidata y recorre flujos que tienen que andar, sin comparar con el mockup: registrar una partida solo con el teclado en 390 y 1440 px (F30) y saltar la ceremonia con movimiento hasta volver al informe (F31). `--ids a,b` corre solo esos chequeos y `--verbose` muestra el error completo. Lo corre `gates.sh e2e` (y `all`).
