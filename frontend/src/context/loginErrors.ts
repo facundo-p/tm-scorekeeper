@@ -2,8 +2,8 @@ import { ApiError } from '@/api/client'
 
 const BY_STATUS: Record<number, string> = {
   401: 'Usuario o contraseña incorrectos.',
-  422: 'Completá usuario y contraseña.',
-  429: 'Demasiados intentos. Esperá 30 segundos y volvé a probar.',
+  422: 'Completá usuario y contraseña para entrar al archivo.',
+  429: 'Demasiados intentos fallidos. Esperá 30 segundos y volvé a probar.',
   503: 'El acceso no está configurado en el servidor.',
 }
 

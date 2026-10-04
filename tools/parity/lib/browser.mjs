@@ -26,7 +26,7 @@ export async function newPage(browser, viewportName, side, scenario) {
   await side.prepare?.(context, scenario);
   const page = await context.newPage();
   await page.clock.setFixedTime(new Date(FROZEN.time));
-  const log = watchConsole(page);
+  const log = watchConsole(page, scenario?.expectStatus ?? []);
   page.parityLog = log;
   return { context, page, log };
 }
@@ -39,13 +39,20 @@ async function blockExternal(context, side) {
   });
 }
 
-function watchConsole(page) {
+// Un recurso que responde con un estado esperado por el escenario (por ejemplo, el 401 de un login
+// equivocado) no es un error: Chromium lo anota en la consola igual.
+export const expectedResource = (text, statuses) =>
+  statuses.some((code) => text.includes(`Failed to load resource: the server responded with a status of ${code} `));
+
+function watchConsole(page, expectStatus) {
   const log = { errors: [], inflight: 0, lastNetwork: Date.now() };
   const done = () => { log.inflight = Math.max(0, log.inflight - 1); log.lastNetwork = Date.now(); };
   page.on('request', () => { log.inflight += 1; log.lastNetwork = Date.now(); });
   page.on('requestfinished', done);
   page.on('requestfailed', done);
-  page.on('console', (msg) => { if (msg.type() === 'error') log.errors.push(`console: ${msg.text()}`); });
+  page.on('console', (msg) => {
+    if (msg.type() === 'error' && !expectedResource(msg.text(), expectStatus)) log.errors.push(`console: ${msg.text()}`);
+  });
   page.on('pageerror', (err) => log.errors.push(`page: ${err.message}`));
   return log;
 }

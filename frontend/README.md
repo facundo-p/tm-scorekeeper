@@ -93,7 +93,7 @@ frontend/src/
 ├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
 ├── pages/            # Pantallas viejas (se muestran dentro del shell hasta portarse, D-69); Gallery/ es la galería de comparación
 ├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
-├── screens/          # v2.0: pantallas nuevas (NotFound, y las de F28–F34)
+├── screens/          # v2.0: pantallas nuevas (Login, Home, NotFound, y las de F29–F34)
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
@@ -130,3 +130,9 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - `ui/instruments/`: termómetro, arco de oxígeno, océanos, pista de puntaje, leyenda, barras de puntaje (con tabla), composición, sparkline, forma, gráfico de ELO (con tabla), matriz cara a cara, pista de TR y cambio de ELO. Reciben datos ya resueltos (`types.ts`); `data/instruments.ts` los arma desde la API. Lo puro (escalas, carriles, gradientes) está en funciones con tests.
 - `/__galeria?parte=instrumentos` (modo parity) los muestra con datos de la API, para compararlos con el mockup (D-73).
 - El CSS global de la app vieja (`src/index.css`) solo afecta a `[data-legacy]` (páginas viejas dentro de `Legacy`).
+
+### Pantallas (v2.0, F28–F34)
+
+- Cada pantalla vive en `screens/<Pantalla>/`: componentes chicos, un `*.module.css` portado de `screens.css` del mockup y lo puro en `model.ts` (con tests en `src/test/screens/`). Los datos salen de hooks de `data/hooks.ts`.
+- Acceso (`/acceso`, F28): login real; valida campos vacíos sin llamar al servidor y muestra los errores del servidor con los textos del mockup.
+- Inicio (`/`, F28): temporada en curso con el planeta interactivo, última partida, bitácora, consejo y carrera por promedio; la categoría (`?cat=`) y la mesa (`?mesa=`) viven en la URL y solo filtran la carrera.

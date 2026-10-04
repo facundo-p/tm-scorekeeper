@@ -33,6 +33,7 @@ Sale con 1 si falla un escenario exigido (`gateFromPhase` ≤ fase; en `--self`,
   cand: { path: /partidas, search: '?mesa=3' }
   viewports: [desktop, mobile]   # por defecto, los dos
   fresh: false                   # true: sin sesión en la app
+  expectStatus: [401]            # respuestas HTTP esperadas: su aviso en la consola no cuenta como error
   planet: required               # none: la pantalla no tiene planeta
   actions:                       # por rol accesible, iguales en los dos lados
     - click: { role: button, name: Ganador }

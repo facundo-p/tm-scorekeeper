@@ -1,7 +1,7 @@
 // TanStack Query envuelto en hooks con la forma del skill new-hook (D-10): cada hook devuelve
 // { <dato>, loading, error, refetch }. La clave de cache es la ruta con su query string, así
 // el filtro (por ejemplo ?player_count=) siempre separa las entradas.
-import { QueryClient, useQuery } from '@tanstack/react-query'
+import { keepPreviousData, QueryClient, useQuery } from '@tanstack/react-query'
 import { ApiError, http } from '@/api/http'
 
 export function createQueryClient() {
@@ -33,11 +33,16 @@ export interface ApiQuery<T> {
 }
 
 /** GET de la API con cache por ruta; `enabled: false` no pide nada. */
-export function useApiQuery<T>(path: string, enabled = true): ApiQuery<T> {
+/**
+ * `keepPrevious`: al cambiar un filtro (otra clave de la misma vista) se sigue mostrando el dato
+ * anterior hasta que llega el nuevo, en vez de volver al estado de carga.
+ */
+export function useApiQuery<T>(path: string, enabled = true, keepPrevious = false): ApiQuery<T> {
   const query = useQuery({
     queryKey: [path],
     queryFn: ({ signal }) => http<T>(path, { signal }),
     enabled,
+    placeholderData: keepPrevious ? keepPreviousData : undefined,
   })
   return { data: query.data, loading: query.isPending && enabled, error: query.error, refetch: () => void query.refetch() }
 }

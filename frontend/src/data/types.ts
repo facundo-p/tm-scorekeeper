@@ -75,12 +75,15 @@ export interface EloChange {
 
 /** Informe de una partida (GET /games/{id}/report); solo lo que usa el frontend por ahora. */
 export interface GameReport {
-  game: { id: string; date: string; map_name: string; expansions: string[]; generations: number }
+  game: { id: string; date: string; map: string; expansions: string[]; draft: boolean; generations: number }
   results: ReportResult[]
   winners: string[]
   margin: number
   decided_by_mc: boolean
   elo: EloChange[]
+  records_broken: { code: string; title: string; player_id: string }[]
+  /** Por jugador, cada logro con el nivel más alto alcanzado y cuántos niveles subió en la partida. */
+  achievements_by_player: Record<string, { code: string; tier: number; levels: number }[]>
 }
 
 export interface PlayerEloHistory {
@@ -100,4 +103,65 @@ export interface PlayerInsights {
 export interface HeadToHead {
   view: 'all' | 'mesa'
   matrix: Record<string, Record<string, { games: number; ahead: number; behind: number; even: number }>>
+}
+
+export interface FormEntry { position: number; n: number; game_id: string }
+
+/** Fila de la clasificación (GET /ranking). */
+export interface RankingRow {
+  player_id: string
+  name: string
+  color: string
+  rank: number
+  elo: number
+  peak: number | null
+  last_delta: number | null
+  games: number
+  wins: number
+  win_rate: number
+  form: FormEntry[]
+  archetype: string | null
+  elo_series: { date: string; game_id: string; elo: number; delta: number }[]
+}
+
+export interface Ranking {
+  view: 'all' | 'mesa'
+  players: RankingRow[]
+  lead_changes: { date: string; game_id: string; player_id: string | null }[]
+}
+
+export interface SplitStat { name: string; games: number; wins: number; avg: number; avg_pos: number }
+
+/** Resumen del grupo (GET /stats/summary). */
+export interface GroupSummary {
+  view: 'all' | 'mesa'
+  games: number
+  generations: number
+  avg_winner: number
+  avg_generations: number
+  first: string | null
+  last: string | null
+  top_corp: SplitStat | null
+  corps_used: number
+  top_map: SplitStat | null
+}
+
+/** Fila del archivo de partidas (GET /games/summaries), de la más nueva a la más vieja. */
+export interface GameSummary {
+  id: string
+  date: string
+  map: string
+  expansions: string[]
+  generations: number
+  draft: boolean
+  player_count: number
+  winners: string[]
+  margin: number
+  decided_by_mc: boolean
+  scores: { player_id: string; position: number; total_points: number; corporation: string }[]
+}
+
+export interface Seasons {
+  seasons: Season[]
+  champions: { number: number; end: string; player_id: string | null }[]
 }

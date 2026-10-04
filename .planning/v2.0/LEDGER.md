@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F27 · Efectos e instrumentos |
-| Issue | 27.x (#123–#124) |
-| Paso | 27-B (instrumentos) en implementación |
+| Fase | F28 · Acceso e inicio |
+| Issue | 28.x (#125–#126) |
+| Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | 8cc3a7f (merge #162 en origin/staging) |
+| Último commit | cad4b40 (merge #163 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F27-A (planeta WebGL2, D-71/D-72) y luego F27-B (instrumentos).
+**Próximo paso:** F28 — Acceso e Inicio (escenarios login*, home*, season-rules).
 
 ## Tablero (GitHub)
 
@@ -80,3 +80,4 @@
 - 2026-10-04 — F26 implementada: shell (cielo, barra, rail, dock), rutas D-02 con redirecciones y 404, `http.ts` con errores tipados, TanStack Query, filtro de mesa. Comparación: `404`, `state-loading` y `state-error` al 0 % en escritorio y móvil (planeta exento hasta F27, D-70). La corrida de `--phase 26` recorría los 77 escenarios y no entraba en 25 min: nuevo `--gated` (solo los exigidos), que usa `gates.sh`.
 - 2026-10-04 — F26 mergeada (#161 → `cc79972`; revisión: ronda 1 APPROVE con 4 minor y 3 nit: corregidos salvo el label repetido de rail/dock, que espeja el árbol del mockup). Issues #119–#122 cerrados. Rama reseteada a `origin/staging`. F27 partida en A/B (D-71).
 - 2026-10-04 — F27-A mergeada (#162 → `8cc3a7f`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos: respaldo si el chunk no carga, arrastre reactivo, tests de ciclo de vida, host por `[data-device]`). Planeta al 0 % en `planet-parked` y el shell. Issue #123 cerrado. Rama reseteada.
+- 2026-10-04 — F27-B mergeada (#163 → `cad4b40`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: casos vacíos, error en la galería; corregidos). `gal-instruments` al 0 %; el reset global viejo acotado a `[data-legacy]` (D-73). Issue #124 cerrado. **F27 completa.** Rama reseteada.
