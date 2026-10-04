@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Archivo de Terraformación — IN PROGRESS
 status: executing
-stopped_at: Phase 21 complete
+stopped_at: Phase 22 complete
 last_updated: "2026-10-03T22:20:00.000Z"
 last_activity: 2026-10-03
 progress:
   total_phases: 22
-  completed_phases: 7
-  total_plans: 27
-  completed_plans: 27
-  percent: 32
+  completed_phases: 8
+  total_plans: 30
+  completed_plans: 30
+  percent: 36
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros se derivan del historial (D-04 v2.0).
-**Current focus:** v2.0 Phase 22 — subconjuntos-records (estado vivo en `.planning/v2.0/LEDGER.md`)
+**Current focus:** v2.0 Phase 23 — logros-derivados (estado vivo en `.planning/v2.0/LEDGER.md`)
 
 ## Current Position
 
-Phase: 22
-Plan: 22-01
-Status: Fases 15–21 completas
-Last activity: 2026-10-03 - F21 mergeada (#152)
+Phase: 23
+Plan: 23-01
+Status: Fases 15–22 completas
+Last activity: 2026-10-03 - F22 mergeada (#153)
 
-Progress: [███       ] 32%
+Progress: [████      ] 36%
 
 ## Performance Metrics
 

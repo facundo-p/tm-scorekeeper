@@ -1,4 +1,5 @@
 import pytest
+from sqlalchemy import text
 from db.models import Base
 from db.session import DATABASE_URL, engine
 from tests.db_guard import EXIT_CODE, TEST_DB_SUFFIX, database_name, is_test_database
@@ -16,10 +17,13 @@ def pytest_configure(config):
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_db():
-    # Se recrea en cada sesión para que el esquema siga a los modelos (restricciones nuevas
-    # incluidas); la guarda de arriba garantiza que es una base *_test.
-    assert is_test_database(DATABASE_URL), "drop_all solo sobre una base *_test"
-    Base.metadata.drop_all(bind=engine)
+    # Se recrea en cada sesión para que el esquema siga a los modelos (restricciones nuevas y
+    # tablas retiradas incluidas); la guarda de arriba garantiza que es una base *_test.
+    assert is_test_database(DATABASE_URL), "el esquema se recrea solo sobre una base *_test"
+    with engine.begin() as conn:
+        conn.execute(text("DROP SCHEMA public CASCADE"))
+        conn.execute(text("CREATE SCHEMA public"))
+        conn.execute(text("GRANT ALL ON SCHEMA public TO public"))
     Base.metadata.create_all(bind=engine)
     yield
 
