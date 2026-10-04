@@ -20,8 +20,9 @@ Resolve, from the prompt or the mockup catalog (`docs/redesign/mockup/js/data/ca
 - **glyph**: icon of the redesign (`frontend/src/ui/icons`); **fallback_icon**: a Lucide name the
   pre-F28 frontend knows (`frontend/src/components/AchievementIcon/AchievementIcon.tsx`)
 
-The mockup is the reference implementation (`derive.js`, `achievementMetrics`): add the achievement
-there too and regenerate the golden (`node tools/fixtures/export.mjs`).
+The mockup is the reference implementation: add the definition to `ACHIEVEMENTS` in
+`docs/redesign/mockup/js/data/catalog.js` and the metric to `achievementMetrics` in `derive.js`,
+then regenerate the golden (`node tools/fixtures/export.mjs`).
 
 ## Architecture
 

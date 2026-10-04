@@ -14,7 +14,7 @@ Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad
 **v1.0 cleanup shipped** — gaps del audit cerrados (2026-04-28)
 **v1.1 Phase 8 shipped** — `GET /elo/history` endpoint live (2026-04-29) — backend listo para alimentar el chart de Ranking
 
-- Backend: 4 tipos de evaluadores (strategy pattern) registrando **12 definiciones** en `ALL_EVALUATORS`. `AchievementsService` centralizado como singleton en `services/container.py`.
+- Backend (v1.0): 4 tipos de evaluadores (strategy pattern) registrando **12 definiciones** en `ALL_EVALUATORS`. `AchievementsService` centralizado como singleton en `services/container.py`. Desde v2.0 (F23) los reemplaza el motor derivado de `services/achievement_evaluators/{catalog,metrics,tiers,derive}.py`, con 18 logros.
 - Integración: evaluación automática post-partida, 3 endpoints REST
 - Frontend: badges en fin de partida con retry-once-on-failure observable; perfil con tabs (Stats/Records/Logros); catálogo global. Componentes limpios — sin props muertos.
 - Herramientas: reconciliador con garantía no-downgrade
