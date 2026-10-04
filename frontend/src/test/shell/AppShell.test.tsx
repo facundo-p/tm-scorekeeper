@@ -60,7 +60,7 @@ describe('shell y rutas', () => {
 
   it.each([
     ['/home', '/'], ['/games', '/partidas'], ['/games/new', '/registrar'], ['/achievements', '/logros'],
-    ['/players/p-facu/profile', '/jugadores/p-facu'],
+    ['/players/p-facu/profile', '/jugadores/p-facu'], ['/games/g-001', '/partidas/g-001'],
   ])('old route %s redirects to %s (D-02)', async (from, to) => {
     localStorage.setItem(TOKEN_KEY, 'tok')
     renderAt(from)

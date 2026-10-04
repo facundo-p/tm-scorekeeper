@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Arnés de comparación visual y estructural mockup ↔ app (v2.0, F16).
-//   node tools/parity/run.mjs --phase NN [--screens …]       mockup contra la app
+//   node tools/parity/run.mjs --phase NN [--gated] [--screens …]  mockup contra la app (--gated: solo los exigidos)
 //   node tools/parity/run.mjs --self [--ref mockup@<sha>]     mockup contra sí mismo (o contra una versión vieja)
 // Sale con 1 si falla algún escenario exigido.
 import { mkdirSync } from 'node:fs';
@@ -88,7 +88,8 @@ async function main() {
   const run = `${new Date().toISOString().replace(/[:.]/g, '-')}-${opts.mode}`;
   const dir = resolve(opts.out ?? resolve(OUT_DIR, run));
   mkdirSync(dir, { recursive: true });
-  const scenarios = loadScenarios(opts);
+  // --gated: solo los escenarios que ya bloquean en esta fase (los demás tardan y solo avisan).
+  const scenarios = loadScenarios(opts).filter((s) => !opts.gated || isGated(s, opts));
   const jobs = scenarios.flatMap((s) => s.viewports.filter((v) => !opts.viewports || opts.viewports.includes(v)).map((v) => [s, v]));
   const { ref, cand } = await sides(opts);
   const browser = await launch();

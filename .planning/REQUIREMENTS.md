@@ -36,10 +36,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **VIS-02**: Tokens, base y tipografías locales del mockup portados a `frontend/src/styles/`; íconos en `src/ui/icons`
 - [x] **VIS-03**: Átomos con CSS Modules, Sheet accesible y estados de carga/error/vacío con tests
 - [x] **VIS-04**: Dominio `src/domain/{catalog,labels,format,cssVars}.ts` y galería de comparación
-- [ ] **SHELL-01**: Shell con escenario, cielo, barra superior, rail en escritorio y dock con FAB en móvil, con container queries
-- [ ] **SHELL-02**: Rutas D-02 con redirecciones, carga diferida, 404 y error boundary
-- [ ] **SHELL-03**: Cliente HTTP con Bearer, timeout, abort y errores tipados; TanStack Query en hooks
-- [ ] **SHELL-04**: `MesaFilter`, `useMesaParam()` y aviso reutilizables
+- [x] **SHELL-01**: Shell con escenario, cielo, barra superior, rail en escritorio y dock con FAB en móvil, con container queries
+- [x] **SHELL-02**: Rutas D-02 con redirecciones, carga diferida, 404 y error boundary
+- [x] **SHELL-03**: Cliente HTTP con Bearer, timeout, abort y errores tipados; TanStack Query en hooks
+- [x] **SHELL-04**: `MesaFilter`, `useMesaParam()` y aviso reutilizables
 - [ ] **FX-01**: Planeta WebGL2 en TS (`PlanetStage` + `PlanetSlot`) en chunk aparte con respaldo CSS; estrellas y confeti
 - [ ] **FX-02**: Instrumentos SVG que reemplazan a recharts
 
@@ -120,10 +120,10 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | VIS-02 | Phase 19 | Complete |
 | VIS-03 | Phase 19 | Complete |
 | VIS-04 | Phase 19 | Complete |
-| SHELL-01 | Phase 26 | Pending |
-| SHELL-02 | Phase 26 | Pending |
-| SHELL-03 | Phase 26 | Pending |
-| SHELL-04 | Phase 26 | Pending |
+| SHELL-01 | Phase 26 | Complete |
+| SHELL-02 | Phase 26 | Complete |
+| SHELL-03 | Phase 26 | Complete |
+| SHELL-04 | Phase 26 | Complete |
 | FX-01 | Phase 27 | Pending |
 | FX-02 | Phase 27 | Pending |
 | SEC-01 | Phase 20 | Complete |

@@ -7,6 +7,7 @@ bash scripts/dev/bootstrap.sh                        # instala node_modules de e
 node tools/parity/run.mjs --self --phase 16          # mockup contra sí mismo (≤ 0,01 %)
 node tools/parity/run.mjs --self --ref mockup@<sha>  # una versión vieja del mockup contra la actual
 node tools/parity/run.mjs --phase 28 --screens inicio # mockup contra la app (levanta tm_parity, uvicorn y vite preview)
+node tools/parity/run.mjs --phase 28 --gated         # solo los escenarios que ya bloquean en la fase (lo usa gates.sh)
 npm --prefix tools/parity test                       # tests unitarios del arnés
 ```
 

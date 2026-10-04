@@ -29,7 +29,7 @@ describe('http', () => {
   it('lets an external cancellation through untouched', async () => {
     fetchMock.mockImplementation(hanging)
     const controller = new AbortController()
-    const pending = http('/feed', { signal: controller.signal }).catch((e) => e)
+    const pending = http<never>('/feed', { signal: controller.signal }).catch((e: Error) => e)
     controller.abort()
     const error = await pending
     expect(error).not.toBeInstanceOf(ApiError)
