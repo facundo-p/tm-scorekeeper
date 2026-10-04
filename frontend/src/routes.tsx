@@ -17,7 +17,7 @@ const GameReport = lazy(() => import('@/screens/GameReport/GameReport'))
 const Register = lazy(() => import('@/screens/Register/Register'))
 const Ceremony = lazy(() => import('@/screens/Ceremony/Ceremony'))
 const Ranking = lazy(() => import('@/screens/Ranking/Ranking'))
-const OldProfile = lazy(() => import('@/pages/PlayerProfile/PlayerProfile'))
+const Profile = lazy(() => import('@/screens/Profile/Profile'))
 const OldRecords = lazy(() => import('@/pages/Records/Records'))
 const OldAchievements = lazy(() => import('@/pages/AchievementCatalog/AchievementCatalog'))
 
@@ -58,7 +58,7 @@ export function AppRoutes() {
         <Route path="registrar" element={<Register />} />
         <Route path="ranking" element={<Ranking />} />
         <Route path="jugadores" element={<RedirectWith to={PATHS.ranking} />} />
-        <Route path="jugadores/:playerId" element={legacy(OldProfile)} />
+        <Route path="jugadores/:playerId" element={<Profile />} />
         <Route path="records" element={legacy(OldRecords)} />
         <Route path="logros" element={legacy(OldAchievements)} />
         <Route path="*" element={<NotFound />} />

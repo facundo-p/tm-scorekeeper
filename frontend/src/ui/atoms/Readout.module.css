@@ -29,3 +29,9 @@
 .readout--accent .readout__value {
   color: var(--mc);
 }
+
+/* screens.css: `.phero__grid .readout__value` (perfil). */
+.readout--display .readout__value {
+  font-family: var(--display);
+  font-size: 1.45rem;
+}

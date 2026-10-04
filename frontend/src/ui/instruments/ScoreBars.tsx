@@ -8,7 +8,7 @@ import type { ResultRow, ScoredGame, ScoreKey } from './types'
 import { TableWrap } from './TableWrap'
 import styles from './instruments.module.css'
 
-const catClass = (key: string) => cx(styles.catkey, styles[`catkey--${key}`])
+export const catClass = (key: string) => cx(styles.catkey, styles[`catkey--${key}`])
 const scoreOf = (r: ResultRow, key: string) => r.scores[key as ScoreKey] ?? 0
 
 /** Categorías de una partida: Turmoil solo si se jugó con esa expansión. */

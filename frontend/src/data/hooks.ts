@@ -2,7 +2,8 @@
 import type { TableSize } from '@/ui/MesaFilter'
 import { apiPath, useApiQuery } from './query'
 import type {
-  FeedItem, GameReport, GameSummary, GroupSummary, HeadToHead, PlayerEloHistory, PlayerInsights, PlayerSummary, Ranking, Season, Seasons,
+  CatalogAchievement, FeedItem, GameReport, GameSummary, GroupRecord, GroupSummary, HeadToHead, PlayerAchievement, PlayerEloHistory,
+  PlayerInsights, PlayerSummary, Ranking, Season, Seasons,
 } from './types'
 
 export function useFeed(options: { mesa?: TableSize | null; limit?: number } = {}) {
@@ -59,4 +60,20 @@ export function useGameSummaries(options: { mesa?: TableSize | null } = {}) {
 export function useSeasons() {
   const { data, ...rest } = useApiQuery<Seasons>('/seasons')
   return { seasons: data, ...rest }
+}
+
+export function usePlayerAchievements(playerId: string, options: { mesa?: TableSize | null } = {}) {
+  const path = apiPath(`/players/${encodeURIComponent(playerId)}/achievements`, { player_count: options.mesa })
+  const { data, ...rest } = useApiQuery<{ achievements: PlayerAchievement[] }>(path, true, true)
+  return { achievements: data?.achievements, ...rest }
+}
+
+export function useAchievementCatalog(options: { mesa?: TableSize | null } = {}) {
+  const { data, ...rest } = useApiQuery<{ achievements: CatalogAchievement[] }>(apiPath('/achievements/catalog', { player_count: options.mesa }))
+  return { catalog: data?.achievements, ...rest }
+}
+
+export function useRecords(options: { mesa?: TableSize | null } = {}) {
+  const { data, ...rest } = useApiQuery<GroupRecord[]>(apiPath('/records', { player_count: options.mesa }), true, true)
+  return { records: data, ...rest }
 }
