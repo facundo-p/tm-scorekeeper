@@ -131,7 +131,10 @@ class TestResponseShape:
         res = client.put(f"/games/{gid}", json=update_payload)
         assert res.status_code == 200
         body = res.json()
-        assert body == {"message": "Game updated successfully"}
+        # Desde F24 (STAT-10) editar devuelve también el informe; el mensaje se conserva.
+        assert body["message"] == "Game updated successfully"
+        assert body["report"]["winners"] == ["p2"]
+        assert "elo_changes" not in body
 
 
 class TestCascadeInvariant:

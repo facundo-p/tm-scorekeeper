@@ -13,6 +13,8 @@ from tests.golden.adapters import (
     positions_from_golden,
     positions_from_results,
     record_shape,
+    report_from_api,
+    summary_from_api,
 )
 from tests.golden.conftest import enabled_scopes, golden_scope
 
@@ -97,3 +99,20 @@ def test_stored_unlocks_match_the_derived_view(client, golden):
                for pid, by_code in golden["all"]["achievements"].items()
                for code, a in by_code.items() for u in a["unlocked"]}
     assert stored == derived
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("summaries"))
+def test_summaries(client, golden, scope):
+    """Filas del archivo, de la más nueva a la más vieja (STAT-09)."""
+    got = [summary_from_api(s) for s in client.get(f"/games/summaries{_query(scope)}").json()]
+    assert got == golden_scope(golden, scope)["summaries"]
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("reports"))
+def test_reports(client, golden, scope):
+    """Informe de cada partida (STAT-10): récords rotos, igualados y cerca, logros y robos."""
+    for game_id, expected in golden_scope(golden, scope)["reports"].items():
+        body = client.get(f"/games/{game_id}/report").json()
+        assert report_from_api(body) == expected, game_id
+        assert positions_from_results({"results": body["results"]}) == positions_from_golden(
+            golden_scope(golden, scope)["positions"][game_id]), game_id

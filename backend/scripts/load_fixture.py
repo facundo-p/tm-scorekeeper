@@ -41,7 +41,7 @@ def _insert(session, seed: dict) -> None:
     from repositories.container import games_repository
     from schemas.game import GameDTO
 
-    session.add_all(PlayerORM(id=p["id"], name=p["name"], is_active=p["is_active"], elo=1000) for p in seed["players"])
+    session.add_all(PlayerORM(id=p["id"], name=p["name"], is_active=p["is_active"], elo=1000, color=p["color"]) for p in seed["players"])
     session.flush()
     for raw in seed["games"]:
         session.add(games_repository.to_orm(game_dto_to_model(GameDTO(**raw))))

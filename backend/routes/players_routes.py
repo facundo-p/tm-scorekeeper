@@ -8,6 +8,7 @@ from services.player_service import PlayerService
 from services.container import achievements_service, elo_service
 from typing import Optional
 from schemas.achievement import PlayerAchievementsResponseDTO
+from models.player_colors import ColorTaken
 from mappers.achievement_mapper import player_achievement_to_dto
 from models.game_subset import GameSubset
 from routes.dependencies import table_subset, view_of
@@ -71,6 +72,8 @@ def get_player_elo_summary(player_id: str):
 def create_player(dto: PlayerCreateDTO):
     try:
         player_id = player_service.create_player(dto)
+    except ColorTaken as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     
@@ -87,19 +90,24 @@ def update_player(player_id: str, dto: PlayerUpdateDTO):
             status_code=404,
             detail=f"Player '{player_id}' not found",
         )
+    except ColorTaken as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    
+
 # Devuelve la lista de jugadores con query opcional para filtrar activos y no activos.
 @router.get("/", response_model=list[PlayerResponseDTO])
 def list_players(active: Optional[bool] = Query(default=None)):
     players = player_service.get_players(active=active)
+    since = player_service.first_game_dates()
     return [
         PlayerResponseDTO(
             player_id=p.player_id,
             name=p.name,
             is_active=p.is_active,
             elo=p.elo,
+            color=p.color,
+            since=since.get(p.player_id),
         )
         for p in players
     ]

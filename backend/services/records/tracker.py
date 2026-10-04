@@ -44,7 +44,7 @@ class GameBest:
 @dataclass
 class GameRecordTrack:
     states: dict[str, RecordState] = field(default_factory=dict)
-    broken: dict[str, set[str]] = field(default_factory=dict)  # game_id → códigos rotos
+    broken: dict[str, dict[str, RecordState]] = field(default_factory=dict)  # game_id → código → récord previo
 
 
 def game_best(rec: RecordDef, gs: GameStats) -> Optional[GameBest]:
@@ -91,7 +91,8 @@ def track_game_records(ctx: StatsContext) -> GameRecordTrack:
             best = game_best(rec, gs) if rec.scope == "game" else None
             if best is None:
                 continue
-            track.states[rec.code], broke = step_record(rec, track.states[rec.code], best, gs)
+            previous = track.states[rec.code]
+            track.states[rec.code], broke = step_record(rec, previous, best, gs)
             if broke:
-                track.broken.setdefault(gs.id, set()).add(rec.code)
+                track.broken.setdefault(gs.id, {})[rec.code] = previous
     return track

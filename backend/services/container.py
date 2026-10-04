@@ -14,6 +14,7 @@ from repositories.container import (
 from services.achievements_service import AchievementsService
 from services.auth_service import AuthService
 from services.derived_service import DerivedService
+from services.report_service import GameReportService
 from services.elo_service import EloService
 
 
@@ -33,6 +34,12 @@ derived_service = DerivedService(
     elo_service=elo_service,
     achievements_service=achievements_service,
     app_meta_repository=app_meta_repository,
+)
+
+report_service = GameReportService(
+    games_repository=games_repository,
+    elo_repository=elo_repository,
+    achievements_service=achievements_service,
 )
 
 auth_service = AuthService()
