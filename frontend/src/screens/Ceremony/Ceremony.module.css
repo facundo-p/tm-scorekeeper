@@ -398,3 +398,18 @@
     transform: none;
   }
 }
+
+/* Con reduced-motion la ceremonia abre en el final: sin animaciones de entrada (D-86). Con 1 ms
+   (base.css) quedaban en su primer cuadro si el compositor no llegaba a arrancarlas (Chromium sin
+   GPU y con carga): el ganador, las barras y los bloques no se veían. Su estado base es el final. */
+@media (prefers-reduced-motion: reduce) {
+  .cer__cat,
+  .tally__bar i,
+  .cer-win,
+  .cer-block,
+  .cer-rec,
+  .cer-ach li,
+  .cer__actions {
+    animation: none;
+  }
+}

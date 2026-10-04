@@ -1,31 +1,38 @@
 # Backend
 
-This folder contains the FastAPI application and logic.  Most of the work happens here.
+API FastAPI (Python 3.12, SQLAlchemy 2, Alembic) sobre PostgreSQL. Guarda partidas y jugadores. Todo lo demás se deriva del historial (D-04):
+- ELO y ELO de mesa;
+- récords;
+- logros;
+- temporadas;
+- estadísticas.
 
-## Database
+## Base de datos
 
-The app expects a PostgreSQL instance configured via the `DATABASE_URL` environment
-variable.  When running locally we recommend using the Docker compose file at the
-project root:
+La app lee `DATABASE_URL`. En local conviene el `docker-compose.yml` de la raíz:
 
 ```bash
-# start the database container
-docker compose up -d
-
-# point the app/tests to it (the default value is shown below)
-# Mac
+docker compose up -d   # levanta PostgreSQL
 export DATABASE_URL="postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper"
-# Windows
-$env:DATABASE_URL="postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper"
 ```
 
-The `session.py` module will fall back to the above URL if `DATABASE_URL` is not set.
+Si `DATABASE_URL` no está definida, `db/session.py` usa ese mismo valor. Para bajar todo y borrar los datos: `docker compose down -v`.
 
-To stop and wipe data:
+## API
 
-```bash
-docker compose down -v
-```
+Todo exige `Authorization: Bearer` salvo `/health`, `/auth/login` y la documentación de FastAPI (`/docs`, `/redoc`, `/openapi.json`). Los endpoints que aceptan `?player_count=2..5` muestran la vista «mesa»: se calcula sobre ese subconjunto y nunca se guarda.
+
+| Recurso | Endpoints |
+|---|---|
+| Sesión | `POST /auth/login`, `GET /auth/me`, `GET /health` |
+| Partidas | `GET /games/`, `POST /games/`, `PUT /games/{id}`, `DELETE /games/{id}`, `GET /games/summaries` (archivo con subconjunto), `GET /games/{id}/report` (informe) |
+| Jugadores | `GET /players/`, `POST /players/`, `PATCH /players/{id}`, `GET /players/{id}/insights` (ficha), `GET /players/{id}/achievements` |
+| Grupo | `GET /ranking`, `GET /stats/head-to-head`, `GET /stats/summary`, `GET /elo/history` |
+| Récords y logros | `GET /records/`, `GET /records/{code}/history`, `GET /achievements/catalog` |
+| Temporadas | `GET /seasons`, `GET /seasons/current`, `GET /seasons/{n}`, `GET /feed` (bitácora) |
+| Administración | `POST /admin/recompute` (con `X-Admin-Secret`) |
+
+La lista completa con sus schemas está en `/docs` (OpenAPI) del servidor. Los cambios de contrato de cada fase de v2.0 están más abajo.
 
 ## Autenticación
 

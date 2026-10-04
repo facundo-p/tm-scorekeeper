@@ -1,6 +1,6 @@
 # tm-scorekeeper — Frontend
 
-Interfaz web de la aplicación construida con React 18 + TypeScript + Vite. Se comunica con el backend FastAPI a través de un proxy en desarrollo.
+Interfaz web de la aplicación construida con React 18 + TypeScript + Vite: el port del mockup del rediseño (`docs/redesign/mockup/`) con datos reales. Se comunica con el backend FastAPI a través de un proxy en desarrollo.
 
 ---
 
@@ -59,7 +59,7 @@ npm test
 npm run test:ui
 ```
 
-Los tests viven en `src/test/`: `unit/` (dominio, cliente HTTP, la regla de estilos y el catálogo frente a los enums del backend), `ui/` (átomos, hoja y estados del sistema visual v2.0), `shell/`, `fx/`, `instruments/` y `screens/`. Los recorridos de punta a punta (registrar solo con el teclado, saltar la ceremonia) son chequeos funcionales del arnés de comparación (`tools/parity/functional`, D-81).
+Los tests viven en `src/test/`: `unit/` (dominio, cliente HTTP, la regla de estilos y el catálogo frente a los enums del backend), `ui/` (átomos, hoja y estados del sistema visual), `shell/`, `fx/`, `instruments/` y `screens/`. Los recorridos de punta a punta (registrar solo con el teclado, saltar la ceremonia) son chequeos funcionales del arnés de comparación (`tools/parity/functional`, D-81).
 
 ### Lint
 
@@ -91,21 +91,21 @@ Lo corren CI y `gates.sh`.
 frontend/src/
 ├── api/              # http.ts (Bearer, 15 s, cancelación, ApiError), client.ts y auth.ts (login y sesión)
 ├── context/          # AuthContext (sesión en localStorage)
-├── data/             # v2.0: TanStack Query (query.ts), hooks de lectura (hooks.ts), escrituras (mutations.ts) y tipos de la API (types.ts)
-├── domain/           # v2.0: catálogo del juego (mapas con sus hitos y recompensas, expansiones, corporaciones), etiquetas en castellano, formato es-AR y cssVars()
-├── fx/               # v2.0: cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
-├── routes.tsx        # v2.0: rutas en castellano (D-02), redirecciones de las viejas, 404
-├── screens/          # v2.0: pantallas (Login, Home, Games, GameReport, Register, Ceremony, Ranking, Profile, Records, Achievements, NotFound) y Gallery/, la galería de comparación
-├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts) y ProtectedRoute
-├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
-├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/
+├── data/             # TanStack Query (query.ts), hooks de lectura (hooks.ts), escrituras (mutations.ts) y tipos de la API (types.ts)
+├── domain/           # catálogo del juego (mapas con sus hitos y recompensas, expansiones, corporaciones), etiquetas en castellano, formato es-AR y cssVars()
+├── fx/               # cielo (stars.ts), planeta WebGL2 (planet/), confeti y generador determinístico (rand.ts)
+├── routes.tsx        # rutas en castellano (D-02), redirecciones de las rutas de v1, 404
+├── screens/          # pantallas (Login, Home, Games, GameReport, Register, Ceremony, Ranking, Profile, Records, Achievements, NotFound) y Gallery/, la galería de comparación
+├── shell/            # AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts) y ProtectedRoute
+├── styles/           # tokens, tipografías y base del sistema visual (los carga ui/frame)
+├── ui/               # atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/
 └── test/
     ├── unit/         # Dominio, cliente HTTP, regla de estilos y catálogo frente al backend
-    ├── ui/           # Sistema visual v2.0
-    ├── shell/        # Shell, rutas y filtro de mesa (v2.0)
-    ├── fx/           # Planeta (deriva de shaders, motor), confeti (v2.0)
-    ├── instruments/  # Instrumentos SVG (v2.0)
-    └── screens/      # Pantallas y su lógica pura (v2.0)
+    ├── ui/           # Sistema visual (átomos, hoja y estados)
+    ├── shell/        # Shell, rutas y filtro de mesa
+    ├── fx/           # Planeta (deriva de shaders, motor), confeti
+    ├── instruments/  # Instrumentos SVG
+    └── screens/      # Pantallas y su lógica pura
 ```
 
 ### Sistema visual v2.0
