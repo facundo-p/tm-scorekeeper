@@ -20,7 +20,7 @@ Si `DATABASE_URL` no está definida, `db/session.py` usa ese mismo valor. Para b
 
 ## API
 
-Todo exige `Authorization: Bearer` salvo `/health` y `/auth/login`. Los endpoints que aceptan `?player_count=2..5` muestran la vista «mesa»: se calcula sobre ese subconjunto y nunca se guarda.
+Todo exige `Authorization: Bearer` salvo `/health`, `/auth/login` y la documentación de FastAPI (`/docs`, `/redoc`, `/openapi.json`). Los endpoints que aceptan `?player_count=2..5` muestran la vista «mesa»: se calcula sobre ese subconjunto y nunca se guarda.
 
 | Recurso | Endpoints |
 |---|---|
