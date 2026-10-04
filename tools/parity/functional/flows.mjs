@@ -83,16 +83,16 @@ export async function playerSheet(page, base, viewport) {
   const name = `Prueba ${viewport}`;
   await page.goto(`${base}/ranking`);
   const sheet = page.getByRole('dialog');
-  await page.getByRole('button', { name: `Editar a ${leaving}` }).click();
+  await page.getByRole('button', { name: `Editar a ${leaving}`, exact: true }).click();
   await sheet.getByRole('button', { name: 'Desactivar' }).click();
   await sheet.waitFor({ state: 'detached' });
   await page.getByRole('button', { name: 'Agregar jugador' }).click();
   await sheet.getByLabel('Nombre').fill(name);
   await sheet.getByRole('button', { name: 'Agregar jugador' }).click();
   await sheet.waitFor({ state: 'detached' });
-  await page.getByRole('button', { name: `Editar a ${name}` }).click();
+  await page.getByRole('button', { name: `Editar a ${name}`, exact: true }).click();
   await sheet.getByLabel('Nombre').fill(`${name} bis`);
   await sheet.getByRole('button', { name: 'Guardar cambios' }).click();
   await sheet.waitFor({ state: 'detached' });
-  await page.getByRole('button', { name: `Editar a ${name} bis` }).waitFor();
+  await page.getByRole('button', { name: `Editar a ${name} bis`, exact: true }).waitFor();
 }

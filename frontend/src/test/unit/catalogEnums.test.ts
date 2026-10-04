@@ -35,7 +35,8 @@ describe('catálogo frente a los enums del backend', () => {
 
   it('la hoja de jugador ofrece los mismos colores que el backend (D-84)', () => {
     const colors = readFileSync(resolve(__dirname, '../../../../backend/models/player_colors.py'), 'utf8')
-    const tuple = colors.match(/PLAYER_COLORS = \(([^)]*)\)/)![1]
+    const tuple = colors.match(/PLAYER_COLORS = \(([^)]*)\)/)?.[1]
+    if (!tuple) throw new Error('No está la tupla PLAYER_COLORS en models/player_colors.py')
     expect([...COLORS]).toEqual([...tuple.matchAll(/"([^"]+)"/g)].map((m) => m[1]))
   })
 })
