@@ -103,3 +103,7 @@ Criterio para resolver ambigüedades, en orden: (1) el prompt del milestone / `S
     - la historia del récord (escalera y pasos del monumento) está en `records`, `records-map`, `records-expansion` y `records-mesa4`.
 
     Como `shell` (D-70), quedan cubiertos por esos escenarios.
+- **D-86** Ceremonia con reduced-motion sin animaciones de entrada (F36).
+  - **El problema:** en la comparación completa de 36.1, `ceremony-g063` (escritorio) falló dos veces seguidas: planeta 12 %, alto 900 contra 1319 y un frame menos. La captura mostraba el estado final («Resultados finales», sin «Saltar») pero sin ganador, barras ni bloques.
+  - **La causa:** las animaciones de entrada (`win-in`, `seg-grow`, `plate-in`, …) usan `backwards`/`both`. Con reduced-motion duran 1 ms (`base.css`), pero en Chromium sin GPU y con la CPU cargada el compositor puede no arrancarlas, y quedan en su primer cuadro (opacidad 0, recorte vacío). Es lo mismo que D-77 vio con el `clip-path` de `ceremony-skip`. Con la CPU saturada, sin el arreglo una de tres corridas tuvo que reintentarse; con el arreglo, tres de tres limpias.
+  - **El arreglo:** con reduced-motion esos elementos usan `animation: none`; su estado base es el final, así que se ve igual. Además, quien pide menos movimiento no ve animaciones. El mockup no cambia, porque el resultado visual es el mismo.

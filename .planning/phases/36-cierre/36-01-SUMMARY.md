@@ -15,3 +15,4 @@
   - humo;
   - vuelta atrás.
 - **Catálogo completo (D-85):** tres escenarios nuevos y dos cubiertos por los existentes.
+- **Ceremonia estable (D-86):** sin animaciones de entrada con reduced-motion (la comparación completa la atrapó en su primer cuadro con la CPU cargada).
