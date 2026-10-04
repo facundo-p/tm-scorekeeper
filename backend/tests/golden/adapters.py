@@ -92,7 +92,7 @@ _INSIGHT_KEYS = {
     "best_game": "bestGame", "avg_milestones": "avgMilestones", "avg_awards": "avgAwards",
     "points_per_gen": "pointsPerGen", "records_held": "recordsHeld", "rank_total": "rankTotal",
     "wins_vs_expected": "winsVsExpected", "wins_ratio": "winsRatio", "rel_pos": "relPos",
-    "by_table": "byTable", "last_delta": "lastDelta",
+    "by_table": "byTable", "last_delta": "lastDelta", "elo_series": "eloSeries",
 }
 
 

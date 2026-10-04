@@ -127,14 +127,87 @@ export interface TableSizeStat extends Equity {
   avg_points: number | null
 }
 
-/** Ficha del jugador (GET /players/{id}/insights); lo que usa el frontend por ahora. */
+export interface Favorite { names: string[]; count: number }
+export interface Composition { avg: Record<string, number>; share: Record<string, number> }
+export interface Archetype { key: string; name: string; desc: string; share: number; group: number; ratio: number }
+export interface Rival { player_id: string; games: number; ahead: number; behind: number; even: number }
+export interface EloPoint { date: string; game_id: string; elo: number; delta: number }
+
+/** Una partida del historial del jugador (de la más nueva a la más vieja). */
+export interface HistoryRow { game_id: string; date: string; map: string; position: number; n: number; total: number; corporation: string; delta: number }
+
+/** Ficha del jugador (GET /players/{id}/insights); con `?player_count=`, todo sale de esa mesa. */
 export interface PlayerInsights {
   view: 'all' | 'mesa'
   games: number
-  composition: { avg: Record<string, number>; share: Record<string, number> }
+  wins: number
+  win_rate: number
+  podium_rate: number
+  avg_points: number
+  avg_pos: number
+  best: number
+  best_game: string | null
+  avg_milestones: number
+  avg_awards: number
+  points_per_gen: number
+  favorites: { milestone: Favorite | null; award: Favorite | null }
+  composition: Composition
+  archetype: Archetype | null
+  corps: SplitStat[]
+  maps: SplitStat[]
+  streak: { best: number; current: number }
   form: { position: number; n: number; game_id: string }[]
+  nemesis: Rival | null
+  victim: Rival | null
+  records_held: string[]
+  rank: number | null
+  rank_total: number
   equity: Equity
   by_table: TableSizeStat[]
+  elo: number
+  peak: number | null
+  last_delta: number | null
+  elo_series: EloPoint[]
+  history: HistoryRow[]
+}
+
+/** Un logro del jugador (GET /players/{id}/achievements); `tier` 0 si está bloqueado. */
+export interface PlayerAchievement {
+  code: string
+  title: string
+  description: string
+  tier: number
+  max_tier: number
+  unlocked: boolean
+  progress: { current: number; target: number } | null
+  kind: string
+  glyph: string
+  flavor: string
+}
+
+export interface AchievementTier { level: number; threshold: number; title: string }
+
+/** Logro del catálogo (GET /achievements/catalog). */
+export interface CatalogAchievement {
+  code: string
+  description: string
+  tiers: AchievementTier[]
+  holders: { player_id: string; player_name: string; tier: number }[]
+  kind: string
+  glyph: string
+  flavor: string
+}
+
+/** Récord del grupo (GET /records), sobre el subconjunto pedido. */
+export interface GroupRecord {
+  code: string
+  title: string | null
+  description: string
+  scope: 'game' | 'career'
+  unit: string
+  lower_is_better: boolean
+  value: number | null
+  holders: { player_id: string; player_name: string; game_id?: string | null; date?: string | null; map?: string | null }[]
 }
 
 export interface HeadToHead {
@@ -182,6 +255,8 @@ export interface GroupSummary {
   top_corp: SplitStat | null
   corps_used: number
   top_map: SplitStat | null
+  maps: SplitStat[]
+  composition: Composition
 }
 
 /** Fila del archivo de partidas (GET /games/summaries), de la más nueva a la más vieja. */

@@ -13894,7 +13894,619 @@
     ],
     "elo": 1172,
     "peak": 1190,
-    "lastDelta": 10
+    "lastDelta": 10,
+    "eloSeries": [
+     {
+      "date": "2025-03-14",
+      "game_id": "g-002",
+      "elo": 1016,
+      "delta": 16
+     },
+     {
+      "date": "2025-04-04",
+      "game_id": "g-003",
+      "elo": 1030,
+      "delta": 14
+     },
+     {
+      "date": "2025-04-11",
+      "game_id": "g-004",
+      "elo": 1044,
+      "delta": 14
+     },
+     {
+      "date": "2025-05-02",
+      "game_id": "g-006",
+      "elo": 1040,
+      "delta": -4
+     },
+     {
+      "date": "2025-05-09",
+      "game_id": "g-007",
+      "elo": 1078,
+      "delta": 38
+     },
+     {
+      "date": "2025-05-16",
+      "game_id": "g-008",
+      "elo": 1126,
+      "delta": 48
+     },
+     {
+      "date": "2025-07-25",
+      "game_id": "g-014",
+      "elo": 1123,
+      "delta": -3
+     },
+     {
+      "date": "2025-08-08",
+      "game_id": "g-015",
+      "elo": 1102,
+      "delta": -21
+     },
+     {
+      "date": "2025-08-30",
+      "game_id": "g-017",
+      "elo": 1147,
+      "delta": 45
+     },
+     {
+      "date": "2025-09-07",
+      "game_id": "g-018",
+      "elo": 1160,
+      "delta": 13
+     },
+     {
+      "date": "2025-09-14",
+      "game_id": "g-019",
+      "elo": 1190,
+      "delta": 30
+     },
+     {
+      "date": "2025-09-27",
+      "game_id": "g-021",
+      "elo": 1150,
+      "delta": -40
+     },
+     {
+      "date": "2025-10-18",
+      "game_id": "g-024",
+      "elo": 1149,
+      "delta": -1
+     },
+     {
+      "date": "2025-11-08",
+      "game_id": "g-027",
+      "elo": 1158,
+      "delta": 9
+     },
+     {
+      "date": "2025-11-16",
+      "game_id": "g-028",
+      "elo": 1149,
+      "delta": -9
+     },
+     {
+      "date": "2025-11-23",
+      "game_id": "g-029",
+      "elo": 1068,
+      "delta": -81
+     },
+     {
+      "date": "2025-11-30",
+      "game_id": "g-030",
+      "elo": 1080,
+      "delta": 12
+     },
+     {
+      "date": "2025-12-07",
+      "game_id": "g-031",
+      "elo": 1127,
+      "delta": 47
+     },
+     {
+      "date": "2025-12-22",
+      "game_id": "g-033",
+      "elo": 1120,
+      "delta": -7
+     },
+     {
+      "date": "2026-01-12",
+      "game_id": "g-034",
+      "elo": 1130,
+      "delta": 10
+     },
+     {
+      "date": "2026-02-09",
+      "game_id": "g-036",
+      "elo": 1134,
+      "delta": 4
+     },
+     {
+      "date": "2026-02-23",
+      "game_id": "g-037",
+      "elo": 1069,
+      "delta": -65
+     },
+     {
+      "date": "2026-03-10",
+      "game_id": "g-039",
+      "elo": 1082,
+      "delta": 13
+     },
+     {
+      "date": "2026-04-14",
+      "game_id": "g-042",
+      "elo": 1105,
+      "delta": 23
+     },
+     {
+      "date": "2026-04-28",
+      "game_id": "g-044",
+      "elo": 1102,
+      "delta": -3
+     },
+     {
+      "date": "2026-05-12",
+      "game_id": "g-046",
+      "elo": 1126,
+      "delta": 24
+     },
+     {
+      "date": "2026-05-19",
+      "game_id": "g-047",
+      "elo": 1148,
+      "delta": 22
+     },
+     {
+      "date": "2026-05-26",
+      "game_id": "g-048",
+      "elo": 1090,
+      "delta": -58
+     },
+     {
+      "date": "2026-06-02",
+      "game_id": "g-049",
+      "elo": 1136,
+      "delta": 46
+     },
+     {
+      "date": "2026-06-16",
+      "game_id": "g-050",
+      "elo": 1118,
+      "delta": -18
+     },
+     {
+      "date": "2026-06-30",
+      "game_id": "g-052",
+      "elo": 1119,
+      "delta": 1
+     },
+     {
+      "date": "2026-07-07",
+      "game_id": "g-053",
+      "elo": 1127,
+      "delta": 8
+     },
+     {
+      "date": "2026-07-14",
+      "game_id": "g-054",
+      "elo": 1139,
+      "delta": 12
+     },
+     {
+      "date": "2026-07-28",
+      "game_id": "g-056",
+      "elo": 1150,
+      "delta": 11
+     },
+     {
+      "date": "2026-08-18",
+      "game_id": "g-058",
+      "elo": 1101,
+      "delta": -49
+     },
+     {
+      "date": "2026-09-01",
+      "game_id": "g-059",
+      "elo": 1112,
+      "delta": 11
+     },
+     {
+      "date": "2026-09-08",
+      "game_id": "g-060",
+      "elo": 1162,
+      "delta": 50
+     },
+     {
+      "date": "2026-09-27",
+      "game_id": "g-063",
+      "elo": 1172,
+      "delta": 10
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-063",
+      "date": "2026-09-27",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 103,
+      "corporation": "Point Luna",
+      "delta": 10
+     },
+     {
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia",
+      "position": 1,
+      "n": 5,
+      "total": 102,
+      "corporation": "Stormcraft Incorporated",
+      "delta": 50
+     },
+     {
+      "game_id": "g-059",
+      "date": "2026-09-01",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 94,
+      "corporation": "Producciones Interplanetarias",
+      "delta": 11
+     },
+     {
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria",
+      "position": 4,
+      "n": 5,
+      "total": 62,
+      "corporation": "Morning Star Inc.",
+      "delta": -49
+     },
+     {
+      "game_id": "g-056",
+      "date": "2026-07-28",
+      "map": "Elysium",
+      "position": 2,
+      "n": 4,
+      "total": 93,
+      "corporation": "Viron",
+      "delta": 11
+     },
+     {
+      "game_id": "g-054",
+      "date": "2026-07-14",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 130,
+      "corporation": "Terralabs Investigation",
+      "delta": 12
+     },
+     {
+      "game_id": "g-053",
+      "date": "2026-07-07",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 101,
+      "corporation": "Ecotec",
+      "delta": 8
+     },
+     {
+      "game_id": "g-052",
+      "date": "2026-06-30",
+      "map": "Vastitas Borealis",
+      "position": 2,
+      "n": 4,
+      "total": 83,
+      "corporation": "Sagitta",
+      "delta": 1
+     },
+     {
+      "game_id": "g-050",
+      "date": "2026-06-16",
+      "map": "Elysium",
+      "position": 2,
+      "n": 3,
+      "total": 88,
+      "corporation": "Helion",
+      "delta": -18
+     },
+     {
+      "game_id": "g-049",
+      "date": "2026-06-02",
+      "map": "Utopia Planitia",
+      "position": 1,
+      "n": 4,
+      "total": 97,
+      "corporation": "Terralabs Research",
+      "delta": 46
+     },
+     {
+      "game_id": "g-048",
+      "date": "2026-05-26",
+      "map": "Amazonis Planitia",
+      "position": 4,
+      "n": 4,
+      "total": 83,
+      "corporation": "Phobolog",
+      "delta": -58
+     },
+     {
+      "game_id": "g-047",
+      "date": "2026-05-19",
+      "map": "Amazonis Planitia",
+      "position": 1,
+      "n": 3,
+      "total": 119,
+      "corporation": "Valley Trust",
+      "delta": 22
+     },
+     {
+      "game_id": "g-046",
+      "date": "2026-05-12",
+      "map": "Elysium",
+      "position": 2,
+      "n": 5,
+      "total": 92,
+      "corporation": "Celestic",
+      "delta": 24
+     },
+     {
+      "game_id": "g-044",
+      "date": "2026-04-28",
+      "map": "Hellas",
+      "position": 2,
+      "n": 4,
+      "total": 85,
+      "corporation": "Spire",
+      "delta": -3
+     },
+     {
+      "game_id": "g-042",
+      "date": "2026-04-14",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 109,
+      "corporation": "Ecoline",
+      "delta": 23
+     },
+     {
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "map": "Vastitas Borealis",
+      "position": 2,
+      "n": 4,
+      "total": 85,
+      "corporation": "Cheung Shing Mars",
+      "delta": 13
+     },
+     {
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "map": "Hellas",
+      "position": 4,
+      "n": 5,
+      "total": 77,
+      "corporation": "Recyclon",
+      "delta": -65
+     },
+     {
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "map": "Hellas",
+      "position": 2,
+      "n": 5,
+      "total": 84,
+      "corporation": "Saturn Systems",
+      "delta": 4
+     },
+     {
+      "game_id": "g-034",
+      "date": "2026-01-12",
+      "map": "Hellas",
+      "position": 2,
+      "n": 5,
+      "total": 80,
+      "corporation": "Sagitta",
+      "delta": 10
+     },
+     {
+      "game_id": "g-033",
+      "date": "2025-12-22",
+      "map": "Hellas",
+      "position": 2,
+      "n": 3,
+      "total": 86,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -7
+     },
+     {
+      "game_id": "g-031",
+      "date": "2025-12-07",
+      "map": "Amazonis Planitia",
+      "position": 1,
+      "n": 4,
+      "total": 92,
+      "corporation": "Vitor",
+      "delta": 47
+     },
+     {
+      "game_id": "g-030",
+      "date": "2025-11-30",
+      "map": "Hellas",
+      "position": 2,
+      "n": 4,
+      "total": 95,
+      "corporation": "Palladin Shipping",
+      "delta": 12
+     },
+     {
+      "game_id": "g-029",
+      "date": "2025-11-23",
+      "map": "Tharsis",
+      "position": 5,
+      "n": 5,
+      "total": 71,
+      "corporation": "Mining Guild",
+      "delta": -81
+     },
+     {
+      "game_id": "g-028",
+      "date": "2025-11-16",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 86,
+      "corporation": "Vitor",
+      "delta": -9
+     },
+     {
+      "game_id": "g-027",
+      "date": "2025-11-08",
+      "map": "Elysium",
+      "position": 1,
+      "n": 2,
+      "total": 120,
+      "corporation": "Vitor",
+      "delta": 9
+     },
+     {
+      "game_id": "g-024",
+      "date": "2025-10-18",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 92,
+      "corporation": "Spire",
+      "delta": -1
+     },
+     {
+      "game_id": "g-021",
+      "date": "2025-09-27",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 84,
+      "corporation": "Philares",
+      "delta": -40
+     },
+     {
+      "game_id": "g-019",
+      "date": "2025-09-14",
+      "map": "Elysium",
+      "position": 1,
+      "n": 4,
+      "total": 93,
+      "corporation": "Credicor",
+      "delta": 30
+     },
+     {
+      "game_id": "g-018",
+      "date": "2025-09-07",
+      "map": "Elysium",
+      "position": 1,
+      "n": 3,
+      "total": 99,
+      "corporation": "Recyclon",
+      "delta": 13
+     },
+     {
+      "game_id": "g-017",
+      "date": "2025-08-30",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 98,
+      "corporation": "Robinson Industries",
+      "delta": 45
+     },
+     {
+      "game_id": "g-015",
+      "date": "2025-08-08",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 86,
+      "corporation": "Arcadian Communities",
+      "delta": -21
+     },
+     {
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 94,
+      "corporation": "Phobolog",
+      "delta": -3
+     },
+     {
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 5,
+      "total": 105,
+      "corporation": "Arklight",
+      "delta": 48
+     },
+     {
+      "game_id": "g-007",
+      "date": "2025-05-09",
+      "map": "Hellas",
+      "position": 1,
+      "n": 4,
+      "total": 104,
+      "corporation": "Phobolog",
+      "delta": 38
+     },
+     {
+      "game_id": "g-006",
+      "date": "2025-05-02",
+      "map": "Elysium",
+      "position": 2,
+      "n": 3,
+      "total": 97,
+      "corporation": "Ecoline",
+      "delta": -4
+     },
+     {
+      "game_id": "g-004",
+      "date": "2025-04-11",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 89,
+      "corporation": "Novel Corporation",
+      "delta": 14
+     },
+     {
+      "game_id": "g-003",
+      "date": "2025-04-04",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 98,
+      "corporation": "Valley Trust",
+      "delta": 14
+     },
+     {
+      "game_id": "g-002",
+      "date": "2025-03-14",
+      "map": "Hellas",
+      "position": 2,
+      "n": 4,
+      "total": 86,
+      "corporation": "Mining Guild",
+      "delta": 16
+     }
+    ]
    },
    "p-nico": {
     "games": 36,
@@ -14285,7 +14897,587 @@
     ],
     "elo": 1116,
     "peak": 1190,
-    "lastDelta": -17
+    "lastDelta": -17,
+    "eloSeries": [
+     {
+      "date": "2025-03-14",
+      "game_id": "g-002",
+      "elo": 984,
+      "delta": -16
+     },
+     {
+      "date": "2025-04-11",
+      "game_id": "g-004",
+      "elo": 1038,
+      "delta": 54
+     },
+     {
+      "date": "2025-05-02",
+      "game_id": "g-006",
+      "elo": 1067,
+      "delta": 29
+     },
+     {
+      "date": "2025-05-09",
+      "game_id": "g-007",
+      "elo": 1068,
+      "delta": 1
+     },
+     {
+      "date": "2025-05-30",
+      "game_id": "g-009",
+      "elo": 1076,
+      "delta": 8
+     },
+     {
+      "date": "2025-06-06",
+      "game_id": "g-010",
+      "elo": 1103,
+      "delta": 27
+     },
+     {
+      "date": "2025-06-20",
+      "game_id": "g-011",
+      "elo": 1125,
+      "delta": 22
+     },
+     {
+      "date": "2025-06-28",
+      "game_id": "g-012",
+      "elo": 1160,
+      "delta": 35
+     },
+     {
+      "date": "2025-07-25",
+      "game_id": "g-014",
+      "elo": 1185,
+      "delta": 25
+     },
+     {
+      "date": "2025-08-08",
+      "game_id": "g-015",
+      "elo": 1186,
+      "delta": 1
+     },
+     {
+      "date": "2025-08-16",
+      "game_id": "g-016",
+      "elo": 1167,
+      "delta": -19
+     },
+     {
+      "date": "2025-08-30",
+      "game_id": "g-017",
+      "elo": 1105,
+      "delta": -62
+     },
+     {
+      "date": "2025-09-14",
+      "game_id": "g-019",
+      "elo": 1112,
+      "delta": 7
+     },
+     {
+      "date": "2025-09-20",
+      "game_id": "g-020",
+      "elo": 1140,
+      "delta": 28
+     },
+     {
+      "date": "2025-09-27",
+      "game_id": "g-021",
+      "elo": 1171,
+      "delta": 31
+     },
+     {
+      "date": "2025-10-04",
+      "game_id": "g-022",
+      "elo": 1127,
+      "delta": -44
+     },
+     {
+      "date": "2025-10-11",
+      "game_id": "g-023",
+      "elo": 1064,
+      "delta": -63
+     },
+     {
+      "date": "2025-11-02",
+      "game_id": "g-026",
+      "elo": 1102,
+      "delta": 38
+     },
+     {
+      "date": "2025-11-16",
+      "game_id": "g-028",
+      "elo": 1132,
+      "delta": 30
+     },
+     {
+      "date": "2025-11-23",
+      "game_id": "g-029",
+      "elo": 1150,
+      "delta": 18
+     },
+     {
+      "date": "2025-12-07",
+      "game_id": "g-031",
+      "elo": 1121,
+      "delta": -29
+     },
+     {
+      "date": "2026-03-03",
+      "game_id": "g-038",
+      "elo": 1097,
+      "delta": -24
+     },
+     {
+      "date": "2026-03-31",
+      "game_id": "g-041",
+      "elo": 1122,
+      "delta": 25
+     },
+     {
+      "date": "2026-04-21",
+      "game_id": "g-043",
+      "elo": 1064,
+      "delta": -58
+     },
+     {
+      "date": "2026-04-28",
+      "game_id": "g-044",
+      "elo": 1099,
+      "delta": 35
+     },
+     {
+      "date": "2026-05-12",
+      "game_id": "g-046",
+      "elo": 1092,
+      "delta": -7
+     },
+     {
+      "date": "2026-05-19",
+      "game_id": "g-047",
+      "elo": 1086,
+      "delta": -6
+     },
+     {
+      "date": "2026-05-26",
+      "game_id": "g-048",
+      "elo": 1070,
+      "delta": -16
+     },
+     {
+      "date": "2026-06-02",
+      "game_id": "g-049",
+      "elo": 1056,
+      "delta": -14
+     },
+     {
+      "date": "2026-06-30",
+      "game_id": "g-052",
+      "elo": 1099,
+      "delta": 43
+     },
+     {
+      "date": "2026-07-07",
+      "game_id": "g-053",
+      "elo": 1142,
+      "delta": 43
+     },
+     {
+      "date": "2026-07-21",
+      "game_id": "g-055",
+      "elo": 1190,
+      "delta": 48
+     },
+     {
+      "date": "2026-07-28",
+      "game_id": "g-056",
+      "elo": 1129,
+      "delta": -61
+     },
+     {
+      "date": "2026-09-01",
+      "game_id": "g-059",
+      "elo": 1104,
+      "delta": -25
+     },
+     {
+      "date": "2026-09-22",
+      "game_id": "g-062",
+      "elo": 1133,
+      "delta": 29
+     },
+     {
+      "date": "2026-09-27",
+      "game_id": "g-063",
+      "elo": 1116,
+      "delta": -17
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-063",
+      "date": "2026-09-27",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 89,
+      "corporation": "Tharsis Republic",
+      "delta": -17
+     },
+     {
+      "game_id": "g-062",
+      "date": "2026-09-22",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 101,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": 29
+     },
+     {
+      "game_id": "g-059",
+      "date": "2026-09-01",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 82,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -25
+     },
+     {
+      "game_id": "g-056",
+      "date": "2026-07-28",
+      "map": "Elysium",
+      "position": 4,
+      "n": 4,
+      "total": 70,
+      "corporation": "Spire",
+      "delta": -61
+     },
+     {
+      "game_id": "g-055",
+      "date": "2026-07-21",
+      "map": "Elysium",
+      "position": 1,
+      "n": 5,
+      "total": 102,
+      "corporation": "Point Luna",
+      "delta": 48
+     },
+     {
+      "game_id": "g-053",
+      "date": "2026-07-07",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 102,
+      "corporation": "Producciones Interplanetarias",
+      "delta": 43
+     },
+     {
+      "game_id": "g-052",
+      "date": "2026-06-30",
+      "map": "Vastitas Borealis",
+      "position": 1,
+      "n": 4,
+      "total": 97,
+      "corporation": "Inventrix",
+      "delta": 43
+     },
+     {
+      "game_id": "g-049",
+      "date": "2026-06-02",
+      "map": "Utopia Planitia",
+      "position": 3,
+      "n": 4,
+      "total": 91,
+      "corporation": "Valley Trust",
+      "delta": -14
+     },
+     {
+      "game_id": "g-048",
+      "date": "2026-05-26",
+      "map": "Amazonis Planitia",
+      "position": 3,
+      "n": 4,
+      "total": 88,
+      "corporation": "Vitor",
+      "delta": -16
+     },
+     {
+      "game_id": "g-047",
+      "date": "2026-05-19",
+      "map": "Amazonis Planitia",
+      "position": 2,
+      "n": 3,
+      "total": 82,
+      "corporation": "Palladin Shipping",
+      "delta": -6
+     },
+     {
+      "game_id": "g-046",
+      "date": "2026-05-12",
+      "map": "Elysium",
+      "position": 3,
+      "n": 5,
+      "total": 85,
+      "corporation": "Arklight",
+      "delta": -7
+     },
+     {
+      "game_id": "g-044",
+      "date": "2026-04-28",
+      "map": "Hellas",
+      "position": 1,
+      "n": 4,
+      "total": 108,
+      "corporation": "Ecotec",
+      "delta": 35
+     },
+     {
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 71,
+      "corporation": "Tharsis Republic",
+      "delta": -58
+     },
+     {
+      "game_id": "g-041",
+      "date": "2026-03-31",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 108,
+      "corporation": "Inventrix",
+      "delta": 25
+     },
+     {
+      "game_id": "g-038",
+      "date": "2026-03-03",
+      "map": "Amazonis Planitia",
+      "position": 2,
+      "n": 2,
+      "total": 78,
+      "corporation": "Producciones Interplanetarias",
+      "delta": -24
+     },
+     {
+      "game_id": "g-031",
+      "date": "2025-12-07",
+      "map": "Amazonis Planitia",
+      "position": 3,
+      "n": 4,
+      "total": 74,
+      "corporation": "Mons Insurance",
+      "delta": -29
+     },
+     {
+      "game_id": "g-029",
+      "date": "2025-11-23",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 5,
+      "total": 82,
+      "corporation": "Ecotec",
+      "delta": 18
+     },
+     {
+      "game_id": "g-028",
+      "date": "2025-11-16",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 98,
+      "corporation": "Credicor",
+      "delta": 30
+     },
+     {
+      "game_id": "g-026",
+      "date": "2025-11-02",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 101,
+      "corporation": "Nirgal Enterprises",
+      "delta": 38
+     },
+     {
+      "game_id": "g-023",
+      "date": "2025-10-11",
+      "map": "Elysium",
+      "position": 4,
+      "n": 4,
+      "total": 78,
+      "corporation": "Point Luna",
+      "delta": -63
+     },
+     {
+      "game_id": "g-022",
+      "date": "2025-10-04",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 77,
+      "corporation": "Mining Guild",
+      "delta": -44
+     },
+     {
+      "game_id": "g-021",
+      "date": "2025-09-27",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 94,
+      "corporation": "Helion",
+      "delta": 31
+     },
+     {
+      "game_id": "g-020",
+      "date": "2025-09-20",
+      "map": "Hellas",
+      "position": 1,
+      "n": 4,
+      "total": 82,
+      "corporation": "Saturn Systems",
+      "delta": 28
+     },
+     {
+      "game_id": "g-019",
+      "date": "2025-09-14",
+      "map": "Elysium",
+      "position": 2,
+      "n": 4,
+      "total": 83,
+      "corporation": "Valley Trust",
+      "delta": 7
+     },
+     {
+      "game_id": "g-017",
+      "date": "2025-08-30",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 72,
+      "corporation": "Vitor",
+      "delta": -62
+     },
+     {
+      "game_id": "g-016",
+      "date": "2025-08-16",
+      "map": "Hellas",
+      "position": 2,
+      "n": 3,
+      "total": 97,
+      "corporation": "Novel Corporation",
+      "delta": -19
+     },
+     {
+      "game_id": "g-015",
+      "date": "2025-08-08",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 87,
+      "corporation": "Inventrix",
+      "delta": 1
+     },
+     {
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 99,
+      "corporation": "Teractor",
+      "delta": 25
+     },
+     {
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "map": "Elysium",
+      "position": 1,
+      "n": 5,
+      "total": 106,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": 35
+     },
+     {
+      "game_id": "g-011",
+      "date": "2025-06-20",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 114,
+      "corporation": "Terralabs Investigation",
+      "delta": 22
+     },
+     {
+      "game_id": "g-010",
+      "date": "2025-06-06",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 96,
+      "corporation": "Manutech",
+      "delta": 27
+     },
+     {
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 86,
+      "corporation": "Valley Trust",
+      "delta": 8
+     },
+     {
+      "game_id": "g-007",
+      "date": "2025-05-09",
+      "map": "Hellas",
+      "position": 2,
+      "n": 4,
+      "total": 95,
+      "corporation": "Ecoline",
+      "delta": 1
+     },
+     {
+      "game_id": "g-006",
+      "date": "2025-05-02",
+      "map": "Elysium",
+      "position": 1,
+      "n": 3,
+      "total": 101,
+      "corporation": "Morning Star Inc.",
+      "delta": 29
+     },
+     {
+      "game_id": "g-004",
+      "date": "2025-04-11",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 91,
+      "corporation": "Phobolog",
+      "delta": 54
+     },
+     {
+      "game_id": "g-002",
+      "date": "2025-03-14",
+      "map": "Hellas",
+      "position": 3,
+      "n": 4,
+      "total": 84,
+      "corporation": "Mons Insurance",
+      "delta": -16
+     }
+    ]
    },
    "p-juli": {
     "games": 29,
@@ -14637,7 +15829,475 @@
     ],
     "elo": 1124,
     "peak": 1177,
-    "lastDelta": 59
+    "lastDelta": 59,
+    "eloSeries": [
+     {
+      "date": "2025-03-08",
+      "game_id": "g-001",
+      "elo": 984,
+      "delta": -16
+     },
+     {
+      "date": "2025-03-14",
+      "game_id": "g-002",
+      "elo": 939,
+      "delta": -45
+     },
+     {
+      "date": "2025-04-04",
+      "game_id": "g-003",
+      "elo": 935,
+      "delta": -4
+     },
+     {
+      "date": "2025-04-25",
+      "game_id": "g-005",
+      "elo": 959,
+      "delta": 24
+     },
+     {
+      "date": "2025-05-02",
+      "game_id": "g-006",
+      "elo": 934,
+      "delta": -25
+     },
+     {
+      "date": "2025-05-09",
+      "game_id": "g-007",
+      "elo": 926,
+      "delta": -8
+     },
+     {
+      "date": "2025-05-30",
+      "game_id": "g-009",
+      "elo": 991,
+      "delta": 65
+     },
+     {
+      "date": "2025-06-06",
+      "game_id": "g-010",
+      "elo": 966,
+      "delta": -25
+     },
+     {
+      "date": "2025-07-19",
+      "game_id": "g-013",
+      "elo": 1029,
+      "delta": 63
+     },
+     {
+      "date": "2025-08-08",
+      "game_id": "g-015",
+      "elo": 993,
+      "delta": -36
+     },
+     {
+      "date": "2025-09-20",
+      "game_id": "g-020",
+      "elo": 977,
+      "delta": -16
+     },
+     {
+      "date": "2025-09-27",
+      "game_id": "g-021",
+      "elo": 1001,
+      "delta": 24
+     },
+     {
+      "date": "2025-10-04",
+      "game_id": "g-022",
+      "elo": 1043,
+      "delta": 42
+     },
+     {
+      "date": "2025-10-11",
+      "game_id": "g-023",
+      "elo": 1090,
+      "delta": 47
+     },
+     {
+      "date": "2025-10-18",
+      "game_id": "g-024",
+      "elo": 1131,
+      "delta": 41
+     },
+     {
+      "date": "2025-10-26",
+      "game_id": "g-025",
+      "elo": 1113,
+      "delta": -18
+     },
+     {
+      "date": "2025-11-02",
+      "game_id": "g-026",
+      "elo": 1111,
+      "delta": -2
+     },
+     {
+      "date": "2025-12-07",
+      "game_id": "g-031",
+      "elo": 1121,
+      "delta": 10
+     },
+     {
+      "date": "2025-12-22",
+      "game_id": "g-033",
+      "elo": 1147,
+      "delta": 26
+     },
+     {
+      "date": "2026-03-17",
+      "game_id": "g-040",
+      "elo": 1154,
+      "delta": 7
+     },
+     {
+      "date": "2026-03-31",
+      "game_id": "g-041",
+      "elo": 1109,
+      "delta": -45
+     },
+     {
+      "date": "2026-05-05",
+      "game_id": "g-045",
+      "elo": 1126,
+      "delta": 17
+     },
+     {
+      "date": "2026-05-12",
+      "game_id": "g-046",
+      "elo": 1177,
+      "delta": 51
+     },
+     {
+      "date": "2026-06-02",
+      "game_id": "g-049",
+      "elo": 1176,
+      "delta": -1
+     },
+     {
+      "date": "2026-07-21",
+      "game_id": "g-055",
+      "elo": 1153,
+      "delta": -23
+     },
+     {
+      "date": "2026-08-18",
+      "game_id": "g-058",
+      "elo": 1168,
+      "delta": 15
+     },
+     {
+      "date": "2026-09-01",
+      "game_id": "g-059",
+      "elo": 1104,
+      "delta": -64
+     },
+     {
+      "date": "2026-09-15",
+      "game_id": "g-061",
+      "elo": 1065,
+      "delta": -39
+     },
+     {
+      "date": "2026-09-27",
+      "game_id": "g-063",
+      "elo": 1124,
+      "delta": 59
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-063",
+      "date": "2026-09-27",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 106,
+      "corporation": "Ecoline",
+      "delta": 59
+     },
+     {
+      "game_id": "g-061",
+      "date": "2026-09-15",
+      "map": "Amazonis Planitia",
+      "position": 3,
+      "n": 4,
+      "total": 80,
+      "corporation": "Thorgate",
+      "delta": -39
+     },
+     {
+      "game_id": "g-059",
+      "date": "2026-09-01",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 69,
+      "corporation": "Hoteles Lagoazul",
+      "delta": -64
+     },
+     {
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria",
+      "position": 2,
+      "n": 5,
+      "total": 82,
+      "corporation": "Sagitta",
+      "delta": 15
+     },
+     {
+      "game_id": "g-055",
+      "date": "2026-07-21",
+      "map": "Elysium",
+      "position": 3,
+      "n": 5,
+      "total": 80,
+      "corporation": "Vitor",
+      "delta": -23
+     },
+     {
+      "game_id": "g-049",
+      "date": "2026-06-02",
+      "map": "Utopia Planitia",
+      "position": 2,
+      "n": 4,
+      "total": 96,
+      "corporation": "Palladin Shipping",
+      "delta": -1
+     },
+     {
+      "game_id": "g-046",
+      "date": "2026-05-12",
+      "map": "Elysium",
+      "position": 1,
+      "n": 5,
+      "total": 102,
+      "corporation": "Spire",
+      "delta": 51
+     },
+     {
+      "game_id": "g-045",
+      "date": "2026-05-05",
+      "map": "Utopia Planitia",
+      "position": 1,
+      "n": 3,
+      "total": 95,
+      "corporation": "Robinson Industries",
+      "delta": 17
+     },
+     {
+      "game_id": "g-041",
+      "date": "2026-03-31",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 76,
+      "corporation": "Helion",
+      "delta": -45
+     },
+     {
+      "game_id": "g-040",
+      "date": "2026-03-17",
+      "map": "Vastitas Borealis",
+      "position": 1,
+      "n": 2,
+      "total": 111,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": 7
+     },
+     {
+      "game_id": "g-033",
+      "date": "2025-12-22",
+      "map": "Hellas",
+      "position": 1,
+      "n": 3,
+      "total": 100,
+      "corporation": "Cheung Shing Mars",
+      "delta": 26
+     },
+     {
+      "game_id": "g-031",
+      "date": "2025-12-07",
+      "map": "Amazonis Planitia",
+      "position": 2,
+      "n": 4,
+      "total": 90,
+      "corporation": "Arklight",
+      "delta": 10
+     },
+     {
+      "game_id": "g-026",
+      "date": "2025-11-02",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 98,
+      "corporation": "Palladin Shipping",
+      "delta": -2
+     },
+     {
+      "game_id": "g-025",
+      "date": "2025-10-26",
+      "map": "Hellas",
+      "position": 2,
+      "n": 2,
+      "total": 82,
+      "corporation": "Point Luna",
+      "delta": -18
+     },
+     {
+      "game_id": "g-024",
+      "date": "2025-10-18",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 98,
+      "corporation": "Vitor",
+      "delta": 41
+     },
+     {
+      "game_id": "g-023",
+      "date": "2025-10-11",
+      "map": "Elysium",
+      "position": 1,
+      "n": 4,
+      "total": 93,
+      "corporation": "Spire",
+      "delta": 47
+     },
+     {
+      "game_id": "g-022",
+      "date": "2025-10-04",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 94,
+      "corporation": "Arklight",
+      "delta": 42
+     },
+     {
+      "game_id": "g-021",
+      "date": "2025-09-27",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 84,
+      "corporation": "Credicor",
+      "delta": 24
+     },
+     {
+      "game_id": "g-020",
+      "date": "2025-09-20",
+      "map": "Hellas",
+      "position": 3,
+      "n": 4,
+      "total": 70,
+      "corporation": "Sagitta",
+      "delta": -16
+     },
+     {
+      "game_id": "g-015",
+      "date": "2025-08-08",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 72,
+      "corporation": "Vitor",
+      "delta": -36
+     },
+     {
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "map": "Hellas",
+      "position": 1,
+      "n": 5,
+      "total": 110,
+      "corporation": "Robinson Industries",
+      "delta": 63
+     },
+     {
+      "game_id": "g-010",
+      "date": "2025-06-06",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 88,
+      "corporation": "Robinson Industries",
+      "delta": -25
+     },
+     {
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 101,
+      "corporation": "Mining Guild",
+      "delta": 65
+     },
+     {
+      "game_id": "g-007",
+      "date": "2025-05-09",
+      "map": "Hellas",
+      "position": 3,
+      "n": 4,
+      "total": 81,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -8
+     },
+     {
+      "game_id": "g-006",
+      "date": "2025-05-02",
+      "map": "Elysium",
+      "position": 3,
+      "n": 3,
+      "total": 55,
+      "corporation": "Credicor",
+      "delta": -25
+     },
+     {
+      "game_id": "g-005",
+      "date": "2025-04-25",
+      "map": "Elysium",
+      "position": 2,
+      "n": 4,
+      "total": 93,
+      "corporation": "Sagitta",
+      "delta": 24
+     },
+     {
+      "game_id": "g-003",
+      "date": "2025-04-04",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 95,
+      "corporation": "Novel Corporation",
+      "delta": -4
+     },
+     {
+      "game_id": "g-002",
+      "date": "2025-03-14",
+      "map": "Hellas",
+      "position": 4,
+      "n": 4,
+      "total": 82,
+      "corporation": "Teractor",
+      "delta": -45
+     },
+     {
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "map": "Hellas",
+      "position": 2,
+      "n": 2,
+      "total": 101,
+      "corporation": "Producciones Interplanetarias",
+      "delta": -16
+     }
+    ]
    },
    "p-caro": {
     "games": 33,
@@ -15014,7 +16674,539 @@
     ],
     "elo": 1101,
     "peak": 1232,
-    "lastDelta": -52
+    "lastDelta": -52,
+    "eloSeries": [
+     {
+      "date": "2025-03-08",
+      "game_id": "g-001",
+      "elo": 1016,
+      "delta": 16
+     },
+     {
+      "date": "2025-03-14",
+      "game_id": "g-002",
+      "elo": 1061,
+      "delta": 45
+     },
+     {
+      "date": "2025-04-04",
+      "game_id": "g-003",
+      "elo": 1099,
+      "delta": 38
+     },
+     {
+      "date": "2025-04-11",
+      "game_id": "g-004",
+      "elo": 1068,
+      "delta": -31
+     },
+     {
+      "date": "2025-04-25",
+      "game_id": "g-005",
+      "elo": 1100,
+      "delta": 32
+     },
+     {
+      "date": "2025-05-16",
+      "game_id": "g-008",
+      "elo": 1079,
+      "delta": -21
+     },
+     {
+      "date": "2025-05-30",
+      "game_id": "g-009",
+      "elo": 1053,
+      "delta": -26
+     },
+     {
+      "date": "2025-06-06",
+      "game_id": "g-010",
+      "elo": 1051,
+      "delta": -2
+     },
+     {
+      "date": "2025-06-28",
+      "game_id": "g-012",
+      "elo": 1036,
+      "delta": -15
+     },
+     {
+      "date": "2025-07-19",
+      "game_id": "g-013",
+      "elo": 1052,
+      "delta": 16
+     },
+     {
+      "date": "2025-08-08",
+      "game_id": "g-015",
+      "elo": 1108,
+      "delta": 56
+     },
+     {
+      "date": "2025-08-30",
+      "game_id": "g-017",
+      "elo": 1088,
+      "delta": -20
+     },
+     {
+      "date": "2025-09-14",
+      "game_id": "g-019",
+      "elo": 1066,
+      "delta": -22
+     },
+     {
+      "date": "2025-10-04",
+      "game_id": "g-022",
+      "elo": 1068,
+      "delta": 2
+     },
+     {
+      "date": "2025-10-11",
+      "game_id": "g-023",
+      "elo": 1079,
+      "delta": 11
+     },
+     {
+      "date": "2025-10-26",
+      "game_id": "g-025",
+      "elo": 1097,
+      "delta": 18
+     },
+     {
+      "date": "2025-11-23",
+      "game_id": "g-029",
+      "elo": 1155,
+      "delta": 58
+     },
+     {
+      "date": "2025-11-30",
+      "game_id": "g-030",
+      "elo": 1185,
+      "delta": 30
+     },
+     {
+      "date": "2025-12-15",
+      "game_id": "g-032",
+      "elo": 1133,
+      "delta": -52
+     },
+     {
+      "date": "2026-01-12",
+      "game_id": "g-034",
+      "elo": 1076,
+      "delta": -57
+     },
+     {
+      "date": "2026-02-09",
+      "game_id": "g-036",
+      "elo": 1123,
+      "delta": 47
+     },
+     {
+      "date": "2026-03-10",
+      "game_id": "g-039",
+      "elo": 1159,
+      "delta": 36
+     },
+     {
+      "date": "2026-04-21",
+      "game_id": "g-043",
+      "elo": 1191,
+      "delta": 32
+     },
+     {
+      "date": "2026-05-26",
+      "game_id": "g-048",
+      "elo": 1190,
+      "delta": -1
+     },
+     {
+      "date": "2026-06-23",
+      "game_id": "g-051",
+      "elo": 1205,
+      "delta": 15
+     },
+     {
+      "date": "2026-07-07",
+      "game_id": "g-053",
+      "elo": 1168,
+      "delta": -37
+     },
+     {
+      "date": "2026-07-21",
+      "game_id": "g-055",
+      "elo": 1179,
+      "delta": 11
+     },
+     {
+      "date": "2026-07-28",
+      "game_id": "g-056",
+      "elo": 1215,
+      "delta": 36
+     },
+     {
+      "date": "2026-08-11",
+      "game_id": "g-057",
+      "elo": 1193,
+      "delta": -22
+     },
+     {
+      "date": "2026-08-18",
+      "game_id": "g-058",
+      "elo": 1232,
+      "delta": 39
+     },
+     {
+      "date": "2026-09-08",
+      "game_id": "g-060",
+      "elo": 1163,
+      "delta": -69
+     },
+     {
+      "date": "2026-09-22",
+      "game_id": "g-062",
+      "elo": 1153,
+      "delta": -10
+     },
+     {
+      "date": "2026-09-27",
+      "game_id": "g-063",
+      "elo": 1101,
+      "delta": -52
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-063",
+      "date": "2026-09-27",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 81,
+      "corporation": "Helion",
+      "delta": -52
+     },
+     {
+      "game_id": "g-062",
+      "date": "2026-09-22",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 89,
+      "corporation": "Sagitta",
+      "delta": -10
+     },
+     {
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia",
+      "position": 4,
+      "n": 5,
+      "total": 62,
+      "corporation": "Ecotec",
+      "delta": -69
+     },
+     {
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria",
+      "position": 1,
+      "n": 5,
+      "total": 92,
+      "corporation": "Philares",
+      "delta": 39
+     },
+     {
+      "game_id": "g-057",
+      "date": "2026-08-11",
+      "map": "Terra Cimmeria",
+      "position": 2,
+      "n": 3,
+      "total": 86,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -22
+     },
+     {
+      "game_id": "g-056",
+      "date": "2026-07-28",
+      "map": "Elysium",
+      "position": 1,
+      "n": 4,
+      "total": 102,
+      "corporation": "Recyclon",
+      "delta": 36
+     },
+     {
+      "game_id": "g-055",
+      "date": "2026-07-21",
+      "map": "Elysium",
+      "position": 2,
+      "n": 5,
+      "total": 87,
+      "corporation": "Arklight",
+      "delta": 11
+     },
+     {
+      "game_id": "g-053",
+      "date": "2026-07-07",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 94,
+      "corporation": "Phobolog",
+      "delta": -37
+     },
+     {
+      "game_id": "g-051",
+      "date": "2026-06-23",
+      "map": "Utopia Planitia",
+      "position": 1,
+      "n": 3,
+      "total": 101,
+      "corporation": "Sagitta",
+      "delta": 15
+     },
+     {
+      "game_id": "g-048",
+      "date": "2026-05-26",
+      "map": "Amazonis Planitia",
+      "position": 2,
+      "n": 4,
+      "total": 96,
+      "corporation": "Ecoline",
+      "delta": -1
+     },
+     {
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 104,
+      "corporation": "Ecotec",
+      "delta": 32
+     },
+     {
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "map": "Vastitas Borealis",
+      "position": 1,
+      "n": 4,
+      "total": 93,
+      "corporation": "Helion",
+      "delta": 36
+     },
+     {
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "map": "Hellas",
+      "position": 1,
+      "n": 5,
+      "total": 99,
+      "corporation": "Novel Corporation",
+      "delta": 47
+     },
+     {
+      "game_id": "g-034",
+      "date": "2026-01-12",
+      "map": "Hellas",
+      "position": 4,
+      "n": 5,
+      "total": 76,
+      "corporation": "Cheung Shing Mars",
+      "delta": -57
+     },
+     {
+      "game_id": "g-032",
+      "date": "2025-12-15",
+      "map": "Vastitas Borealis",
+      "position": 3,
+      "n": 3,
+      "total": 81,
+      "corporation": "Cheung Shing Mars",
+      "delta": -52
+     },
+     {
+      "game_id": "g-030",
+      "date": "2025-11-30",
+      "map": "Hellas",
+      "position": 1,
+      "n": 4,
+      "total": 105,
+      "corporation": "Spire",
+      "delta": 30
+     },
+     {
+      "game_id": "g-029",
+      "date": "2025-11-23",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 5,
+      "total": 108,
+      "corporation": "Palladin Shipping",
+      "delta": 58
+     },
+     {
+      "game_id": "g-025",
+      "date": "2025-10-26",
+      "map": "Hellas",
+      "position": 1,
+      "n": 2,
+      "total": 117,
+      "corporation": "Helion",
+      "delta": 18
+     },
+     {
+      "game_id": "g-023",
+      "date": "2025-10-11",
+      "map": "Elysium",
+      "position": 2,
+      "n": 4,
+      "total": 90,
+      "corporation": "Arklight",
+      "delta": 11
+     },
+     {
+      "game_id": "g-022",
+      "date": "2025-10-04",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 82,
+      "corporation": "Tharsis Republic",
+      "delta": 2
+     },
+     {
+      "game_id": "g-019",
+      "date": "2025-09-14",
+      "map": "Elysium",
+      "position": 3,
+      "n": 4,
+      "total": 83,
+      "corporation": "Spire",
+      "delta": -22
+     },
+     {
+      "game_id": "g-017",
+      "date": "2025-08-30",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 78,
+      "corporation": "Thorgate",
+      "delta": -20
+     },
+     {
+      "game_id": "g-015",
+      "date": "2025-08-08",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 96,
+      "corporation": "Utopia Invest",
+      "delta": 56
+     },
+     {
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "map": "Hellas",
+      "position": 2,
+      "n": 5,
+      "total": 87,
+      "corporation": "Factorum",
+      "delta": 16
+     },
+     {
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "map": "Elysium",
+      "position": 3,
+      "n": 5,
+      "total": 87,
+      "corporation": "Nirgal Enterprises",
+      "delta": -15
+     },
+     {
+      "game_id": "g-010",
+      "date": "2025-06-06",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 95,
+      "corporation": "Point Luna",
+      "delta": -2
+     },
+     {
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 86,
+      "corporation": "Spire",
+      "delta": -26
+     },
+     {
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 5,
+      "total": 81,
+      "corporation": "Spire",
+      "delta": -21
+     },
+     {
+      "game_id": "g-005",
+      "date": "2025-04-25",
+      "map": "Elysium",
+      "position": 1,
+      "n": 4,
+      "total": 107,
+      "corporation": "Pristar",
+      "delta": 32
+     },
+     {
+      "game_id": "g-004",
+      "date": "2025-04-11",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 84,
+      "corporation": "Ecotec",
+      "delta": -31
+     },
+     {
+      "game_id": "g-003",
+      "date": "2025-04-04",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 115,
+      "corporation": "Utopia Invest",
+      "delta": 38
+     },
+     {
+      "game_id": "g-002",
+      "date": "2025-03-14",
+      "map": "Hellas",
+      "position": 1,
+      "n": 4,
+      "total": 103,
+      "corporation": "Terralabs Investigation",
+      "delta": 45
+     },
+     {
+      "game_id": "g-001",
+      "date": "2025-03-08",
+      "map": "Hellas",
+      "position": 1,
+      "n": 2,
+      "total": 105,
+      "corporation": "Ecoline",
+      "delta": 16
+     }
+    ]
    },
    "p-tomi": {
     "games": 18,
@@ -15330,7 +17522,299 @@
     ],
     "elo": 888,
     "peak": 1017,
-    "lastDelta": 71
+    "lastDelta": 71,
+    "eloSeries": [
+     {
+      "date": "2025-04-25",
+      "game_id": "g-005",
+      "elo": 980,
+      "delta": -20
+     },
+     {
+      "date": "2025-05-16",
+      "game_id": "g-008",
+      "elo": 1017,
+      "delta": 37
+     },
+     {
+      "date": "2025-05-30",
+      "game_id": "g-009",
+      "elo": 970,
+      "delta": -47
+     },
+     {
+      "date": "2025-06-28",
+      "game_id": "g-012",
+      "elo": 909,
+      "delta": -61
+     },
+     {
+      "date": "2025-09-20",
+      "game_id": "g-020",
+      "elo": 939,
+      "delta": 30
+     },
+     {
+      "date": "2025-12-15",
+      "game_id": "g-032",
+      "elo": 980,
+      "delta": 41
+     },
+     {
+      "date": "2026-01-26",
+      "game_id": "g-035",
+      "elo": 943,
+      "delta": -37
+     },
+     {
+      "date": "2026-02-09",
+      "game_id": "g-036",
+      "elo": 922,
+      "delta": -21
+     },
+     {
+      "date": "2026-02-23",
+      "game_id": "g-037",
+      "elo": 869,
+      "delta": -53
+     },
+     {
+      "date": "2026-03-31",
+      "game_id": "g-041",
+      "elo": 889,
+      "delta": 20
+     },
+     {
+      "date": "2026-04-14",
+      "game_id": "g-042",
+      "elo": 872,
+      "delta": -17
+     },
+     {
+      "date": "2026-04-28",
+      "game_id": "g-044",
+      "elo": 843,
+      "delta": -29
+     },
+     {
+      "date": "2026-06-16",
+      "game_id": "g-050",
+      "elo": 828,
+      "delta": -15
+     },
+     {
+      "date": "2026-07-07",
+      "game_id": "g-053",
+      "elo": 814,
+      "delta": -14
+     },
+     {
+      "date": "2026-07-14",
+      "game_id": "g-054",
+      "elo": 831,
+      "delta": 17
+     },
+     {
+      "date": "2026-07-21",
+      "game_id": "g-055",
+      "elo": 840,
+      "delta": 9
+     },
+     {
+      "date": "2026-08-18",
+      "game_id": "g-058",
+      "elo": 817,
+      "delta": -23
+     },
+     {
+      "date": "2026-09-15",
+      "game_id": "g-061",
+      "elo": 888,
+      "delta": 71
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-061",
+      "date": "2026-09-15",
+      "map": "Amazonis Planitia",
+      "position": 1,
+      "n": 4,
+      "total": 96,
+      "corporation": "Stormcraft Incorporated",
+      "delta": 71
+     },
+     {
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria",
+      "position": 5,
+      "n": 5,
+      "total": 54,
+      "corporation": "Spire",
+      "delta": -23
+     },
+     {
+      "game_id": "g-055",
+      "date": "2026-07-21",
+      "map": "Elysium",
+      "position": 4,
+      "n": 5,
+      "total": 66,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": 9
+     },
+     {
+      "game_id": "g-054",
+      "date": "2026-07-14",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 95,
+      "corporation": "Novel Corporation",
+      "delta": 17
+     },
+     {
+      "game_id": "g-053",
+      "date": "2026-07-07",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 75,
+      "corporation": "Poseidon",
+      "delta": -14
+     },
+     {
+      "game_id": "g-050",
+      "date": "2026-06-16",
+      "map": "Elysium",
+      "position": 3,
+      "n": 3,
+      "total": 84,
+      "corporation": "Arcadian Communities",
+      "delta": -15
+     },
+     {
+      "game_id": "g-044",
+      "date": "2026-04-28",
+      "map": "Hellas",
+      "position": 4,
+      "n": 4,
+      "total": 68,
+      "corporation": "Recyclon",
+      "delta": -29
+     },
+     {
+      "game_id": "g-042",
+      "date": "2026-04-14",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 81,
+      "corporation": "Arklight",
+      "delta": -17
+     },
+     {
+      "game_id": "g-041",
+      "date": "2026-03-31",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 95,
+      "corporation": "Factorum",
+      "delta": 20
+     },
+     {
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "map": "Hellas",
+      "position": 5,
+      "n": 5,
+      "total": 68,
+      "corporation": "Robinson Industries",
+      "delta": -53
+     },
+     {
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "map": "Hellas",
+      "position": 4,
+      "n": 5,
+      "total": 73,
+      "corporation": "Arcadian Communities",
+      "delta": -21
+     },
+     {
+      "game_id": "g-035",
+      "date": "2026-01-26",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 67,
+      "corporation": "Robinson Industries",
+      "delta": -37
+     },
+     {
+      "game_id": "g-032",
+      "date": "2025-12-15",
+      "map": "Vastitas Borealis",
+      "position": 1,
+      "n": 3,
+      "total": 102,
+      "corporation": "Inventrix",
+      "delta": 41
+     },
+     {
+      "game_id": "g-020",
+      "date": "2025-09-20",
+      "map": "Hellas",
+      "position": 2,
+      "n": 4,
+      "total": 75,
+      "corporation": "Factorum",
+      "delta": 30
+     },
+     {
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "map": "Elysium",
+      "position": 5,
+      "n": 5,
+      "total": 56,
+      "corporation": "Ecoline",
+      "delta": -61
+     },
+     {
+      "game_id": "g-009",
+      "date": "2025-05-30",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 78,
+      "corporation": "Aridor",
+      "delta": -47
+     },
+     {
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 5,
+      "total": 96,
+      "corporation": "Aridor",
+      "delta": 37
+     },
+     {
+      "game_id": "g-005",
+      "date": "2025-04-25",
+      "map": "Elysium",
+      "position": 3,
+      "n": 4,
+      "total": 89,
+      "corporation": "Nirgal Enterprises",
+      "delta": -20
+     }
+    ]
    },
    "p-meli": {
     "games": 25,
@@ -15706,7 +18190,411 @@
     ],
     "elo": 946,
     "peak": 1001,
-    "lastDelta": -55
+    "lastDelta": -55,
+    "eloSeries": [
+     {
+      "date": "2025-05-16",
+      "game_id": "g-008",
+      "elo": 969,
+      "delta": -31
+     },
+     {
+      "date": "2025-06-20",
+      "game_id": "g-011",
+      "elo": 944,
+      "delta": -25
+     },
+     {
+      "date": "2025-06-28",
+      "game_id": "g-012",
+      "elo": 984,
+      "delta": 40
+     },
+     {
+      "date": "2025-07-19",
+      "game_id": "g-013",
+      "elo": 915,
+      "delta": -69
+     },
+     {
+      "date": "2025-07-25",
+      "game_id": "g-014",
+      "elo": 913,
+      "delta": -2
+     },
+     {
+      "date": "2025-08-16",
+      "game_id": "g-016",
+      "elo": 959,
+      "delta": 46
+     },
+     {
+      "date": "2025-09-20",
+      "game_id": "g-020",
+      "elo": 917,
+      "delta": -42
+     },
+     {
+      "date": "2025-10-11",
+      "game_id": "g-023",
+      "elo": 922,
+      "delta": 5
+     },
+     {
+      "date": "2025-11-02",
+      "game_id": "g-026",
+      "elo": 921,
+      "delta": -1
+     },
+     {
+      "date": "2025-12-15",
+      "game_id": "g-032",
+      "elo": 932,
+      "delta": 11
+     },
+     {
+      "date": "2026-01-12",
+      "game_id": "g-034",
+      "elo": 885,
+      "delta": -47
+     },
+     {
+      "date": "2026-02-09",
+      "game_id": "g-036",
+      "elo": 908,
+      "delta": 23
+     },
+     {
+      "date": "2026-02-23",
+      "game_id": "g-037",
+      "elo": 922,
+      "delta": 14
+     },
+     {
+      "date": "2026-03-03",
+      "game_id": "g-038",
+      "elo": 946,
+      "delta": 24
+     },
+     {
+      "date": "2026-03-10",
+      "game_id": "g-039",
+      "elo": 916,
+      "delta": -30
+     },
+     {
+      "date": "2026-04-28",
+      "game_id": "g-044",
+      "elo": 912,
+      "delta": -4
+     },
+     {
+      "date": "2026-05-05",
+      "game_id": "g-045",
+      "elo": 922,
+      "delta": 10
+     },
+     {
+      "date": "2026-05-19",
+      "game_id": "g-047",
+      "elo": 906,
+      "delta": -16
+     },
+     {
+      "date": "2026-05-26",
+      "game_id": "g-048",
+      "elo": 982,
+      "delta": 76
+     },
+     {
+      "date": "2026-06-02",
+      "game_id": "g-049",
+      "elo": 951,
+      "delta": -31
+     },
+     {
+      "date": "2026-06-23",
+      "game_id": "g-051",
+      "elo": 931,
+      "delta": -20
+     },
+     {
+      "date": "2026-08-11",
+      "game_id": "g-057",
+      "elo": 972,
+      "delta": 41
+     },
+     {
+      "date": "2026-08-18",
+      "game_id": "g-058",
+      "elo": 990,
+      "delta": 18
+     },
+     {
+      "date": "2026-09-08",
+      "game_id": "g-060",
+      "elo": 1001,
+      "delta": 11
+     },
+     {
+      "date": "2026-09-15",
+      "game_id": "g-061",
+      "elo": 946,
+      "delta": -55
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-061",
+      "date": "2026-09-15",
+      "map": "Amazonis Planitia",
+      "position": 4,
+      "n": 4,
+      "total": 68,
+      "corporation": "Poseidon",
+      "delta": -55
+     },
+     {
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia",
+      "position": 3,
+      "n": 5,
+      "total": 80,
+      "corporation": "Robinson Industries",
+      "delta": 11
+     },
+     {
+      "game_id": "g-058",
+      "date": "2026-08-18",
+      "map": "Terra Cimmeria",
+      "position": 3,
+      "n": 5,
+      "total": 67,
+      "corporation": "Manutech",
+      "delta": 18
+     },
+     {
+      "game_id": "g-057",
+      "date": "2026-08-11",
+      "map": "Terra Cimmeria",
+      "position": 1,
+      "n": 3,
+      "total": 107,
+      "corporation": "Morning Star Inc.",
+      "delta": 41
+     },
+     {
+      "game_id": "g-051",
+      "date": "2026-06-23",
+      "map": "Utopia Planitia",
+      "position": 3,
+      "n": 3,
+      "total": 79,
+      "corporation": "Credicor",
+      "delta": -20
+     },
+     {
+      "game_id": "g-049",
+      "date": "2026-06-02",
+      "map": "Utopia Planitia",
+      "position": 4,
+      "n": 4,
+      "total": 74,
+      "corporation": "Factorum",
+      "delta": -31
+     },
+     {
+      "game_id": "g-048",
+      "date": "2026-05-26",
+      "map": "Amazonis Planitia",
+      "position": 1,
+      "n": 4,
+      "total": 106,
+      "corporation": "Tharsis Republic",
+      "delta": 76
+     },
+     {
+      "game_id": "g-047",
+      "date": "2026-05-19",
+      "map": "Amazonis Planitia",
+      "position": 3,
+      "n": 3,
+      "total": 69,
+      "corporation": "Poseidon",
+      "delta": -16
+     },
+     {
+      "game_id": "g-045",
+      "date": "2026-05-05",
+      "map": "Utopia Planitia",
+      "position": 2,
+      "n": 3,
+      "total": 91,
+      "corporation": "Arcadian Communities",
+      "delta": 10
+     },
+     {
+      "game_id": "g-044",
+      "date": "2026-04-28",
+      "map": "Hellas",
+      "position": 3,
+      "n": 4,
+      "total": 83,
+      "corporation": "Tharsis Republic",
+      "delta": -4
+     },
+     {
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "map": "Vastitas Borealis",
+      "position": 4,
+      "n": 4,
+      "total": 58,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -30
+     },
+     {
+      "game_id": "g-038",
+      "date": "2026-03-03",
+      "map": "Amazonis Planitia",
+      "position": 1,
+      "n": 2,
+      "total": 102,
+      "corporation": "Manutech",
+      "delta": 24
+     },
+     {
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "map": "Hellas",
+      "position": 3,
+      "n": 5,
+      "total": 83,
+      "corporation": "Inventrix",
+      "delta": 14
+     },
+     {
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "map": "Hellas",
+      "position": 3,
+      "n": 5,
+      "total": 77,
+      "corporation": "Factorum",
+      "delta": 23
+     },
+     {
+      "game_id": "g-034",
+      "date": "2026-01-12",
+      "map": "Hellas",
+      "position": 5,
+      "n": 5,
+      "total": 72,
+      "corporation": "Saturn Systems",
+      "delta": -47
+     },
+     {
+      "game_id": "g-032",
+      "date": "2025-12-15",
+      "map": "Vastitas Borealis",
+      "position": 2,
+      "n": 3,
+      "total": 84,
+      "corporation": "Hoteles Lagoazul",
+      "delta": 11
+     },
+     {
+      "game_id": "g-026",
+      "date": "2025-11-02",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 79,
+      "corporation": "Spire",
+      "delta": -1
+     },
+     {
+      "game_id": "g-023",
+      "date": "2025-10-11",
+      "map": "Elysium",
+      "position": 3,
+      "n": 4,
+      "total": 85,
+      "corporation": "Viron",
+      "delta": 5
+     },
+     {
+      "game_id": "g-020",
+      "date": "2025-09-20",
+      "map": "Hellas",
+      "position": 4,
+      "n": 4,
+      "total": 68,
+      "corporation": "Producciones Interplanetarias",
+      "delta": -42
+     },
+     {
+      "game_id": "g-016",
+      "date": "2025-08-16",
+      "map": "Hellas",
+      "position": 1,
+      "n": 3,
+      "total": 97,
+      "corporation": "Ecoline",
+      "delta": 46
+     },
+     {
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 79,
+      "corporation": "Palladin Shipping",
+      "delta": -2
+     },
+     {
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "map": "Hellas",
+      "position": 5,
+      "n": 5,
+      "total": 66,
+      "corporation": "Phobolog",
+      "delta": -69
+     },
+     {
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "map": "Elysium",
+      "position": 2,
+      "n": 5,
+      "total": 101,
+      "corporation": "Ecotec",
+      "delta": 40
+     },
+     {
+      "game_id": "g-011",
+      "date": "2025-06-20",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 86,
+      "corporation": "Septem Tribus",
+      "delta": -25
+     },
+     {
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 5,
+      "total": 77,
+      "corporation": "Robinson Industries",
+      "delta": -31
+     }
+    ]
    },
    "p-santi": {
     "games": 18,
@@ -16036,7 +18924,299 @@
     ],
     "elo": 938,
     "peak": 1005,
-    "lastDelta": 24
+    "lastDelta": 24,
+    "eloSeries": [
+     {
+      "date": "2025-06-20",
+      "game_id": "g-011",
+      "elo": 1003,
+      "delta": 3
+     },
+     {
+      "date": "2025-07-19",
+      "game_id": "g-013",
+      "elo": 994,
+      "delta": -9
+     },
+     {
+      "date": "2025-08-16",
+      "game_id": "g-016",
+      "elo": 966,
+      "delta": -28
+     },
+     {
+      "date": "2025-08-30",
+      "game_id": "g-017",
+      "elo": 1003,
+      "delta": 37
+     },
+     {
+      "date": "2025-10-18",
+      "game_id": "g-024",
+      "elo": 996,
+      "delta": -7
+     },
+     {
+      "date": "2025-11-08",
+      "game_id": "g-027",
+      "elo": 987,
+      "delta": -9
+     },
+     {
+      "date": "2025-11-23",
+      "game_id": "g-029",
+      "elo": 1005,
+      "delta": 18
+     },
+     {
+      "date": "2025-11-30",
+      "game_id": "g-030",
+      "elo": 965,
+      "delta": -40
+     },
+     {
+      "date": "2025-12-22",
+      "game_id": "g-033",
+      "elo": 947,
+      "delta": -18
+     },
+     {
+      "date": "2026-01-12",
+      "game_id": "g-034",
+      "elo": 961,
+      "delta": 14
+     },
+     {
+      "date": "2026-01-26",
+      "game_id": "g-035",
+      "elo": 959,
+      "delta": -2
+     },
+     {
+      "date": "2026-05-05",
+      "game_id": "g-045",
+      "elo": 931,
+      "delta": -28
+     },
+     {
+      "date": "2026-06-30",
+      "game_id": "g-052",
+      "elo": 932,
+      "delta": 1
+     },
+     {
+      "date": "2026-07-14",
+      "game_id": "g-054",
+      "elo": 903,
+      "delta": -29
+     },
+     {
+      "date": "2026-08-11",
+      "game_id": "g-057",
+      "elo": 884,
+      "delta": -19
+     },
+     {
+      "date": "2026-09-01",
+      "game_id": "g-059",
+      "elo": 961,
+      "delta": 77
+     },
+     {
+      "date": "2026-09-08",
+      "game_id": "g-060",
+      "elo": 914,
+      "delta": -47
+     },
+     {
+      "date": "2026-09-15",
+      "game_id": "g-061",
+      "elo": 938,
+      "delta": 24
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-061",
+      "date": "2026-09-15",
+      "map": "Amazonis Planitia",
+      "position": 2,
+      "n": 4,
+      "total": 83,
+      "corporation": "Credicor",
+      "delta": 24
+     },
+     {
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia",
+      "position": 5,
+      "n": 5,
+      "total": 50,
+      "corporation": "Teractor",
+      "delta": -47
+     },
+     {
+      "game_id": "g-059",
+      "date": "2026-09-01",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 4,
+      "total": 111,
+      "corporation": "Spire",
+      "delta": 77
+     },
+     {
+      "game_id": "g-057",
+      "date": "2026-08-11",
+      "map": "Terra Cimmeria",
+      "position": 3,
+      "n": 3,
+      "total": 70,
+      "corporation": "Valley Trust",
+      "delta": -19
+     },
+     {
+      "game_id": "g-054",
+      "date": "2026-07-14",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 81,
+      "corporation": "Polyphemos",
+      "delta": -29
+     },
+     {
+      "game_id": "g-052",
+      "date": "2026-06-30",
+      "map": "Vastitas Borealis",
+      "position": 3,
+      "n": 4,
+      "total": 74,
+      "corporation": "Novel Corporation",
+      "delta": 1
+     },
+     {
+      "game_id": "g-045",
+      "date": "2026-05-05",
+      "map": "Utopia Planitia",
+      "position": 3,
+      "n": 3,
+      "total": 81,
+      "corporation": "Hoteles Lagoazul",
+      "delta": -28
+     },
+     {
+      "game_id": "g-035",
+      "date": "2026-01-26",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 68,
+      "corporation": "Recyclon",
+      "delta": -2
+     },
+     {
+      "game_id": "g-034",
+      "date": "2026-01-12",
+      "map": "Hellas",
+      "position": 3,
+      "n": 5,
+      "total": 78,
+      "corporation": "Novel Corporation",
+      "delta": 14
+     },
+     {
+      "game_id": "g-033",
+      "date": "2025-12-22",
+      "map": "Hellas",
+      "position": 3,
+      "n": 3,
+      "total": 76,
+      "corporation": "Helion",
+      "delta": -18
+     },
+     {
+      "game_id": "g-030",
+      "date": "2025-11-30",
+      "map": "Hellas",
+      "position": 4,
+      "n": 4,
+      "total": 65,
+      "corporation": "Credicor",
+      "delta": -40
+     },
+     {
+      "game_id": "g-029",
+      "date": "2025-11-23",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 5,
+      "total": 78,
+      "corporation": "Stormcraft Incorporated",
+      "delta": 18
+     },
+     {
+      "game_id": "g-027",
+      "date": "2025-11-08",
+      "map": "Elysium",
+      "position": 2,
+      "n": 2,
+      "total": 99,
+      "corporation": "Spire",
+      "delta": -9
+     },
+     {
+      "game_id": "g-024",
+      "date": "2025-10-18",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 76,
+      "corporation": "Sagitta",
+      "delta": -7
+     },
+     {
+      "game_id": "g-017",
+      "date": "2025-08-30",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 89,
+      "corporation": "Novel Corporation",
+      "delta": 37
+     },
+     {
+      "game_id": "g-016",
+      "date": "2025-08-16",
+      "map": "Hellas",
+      "position": 3,
+      "n": 3,
+      "total": 81,
+      "corporation": "Point Luna",
+      "delta": -28
+     },
+     {
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "map": "Hellas",
+      "position": 3,
+      "n": 5,
+      "total": 75,
+      "corporation": "Saturn Systems",
+      "delta": -9
+     },
+     {
+      "game_id": "g-011",
+      "date": "2025-06-20",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 89,
+      "corporation": "Robinson Industries",
+      "delta": 3
+     }
+    ]
    },
    "p-lu": {
     "games": 13,
@@ -16327,7 +19507,219 @@
     ],
     "elo": 964,
     "peak": 983,
-    "lastDelta": -19
+    "lastDelta": -19,
+    "eloSeries": [
+     {
+      "date": "2025-09-07",
+      "game_id": "g-018",
+      "elo": 966,
+      "delta": -34
+     },
+     {
+      "date": "2025-10-18",
+      "game_id": "g-024",
+      "elo": 933,
+      "delta": -33
+     },
+     {
+      "date": "2025-11-02",
+      "game_id": "g-026",
+      "elo": 898,
+      "delta": -35
+     },
+     {
+      "date": "2026-01-26",
+      "game_id": "g-035",
+      "elo": 937,
+      "delta": 39
+     },
+     {
+      "date": "2026-02-09",
+      "game_id": "g-036",
+      "elo": 885,
+      "delta": -52
+     },
+     {
+      "date": "2026-02-23",
+      "game_id": "g-037",
+      "elo": 935,
+      "delta": 50
+     },
+     {
+      "date": "2026-03-17",
+      "game_id": "g-040",
+      "elo": 928,
+      "delta": -7
+     },
+     {
+      "date": "2026-04-21",
+      "game_id": "g-043",
+      "elo": 967,
+      "delta": 39
+     },
+     {
+      "date": "2026-05-12",
+      "game_id": "g-046",
+      "elo": 957,
+      "delta": -10
+     },
+     {
+      "date": "2026-07-21",
+      "game_id": "g-055",
+      "elo": 913,
+      "delta": -44
+     },
+     {
+      "date": "2026-07-28",
+      "game_id": "g-056",
+      "elo": 927,
+      "delta": 14
+     },
+     {
+      "date": "2026-09-08",
+      "game_id": "g-060",
+      "elo": 983,
+      "delta": 56
+     },
+     {
+      "date": "2026-09-22",
+      "game_id": "g-062",
+      "elo": 964,
+      "delta": -19
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-062",
+      "date": "2026-09-22",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 86,
+      "corporation": "Helion",
+      "delta": -19
+     },
+     {
+      "game_id": "g-060",
+      "date": "2026-09-08",
+      "map": "Utopia Planitia",
+      "position": 2,
+      "n": 5,
+      "total": 85,
+      "corporation": "Mining Guild",
+      "delta": 56
+     },
+     {
+      "game_id": "g-056",
+      "date": "2026-07-28",
+      "map": "Elysium",
+      "position": 3,
+      "n": 4,
+      "total": 81,
+      "corporation": "Factorum",
+      "delta": 14
+     },
+     {
+      "game_id": "g-055",
+      "date": "2026-07-21",
+      "map": "Elysium",
+      "position": 5,
+      "n": 5,
+      "total": 62,
+      "corporation": "Palladin Shipping",
+      "delta": -44
+     },
+     {
+      "game_id": "g-046",
+      "date": "2026-05-12",
+      "map": "Elysium",
+      "position": 4,
+      "n": 5,
+      "total": 66,
+      "corporation": "Producciones Interplanetarias",
+      "delta": -10
+     },
+     {
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 4,
+      "total": 100,
+      "corporation": "Hoteles Lagoazul",
+      "delta": 39
+     },
+     {
+      "game_id": "g-040",
+      "date": "2026-03-17",
+      "map": "Vastitas Borealis",
+      "position": 2,
+      "n": 2,
+      "total": 87,
+      "corporation": "Novel Corporation",
+      "delta": -7
+     },
+     {
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "map": "Hellas",
+      "position": 2,
+      "n": 5,
+      "total": 83,
+      "corporation": "Aphrodite",
+      "delta": 50
+     },
+     {
+      "game_id": "g-036",
+      "date": "2026-02-09",
+      "map": "Hellas",
+      "position": 5,
+      "n": 5,
+      "total": 72,
+      "corporation": "Valley Trust",
+      "delta": -52
+     },
+     {
+      "game_id": "g-035",
+      "date": "2026-01-26",
+      "map": "Tharsis",
+      "position": 1,
+      "n": 3,
+      "total": 85,
+      "corporation": "Ecotec",
+      "delta": 39
+     },
+     {
+      "game_id": "g-026",
+      "date": "2025-11-02",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 67,
+      "corporation": "Novel Corporation",
+      "delta": -35
+     },
+     {
+      "game_id": "g-024",
+      "date": "2025-10-18",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 63,
+      "corporation": "Factorum",
+      "delta": -33
+     },
+     {
+      "game_id": "g-018",
+      "date": "2025-09-07",
+      "map": "Elysium",
+      "position": 3,
+      "n": 3,
+      "total": 76,
+      "corporation": "Arcadian Communities",
+      "delta": -34
+     }
+    ]
    },
    "p-gonza": {
     "games": 13,
@@ -16625,7 +20017,219 @@
     ],
     "elo": 968,
     "peak": 1070,
-    "lastDelta": -45
+    "lastDelta": -45,
+    "eloSeries": [
+     {
+      "date": "2025-11-16",
+      "game_id": "g-028",
+      "elo": 979,
+      "delta": -21
+     },
+     {
+      "date": "2025-11-23",
+      "game_id": "g-029",
+      "elo": 966,
+      "delta": -13
+     },
+     {
+      "date": "2025-11-30",
+      "game_id": "g-030",
+      "elo": 964,
+      "delta": -2
+     },
+     {
+      "date": "2025-12-07",
+      "game_id": "g-031",
+      "elo": 935,
+      "delta": -29
+     },
+     {
+      "date": "2026-01-12",
+      "game_id": "g-034",
+      "elo": 1015,
+      "delta": 80
+     },
+     {
+      "date": "2026-02-23",
+      "game_id": "g-037",
+      "elo": 1070,
+      "delta": 55
+     },
+     {
+      "date": "2026-03-10",
+      "game_id": "g-039",
+      "elo": 1051,
+      "delta": -19
+     },
+     {
+      "date": "2026-04-14",
+      "game_id": "g-042",
+      "elo": 1045,
+      "delta": -6
+     },
+     {
+      "date": "2026-04-21",
+      "game_id": "g-043",
+      "elo": 1032,
+      "delta": -13
+     },
+     {
+      "date": "2026-05-12",
+      "game_id": "g-046",
+      "elo": 975,
+      "delta": -57
+     },
+     {
+      "date": "2026-06-16",
+      "game_id": "g-050",
+      "elo": 1008,
+      "delta": 33
+     },
+     {
+      "date": "2026-06-23",
+      "game_id": "g-051",
+      "elo": 1013,
+      "delta": 5
+     },
+     {
+      "date": "2026-06-30",
+      "game_id": "g-052",
+      "elo": 968,
+      "delta": -45
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-052",
+      "date": "2026-06-30",
+      "map": "Vastitas Borealis",
+      "position": 4,
+      "n": 4,
+      "total": 63,
+      "corporation": "Recyclon",
+      "delta": -45
+     },
+     {
+      "game_id": "g-051",
+      "date": "2026-06-23",
+      "map": "Utopia Planitia",
+      "position": 2,
+      "n": 3,
+      "total": 88,
+      "corporation": "Helion",
+      "delta": 5
+     },
+     {
+      "game_id": "g-050",
+      "date": "2026-06-16",
+      "map": "Elysium",
+      "position": 1,
+      "n": 3,
+      "total": 96,
+      "corporation": "Recyclon",
+      "delta": 33
+     },
+     {
+      "game_id": "g-046",
+      "date": "2026-05-12",
+      "map": "Elysium",
+      "position": 5,
+      "n": 5,
+      "total": 54,
+      "corporation": "Teractor",
+      "delta": -57
+     },
+     {
+      "game_id": "g-043",
+      "date": "2026-04-21",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 4,
+      "total": 83,
+      "corporation": "Robinson Industries",
+      "delta": -13
+     },
+     {
+      "game_id": "g-042",
+      "date": "2026-04-14",
+      "map": "Tharsis",
+      "position": 2,
+      "n": 3,
+      "total": 89,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -6
+     },
+     {
+      "game_id": "g-039",
+      "date": "2026-03-10",
+      "map": "Vastitas Borealis",
+      "position": 3,
+      "n": 4,
+      "total": 69,
+      "corporation": "Sagitta",
+      "delta": -19
+     },
+     {
+      "game_id": "g-037",
+      "date": "2026-02-23",
+      "map": "Hellas",
+      "position": 1,
+      "n": 5,
+      "total": 91,
+      "corporation": "Phobolog",
+      "delta": 55
+     },
+     {
+      "game_id": "g-034",
+      "date": "2026-01-12",
+      "map": "Hellas",
+      "position": 1,
+      "n": 5,
+      "total": 91,
+      "corporation": "Phobolog",
+      "delta": 80
+     },
+     {
+      "game_id": "g-031",
+      "date": "2025-12-07",
+      "map": "Amazonis Planitia",
+      "position": 4,
+      "n": 4,
+      "total": 66,
+      "corporation": "Palladin Shipping",
+      "delta": -29
+     },
+     {
+      "game_id": "g-030",
+      "date": "2025-11-30",
+      "map": "Hellas",
+      "position": 3,
+      "n": 4,
+      "total": 69,
+      "corporation": "Arcadian Communities",
+      "delta": -2
+     },
+     {
+      "game_id": "g-029",
+      "date": "2025-11-23",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 5,
+      "total": 73,
+      "corporation": "Factorum",
+      "delta": -13
+     },
+     {
+      "game_id": "g-028",
+      "date": "2025-11-16",
+      "map": "Tharsis",
+      "position": 3,
+      "n": 3,
+      "total": 71,
+      "corporation": "Sagitta",
+      "delta": -21
+     }
+    ]
    },
    "p-pato": {
     "games": 11,
@@ -16884,7 +20488,187 @@
     ],
     "elo": 785,
     "peak": 953,
-    "lastDelta": -16
+    "lastDelta": -16,
+    "eloSeries": [
+     {
+      "date": "2025-04-04",
+      "game_id": "g-003",
+      "elo": 953,
+      "delta": -47
+     },
+     {
+      "date": "2025-04-11",
+      "game_id": "g-004",
+      "elo": 916,
+      "delta": -37
+     },
+     {
+      "date": "2025-04-25",
+      "game_id": "g-005",
+      "elo": 879,
+      "delta": -37
+     },
+     {
+      "date": "2025-05-09",
+      "game_id": "g-007",
+      "elo": 848,
+      "delta": -31
+     },
+     {
+      "date": "2025-05-16",
+      "game_id": "g-008",
+      "elo": 816,
+      "delta": -32
+     },
+     {
+      "date": "2025-06-28",
+      "game_id": "g-012",
+      "elo": 817,
+      "delta": 1
+     },
+     {
+      "date": "2025-07-19",
+      "game_id": "g-013",
+      "elo": 815,
+      "delta": -2
+     },
+     {
+      "date": "2025-07-25",
+      "game_id": "g-014",
+      "elo": 795,
+      "delta": -20
+     },
+     {
+      "date": "2025-09-07",
+      "game_id": "g-018",
+      "elo": 816,
+      "delta": 21
+     },
+     {
+      "date": "2025-09-14",
+      "game_id": "g-019",
+      "elo": 801,
+      "delta": -15
+     },
+     {
+      "date": "2025-09-27",
+      "game_id": "g-021",
+      "elo": 785,
+      "delta": -16
+     }
+    ],
+    "history": [
+     {
+      "game_id": "g-021",
+      "date": "2025-09-27",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 73,
+      "corporation": "Arklight",
+      "delta": -16
+     },
+     {
+      "game_id": "g-019",
+      "date": "2025-09-14",
+      "map": "Elysium",
+      "position": 4,
+      "n": 4,
+      "total": 54,
+      "corporation": "Ecoline",
+      "delta": -15
+     },
+     {
+      "game_id": "g-018",
+      "date": "2025-09-07",
+      "map": "Elysium",
+      "position": 2,
+      "n": 3,
+      "total": 79,
+      "corporation": "Aphrodite",
+      "delta": 21
+     },
+     {
+      "game_id": "g-014",
+      "date": "2025-07-25",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 69,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -20
+     },
+     {
+      "game_id": "g-013",
+      "date": "2025-07-19",
+      "map": "Hellas",
+      "position": 4,
+      "n": 5,
+      "total": 70,
+      "corporation": "Cheung Shing Mars",
+      "delta": -2
+     },
+     {
+      "game_id": "g-012",
+      "date": "2025-06-28",
+      "map": "Elysium",
+      "position": 4,
+      "n": 5,
+      "total": 82,
+      "corporation": "Point Luna",
+      "delta": 1
+     },
+     {
+      "game_id": "g-008",
+      "date": "2025-05-16",
+      "map": "Tharsis",
+      "position": 5,
+      "n": 5,
+      "total": 58,
+      "corporation": "Ecoline",
+      "delta": -32
+     },
+     {
+      "game_id": "g-007",
+      "date": "2025-05-09",
+      "map": "Hellas",
+      "position": 4,
+      "n": 4,
+      "total": 63,
+      "corporation": "Tharsis Republic",
+      "delta": -31
+     },
+     {
+      "game_id": "g-005",
+      "date": "2025-04-25",
+      "map": "Elysium",
+      "position": 4,
+      "n": 4,
+      "total": 81,
+      "corporation": "Inventrix",
+      "delta": -37
+     },
+     {
+      "game_id": "g-004",
+      "date": "2025-04-11",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 73,
+      "corporation": "United Nations Mars Initiative (UNMI)",
+      "delta": -37
+     },
+     {
+      "game_id": "g-003",
+      "date": "2025-04-04",
+      "map": "Tharsis",
+      "position": 4,
+      "n": 4,
+      "total": 73,
+      "corporation": "Septem Tribus",
+      "delta": -47
+     }
+    ]
    }
   },
   "head_to_head": {
@@ -25648,7 +29432,27 @@
      ],
      "elo": 1016,
      "peak": 1016,
-     "lastDelta": 16
+     "lastDelta": 16,
+     "eloSeries": [
+      {
+       "date": "2025-11-08",
+       "game_id": "g-027",
+       "elo": 1016,
+       "delta": 16
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-027",
+       "date": "2025-11-08",
+       "map": "Elysium",
+       "position": 1,
+       "n": 2,
+       "total": 120,
+       "corporation": "Vitor",
+       "delta": 16
+      }
+     ]
     },
     "p-nico": {
      "games": 1,
@@ -25780,7 +29584,27 @@
      ],
      "elo": 984,
      "peak": 984,
-     "lastDelta": -16
+     "lastDelta": -16,
+     "eloSeries": [
+      {
+       "date": "2026-03-03",
+       "game_id": "g-038",
+       "elo": 984,
+       "delta": -16
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-038",
+       "date": "2026-03-03",
+       "map": "Amazonis Planitia",
+       "position": 2,
+       "n": 2,
+       "total": 78,
+       "corporation": "Producciones Interplanetarias",
+       "delta": -16
+      }
+     ]
     },
     "p-juli": {
      "games": 3,
@@ -25962,7 +29786,59 @@
      ],
      "elo": 986,
      "peak": 986,
-     "lastDelta": 17
+     "lastDelta": 17,
+     "eloSeries": [
+      {
+       "date": "2025-03-08",
+       "game_id": "g-001",
+       "elo": 984,
+       "delta": -16
+      },
+      {
+       "date": "2025-10-26",
+       "game_id": "g-025",
+       "elo": 969,
+       "delta": -15
+      },
+      {
+       "date": "2026-03-17",
+       "game_id": "g-040",
+       "elo": 986,
+       "delta": 17
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-040",
+       "date": "2026-03-17",
+       "map": "Vastitas Borealis",
+       "position": 1,
+       "n": 2,
+       "total": 111,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": 17
+      },
+      {
+       "game_id": "g-025",
+       "date": "2025-10-26",
+       "map": "Hellas",
+       "position": 2,
+       "n": 2,
+       "total": 82,
+       "corporation": "Point Luna",
+       "delta": -15
+      },
+      {
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "map": "Hellas",
+       "position": 2,
+       "n": 2,
+       "total": 101,
+       "corporation": "Producciones Interplanetarias",
+       "delta": -16
+      }
+     ]
     },
     "p-caro": {
      "games": 2,
@@ -26131,7 +30007,43 @@
      ],
      "elo": 1031,
      "peak": 1031,
-     "lastDelta": 15
+     "lastDelta": 15,
+     "eloSeries": [
+      {
+       "date": "2025-03-08",
+       "game_id": "g-001",
+       "elo": 1016,
+       "delta": 16
+      },
+      {
+       "date": "2025-10-26",
+       "game_id": "g-025",
+       "elo": 1031,
+       "delta": 15
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-025",
+       "date": "2025-10-26",
+       "map": "Hellas",
+       "position": 1,
+       "n": 2,
+       "total": 117,
+       "corporation": "Helion",
+       "delta": 15
+      },
+      {
+       "game_id": "g-001",
+       "date": "2025-03-08",
+       "map": "Hellas",
+       "position": 1,
+       "n": 2,
+       "total": 105,
+       "corporation": "Ecoline",
+       "delta": 16
+      }
+     ]
     },
     "p-tomi": {
      "games": 0,
@@ -26234,7 +30146,9 @@
      ],
      "elo": 1000,
      "peak": null,
-     "lastDelta": null
+     "lastDelta": null,
+     "eloSeries": [],
+     "history": []
     },
     "p-meli": {
      "games": 1,
@@ -26378,7 +30292,27 @@
      ],
      "elo": 1016,
      "peak": 1016,
-     "lastDelta": 16
+     "lastDelta": 16,
+     "eloSeries": [
+      {
+       "date": "2026-03-03",
+       "game_id": "g-038",
+       "elo": 1016,
+       "delta": 16
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-038",
+       "date": "2026-03-03",
+       "map": "Amazonis Planitia",
+       "position": 1,
+       "n": 2,
+       "total": 102,
+       "corporation": "Manutech",
+       "delta": 16
+      }
+     ]
     },
     "p-santi": {
      "games": 1,
@@ -26522,7 +30456,27 @@
      ],
      "elo": 984,
      "peak": 984,
-     "lastDelta": -16
+     "lastDelta": -16,
+     "eloSeries": [
+      {
+       "date": "2025-11-08",
+       "game_id": "g-027",
+       "elo": 984,
+       "delta": -16
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-027",
+       "date": "2025-11-08",
+       "map": "Elysium",
+       "position": 2,
+       "n": 2,
+       "total": 99,
+       "corporation": "Spire",
+       "delta": -16
+      }
+     ]
     },
     "p-lu": {
      "games": 1,
@@ -26664,7 +30618,27 @@
      ],
      "elo": 983,
      "peak": 983,
-     "lastDelta": -17
+     "lastDelta": -17,
+     "eloSeries": [
+      {
+       "date": "2026-03-17",
+       "game_id": "g-040",
+       "elo": 983,
+       "delta": -17
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-040",
+       "date": "2026-03-17",
+       "map": "Vastitas Borealis",
+       "position": 2,
+       "n": 2,
+       "total": 87,
+       "corporation": "Novel Corporation",
+       "delta": -17
+      }
+     ]
     },
     "p-gonza": {
      "games": 0,
@@ -26767,7 +30741,9 @@
      ],
      "elo": 1000,
      "peak": null,
-     "lastDelta": null
+     "lastDelta": null,
+     "eloSeries": [],
+     "history": []
     },
     "p-pato": {
      "games": 0,
@@ -26870,7 +30846,9 @@
      ],
      "elo": 1000,
      "peak": null,
-     "lastDelta": null
+     "lastDelta": null,
+     "eloSeries": [],
+     "history": []
     }
    },
    "head_to_head": {
@@ -33528,7 +37506,139 @@
      ],
      "elo": 1095,
      "peak": 1095,
-     "lastDelta": 19
+     "lastDelta": 19,
+     "eloSeries": [
+      {
+       "date": "2025-05-02",
+       "game_id": "g-006",
+       "elo": 1000,
+       "delta": 0
+      },
+      {
+       "date": "2025-09-07",
+       "game_id": "g-018",
+       "elo": 1032,
+       "delta": 32
+      },
+      {
+       "date": "2025-11-16",
+       "game_id": "g-028",
+       "elo": 1031,
+       "delta": -1
+      },
+      {
+       "date": "2025-12-22",
+       "game_id": "g-033",
+       "elo": 1026,
+       "delta": -5
+      },
+      {
+       "date": "2026-04-14",
+       "game_id": "g-042",
+       "elo": 1054,
+       "delta": 28
+      },
+      {
+       "date": "2026-05-19",
+       "game_id": "g-047",
+       "elo": 1086,
+       "delta": 32
+      },
+      {
+       "date": "2026-06-16",
+       "game_id": "g-050",
+       "elo": 1076,
+       "delta": -10
+      },
+      {
+       "date": "2026-07-14",
+       "game_id": "g-054",
+       "elo": 1095,
+       "delta": 19
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 130,
+       "corporation": "Terralabs Investigation",
+       "delta": 19
+      },
+      {
+       "game_id": "g-050",
+       "date": "2026-06-16",
+       "map": "Elysium",
+       "position": 2,
+       "n": 3,
+       "total": 88,
+       "corporation": "Helion",
+       "delta": -10
+      },
+      {
+       "game_id": "g-047",
+       "date": "2026-05-19",
+       "map": "Amazonis Planitia",
+       "position": 1,
+       "n": 3,
+       "total": 119,
+       "corporation": "Valley Trust",
+       "delta": 32
+      },
+      {
+       "game_id": "g-042",
+       "date": "2026-04-14",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 109,
+       "corporation": "Ecoline",
+       "delta": 28
+      },
+      {
+       "game_id": "g-033",
+       "date": "2025-12-22",
+       "map": "Hellas",
+       "position": 2,
+       "n": 3,
+       "total": 86,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -5
+      },
+      {
+       "game_id": "g-028",
+       "date": "2025-11-16",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 86,
+       "corporation": "Vitor",
+       "delta": -1
+      },
+      {
+       "game_id": "g-018",
+       "date": "2025-09-07",
+       "map": "Elysium",
+       "position": 1,
+       "n": 3,
+       "total": 99,
+       "corporation": "Recyclon",
+       "delta": 32
+      },
+      {
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "map": "Elysium",
+       "position": 2,
+       "n": 3,
+       "total": 97,
+       "corporation": "Ecoline",
+       "delta": 0
+      }
+     ]
     },
     "p-nico": {
      "games": 9,
@@ -33802,7 +37912,155 @@
      ],
      "elo": 1110,
      "peak": 1110,
-     "lastDelta": 24
+     "lastDelta": 24,
+     "eloSeries": [
+      {
+       "date": "2025-05-02",
+       "game_id": "g-006",
+       "elo": 1032,
+       "delta": 32
+      },
+      {
+       "date": "2025-06-06",
+       "game_id": "g-010",
+       "elo": 1060,
+       "delta": 28
+      },
+      {
+       "date": "2025-06-20",
+       "game_id": "g-011",
+       "elo": 1087,
+       "delta": 27
+      },
+      {
+       "date": "2025-08-16",
+       "game_id": "g-016",
+       "elo": 1078,
+       "delta": -9
+      },
+      {
+       "date": "2025-10-04",
+       "game_id": "g-022",
+       "elo": 1036,
+       "delta": -42
+      },
+      {
+       "date": "2025-11-16",
+       "game_id": "g-028",
+       "elo": 1066,
+       "delta": 30
+      },
+      {
+       "date": "2026-03-31",
+       "game_id": "g-041",
+       "elo": 1092,
+       "delta": 26
+      },
+      {
+       "date": "2026-05-19",
+       "game_id": "g-047",
+       "elo": 1086,
+       "delta": -6
+      },
+      {
+       "date": "2026-09-22",
+       "game_id": "g-062",
+       "elo": 1110,
+       "delta": 24
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 101,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": 24
+      },
+      {
+       "game_id": "g-047",
+       "date": "2026-05-19",
+       "map": "Amazonis Planitia",
+       "position": 2,
+       "n": 3,
+       "total": 82,
+       "corporation": "Palladin Shipping",
+       "delta": -6
+      },
+      {
+       "game_id": "g-041",
+       "date": "2026-03-31",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 108,
+       "corporation": "Inventrix",
+       "delta": 26
+      },
+      {
+       "game_id": "g-028",
+       "date": "2025-11-16",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 98,
+       "corporation": "Credicor",
+       "delta": 30
+      },
+      {
+       "game_id": "g-022",
+       "date": "2025-10-04",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 77,
+       "corporation": "Mining Guild",
+       "delta": -42
+      },
+      {
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "map": "Hellas",
+       "position": 2,
+       "n": 3,
+       "total": 97,
+       "corporation": "Novel Corporation",
+       "delta": -9
+      },
+      {
+       "game_id": "g-011",
+       "date": "2025-06-20",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 114,
+       "corporation": "Terralabs Investigation",
+       "delta": 27
+      },
+      {
+       "game_id": "g-010",
+       "date": "2025-06-06",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 96,
+       "corporation": "Manutech",
+       "delta": 28
+      },
+      {
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "map": "Elysium",
+       "position": 1,
+       "n": 3,
+       "total": 101,
+       "corporation": "Morning Star Inc.",
+       "delta": 32
+      }
+     ]
     },
     "p-juli": {
      "games": 6,
@@ -34035,7 +38293,107 @@
      ],
      "elo": 1016,
      "peak": 1016,
-     "lastDelta": 32
+     "lastDelta": 32,
+     "eloSeries": [
+      {
+       "date": "2025-05-02",
+       "game_id": "g-006",
+       "elo": 968,
+       "delta": -32
+      },
+      {
+       "date": "2025-06-06",
+       "game_id": "g-010",
+       "elo": 940,
+       "delta": -28
+      },
+      {
+       "date": "2025-10-04",
+       "game_id": "g-022",
+       "elo": 981,
+       "delta": 41
+      },
+      {
+       "date": "2025-12-22",
+       "game_id": "g-033",
+       "elo": 1015,
+       "delta": 34
+      },
+      {
+       "date": "2026-03-31",
+       "game_id": "g-041",
+       "elo": 984,
+       "delta": -31
+      },
+      {
+       "date": "2026-05-05",
+       "game_id": "g-045",
+       "elo": 1016,
+       "delta": 32
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-045",
+       "date": "2026-05-05",
+       "map": "Utopia Planitia",
+       "position": 1,
+       "n": 3,
+       "total": 95,
+       "corporation": "Robinson Industries",
+       "delta": 32
+      },
+      {
+       "game_id": "g-041",
+       "date": "2026-03-31",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 76,
+       "corporation": "Helion",
+       "delta": -31
+      },
+      {
+       "game_id": "g-033",
+       "date": "2025-12-22",
+       "map": "Hellas",
+       "position": 1,
+       "n": 3,
+       "total": 100,
+       "corporation": "Cheung Shing Mars",
+       "delta": 34
+      },
+      {
+       "game_id": "g-022",
+       "date": "2025-10-04",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 94,
+       "corporation": "Arklight",
+       "delta": 41
+      },
+      {
+       "game_id": "g-010",
+       "date": "2025-06-06",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 88,
+       "corporation": "Robinson Industries",
+       "delta": -28
+      },
+      {
+       "game_id": "g-006",
+       "date": "2025-05-02",
+       "map": "Elysium",
+       "position": 3,
+       "n": 3,
+       "total": 55,
+       "corporation": "Credicor",
+       "delta": -32
+      }
+     ]
     },
     "p-caro": {
      "games": 6,
@@ -34256,7 +38614,107 @@
      ],
      "elo": 1000,
      "peak": 1003,
-     "lastDelta": 4
+     "lastDelta": 4,
+     "eloSeries": [
+      {
+       "date": "2025-06-06",
+       "game_id": "g-010",
+       "elo": 1000,
+       "delta": 0
+      },
+      {
+       "date": "2025-10-04",
+       "game_id": "g-022",
+       "elo": 1001,
+       "delta": 1
+      },
+      {
+       "date": "2025-12-15",
+       "game_id": "g-032",
+       "elo": 969,
+       "delta": -32
+      },
+      {
+       "date": "2026-06-23",
+       "game_id": "g-051",
+       "elo": 1003,
+       "delta": 34
+      },
+      {
+       "date": "2026-08-11",
+       "game_id": "g-057",
+       "elo": 996,
+       "delta": -7
+      },
+      {
+       "date": "2026-09-22",
+       "game_id": "g-062",
+       "elo": 1000,
+       "delta": 4
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 89,
+       "corporation": "Sagitta",
+       "delta": 4
+      },
+      {
+       "game_id": "g-057",
+       "date": "2026-08-11",
+       "map": "Terra Cimmeria",
+       "position": 2,
+       "n": 3,
+       "total": 86,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -7
+      },
+      {
+       "game_id": "g-051",
+       "date": "2026-06-23",
+       "map": "Utopia Planitia",
+       "position": 1,
+       "n": 3,
+       "total": 101,
+       "corporation": "Sagitta",
+       "delta": 34
+      },
+      {
+       "game_id": "g-032",
+       "date": "2025-12-15",
+       "map": "Vastitas Borealis",
+       "position": 3,
+       "n": 3,
+       "total": 81,
+       "corporation": "Cheung Shing Mars",
+       "delta": -32
+      },
+      {
+       "game_id": "g-022",
+       "date": "2025-10-04",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 82,
+       "corporation": "Tharsis Republic",
+       "delta": 1
+      },
+      {
+       "game_id": "g-010",
+       "date": "2025-06-06",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 95,
+       "corporation": "Point Luna",
+       "delta": 0
+      }
+     ]
     },
     "p-tomi": {
      "games": 6,
@@ -34475,7 +38933,107 @@
      ],
      "elo": 945,
      "peak": 1033,
-     "lastDelta": 5
+     "lastDelta": 5,
+     "eloSeries": [
+      {
+       "date": "2025-12-15",
+       "game_id": "g-032",
+       "elo": 1033,
+       "delta": 33
+      },
+      {
+       "date": "2026-01-26",
+       "game_id": "g-035",
+       "elo": 994,
+       "delta": -39
+      },
+      {
+       "date": "2026-03-31",
+       "game_id": "g-041",
+       "elo": 998,
+       "delta": 4
+      },
+      {
+       "date": "2026-04-14",
+       "game_id": "g-042",
+       "elo": 966,
+       "delta": -32
+      },
+      {
+       "date": "2026-06-16",
+       "game_id": "g-050",
+       "elo": 940,
+       "delta": -26
+      },
+      {
+       "date": "2026-07-14",
+       "game_id": "g-054",
+       "elo": 945,
+       "delta": 5
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 95,
+       "corporation": "Novel Corporation",
+       "delta": 5
+      },
+      {
+       "game_id": "g-050",
+       "date": "2026-06-16",
+       "map": "Elysium",
+       "position": 3,
+       "n": 3,
+       "total": 84,
+       "corporation": "Arcadian Communities",
+       "delta": -26
+      },
+      {
+       "game_id": "g-042",
+       "date": "2026-04-14",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 81,
+       "corporation": "Arklight",
+       "delta": -32
+      },
+      {
+       "game_id": "g-041",
+       "date": "2026-03-31",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 95,
+       "corporation": "Factorum",
+       "delta": 4
+      },
+      {
+       "game_id": "g-035",
+       "date": "2026-01-26",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 67,
+       "corporation": "Robinson Industries",
+       "delta": -39
+      },
+      {
+       "game_id": "g-032",
+       "date": "2025-12-15",
+       "map": "Vastitas Borealis",
+       "position": 1,
+       "n": 3,
+       "total": 102,
+       "corporation": "Inventrix",
+       "delta": 33
+      }
+     ]
     },
     "p-meli": {
      "games": 7,
@@ -34747,7 +39305,123 @@
      ],
      "elo": 980,
      "peak": 1010,
-     "lastDelta": 32
+     "lastDelta": 32,
+     "eloSeries": [
+      {
+       "date": "2025-06-20",
+       "game_id": "g-011",
+       "elo": 971,
+       "delta": -29
+      },
+      {
+       "date": "2025-08-16",
+       "game_id": "g-016",
+       "elo": 1010,
+       "delta": 39
+      },
+      {
+       "date": "2025-12-15",
+       "game_id": "g-032",
+       "elo": 1009,
+       "delta": -1
+      },
+      {
+       "date": "2026-05-05",
+       "game_id": "g-045",
+       "elo": 1005,
+       "delta": -4
+      },
+      {
+       "date": "2026-05-19",
+       "game_id": "g-047",
+       "elo": 979,
+       "delta": -26
+      },
+      {
+       "date": "2026-06-23",
+       "game_id": "g-051",
+       "elo": 948,
+       "delta": -31
+      },
+      {
+       "date": "2026-08-11",
+       "game_id": "g-057",
+       "elo": 980,
+       "delta": 32
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-057",
+       "date": "2026-08-11",
+       "map": "Terra Cimmeria",
+       "position": 1,
+       "n": 3,
+       "total": 107,
+       "corporation": "Morning Star Inc.",
+       "delta": 32
+      },
+      {
+       "game_id": "g-051",
+       "date": "2026-06-23",
+       "map": "Utopia Planitia",
+       "position": 3,
+       "n": 3,
+       "total": 79,
+       "corporation": "Credicor",
+       "delta": -31
+      },
+      {
+       "game_id": "g-047",
+       "date": "2026-05-19",
+       "map": "Amazonis Planitia",
+       "position": 3,
+       "n": 3,
+       "total": 69,
+       "corporation": "Poseidon",
+       "delta": -26
+      },
+      {
+       "game_id": "g-045",
+       "date": "2026-05-05",
+       "map": "Utopia Planitia",
+       "position": 2,
+       "n": 3,
+       "total": 91,
+       "corporation": "Arcadian Communities",
+       "delta": -4
+      },
+      {
+       "game_id": "g-032",
+       "date": "2025-12-15",
+       "map": "Vastitas Borealis",
+       "position": 2,
+       "n": 3,
+       "total": 84,
+       "corporation": "Hoteles Lagoazul",
+       "delta": -1
+      },
+      {
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "map": "Hellas",
+       "position": 1,
+       "n": 3,
+       "total": 97,
+       "corporation": "Ecoline",
+       "delta": 39
+      },
+      {
+       "game_id": "g-011",
+       "date": "2025-06-20",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 86,
+       "corporation": "Septem Tribus",
+       "delta": -29
+      }
+     ]
     },
     "p-santi": {
      "games": 7,
@@ -35001,7 +39675,123 @@
      ],
      "elo": 872,
      "peak": 1003,
-     "lastDelta": -25
+     "lastDelta": -25,
+     "eloSeries": [
+      {
+       "date": "2025-06-20",
+       "game_id": "g-011",
+       "elo": 1003,
+       "delta": 3
+      },
+      {
+       "date": "2025-08-16",
+       "game_id": "g-016",
+       "elo": 973,
+       "delta": -30
+      },
+      {
+       "date": "2025-12-22",
+       "game_id": "g-033",
+       "elo": 944,
+       "delta": -29
+      },
+      {
+       "date": "2026-01-26",
+       "game_id": "g-035",
+       "elo": 949,
+       "delta": 5
+      },
+      {
+       "date": "2026-05-05",
+       "game_id": "g-045",
+       "elo": 921,
+       "delta": -28
+      },
+      {
+       "date": "2026-07-14",
+       "game_id": "g-054",
+       "elo": 897,
+       "delta": -24
+      },
+      {
+       "date": "2026-08-11",
+       "game_id": "g-057",
+       "elo": 872,
+       "delta": -25
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-057",
+       "date": "2026-08-11",
+       "map": "Terra Cimmeria",
+       "position": 3,
+       "n": 3,
+       "total": 70,
+       "corporation": "Valley Trust",
+       "delta": -25
+      },
+      {
+       "game_id": "g-054",
+       "date": "2026-07-14",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 81,
+       "corporation": "Polyphemos",
+       "delta": -24
+      },
+      {
+       "game_id": "g-045",
+       "date": "2026-05-05",
+       "map": "Utopia Planitia",
+       "position": 3,
+       "n": 3,
+       "total": 81,
+       "corporation": "Hoteles Lagoazul",
+       "delta": -28
+      },
+      {
+       "game_id": "g-035",
+       "date": "2026-01-26",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 68,
+       "corporation": "Recyclon",
+       "delta": 5
+      },
+      {
+       "game_id": "g-033",
+       "date": "2025-12-22",
+       "map": "Hellas",
+       "position": 3,
+       "n": 3,
+       "total": 76,
+       "corporation": "Helion",
+       "delta": -29
+      },
+      {
+       "game_id": "g-016",
+       "date": "2025-08-16",
+       "map": "Hellas",
+       "position": 3,
+       "n": 3,
+       "total": 81,
+       "corporation": "Point Luna",
+       "delta": -30
+      },
+      {
+       "game_id": "g-011",
+       "date": "2025-06-20",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 89,
+       "corporation": "Robinson Industries",
+       "delta": 3
+      }
+     ]
     },
     "p-lu": {
      "games": 3,
@@ -35173,7 +39963,59 @@
      ],
      "elo": 974,
      "peak": 1002,
-     "lastDelta": -28
+     "lastDelta": -28,
+     "eloSeries": [
+      {
+       "date": "2025-09-07",
+       "game_id": "g-018",
+       "elo": 968,
+       "delta": -32
+      },
+      {
+       "date": "2026-01-26",
+       "game_id": "g-035",
+       "elo": 1002,
+       "delta": 34
+      },
+      {
+       "date": "2026-09-22",
+       "game_id": "g-062",
+       "elo": 974,
+       "delta": -28
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-062",
+       "date": "2026-09-22",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 86,
+       "corporation": "Helion",
+       "delta": -28
+      },
+      {
+       "game_id": "g-035",
+       "date": "2026-01-26",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 3,
+       "total": 85,
+       "corporation": "Ecotec",
+       "delta": 34
+      },
+      {
+       "game_id": "g-018",
+       "date": "2025-09-07",
+       "map": "Elysium",
+       "position": 3,
+       "n": 3,
+       "total": 76,
+       "corporation": "Arcadian Communities",
+       "delta": -32
+      }
+     ]
     },
     "p-gonza": {
      "games": 4,
@@ -35372,7 +40214,75 @@
      ],
      "elo": 1009,
      "peak": 1012,
-     "lastDelta": -3
+     "lastDelta": -3,
+     "eloSeries": [
+      {
+       "date": "2025-11-16",
+       "game_id": "g-028",
+       "elo": 971,
+       "delta": -29
+      },
+      {
+       "date": "2026-04-14",
+       "game_id": "g-042",
+       "elo": 975,
+       "delta": 4
+      },
+      {
+       "date": "2026-06-16",
+       "game_id": "g-050",
+       "elo": 1012,
+       "delta": 37
+      },
+      {
+       "date": "2026-06-23",
+       "game_id": "g-051",
+       "elo": 1009,
+       "delta": -3
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-051",
+       "date": "2026-06-23",
+       "map": "Utopia Planitia",
+       "position": 2,
+       "n": 3,
+       "total": 88,
+       "corporation": "Helion",
+       "delta": -3
+      },
+      {
+       "game_id": "g-050",
+       "date": "2026-06-16",
+       "map": "Elysium",
+       "position": 1,
+       "n": 3,
+       "total": 96,
+       "corporation": "Recyclon",
+       "delta": 37
+      },
+      {
+       "game_id": "g-042",
+       "date": "2026-04-14",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 3,
+       "total": 89,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": 4
+      },
+      {
+       "game_id": "g-028",
+       "date": "2025-11-16",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 3,
+       "total": 71,
+       "corporation": "Sagitta",
+       "delta": -29
+      }
+     ]
     },
     "p-pato": {
      "games": 1,
@@ -35509,7 +40419,27 @@
      ],
      "elo": 1000,
      "peak": 1000,
-     "lastDelta": 0
+     "lastDelta": 0,
+     "eloSeries": [
+      {
+       "date": "2025-09-07",
+       "game_id": "g-018",
+       "elo": 1000,
+       "delta": 0
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-018",
+       "date": "2025-09-07",
+       "map": "Elysium",
+       "position": 2,
+       "n": 3,
+       "total": 79,
+       "corporation": "Aphrodite",
+       "delta": 0
+      }
+     ]
     }
    },
    "head_to_head": {
@@ -44938,7 +49868,347 @@
      ],
      "elo": 1157,
      "peak": 1157,
-     "lastDelta": 8
+     "lastDelta": 8,
+     "eloSeries": [
+      {
+       "date": "2025-03-14",
+       "game_id": "g-002",
+       "elo": 1016,
+       "delta": 16
+      },
+      {
+       "date": "2025-04-04",
+       "game_id": "g-003",
+       "elo": 1030,
+       "delta": 14
+      },
+      {
+       "date": "2025-04-11",
+       "game_id": "g-004",
+       "elo": 1043,
+       "delta": 13
+      },
+      {
+       "date": "2025-05-09",
+       "game_id": "g-007",
+       "elo": 1080,
+       "delta": 37
+      },
+      {
+       "date": "2025-07-25",
+       "game_id": "g-014",
+       "elo": 1082,
+       "delta": 2
+      },
+      {
+       "date": "2025-08-08",
+       "game_id": "g-015",
+       "elo": 1062,
+       "delta": -20
+      },
+      {
+       "date": "2025-08-30",
+       "game_id": "g-017",
+       "elo": 1111,
+       "delta": 49
+      },
+      {
+       "date": "2025-09-14",
+       "game_id": "g-019",
+       "elo": 1144,
+       "delta": 33
+      },
+      {
+       "date": "2025-09-27",
+       "game_id": "g-021",
+       "elo": 1106,
+       "delta": -38
+      },
+      {
+       "date": "2025-10-18",
+       "game_id": "g-024",
+       "elo": 1111,
+       "delta": 5
+      },
+      {
+       "date": "2025-11-30",
+       "game_id": "g-030",
+       "elo": 1116,
+       "delta": 5
+      },
+      {
+       "date": "2025-12-07",
+       "game_id": "g-031",
+       "elo": 1157,
+       "delta": 41
+      },
+      {
+       "date": "2026-03-10",
+       "game_id": "g-039",
+       "elo": 1154,
+       "delta": -3
+      },
+      {
+       "date": "2026-04-28",
+       "game_id": "g-044",
+       "elo": 1146,
+       "delta": -8
+      },
+      {
+       "date": "2026-05-26",
+       "game_id": "g-048",
+       "elo": 1087,
+       "delta": -59
+      },
+      {
+       "date": "2026-06-02",
+       "game_id": "g-049",
+       "elo": 1130,
+       "delta": 43
+      },
+      {
+       "date": "2026-06-30",
+       "game_id": "g-052",
+       "elo": 1128,
+       "delta": -2
+      },
+      {
+       "date": "2026-07-07",
+       "game_id": "g-053",
+       "elo": 1136,
+       "delta": 8
+      },
+      {
+       "date": "2026-07-28",
+       "game_id": "g-056",
+       "elo": 1145,
+       "delta": 9
+      },
+      {
+       "date": "2026-09-01",
+       "game_id": "g-059",
+       "elo": 1149,
+       "delta": 4
+      },
+      {
+       "date": "2026-09-27",
+       "game_id": "g-063",
+       "elo": 1157,
+       "delta": 8
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-063",
+       "date": "2026-09-27",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 103,
+       "corporation": "Point Luna",
+       "delta": 8
+      },
+      {
+       "game_id": "g-059",
+       "date": "2026-09-01",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 94,
+       "corporation": "Producciones Interplanetarias",
+       "delta": 4
+      },
+      {
+       "game_id": "g-056",
+       "date": "2026-07-28",
+       "map": "Elysium",
+       "position": 2,
+       "n": 4,
+       "total": 93,
+       "corporation": "Viron",
+       "delta": 9
+      },
+      {
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 101,
+       "corporation": "Ecotec",
+       "delta": 8
+      },
+      {
+       "game_id": "g-052",
+       "date": "2026-06-30",
+       "map": "Vastitas Borealis",
+       "position": 2,
+       "n": 4,
+       "total": 83,
+       "corporation": "Sagitta",
+       "delta": -2
+      },
+      {
+       "game_id": "g-049",
+       "date": "2026-06-02",
+       "map": "Utopia Planitia",
+       "position": 1,
+       "n": 4,
+       "total": 97,
+       "corporation": "Terralabs Research",
+       "delta": 43
+      },
+      {
+       "game_id": "g-048",
+       "date": "2026-05-26",
+       "map": "Amazonis Planitia",
+       "position": 4,
+       "n": 4,
+       "total": 83,
+       "corporation": "Phobolog",
+       "delta": -59
+      },
+      {
+       "game_id": "g-044",
+       "date": "2026-04-28",
+       "map": "Hellas",
+       "position": 2,
+       "n": 4,
+       "total": 85,
+       "corporation": "Spire",
+       "delta": -8
+      },
+      {
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "map": "Vastitas Borealis",
+       "position": 2,
+       "n": 4,
+       "total": 85,
+       "corporation": "Cheung Shing Mars",
+       "delta": -3
+      },
+      {
+       "game_id": "g-031",
+       "date": "2025-12-07",
+       "map": "Amazonis Planitia",
+       "position": 1,
+       "n": 4,
+       "total": 92,
+       "corporation": "Vitor",
+       "delta": 41
+      },
+      {
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "map": "Hellas",
+       "position": 2,
+       "n": 4,
+       "total": 95,
+       "corporation": "Palladin Shipping",
+       "delta": 5
+      },
+      {
+       "game_id": "g-024",
+       "date": "2025-10-18",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 92,
+       "corporation": "Spire",
+       "delta": 5
+      },
+      {
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 84,
+       "corporation": "Philares",
+       "delta": -38
+      },
+      {
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "map": "Elysium",
+       "position": 1,
+       "n": 4,
+       "total": 93,
+       "corporation": "Credicor",
+       "delta": 33
+      },
+      {
+       "game_id": "g-017",
+       "date": "2025-08-30",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 98,
+       "corporation": "Robinson Industries",
+       "delta": 49
+      },
+      {
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 86,
+       "corporation": "Arcadian Communities",
+       "delta": -20
+      },
+      {
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 94,
+       "corporation": "Phobolog",
+       "delta": 2
+      },
+      {
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "map": "Hellas",
+       "position": 1,
+       "n": 4,
+       "total": 104,
+       "corporation": "Phobolog",
+       "delta": 37
+      },
+      {
+       "game_id": "g-004",
+       "date": "2025-04-11",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 89,
+       "corporation": "Novel Corporation",
+       "delta": 13
+      },
+      {
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 98,
+       "corporation": "Valley Trust",
+       "delta": 14
+      },
+      {
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "map": "Hellas",
+       "position": 2,
+       "n": 4,
+       "total": 86,
+       "corporation": "Mining Guild",
+       "delta": 16
+      }
+     ]
     },
     "p-nico": {
      "games": 22,
@@ -45276,7 +50546,363 @@
      ],
      "elo": 1053,
      "peak": 1132,
-     "lastDelta": -8
+     "lastDelta": -8,
+     "eloSeries": [
+      {
+       "date": "2025-03-14",
+       "game_id": "g-002",
+       "elo": 984,
+       "delta": -16
+      },
+      {
+       "date": "2025-04-11",
+       "game_id": "g-004",
+       "elo": 1037,
+       "delta": 53
+      },
+      {
+       "date": "2025-05-09",
+       "game_id": "g-007",
+       "elo": 1043,
+       "delta": 6
+      },
+      {
+       "date": "2025-05-30",
+       "game_id": "g-009",
+       "elo": 1054,
+       "delta": 11
+      },
+      {
+       "date": "2025-07-25",
+       "game_id": "g-014",
+       "elo": 1092,
+       "delta": 38
+      },
+      {
+       "date": "2025-08-08",
+       "game_id": "g-015",
+       "elo": 1103,
+       "delta": 11
+      },
+      {
+       "date": "2025-08-30",
+       "game_id": "g-017",
+       "elo": 1049,
+       "delta": -54
+      },
+      {
+       "date": "2025-09-14",
+       "game_id": "g-019",
+       "elo": 1061,
+       "delta": 12
+      },
+      {
+       "date": "2025-09-20",
+       "game_id": "g-020",
+       "elo": 1096,
+       "delta": 35
+      },
+      {
+       "date": "2025-09-27",
+       "game_id": "g-021",
+       "elo": 1129,
+       "delta": 33
+      },
+      {
+       "date": "2025-10-11",
+       "game_id": "g-023",
+       "elo": 1064,
+       "delta": -65
+      },
+      {
+       "date": "2025-11-02",
+       "game_id": "g-026",
+       "elo": 1103,
+       "delta": 39
+      },
+      {
+       "date": "2025-12-07",
+       "game_id": "g-031",
+       "elo": 1082,
+       "delta": -21
+      },
+      {
+       "date": "2026-04-21",
+       "game_id": "g-043",
+       "elo": 1025,
+       "delta": -57
+      },
+      {
+       "date": "2026-04-28",
+       "game_id": "g-044",
+       "elo": 1071,
+       "delta": 46
+      },
+      {
+       "date": "2026-05-26",
+       "game_id": "g-048",
+       "elo": 1056,
+       "delta": -15
+      },
+      {
+       "date": "2026-06-02",
+       "game_id": "g-049",
+       "elo": 1040,
+       "delta": -16
+      },
+      {
+       "date": "2026-06-30",
+       "game_id": "g-052",
+       "elo": 1085,
+       "delta": 45
+      },
+      {
+       "date": "2026-07-07",
+       "game_id": "g-053",
+       "elo": 1132,
+       "delta": 47
+      },
+      {
+       "date": "2026-07-28",
+       "game_id": "g-056",
+       "elo": 1077,
+       "delta": -55
+      },
+      {
+       "date": "2026-09-01",
+       "game_id": "g-059",
+       "elo": 1061,
+       "delta": -16
+      },
+      {
+       "date": "2026-09-27",
+       "game_id": "g-063",
+       "elo": 1053,
+       "delta": -8
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-063",
+       "date": "2026-09-27",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 89,
+       "corporation": "Tharsis Republic",
+       "delta": -8
+      },
+      {
+       "game_id": "g-059",
+       "date": "2026-09-01",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 82,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -16
+      },
+      {
+       "game_id": "g-056",
+       "date": "2026-07-28",
+       "map": "Elysium",
+       "position": 4,
+       "n": 4,
+       "total": 70,
+       "corporation": "Spire",
+       "delta": -55
+      },
+      {
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 102,
+       "corporation": "Producciones Interplanetarias",
+       "delta": 47
+      },
+      {
+       "game_id": "g-052",
+       "date": "2026-06-30",
+       "map": "Vastitas Borealis",
+       "position": 1,
+       "n": 4,
+       "total": 97,
+       "corporation": "Inventrix",
+       "delta": 45
+      },
+      {
+       "game_id": "g-049",
+       "date": "2026-06-02",
+       "map": "Utopia Planitia",
+       "position": 3,
+       "n": 4,
+       "total": 91,
+       "corporation": "Valley Trust",
+       "delta": -16
+      },
+      {
+       "game_id": "g-048",
+       "date": "2026-05-26",
+       "map": "Amazonis Planitia",
+       "position": 3,
+       "n": 4,
+       "total": 88,
+       "corporation": "Vitor",
+       "delta": -15
+      },
+      {
+       "game_id": "g-044",
+       "date": "2026-04-28",
+       "map": "Hellas",
+       "position": 1,
+       "n": 4,
+       "total": 108,
+       "corporation": "Ecotec",
+       "delta": 46
+      },
+      {
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 71,
+       "corporation": "Tharsis Republic",
+       "delta": -57
+      },
+      {
+       "game_id": "g-031",
+       "date": "2025-12-07",
+       "map": "Amazonis Planitia",
+       "position": 3,
+       "n": 4,
+       "total": 74,
+       "corporation": "Mons Insurance",
+       "delta": -21
+      },
+      {
+       "game_id": "g-026",
+       "date": "2025-11-02",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 101,
+       "corporation": "Nirgal Enterprises",
+       "delta": 39
+      },
+      {
+       "game_id": "g-023",
+       "date": "2025-10-11",
+       "map": "Elysium",
+       "position": 4,
+       "n": 4,
+       "total": 78,
+       "corporation": "Point Luna",
+       "delta": -65
+      },
+      {
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 94,
+       "corporation": "Helion",
+       "delta": 33
+      },
+      {
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "map": "Hellas",
+       "position": 1,
+       "n": 4,
+       "total": 82,
+       "corporation": "Saturn Systems",
+       "delta": 35
+      },
+      {
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "map": "Elysium",
+       "position": 2,
+       "n": 4,
+       "total": 83,
+       "corporation": "Valley Trust",
+       "delta": 12
+      },
+      {
+       "game_id": "g-017",
+       "date": "2025-08-30",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 72,
+       "corporation": "Vitor",
+       "delta": -54
+      },
+      {
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 87,
+       "corporation": "Inventrix",
+       "delta": 11
+      },
+      {
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 99,
+       "corporation": "Teractor",
+       "delta": 38
+      },
+      {
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 86,
+       "corporation": "Valley Trust",
+       "delta": 11
+      },
+      {
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "map": "Hellas",
+       "position": 2,
+       "n": 4,
+       "total": 95,
+       "corporation": "Ecoline",
+       "delta": 6
+      },
+      {
+       "game_id": "g-004",
+       "date": "2025-04-11",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 91,
+       "corporation": "Phobolog",
+       "delta": 53
+      },
+      {
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "map": "Hellas",
+       "position": 3,
+       "n": 4,
+       "total": 84,
+       "corporation": "Mons Insurance",
+       "delta": -16
+      }
+     ]
     },
     "p-juli": {
      "games": 16,
@@ -45581,7 +51207,267 @@
      ],
      "elo": 1091,
      "peak": 1112,
-     "lastDelta": 62
+     "lastDelta": 62,
+     "eloSeries": [
+      {
+       "date": "2025-03-14",
+       "game_id": "g-002",
+       "elo": 952,
+       "delta": -48
+      },
+      {
+       "date": "2025-04-04",
+       "game_id": "g-003",
+       "elo": 945,
+       "delta": -7
+      },
+      {
+       "date": "2025-04-25",
+       "game_id": "g-005",
+       "elo": 967,
+       "delta": 22
+      },
+      {
+       "date": "2025-05-09",
+       "game_id": "g-007",
+       "elo": 954,
+       "delta": -13
+      },
+      {
+       "date": "2025-05-30",
+       "game_id": "g-009",
+       "elo": 1013,
+       "delta": 59
+      },
+      {
+       "date": "2025-08-08",
+       "game_id": "g-015",
+       "elo": 974,
+       "delta": -39
+      },
+      {
+       "date": "2025-09-20",
+       "game_id": "g-020",
+       "elo": 961,
+       "delta": -13
+      },
+      {
+       "date": "2025-09-27",
+       "game_id": "g-021",
+       "elo": 984,
+       "delta": 23
+      },
+      {
+       "date": "2025-10-11",
+       "game_id": "g-023",
+       "elo": 1040,
+       "delta": 56
+      },
+      {
+       "date": "2025-10-18",
+       "game_id": "g-024",
+       "elo": 1089,
+       "delta": 49
+      },
+      {
+       "date": "2025-11-02",
+       "game_id": "g-026",
+       "elo": 1092,
+       "delta": 3
+      },
+      {
+       "date": "2025-12-07",
+       "game_id": "g-031",
+       "elo": 1105,
+       "delta": 13
+      },
+      {
+       "date": "2026-06-02",
+       "game_id": "g-049",
+       "elo": 1112,
+       "delta": 7
+      },
+      {
+       "date": "2026-09-01",
+       "game_id": "g-059",
+       "elo": 1058,
+       "delta": -54
+      },
+      {
+       "date": "2026-09-15",
+       "game_id": "g-061",
+       "elo": 1029,
+       "delta": -29
+      },
+      {
+       "date": "2026-09-27",
+       "game_id": "g-063",
+       "elo": 1091,
+       "delta": 62
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-063",
+       "date": "2026-09-27",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 106,
+       "corporation": "Ecoline",
+       "delta": 62
+      },
+      {
+       "game_id": "g-061",
+       "date": "2026-09-15",
+       "map": "Amazonis Planitia",
+       "position": 3,
+       "n": 4,
+       "total": 80,
+       "corporation": "Thorgate",
+       "delta": -29
+      },
+      {
+       "game_id": "g-059",
+       "date": "2026-09-01",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 69,
+       "corporation": "Hoteles Lagoazul",
+       "delta": -54
+      },
+      {
+       "game_id": "g-049",
+       "date": "2026-06-02",
+       "map": "Utopia Planitia",
+       "position": 2,
+       "n": 4,
+       "total": 96,
+       "corporation": "Palladin Shipping",
+       "delta": 7
+      },
+      {
+       "game_id": "g-031",
+       "date": "2025-12-07",
+       "map": "Amazonis Planitia",
+       "position": 2,
+       "n": 4,
+       "total": 90,
+       "corporation": "Arklight",
+       "delta": 13
+      },
+      {
+       "game_id": "g-026",
+       "date": "2025-11-02",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 98,
+       "corporation": "Palladin Shipping",
+       "delta": 3
+      },
+      {
+       "game_id": "g-024",
+       "date": "2025-10-18",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 98,
+       "corporation": "Vitor",
+       "delta": 49
+      },
+      {
+       "game_id": "g-023",
+       "date": "2025-10-11",
+       "map": "Elysium",
+       "position": 1,
+       "n": 4,
+       "total": 93,
+       "corporation": "Spire",
+       "delta": 56
+      },
+      {
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 84,
+       "corporation": "Credicor",
+       "delta": 23
+      },
+      {
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "map": "Hellas",
+       "position": 3,
+       "n": 4,
+       "total": 70,
+       "corporation": "Sagitta",
+       "delta": -13
+      },
+      {
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 72,
+       "corporation": "Vitor",
+       "delta": -39
+      },
+      {
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 101,
+       "corporation": "Mining Guild",
+       "delta": 59
+      },
+      {
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "map": "Hellas",
+       "position": 3,
+       "n": 4,
+       "total": 81,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -13
+      },
+      {
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "map": "Elysium",
+       "position": 2,
+       "n": 4,
+       "total": 93,
+       "corporation": "Sagitta",
+       "delta": 22
+      },
+      {
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 95,
+       "corporation": "Novel Corporation",
+       "delta": -7
+      },
+      {
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "map": "Hellas",
+       "position": 4,
+       "n": 4,
+       "total": 82,
+       "corporation": "Teractor",
+       "delta": -48
+      }
+     ]
     },
     "p-caro": {
      "games": 16,
@@ -45875,7 +51761,267 @@
      ],
      "elo": 1123,
      "peak": 1185,
-     "lastDelta": -62
+     "lastDelta": -62,
+     "eloSeries": [
+      {
+       "date": "2025-03-14",
+       "game_id": "g-002",
+       "elo": 1048,
+       "delta": 48
+      },
+      {
+       "date": "2025-04-04",
+       "game_id": "g-003",
+       "elo": 1088,
+       "delta": 40
+      },
+      {
+       "date": "2025-04-11",
+       "game_id": "g-004",
+       "elo": 1059,
+       "delta": -29
+      },
+      {
+       "date": "2025-04-25",
+       "game_id": "g-005",
+       "elo": 1093,
+       "delta": 34
+      },
+      {
+       "date": "2025-05-30",
+       "game_id": "g-009",
+       "elo": 1064,
+       "delta": -29
+      },
+      {
+       "date": "2025-08-08",
+       "game_id": "g-015",
+       "elo": 1112,
+       "delta": 48
+      },
+      {
+       "date": "2025-08-30",
+       "game_id": "g-017",
+       "elo": 1088,
+       "delta": -24
+      },
+      {
+       "date": "2025-09-14",
+       "game_id": "g-019",
+       "elo": 1061,
+       "delta": -27
+      },
+      {
+       "date": "2025-10-11",
+       "game_id": "g-023",
+       "elo": 1071,
+       "delta": 10
+      },
+      {
+       "date": "2025-11-30",
+       "game_id": "g-030",
+       "elo": 1115,
+       "delta": 44
+      },
+      {
+       "date": "2026-03-10",
+       "game_id": "g-039",
+       "elo": 1151,
+       "delta": 36
+      },
+      {
+       "date": "2026-04-21",
+       "game_id": "g-043",
+       "elo": 1179,
+       "delta": 28
+      },
+      {
+       "date": "2026-05-26",
+       "game_id": "g-048",
+       "elo": 1178,
+       "delta": -1
+      },
+      {
+       "date": "2026-07-07",
+       "game_id": "g-053",
+       "elo": 1146,
+       "delta": -32
+      },
+      {
+       "date": "2026-07-28",
+       "game_id": "g-056",
+       "elo": 1185,
+       "delta": 39
+      },
+      {
+       "date": "2026-09-27",
+       "game_id": "g-063",
+       "elo": 1123,
+       "delta": -62
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-063",
+       "date": "2026-09-27",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 81,
+       "corporation": "Helion",
+       "delta": -62
+      },
+      {
+       "game_id": "g-056",
+       "date": "2026-07-28",
+       "map": "Elysium",
+       "position": 1,
+       "n": 4,
+       "total": 102,
+       "corporation": "Recyclon",
+       "delta": 39
+      },
+      {
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 94,
+       "corporation": "Phobolog",
+       "delta": -32
+      },
+      {
+       "game_id": "g-048",
+       "date": "2026-05-26",
+       "map": "Amazonis Planitia",
+       "position": 2,
+       "n": 4,
+       "total": 96,
+       "corporation": "Ecoline",
+       "delta": -1
+      },
+      {
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 104,
+       "corporation": "Ecotec",
+       "delta": 28
+      },
+      {
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "map": "Vastitas Borealis",
+       "position": 1,
+       "n": 4,
+       "total": 93,
+       "corporation": "Helion",
+       "delta": 36
+      },
+      {
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "map": "Hellas",
+       "position": 1,
+       "n": 4,
+       "total": 105,
+       "corporation": "Spire",
+       "delta": 44
+      },
+      {
+       "game_id": "g-023",
+       "date": "2025-10-11",
+       "map": "Elysium",
+       "position": 2,
+       "n": 4,
+       "total": 90,
+       "corporation": "Arklight",
+       "delta": 10
+      },
+      {
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "map": "Elysium",
+       "position": 3,
+       "n": 4,
+       "total": 83,
+       "corporation": "Spire",
+       "delta": -27
+      },
+      {
+       "game_id": "g-017",
+       "date": "2025-08-30",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 78,
+       "corporation": "Thorgate",
+       "delta": -24
+      },
+      {
+       "game_id": "g-015",
+       "date": "2025-08-08",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 96,
+       "corporation": "Utopia Invest",
+       "delta": 48
+      },
+      {
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 86,
+       "corporation": "Spire",
+       "delta": -29
+      },
+      {
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "map": "Elysium",
+       "position": 1,
+       "n": 4,
+       "total": 107,
+       "corporation": "Pristar",
+       "delta": 34
+      },
+      {
+       "game_id": "g-004",
+       "date": "2025-04-11",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 84,
+       "corporation": "Ecotec",
+       "delta": -29
+      },
+      {
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 115,
+       "corporation": "Utopia Invest",
+       "delta": 40
+      },
+      {
+       "game_id": "g-002",
+       "date": "2025-03-14",
+       "map": "Hellas",
+       "position": 1,
+       "n": 4,
+       "total": 103,
+       "corporation": "Terralabs Investigation",
+       "delta": 48
+      }
+     ]
     },
     "p-tomi": {
      "games": 6,
@@ -46119,7 +52265,107 @@
      ],
      "elo": 964,
      "peak": 980,
-     "lastDelta": 63
+     "lastDelta": 63,
+     "eloSeries": [
+      {
+       "date": "2025-04-25",
+       "game_id": "g-005",
+       "elo": 980,
+       "delta": -20
+      },
+      {
+       "date": "2025-05-30",
+       "game_id": "g-009",
+       "elo": 939,
+       "delta": -41
+      },
+      {
+       "date": "2025-09-20",
+       "game_id": "g-020",
+       "elo": 964,
+       "delta": 25
+      },
+      {
+       "date": "2026-04-28",
+       "game_id": "g-044",
+       "elo": 924,
+       "delta": -40
+      },
+      {
+       "date": "2026-07-07",
+       "game_id": "g-053",
+       "elo": 901,
+       "delta": -23
+      },
+      {
+       "date": "2026-09-15",
+       "game_id": "g-061",
+       "elo": 964,
+       "delta": 63
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-061",
+       "date": "2026-09-15",
+       "map": "Amazonis Planitia",
+       "position": 1,
+       "n": 4,
+       "total": 96,
+       "corporation": "Stormcraft Incorporated",
+       "delta": 63
+      },
+      {
+       "game_id": "g-053",
+       "date": "2026-07-07",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 75,
+       "corporation": "Poseidon",
+       "delta": -23
+      },
+      {
+       "game_id": "g-044",
+       "date": "2026-04-28",
+       "map": "Hellas",
+       "position": 4,
+       "n": 4,
+       "total": 68,
+       "corporation": "Recyclon",
+       "delta": -40
+      },
+      {
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "map": "Hellas",
+       "position": 2,
+       "n": 4,
+       "total": 75,
+       "corporation": "Factorum",
+       "delta": 25
+      },
+      {
+       "game_id": "g-009",
+       "date": "2025-05-30",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 78,
+       "corporation": "Aridor",
+       "delta": -41
+      },
+      {
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "map": "Elysium",
+       "position": 3,
+       "n": 4,
+       "total": 89,
+       "corporation": "Nirgal Enterprises",
+       "delta": -20
+      }
+     ]
     },
     "p-meli": {
      "games": 9,
@@ -46395,7 +52641,155 @@
      ],
      "elo": 906,
      "peak": 984,
-     "lastDelta": -41
+     "lastDelta": -41,
+     "eloSeries": [
+      {
+       "date": "2025-07-25",
+       "game_id": "g-014",
+       "elo": 984,
+       "delta": -16
+      },
+      {
+       "date": "2025-09-20",
+       "game_id": "g-020",
+       "elo": 937,
+       "delta": -47
+      },
+      {
+       "date": "2025-10-11",
+       "game_id": "g-023",
+       "elo": 937,
+       "delta": 0
+      },
+      {
+       "date": "2025-11-02",
+       "game_id": "g-026",
+       "elo": 934,
+       "delta": -3
+      },
+      {
+       "date": "2026-03-10",
+       "game_id": "g-039",
+       "elo": 904,
+       "delta": -30
+      },
+      {
+       "date": "2026-04-28",
+       "game_id": "g-044",
+       "elo": 906,
+       "delta": 2
+      },
+      {
+       "date": "2026-05-26",
+       "game_id": "g-048",
+       "elo": 981,
+       "delta": 75
+      },
+      {
+       "date": "2026-06-02",
+       "game_id": "g-049",
+       "elo": 947,
+       "delta": -34
+      },
+      {
+       "date": "2026-09-15",
+       "game_id": "g-061",
+       "elo": 906,
+       "delta": -41
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-061",
+       "date": "2026-09-15",
+       "map": "Amazonis Planitia",
+       "position": 4,
+       "n": 4,
+       "total": 68,
+       "corporation": "Poseidon",
+       "delta": -41
+      },
+      {
+       "game_id": "g-049",
+       "date": "2026-06-02",
+       "map": "Utopia Planitia",
+       "position": 4,
+       "n": 4,
+       "total": 74,
+       "corporation": "Factorum",
+       "delta": -34
+      },
+      {
+       "game_id": "g-048",
+       "date": "2026-05-26",
+       "map": "Amazonis Planitia",
+       "position": 1,
+       "n": 4,
+       "total": 106,
+       "corporation": "Tharsis Republic",
+       "delta": 75
+      },
+      {
+       "game_id": "g-044",
+       "date": "2026-04-28",
+       "map": "Hellas",
+       "position": 3,
+       "n": 4,
+       "total": 83,
+       "corporation": "Tharsis Republic",
+       "delta": 2
+      },
+      {
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "map": "Vastitas Borealis",
+       "position": 4,
+       "n": 4,
+       "total": 58,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -30
+      },
+      {
+       "game_id": "g-026",
+       "date": "2025-11-02",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 79,
+       "corporation": "Spire",
+       "delta": -3
+      },
+      {
+       "game_id": "g-023",
+       "date": "2025-10-11",
+       "map": "Elysium",
+       "position": 3,
+       "n": 4,
+       "total": 85,
+       "corporation": "Viron",
+       "delta": 0
+      },
+      {
+       "game_id": "g-020",
+       "date": "2025-09-20",
+       "map": "Hellas",
+       "position": 4,
+       "n": 4,
+       "total": 68,
+       "corporation": "Producciones Interplanetarias",
+       "delta": -47
+      },
+      {
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 79,
+       "corporation": "Palladin Shipping",
+       "delta": -16
+      }
+     ]
     },
     "p-santi": {
      "games": 6,
@@ -46618,7 +53012,107 @@
      ],
      "elo": 1040,
      "peak": 1040,
-     "lastDelta": 7
+     "lastDelta": 7,
+     "eloSeries": [
+      {
+       "date": "2025-08-30",
+       "game_id": "g-017",
+       "elo": 1028,
+       "delta": 28
+      },
+      {
+       "date": "2025-10-18",
+       "game_id": "g-024",
+       "elo": 1015,
+       "delta": -13
+      },
+      {
+       "date": "2025-11-30",
+       "game_id": "g-030",
+       "elo": 973,
+       "delta": -42
+      },
+      {
+       "date": "2026-06-30",
+       "game_id": "g-052",
+       "elo": 966,
+       "delta": -7
+      },
+      {
+       "date": "2026-09-01",
+       "game_id": "g-059",
+       "elo": 1033,
+       "delta": 67
+      },
+      {
+       "date": "2026-09-15",
+       "game_id": "g-061",
+       "elo": 1040,
+       "delta": 7
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-061",
+       "date": "2026-09-15",
+       "map": "Amazonis Planitia",
+       "position": 2,
+       "n": 4,
+       "total": 83,
+       "corporation": "Credicor",
+       "delta": 7
+      },
+      {
+       "game_id": "g-059",
+       "date": "2026-09-01",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 4,
+       "total": 111,
+       "corporation": "Spire",
+       "delta": 67
+      },
+      {
+       "game_id": "g-052",
+       "date": "2026-06-30",
+       "map": "Vastitas Borealis",
+       "position": 3,
+       "n": 4,
+       "total": 74,
+       "corporation": "Novel Corporation",
+       "delta": -7
+      },
+      {
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "map": "Hellas",
+       "position": 4,
+       "n": 4,
+       "total": 65,
+       "corporation": "Credicor",
+       "delta": -42
+      },
+      {
+       "game_id": "g-024",
+       "date": "2025-10-18",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 76,
+       "corporation": "Sagitta",
+       "delta": -13
+      },
+      {
+       "game_id": "g-017",
+       "date": "2025-08-30",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 89,
+       "corporation": "Novel Corporation",
+       "delta": 28
+      }
+     ]
     },
     "p-lu": {
      "games": 4,
@@ -46800,7 +53294,75 @@
      ],
      "elo": 962,
      "peak": 962,
-     "lastDelta": 7
+     "lastDelta": 7,
+     "eloSeries": [
+      {
+       "date": "2025-10-18",
+       "game_id": "g-024",
+       "elo": 960,
+       "delta": -40
+      },
+      {
+       "date": "2025-11-02",
+       "game_id": "g-026",
+       "elo": 921,
+       "delta": -39
+      },
+      {
+       "date": "2026-04-21",
+       "game_id": "g-043",
+       "elo": 955,
+       "delta": 34
+      },
+      {
+       "date": "2026-07-28",
+       "game_id": "g-056",
+       "elo": 962,
+       "delta": 7
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-056",
+       "date": "2026-07-28",
+       "map": "Elysium",
+       "position": 3,
+       "n": 4,
+       "total": 81,
+       "corporation": "Factorum",
+       "delta": 7
+      },
+      {
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 4,
+       "total": 100,
+       "corporation": "Hoteles Lagoazul",
+       "delta": 34
+      },
+      {
+       "game_id": "g-026",
+       "date": "2025-11-02",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 67,
+       "corporation": "Novel Corporation",
+       "delta": -39
+      },
+      {
+       "game_id": "g-024",
+       "date": "2025-10-18",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 63,
+       "corporation": "Factorum",
+       "delta": -40
+      }
+     ]
     },
     "p-gonza": {
      "games": 5,
@@ -47021,7 +53583,91 @@
      ],
      "elo": 918,
      "peak": 993,
-     "lastDelta": -36
+     "lastDelta": -36,
+     "eloSeries": [
+      {
+       "date": "2025-11-30",
+       "game_id": "g-030",
+       "elo": 993,
+       "delta": -7
+      },
+      {
+       "date": "2025-12-07",
+       "game_id": "g-031",
+       "elo": 960,
+       "delta": -33
+      },
+      {
+       "date": "2026-03-10",
+       "game_id": "g-039",
+       "elo": 958,
+       "delta": -2
+      },
+      {
+       "date": "2026-04-21",
+       "game_id": "g-043",
+       "elo": 954,
+       "delta": -4
+      },
+      {
+       "date": "2026-06-30",
+       "game_id": "g-052",
+       "elo": 918,
+       "delta": -36
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-052",
+       "date": "2026-06-30",
+       "map": "Vastitas Borealis",
+       "position": 4,
+       "n": 4,
+       "total": 63,
+       "corporation": "Recyclon",
+       "delta": -36
+      },
+      {
+       "game_id": "g-043",
+       "date": "2026-04-21",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 4,
+       "total": 83,
+       "corporation": "Robinson Industries",
+       "delta": -4
+      },
+      {
+       "game_id": "g-039",
+       "date": "2026-03-10",
+       "map": "Vastitas Borealis",
+       "position": 3,
+       "n": 4,
+       "total": 69,
+       "corporation": "Sagitta",
+       "delta": -2
+      },
+      {
+       "game_id": "g-031",
+       "date": "2025-12-07",
+       "map": "Amazonis Planitia",
+       "position": 4,
+       "n": 4,
+       "total": 66,
+       "corporation": "Palladin Shipping",
+       "delta": -33
+      },
+      {
+       "game_id": "g-030",
+       "date": "2025-11-30",
+       "map": "Hellas",
+       "position": 3,
+       "n": 4,
+       "total": 69,
+       "corporation": "Arcadian Communities",
+       "delta": -7
+      }
+     ]
     },
     "p-pato": {
      "games": 7,
@@ -47251,7 +53897,123 @@
      ],
      "elo": 789,
      "peak": 953,
-     "lastDelta": -18
+     "lastDelta": -18,
+     "eloSeries": [
+      {
+       "date": "2025-04-04",
+       "game_id": "g-003",
+       "elo": 953,
+       "delta": -47
+      },
+      {
+       "date": "2025-04-11",
+       "game_id": "g-004",
+       "elo": 916,
+       "delta": -37
+      },
+      {
+       "date": "2025-04-25",
+       "game_id": "g-005",
+       "elo": 879,
+       "delta": -37
+      },
+      {
+       "date": "2025-05-09",
+       "game_id": "g-007",
+       "elo": 849,
+       "delta": -30
+      },
+      {
+       "date": "2025-07-25",
+       "game_id": "g-014",
+       "elo": 825,
+       "delta": -24
+      },
+      {
+       "date": "2025-09-14",
+       "game_id": "g-019",
+       "elo": 807,
+       "delta": -18
+      },
+      {
+       "date": "2025-09-27",
+       "game_id": "g-021",
+       "elo": 789,
+       "delta": -18
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-021",
+       "date": "2025-09-27",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 73,
+       "corporation": "Arklight",
+       "delta": -18
+      },
+      {
+       "game_id": "g-019",
+       "date": "2025-09-14",
+       "map": "Elysium",
+       "position": 4,
+       "n": 4,
+       "total": 54,
+       "corporation": "Ecoline",
+       "delta": -18
+      },
+      {
+       "game_id": "g-014",
+       "date": "2025-07-25",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 69,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -24
+      },
+      {
+       "game_id": "g-007",
+       "date": "2025-05-09",
+       "map": "Hellas",
+       "position": 4,
+       "n": 4,
+       "total": 63,
+       "corporation": "Tharsis Republic",
+       "delta": -30
+      },
+      {
+       "game_id": "g-005",
+       "date": "2025-04-25",
+       "map": "Elysium",
+       "position": 4,
+       "n": 4,
+       "total": 81,
+       "corporation": "Inventrix",
+       "delta": -37
+      },
+      {
+       "game_id": "g-004",
+       "date": "2025-04-11",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 73,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -37
+      },
+      {
+       "game_id": "g-003",
+       "date": "2025-04-04",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 4,
+       "total": 73,
+       "corporation": "Septem Tribus",
+       "delta": -47
+      }
+     ]
     }
    },
    "head_to_head": {
@@ -56389,7 +63151,139 @@
      ],
      "elo": 1065,
      "peak": 1065,
-     "lastDelta": 63
+     "lastDelta": 63,
+     "eloSeries": [
+      {
+       "date": "2025-05-16",
+       "game_id": "g-008",
+       "elo": 1064,
+       "delta": 64
+      },
+      {
+       "date": "2025-11-23",
+       "game_id": "g-029",
+       "elo": 992,
+       "delta": -72
+      },
+      {
+       "date": "2026-01-12",
+       "game_id": "g-034",
+       "elo": 1026,
+       "delta": 34
+      },
+      {
+       "date": "2026-02-09",
+       "game_id": "g-036",
+       "elo": 1048,
+       "delta": 22
+      },
+      {
+       "date": "2026-02-23",
+       "game_id": "g-037",
+       "elo": 999,
+       "delta": -49
+      },
+      {
+       "date": "2026-05-12",
+       "game_id": "g-046",
+       "elo": 1041,
+       "delta": 42
+      },
+      {
+       "date": "2026-08-18",
+       "game_id": "g-058",
+       "elo": 1002,
+       "delta": -39
+      },
+      {
+       "date": "2026-09-08",
+       "game_id": "g-060",
+       "elo": 1065,
+       "delta": 63
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia",
+       "position": 1,
+       "n": 5,
+       "total": 102,
+       "corporation": "Stormcraft Incorporated",
+       "delta": 63
+      },
+      {
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "map": "Terra Cimmeria",
+       "position": 4,
+       "n": 5,
+       "total": 62,
+       "corporation": "Morning Star Inc.",
+       "delta": -39
+      },
+      {
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "map": "Elysium",
+       "position": 2,
+       "n": 5,
+       "total": 92,
+       "corporation": "Celestic",
+       "delta": 42
+      },
+      {
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "map": "Hellas",
+       "position": 4,
+       "n": 5,
+       "total": 77,
+       "corporation": "Recyclon",
+       "delta": -49
+      },
+      {
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "map": "Hellas",
+       "position": 2,
+       "n": 5,
+       "total": 84,
+       "corporation": "Saturn Systems",
+       "delta": 22
+      },
+      {
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "map": "Hellas",
+       "position": 2,
+       "n": 5,
+       "total": 80,
+       "corporation": "Sagitta",
+       "delta": 34
+      },
+      {
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "map": "Tharsis",
+       "position": 5,
+       "n": 5,
+       "total": 71,
+       "corporation": "Mining Guild",
+       "delta": -72
+      },
+      {
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 5,
+       "total": 105,
+       "corporation": "Arklight",
+       "delta": 64
+      }
+     ]
     },
     "p-nico": {
      "games": 4,
@@ -56579,7 +63473,75 @@
      ],
      "elo": 1129,
      "peak": 1129,
-     "lastDelta": 53
+     "lastDelta": 53,
+     "eloSeries": [
+      {
+       "date": "2025-06-28",
+       "game_id": "g-012",
+       "elo": 1061,
+       "delta": 61
+      },
+      {
+       "date": "2025-11-23",
+       "game_id": "g-029",
+       "elo": 1086,
+       "delta": 25
+      },
+      {
+       "date": "2026-05-12",
+       "game_id": "g-046",
+       "elo": 1076,
+       "delta": -10
+      },
+      {
+       "date": "2026-07-21",
+       "game_id": "g-055",
+       "elo": 1129,
+       "delta": 53
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium",
+       "position": 1,
+       "n": 5,
+       "total": 102,
+       "corporation": "Point Luna",
+       "delta": 53
+      },
+      {
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "map": "Elysium",
+       "position": 3,
+       "n": 5,
+       "total": 85,
+       "corporation": "Arklight",
+       "delta": -10
+      },
+      {
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 5,
+       "total": 82,
+       "corporation": "Ecotec",
+       "delta": 25
+      },
+      {
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "map": "Elysium",
+       "position": 1,
+       "n": 5,
+       "total": 106,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": 61
+      }
+     ]
     },
     "p-juli": {
      "games": 4,
@@ -56780,7 +63742,75 @@
      ],
      "elo": 1113,
      "peak": 1120,
-     "lastDelta": 13
+     "lastDelta": 13,
+     "eloSeries": [
+      {
+       "date": "2025-07-19",
+       "game_id": "g-013",
+       "elo": 1060,
+       "delta": 60
+      },
+      {
+       "date": "2026-05-12",
+       "game_id": "g-046",
+       "elo": 1120,
+       "delta": 60
+      },
+      {
+       "date": "2026-07-21",
+       "game_id": "g-055",
+       "elo": 1100,
+       "delta": -20
+      },
+      {
+       "date": "2026-08-18",
+       "game_id": "g-058",
+       "elo": 1113,
+       "delta": 13
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "map": "Terra Cimmeria",
+       "position": 2,
+       "n": 5,
+       "total": 82,
+       "corporation": "Sagitta",
+       "delta": 13
+      },
+      {
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium",
+       "position": 3,
+       "n": 5,
+       "total": 80,
+       "corporation": "Vitor",
+       "delta": -20
+      },
+      {
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "map": "Elysium",
+       "position": 1,
+       "n": 5,
+       "total": 102,
+       "corporation": "Spire",
+       "delta": 60
+      },
+      {
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "map": "Hellas",
+       "position": 1,
+       "n": 5,
+       "total": 110,
+       "corporation": "Robinson Industries",
+       "delta": 60
+      }
+     ]
     },
     "p-caro": {
      "games": 9,
@@ -57073,7 +64103,155 @@
      ],
      "elo": 1088,
      "peak": 1151,
-     "lastDelta": -63
+     "lastDelta": -63,
+     "eloSeries": [
+      {
+       "date": "2025-05-16",
+       "game_id": "g-008",
+       "elo": 1000,
+       "delta": 0
+      },
+      {
+       "date": "2025-06-28",
+       "game_id": "g-012",
+       "elo": 997,
+       "delta": -3
+      },
+      {
+       "date": "2025-07-19",
+       "game_id": "g-013",
+       "elo": 1026,
+       "delta": 29
+      },
+      {
+       "date": "2025-11-23",
+       "game_id": "g-029",
+       "elo": 1091,
+       "delta": 65
+      },
+      {
+       "date": "2026-01-12",
+       "game_id": "g-034",
+       "elo": 1039,
+       "delta": -52
+      },
+      {
+       "date": "2026-02-09",
+       "game_id": "g-036",
+       "elo": 1090,
+       "delta": 51
+      },
+      {
+       "date": "2026-07-21",
+       "game_id": "g-055",
+       "elo": 1108,
+       "delta": 18
+      },
+      {
+       "date": "2026-08-18",
+       "game_id": "g-058",
+       "elo": 1151,
+       "delta": 43
+      },
+      {
+       "date": "2026-09-08",
+       "game_id": "g-060",
+       "elo": 1088,
+       "delta": -63
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia",
+       "position": 4,
+       "n": 5,
+       "total": 62,
+       "corporation": "Ecotec",
+       "delta": -63
+      },
+      {
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "map": "Terra Cimmeria",
+       "position": 1,
+       "n": 5,
+       "total": 92,
+       "corporation": "Philares",
+       "delta": 43
+      },
+      {
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium",
+       "position": 2,
+       "n": 5,
+       "total": 87,
+       "corporation": "Arklight",
+       "delta": 18
+      },
+      {
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "map": "Hellas",
+       "position": 1,
+       "n": 5,
+       "total": 99,
+       "corporation": "Novel Corporation",
+       "delta": 51
+      },
+      {
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "map": "Hellas",
+       "position": 4,
+       "n": 5,
+       "total": 76,
+       "corporation": "Cheung Shing Mars",
+       "delta": -52
+      },
+      {
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "map": "Tharsis",
+       "position": 1,
+       "n": 5,
+       "total": 108,
+       "corporation": "Palladin Shipping",
+       "delta": 65
+      },
+      {
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "map": "Hellas",
+       "position": 2,
+       "n": 5,
+       "total": 87,
+       "corporation": "Factorum",
+       "delta": 29
+      },
+      {
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "map": "Elysium",
+       "position": 3,
+       "n": 5,
+       "total": 87,
+       "corporation": "Nirgal Enterprises",
+       "delta": -3
+      },
+      {
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 5,
+       "total": 81,
+       "corporation": "Spire",
+       "delta": 0
+      }
+     ]
     },
     "p-tomi": {
      "games": 6,
@@ -57314,7 +64492,107 @@
      ],
      "elo": 838,
      "peak": 1032,
-     "lastDelta": -36
+     "lastDelta": -36,
+     "eloSeries": [
+      {
+       "date": "2025-05-16",
+       "game_id": "g-008",
+       "elo": 1032,
+       "delta": 32
+      },
+      {
+       "date": "2025-06-28",
+       "game_id": "g-012",
+       "elo": 958,
+       "delta": -74
+      },
+      {
+       "date": "2026-02-09",
+       "game_id": "g-036",
+       "elo": 931,
+       "delta": -27
+      },
+      {
+       "date": "2026-02-23",
+       "game_id": "g-037",
+       "elo": 876,
+       "delta": -55
+      },
+      {
+       "date": "2026-07-21",
+       "game_id": "g-055",
+       "elo": 874,
+       "delta": -2
+      },
+      {
+       "date": "2026-08-18",
+       "game_id": "g-058",
+       "elo": 838,
+       "delta": -36
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "map": "Terra Cimmeria",
+       "position": 5,
+       "n": 5,
+       "total": 54,
+       "corporation": "Spire",
+       "delta": -36
+      },
+      {
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium",
+       "position": 4,
+       "n": 5,
+       "total": 66,
+       "corporation": "United Nations Mars Initiative (UNMI)",
+       "delta": -2
+      },
+      {
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "map": "Hellas",
+       "position": 5,
+       "n": 5,
+       "total": 68,
+       "corporation": "Robinson Industries",
+       "delta": -55
+      },
+      {
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "map": "Hellas",
+       "position": 4,
+       "n": 5,
+       "total": 73,
+       "corporation": "Arcadian Communities",
+       "delta": -27
+      },
+      {
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "map": "Elysium",
+       "position": 5,
+       "n": 5,
+       "total": 56,
+       "corporation": "Ecoline",
+       "delta": -74
+      },
+      {
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "map": "Tharsis",
+       "position": 2,
+       "n": 5,
+       "total": 96,
+       "corporation": "Aridor",
+       "delta": 32
+      }
+     ]
     },
     "p-meli": {
      "games": 8,
@@ -57578,7 +64856,139 @@
      ],
      "elo": 953,
      "peak": 1004,
-     "lastDelta": 13
+     "lastDelta": 13,
+     "eloSeries": [
+      {
+       "date": "2025-05-16",
+       "game_id": "g-008",
+       "elo": 968,
+       "delta": -32
+      },
+      {
+       "date": "2025-06-28",
+       "game_id": "g-012",
+       "elo": 1004,
+       "delta": 36
+      },
+      {
+       "date": "2025-07-19",
+       "game_id": "g-013",
+       "elo": 935,
+       "delta": -69
+      },
+      {
+       "date": "2026-01-12",
+       "game_id": "g-034",
+       "elo": 885,
+       "delta": -50
+      },
+      {
+       "date": "2026-02-09",
+       "game_id": "g-036",
+       "elo": 906,
+       "delta": 21
+      },
+      {
+       "date": "2026-02-23",
+       "game_id": "g-037",
+       "elo": 921,
+       "delta": 15
+      },
+      {
+       "date": "2026-08-18",
+       "game_id": "g-058",
+       "elo": 940,
+       "delta": 19
+      },
+      {
+       "date": "2026-09-08",
+       "game_id": "g-060",
+       "elo": 953,
+       "delta": 13
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia",
+       "position": 3,
+       "n": 5,
+       "total": 80,
+       "corporation": "Robinson Industries",
+       "delta": 13
+      },
+      {
+       "game_id": "g-058",
+       "date": "2026-08-18",
+       "map": "Terra Cimmeria",
+       "position": 3,
+       "n": 5,
+       "total": 67,
+       "corporation": "Manutech",
+       "delta": 19
+      },
+      {
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "map": "Hellas",
+       "position": 3,
+       "n": 5,
+       "total": 83,
+       "corporation": "Inventrix",
+       "delta": 15
+      },
+      {
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "map": "Hellas",
+       "position": 3,
+       "n": 5,
+       "total": 77,
+       "corporation": "Factorum",
+       "delta": 21
+      },
+      {
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "map": "Hellas",
+       "position": 5,
+       "n": 5,
+       "total": 72,
+       "corporation": "Saturn Systems",
+       "delta": -50
+      },
+      {
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "map": "Hellas",
+       "position": 5,
+       "n": 5,
+       "total": 66,
+       "corporation": "Phobolog",
+       "delta": -69
+      },
+      {
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "map": "Elysium",
+       "position": 2,
+       "n": 5,
+       "total": 101,
+       "corporation": "Ecotec",
+       "delta": 36
+      },
+      {
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 5,
+       "total": 77,
+       "corporation": "Robinson Industries",
+       "delta": -32
+      }
+     ]
     },
     "p-santi": {
      "games": 4,
@@ -57782,7 +65192,75 @@
      ],
      "elo": 938,
      "peak": 1004,
-     "lastDelta": -65
+     "lastDelta": -65,
+     "eloSeries": [
+      {
+       "date": "2025-07-19",
+       "game_id": "g-013",
+       "elo": 996,
+       "delta": -4
+      },
+      {
+       "date": "2025-11-23",
+       "game_id": "g-029",
+       "elo": 1004,
+       "delta": 8
+      },
+      {
+       "date": "2026-01-12",
+       "game_id": "g-034",
+       "elo": 1003,
+       "delta": -1
+      },
+      {
+       "date": "2026-09-08",
+       "game_id": "g-060",
+       "elo": 938,
+       "delta": -65
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia",
+       "position": 5,
+       "n": 5,
+       "total": 50,
+       "corporation": "Teractor",
+       "delta": -65
+      },
+      {
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "map": "Hellas",
+       "position": 3,
+       "n": 5,
+       "total": 78,
+       "corporation": "Novel Corporation",
+       "delta": -1
+      },
+      {
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "map": "Tharsis",
+       "position": 3,
+       "n": 5,
+       "total": 78,
+       "corporation": "Stormcraft Incorporated",
+       "delta": 8
+      },
+      {
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "map": "Hellas",
+       "position": 3,
+       "n": 5,
+       "total": 75,
+       "corporation": "Saturn Systems",
+       "delta": -4
+      }
+     ]
     },
     "p-lu": {
      "games": 5,
@@ -58002,7 +65480,91 @@
      ],
      "elo": 959,
      "peak": 973,
-     "lastDelta": 52
+     "lastDelta": 52,
+     "eloSeries": [
+      {
+       "date": "2026-02-09",
+       "game_id": "g-036",
+       "elo": 932,
+       "delta": -68
+      },
+      {
+       "date": "2026-02-23",
+       "game_id": "g-037",
+       "elo": 973,
+       "delta": 41
+      },
+      {
+       "date": "2026-05-12",
+       "game_id": "g-046",
+       "elo": 956,
+       "delta": -17
+      },
+      {
+       "date": "2026-07-21",
+       "game_id": "g-055",
+       "elo": 907,
+       "delta": -49
+      },
+      {
+       "date": "2026-09-08",
+       "game_id": "g-060",
+       "elo": 959,
+       "delta": 52
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-060",
+       "date": "2026-09-08",
+       "map": "Utopia Planitia",
+       "position": 2,
+       "n": 5,
+       "total": 85,
+       "corporation": "Mining Guild",
+       "delta": 52
+      },
+      {
+       "game_id": "g-055",
+       "date": "2026-07-21",
+       "map": "Elysium",
+       "position": 5,
+       "n": 5,
+       "total": 62,
+       "corporation": "Palladin Shipping",
+       "delta": -49
+      },
+      {
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "map": "Elysium",
+       "position": 4,
+       "n": 5,
+       "total": 66,
+       "corporation": "Producciones Interplanetarias",
+       "delta": -17
+      },
+      {
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "map": "Hellas",
+       "position": 2,
+       "n": 5,
+       "total": 83,
+       "corporation": "Aphrodite",
+       "delta": 41
+      },
+      {
+       "game_id": "g-036",
+       "date": "2026-02-09",
+       "map": "Hellas",
+       "position": 5,
+       "n": 5,
+       "total": 72,
+       "corporation": "Valley Trust",
+       "delta": -68
+      }
+     ]
     },
     "p-gonza": {
      "games": 4,
@@ -58197,7 +65759,75 @@
      ],
      "elo": 1017,
      "peak": 1092,
-     "lastDelta": -75
+     "lastDelta": -75,
+     "eloSeries": [
+      {
+       "date": "2025-11-23",
+       "game_id": "g-029",
+       "elo": 975,
+       "delta": -25
+      },
+      {
+       "date": "2026-01-12",
+       "game_id": "g-034",
+       "elo": 1044,
+       "delta": 69
+      },
+      {
+       "date": "2026-02-23",
+       "game_id": "g-037",
+       "elo": 1092,
+       "delta": 48
+      },
+      {
+       "date": "2026-05-12",
+       "game_id": "g-046",
+       "elo": 1017,
+       "delta": -75
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-046",
+       "date": "2026-05-12",
+       "map": "Elysium",
+       "position": 5,
+       "n": 5,
+       "total": 54,
+       "corporation": "Teractor",
+       "delta": -75
+      },
+      {
+       "game_id": "g-037",
+       "date": "2026-02-23",
+       "map": "Hellas",
+       "position": 1,
+       "n": 5,
+       "total": 91,
+       "corporation": "Phobolog",
+       "delta": 48
+      },
+      {
+       "game_id": "g-034",
+       "date": "2026-01-12",
+       "map": "Hellas",
+       "position": 1,
+       "n": 5,
+       "total": 91,
+       "corporation": "Phobolog",
+       "delta": 69
+      },
+      {
+       "game_id": "g-029",
+       "date": "2025-11-23",
+       "map": "Tharsis",
+       "position": 4,
+       "n": 5,
+       "total": 73,
+       "corporation": "Factorum",
+       "delta": -25
+      }
+     ]
     },
     "p-pato": {
      "games": 3,
@@ -58373,7 +66003,59 @@
      ],
      "elo": 899,
      "peak": 936,
-     "lastDelta": -17
+     "lastDelta": -17,
+     "eloSeries": [
+      {
+       "date": "2025-05-16",
+       "game_id": "g-008",
+       "elo": 936,
+       "delta": -64
+      },
+      {
+       "date": "2025-06-28",
+       "game_id": "g-012",
+       "elo": 916,
+       "delta": -20
+      },
+      {
+       "date": "2025-07-19",
+       "game_id": "g-013",
+       "elo": 899,
+       "delta": -17
+      }
+     ],
+     "history": [
+      {
+       "game_id": "g-013",
+       "date": "2025-07-19",
+       "map": "Hellas",
+       "position": 4,
+       "n": 5,
+       "total": 70,
+       "corporation": "Cheung Shing Mars",
+       "delta": -17
+      },
+      {
+       "game_id": "g-012",
+       "date": "2025-06-28",
+       "map": "Elysium",
+       "position": 4,
+       "n": 5,
+       "total": 82,
+       "corporation": "Point Luna",
+       "delta": -20
+      },
+      {
+       "game_id": "g-008",
+       "date": "2025-05-16",
+       "map": "Tharsis",
+       "position": 5,
+       "n": 5,
+       "total": 58,
+       "corporation": "Ecoline",
+       "delta": -64
+      }
+     ]
     }
    },
    "head_to_head": {

@@ -41,3 +41,16 @@ def test_insights_follow_the_table_size(client, players):
 def test_unknown_player_is_404_and_bad_table_is_422(client, players):
     assert client.get("/players/nadie/insights").status_code == 404
     assert client.get("/players/p1/insights?player_count=9").status_code == 422
+
+
+def test_history_and_elo_series_newest_first_with_the_table_elo(client, players):
+    _post_game(client, _game_payload("g1", "2026-01-01", [_pr("p1", 50), _pr("p2", 30)]))
+    _post_game(client, _game_payload("g2", "2026-01-02", [_pr("p2", 50), _pr("p1", 30), _pr("p3", 10)]))
+    every = client.get("/players/p1/insights").json()
+    assert [h["game_id"] for h in every["history"]] == ["g2", "g1"]
+    assert every["history"][1] == {**every["history"][1], "position": 1, "n": 2, "total": 50, "date": "2026-01-01"}
+    assert [s["game_id"] for s in every["elo_series"]] == ["g1", "g2"]
+    assert [h["delta"] for h in every["history"]] == [s["delta"] for s in reversed(every["elo_series"])]
+    three = client.get("/players/p1/insights?player_count=3").json()
+    assert [(h["game_id"], h["delta"]) for h in three["history"]] == [("g2", 0)]
+    assert client.get("/players/p3/insights?player_count=2").json()["history"] == []

@@ -1,6 +1,6 @@
 export { Thermometer, OxygenArc, OceanSlots } from './Gauges'
 export { ScoreTrack } from './ScoreTrack'
-export { CategoryLegend, ScoreBars, categoriesOf } from './ScoreBars'
+export { CategoryLegend, ScoreBars, catClass, categoriesOf } from './ScoreBars'
 export { CompositionBar } from './Composition'
 export { Sparkline, FormStrip } from './Sparkline'
 export { EloChart } from './EloChart'

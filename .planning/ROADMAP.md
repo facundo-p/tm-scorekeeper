@@ -176,7 +176,7 @@ Plans:
 - [x] **Phase 30: Pantalla: Registrar** (E6)
 - [x] **Phase 31: Pantalla: Ceremonia** (E6)
 - [x] **Phase 32: Pantalla: Ranking y jugadores** (E6)
-- [ ] **Phase 33: Pantalla: Perfil** (E6)
+- [x] **Phase 33: Pantalla: Perfil** (E6)
 - [ ] **Phase 34: Pantallas: Récords y Logros** (E6)
 - [ ] **Phase 35: Limpieza y presupuestos** (E7)
 - [ ] **Phase 36: Documentación, entrega y cierre** (E7)
@@ -340,7 +340,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Escenarios `profile-*` en verde
   2. #66, #35, #38 cerrados
-**Plans**: TBD
+**Plans**: 33-01
 
 ### Phase 34: Pantallas: Récords y Logros
 **Goal**: ver `.planning/v2.0/SPEC.md` § F34
