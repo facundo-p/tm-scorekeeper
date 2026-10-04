@@ -81,8 +81,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **SCR-07**: Ceremonia con secuencia, saltar y repetir
 - [x] **SCR-08**: Ranking con filtros, ELO de mesa, equidad, cara a cara y por mesa
 - [x] **SCR-09**: Alta y edición de jugadores con color de cubo
-- [ ] **SCR-10**: Perfil: cabecera, lecturas y favoritos (#66, #35, #38)
-- [ ] **SCR-11**: Perfil: pestañas con filtro, por mesa y equidad
+- [x] **SCR-10**: Perfil: cabecera, lecturas y favoritos (#66, #35, #38)
+- [x] **SCR-11**: Perfil: pestañas con filtro, por mesa y equidad
 - [ ] **SCR-12**: Récords con historia y filtros de mesa, mapa y expansión (#37)
 - [ ] **SCR-13**: Logros con vista por mesa y escalera de niveles
 
@@ -156,8 +156,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SCR-07 | Phase 31 | Complete |
 | SCR-08 | Phase 32 | Complete |
 | SCR-09 | Phase 32 | Complete |
-| SCR-10 | Phase 33 | Pending |
-| SCR-11 | Phase 33 | Pending |
+| SCR-10 | Phase 33 | Complete |
+| SCR-11 | Phase 33 | Complete |
 | SCR-12 | Phase 34 | Pending |
 | SCR-13 | Phase 34 | Pending |
 | CLOSE-01 | Phase 35 | Pending |
