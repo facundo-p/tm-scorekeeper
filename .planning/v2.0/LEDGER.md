@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F35 · Limpieza y presupuestos |
 | Issue | 35.1 #138 · 35.2 #139 · 35.3 #140 |
-| Paso | 35.1-D (hooks, tipos, utilidades, constantes y API vieja) |
+| Paso | 35.2 (API deprecada) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -16,7 +16,7 @@
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F35.1 se parte en cuatro PR que solo borran (D-81): 35.1-A tests de v1 y Playwright → 35.1-B páginas, Legacy e index.css → 35.1-C componentes, recharts y lucide → 35.1-D hooks, tipos, utilidades, constantes y API vieja (el estado completo está en `git stash` «f35-all» de la sesión; si se perdió, rehacer desde la lista del plan). Después 35.2 API deprecada y 35.3 presupuestos.
+**Próximo paso:** 35.2 retirar la API deprecada (D-82) → 35.3 presupuestos (axe, JS inicial ≤ 100 kB gzip, planeta en chunk aparte, check-bundle en CI), catálogo completo y los recorridos funcionales que faltan (login, navegación, editar, eliminar, filtros, ficha) → F36.
 
 ## Tablero (GitHub)
 
@@ -91,3 +91,4 @@
 - 2026-10-04 — 35.1-A mergeada (#171 → `a76d787`; revisión: APPROVE con 2 minor: skill `new-component` corregido, los demás skills quedan en el plan para el PR que borra lo que citan). D-81: 35.1 en cuatro PR. Rama reseteada.
 - 2026-10-04 — 35.1-B mergeada (#172 → `1b7ff9f`; revisión: APPROVE con 2 minor (skill `new-hook` y ruta de D-45) y 1 nit (comentario de `api/elo.ts`, se va en 35.1-D)). La comparación completa sigue en verde sin `src/index.css`. Rama reseteada.
 - 2026-10-04 — 35.1-C mergeada (#173 → `3a5a869`; revisión: APPROVE con 1 nit (comentario del mock de ResizeObserver) corregido). Rama reseteada.
+- 2026-10-04 — 35.1-D mergeada (#174 → `a1cf6e5`; revisión: APPROVE con 1 minor (espejo de hitos y recompensas de expansión, agregado) y 1 nit). **35.1 completa: #138 cerrado.** Rama reseteada.

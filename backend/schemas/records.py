@@ -3,8 +3,6 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel
 
-from schemas.game_records import RecordResultDTO
-
 RecordValue = int | float
 
 
@@ -30,8 +28,6 @@ class GlobalRecordDTO(BaseModel):
     code: str
     description: str
     title: str | None = None
-    emoji: str | None = None  # contrato viejo (frontend previo a F28)
-    record: RecordResultDTO | None  # contrato viejo: primer poseedor y fecha
     scope: Literal["game", "career"]
     unit: str
     lower_is_better: bool

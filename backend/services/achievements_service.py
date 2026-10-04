@@ -1,6 +1,6 @@
 """Logros derivados del historial (F23, D-04): el estado sale siempre de las partidas; la tabla
 `achievement_unlocks` guarda la vista sin filtro y se regenera en cada escritura."""
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from models.game_subset import ALL_GAMES, GameSubset
 from repositories.achievement_repository import UnlockRow
@@ -15,14 +15,6 @@ class PlayerReconcileChange:
     code: str
     old_tier: int
     new_tier: int
-
-
-@dataclass
-class ReconcileSummaryResult:
-    total_players: int = 0
-    players_updated: int = 0
-    achievements_applied: list = field(default_factory=list)
-    errors: list = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -96,13 +88,6 @@ class AchievementsService:
         after = _rows(self._derive(ALL_GAMES))
         self.achievement_repository.replace_all(after)
         return _changes(before, after)
-
-    def reconcile_all(self) -> ReconcileSummaryResult:
-        changes = self.recompute_all()
-        return ReconcileSummaryResult(
-            total_players=len(self.players_repository.get_all()), players_updated=len(changes),
-            achievements_applied=[c for cs in changes.values() for c in cs],
-        )
 
     def unlocked_in_game(self, game_id: str) -> dict[str, list[GameUnlock]]:
         """Lectura repetible de lo que la partida desbloqueó (STAT-05)."""

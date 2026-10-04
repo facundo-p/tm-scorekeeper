@@ -9,8 +9,6 @@ from models.player_result import PlayerResult
 from models.award_result import AwardResult
 from models.enums import Corporation, Milestone, Award, Expansion
 from schemas.game import GameDTO
-from schemas.result import GameResultDTO
-from services.helpers.results import calculate_results
 from mappers.game_mapper import game_dto_to_model, game_model_to_dto
 from repositories.game_filters import GameFilter
 
@@ -234,14 +232,6 @@ class GamesService:
             if old_game is None or not self.games_repository.delete(game_id):
                 raise GameNotFound("Game not found")
             self._recompute_derived_from(old_game.date)
-
-    def get_game_results(self, game_id: str) -> GameResultDTO:
-        game = self.games_repository.get(game_id)
-
-        if game is None:
-            raise GameNotFound("Game not found")
-
-        return calculate_results(game)
 
     def _recompute_derived_from(self, start_date: date) -> None:
         """ELO y después logros, en la transacción de la escritura (STAT-05)."""

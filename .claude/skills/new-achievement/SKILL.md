@@ -17,8 +17,7 @@ Resolve, from the prompt or the mockup catalog (`docs/redesign/mockup/js/data/ca
 - **kind**: `max` (best value in one game), `sum` (accumulated) or `flag` (one level, no progress)
 - **metric**: name of the running value the tiers compare against
 - **tiers**: `(threshold, title)` pairs in ascending order
-- **glyph**: icon of the redesign (`frontend/src/ui/icons`); **fallback_icon**: a Lucide name that
-  only the pre-v2.0 frontend used (deleted in F35); the API still sends it until 35.2 retires it
+- **glyph**: icon of the redesign (`frontend/src/ui/icons`)
 
 The mockup is the reference implementation: add the definition to `ACHIEVEMENTS` in
 `docs/redesign/mockup/js/data/catalog.js` and the metric to `achievementMetrics` in `derive.js`,

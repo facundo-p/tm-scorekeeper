@@ -44,10 +44,10 @@ def test_creating_games_unlocks_levels_dated_with_their_game(client, players):
     assert streak["unlocked_at"] == "2026-01-02" and streak["progress"] == {"current": 2, "target": 3}
 
 
-def test_post_game_achievements_is_a_repeatable_read(client, players):
+def test_game_achievements_in_the_report_are_a_repeatable_read(client, players):
     _post_game(client, _win("g1", 1, "p1", "p2"))
-    first = client.post("/games/g1/achievements").json()["achievements_by_player"]
-    assert client.post("/games/g1/achievements").json()["achievements_by_player"] == first
+    first = client.get("/games/g1/report").json()["achievements_by_player"]
+    assert client.get("/games/g1/report").json()["achievements_by_player"] == first
     by_code = {a["code"]: a for a in first["p1"]}
     assert by_code["no_milestone_win"]["is_new"] and not by_code["no_milestone_win"]["is_upgrade"]
     assert by_code["no_milestone_win"]["title"] == "Lobo Solitario" and by_code["no_milestone_win"]["glyph"] == "lone"
@@ -92,12 +92,16 @@ def test_player_without_games_has_every_achievement_locked(client, players):
     assert len(achievements) == 18 and not any(a["unlocked"] for a in achievements)
 
 
-def test_reconcile_regenerates_and_reports_changes(client, players):
+def test_admin_recompute_regenerates_the_unlocks(client, players, monkeypatch):
+    """`POST /admin/recompute` reemplaza al viejo `POST /achievements/reconcile` (35.2)."""
+    monkeypatch.setenv("ADMIN_SECRET", "secreto-admin")
     _post_game(client, _win("g1", 1, "p1", "p2"))
+    key = lambda r: (r.player_id, r.code, r.tier)  # noqa: E731
+    stored = sorted(AchievementRepository().get_all(), key=key)
     AchievementRepository().replace_all([])
-    body = client.post("/achievements/reconcile").json()
-    assert body["players_updated"] == 1 and body["errors"] == []
-    assert {c["code"] for c in body["achievements_applied"]} >= {"no_milestone_win", "no_award_win"}
+    assert client.post("/admin/recompute", headers={"X-Admin-Secret": "secreto-admin"}).status_code == 200
+    assert sorted(AchievementRepository().get_all(), key=key) == stored
+    assert {r.code for r in stored} >= {"no_milestone_win", "no_award_win"}
 
 
 def test_startup_recomputes_when_derived_version_is_behind(players):

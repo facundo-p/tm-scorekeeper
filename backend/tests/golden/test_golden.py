@@ -1,8 +1,10 @@
 """Compara la API contra fixtures/golden.json (generado desde el mockup)."""
+from dataclasses import asdict
+
 import pytest
 
 from models.game_subset import GameSubset
-from repositories.container import games_repository
+from repositories.container import elo_repository, games_repository
 from services.stats.context import StatsContext
 from services.stats.elo_replay import replay_elo
 from tests.golden.adapters import (
@@ -28,7 +30,7 @@ from tests.golden.conftest import enabled_scopes, golden_scope
 def test_positions(client, golden, scope):
     expected = golden_scope(golden, scope)["positions"]
     for game_id, rows in expected.items():
-        got = client.get(f"/games/{game_id}/results").json()
+        got = client.get(f"/games/{game_id}/report").json()
         assert positions_from_results(got) == positions_from_golden(rows), game_id
 
 
@@ -44,7 +46,7 @@ def _query(scope: str) -> str:
 def test_elo_per_game(client, golden, scope):
     expected = golden_scope(golden, scope)["elo"]["perGame"]
     for game_id, rows in expected.items():
-        got = client.get(f"/games/{game_id}/elo").json()
+        got = client.get(f"/games/{game_id}/report").json()["elo"]
         assert elo_from_changes(got) == elo_from_golden(rows), game_id
 
 
@@ -83,7 +85,8 @@ def test_full_replay_equals_stored_history(client):
     """Reproducir todas las partidas da exactamente el historial guardado (STAT-02)."""
     replay = replay_elo(StatsContext.load(games_repository))
     for game_id, changes in replay.per_game.items():
-        assert elo_from_changes(client.get(f"/games/{game_id}/elo").json()) == elo_from_replay(changes), game_id
+        stored = [asdict(c) for c in elo_repository.get_changes_for_game(game_id)]
+        assert elo_from_changes(stored) == elo_from_replay(changes), game_id
 
 
 @pytest.mark.parametrize("scope", enabled_scopes("achievements"))

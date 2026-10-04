@@ -5,11 +5,8 @@ from models.enums import Corporation, MapName
 from models.game import Game
 from models.player_result import PlayerEndStats, PlayerResult
 from models.player_score import PlayerScore
-from models.record_entry import LABEL_PLAYER
-from services.helpers.records import best_with_holders
-from services.record_calculators.highest_single_game_score import HighestSingleGameScoreCalculator
-from services.record_calculators.most_games_won import MostGamesWonCalculator
 from services.achievement_evaluators.metrics import timelines
+from services.records.service import build_records
 from services.stats.context import StatsContext
 from services.stats.elo_replay import replay_elo
 
@@ -25,25 +22,19 @@ def game(gid, day, *rows):
                 generations=10, player_results=list(rows), awards=[])
 
 
-def holders(entry):
-    return [a.value for a in entry.attributes if a.label == LABEL_PLAYER]
-
-
-def test_best_with_holders_keeps_every_holder_once_with_first_date():
-    best, found = best_with_holders([(5, "a", 1), (7, "b", 2), (7, "a", 3), (7, "b", 4), (6, "c", 5)])
-    assert best == 7 and found == [("b", 2), ("a", 3)]
+def holders(games, code):
+    state = next(v.state for v in build_records(StatsContext(games)) if v.definition.code == code)
+    return state.value, sorted(h.player_id for h in state.holders)
 
 
 def test_highest_score_lists_all_holders():
     games = [game("g1", 1, result("a", 40), result("b", 30)), game("g2", 2, result("c", 40), result("b", 10))]
-    entry = HighestSingleGameScoreCalculator().calculate(games)
-    assert entry.value == 40 and holders(entry) == ["a", "c"]
+    assert holders(games, "highest_single_game_score") == (40, ["a", "c"])
 
 
 def test_co_winners_both_count_as_wins():
     games = [game("g1", 1, result("a", 40, 3), result("b", 40, 3), result("c", 10))]
-    entry = MostGamesWonCalculator().calculate(games)
-    assert entry.value == 1 and sorted(holders(entry)) == ["a", "b"]
+    assert holders(games, "most_games_won") == (1, ["a", "b"])
 
 
 def test_a_shared_win_keeps_the_streak_alive():

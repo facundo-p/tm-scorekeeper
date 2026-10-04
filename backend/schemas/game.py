@@ -16,8 +16,3 @@ class GameDTO(BaseModel):
 
     player_results: List[PlayerResultDTO]
     awards: List[AwardResultDTO]
-
-
-class GameListItemDTO(BaseModel):
-    id: str
-    game: GameDTO

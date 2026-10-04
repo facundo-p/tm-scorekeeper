@@ -9,13 +9,11 @@ class AchievementDefinition:
     `max`, `sum` o `flag` (un solo nivel, sin progreso)."""
     code: str
     description: str
-    fallback_icon: str  # nombre de ícono Lucide del frontend previo a F28
     glyph: str = ""     # ícono del rediseño (frontend/src/ui/icons)
     kind: str = "sum"
     metric: str = ""
     flavor: str = ""
     tiers: tuple[AchievementTier, ...] = ()
-    icon: str | None = None
 
     @property
     def max_tier(self) -> int:
