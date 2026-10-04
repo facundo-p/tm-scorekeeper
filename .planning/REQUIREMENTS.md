@@ -40,8 +40,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **SHELL-02**: Rutas D-02 con redirecciones, carga diferida, 404 y error boundary
 - [x] **SHELL-03**: Cliente HTTP con Bearer, timeout, abort y errores tipados; TanStack Query en hooks
 - [x] **SHELL-04**: `MesaFilter`, `useMesaParam()` y aviso reutilizables
-- [ ] **FX-01**: Planeta WebGL2 en TS (`PlanetStage` + `PlanetSlot`) en chunk aparte con respaldo CSS; estrellas y confeti
-- [ ] **FX-02**: Instrumentos SVG que reemplazan a recharts
+- [x] **FX-01**: Planeta WebGL2 en TS (`PlanetStage` + `PlanetSlot`) en chunk aparte con respaldo CSS; estrellas y confeti
+- [x] **FX-02**: Instrumentos SVG que reemplazan a recharts
 
 ### Seguridad, integridad y rendimiento
 
@@ -124,8 +124,8 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | SHELL-02 | Phase 26 | Complete |
 | SHELL-03 | Phase 26 | Complete |
 | SHELL-04 | Phase 26 | Complete |
-| FX-01 | Phase 27 | Pending |
-| FX-02 | Phase 27 | Pending |
+| FX-01 | Phase 27 | Complete |
+| FX-02 | Phase 27 | Complete |
 | SEC-01 | Phase 20 | Complete |
 | SEC-02 | Phase 20 | Complete |
 | SEC-03 | Phase 20 | Complete |

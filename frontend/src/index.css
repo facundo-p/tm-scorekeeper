@@ -52,10 +52,17 @@
   --transition: 0.2s ease;
 }
 
+/* El reset y los estilos de elementos de la app vieja quedan dentro de sus páginas (`Legacy`, `[data-legacy]`, D-69):
+   afuera mandan styles/base.css y los módulos del sistema visual, como en el mockup (F27). */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:where([data-legacy]) *,
+:where([data-legacy]) *::before,
+:where([data-legacy]) *::after {
   margin: 0;
   padding: 0;
 }
@@ -80,12 +87,12 @@ body {
   flex-direction: column;
 }
 
-a {
+:where([data-legacy]) a {
   color: var(--color-accent);
   text-decoration: none;
 }
 
-a:hover {
+:where([data-legacy]) a:hover {
   text-decoration: underline;
 }
 
@@ -100,11 +107,11 @@ textarea {
   font-family: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+:where([data-legacy]) h1, :where([data-legacy]) h2, :where([data-legacy]) h3, :where([data-legacy]) h4, :where([data-legacy]) h5, :where([data-legacy]) h6 {
   font-weight: var(--font-weight-semibold);
   line-height: 1.3;
 }
 
-ul, ol {
+:where([data-legacy]) ul, :where([data-legacy]) ol {
   list-style: none;
 }

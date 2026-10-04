@@ -30,6 +30,9 @@ export default tseslint.config(
       'no-restricted-syntax': ['error', ...NO_INLINE_STYLE],
       // El foco inicial en el login y en los diálogos es intencional (también en el mockup).
       'jsx-a11y/no-autofocus': 'off',
+      // Los segmentos de los instrumentos (role=img) y las celdas cara a cara reciben foco para mostrar
+      // su `data-tip` con el teclado, como en el mockup (F27).
+      'jsx-a11y/no-noninteractive-tabindex': ['error', { tags: ['td'], roles: ['img', 'region', 'tabpanel'], allowExpressionValues: true }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     },
   },

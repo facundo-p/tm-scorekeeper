@@ -97,7 +97,7 @@ frontend/src/
 ├── shell/            # v2.0: AppShell (cielo, rail, barra superior con transmisión y temporada, dock), rutas (paths.ts)
 ├── styles/           # v2.0: tokens, tipografías y base del sistema visual (los carga ui/frame)
 ├── types/            # Interfaces TypeScript de los DTOs del backend
-├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/
+├── ui/               # v2.0: atoms/ (CSS Modules), icons/, sheet/, states/, frame/, hooks/, filters/, MesaFilter/, instruments/
 ├── utils/            # gameCalculations.ts, validation.ts, a11y.ts
 └── test/
     ├── unit/         # Utilidades, dominio y regla de estilos
@@ -105,6 +105,7 @@ frontend/src/
     ├── ui/           # Sistema visual v2.0
     ├── shell/        # Shell, rutas y filtro de mesa (v2.0)
     ├── fx/           # Planeta (deriva de shaders, motor), confeti (v2.0)
+    ├── instruments/  # Instrumentos SVG (v2.0)
     └── e2e/          # Tests de integración con Playwright
 ```
 
@@ -126,3 +127,6 @@ Port del mockup (`docs/redesign/mockup/`). Los estilos son CSS Modules con los n
 - Sin WebGL2 (o mientras carga), el slot pinta un globo CSS; con `prefers-reduced-motion`, el globo es una imagen fija.
 - `fx/planet/shaders.ts` es copia literal del mockup: no se edita a mano (lo vigila `src/test/fx/planetShaders.test.ts`). Lo puro del motor (objetivos y suavizado) está en `motion.ts`, con tests.
 - `fx/stars.ts` (cielo) y `fx/confetti.ts` (estallido de la ceremonia).
+- `ui/instruments/`: termómetro, arco de oxígeno, océanos, pista de puntaje, leyenda, barras de puntaje (con tabla), composición, sparkline, forma, gráfico de ELO (con tabla), matriz cara a cara, pista de TR y cambio de ELO. Reciben datos ya resueltos (`types.ts`); `data/instruments.ts` los arma desde la API. Lo puro (escalas, carriles, gradientes) está en funciones con tests.
+- `/__galeria?parte=instrumentos` (modo parity) los muestra con datos de la API, para compararlos con el mockup (D-73).
+- El CSS global de la app vieja (`src/index.css`) solo afecta a `[data-legacy]` (páginas viejas dentro de `Legacy`).

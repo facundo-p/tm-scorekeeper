@@ -9,7 +9,7 @@ import { ErrorState, LoadingState } from '@/ui/states'
 import { CUBE_COLORS, MEDAL_TIERS, SAMPLE_EXPANSIONS, SAMPLE_PLAYER, SAMPLE_TABS } from './sample'
 import styles from './Gallery.module.css'
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
+export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <Plate className={styles.gallery__sec} label={title}>
       <SectionHead title={title} />
