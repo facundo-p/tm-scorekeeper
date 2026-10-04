@@ -47,6 +47,8 @@ class Player(Base):
     color = Column(String, nullable=False)
     # Orden de alta: desempate estable de las listas de jugadores (D-74).
     seq = Column(Integer, Identity(), nullable=False)
+    # Fecha de alta: el «desde» del plantel (D-78); las altas nuevas toman la del día.
+    joined_on = Column(Date, nullable=True, server_default=func.current_date())
 
     __table_args__ = (
         CheckConstraint(f"color IN ({', '.join(repr(c) for c in PLAYER_COLORS)})", name="ck_players_color"),

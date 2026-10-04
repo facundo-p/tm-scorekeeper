@@ -36,10 +36,12 @@ function prepareDatabase(env) {
   execFileSync(PY, ['-m', 'scripts.load_fixture'], { cwd: BACKEND, env, stdio: 'ignore' });
 }
 
+const answers = (url) => fetch(url).then(() => true, () => false);
+
 async function waitHttp(url, timeoutMs = 60000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
-    if (await fetch(url).then(() => true, () => false)) return;
+    if (await answers(url)) return;
     await new Promise((ok) => setTimeout(ok, 250));
   }
   throw new Error(`no responde: ${url}`);
@@ -64,9 +66,15 @@ function buildFrontend(api) {
     { cwd: FRONTEND, env: { ...process.env, VITE_API_URL: api }, stdio: 'ignore' });
 }
 
+/** Un servidor que quedó vivo de una corrida anterior respondería en lugar del nuevo (código viejo). */
+async function assertFree(urls) {
+  for (const url of urls) if (await answers(url)) throw new Error(`el puerto ya está en uso (¿quedó vivo un servidor de otra corrida?): ${url}`);
+}
+
 export async function startCandidate() {
   const env = backendEnv();
   const api = `http://127.0.0.1:${API_PORT}`;
+  await assertFree([`${api}/docs`, `http://127.0.0.1:${WEB_PORT}/`]);
   prepareDatabase(env);
   const stopApi = startProcess(resolve(BACKEND, '.venv/bin/uvicorn'), ['main:app', '--host', '127.0.0.1', '--port', String(API_PORT)], { cwd: BACKEND, env });
   await waitHttp(`${api}/docs`);

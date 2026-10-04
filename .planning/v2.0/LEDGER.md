@@ -4,19 +4,19 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | F31 · Ceremonia |
-| Issue | 31.1 (#131) |
+| Fase | F32 · Ranking y jugadores |
+| Issue | 32.1 #132 · 32.2 #133 |
 | Paso | Implementación |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | ef71531 (merge #166 en origin/staging) |
+| Último commit | 6c88eea (merge #167 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** F31 — PR de la ceremonia; después F32 (ranking y jugadores).
+**Próximo paso:** F32 — Ranking y jugadores (clasificación, ELO, por mesa, cara a cara, plantel con alta y edición).
 
 ## Tablero (GitHub)
 
@@ -84,3 +84,4 @@
 - 2026-10-04 — F28 mergeada (#164 → `5b7d0b1`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: estados vacíos, bitácora sin botones mudos, error descrito, reintento sin recargar; corregidos salvo el ojo fuera del rótulo, que espeja el árbol del mockup). 28/28 en la comparación. `players.seq` y `levels` (D-74). Issues #125 y #126 cerrados. Rama reseteada.
 - 2026-10-04 — F29 mergeada (#165 → `7f202c8`; revisión: ronda 1 CHANGES_REQUESTED por eliminar (el refetch del informe borrado cortaba la navegación), ronda 2 APPROVE con 1 nit). Filtros duplicados del mockup conservados a propósito (uno siempre con display:none). Issues #127 y #128 cerrados. Rama reseteada.
 - 2026-10-04 — F30 mergeada (#166 → `ef71531`; revisión: ronda 1 APPROVE con 7 minor: corregidos el 2.º puesto con 2 jugadores, la fecha vacía, `Awards` largo y tests de Turmoil y 422; quedan por paridad el chip de borrador y las pestañas del puntaje móvil). Issues #129, #130 y #33 cerrados. Rama reseteada.
+- 2026-10-04 — F31 mergeada (#167 → `6c88eea`; revisión: ronda 1 CHANGES_REQUESTED por el confetti que se cortaba al cambiar de fase (también en el mockup, corregido allí y republicado), h1 al final, foco al saltar y tests de la secuencia; ronda 2 APPROVE con 1 nit). Issue #131 cerrado. Rama reseteada.

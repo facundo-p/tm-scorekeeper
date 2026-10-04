@@ -4,61 +4,71 @@
    "id": "p-facu",
    "name": "Facu",
    "color": "rojo",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-03-08"
   },
   {
    "id": "p-nico",
    "name": "Nico",
    "color": "azul",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-03-08"
   },
   {
    "id": "p-juli",
    "name": "Juli",
    "color": "verde",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-03-08"
   },
   {
    "id": "p-caro",
    "name": "Caro",
    "color": "amarillo",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-03-08"
   },
   {
    "id": "p-tomi",
    "name": "Tomi",
    "color": "violeta",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-04-12"
   },
   {
    "id": "p-meli",
    "name": "Meli",
    "color": "rosa",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-05-03"
   },
   {
    "id": "p-santi",
    "name": "Santi",
    "color": "naranja",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-06-14"
   },
   {
    "id": "p-lu",
    "name": "Lu",
    "color": "blanco",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-09-06"
   },
   {
    "id": "p-gonza",
    "name": "Gonza",
    "color": "negro",
-   "is_active": true
+   "is_active": true,
+   "since": "2025-11-15"
   },
   {
    "id": "p-pato",
    "name": "Pato",
    "color": "gris",
-   "is_active": false
+   "is_active": false,
+   "since": "2025-03-22"
   }
  ],
  "games": [
