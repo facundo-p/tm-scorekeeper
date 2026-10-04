@@ -174,7 +174,7 @@ Plans:
 - [x] **Phase 28: Pantallas: Acceso e Inicio** (E6)
 - [x] **Phase 29: Pantallas: Partidas e Informe** (E6)
 - [x] **Phase 30: Pantalla: Registrar** (E6)
-- [ ] **Phase 31: Pantalla: Ceremonia** (E6)
+- [x] **Phase 31: Pantalla: Ceremonia** (E6)
 - [ ] **Phase 32: Pantalla: Ranking y jugadores** (E6)
 - [ ] **Phase 33: Pantalla: Perfil** (E6)
 - [ ] **Phase 34: Pantallas: Récords y Logros** (E6)
@@ -325,7 +325,7 @@ Plans:
 **Epic**: E6 · **Depends on**: 30 · **Requirements**: SCR-07
 **Success Criteria** (what must be TRUE):
   1. `ceremony-g063` y `ceremony-skip` en verde
-**Plans**: TBD
+**Plans**: 31-01
 
 ### Phase 32: Pantalla: Ranking y jugadores
 **Goal**: ver `.planning/v2.0/SPEC.md` § F32

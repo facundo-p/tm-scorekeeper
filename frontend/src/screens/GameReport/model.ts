@@ -8,12 +8,15 @@ export function coords(map: string) {
   return `${lat}° ${lat >= 0 ? 'N' : 'S'} / ${Math.abs(lon)}° ${lon >= 0 ? 'E' : 'O'}`
 }
 
-/** Bajada del ganador: corporación y por cuánto (o por desempate de M€). */
-export function winSub(report: GameReport, name: (id: string) => string, corp: string) {
+/** Bajada del ganador: corporación y por cuánto (o por desempate de M€); `unit` va tras el margen. */
+export function winSub(report: GameReport, name: (id: string) => string, corp: string, unit = ' puntos') {
   const second = report.results.find((r) => r.position > 1)
   if (!second) return corp
-  return `${corp}, ${report.decided_by_mc ? 'por desempate de M€' : `${report.margin} puntos sobre ${name(second.player_id)}`}`
+  return `${corp}, ${report.decided_by_mc ? 'por desempate de M€' : `${report.margin}${unit} sobre ${name(second.player_id)}`}`
 }
+
+/** El ganador de la partida (primer puesto). */
+export const winnerOf = (report: GameReport) => report.results.find((r) => r.position === 1) ?? report.results[0]
 
 /** Hitos del mapa y de las expansiones, con quién reclamó cada uno. */
 export function milestoneSlots(report: GameReport) {

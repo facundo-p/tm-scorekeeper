@@ -1,6 +1,8 @@
 // Estallido corto de cubos que caen girando, en los colores de los jugadores y el dorado del
 // MegaCrédito (port de docs/redesign/mockup/js/fx/confetti.js, F27). Lo usa la ceremonia.
 
+import { reducedMotion } from '@/ui/motion'
+
 interface Piece { x: number; y: number; vx: number; vy: number; s: number; r: number; vr: number; c: string; life: number }
 
 export interface BurstOptions {
@@ -12,7 +14,6 @@ export interface BurstOptions {
   random?: () => number
 }
 
-const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export function makePieces(w: number, h: number, { x = 0.5, y = 0.35, colors = ['#f4c43a'], count = 140, random = Math.random }: BurstOptions): Piece[] {
   return Array.from({ length: count }, () => {
@@ -60,9 +61,9 @@ function prepare(canvas: HTMLCanvasElement) {
   return { ctx, w, h }
 }
 
-/** Lanza el estallido sobre `canvas`; devuelve la cancelación. Con reduced-motion no hace nada. */
+/** Lanza el estallido sobre `canvas`; devuelve la cancelación (que también limpia el lienzo). Con reduced-motion no hace nada. */
 export function burst(canvas: HTMLCanvasElement | null, options: BurstOptions = {}): () => void {
-  if (!canvas || reduceMotion()) return () => {}
+  if (!canvas || reducedMotion()) return () => {}
   const { ctx, w, h } = prepare(canvas)
   if (!ctx) return () => {}
   const pieces = makePieces(w, h, options)
@@ -77,5 +78,5 @@ export function burst(canvas: HTMLCanvasElement | null, options: BurstOptions = 
     if (alive) raf = requestAnimationFrame(tick)
   }
   raf = requestAnimationFrame(tick)
-  return () => cancelAnimationFrame(raf)
+  return () => { cancelAnimationFrame(raf); ctx.clearRect(0, 0, w, h) }
 }
