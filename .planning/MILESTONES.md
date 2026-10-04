@@ -32,3 +32,42 @@ For details: [v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md)
 For details: [v1.0-cleanup-ROADMAP.md](milestones/v1.0-cleanup-ROADMAP.md)
 
 ---
+
+## v2.0 Archivo de Terraformación (Shipped to staging: 2026-10-04)
+
+**Phases completed:** 22 phases (F15–F36), 33 PRs a `staging` (#145–#177). La promoción a `main` la hace el dueño con [`docs/deploy/v2.0-checklist.md`](../docs/deploy/v2.0-checklist.md).
+
+**Key accomplishments:**
+
+- **Mockup como especificación (E2):**
+  - semántica (`docs/redesign/SEMANTICS.md`);
+  - mesa, equidad y temporadas por promedio;
+  - semilla y golden exportados del mockup.
+- **Seguridad e integridad (E3):**
+  - login real con token y bloqueo por IP;
+  - validación compartida;
+  - transacciones con lock y orden canónico;
+  - ≤ 3 consultas por pantalla;
+  - empates para todo el grupo.
+- **Estadísticas derivadas (E4):**
+  - ELO de mesa;
+  - 16 récords con historia;
+  - 18 logros derivados con recálculo transaccional;
+  - ficha del jugador, ranking con equidad, cara a cara, temporadas y bitácora;
+  - todo comparado contra el golden.
+- **Frontend nuevo (E5, E6):**
+  - sistema visual en CSS Modules, shell y planeta WebGL2 persistente;
+  - instrumentos SVG;
+  - las 11 pantallas del mockup con datos reales: Acceso, Inicio, Partidas, Informe, Registrar, Ceremonia, Ranking, Perfil, Récords, Logros y 404;
+  - editar y eliminar con recálculo en cascada.
+- **Verificación (E1):**
+  - arnés de comparación contra el mockup: 104/104 capturas, con [reporte](https://claude.ai/artifact/46LGuw3x57LcKW6TPrpC5M);
+  - 16 recorridos funcionales;
+  - golden del backend en 5 alcances;
+  - presupuesto del bundle en CI (82,5 kB de JS inicial).
+- **Cierre (E7):**
+  - se borró el frontend v1, más recharts y lucide;
+  - se retiró la API deprecada (D-82);
+  - READMEs, checklist de despliegue y auditoría.
+
+For details: [v2.0-MILESTONE-AUDIT.md](v2.0-MILESTONE-AUDIT.md), [v2.0/SPEC.md](v2.0/SPEC.md), [v2.0/DECISIONS.md](v2.0/DECISIONS.md)

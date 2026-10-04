@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
 milestone: v2.0
-milestone_name: Archivo de Terraformación — IN PROGRESS
-status: executing
-stopped_at: Phase 35 complete
-last_updated: "2026-10-04T09:30:00.000Z"
+milestone_name: Archivo de Terraformación — COMPLETE (en staging)
+status: complete
+stopped_at: Milestone v2.0 complete
+last_updated: "2026-10-04T11:10:00.000Z"
 last_activity: 2026-10-04
 progress:
   total_phases: 22
-  completed_phases: 21
-  total_plans: 53
-  completed_plans: 53
-  percent: 95
+  completed_phases: 22
+  total_plans: 55
+  completed_plans: 55
+  percent: 100
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-21)
 
 **Core value:** Los jugadores descubren y desbloquean logros al jugar, dándole más profundidad y motivación a cada partida. Los logros se derivan del historial (D-04 v2.0).
-**Current focus:** v2.0 Phase 36 — documentación y cierre (estado vivo en `.planning/v2.0/LEDGER.md`)
+**Current focus:** v2.0 completo en `staging`; falta la promoción a `main` por el dueño (`docs/deploy/v2.0-checklist.md`) (estado vivo en `.planning/v2.0/LEDGER.md`)
 
 ## Current Position
 
-Phase: 36
-Plan: 36-01
-Status: Fases 15–35 completas (backend v2.0; todas las pantallas del mockup; frontend viejo y API deprecada retirados; presupuestos en CI)
-Last activity: 2026-10-04 - F35 completa (limpieza, API deprecada, presupuestos)
+Phase: —
+Plan: —
+Status: Milestone v2.0 completo (fases 15–36). Auditoría: `.planning/v2.0-MILESTONE-AUDIT.md`
+Last activity: 2026-10-04 - F36 completa: cierre del milestone v2.0
 
-Progress: [█████     ] 50%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 

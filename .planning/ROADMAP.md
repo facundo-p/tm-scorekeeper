@@ -179,7 +179,7 @@ Plans:
 - [x] **Phase 33: Pantalla: Perfil** (E6)
 - [x] **Phase 34: Pantallas: Récords y Logros** (E6)
 - [x] **Phase 35: Limpieza y presupuestos** (E7)
-- [ ] **Phase 36: Documentación, entrega y cierre** (E7)
+- [x] **Phase 36: Documentación, entrega y cierre** (E7)
 
 ## v2.0 Phase Details
 
@@ -366,4 +366,4 @@ Plans:
   1. Docs y checklist de despliegue
   2. Issues, épicas y PRs absorbidos cerrados
   3. Informe final entregado
-**Plans**: TBD
+**Plans**: 36-01 (documentación y checklist), 36-02 (cierre del milestone)

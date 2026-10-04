@@ -6,17 +6,17 @@
 |---|---|
 | Fase | F36 · Documentación, entrega y cierre |
 | Issue | 36.1 #141 · 36.2 #142 · 36.3 #143 |
-| Paso | 36.1–36.2 (documentación y checklist) |
+| Paso | DONE |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | aa0f511 (merge #176 en origin/staging) |
+| Último commit | f2c997f (merge #177 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
 
-**Próximo paso:** 36.1–36.2 (READMEs, checklist de despliegue, catálogo completo D-85) → 36.3 (MILESTONES, auditoría, cierre de issues y épicas, PRs #65/#66, artifact de comparación en #71, informe final, borrar rutina, DONE).
+**Próximo paso:** DONE. Milestone v2.0 completo en `staging`. Si la rutina de reanudación vuelve a dispararse: borrarla (`delete_trigger trig_01H3TMK3swrz77ryGCf4zLqa`) y no hacer nada más. Pendiente del dueño: variables de auth en Render y promoción a `main` (`docs/deploy/v2.0-checklist.md`).
 
 ## Tablero (GitHub)
 
@@ -94,3 +94,5 @@
 - 2026-10-04 — 35.1-D mergeada (#174 → `a1cf6e5`; revisión: APPROVE con 1 minor (espejo de hitos y recompensas de expansión, agregado) y 1 nit). **35.1 completa: #138 cerrado.** Rama reseteada.
 - 2026-10-04 — 35.2 mergeada (#175 → `b54e9e4`; revisión: APPROVE con 2 nit corregidos). D-82: API deprecada retirada, motor de récords v1 borrado. #139 cerrado. Rama reseteada.
 - 2026-10-04 — 35.3 mergeada (#176 → `aa0f511`; revisión: APPROVE con 2 nit corregidos; la comparación detectó que el mockup arrancaba una alta en rojo aunque estuviera en uso, corregido y republicado v9). D-83 y D-84. #140 cerrado. **F35 completa.** Rama reseteada.
+- 2026-10-04 — 36.1–36.2 mergeada (#177 → `f2c997f`; revisión: CHANGES_REQUESTED por la checklist (401/503, log de D-13 invisible, orden de la vuelta atrás, restore con SUPABASE_DIRECT_URL), luego APPROVE en dos rondas; la comparación completa atrapó la ceremonia en su primer cuadro con carga, D-86). D-85: catálogo completo. #141 y #142 cerrados.
+- 2026-10-04 — 36.3: reporte de comparación publicado (https://claude.ai/artifact/46LGuw3x57LcKW6TPrpC5M), MILESTONES y auditoría. **DONE.**
