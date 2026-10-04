@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F35 · Limpieza y presupuestos |
 | Issue | 35.1 #138 · 35.2 #139 · 35.3 #140 |
-| Paso | 35.1-A (tests de v1 y Playwright) |
+| Paso | 35.1-B (páginas, Legacy e index.css) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -88,3 +88,4 @@
 - 2026-10-04 — F32 mergeada (#168 → `ad2f0ea`; revisión: ronda 1 APPROVE con 4 minor y 2 nit: color inicial libre, componentes partidos, tests de por mesa y ranking vacío, orden de imports; foco inicial y variante de «Reactivar» quedan por paridad). `players.joined_on` (D-78). Uvicorn huérfano detectado: la candidata ahora se niega a arrancar si sus puertos responden. Issues #132 y #133 cerrados. Rama reseteada.
 - 2026-10-04 — F33 mergeada (#169 → `9c6aa11`; revisión: ronda 1 APPROVE con 3 minor y 2 nit: progreso seguro y tests de error y orden de logros; botones del historial y rivales quedan por paridad, página vieja a F35). La ficha suma `elo_series` e `history` (D-79). 85/85 en la comparación. Issues #134, #135, #35 y #38 cerrados (#66 es un PR: se cierra al final). Rama reseteada.
 - 2026-10-04 — F34 mergeada (#170 → `dd3c4f5`; revisión: ronda 1 CHANGES_REQUESTED por el dato prestado al cambiar de jugador (keepPrevious por prefijo, retryFailed, componentes partidos, tests), ronda 2 APPROVE con 1 minor corregido). D-80. **Todas las pantallas del mockup portadas (E6 completa).** Issues #136, #137, #37 y #44 cerrados. Rama reseteada.
+- 2026-10-04 — 35.1-A mergeada (#171 → `a76d787`; revisión: APPROVE con 2 minor: skill `new-component` corregido, los demás skills quedan en el plan para el PR que borra lo que citan). D-81: 35.1 en cuatro PR. Rama reseteada.
