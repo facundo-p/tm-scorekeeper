@@ -11,7 +11,7 @@
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
 | Rutina | trig_01H3TMK3swrz77ryGCf4zLqa (minuto 48 de cada hora) |
-| Último commit | d29d100 (merge #159 en origin/staging) |
+| Último commit | ab2c02c (merge #160 en origin/staging) |
 | Bloqueo | — |
 | Reset pendiente | no |
 | Agentes | `pr-reviewer` y `visual-judge` disponibles desde el reinicio del worker (antes: `general-purpose` + `model: sonnet`) |
@@ -76,3 +76,4 @@
 - 2026-10-04 — F24 mergeada (#157 → `a419b35`; revisión: ronda 1 CHANGES_REQUESTED por la carrera de colores (500) y la falta de tests de la migración, ronda 2 APPROVE con 1 nit no aplicado: el único `IntegrityError` posible en ese bloque es el del índice de colores). Golden de `summaries` y `reports` agregado al exportador. Issues #113–#115 cerrados. Rama reseteada.
 - 2026-10-04 — F25-A mergeada (#158 → `67e64bc`; revisión: ronda 1 APPROVE con 2 minor y 2 nit: tests de bordes y rivales sin lambdas; el desempate por primera partida rompía el golden y queda por id). Issue #116 cerrado. Rama reseteada; 25-B encima.
 - 2026-10-04 — F25-B mergeada (#159 → `d29d100`; revisión: ronda 1 APPROVE con 3 minor y 1 nit, corregidos). 25-C (temporadas y bitácora) encima; golden completo habilitado (todas las claves en 5 alcances, informe en todas las partidas). Latencias locales p95 ≤ 79 ms.
+- 2026-10-04 — F25-C mergeada (#160 → `ab2c02c`; revisión: ronda 1 APPROVE con 3 minor y 2 nit, corregidos). Issues #117 y #118 cerrados. **Backend v2.0 completo.** Rama reseteada.
