@@ -6,7 +6,7 @@
 |---|---|
 | Fase | F35 · Limpieza y presupuestos |
 | Issue | 35.1 #138 · 35.2 #139 · 35.3 #140 |
-| Paso | 35.2 (API deprecada) |
+| Paso | 35.3 (presupuestos y recorridos funcionales) |
 | PR | — |
 | Ronda de revisión | 0 |
 | Intentos de CI | 0 |
@@ -92,3 +92,4 @@
 - 2026-10-04 — 35.1-B mergeada (#172 → `1b7ff9f`; revisión: APPROVE con 2 minor (skill `new-hook` y ruta de D-45) y 1 nit (comentario de `api/elo.ts`, se va en 35.1-D)). La comparación completa sigue en verde sin `src/index.css`. Rama reseteada.
 - 2026-10-04 — 35.1-C mergeada (#173 → `3a5a869`; revisión: APPROVE con 1 nit (comentario del mock de ResizeObserver) corregido). Rama reseteada.
 - 2026-10-04 — 35.1-D mergeada (#174 → `a1cf6e5`; revisión: APPROVE con 1 minor (espejo de hitos y recompensas de expansión, agregado) y 1 nit). **35.1 completa: #138 cerrado.** Rama reseteada.
+- 2026-10-04 — 35.2 mergeada (#175 → `b54e9e4`; revisión: APPROVE con 2 nit corregidos). D-82: API deprecada retirada, motor de récords v1 borrado. #139 cerrado. Rama reseteada.

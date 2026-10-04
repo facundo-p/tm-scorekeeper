@@ -51,7 +51,7 @@ Sin Docker (por ejemplo, en el entorno cloud de Claude Code):
 ```bash
 bash scripts/dev/bootstrap.sh         # PostgreSQL 16 local, bases *_test, venv del backend y node_modules (idempotente)
 bash scripts/dev/gates.sh quick       # pytest + typecheck + vitest
-bash scripts/dev/gates.sh all         # todos los gates (backend, frontend, e2e, comparación y tamaño de PR)
+bash scripts/dev/gates.sh all         # todos los gates (backend, frontend con presupuesto del bundle, e2e, comparación y tamaño de PR)
 ```
 
 Los tests del backend solo corren contra una base cuyo nombre termine en `_test`.

@@ -2,7 +2,7 @@
 # Corre los gates de calidad de v2.0 (F15). Uso: scripts/dev/gates.sh <alcance>
 #   quick     pytest, typecheck, vitest
 #   backend   pytest (+ golden), migraciones sobre base vacía si cambiaron, chequeo de fixtures
-#   frontend  lint, typecheck, vitest, build
+#   frontend  lint, typecheck, vitest, build y presupuesto del bundle (tools/budgets)
 #   e2e       flujos funcionales sobre la candidata (tools/parity/functional)
 #   parity    comparación visual de la fase (GATES_PHASE=NN)
 #   all       todo lo anterior + tamaño del PR
@@ -57,6 +57,7 @@ backend_gates() {
   if [ -f "$ROOT/tools/fixtures/export.mjs" ]; then
     run_gate fixtures node "$ROOT/tools/fixtures/export.mjs" --check
     run_gate semántica node --test "$ROOT"/tools/fixtures/*.test.mjs
+    run_gate presupuestos-lógica node --test "$ROOT"/tools/budgets/*.test.mjs
   else
     skip_gate fixtures "todavía no existe"
   fi
@@ -69,6 +70,7 @@ frontend_gates() {
   run_gate typecheck npm_gate typecheck
   run_gate vitest npm_gate test -- --run
   run_gate build npm_gate build
+  run_gate presupuesto node "$ROOT/tools/budgets/check-bundle.mjs"
 }
 
 quick_gates() {

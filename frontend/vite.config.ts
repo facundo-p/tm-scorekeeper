@@ -13,6 +13,8 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+  // El manifiesto lo lee tools/budgets/check-bundle.mjs (JS inicial y chunk del planeta, D-83).
+  build: { manifest: true },
   server: {
     proxy: {
       '/api': {

@@ -16,7 +16,8 @@ const RANGES = [
   { id: 'year', label: today().slice(0, 4), from: `${today().slice(0, 4)}-01-01` },
   { id: 'q', label: 'Últimos 3 meses', from: monthsBefore(today(), 3) },
 ];
-const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco'];
+// Los 10 colores del backend (players.color, único entre activos; D-84).
+const COLORS = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco', 'gris'];
 
 // With a table-size filter every figure (ELO included) is replayed on that subset.
 function ranked(model) {

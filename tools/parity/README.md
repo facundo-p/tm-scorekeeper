@@ -52,4 +52,14 @@ Salidas en `out/<run>/` (ignorado por git): `report.html` (lado a lado, diferenc
 
 ## Chequeos funcionales
 
-`node tools/parity/functional/run.mjs` levanta la candidata y recorre flujos que tienen que andar, sin comparar con el mockup: registrar una partida solo con el teclado en 390 y 1440 px (F30) y saltar la ceremonia con movimiento hasta volver al informe (F31). `--ids a,b` corre solo esos chequeos y `--verbose` muestra el error completo. Lo corre `gates.sh e2e` (y `all`).
+`node tools/parity/functional/run.mjs` levanta la candidata (con la semilla recién cargada) y recorre, en 390 y 1440 px, flujos que tienen que andar, sin comparar con el mockup:
+- `register-keyboard`: registrar una partida solo con el teclado (F30).
+- `ceremony-skip`: saltar la ceremonia con movimiento hasta volver al informe (F31).
+- `login`: sin sesión, lleva a Acceso y entra (`fresh: true`).
+- `navigation`: cada enlace de la navegación abre su pantalla y queda como sección actual.
+- `edit-game`: sumar una generación y guardar con el aviso.
+- `delete-game`: confirmación, aviso y la partida ya no está. Cada viewport borra una distinta.
+- `filters`: mesa en la URL, aviso y «Quitar», en Ranking y Trofeos.
+- `player-sheet`: desactivar, alta y edición desde el plantel.
+
+Son los recorridos de la verificación funcional de la SPEC (D-81). `--ids a,b` corre solo esos chequeos y `--verbose` muestra el error completo. Lo corre `gates.sh e2e` (y `all`).

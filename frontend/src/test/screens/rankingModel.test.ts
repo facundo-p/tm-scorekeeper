@@ -28,7 +28,10 @@ describe('ranking (lo puro)', () => {
     expect([...takenColors(players)]).toEqual(['rojo', 'verde'])
     expect([...takenColors(players, 'a')]).toEqual(['verde'])
     expect(firstFreeColor(takenColors(players))).toBe('azul')
-    expect(firstFreeColor(new Set(['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco']))).toBe('rojo')
+    // Con 9 activos queda el gris (D-84); con los 10 tomados vuelve al primero y el servidor responde 409.
+    const nine = ['rojo', 'verde', 'azul', 'amarillo', 'negro', 'naranja', 'violeta', 'rosa', 'blanco']
+    expect(firstFreeColor(new Set(nine))).toBe('gris')
+    expect(firstFreeColor(new Set([...nine, 'gris']))).toBe('rojo')
   })
 
   it('texts: signed decimals, tone with a 0.05 band and the inactive note in singular and plural', () => {
