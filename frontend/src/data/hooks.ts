@@ -27,8 +27,8 @@ export function useGameReport(gameId: string, enabled = true) {
 }
 
 export function usePlayerInsights(playerId: string, options: { mesa?: TableSize | null; enabled?: boolean } = {}) {
-  const path = apiPath(`/players/${encodeURIComponent(playerId)}/insights`, { player_count: options.mesa })
-  const { data, ...rest } = useApiQuery<PlayerInsights>(path, options.enabled ?? true, true)
+  const own = `/players/${encodeURIComponent(playerId)}/`
+  const { data, ...rest } = useApiQuery<PlayerInsights>(apiPath(`${own}insights`, { player_count: options.mesa }), options.enabled ?? true, own)
   return { insights: data, ...rest }
 }
 
@@ -67,8 +67,9 @@ export function useSeasons() {
 }
 
 export function usePlayerAchievements(playerId: string, options: { mesa?: TableSize | null; enabled?: boolean } = {}) {
-  const path = apiPath(`/players/${encodeURIComponent(playerId)}/achievements`, { player_count: options.mesa })
-  const { data, ...rest } = useApiQuery<{ achievements: PlayerAchievement[] }>(path, options.enabled ?? true, true)
+  const own = `/players/${encodeURIComponent(playerId)}/`
+  const path = apiPath(`${own}achievements`, { player_count: options.mesa })
+  const { data, ...rest } = useApiQuery<{ achievements: PlayerAchievement[] }>(path, options.enabled ?? true, own)
   return { achievements: data?.achievements, ...rest }
 }
 

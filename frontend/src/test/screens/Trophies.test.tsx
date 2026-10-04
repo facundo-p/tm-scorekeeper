@@ -26,10 +26,12 @@ const RANKING = { view: 'all', players: [{ player_id: 'a' }, { player_id: 'b' }]
 
 let calls: string[] = []
 let summaries: unknown[] = [{ id: 'g1' }, { id: 'g2' }]
+let records: unknown = RECORDS
+let failRecords = false
 const ok = (body: unknown) => Promise.resolve(new Response(JSON.stringify(body), { status: 200 }))
 function api(url: string) {
   calls.push(url)
-  if (url.includes('/records')) return ok(RECORDS)
+  if (url.includes('/records')) return failRecords ? Promise.resolve(new Response('{}', { status: 500 })) : ok(records)
   if (url.includes('/games/summaries')) return ok(summaries)
   if (url.includes('/stats/summary')) return ok({ first: '2026-01-01', last: '2026-03-01', composition: { avg: {}, share: {} } })
   if (url.includes('/achievements/catalog')) return ok(CATALOG)
@@ -53,7 +55,7 @@ const renderAt = (url: string) => render(
 )
 
 describe('Trofeos', () => {
-  beforeEach(() => { calls = []; summaries = [{ id: 'g1' }, { id: 'g2' }]; vi.stubGlobal('fetch', vi.fn(api)) })
+  beforeEach(() => { calls = []; summaries = [{ id: 'g1' }, { id: 'g2' }]; records = RECORDS; failRecords = false; vi.stubGlobal('fetch', vi.fn(api)) })
   afterEach(() => vi.unstubAllGlobals())
 
   it('records: the monument with its history; career co-holders in signup order', async () => {
@@ -76,6 +78,46 @@ describe('Trofeos', () => {
     fireEvent.click(screen.getByRole('button', { name: /Turmoil/ }))
     expect(await screen.findByText('Sin partidas con este filtro')).toBeInTheDocument()
     expect(calls.some((c) => c.includes('expansion=Turmoil') && c.includes('map=Hellas'))).toBe(true)
+  })
+
+  it('records: unknown filter values are ignored; the table filter goes to the API; empty records say so', async () => {
+    records = [{ ...RECORDS[1], code: 'longest_streak', title: 'Imparable', holders: [], value: null }]
+    renderAt('/records?mapa=Pluton&exp=Nada&mesa=4')
+    expect(await screen.findByText('Sin datos todavía')).toBeInTheDocument()
+    const asked = calls.filter((c) => c.includes('/records'))
+    expect(asked.every((c) => !c.includes('map=') && !c.includes('expansion=') && c.includes('player_count=4'))).toBe(true)
+    expect(screen.getByRole('status')).toHaveTextContent('Solo partidas de 4 jugadores')
+  })
+
+  it('records: a failed load retries only what failed', async () => {
+    failRecords = true
+    renderAt('/records')
+    const retry = await screen.findByRole('button', { name: 'Reintentar' })
+    failRecords = false
+    fireEvent.click(retry)
+    expect(await screen.findByRole('heading', { level: 2, name: 'Mayor puntaje' })).toBeInTheDocument()
+    expect(calls.filter((c) => c.includes('/stats/summary'))).toHaveLength(1)
+  })
+
+  it('achievements: switching players never shows the previous player data under the new name', async () => {
+    let release: () => void = () => {}
+    vi.stubGlobal('fetch', vi.fn((url: string) => (url.includes('/players/b/achievements')
+      ? new Promise<Response>((resolve) => { release = () => resolve(new Response(JSON.stringify({ achievements: [{ ...MINE.achievements[0], tier: 0, progress: null }] }), { status: 200 })) })
+      : api(url))))
+    renderAt('/logros')
+    fireEvent.click(await screen.findByRole('button', { name: 'Ana' }))
+    expect(await screen.findByText(/tiene 1 de 1 logros/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Beto' }))
+    expect(screen.queryByText(/Beto.*tiene 1 de 1/)).toBeNull()
+    expect(screen.getByText(/tiene 0 de 1 logros/)).toBeInTheDocument()
+    release()
+    await waitFor(() => expect(screen.getByRole('button', { name: /Alcanzar X/ })).not.toHaveTextContent('60/75'))
+  })
+
+  it('achievements: an achievement nobody has yet says so', async () => {
+    vi.stubGlobal('fetch', vi.fn((url: string) => (url.includes('/achievements/catalog') ? ok({ achievements: [{ ...CATALOG.achievements[0], holders: [] }] }) : api(url))))
+    renderAt('/logros')
+    expect(await screen.findByText('Nadie todavía')).toBeInTheDocument()
   })
 
   it('achievements: the group view, a player progress and the ladder sheet', async () => {

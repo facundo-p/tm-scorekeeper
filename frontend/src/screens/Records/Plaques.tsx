@@ -77,23 +77,29 @@ function Steps({ rec, players }: { rec: GroupRecord; players: PlayerIndex }) {
   )
 }
 
+function MonumentBody({ rec, players }: { rec: GroupRecord; players: PlayerIndex }) {
+  const navigate = useNavigate()
+  const h = rec.holders[0]
+  return (
+    <div className={styles.monument__body}>
+      <div className={styles.monument__value}>{rec.value}<small>puntos</small></div>
+      <div className={styles.monument__holder}><PlayerTag player={players.get(h.player_id)} size="l" />
+        <span className="muted">{h.date && fmtDate(h.date)}{h.map && ` en ${h.map}`}</span>
+        {h.game_id && <Button size="s" onClick={() => navigate(PATHS.game(h.game_id!))}>Ver la partida</Button>}</div>
+    </div>
+  )
+}
+
 /** El récord mayor (mayor puntaje en una partida), en grande, con su historia completa. */
 export function Monument({ rec, players, t }: Omit<WithPlayers, 'rank'> & { rec: GroupRecord }) {
-  const navigate = useNavigate()
   const ref = useTilt<HTMLDivElement>(4, styles['is-tilting'])
-  const h = rec.holders[0]
   return (
     <section className={cx(styles.monument, reveal.reveal)} style={cssVars({ i: 1 })} aria-labelledby="mon-title">
       <div className={styles.monument__plate} ref={ref} data-sheen>
         <span className={styles.plaque__glare} aria-hidden="true" />
         <div className={styles.monument__head}><TagDisc icon={RECORD_ICON[rec.code] ?? 'trophy'} tone="blue" size={16} /><h2 id="mon-title" className={styles.monument__title}>{rec.title}</h2></div>
         <p className={styles.monument__desc}>{rec.description}</p>
-        <div className={styles.monument__body}>
-          <div className={styles.monument__value}>{rec.value}<small>puntos</small></div>
-          <div className={styles.monument__holder}><PlayerTag player={players.get(h.player_id)} size="l" />
-            <span className="muted">{fmtDate(h.date!)} en {h.map}</span>
-            <Button size="s" onClick={() => navigate(PATHS.game(h.game_id!))}>Ver la partida</Button></div>
-        </div>
+        <MonumentBody rec={rec} players={players} />
         <h3 className={styles.monument__h}>Cómo llegó hasta acá <NewBadge /></h3>
         <RecordHistory rec={rec} players={players} t={t} height={110} />
         <Steps rec={rec} players={players} />

@@ -2,6 +2,7 @@
 // Los récords se calculan sobre el subconjunto de partidas del filtro (#37): mesa, mapa y expansión.
 import { useMemo } from 'react'
 import { useGameSummaries, useGroupSummary, usePlayersList, useRecords } from '@/data/hooks'
+import { retryFailed } from '@/data/query'
 import { bySignup, playerIndex } from '@/data/instruments'
 import { EXPANSIONS, MAP_ORDER, mapInfo } from '@/domain/catalog'
 import { Empty } from '@/ui/atoms'
@@ -49,7 +50,7 @@ function useRecordsData({ map, exp, mesa }: { map: string | null; exp: string | 
   const all = Object.values(q)
   const players = useMemo(() => playerIndex(q.players.players ?? []), [q.players.players])
   const order = useMemo(() => bySignup(q.players.players ?? []).map((p) => p.player_id), [q.players.players])
-  return { q, players, rank: (id: string) => order.indexOf(id), error: all.find((x) => x.error)?.error, retry: () => all.forEach((x) => x.refetch()) }
+  return { q, players, rank: (id: string) => order.indexOf(id), error: all.find((x) => x.error)?.error, retry: () => retryFailed(all) }
 }
 
 function Hall({ d }: { d: ReturnType<typeof useRecordsData> }) {
