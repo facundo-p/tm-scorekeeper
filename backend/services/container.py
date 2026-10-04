@@ -16,6 +16,7 @@ from services.auth_service import AuthService
 from services.derived_service import DerivedService
 from services.report_service import GameReportService
 from services.insights_service import InsightsService
+from services.seasons_service import SeasonsService
 from services.elo_service import EloService
 
 
@@ -44,6 +45,11 @@ report_service = GameReportService(
 )
 
 insights_service = InsightsService(
+    games_repository=games_repository,
+    players_repository=players_repository,
+)
+
+seasons_service = SeasonsService(
     games_repository=games_repository,
     players_repository=players_repository,
 )

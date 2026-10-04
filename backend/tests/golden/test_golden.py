@@ -10,12 +10,14 @@ from tests.golden.adapters import (
     elo_from_changes,
     elo_from_golden,
     elo_from_replay,
+    feed_groups,
     insights_from_api,
     positions_from_golden,
     positions_from_results,
     ranking_row_from_api,
     record_shape,
     report_from_api,
+    season_from_api,
     summary_from_api,
     summary_stats_from_api,
 )
@@ -155,3 +157,28 @@ def test_ranking_and_lead_changes(client, golden, scope):
         assert ranking_row_from_api(row) == expected, row["player_id"]
         assert [p["elo"] for p in row["elo_series"]] == [
             c["after"] for g in row["elo_series"] for c in per_game[g["game_id"]] if c["player_id"] == row["player_id"]]
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("seasons"))
+def test_seasons(client, golden, scope):
+    """Las temporadas son del grupo: iguales con y sin filtro de mesa (SEMANTICS §10)."""
+    body = client.get("/seasons").json()
+    assert [season_from_api(s) for s in body["seasons"]] == golden_scope(golden, scope)["seasons"]
+    assert client.get("/seasons/current").json() == body["seasons"][-1]
+    assert body["champions"] == [{"number": s["number"], "end": s["end"], "player_id": s["champion"]}
+                                 for s in body["seasons"] if s["end"]]
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("season_races"))
+def test_season_races(client, golden, scope):
+    """Carrera de cada temporada, por categoría y mesa (D-15)."""
+    count = "" if scope == "all" else f"&player_count={scope}"
+    for number, races in golden_scope(golden, scope)["season_races"].items():
+        for category, expected in races.items():
+            assert client.get(f"/seasons/{number}?category={category}{count}").json()["race"] == expected, (number, category)
+
+
+@pytest.mark.parametrize("scope", enabled_scopes("feed"))
+def test_feed(client, golden, scope):
+    got = client.get(f"/feed{_query(scope)}").json()
+    assert feed_groups(got) == feed_groups(golden_scope(golden, scope)["feed"])

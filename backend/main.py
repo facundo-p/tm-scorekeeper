@@ -13,6 +13,7 @@ from routes.records_routes import router as records_router
 from routes.achievements_routes import router as achievements_router
 from routes.elo_routes import router as elo_router
 from routes.stats_routes import router as stats_router
+from routes.seasons_routes import router as seasons_router
 from services.container import derived_service
 
 logger = logging.getLogger(__name__)
@@ -47,5 +48,5 @@ def health():
 app.include_router(auth_router)
 _protected = [Depends(require_auth)]
 for router in (games_router, players_router, records_router, achievements_router, elo_router, admin_router,
-               stats_router):
+               stats_router, seasons_router):
     app.include_router(router, dependencies=_protected)

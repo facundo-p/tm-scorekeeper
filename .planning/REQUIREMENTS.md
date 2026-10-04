@@ -66,9 +66,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 - [x] **STAT-08**: Color de cubo y fecha de alta de jugadores
 - [x] **STAT-09**: `GET /games/summaries` con filtros
 - [x] **STAT-10**: `GET /games/{id}/report`; crear/editar devuelven el informe; DELETE recalcula
-- [ ] **STAT-11**: `GET /players/{id}/insights` con equidad, ADN, mapas, corporaciones, forma, favoritos y por mesa
-- [ ] **STAT-12**: Ranking con equidad, cara a cara, bitácora y resumen del grupo
-- [ ] **SEAS-01**: Temporadas por promedio con categoría, mesa, mínimo 3 y campeones
+- [x] **STAT-11**: `GET /players/{id}/insights` con equidad, ADN, mapas, corporaciones, forma, favoritos y por mesa
+- [x] **STAT-12**: Ranking con equidad, cara a cara, bitácora y resumen del grupo
+- [x] **SEAS-01**: Temporadas por promedio con categoría, mesa, mínimo 3 y campeones
 
 ### Pantallas
 
@@ -144,9 +144,9 @@ Plan completo: `.planning/v2.0/SPEC.md`. Los requisitos de v1.1 quedan archivado
 | STAT-08 | Phase 24 | Complete |
 | STAT-09 | Phase 24 | Complete |
 | STAT-10 | Phase 24 | Complete |
-| STAT-11 | Phase 25 | Pending |
-| STAT-12 | Phase 25 | Pending |
-| SEAS-01 | Phase 25 | Pending |
+| STAT-11 | Phase 25 | Complete |
+| STAT-12 | Phase 25 | Complete |
+| SEAS-01 | Phase 25 | Complete |
 | SCR-01 | Phase 28 | Pending |
 | SCR-02 | Phase 28 | Pending |
 | SCR-03 | Phase 29 | Pending |
