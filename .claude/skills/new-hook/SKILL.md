@@ -80,7 +80,7 @@ export function use{Resources}(options: Use{Resources}Options = {}) {
 }
 ```
 
-Reference: `frontend/src/hooks/usePlayers.ts`, `frontend/src/hooks/useGames.ts`
+Reference: `frontend/src/hooks/usePlayers.ts`
 
 ### 2. API Service (if needed) — `frontend/src/api/{resources}.ts`
 
