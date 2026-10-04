@@ -6,9 +6,8 @@ from models.enums import Corporation, MapName, Milestone
 from models.game import Game
 from models.player_result import PlayerEndStats, PlayerResult
 from models.player_score import PlayerScore
-from services.insights_service import player_insights
+from services.insights_service import GroupView, player_insights
 from services.stats.context import StatsContext
-from services.stats.elo_replay import replay_elo
 from services.stats.insights import equity, most_common, rivals, streaks
 from services.stats.player_rows import player_rows
 
@@ -59,5 +58,6 @@ def test_rivals_need_four_games_and_break_ties_by_more_games():
 def test_rank_ties_are_broken_by_player_id():
     ctx = StatsContext([game("g1", 1, "c", "d"), game("g2", 2, "b", "a")])
     players = [SimpleNamespace(player_id=p, is_active=True) for p in "dcba"]
-    ranks = {p: player_insights(ctx, replay_elo(ctx), players, p)["rank"] for p in "abcd"}
+    view = GroupView(ctx, players)
+    ranks = {p: player_insights(view, p)["rank"] for p in "abcd"}
     assert ranks == {"b": 1, "c": 2, "a": 3, "d": 4}

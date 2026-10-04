@@ -101,3 +101,22 @@ def insights_from_api(value):
     if isinstance(value, list):
         return [insights_from_api(v) for v in value]
     return value
+
+
+_SUMMARY_KEYS = {"avg_winner": "avgWinner", "avg_generations": "avgGenerations", "top_corp": "topCorp",
+                 "corps_used": "corpsUsed", "top_map": "topMap", "avg_pos": "avgPos"}
+
+
+def summary_stats_from_api(value):
+    """GET /stats/summary → `summary` del golden."""
+    if isinstance(value, dict):
+        return {_SUMMARY_KEYS.get(k, k): summary_stats_from_api(v) for k, v in value.items() if k != "view"}
+    if isinstance(value, list):
+        return [summary_stats_from_api(v) for v in value]
+    return value
+
+
+def ranking_row_from_api(row: dict) -> dict:
+    """Fila de GET /ranking → los campos equivalentes de `players` del golden."""
+    return insights_from_api({k: row[k] for k in ("rank", "elo", "peak", "last_delta", "games", "wins", "win_rate",
+                                                  "equity", "form")})
