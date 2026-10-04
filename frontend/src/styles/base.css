@@ -137,6 +137,14 @@ canvas {
   color: var(--ink-3);
 }
 
+/* Cita de ambientación (screens.css del mockup, piezas compartidas). */
+.flavor {
+  font-family: var(--flavor);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

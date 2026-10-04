@@ -6,6 +6,7 @@ from sqlalchemy import (
     String,
     Boolean,
     ForeignKey,
+    Identity,
     Table,
     Enum as PgEnum,
     ARRAY,
@@ -44,9 +45,12 @@ class Player(Base):
     is_active = Column(Boolean, nullable=False, default=True)
     elo = Column(Integer, nullable=False, default=1000)
     color = Column(String, nullable=False)
+    # Orden de alta: desempate estable de las listas de jugadores (D-74).
+    seq = Column(Integer, Identity(), nullable=False)
 
     __table_args__ = (
         CheckConstraint(f"color IN ({', '.join(repr(c) for c in PLAYER_COLORS)})", name="ck_players_color"),
+        UniqueConstraint("seq", name="uq_players_seq"),
         Index("uq_players_active_color", "color", unique=True, postgresql_where=text("is_active")),
     )
 

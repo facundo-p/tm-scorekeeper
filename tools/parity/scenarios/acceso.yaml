@@ -16,6 +16,7 @@
 - id: login-wrong
   screen: acceso
   fresh: true
+  expectStatus: [401]  # el login real responde 401 a credenciales equivocadas
   ref: { hash: '#acceso' }
   cand: { path: /acceso }
   actions:

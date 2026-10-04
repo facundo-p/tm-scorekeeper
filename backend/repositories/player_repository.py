@@ -50,8 +50,9 @@ class PlayersRepository:
             session.add(orm)
 
     def get_all(self) -> list[Player]:
+        """Todos los jugadores, en orden de alta (D-74)."""
         with session_scope(self._session_factory) as session:
-            return [_to_model(o) for o in session.query(PlayerORM).all()]
+            return [_to_model(o) for o in session.query(PlayerORM).order_by(PlayerORM.seq).all()]
 
     @staticmethod
     def _active_colors(session) -> list[str]:

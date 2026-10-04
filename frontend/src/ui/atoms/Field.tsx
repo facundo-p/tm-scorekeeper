@@ -5,6 +5,9 @@ import styles from './Field.module.css'
 /** Clase del control de texto o lista, para usarla fuera de los campos armados. */
 export const inputClass = styles.input
 
+/** Igual que `inputClass`, marcada en rojo cuando el valor no sirve. */
+export const inputClassFor = (bad?: boolean) => cx(styles.input, bad && styles['is-bad'])
+
 interface FieldProps {
   label: ReactNode
   hint?: ReactNode

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { cx } from '../cx'
 import { FilterChip, FilterGroup } from '../filters'
 import { Icon } from '../icons'
 import { TABLE_SIZES, type TableSize } from './useMesaParam'
@@ -27,13 +28,14 @@ interface MesaNoticeProps {
   value: TableSize | null
   onClear: () => void
   children?: ReactNode
+  className?: string
 }
 
 /** Recuerda qué está mostrando la pantalla cuando hay filtro de mesa. */
-export function MesaNotice({ value, onClear, children }: MesaNoticeProps) {
+export function MesaNotice({ value, onClear, children, className }: MesaNoticeProps) {
   if (!value) return null
   return (
-    <p className={styles['mesa-notice']} role="status">
+    <p className={cx(styles['mesa-notice'], className)} role="status">
       <Icon name="players" size={16} />
       <span>Solo partidas de {value} jugadores{children ? <> · {children}</> : null}</span>
       <button type="button" className={styles['mesa-notice__clear']} onClick={onClear}>Quitar</button>

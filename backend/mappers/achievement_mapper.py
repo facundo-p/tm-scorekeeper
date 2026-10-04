@@ -19,7 +19,7 @@ def _icons(d: AchievementDefinition) -> dict:
 def game_unlock_to_dto(unlock) -> AchievementUnlockedDTO:
     d = ACHIEVEMENT_BY_CODE[unlock.code]
     return AchievementUnlockedDTO(code=d.code, title=d.tier(unlock.tier).title, tier=unlock.tier,
-                                  is_new=unlock.is_new, is_upgrade=not unlock.is_new, **_icons(d))
+                                  is_new=unlock.is_new, is_upgrade=not unlock.is_new, levels=unlock.levels, **_icons(d))
 
 
 def player_achievement_to_dto(state: AchievementState) -> PlayerAchievementDTO:

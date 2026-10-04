@@ -171,7 +171,7 @@ Plans:
 - [x] **Phase 25: Métricas del grupo, equidad y temporadas** (E4)
 - [x] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
 - [x] **Phase 27: Efectos e instrumentos** (E5)
-- [ ] **Phase 28: Pantallas: Acceso e Inicio** (E6)
+- [x] **Phase 28: Pantallas: Acceso e Inicio** (E6)
 - [ ] **Phase 29: Pantallas: Partidas e Informe** (E6)
 - [ ] **Phase 30: Pantalla: Registrar** (E6)
 - [ ] **Phase 31: Pantalla: Ceremonia** (E6)
@@ -301,7 +301,7 @@ Plans:
 **Epic**: E6 · **Depends on**: 27 · **Requirements**: SCR-01..02
 **Success Criteria** (what must be TRUE):
   1. Escenarios `login*`, `home*`, `season-rules` en verde
-**Plans**: TBD
+**Plans**: 28-01
 
 ### Phase 29: Pantallas: Partidas e Informe
 **Goal**: ver `.planning/v2.0/SPEC.md` § F29

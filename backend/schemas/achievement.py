@@ -13,6 +13,7 @@ class AchievementUnlockedDTO(BaseModel):
     tier: int
     is_new: bool
     is_upgrade: bool
+    levels: int = 1  # niveles alcanzados en la partida (F28)
     icon: Optional[str]
     fallback_icon: str
     glyph: str

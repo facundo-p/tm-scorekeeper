@@ -28,3 +28,11 @@ test('a scenario is gated from its phase on, and always in self mode', () => {
   assert.equal(isGated({ gateFromPhase: 28 }, { mode: 'candidate', phase: 30 }), true);
   assert.equal(isGated({}, { mode: 'self', phase: 16 }), true);
 });
+
+test('an expected HTTP status is not a console error', async () => {
+  const { expectedResource } = await import('./browser.mjs');
+  const msg = 'Failed to load resource: the server responded with a status of 401 (Unauthorized)';
+  assert.equal(expectedResource(msg, [401]), true);
+  assert.equal(expectedResource(msg, []), false);
+  assert.equal(expectedResource(msg.replace('401', '500'), [401]), false);
+});

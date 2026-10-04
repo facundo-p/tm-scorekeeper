@@ -27,10 +27,12 @@ class ReconcileSummaryResult:
 
 @dataclass(frozen=True)
 class GameUnlock:
-    """Lo que una partida le dio a un jugador en un logro: el nivel más alto alcanzado ahí."""
+    """Lo que una partida le dio a un jugador en un logro: el nivel más alto alcanzado ahí y
+    cuántos niveles subió (una partida puede dar varios de golpe; el mockup los cuenta todos)."""
     code: str
     tier: int
     is_new: bool
+    levels: int = 1
 
 
 @dataclass(frozen=True)
@@ -68,7 +70,7 @@ def _game_unlocks(rows: list[UnlockRow]) -> dict[str, list[GameUnlock]]:
         levels.setdefault((r.player_id, r.code), []).append(r.tier)
     out: dict[str, list[GameUnlock]] = {}
     for (pid, code), tiers in levels.items():
-        out.setdefault(pid, []).append(GameUnlock(code, max(tiers), is_new=min(tiers) == 1))
+        out.setdefault(pid, []).append(GameUnlock(code, max(tiers), is_new=min(tiers) == 1, levels=len(tiers)))
     return out
 
 
