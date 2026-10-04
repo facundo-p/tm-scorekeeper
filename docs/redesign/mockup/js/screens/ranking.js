@@ -154,8 +154,9 @@ function Roster({ onAdd }) {
 
 export function PlayerSheet({ player, onClose }) {
   const [name, setName] = useState(player?.name ?? '');
-  const [color, setColor] = useState(player?.color ?? 'rojo');
   const taken = new Set(MODEL.players.filter((p) => p.active && p.id !== player?.id).map((p) => p.color));
+  // Una alta arranca con el primer color libre (D-84), como la app.
+  const [color, setColor] = useState(player?.color ?? COLORS.find((c) => !taken.has(c)) ?? 'rojo');
   return html`<${Sheet} title=${player ? `Editar a ${player.name}` : 'Nuevo jugador'} onClose=${onClose}>
     <form class="pform" onSubmit=${(e) => { e.preventDefault(); onClose(); }}>
       <label class="field"><span class="field__label">Nombre</span>
