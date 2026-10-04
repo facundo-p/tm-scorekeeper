@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
+from db.uow import unit_of_work
 from typing import Optional
 from services.player_service import PlayerService
 from mappers.record_comparison_mapper import record_comparison_to_dto
@@ -52,8 +53,11 @@ def _report(game_id: str) -> GameReportDTO:
 @router.post("/", response_model=GameWriteResponseDTO)
 def create_game(game: GameDTO):
     try:
-        game_id = games_service.create_game(game)
-        return GameWriteResponseDTO(id=game_id, game=game, report=_report(game_id))
+        # El informe se arma en la misma transacción: si falla, la partida no queda a medias (D-66).
+        with unit_of_work(lock=True):
+            game_id = games_service.create_game(game)
+            report = _report(game_id)
+        return GameWriteResponseDTO(id=game_id, game=game, report=report)
     except GameConflict as e:
         raise HTTPException(status_code=409, detail=str(e))
     except ValueError as e:
@@ -92,7 +96,9 @@ def get_game_report(game_id: str):
 @router.put("/{game_id}", response_model=GameWriteResponseDTO)
 def update_game(game_id: str, game: GameDTO):
     try:
-        games_service.update_game(game_id, game)
+        with unit_of_work(lock=True):
+            games_service.update_game(game_id, game)
+            report = _report(game_id)
     except GameNotFound:
         raise HTTPException(status_code=404, detail="Game not found")
     except GameConflict as e:
@@ -100,7 +106,7 @@ def update_game(game_id: str, game: GameDTO):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-    return GameWriteResponseDTO(id=game_id, game=game, report=_report(game_id), message="Game updated successfully")
+    return GameWriteResponseDTO(id=game_id, game=game, report=report, message="Game updated successfully")
 
 
 @router.delete("/{game_id}")

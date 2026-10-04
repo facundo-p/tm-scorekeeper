@@ -11,6 +11,10 @@ from services.report_service import GameReport
 from services.stats.context import GameStats
 
 
+def _corporation(stats: GameStats, player_id: str) -> str:
+    return next(p.corporation for p in stats.game.player_results if p.player_id == player_id).value
+
+
 def _results(report: GameReport, names: dict) -> list[ReportResultDTO]:
     stats = report.stats
     return [ReportResultDTO(
@@ -21,6 +25,7 @@ def _results(report: GameReport, names: dict) -> list[ReportResultDTO]:
     ) for r in stats.results]
 
 
+# `player_id` es el primer poseedor (como en el mockup y el golden); `holders` tiene a todos.
 def _broken(c: GameRecordContext) -> RecordBrokenDTO:
     prev = c.previous
     return RecordBrokenDTO(
@@ -52,10 +57,6 @@ def report_to_dto(report: GameReport, names: dict) -> GameReportDTO:
         stolen_awards=[StolenAwardDTO(award=a.award.value, player_id=a.first_place[0], opened_by=a.opened_by)
                        for a in report.stolen],
     )
-
-
-def _corporation(stats: GameStats, player_id: str) -> str:
-    return next(p.corporation for p in stats.game.player_results if p.player_id == player_id).value
 
 
 def summary_to_dto(stats: GameStats) -> GameSummaryDTO:

@@ -1,7 +1,23 @@
+from contextlib import contextmanager
+
+from sqlalchemy.exc import IntegrityError
+
+from db.uow import unit_of_work
 from models.player import Player
 from models.player_colors import ColorTaken, first_free
 from schemas.player import PlayerCreateDTO
 from schemas.player import PlayerUpdateDTO
+
+
+@contextmanager
+def _serialized_color_write():
+    """Escritura de jugadores en serie (lock de partidas, D-55); si igual choca con el índice
+    único de colores activos, es un 409 (D-65)."""
+    try:
+        with unit_of_work(lock=True):
+            yield
+    except IntegrityError as e:
+        raise ColorTaken("Color is already used by an active player") from e
 
 
 class PlayerService:
@@ -13,15 +29,16 @@ class PlayerService:
 
         self._validate_unique_name(name)
 
-        if dto.color is not None:
-            self._check_color_free(dto.color)
         player = Player(
             player_id=None,
             name=name,
             is_active=True,
             color=dto.color,
         )
-        created_player = self.player_repository.create(player)
+        with _serialized_color_write():
+            if dto.color is not None:
+                self._check_color_free(dto.color)
+            created_player = self.player_repository.create(player)
 
         return created_player.player_id
     
@@ -38,8 +55,9 @@ class PlayerService:
         if dto.is_active is not None:
             player.is_active = dto.is_active
 
-        self._apply_color(player, dto.color)
-        self.player_repository.update(player)
+        with _serialized_color_write():
+            self._apply_color(player, dto.color)
+            self.player_repository.update(player)
 
     def _active_colors(self, exclude_id: str | None = None) -> list[str]:
         return [p.color for p in self.player_repository.get_all() if p.is_active and p.player_id != exclude_id]

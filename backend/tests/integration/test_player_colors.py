@@ -1,4 +1,6 @@
 """Color de cubo y `since` de los jugadores (F24, STAT-08)."""
+from unittest.mock import patch
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -65,3 +67,12 @@ def test_since_is_the_date_of_the_first_game(client):
     _post_game(client, _game_payload("g1", "2026-01-10", [_pr("p1", 50), _pr("p3", 30)]))
     players = _players(client)
     assert players["p1"]["since"] == "2026-01-10" and players["p2"]["since"] == "2026-02-01"
+
+
+def test_a_concurrent_color_collision_is_409_not_500(client):
+    _create(client, "Ana")
+    # Simula la carrera: la lectura de colores no ve al otro jugador, el índice único sí.
+    with patch("services.player_service.PlayerService._active_colors", return_value=[]), \
+         patch("repositories.player_repository.PlayersRepository._active_colors", return_value=[]):
+        assert _create(client, "Beto").status_code == 409
+    assert len(_players(client)) == 1

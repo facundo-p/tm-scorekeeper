@@ -65,3 +65,31 @@ def test_summaries_are_newest_first_and_follow_the_subset(client, players):
     assert rows[0]["decided_by_mc"] and rows[0]["player_count"] == 3
     assert [r["id"] for r in client.get("/games/summaries?player_count=2").json()] == ["g1"]
     assert client.get("/games/summaries?player_count=7").status_code == 422
+
+
+def test_a_tie_on_points_decided_by_mc_in_a_two_player_game(client, players):
+    payload = _game_payload("g1", "2026-01-01", [_pr("p1", 40), _pr("p2", 40)])
+    payload["player_results"][1]["end_stats"]["mc_total"] = 9
+    report = client.post("/games/", json=payload).json()["report"]
+    assert report["decided_by_mc"] and report["winners"] == ["p2"] and report["margin"] == 0
+
+
+def test_editing_returns_the_report_and_the_old_message(client, players):
+    _post_game(client, _game_payload("g1", "2026-01-01", [_pr("p1", 50), _pr("p2", 30)]))
+    body = client.put("/games/g1", json=_game_payload("g1", "2026-01-01", [_pr("p1", 30), _pr("p2", 50)])).json()
+    assert body["message"] == "Game updated successfully" and body["report"]["winners"] == ["p2"]
+
+
+def test_shared_records_list_every_holder(client, players):
+    _post_game(client, _game_payload("g1", "2026-01-01", [_pr("p1", 50), _pr("p2", 50)]))
+    report = client.get(f"/games/{_post_game(client, _game_payload('g2', '2026-01-02', [_pr('p3', 50), _pr('p1', 20)]))}/report").json()
+    tied = {t["code"]: t for t in report["records_tied"]}["highest_single_game_score"]
+    assert tied["holders"] == ["p3"] and tied["value"] == 50
+    report = client.get(f"/games/{_post_game(client, _game_payload('g3', '2026-01-03', [_pr('p2', 60), _pr('p1', 20)]))}/report").json()
+    broken = {b["code"]: b for b in report["records_broken"]}["highest_single_game_score"]
+    assert sorted(broken["previous"]["holders"]) == ["p1", "p2", "p3"]
+
+
+def test_an_empty_subset_has_no_summaries(client, players):
+    _post_game(client, _game_payload("g1", "2026-01-01", [_pr("p1", 50), _pr("p2", 30)]))
+    assert client.get("/games/summaries?map=Tharsis").json() == []
