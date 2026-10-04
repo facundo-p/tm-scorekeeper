@@ -34,13 +34,13 @@ def test_out_of_range_subset_is_422(client, query):
 def test_records_without_games_have_no_holders(client):
     records = client.get("/records/").json()
     assert len(records) == 16
-    assert all(r["holders"] == [] and r["history"] == [] and r["record"] is None for r in records)
+    assert all(r["holders"] == [] and r["history"] == [] and r["value"] in (None, 0) for r in records)
+    assert all("record" not in r and "emoji" not in r for r in records)  # contrato viejo retirado (35.2)
 
 
-def test_records_keep_the_old_contract_and_add_the_new_fields(client, seeded):
+def test_records_carry_value_holders_and_history(client, seeded):
     score = by_code(client.get("/records/"))["highest_single_game_score"]
-    assert score["emoji"] == "🏆" and score["record"]["value"] == 60
-    assert {"label": "Jugador", "value": "Bob"} in score["record"]["attributes"]
+    assert score["value"] == 60
     assert score["scope"] == "game" and score["unit"] == "pts" and score["lower_is_better"] is False
     assert score["holders"] == [{"player_id": "p2", "player_name": "Bob", "game_id": "g-3p",
                                  "date": "2026-02-15", "map": "Hellas"}]
@@ -54,14 +54,12 @@ def test_records_follow_the_subset(client, seeded):
     assert played["value"] == 0 and played["holders"] == []
 
 
-def test_a_shared_record_keeps_every_holder_in_the_old_contract(client, seeded):
+def test_a_shared_record_keeps_every_holder(client, seeded):
     played = by_code(client.get("/records/"))["most_games_played"]
-    assert played["record"]["attributes"] == [{"label": "Jugador", "value": "Alice, Bob"}]
+    assert [h["player_name"] for h in played["holders"]] == ["Alice", "Bob"]
     _post_game(client, _game_payload("g-tie", "2026-03-01", [_pr("p3", 60), _pr("p1", 10)]))
     score = by_code(client.get("/records/"))["highest_single_game_score"]
-    assert score["record"]["attributes"] == [{"label": "Fecha", "value": "2026-02-15"},
-                                             {"label": "Fecha", "value": "2026-03-01"},
-                                             {"label": "Jugador", "value": "Bob, Cara"}]
+    assert [(h["player_name"], h["date"]) for h in score["holders"]] == [("Bob", "2026-02-15"), ("Cara", "2026-03-01")]
     assert [h["kind"] for h in score["history"]] == ["set", "broken", "tied"]
 
 

@@ -1,13 +1,4 @@
-import json
-from datetime import date
-
-import pytest
-
 from models.player import Player
-from mappers.game_mapper import game_dto_to_model
-from schemas.game import GameDTO
-from schemas.player import PlayerResultDTO, PlayerScoreDTO, PlayerEndStatsDTO
-from models.enums import Corporation, MapName
 
 
 def test_create_game_and_query_results(client, players_repo):
@@ -53,63 +44,30 @@ def test_create_game_and_query_results(client, players_repo):
     data = resp.json()
     game_id = data["id"]
 
-    # fetch results via API and check that Alice finished first
-    r2 = client.get(f"/games/{game_id}/results")
+    # el informe trae el resultado (Alice primera) y se serializa entero
+    r2 = client.get(f"/games/{game_id}/report")
     assert r2.status_code == 200
-    results = r2.json()["results"]
-    assert results[0]["player_id"] == "p1"
-    assert results[0]["position"] == 1
-
-    # also query the records endpoint to ensure serialization works
-    r3 = client.get(f"/games/{game_id}/records")
-    assert r3.status_code == 200
-    recs = r3.json()
-    assert isinstance(recs, list)
-    # each comparison object should include current with value and attributes
-    assert "current" in recs[0]
-    assert "value" in recs[0]["current"]
-    assert "attributes" in recs[0]["current"]
+    report = r2.json()
+    assert report["results"][0]["player_id"] == "p1"
+    assert report["results"][0]["position"] == 1
+    assert isinstance(report["records_broken"], list) and isinstance(report["elo"], list)
 
 
-def test_player_profile_endpoint(client, players_repo, games_repo):
-    # register a player
+def test_player_insights_endpoint(client, players_repo):
     players_repo.create(Player(player_id="p3", name="Carol"))
-
-    # create a game domain object and persist it via repository
-    from models.game import Game
-    from models.player_result import PlayerResult, PlayerScore, PlayerEndStats
-
-    game = Game(
-        game_id=None,
-        date=date(2026, 2, 2),
-        map_name=MapName.HELLAS,
-        expansions=[],
-        draft=False,
-        generations=1,
-        player_results=[
-            PlayerResult(
-                player_id="p3",
-                corporation=Corporation.CREDICOR,
-                scores=PlayerScore(
-                    terraform_rating=20,
-                    milestone_points=0,
-                    milestones=[],
-                    award_points=0,
-                    card_points=0,
-                    card_resource_points=0,
-                    greenery_points=0,
-                    city_points=0,
-                    turmoil_points=None,
-                ),
-                end_stats=PlayerEndStats(mc_total=7),
-            )
+    players_repo.create(Player(player_id="p4", name="Dan"))
+    payload = {
+        "date": "2026-02-02", "map": "Hellas", "expansions": [], "draft": False, "generations": 1, "awards": [],
+        "player_results": [
+            {"player_id": pid, "corporation": corp, "end_stats": {"mc_total": mc}, "scores": {
+                "terraform_rating": tr, "milestone_points": 0, "milestones": [], "award_points": 0, "card_points": 0,
+                "card_resource_points": 0, "greenery_points": 0, "city_points": 0, "turmoil_points": None}}
+            for pid, corp, tr, mc in (("p3", "Credicor", 20, 7), ("p4", "Ecoline", 10, 3))
         ],
-        awards=[],
-    )
-    games_repo.create(game)
+    }
+    assert client.post("/games/", json=payload).status_code == 200
 
-    r = client.get("/players/p3/profile")
+    r = client.get("/players/p3/insights")
     assert r.status_code == 200
-    profile = r.json()
-    assert profile["player_id"] == "p3"
-    assert profile["stats"]["games_played"] == 1
+    insights = r.json()
+    assert insights["games"] == 1 and insights["wins"] == 1

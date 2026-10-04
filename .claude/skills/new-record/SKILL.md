@@ -58,9 +58,3 @@ winners and the margin. `StatsContext` filters by `GameSubset` and keeps canonic
 DATABASE_URL=postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper_test \
   backend/.venv/bin/python -m pytest backend/tests -q
 ```
-
-## Legacy
-
-`services/record_calculators/` still serves the pre-v2 endpoints (`GET /games/{id}/records`,
-player records in the profile) until the new screens replace them (D-57). Don't add new
-records there.

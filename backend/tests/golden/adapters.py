@@ -4,7 +4,7 @@ from itertools import groupby
 
 
 def positions_from_results(results_dto: dict) -> dict[str, dict]:
-    """GET /games/{id}/results → {player_id: {position, total, mc, tied}} (tied desde F21, D-24)."""
+    """`results` de GET /games/{id}/report → {player_id: {position, total, mc, tied}} (tied desde F21, D-24)."""
     return {
         r["player_id"]: {"position": r["position"], "total": r["total_points"], "mc": r["mc_total"], "tied": r["tied"]}
         for r in results_dto["results"]
@@ -16,7 +16,7 @@ def positions_from_golden(rows: list[dict]) -> dict[str, dict]:
 
 
 def elo_from_changes(changes_dto: list[dict]) -> dict[str, dict]:
-    """GET /games/{id}/elo → {player_id: {before, after, delta}}."""
+    """`elo` del informe (o cambios guardados) → {player_id: {before, after, delta}}."""
     return {
         c["player_id"]: {"before": c["elo_before"], "after": c["elo_after"], "delta": c["delta"]}
         for c in changes_dto

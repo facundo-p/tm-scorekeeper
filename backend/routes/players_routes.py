@@ -1,11 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
-from schemas.player_profile import PlayerProfileDTO
-from services.player_profile_service import PlayerProfileService
-from repositories.container import games_repository, players_repository
-from services.player_records_service import PlayerRecordsService
+from repositories.container import players_repository
 from schemas.player import PlayerCreateDTO, PlayerCreatedResponseDTO, PlayerResponseDTO, PlayerUpdateDTO
 from services.player_service import PlayerService
-from services.container import achievements_service, elo_service, insights_service
+from services.container import achievements_service, insights_service
 from typing import Optional
 from schemas.achievement import PlayerAchievementsResponseDTO
 from schemas.insights import PlayerInsightsDTO
@@ -13,7 +10,6 @@ from models.player_colors import ColorTaken
 from mappers.achievement_mapper import player_achievement_to_dto
 from models.game_subset import GameSubset
 from routes.dependencies import table_subset, view_of
-from schemas.elo_summary import PlayerEloSummaryDTO
 
 router = APIRouter(
     prefix="/players",
@@ -23,51 +19,6 @@ router = APIRouter(
 player_service = PlayerService(
     player_repository=players_repository
 )
-
-# The records computations are handled by PlayerRecordsService directly.
-player_records_service = PlayerRecordsService(games_repository=games_repository)
-
-player_profile_service = PlayerProfileService(
-    players_repository=players_repository,
-    games_repository=games_repository,
-    player_records_service=player_records_service,
-)
-
-
-@router.get("/{player_id}/profile", response_model=PlayerProfileDTO)
-def get_player_profile(player_id: str):
-    """
-    Devuelve el perfil agregado de un jugador:
-    - estadísticas
-    - historial de partidas
-    """
-    try:
-        return player_profile_service.get_profile(player_id)
-    except KeyError:
-        # El repo no encontró el jugador
-        raise HTTPException(
-            status_code=404,
-            detail=f"Player '{player_id}' not found",
-        )
-
-
-@router.get("/{player_id}/elo-summary", response_model=PlayerEloSummaryDTO)
-def get_player_elo_summary(player_id: str):
-    """
-    Devuelve el resumen de ELO de un jugador:
-    - current_elo (siempre presente, 1000 seed para 0 partidas per D-05)
-    - peak_elo (null si 0 partidas)
-    - last_delta (null si 0 partidas)
-    - rank (null si jugador inactivo; {1, 1} para único activo per D-18)
-    """
-    try:
-        return elo_service.get_summary_for_player(player_id)
-    except KeyError:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Player '{player_id}' not found",
-        )
-
 
 @router.post("/", response_model=PlayerCreatedResponseDTO)
 def create_player(dto: PlayerCreateDTO):

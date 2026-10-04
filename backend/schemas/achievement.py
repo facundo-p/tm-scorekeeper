@@ -15,13 +15,7 @@ class AchievementUnlockedDTO(BaseModel):
     is_upgrade: bool
     levels: int = 1  # niveles alcanzados en la partida (F28)
     max_tier: int = 1  # niveles que tiene el logro (F29: «Nivel 2 de 5» o «Logro único»)
-    icon: Optional[str]
-    fallback_icon: str
     glyph: str
-
-
-class AchievementsByPlayerResponseDTO(BaseModel):
-    achievements_by_player: dict[str, list[AchievementUnlockedDTO]]
 
 
 class ProgressDTO(BaseModel):
@@ -41,8 +35,6 @@ class PlayerAchievementDTO(BaseModel):
     description: str
     tier: int              # 0 if locked
     max_tier: int
-    icon: Optional[str]
-    fallback_icon: str
     unlocked: bool
     unlocked_at: Optional[date]
     progress: Optional[ProgressDTO]
@@ -75,8 +67,6 @@ class HolderDTO(BaseModel):
 class AchievementCatalogItemDTO(BaseModel):
     code: str
     description: str
-    icon: Optional[str]
-    fallback_icon: str
     tiers: list[AchievementTierInfoDTO]
     holders: list[HolderDTO]
     kind: str
@@ -87,16 +77,3 @@ class AchievementCatalogItemDTO(BaseModel):
 class AchievementCatalogResponseDTO(BaseModel):
     achievements: list[AchievementCatalogItemDTO]
     view: AchievementView = "all"
-
-
-class PlayerReconcileChangeDTO(BaseModel):
-    code: str
-    old_tier: int
-    new_tier: int
-
-
-class ReconcileResponseDTO(BaseModel):
-    total_players: int
-    players_updated: int
-    achievements_applied: list[PlayerReconcileChangeDTO]
-    errors: list[str]

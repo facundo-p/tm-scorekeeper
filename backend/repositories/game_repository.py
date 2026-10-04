@@ -171,16 +171,6 @@ class GamesRepository:
             orm = session.get(GameORM, game_id)
             return self._orm_to_domain(orm) if orm else None
 
-    def get_games_by_player(self, player_id: str) -> List[Game]:
-        with session_scope(self._session_factory) as session:
-            orm_games = (
-                _with_children(session.query(GameORM))
-                .join(GameORM.player_results)
-                .filter(PlayerResultORM.player_id == player_id)
-                .all()
-            )
-            return [self._orm_to_domain(g) for g in orm_games]
-
     def list_games(self, filters: Optional[GameFilter] = None) -> List[Game]:
         with session_scope(self._session_factory) as session:
             query = _with_children(session.query(GameORM))
