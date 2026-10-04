@@ -18,7 +18,7 @@ const NO_INLINE_STYLE = [
 ]
 
 export default tseslint.config(
-  { ignores: ['dist', 'dist-parity', 'node_modules', 'coverage', 'playwright-report', 'test-results'] },
+  { ignores: ['dist', 'dist-parity', 'node_modules', 'coverage'] },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended, jsxA11y.flatConfigs.recommended],

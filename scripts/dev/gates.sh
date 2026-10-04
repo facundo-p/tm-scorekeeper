@@ -3,7 +3,7 @@
 #   quick     pytest, typecheck, vitest
 #   backend   pytest (+ golden), migraciones sobre base vacía si cambiaron, chequeo de fixtures
 #   frontend  lint, typecheck, vitest, build
-#   e2e       Playwright de frontend/e2e y flujos funcionales (tools/parity/functional)
+#   e2e       flujos funcionales sobre la candidata (tools/parity/functional)
 #   parity    comparación visual de la fase (GATES_PHASE=NN)
 #   all       todo lo anterior + tamaño del PR
 # Cada gate se omite si su herramienta todavía no existe. Sale con el primer código no cero.
@@ -78,7 +78,6 @@ quick_gates() {
 }
 
 e2e_gates() {
-  if [ -d "$ROOT/frontend/e2e" ] && npm_has_script e2e; then run_gate e2e npm_gate e2e; else skip_gate e2e "todavía no existe"; fi
   # Flujos funcionales sobre la candidata (por ejemplo, registrar solo con el teclado, F30).
   if [ -f "$ROOT/tools/parity/functional/run.mjs" ]; then run_gate funcional node "$ROOT/tools/parity/functional/run.mjs"; fi
 }

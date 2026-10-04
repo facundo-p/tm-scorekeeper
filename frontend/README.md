@@ -59,7 +59,7 @@ npm test
 npm run test:ui
 ```
 
-Los tests viven en `src/test/`: `unit/` (utilidades, dominio y la regla de estilos), `components/` (pantallas actuales), `ui/` (átomos, hoja y estados del sistema visual v2.0) y `hooks/`.
+Los tests viven en `src/test/`: `unit/` (utilidades, dominio y la regla de estilos), `ui/` (átomos, hoja y estados del sistema visual v2.0), `shell/`, `fx/`, `instruments/` y `screens/`. Los recorridos de punta a punta (registrar solo con el teclado, saltar la ceremonia) son chequeos funcionales del arnés de comparación (`tools/parity/functional`, D-81).
 
 ### Lint
 
@@ -101,12 +101,11 @@ frontend/src/
 ├── utils/            # gameCalculations.ts, validation.ts, a11y.ts
 └── test/
     ├── unit/         # Utilidades, dominio y regla de estilos
-    ├── components/   # Componentes con React Testing Library
     ├── ui/           # Sistema visual v2.0
     ├── shell/        # Shell, rutas y filtro de mesa (v2.0)
     ├── fx/           # Planeta (deriva de shaders, motor), confeti (v2.0)
     ├── instruments/  # Instrumentos SVG (v2.0)
-    └── e2e/          # Tests de integración con Playwright
+    └── screens/      # Pantallas y su lógica pura (v2.0)
 ```
 
 ### Sistema visual v2.0
