@@ -170,7 +170,7 @@ Plans:
 - [x] **Phase 24: Jugadores, partidas e informe** (E4)
 - [x] **Phase 25: Métricas del grupo, equidad y temporadas** (E4)
 - [x] **Phase 26: Shell, rutas, datos y filtro de mesa** (E5)
-- [ ] **Phase 27: Efectos e instrumentos** (E5)
+- [x] **Phase 27: Efectos e instrumentos** (E5)
 - [ ] **Phase 28: Pantallas: Acceso e Inicio** (E6)
 - [ ] **Phase 29: Pantallas: Partidas e Informe** (E6)
 - [ ] **Phase 30: Pantalla: Registrar** (E6)
@@ -294,7 +294,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Escenarios `gal-instruments` y `planet-parked` en verde
   2. recharts sin uso
-**Plans**: TBD
+**Plans**: 27-01, 27-02
 
 ### Phase 28: Pantallas: Acceso e Inicio
 **Goal**: ver `.planning/v2.0/SPEC.md` § F28

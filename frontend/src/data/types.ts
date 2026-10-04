@@ -48,3 +48,56 @@ export interface PlayerSummary {
   color: string
   since: string | null
 }
+
+export type ScoreMap = Partial<Record<
+  'terraform_rating' | 'award_points' | 'milestone_points' | 'card_resource_points' | 'card_points' | 'greenery_points' | 'city_points' | 'turmoil_points',
+  number | null
+>>
+
+export interface ReportResult {
+  player_id: string
+  player_name: string
+  corporation: string
+  position: number
+  tied: boolean
+  total_points: number
+  mc_total: number
+  scores: ScoreMap
+}
+
+export interface EloChange {
+  player_id: string
+  player_name: string
+  elo_before: number
+  elo_after: number
+  delta: number
+}
+
+/** Informe de una partida (GET /games/{id}/report); solo lo que usa el frontend por ahora. */
+export interface GameReport {
+  game: { id: string; date: string; map_name: string; expansions: string[]; generations: number }
+  results: ReportResult[]
+  winners: string[]
+  margin: number
+  decided_by_mc: boolean
+  elo: EloChange[]
+}
+
+export interface PlayerEloHistory {
+  player_id: string
+  player_name: string
+  points: { recorded_at: string; game_id: string; elo_after: number; delta: number }[]
+}
+
+/** Ficha del jugador (GET /players/{id}/insights); por ahora, composición y forma. */
+export interface PlayerInsights {
+  view: 'all' | 'mesa'
+  games: number
+  composition: { avg: Record<string, number>; share: Record<string, number> }
+  form: { position: number; n: number; game_id: string }[]
+}
+
+export interface HeadToHead {
+  view: 'all' | 'mesa'
+  matrix: Record<string, Record<string, { games: number; ahead: number; behind: number; even: number }>>
+}

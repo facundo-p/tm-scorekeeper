@@ -1,7 +1,7 @@
 // Formato de números y fechas en es-AR: port de `fmt` (docs/redesign/mockup/js/lib.js) y
 // de `fmtDate` (js/ui/atoms.js). El menos es tipográfico (−) y el cero lleva ±.
 
-const MINUS = '−'
+export const MINUS = '−'
 // `useGrouping: 'min2'` (ES2023): 1234 sin separador, 12.345 con punto. La lib ES2020 del tsconfig no lo tipa.
 const INT_FORMAT = { useGrouping: 'min2' } as unknown as Intl.NumberFormatOptions
 

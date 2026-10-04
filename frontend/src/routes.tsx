@@ -43,7 +43,7 @@ const OLD_ROUTES: [string, string][] = [
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path={PATHS.login} element={<Login />} />
+      <Route path={PATHS.login} element={legacy(Login)} />
       {Gallery && <Route path="/__galeria" element={<Gallery />} />}
       {OLD_ROUTES.map(([from, to]) => <Route key={from} path={from} element={<RedirectWith to={to} />} />)}
       <Route path="/games/:gameId" element={<RedirectWith to={(p) => PATHS.game(p.gameId)} />} />

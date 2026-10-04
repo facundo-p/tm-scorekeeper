@@ -148,3 +148,34 @@ canvas {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Tooltip (hover y foco): `data-tip` en cualquier elemento (components.css del mockup) ---------- */
+[data-tip] {
+  position: relative;
+}
+
+[data-tip]:hover::after,
+[data-tip]:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  translate: -50% 0;
+  width: max-content;
+  max-width: 240px;
+  padding: 6px 10px;
+  background: var(--ink);
+  color: var(--ink-inv);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: pre-line;
+  text-align: left;
+  pointer-events: none;
+  animation: fade-in var(--d-1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
