@@ -16,12 +16,14 @@ interface StepperProps {
   labelledby?: string
   label?: string
   small?: boolean
+  /** Ocupa todo el ancho disponible (el valor crece; los botones no). */
+  fluid?: boolean
 }
 
 /** Restar, valor editable y sumar, dentro de [min, max]. */
-export function Stepper({ value, onChange, min = 0, max = 999, labelledby, label, small }: StepperProps) {
+export function Stepper({ value, onChange, min = 0, max = 999, labelledby, label, small, fluid }: StepperProps) {
   return (
-    <span className={cx(styles.stepper, small && styles['stepper--s'])} role="group" aria-labelledby={labelledby} aria-label={label}>
+    <span className={cx(styles.stepper, small && styles['stepper--s'], fluid && styles['stepper--fluid'])} role="group" aria-labelledby={labelledby} aria-label={label}>
       <button type="button" className={styles.stepper__btn} aria-label="Restar 1" onClick={() => onChange(clampInt(value - 1, min, max))}>
         <Icon name="minus" size={16} />
       </button>

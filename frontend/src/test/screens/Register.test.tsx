@@ -45,24 +45,88 @@ const renderAt = (url: string) => render(
 )
 
 const click = (name: string | RegExp) => fireEvent.click(screen.getByRole('button', { name }))
+const SCORE_STEPS = ['TR y M€', 'Recompensas', 'Hitos', 'Recursos de cartas', 'Puntos de cartas', 'Vegetación', 'Ciudades']
+const walk = (steps: string[]) => steps.forEach((step) => click(`Siguiente: ${step}`))
+
+/** Escribe en el buscador de corporación y elige la primera sugerencia con Enter. */
+function pickCorp(label: string, text: string) {
+  const input = screen.getByRole('combobox', { name: label })
+  fireEvent.focus(input)
+  fireEvent.change(input, { target: { value: text } })
+  fireEvent.keyDown(input, { key: 'Enter' })
+}
+
+async function toTable() {
+  renderAt('/registrar')
+  fireEvent.click(await screen.findByRole('radio', { name: /Tharsis/ }))
+  click('Siguiente: Mesa')
+  click('Ana'); click('Beto')
+}
 
 describe('Registrar', () => {
   beforeEach(() => { calls = []; sessionStorage.clear(); vi.stubGlobal('fetch', vi.fn(api)) })
   afterEach(() => vi.unstubAllGlobals())
 
-  it('a new game walks the five steps and is saved with POST, then goes to the ceremony', async () => {
-    renderAt('/registrar')
-    fireEvent.click(await screen.findByRole('radio', { name: /Tharsis/ }))
-    click('Siguiente: Mesa')
-    click('Ana'); click('Beto')
-    fireEvent.change(screen.getByLabelText('Corporación de Ana'), { target: { value: 'Helion' } })
-    fireEvent.change(screen.getByLabelText('Corporación de Beto'), { target: { value: 'Ecoline' } })
-    click('Siguiente: Hitos y recompensas'); click('Siguiente: Puntaje'); click('Siguiente: Revisión')
+  it('a new game walks every score step and is saved with POST, then goes to the ceremony', async () => {
+    await toTable()
+    pickCorp('Corporación de Ana', 'hel')
+    pickCorp('Corporación de Beto', 'eco')
+    walk([...SCORE_STEPS, 'Revisión'])
     click('Guardar partida')
     await waitFor(() => expect(screen.getByTestId('where')).toHaveTextContent('/partidas/g-new/ceremonia'))
     const post = calls.find((c) => c.init?.method === 'POST')!
-    expect(JSON.parse(String(post.init!.body))).toMatchObject({ map: 'Tharsis', player_results: [{ player_id: 'a', corporation: 'Helion' }, { player_id: 'b' }] })
+    expect(JSON.parse(String(post.init!.body))).toMatchObject({ map: 'Tharsis', player_results: [{ player_id: 'a', corporation: 'Helion' }, { player_id: 'b', corporation: 'Ecoline' }] })
     expect(sessionStorage.getItem(DRAFT_KEY)).toBeNull()
+  })
+
+  it('the corporation search offers every corporation, without groups, and blocks the one already taken', async () => {
+    await toTable()
+    const ana = screen.getByRole('combobox', { name: 'Corporación de Ana' })
+    fireEvent.focus(ana)
+    expect(screen.getAllByRole('option')).toHaveLength(44)
+    expect(screen.getByRole('option', { name: /Septem Tribus/ })).toBeInTheDocument()
+    fireEvent.change(ana, { target: { value: 'septem' } })
+    fireEvent.keyDown(ana, { key: 'Enter' })
+    expect(ana).toHaveValue('Septem Tribus')
+    const beto = screen.getByRole('combobox', { name: 'Corporación de Beto' })
+    fireEvent.focus(beto)
+    fireEvent.change(beto, { target: { value: 'sep' } })
+    expect(screen.getByRole('option', { name: /Septem Tribus/ })).toHaveAttribute('aria-disabled', 'true')
+    expect(screen.getByRole('option', { name: /Septem Tribus/ })).toHaveTextContent('elegida por Ana')
+    fireEvent.keyDown(beto, { key: 'Enter' })
+    expect(beto).toHaveValue('sep')
+    fireEvent.keyDown(beto, { key: 'Escape' })
+    expect(beto).toHaveValue('')
+    expect(screen.queryByRole('listbox')).toBeNull()
+  })
+
+  it('the provisional scoreboard shows up on the score steps and re-sorts as points are added', async () => {
+    await toTable()
+    pickCorp('Corporación de Ana', 'hel'); pickCorp('Corporación de Beto', 'eco')
+    expect(screen.queryByRole('region', { name: 'Marcador provisorio' })).toBeNull()
+    click('Siguiente: TR y M€')
+    const board = () => screen.getByRole('region', { name: 'Marcador provisorio' })
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Terraform Rating de Beto' }), { target: { value: '30' } })
+    expect(board()).toHaveTextContent('Beto')
+    expect(board().querySelector('[class*="is-lead"]')).toHaveTextContent('Beto')
+    walk(['Recompensas', 'Hitos', 'Recursos de cartas', 'Puntos de cartas'])
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Puntos de cartas de Ana' }), { target: { value: '15' } })
+    expect(board()).toHaveTextContent('+15')
+    expect(board().querySelector('[class*="is-lead"]')).toHaveTextContent(/Ana.*35 puntos/)
+    walk(['Vegetación', 'Ciudades', 'Revisión'])
+    expect(screen.queryByRole('region', { name: 'Marcador provisorio' })).toBeNull()
+  })
+
+  it('with Turmoil there is one more step before the review', async () => {
+    renderAt('/registrar')
+    fireEvent.click(await screen.findByRole('radio', { name: /Tharsis/ }))
+    fireEvent.click(screen.getByRole('checkbox', { name: /Turmoil/ }))
+    click('Siguiente: Mesa'); click('Ana'); click('Beto')
+    pickCorp('Corporación de Ana', 'hel'); pickCorp('Corporación de Beto', 'eco')
+    walk([...SCORE_STEPS, 'Turmoil'])
+    expect(screen.getByRole('heading', { level: 2, name: 'Turmoil' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton', { name: 'Turmoil de Ana' })).toBeInTheDocument()
+    click('Siguiente: Revisión')
   })
 
   it('errors stop the step and say what is missing', async () => {
@@ -85,7 +149,7 @@ describe('Registrar', () => {
     renderAt('/partidas/g-1/editar')
     expect(await screen.findByRole('heading', { level: 1, name: 'Editar partida' })).toBeInTheDocument()
     expect(screen.getByRole('radio', { name: /Hellas/ })).toBeChecked()
-    for (const step of ['Siguiente: Mesa', 'Siguiente: Hitos y recompensas', 'Siguiente: Puntaje', 'Siguiente: Revisión']) click(step)
+    walk(['Mesa', ...SCORE_STEPS, 'Revisión'])
     click('Guardar cambios')
     await waitFor(() => expect(screen.getByTestId('where')).toHaveTextContent('/partidas/g-1?aviso=editada'))
     expect(calls.some((c) => c.init?.method === 'PUT' && c.url.endsWith('/games/g-1'))).toBe(true)
@@ -98,7 +162,7 @@ describe('Registrar', () => {
       : api(url, init))))
     renderAt('/partidas/g-1/editar')
     await screen.findByRole('heading', { level: 1, name: 'Editar partida' })
-    for (const step of ['Siguiente: Mesa', 'Siguiente: Hitos y recompensas', 'Siguiente: Puntaje', 'Siguiente: Revisión']) click(step)
+    walk(['Mesa', ...SCORE_STEPS, 'Revisión'])
     click('Guardar cambios')
     expect(await screen.findByRole('alert')).toHaveTextContent('Ya existe esa partida')
     expect(screen.getByTestId('where')).toHaveTextContent('/partidas/g-1/editar')

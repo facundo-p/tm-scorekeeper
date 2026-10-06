@@ -8,7 +8,7 @@ import type { WizardState } from './model'
 import type { StepProps } from './types'
 import styles from './Register.module.css'
 
-const EXP_HINT: Record<string, string> = { Turmoil: 'suma la fila de puntos de Turmoil', 'Venus next': 'agrega Hoverlord y Venuphile' }
+const EXP_HINT: Record<string, string> = { Turmoil: 'suma un paso con los puntos de Turmoil', 'Venus next': 'agrega Hoverlord y Venuphile' }
 
 function MapTiles({ s, d, errors }: Omit<StepProps, 'players'>) {
   const recent = monthsBefore(today(), 12)

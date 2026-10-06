@@ -1,4 +1,4 @@
-// Paso 3: hitos (3 como máximo) y recompensas financiadas (3 como máximo) con su podio.
+// Pasos de recompensas (3 financiadas como máximo, con su podio) y de hitos (3 como máximo).
 import type { PlayerIndex } from '@/data/instruments'
 import { EXPANSION_AWARDS, EXPANSION_MILESTONES, mapInfo } from '@/domain/catalog'
 import { awardLabel, milestoneLabel } from '@/domain/labels'
@@ -7,8 +7,6 @@ import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
 import { MAX_AWARDS, MAX_MILESTONES, patchAward, toggleAward, type WizardAward } from './model'
 import type { StepProps } from './types'
-// El título de fila del tablero es el mismo del informe.
-import board from '../GameReport/GameReport.module.css'
 import styles from './Register.module.css'
 
 interface CubeChoiceProps {
@@ -40,8 +38,8 @@ function Milestones({ s, d, players }: StepProps) {
   const list = [...(s.map ? mapInfo(s.map).milestones : []), ...s.expansions.flatMap((e) => EXPANSION_MILESTONES[e] ?? [])]
   const claimed = Object.keys(s.milestones).length
   return (
-    <section className={styles.wboard__col}>
-      <h3 className={board['board-row__title']}><Icon name="milestone" size={18} />Hitos <span>{claimed} de {MAX_MILESTONES} reclamados, 5 PV cada uno</span></h3>
+    <>
+      <p className={styles.wboard__count}><Icon name="milestone" size={18} />{claimed} de {MAX_MILESTONES} reclamados, 5 PV cada uno</p>
       <ul className={styles.wslots}>
         {list.map((m) => (
           <li key={m} className={cx(styles.wslot, s.milestones[m] && styles['is-claimed'], !s.milestones[m] && claimed >= MAX_MILESTONES && styles['is-off'])}>
@@ -51,7 +49,7 @@ function Milestones({ s, d, players }: StepProps) {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   )
 }
 
@@ -89,8 +87,8 @@ function Awards({ s, d, errors, players }: StepProps) {
   const ids = s.players.map((p) => p.id)
   const list = [...(s.map ? mapInfo(s.map).awards : []), ...s.expansions.flatMap((e) => EXPANSION_AWARDS[e] ?? [])]
   return (
-    <section className={styles.wboard__col}>
-      <h3 className={board['board-row__title']}><Icon name="award" size={18} />Recompensas <span>{s.awards.length} de {MAX_AWARDS} financiadas</span></h3>
+    <>
+      <p className={styles.wboard__count}><Icon name="award" size={18} />{s.awards.length} de {MAX_AWARDS} financiadas</p>
       <ul className={styles.wslots}>
         {list.map((name) => (
           <AwardItem key={name} name={name} w={s.awards.find((w) => w.name === name)} full={s.awards.length >= MAX_AWARDS} ids={ids} players={players}
@@ -99,10 +97,9 @@ function Awards({ s, d, errors, players }: StepProps) {
         ))}
       </ul>
       <p className={cx('faint', styles.wboard__note)}>Con empate en el 1.º puesto no se otorga 2.º. En partidas de 2 jugadores tampoco.</p>
-    </section>
+    </>
   )
 }
 
-export function StepBoard(props: StepProps) {
-  return <div className={cx(styles.wstep, styles.wboard)}><Milestones {...props} /><Awards {...props} /></div>
-}
+export const StepAwards = (props: StepProps) => <div className={styles.wstep}><Awards {...props} /></div>
+export const StepMilestones = (props: StepProps) => <div className={styles.wstep}><Milestones {...props} /></div>

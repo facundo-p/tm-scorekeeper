@@ -42,9 +42,12 @@ export async function editGame(page, base) {
   const gens = page.getByRole('group', { name: 'Generaciones' });
   const before = Number(await gens.getByRole('spinbutton').inputValue());
   await gens.getByRole('button', { name: 'Sumar 1' }).click();
-  for (const step of ['Mesa', 'Hitos y recompensas', 'Puntaje', 'Revisión']) {
-    await page.getByRole('button', { name: `Siguiente: ${step}` }).click();
-    await page.getByRole('heading', { level: 2, name: step }).waitFor();
+  // Los pasos dependen de las expansiones (Turmoil suma uno, D-87): se sigue hasta la revisión.
+  const next = page.getByRole('button', { name: /^Siguiente: / });
+  while (await next.count()) {
+    const step = (await next.textContent()).replace('Siguiente: ', '').trim();
+    await next.click();
+    await page.getByRole('heading', { level: 2, name: step, exact: true }).waitFor();
   }
   await page.getByRole('button', { name: 'Guardar cambios' }).click();
   await page.waitForURL(/\/partidas\/g-063\?aviso=editada$/);
