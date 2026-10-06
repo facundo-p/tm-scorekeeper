@@ -60,3 +60,21 @@
   width: 42px;
   font-size: 1rem;
 }
+
+/* Ocupa el ancho de su columna: en el teléfono entran dos lado a lado (TR y M€ del registro) */
+.stepper--fluid {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+}
+
+.stepper--fluid .stepper__btn {
+  flex: none;
+  width: 38px;
+}
+
+.stepper--fluid .stepper__val {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}

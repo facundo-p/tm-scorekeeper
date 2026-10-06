@@ -1,15 +1,12 @@
 // Paso 2: quiénes jugaron (2 a 5) y la corporación de cada uno.
 import type { PlayerLike } from '@/ui/atoms'
-import { CORPS, corpLabel, EXPANSIONS } from '@/domain/catalog'
-import { CorpEmblem, Cube, inputClass } from '@/ui/atoms'
-import corpStyles from '@/ui/atoms/CorpEmblem.module.css'
+import { Cube } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
-import { MAX_PLAYERS, type WizardPlayer } from './model'
+import { CorpPicker } from './CorpPicker'
+import { MAX_PLAYERS } from './model'
 import type { StepProps } from './types'
 import styles from './Register.module.css'
-
-const CORP_GROUPS = ['base', 'Prelude', 'Venus next', 'Colonies', 'Turmoil']
 
 function WhoTiles({ s, d, active }: Pick<StepProps, 's' | 'd'> & { active: PlayerLike[] }) {
   return (
@@ -30,36 +27,24 @@ function WhoTiles({ s, d, active }: Pick<StepProps, 's' | 'd'> & { active: Playe
   )
 }
 
-/** Corporaciones del juego base y de las expansiones elegidas; una ya tomada no se repite (salvo Novel). */
-function CorpSelect({ s, p, onChange }: { s: StepProps['s']; p: WizardPlayer; onChange: (corp: string) => void }) {
-  const used = s.players.filter((x) => x.id !== p.id).map((x) => x.corp)
-  return (
-    <select className={cx(inputClass, styles.corprow__select)} id={`corp-${p.id}`} value={p.corp} onChange={(e) => onChange(e.target.value)}>
-      <option value="">Elegir corporación</option>
-      {CORP_GROUPS.filter((x) => x === 'base' || s.expansions.includes(x)).map((exp) => (
-        <optgroup key={exp} label={exp === 'base' ? 'Juego base' : EXPANSIONS[exp].label}>
-          {CORPS.filter((c) => c.exp === exp).map((c) => (
-            <option key={c.name} value={c.name} disabled={c.name !== 'Novel Corporation' && used.includes(c.name)}>{corpLabel(c.name)}</option>
-          ))}
-        </optgroup>
-      ))}
-    </select>
-  )
+/** Corporaciones ya elegidas por los demás, con el nombre de quien la eligió. */
+function takenBy(s: StepProps['s'], id: string, players: StepProps['players']) {
+  return Object.fromEntries(s.players.filter((x) => x.id !== id && x.corp).map((x) => [x.corp, players.get(x.id)?.name ?? x.id]))
 }
 
 function CorpRows({ s, d, errors, players }: StepProps) {
   return (
     <fieldset className={styles.wfield}>
-      <legend className={styles.wfield__label}>Corporaciones</legend>
+      <legend className={styles.wfield__label}>Corporaciones <span className="faint">escribí para buscar entre todas</span></legend>
       <ul className={styles.corprows}>
         {s.players.map((p) => {
           const who = players.get(p.id)
           return (
-            <li key={p.id} className={cx(styles.corprow, errors.some((e) => e.field === `corp-${p.id}`) && styles['is-bad'])}>
+            <li key={p.id} className={styles.corprow}>
               <span className={styles.corprow__who}><Cube color={who?.color} size={20} /><b>{who?.name}</b></span>
-              <span className={styles.corprow__emblem}>{p.corp ? <CorpEmblem name={p.corp} size="m" /> : <span className={cx(corpStyles.corp__mark, styles.corprow__ph)}>?</span>}</span>
               <label className="vh" htmlFor={`corp-${p.id}`}>Corporación de {who?.name}</label>
-              <CorpSelect s={s} p={p} onChange={(corp) => d({ type: 'player', id: p.id, patch: { corp } })} />
+              <CorpPicker id={`corp-${p.id}`} value={p.corp} takenBy={takenBy(s, p.id, players)} bad={errors.some((e) => e.field === `corp-${p.id}`)}
+                onPick={(corp) => d({ type: 'player', id: p.id, patch: { corp } })} />
             </li>
           )
         })}

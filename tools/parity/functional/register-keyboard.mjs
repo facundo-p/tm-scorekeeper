@@ -7,9 +7,11 @@ async function next(page, label) {
   await page.getByRole('heading', { level: 2, name: label.replace('Siguiente: ', '') }).waitFor();
 }
 
-async function chooseCorp(page, playerId) {
+/** El buscador de corporación: se escribe parte del nombre y Enter elige la primera sugerencia (D-87). */
+async function chooseCorp(page, playerId, text) {
   await tabTo(page, focusedSelector(`#corp-${playerId}`));
-  await page.keyboard.press('ArrowDown');
+  await page.keyboard.type(text);
+  await page.keyboard.press('Enter');
 }
 
 export async function registerWithKeyboard(page, base) {
@@ -22,13 +24,14 @@ export async function registerWithKeyboard(page, base) {
     await tabTo(page, focusedNamed(name));
     await page.keyboard.press('Enter');
   }
-  await chooseCorp(page, 'p-facu');
-  await chooseCorp(page, 'p-nico');
-  await next(page, 'Siguiente: Hitos y recompensas');
-  await next(page, 'Siguiente: Puntaje');
+  await chooseCorp(page, 'p-facu', 'helion');
+  await chooseCorp(page, 'p-nico', 'ecoline');
+  await next(page, 'Siguiente: TR y M€');
   await tabTo(page, focusedNamed('Terraform Rating de Facu'));
   await page.keyboard.type('25');
-  await next(page, 'Siguiente: Revisión');
+  for (const step of ['Recompensas', 'Hitos', 'Recursos de cartas', 'Puntos de cartas', 'Vegetación', 'Ciudades', 'Revisión']) {
+    await next(page, `Siguiente: ${step}`);
+  }
   await tabTo(page, focusedNamed('Guardar partida'));
   await page.keyboard.press('Enter');
   await page.waitForURL(/\/partidas\/[^/?]+(\/ceremonia)?(\?.*)?$/, { timeout: 15000 });

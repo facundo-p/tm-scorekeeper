@@ -46,6 +46,10 @@
   align-items: start;
 }
 
+.wizard__col {
+  min-width: 0;
+}
+
 .wizard__main {
   padding: var(--s5);
 }
@@ -284,42 +288,126 @@
 
 .corprow {
   display: grid;
-  grid-template-columns: minmax(80px, 120px) 40px minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: minmax(64px, 104px) minmax(0, 1fr);
+  align-items: start;
   gap: 10px;
-}
-
-.corprow.is-bad .corprow__select {
-  box-shadow: inset 0 0 0 1px var(--down), inset 0 -2px 0 var(--down);
 }
 
 .corprow__who {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  min-height: 44px;
 }
 
-.corprow__ph {
-  width: 40px;
-  height: 40px;
+.corprow__who b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Buscador de corporación (combobox) */
+.corppick {
+  position: relative;
+  min-width: 0;
+}
+
+.corppick__emblem {
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  display: flex;
+  pointer-events: none;
+}
+
+.corppick__input {
+  padding-left: 40px;
+}
+
+.corppick__ph {
+  width: 20px;
+  height: 20px;
   background: var(--hull-3);
   color: var(--ink-3);
-  font-size: 1rem;
+  font-size: .7rem;
 }
 
-.corprow__select {
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%), linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
-  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
-  background-size: 5px 5px;
-  background-repeat: no-repeat;
-  background-color: rgba(10, 7, 10, .65);
-  padding-right: 34px;
+.corppick__list,
+.corppick__none {
+  margin-top: 4px;
+  background: var(--hull-2);
+  box-shadow: inset 0 0 0 1px var(--edge-2), 0 14px 30px rgba(5, 3, 6, .7);
 }
 
-/* Board step */
-.wboard {
-  gap: var(--s6);
+/* En el flujo (no flotante): la placa recorta lo que se sale de ella (clip-path) */
+.corppick__list {
+  display: block;
+  max-height: 264px;
+  overflow-y: auto;
+  padding: 4px;
+  overscroll-behavior: contain;
+}
+
+.corppick__none {
+  padding: 12px;
+  color: var(--ink-3);
+  font-size: var(--t-small);
+}
+
+.corpopt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: var(--t-small);
+}
+
+.corpopt:hover,
+.corpopt.is-on {
+  background: var(--hull-3);
+  box-shadow: inset 2px 0 0 var(--mc);
+}
+
+.corpopt > :first-child {
+  grid-row: span 2;
+}
+
+.corpopt.is-off {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.corpopt__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.corpopt mark {
+  background: none;
+  color: var(--mc);
+  font-weight: 700;
+}
+
+.corpopt small {
+  grid-column: 2;
+  margin-top: -2px;
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+}
+
+/* Recompensas e hitos */
+.wboard__count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-size: var(--t-small);
 }
 
 .wslots {
@@ -410,86 +498,181 @@
   font-size: var(--t-small);
 }
 
-/* Score pad */
-.pad {
-  display: none;
-}
-
-
-
-
-.pad__cat {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.pad__cat small {
-  color: var(--ink-3);
-  font-size: var(--t-micro);
-  font-weight: 450;
-}
-
-.padm__tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  gap: 4px;
-  margin-bottom: var(--s4);
-}
-
-.padm__tab {
-  display: grid;
-  justify-items: center;
-  gap: 2px;
-  padding: 8px 4px;
-  color: var(--ink-2);
-  font-size: var(--t-micro);
-  font-weight: 600;
-  background: var(--hull-1);
-  box-shadow: inset 0 0 0 1px var(--edge);
-}
-
-.padm__tab b {
-  font-family: var(--display);
-  font-size: 1.1rem;
-  color: var(--ink);
-}
-
-.padm__tab.is-lead b {
-  color: var(--mc);
-}
-
-.padm__tab.is-on {
-  color: var(--ink);
-  box-shadow: inset 0 0 0 2px var(--mc);
-  background: rgba(244, 196, 58, .08);
-}
-
-.padm__list {
-  display: grid;
-  gap: 4px;
-}
-
-.padm__list li {
+/* Pasos de puntos: una fila (o tarjeta) por jugador */
+.wscore__hint {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 56px;
-  border-bottom: 1px solid var(--edge);
-}
-
-.padm__auto {
+  align-items: baseline;
+  gap: 8px;
   color: var(--ink-2);
   font-size: var(--t-small);
 }
 
-.padm__auto b {
+.wscore__hint > span {
+  flex: none;
+}
+
+.wscore {
+  display: grid;
+  gap: 8px;
+}
+
+.wscore__card {
+  display: grid;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(10, 7, 10, .45);
+  box-shadow: inset 0 0 0 1px var(--edge);
+}
+
+.wscore__card--row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.wscore__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.wscore__who b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* TR y M€: dos columnas desde 120 px cada una; en pantallas más angostas se apilan */
+.wscore__pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px 10px;
+}
+
+.wscore__field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  color: var(--ink-2);
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+/* Marcador provisorio: fijo arriba mientras se scrollea, compacto */
+.marcador {
+  position: sticky;
+  top: calc(var(--top-h) + 6px);
+  z-index: 3;
+  margin-bottom: var(--s3);
+  padding: 8px 10px 6px;
+  background: linear-gradient(180deg, rgba(39, 29, 34, .97), rgba(29, 22, 26, .97));
+  box-shadow: inset 0 0 0 1px var(--edge-2), 0 10px 24px rgba(5, 3, 6, .55);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.marcador__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 4px 4px;
+  color: var(--ink-3);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.marcador__head span {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.marcador__rows {
+  --row-h: 32px;
+  position: relative;
+  height: calc(var(--rows) * var(--row-h));
+}
+
+.marcador__row {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--row-h);
+  display: grid;
+  grid-template-columns: 18px minmax(0, 132px) minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+  transform: translateY(calc(var(--rank) * var(--row-h)));
+  transition: transform .5s var(--ease-spring);
+}
+
+.marcador__row.is-lead {
+  background: linear-gradient(90deg, rgba(90, 64, 14, .75), rgba(40, 28, 14, .15));
+}
+
+.marcador__rank {
   font-family: var(--display);
-  font-size: 1.2rem;
-  color: var(--ink);
-  padding-right: 52px;
+  font-weight: 700;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.marcador__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: var(--t-small);
+}
+
+.marcador__who b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.marcador__bar {
+  display: flex;
+  gap: 2px;
+  height: 10px;
+}
+
+.marcador__bar i {
+  width: calc(var(--w) * 1%);
+  background: var(--cat);
+  transition: width .4s var(--ease-out);
+}
+
+.marcador__total {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.marcador__row.is-lead .marcador__rank,
+.marcador__row.is-lead .marcador__total {
+  color: var(--mc);
+}
+
+.marcador__plus {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  translate: 0 -50%;
+  padding: 0 3px;
+  background: var(--hull-1);
+  color: var(--up);
+  font-family: var(--display);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  animation: marcador-pop .5s var(--ease-spring);
+}
+
+@keyframes marcador-pop {
+  from { transform: scale(.4); opacity: 0; }
 }
 
 /* Review */
@@ -604,9 +787,25 @@
 
 @container app (min-width: 760px) {
   .wsteps ol {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    display: flex;
     gap: 6px;
+  }
+
+  /* Hasta 11 pasos: el actual muestra el rótulo entero y los demás se recortan si no entran */
+  .wsteps__item {
+    flex: 1 1 0;
+    min-width: 54px;
+  }
+
+  .wsteps__item.is-on {
+    flex: 0 0 auto;
+  }
+
+  .wsteps__label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .wsteps__mobile {
@@ -617,8 +816,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
+    gap: 8px;
+    padding: 10px 8px;
     color: var(--ink-3);
     background: rgba(10, 7, 10, .45);
     box-shadow: inset 0 0 0 1px var(--edge);
@@ -666,72 +865,39 @@
     color: var(--ink-inv);
   }
 
-  .wboard {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+  .wscore {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   }
 
-  .pad {
-    display: grid;
-    overflow-x: auto;
+  .marcador__rows {
+    --row-h: 38px;
   }
 
-  .padm {
-    display: none;
+  .marcador__row {
+    grid-template-columns: 22px minmax(0, 180px) minmax(0, 1fr) 48px;
   }
 
-  .pad__row {
-    display: grid;
-    grid-template-columns: minmax(170px, 1fr) repeat(5, 122px);
-    align-items: center;
-    gap: 8px;
-    min-height: 52px;
-    border-bottom: 1px solid var(--edge);
+  .marcador__bar {
+    height: 12px;
   }
 
-  .pad__head {
-    min-height: 40px;
-    color: var(--ink-2);
-    font-size: var(--t-small);
-    font-weight: 600;
+  .marcador__total {
+    font-size: 1.3rem;
   }
 
-  .pad__ph {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--ink);
+  .marcador__plus {
+    right: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marcador__row,
+  .marcador__bar i {
+    transition: none;
   }
 
-  .pad__auto {
-    color: var(--ink-2);
-    background: rgba(255, 255, 255, .015);
-  }
-
-  .pad__fixed {
-    padding-left: 44px;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-
-  .pad__total {
-    border-bottom: 0;
-    border-top: 1px solid var(--edge-2);
-    min-height: 60px;
-    font-weight: 700;
-  }
-
-  .pad__sum {
-    padding-left: 38px;
-    font-family: var(--display);
-    font-size: 1.6rem;
-    font-weight: 700;
-  }
-
-  .pad__sum.is-lead {
-    color: var(--mc);
-    text-shadow: 0 0 18px rgba(244, 196, 58, .4);
+  .marcador__plus {
+    animation: none;
   }
 }
 

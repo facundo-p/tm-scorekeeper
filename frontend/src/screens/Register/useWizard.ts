@@ -5,7 +5,7 @@ import { PATHS } from '@/shell/paths'
 import { reducedMotion } from '@/ui/motion'
 import { clearDraft, saveDraft } from './draft'
 import { toPayload } from './io'
-import { reducer, validate, type WizardError, type WizardState } from './model'
+import { reducer, stepIndex, stepsFor, validate, type WizardError, type WizardState } from './model'
 
 /** «Borrador guardado»: el borrador se guarda enseguida; la demora solo anima el aviso (D-39). */
 function useSavedBadge(s: WizardState) {
@@ -20,7 +20,7 @@ function useSavedBadge(s: WizardState) {
   return saved
 }
 
-/** Estado, pasos, validación y guardado del asistente. */
+/** Estado, pasos (dependen de las expansiones), validación y guardado del asistente. */
 export function useWizard(initial: WizardState, name: (id: string) => string) {
   const navigate = useNavigate()
   const [s, d] = useReducer(reducer, initial)
@@ -35,12 +35,13 @@ export function useWizard(initial: WizardState, name: (id: string) => string) {
     d({ type: 'step', step })
     document.querySelector('[data-scroll-root]')?.scrollTo?.({ top: 0 })
   }
+  const step = stepIndex(s)
   const next = () => {
     const e = validate(s, name)
     setErrors(e)
-    if (!e.length) go(s.step + 1)
+    if (!e.length) go(step + 1)
   }
   const reset = () => { d({ type: 'reset' }); setErrors([]) }
   const submit = () => save.mutate({ id: s.editing, body: toPayload(s) })
-  return { s, d, errors, saved, go, next, reset, submit, saving: save.isPending, saveError: save.error }
+  return { s, d, steps: stepsFor(s.expansions), step, errors, saved, go, next, reset, submit, saving: save.isPending, saveError: save.error }
 }

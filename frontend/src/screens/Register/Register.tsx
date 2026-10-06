@@ -1,5 +1,6 @@
-// Registrar y editar partida (F30, SCR-05..06): port de docs/redesign/mockup/js/screens/register.js.
-import { useMemo } from 'react'
+// Registrar y editar partida (F30, SCR-05..06): port de docs/redesign/mockup/js/screens/register.js,
+// con la carga por categoría y el marcador provisorio de D-87.
+import { useMemo, type ComponentType } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { ApiError } from '@/api/http'
 import { bySignup, playerIndex, type PlayerIndex } from '@/data/instruments'
@@ -14,18 +15,27 @@ import { EmptyState, ErrorState, LoadingState } from '@/ui/states'
 import { loadDraft } from './draft'
 import { ErrorList } from './ErrorList'
 import { stateFromGame, type SavedGame } from './io'
-import { blankState, STEPS, type WizardState } from './model'
+import { ALL_STEPS, blankState, scoredCats, type InputCat, type StepId, type WizardState } from './model'
 import { Preview } from './Preview'
-import { ScorePad } from './ScorePad'
-import { StepBoard } from './StepBoard'
+import { Scoreboard } from './Scoreboard'
+import { StepAwards, StepMilestones } from './StepBoard'
 import { StepGame } from './StepGame'
 import { StepReview } from './StepReview'
+import { StepCategory, StepTrMc } from './StepScores'
 import { StepTable } from './StepTable'
+import type { StepProps } from './types'
 import { useWizard } from './useWizard'
 import { WizardSteps } from './WizardSteps'
 import styles from './Register.module.css'
 
-const VIEWS = [StepGame, StepTable, StepBoard, ScorePad, StepReview]
+const category = (k: InputCat) => (props: StepProps) => <StepCategory {...props} k={k} />
+
+const VIEWS: Record<StepId, ComponentType<StepProps>> = {
+  game: StepGame, table: StepTable, trmc: StepTrMc, awards: StepAwards, milestones: StepMilestones,
+  card_resource_points: category('card_resource_points'), card_points: category('card_points'),
+  greenery_points: category('greenery_points'), city_points: category('city_points'), turmoil_points: category('turmoil_points'),
+  review: StepReview,
+}
 
 function Subtitle({ s, saved }: { s: WizardState; saved: boolean }) {
   return (
@@ -37,12 +47,12 @@ function Subtitle({ s, saved }: { s: WizardState; saved: boolean }) {
 }
 
 function NavButtons({ w }: { w: ReturnType<typeof useWizard> }) {
-  const { s } = w
-  const last = s.step === STEPS.length - 1
+  const { s, steps, step } = w
+  const last = step === steps.length - 1
   return (
     <div className={styles.wizard__nav}>
-      {s.step > 0 ? <Button icon="back" onClick={() => w.go(s.step - 1)}>Atrás</Button> : <span />}
-      {!last && <Button variant="primary" onClick={w.next}>{`Siguiente: ${STEPS[s.step + 1]}`}</Button>}
+      {step > 0 ? <Button icon="back" onClick={() => w.go(step - 1)}>Atrás</Button> : <span />}
+      {!last && <Button variant="primary" onClick={w.next}>{`Siguiente: ${steps[step + 1].title}`}</Button>}
       {last && <Button variant="primary" size="l" icon="check" disabled={w.saving} onClick={w.submit}>{s.editing ? 'Guardar cambios' : 'Guardar partida'}</Button>}
     </div>
   )
@@ -52,22 +62,27 @@ interface WizardProps { initial: WizardState; players: PlayerIndex; active: Play
 
 function Wizard({ initial, players, active, editSub }: WizardProps) {
   const w = useWizard(initial, (id) => players.get(id)?.name ?? id)
-  const View = VIEWS[w.s.step]
+  const { id, title } = w.steps[w.step]
+  const View = VIEWS[id]
+  const cats = scoredCats(w.s)
   const saveError = w.saveError instanceof ApiError ? w.saveError.message : w.saveError ? 'No se pudo guardar la partida.' : null
   return (
     <>
       <ScreenHead title={w.s.editing ? 'Editar partida' : 'Registrar partida'} revealAt={0} sub={<>{editSub}<Subtitle s={w.s} saved={w.saved} /></>}>
         {w.s.example && <Button variant="ghost" size="s" icon="close" onClick={w.reset}>Empezar en blanco</Button>}
       </ScreenHead>
-      <WizardSteps step={w.s.step} onJump={w.go} />
+      <WizardSteps steps={w.steps} step={w.step} onJump={w.go} />
       <div className={styles.wizard}>
-        <Plate className={styles.wizard__main} label={STEPS[w.s.step]}>
-          <h2 className={styles.wizard__title}>{STEPS[w.s.step]}</h2>
-          <ErrorList errors={saveError ? [{ field: 'save', msg: saveError }, ...w.errors] : w.errors} />
-          <View s={w.s} d={w.d} errors={w.errors} players={players} active={active} />
-          <NavButtons w={w} />
-        </Plate>
-        <Preview s={w.s} players={players} />
+        <div className={styles.wizard__col}>
+          {cats.length > 0 && <Scoreboard s={w.s} cats={cats} players={players} />}
+          <Plate className={styles.wizard__main} label={title}>
+            <h2 className={styles.wizard__title}>{title}</h2>
+            <ErrorList errors={saveError ? [{ field: 'save', msg: saveError }, ...w.errors] : w.errors} />
+            <View s={w.s} d={w.d} errors={w.errors} players={players} active={active} />
+            <NavButtons w={w} />
+          </Plate>
+        </div>
+        <Preview s={w.s} players={players} table={!cats.length} />
       </div>
     </>
   )
@@ -77,7 +92,7 @@ function Wizard({ initial, players, active, editSub }: WizardProps) {
 function useExample() {
   const [params] = useSearchParams()
   if (import.meta.env.MODE !== 'parity') return { id: null, step: 0 }
-  return { id: params.get('ejemplo'), step: Math.max(0, Math.min(STEPS.length - 1, Number(params.get('step')) || 0)) }
+  return { id: params.get('ejemplo'), step: Math.max(0, Math.min(ALL_STEPS.length - 1, Number(params.get('step')) || 0)) }
 }
 
 function usePlayers() {
