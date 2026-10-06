@@ -1,0 +1,45 @@
+# Ranking y jugadores (F32).
+- id: ranking
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  gateFromPhase: 32
+- id: ranking-mesa5
+  screen: ranking
+  ref: { hash: '#ranking?mesa=5' }
+  cand: { path: /ranking, search: '?mesa=5' }
+  gateFromPhase: 32
+# El tooltip de una celda de la matriz cara a cara (foco con teclado).
+- id: ranking-h2h
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  actions:
+    - press: { selector: 'td[data-tip]' }
+      key: Shift
+  gateFromPhase: 32
+# «Por tamaño de mesa» de otro jugador.
+- id: ranking-by-table
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  actions:
+    - select: { role: combobox, name: Jugador }
+      option: Juli
+  gateFromPhase: 32
+- id: player-new
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  actions:
+    - click: { role: button, name: Agregar jugador }
+      expect: { role: dialog }
+  gateFromPhase: 32
+- id: player-edit
+  screen: ranking
+  ref: { hash: '#ranking' }
+  cand: { path: /ranking }
+  actions:
+    - click: { role: button, name: Editar a Juli }
+      expect: { role: dialog }
+  gateFromPhase: 32

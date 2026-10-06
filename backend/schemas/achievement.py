@@ -1,6 +1,10 @@
 from datetime import date
-from typing import Optional
+from typing import Literal, Optional
+
 from pydantic import BaseModel
+
+# «all»: todas las partidas; «mesa»: solo las de un tamaño de mesa, nunca se guarda (SEMANTICS §9).
+AchievementView = Literal["all", "mesa"]
 
 
 class AchievementUnlockedDTO(BaseModel):
@@ -9,17 +13,20 @@ class AchievementUnlockedDTO(BaseModel):
     tier: int
     is_new: bool
     is_upgrade: bool
-    icon: Optional[str]
-    fallback_icon: str
-
-
-class AchievementsByPlayerResponseDTO(BaseModel):
-    achievements_by_player: dict[str, list[AchievementUnlockedDTO]]
+    levels: int = 1  # niveles alcanzados en la partida (F28)
+    max_tier: int = 1  # niveles que tiene el logro (F29: «Nivel 2 de 5» o «Logro único»)
+    glyph: str
 
 
 class ProgressDTO(BaseModel):
     current: int
     target: int
+
+
+class AchievementUnlockDTO(BaseModel):
+    level: int
+    date: date
+    game_id: str
 
 
 class PlayerAchievementDTO(BaseModel):
@@ -28,15 +35,20 @@ class PlayerAchievementDTO(BaseModel):
     description: str
     tier: int              # 0 if locked
     max_tier: int
-    icon: Optional[str]
-    fallback_icon: str
     unlocked: bool
     unlocked_at: Optional[date]
     progress: Optional[ProgressDTO]
+    # F23: campos aditivos
+    kind: str
+    glyph: str
+    flavor: str
+    value: int
+    unlocks: list[AchievementUnlockDTO]
 
 
 class PlayerAchievementsResponseDTO(BaseModel):
     achievements: list[PlayerAchievementDTO]
+    view: AchievementView = "all"
 
 
 class AchievementTierInfoDTO(BaseModel):
@@ -54,26 +66,14 @@ class HolderDTO(BaseModel):
 
 class AchievementCatalogItemDTO(BaseModel):
     code: str
-    title: str
     description: str
-    icon: Optional[str]
-    fallback_icon: str
     tiers: list[AchievementTierInfoDTO]
     holders: list[HolderDTO]
+    kind: str
+    glyph: str
+    flavor: str
 
 
 class AchievementCatalogResponseDTO(BaseModel):
     achievements: list[AchievementCatalogItemDTO]
-
-
-class PlayerReconcileChangeDTO(BaseModel):
-    code: str
-    old_tier: int
-    new_tier: int
-
-
-class ReconcileResponseDTO(BaseModel):
-    total_players: int
-    players_updated: int
-    achievements_applied: list[PlayerReconcileChangeDTO]
-    errors: list[str]
+    view: AchievementView = "all"

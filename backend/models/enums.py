@@ -7,6 +7,8 @@ class MapName(str, Enum):
     ELYSIUM = "Elysium"
     BOREALIS = "Vastitas Borealis"
     AMAZONIS = "Amazonis Planitia"
+    UTOPIA = "Utopia Planitia"
+    CIMMERIA = "Terra Cimmeria"
 
 class Expansion(str, Enum):
     PRELUDE = "Prelude"
@@ -36,10 +38,10 @@ class Milestone(Enum):
     ENERGIZER       = "Energizer"
     RIM_SETTLER     = "Rim Settler"
 
-    # Vastias Borealis
+    # Vastitas Borealis (Spacefarer; antes del F21 el enum lo llamaba Spacecrafter, D-31)
     AGRONOMIST      = "Agronomist"
     ENGINEER        = "Engineer"
-    SPACECRAFTER    = "Spacecrafter"
+    SPACEFARER      = "Spacefarer"
     GEOLOGIST       = "Geologist"
     FARMER          = "Farmer"
 
@@ -50,12 +52,34 @@ class Milestone(Enum):
     SPONSOR         = "Sponsor"
     LOBBYIST        = "Lobbyist"
 
+    # Utopia Planitia
+    MANAGER         = "Manager"
+    PIONEER         = "Pioneer"
+    TRADER          = "Trader"
+    METALLURGIST    = "Metallurgist"
+    RESEARCHER      = "Researcher"
+
+    # Terra Cimmeria
+    PLANETOLOGIST   = "Planetologist"
+    ARCHITECT       = "Architect"
+    COASTGUARD      = "Coastguard"
+    FORESTER        = "Forester"
+    FUNDRAISER      = "Fundraiser"
+
+    # Venus Next
+    HOVERLORD       = "Hoverlord"
+
+    @classmethod
+    def _missing_(cls, value):
+        """La entrada acepta el nombre viejo del hito de Vastitas Borealis (D-31)."""
+        return cls.SPACEFARER if value == "Spacecrafter" else None
 
     def __str__(self) -> str:
         return self.value
 
 
 class Award(Enum):
+    # Tharsis
     LANDLORD = "Landlord"
     BANKER = "Banker"
     SCIENTIST = "Scientist"
@@ -76,7 +100,7 @@ class Award(Enum):
     ESTATE_DEALER = "Estate Dealer"
     BENEFACTOR = "Benefactor"
 
-    # Vastias Borealis
+    # Vastitas Borealis
     TRAVELLER = "Traveller"
     LANDSCAPER = "Landscaper"
     HIGHLANDER = "Highlander"
@@ -89,6 +113,23 @@ class Award(Enum):
     CONSTRUCTOR = "Constructor"
     MANUFACTURER = "Manufacturer"
     PHYSICIST = "Physicist"
+
+    # Utopia Planitia
+    SUBURBIAN = "Suburbian"
+    INVESTOR = "Investor"
+    BOTANIST = "Botanist"
+    INCORPORATOR = "Incorporator"
+    METROPOLIST = "Metropolist"
+
+    # Terra Cimmeria
+    ELECTRICIAN = "Electrician"
+    FOUNDER = "Founder"
+    MOGUL = "Mogul"
+    ZOOLOGIST = "Zoologist"
+    FORECASTER = "Forecaster"
+
+    # Venus Next
+    VENUPHILE = "Venuphile"
 
     def __str__(self) -> str:
         return self.value

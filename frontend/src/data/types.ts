@@ -1,0 +1,282 @@
+// Formas de la API v2.0 que consume el frontend nuevo (backend/schemas/*).
+
+export interface FeedItem {
+  date: string
+  type: 'season' | 'record' | 'achievement' | 'game'
+  game_id?: string | null
+  player_id?: string | null
+  code?: string | null
+  level?: number | null
+  text: string
+}
+
+export interface RaceRow {
+  player_id: string
+  games: number
+  avg: number
+  best: number
+}
+
+export interface SeasonRace {
+  category: string
+  games: number
+  qualified: RaceRow[]
+  pending: (RaceRow & { missing: number })[]
+}
+
+export interface Season {
+  number: number
+  start: string
+  end: string | null
+  games: string[]
+  temp: number
+  oxygen: number
+  oceans: number
+  temperature: number
+  oxygen_pct: number
+  ocean_count: number
+  pct: number
+  race: SeasonRace
+  champion: string | null
+}
+
+export interface PlayerSummary {
+  player_id: string
+  name: string
+  is_active: boolean
+  elo: number
+  color: string
+  since: string | null
+  /** Orden de alta (D-74): la API lista por nombre; las pantallas que siguen al mockup ordenan por esto. */
+  seq?: number | null
+}
+
+export type ScoreMap = Partial<Record<
+  'terraform_rating' | 'award_points' | 'milestone_points' | 'card_resource_points' | 'card_points' | 'greenery_points' | 'city_points' | 'turmoil_points',
+  number | null
+>>
+
+export interface ReportResult {
+  player_id: string
+  player_name: string
+  corporation: string
+  position: number
+  tied: boolean
+  total_points: number
+  mc_total: number
+  scores: ScoreMap & { milestones?: string[] }
+}
+
+export interface AwardResult { name: string; opened_by: string; first_place: string[]; second_place: string[] }
+
+export interface RecordBroken {
+  code: string
+  title: string
+  description: string
+  value: number
+  player_id: string
+  holders: string[]
+  previous: { value: number; player_id: string; holders: string[] }
+}
+
+export interface NearRecord { code: string; title: string; gap: number; value: number; player_id: string; before: number }
+
+export interface GameUnlock { code: string; title: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
+
+export interface EloChange {
+  player_id: string
+  player_name: string
+  elo_before: number
+  elo_after: number
+  delta: number
+}
+
+/** Informe de una partida (GET /games/{id}/report); solo lo que usa el frontend por ahora. */
+export interface GameReport {
+  game: { id: string; date: string; map: string; expansions: string[]; draft: boolean; generations: number; awards: AwardResult[] }
+  results: ReportResult[]
+  winners: string[]
+  margin: number
+  decided_by_mc: boolean
+  elo: EloChange[]
+  records_broken: RecordBroken[]
+  near: NearRecord[]
+  /** Por jugador, cada logro con el nivel más alto alcanzado y cuántos niveles subió en la partida. */
+  achievements_by_player: Record<string, GameUnlock[]>
+}
+
+export interface PlayerEloHistory {
+  player_id: string
+  player_name: string
+  points: { recorded_at: string; game_id: string; elo_after: number; delta: number }[]
+}
+
+/** Equidad (owner's points 6 y 7): victorias contra lo esperado por tamaño de mesa y posición relativa. */
+export interface Equity {
+  expected: number
+  wins_vs_expected: number
+  wins_ratio: number | null
+  rel_pos: number | null
+}
+
+/** Una fila de «por tamaño de mesa». */
+export interface TableSizeStat extends Equity {
+  n: number
+  games: number
+  wins: number
+  avg_points: number | null
+}
+
+export interface Favorite { names: string[]; count: number }
+export interface Composition { avg: Record<string, number>; share: Record<string, number> }
+export interface Archetype { key: string; name: string; desc: string; share: number; group: number; ratio: number }
+export interface Rival { player_id: string; games: number; ahead: number; behind: number; even: number }
+export interface EloPoint { date: string; game_id: string; elo: number; delta: number }
+
+/** Una partida del historial del jugador (de la más nueva a la más vieja). */
+export interface HistoryRow { game_id: string; date: string; map: string; position: number; n: number; total: number; corporation: string; delta: number }
+
+/** Ficha del jugador (GET /players/{id}/insights); con `?player_count=`, todo sale de esa mesa. */
+export interface PlayerInsights {
+  view: 'all' | 'mesa'
+  games: number
+  wins: number
+  win_rate: number
+  podium_rate: number
+  avg_points: number
+  avg_pos: number
+  best: number
+  best_game: string | null
+  avg_milestones: number
+  avg_awards: number
+  points_per_gen: number
+  favorites: { milestone: Favorite | null; award: Favorite | null }
+  composition: Composition
+  archetype: Archetype | null
+  corps: SplitStat[]
+  maps: SplitStat[]
+  streak: { best: number; current: number }
+  form: { position: number; n: number; game_id: string }[]
+  nemesis: Rival | null
+  victim: Rival | null
+  records_held: string[]
+  rank: number | null
+  rank_total: number
+  equity: Equity
+  by_table: TableSizeStat[]
+  elo: number
+  peak: number | null
+  last_delta: number | null
+  elo_series: EloPoint[]
+  history: HistoryRow[]
+}
+
+/** Un logro del jugador (GET /players/{id}/achievements); `tier` 0 si está bloqueado. */
+export interface PlayerAchievement {
+  code: string
+  title: string
+  description: string
+  tier: number
+  max_tier: number
+  unlocked: boolean
+  progress: { current: number; target: number } | null
+  kind: string
+  glyph: string
+  flavor: string
+}
+
+export interface AchievementTier { level: number; threshold: number; title: string }
+
+/** Logro del catálogo (GET /achievements/catalog). */
+export interface CatalogAchievement {
+  code: string
+  description: string
+  tiers: AchievementTier[]
+  holders: { player_id: string; player_name: string; tier: number; unlocked_at: string }[]
+  kind: string
+  glyph: string
+  flavor: string
+}
+
+/** Récord del grupo (GET /records), sobre el subconjunto pedido. */
+export interface GroupRecord {
+  code: string
+  title: string | null
+  description: string
+  scope: 'game' | 'career'
+  unit: string
+  lower_is_better: boolean
+  value: number | null
+  holders: { player_id: string; player_name: string; game_id?: string | null; date?: string | null; map?: string | null }[]
+  /** Cómo llegó al valor actual: cada vez que se estableció, se rompió o se igualó. */
+  history: { value: number; player_id: string; date: string; game_id: string; kind: 'set' | 'broken' | 'tied' }[]
+}
+
+export interface HeadToHead {
+  view: 'all' | 'mesa'
+  matrix: Record<string, Record<string, { games: number; ahead: number; behind: number; even: number }>>
+}
+
+export interface FormEntry { position: number; n: number; game_id: string }
+
+/** Fila de la clasificación (GET /ranking). */
+export interface RankingRow {
+  player_id: string
+  name: string
+  color: string
+  rank: number
+  elo: number
+  peak: number | null
+  last_delta: number | null
+  games: number
+  wins: number
+  win_rate: number
+  equity: Equity
+  form: FormEntry[]
+  archetype: string | null
+  elo_series: { date: string; game_id: string; elo: number; delta: number }[]
+}
+
+export interface Ranking {
+  view: 'all' | 'mesa'
+  players: RankingRow[]
+  lead_changes: { date: string; game_id: string; player_id: string | null }[]
+}
+
+export interface SplitStat { name: string; games: number; wins: number; avg: number; avg_pos: number }
+
+/** Resumen del grupo (GET /stats/summary). */
+export interface GroupSummary {
+  view: 'all' | 'mesa'
+  games: number
+  generations: number
+  avg_winner: number
+  avg_generations: number
+  first: string | null
+  last: string | null
+  top_corp: SplitStat | null
+  corps_used: number
+  top_map: SplitStat | null
+  maps: SplitStat[]
+  composition: Composition
+}
+
+/** Fila del archivo de partidas (GET /games/summaries), de la más nueva a la más vieja. */
+export interface GameSummary {
+  id: string
+  date: string
+  map: string
+  expansions: string[]
+  generations: number
+  draft: boolean
+  player_count: number
+  winners: string[]
+  margin: number
+  decided_by_mc: boolean
+  scores: { player_id: string; position: number; total_points: number; corporation: string }[]
+}
+
+export interface Seasons {
+  seasons: Season[]
+  champions: { number: number; end: string; player_id: string | null }[]
+}

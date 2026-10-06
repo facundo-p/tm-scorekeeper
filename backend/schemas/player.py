@@ -1,4 +1,7 @@
+from datetime import date
 from typing import Optional
+
+from models.player_colors import PlayerColor
 from pydantic import BaseModel, Field
 from models.enums import Milestone, Corporation
 
@@ -28,6 +31,7 @@ class PlayerResultDTO(BaseModel):
 
 class PlayerCreateDTO(BaseModel):
     name: str = Field(min_length=1)
+    color: Optional[PlayerColor] = None  # sin color: el primero libre entre los activos
 
 class PlayerCreatedResponseDTO(BaseModel):
     player_id: str
@@ -35,8 +39,13 @@ class PlayerCreatedResponseDTO(BaseModel):
 class PlayerUpdateDTO(BaseModel):
     name: Optional[str] = Field(default=None, min_length=1)
     is_active: Optional[bool] = None
+    color: Optional[PlayerColor] = None
 
 class PlayerResponseDTO(BaseModel):
     player_id: str
     name: str
     is_active: bool
+    elo: int
+    color: PlayerColor
+    since: Optional[date] = None  # fecha de alta (D-78); sin ella, la de su primera partida (STAT-08)
+    seq: Optional[int] = None  # orden de alta (D-74): la lista sigue por nombre, esto permite reordenarla

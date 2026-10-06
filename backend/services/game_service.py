@@ -1,20 +1,40 @@
-from models.player_result import PlayerResult
-from schemas.game import GameDTO
+from contextlib import contextmanager
 from datetime import date
+
+from sqlalchemy.exc import IntegrityError
+
+from db.uow import unit_of_work
+from models.game_rules import allowed_awards, allowed_milestones
+from models.player_result import PlayerResult
 from models.award_result import AwardResult
-from models.enums import Corporation
-from services.helpers.results import calculate_results
-from schemas.result import GameResultDTO
-from mappers.game_mapper import game_dto_to_model
-from mappers.game_mapper import game_model_to_dto
+from models.enums import Corporation, Milestone, Award, Expansion
+from schemas.game import GameDTO
+from mappers.game_mapper import game_dto_to_model, game_model_to_dto
 from repositories.game_filters import GameFilter
 
 
 
+class GameNotFound(ValueError):
+    """La partida no existe (404)."""
+
+
+class GameConflict(Exception):
+    """La base rechazó la partida por una restricción única (409, D-52)."""
+
+
+@contextmanager
+def _conflicts_as_409():
+    try:
+        yield
+    except IntegrityError as e:
+        raise GameConflict("The game conflicts with stored data (duplicate player result)") from e
+
+
 class GamesService:
-    def __init__(self, games_repository, players_repository):
+    def __init__(self, games_repository, players_repository, derived_service=None):
         self.games_repository = games_repository
         self.players_repository = players_repository
+        self.derived_service = derived_service
 
 
     def _validate_date(self, game_date: date):
@@ -28,7 +48,7 @@ class GamesService:
         ids = [p.player_id for p in players]
         if len(ids) != len(set(ids)):
             raise ValueError("Duplicate players are not allowed")
-        
+
     def _validate_corporations(self, players: list[PlayerResult]) -> None:
         seen: set = set()
         for player in players:
@@ -42,7 +62,7 @@ class GamesService:
                 raise ValueError(
                     f"Corporation '{corp}' was chosen by more than one player")
             seen.add(corp)
-    
+
     def _validate_milestones(self, players: list[PlayerResult]) -> None:
         total = sum(len(player.scores.milestones) for player in players)
 
@@ -80,7 +100,7 @@ class GamesService:
             raise ValueError(
                 f"A game can have at most 3 awards (got {len(awards)})"
             )
-    
+
     def _validate_unique_awards(self, awards: list[AwardResult]) -> None:
         award_names = [award.award for award in awards]
 
@@ -128,20 +148,42 @@ class GamesService:
                 raise ValueError(
                     f"Award '{award.award}' cannot have second place in a 2-player game"
                 )
-            
+
     def _validate_players_exist(self, player_results: list[PlayerResult]):
         for pr in player_results:
             try:
                 self.players_repository.get(pr.player_id)
             except KeyError:
                 raise ValueError(f"Player '{pr.player_id}' is not registered")
-    
 
-    def create_game(self, game_dto: GameDTO) -> str:
-        # Mapear a dominio
-        game = game_dto_to_model(game_dto)
+    def _validate_venus_requirements(self, game) -> None:
+        has_hoverlord = any(
+            Milestone.HOVERLORD in player.scores.milestones
+            for player in game.player_results
+        )
+        has_venuphile = any(
+            award.award == Award.VENUPHILE
+            for award in game.awards
+        )
+        if (has_hoverlord or has_venuphile) and Expansion.VENUS_NEXT not in game.expansions:
+            raise ValueError(
+                "Expansion 'Venus Next' is required when using HOVERLORD milestone or VENUPHILE award"
+            )
 
-        # Validaciones usando modelo dominio
+    def _validate_board(self, game) -> None:
+        """Hitos y recompensas del mapa o de una expansión elegida (D-51)."""
+        milestones_ok = allowed_milestones(game.map_name, game.expansions)
+        for player in game.player_results:
+            for milestone in player.scores.milestones:
+                if milestone not in milestones_ok:
+                    raise ValueError(f"Milestone '{milestone.value}' is not available on {game.map_name.value}")
+        awards_ok = allowed_awards(game.map_name, game.expansions)
+        for award in game.awards:
+            if award.award not in awards_ok:
+                raise ValueError(f"Award '{award.award.value}' is not available on {game.map_name.value}")
+
+    def _validate_game(self, game) -> None:
+        """Validación completa, compartida por crear y editar."""
         self._validate_date(game.date)
         self._validate_players(game.player_results)
         self._validate_corporations(game.player_results)
@@ -153,38 +195,46 @@ class GamesService:
         self._validate_award_players(game.awards, game.player_results)
         self._validate_award_ties(game.awards, len(game.player_results))
         self._validate_players_exist(game.player_results)
+        self._validate_venus_requirements(game)
+        self._validate_board(game)
 
-        return self.games_repository.create(game)
+    def create_game(self, game_dto: GameDTO) -> str:
+        """Guarda la partida y recalcula ELO y logros en una sola transacción, en serie (D-55)."""
+        game = game_dto_to_model(game_dto)
+        self._validate_game(game)
+        with unit_of_work(lock=True), _conflicts_as_409():
+            game_id = self.games_repository.create(game)
+            game.id = game_id
+            self._recompute_derived_from(game.date)
+        return game_id
 
 
     def list_games(self, filters: GameFilter | None = None) -> list[GameDTO]:
         games = self.games_repository.list_games(filters)
         return [game_model_to_dto(game) for game in games]
 
-        
+
     def update_game(self, game_id: str, game_dto: GameDTO) -> None:
-        game = game_dto_to_model(game_dto)
+        new_game = game_dto_to_model(game_dto)
+        self._validate_game(new_game)
+        with unit_of_work(lock=True), _conflicts_as_409():
+            old_game = self.games_repository.get(game_id)
+            if old_game is None:
+                raise GameNotFound("Game not found")
+            self.games_repository.update(game_id, new_game)
+            self._recompute_derived_from(min(old_game.date, new_game.date))
 
-        updated = self.games_repository.update(game_id, game)
 
-        if not updated:
-            raise ValueError("Game not found")
-
-        
     def delete_game(self, game_id: str) -> None:
-        """
-        Elimina una partida.
-        Lanza error si no existe.
-        """
-        deleted = self.games_repository.delete(game_id)
+        """Elimina una partida y recalcula ELO y logros. GameNotFound si no existe."""
+        with unit_of_work(lock=True):
+            old_game = self.games_repository.get(game_id)
+            if old_game is None or not self.games_repository.delete(game_id):
+                raise GameNotFound("Game not found")
+            self._recompute_derived_from(old_game.date)
 
-        if not deleted:
-            raise ValueError("Game not found")
-        
-    def get_game_results(self, game_id: str) -> GameResultDTO:
-        game = self.games_repository.get(game_id)
-
-        if game is None:
-            raise ValueError("Game not found")
-
-        return calculate_results(game)
+    def _recompute_derived_from(self, start_date: date) -> None:
+        """ELO y después logros, en la transacción de la escritura (STAT-05)."""
+        if self.derived_service is None:
+            return
+        self.derived_service.recompute_from(start_date)

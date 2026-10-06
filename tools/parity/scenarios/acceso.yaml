@@ -1,0 +1,28 @@
+# Acceso (F28). Rutas del mockup: #acceso · app: /acceso
+- id: login
+  screen: acceso
+  fresh: true
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  gateFromPhase: 28
+- id: login-invalid
+  screen: acceso
+  fresh: true
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  actions:
+    - click: { role: button, name: Ingresar }
+  gateFromPhase: 28
+- id: login-wrong
+  screen: acceso
+  fresh: true
+  expectStatus: [401]  # el login real responde 401 a credenciales equivocadas
+  ref: { hash: '#acceso' }
+  cand: { path: /acceso }
+  actions:
+    - fill: { label: Usuario }
+      value: grupo
+    - fill: { label: Contraseña, exact: true }
+      value: equivocada
+    - click: { role: button, name: Ingresar }
+  gateFromPhase: 28

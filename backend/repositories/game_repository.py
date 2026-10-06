@@ -1,9 +1,10 @@
 from uuid import uuid4
 from typing import Optional, List, Dict
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from db.session import get_session
+from db.uow import session_scope
 from db.models import Game as GameORM, PlayerResult as PlayerResultORM, Award as AwardORM, Player as PlayerORM
 from models.game import Game
 from models.player_result import PlayerResult, PlayerEndStats
@@ -17,6 +18,11 @@ from models.enums import (
     Award,
 )
 from repositories.game_filters import GameFilter
+
+
+def _with_children(query):
+    """Resultados y recompensas en dos consultas más, no una por partida (F21, TXN-03)."""
+    return query.options(selectinload(GameORM.player_results), selectinload(GameORM.awards))
 
 
 class GamesRepository:
@@ -69,6 +75,7 @@ class GamesRepository:
             generations=orm.generations,
             player_results=player_results,
             awards=awards,
+            created_at=orm.created_at,
         )
 
     def _domain_to_orm(self, game: Game, orm: Optional[GameORM] = None) -> GameORM:
@@ -115,6 +122,10 @@ class GamesRepository:
 
         return orm
 
+    def to_orm(self, game: Game) -> GameORM:
+        """ORM nuevo para una partida de dominio (lo usa el cargador de fixtures)."""
+        return self._domain_to_orm(game)
+
     def create(self, game: Game) -> str:
         if not game.id:
             game_id = str(uuid4())
@@ -122,55 +133,53 @@ class GamesRepository:
         else:
             game_id = game.id
 
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = self._domain_to_orm(game)
             session.add(orm)
-            session.commit()
         return game_id
 
     def list(self) -> Dict[str, Game]:
-        with self._session_factory() as session:
-            orm_games = session.query(GameORM).all()
+        with session_scope(self._session_factory) as session:
+            orm_games = _with_children(session.query(GameORM)).all()
             return {g.id: self._orm_to_domain(g) for g in orm_games}
 
     def update(self, game_id: str, game: Game) -> bool:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             if not orm:
                 return False
             game.id = game_id
+            # Borrar primero los resultados viejos: si no, los nuevos se insertan antes y
+            # chocan con UNIQUE(game_id, player_id).
+            orm.player_results.clear()
+            orm.awards.clear()
+            session.flush()
             orm = self._domain_to_orm(game, orm)
             session.add(orm)
-            session.commit()
             return True
 
     def delete(self, game_id: str) -> bool:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             if not orm:
                 return False
             session.delete(orm)
-            session.commit()
             return True
 
     def get(self, game_id: str) -> Optional[Game]:
-        with self._session_factory() as session:
+        with session_scope(self._session_factory) as session:
             orm = session.get(GameORM, game_id)
             return self._orm_to_domain(orm) if orm else None
 
-    def get_games_by_player(self, player_id: str) -> List[Game]:
-        with self._session_factory() as session:
-            orm_games = (
-                session.query(GameORM)
-                .join(GameORM.player_results)
-                .filter(PlayerResultORM.player_id == player_id)
-                .all()
-            )
-            return [self._orm_to_domain(g) for g in orm_games]
-
     def list_games(self, filters: Optional[GameFilter] = None) -> List[Game]:
-        with self._session_factory() as session:
-            query = session.query(GameORM)
+        with session_scope(self._session_factory) as session:
+            query = _with_children(session.query(GameORM))
             if filters and filters.game_ids is not None:
                 query = query.filter(GameORM.id.in_(filters.game_ids))
+            if filters and filters.date_from is not None:
+                query = query.filter(GameORM.date >= filters.date_from)
+            query = query.order_by(GameORM.date, GameORM.created_at, GameORM.id)
             return [self._orm_to_domain(g) for g in query.all()]
+
+    def list_games_from_date(self, start_date) -> List[Game]:
+        return self.list_games(GameFilter(date_from=start_date))

@@ -3,6 +3,8 @@ phase: 03-frontend
 plan: 03
 subsystem: frontend
 tags: [react, achievements, catalog, modal, routing]
+requirements: [CATL-01, CATL-02]
+requirements-completed: [CATL-01, CATL-02]
 dependency_graph:
   requires: [03-01]
   provides: [AchievementCatalog page, /achievements route, Home nav link]

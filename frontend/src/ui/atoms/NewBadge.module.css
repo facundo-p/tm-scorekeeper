@@ -1,0 +1,16 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.newbadge {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 7px;
+  border-radius: 3px;
+  background: var(--oxygen);
+  color: var(--ink-inv);
+  font-size: .62rem;
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}

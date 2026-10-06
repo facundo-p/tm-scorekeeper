@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import List, Optional
 
 from models.enums import MapName, Expansion
@@ -17,6 +17,7 @@ class Game:
         generations: int,
         player_results: List[PlayerResult],
         awards: List[AwardResult],
+        created_at: Optional[datetime] = None,
     ):
         self.id = game_id
         self.date = date
@@ -26,3 +27,4 @@ class Game:
         self.generations = generations
         self.player_results = player_results
         self.awards = awards
+        self.created_at = created_at

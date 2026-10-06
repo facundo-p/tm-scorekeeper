@@ -1,17 +1,18 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
+from db.uow import unit_of_work
 from typing import Optional
-from services.player_service import PlayerService
-from mappers.record_comparison_mapper import record_comparison_to_dto
-from schemas.game_records import RecordComparisonDTO
-from services.game_records_service import GameRecordsService
-from services.game_service import GamesService
-from schemas.game import GameDTO, GameCreatedResponseDTO
-from schemas.result import GameResultDTO
-from repositories.container import games_repository, players_repository, achievement_repository
+from services.game_service import GameConflict, GameNotFound, GamesService
+from schemas.game import GameDTO
+from repositories.container import (
+    games_repository,
+    players_repository,
+)
+from services.container import derived_service, report_service
 from repositories.game_filters import GameFilter
-from services.achievements_service import AchievementsService
-from schemas.achievement import AchievementsByPlayerResponseDTO
-
+from mappers.report_mapper import report_to_dto, summary_to_dto
+from models.game_subset import GameSubset
+from routes.dependencies import game_subset
+from schemas.report import GameReportDTO, GameSummaryDTO, GameWriteResponseDTO
 
 
 router = APIRouter(
@@ -22,22 +23,35 @@ router = APIRouter(
 games_service = GamesService(
     games_repository=games_repository,
     players_repository=players_repository,
+    derived_service=derived_service,
 )
 
-achievements_service = AchievementsService(
-    games_repository=games_repository,
-    achievement_repository=achievement_repository,
-    players_repository=players_repository,
-)
 
-@router.post("/", response_model=GameCreatedResponseDTO)
+def _require_game(game_id: str) -> None:
+    if games_repository.get(game_id) is None:
+        raise HTTPException(status_code=404, detail="Game not found")
+
+
+def _player_names_map() -> dict[str, str]:
+    return {p.player_id: p.name for p in players_repository.get_all()}
+
+
+def _report(game_id: str) -> GameReportDTO:
+    return report_to_dto(report_service.report(game_id), _player_names_map())
+
+
+@router.post("/", response_model=GameWriteResponseDTO)
 def create_game(game: GameDTO):
     try:
-        game_id = games_service.create_game(game)
-        return {"id": game_id, "game": game}
+        # El informe se arma en la misma transacción: si falla, la partida no queda a medias (D-66).
+        with unit_of_work(lock=True):
+            game_id = games_service.create_game(game)
+            report = _report(game_id)
+        return GameWriteResponseDTO(id=game_id, game=game, report=report)
+    except GameConflict as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-
 
 
 @router.get("/", response_model=list[GameDTO])
@@ -46,25 +60,35 @@ def list_games(game_ids: Optional[list[str]] = Query(default=None)):
     return games_service.list_games(filters)
 
 
+@router.get("/summaries", response_model=list[GameSummaryDTO])
+def list_game_summaries(subset: GameSubset = Depends(game_subset)):
+    """Filas del archivo, de la más nueva a la más vieja (STAT-09)."""
+    return [summary_to_dto(s) for s in report_service.summaries(subset)]
 
-@router.get("/{game_id}/results", response_model=GameResultDTO)
-def get_game_results(game_id: str):
+
+@router.get("/{game_id}/report", response_model=GameReportDTO)
+def get_game_report(game_id: str):
+    """Informe de la partida, siempre sobre todas las partidas (STAT-10)."""
     try:
-        return games_service.get_game_results(game_id)
-    except ValueError:
+        return _report(game_id)
+    except GameNotFound:
         raise HTTPException(status_code=404, detail="Game not found")
 
 
-
-@router.put("/{game_id}")
+@router.put("/{game_id}", response_model=GameWriteResponseDTO)
 def update_game(game_id: str, game: GameDTO):
     try:
-        games_service.update_game(game_id, game)
-    except ValueError:
+        with unit_of_work(lock=True):
+            games_service.update_game(game_id, game)
+            report = _report(game_id)
+    except GameNotFound:
         raise HTTPException(status_code=404, detail="Game not found")
+    except GameConflict as e:
+        raise HTTPException(status_code=409, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
-    return {"message": "Game updated successfully"}
-
+    return GameWriteResponseDTO(id=game_id, game=game, report=report, message="Game updated successfully")
 
 
 @router.delete("/{game_id}")
@@ -75,22 +99,3 @@ def delete_game(game_id: str):
         raise HTTPException(status_code=404, detail="Game not found")
 
     return {"message": "Game deleted successfully"}
-
-@router.get("/{game_id}/records", response_model=list[RecordComparisonDTO])
-def get_game_records(game_id: str):
-    service = GameRecordsService(games_repository)
-    comparisons = service.get_records_for_game(game_id)
-
-    players_service = PlayerService(players_repository)
-    players = players_service.get_players()
-
-    return [
-        record_comparison_to_dto(c, players)
-        for c in comparisons
-    ]
-
-
-@router.post("/{game_id}/achievements", response_model=AchievementsByPlayerResponseDTO)
-def trigger_achievements(game_id: str):
-    result = achievements_service.evaluate_for_game(game_id)
-    return AchievementsByPlayerResponseDTO(achievements_by_player=result)

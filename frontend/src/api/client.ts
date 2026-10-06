@@ -1,45 +1,14 @@
-// Dev: VITE_API_URL undefined → '/api' → vite proxy strips prefix → backend local
-// Prod: VITE_API_URL = 'https://backend.onrender.com' → llamadas directas
-const BASE_URL = import.meta.env.VITE_API_URL ?? '/api'
+// Fachada del cliente HTTP para el código previo a v2.0 (F26 movió el núcleo a ./http).
+import { http } from './http'
 
-export class ApiError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message)
-    this.name = 'ApiError'
-  }
-}
+export { ApiError, TOKEN_KEY, setUnauthorizedHandler, tokenStore } from './http'
 
-async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${BASE_URL}${path}`, {
-    headers: { 'Content-Type': 'application/json', ...options?.headers },
-    ...options,
-  })
-
-  if (!response.ok) {
-    let message = `Error ${response.status}`
-    try {
-      const data = await response.json()
-      message = data.detail ?? data.message ?? message
-    } catch {
-      // ignore parse error
-    }
-    throw new ApiError(response.status, message)
-  }
-
-  if (response.status === 204) return undefined as T
-  return response.json() as Promise<T>
-}
+const json = (method: string, body: unknown) => ({ method, body: JSON.stringify(body) })
 
 export const api = {
-  get: <T>(path: string) => request<T>(path),
-  post: <T>(path: string, body: unknown) =>
-    request<T>(path, { method: 'POST', body: JSON.stringify(body) }),
-  patch: <T>(path: string, body: unknown) =>
-    request<T>(path, { method: 'PATCH', body: JSON.stringify(body) }),
-  put: <T>(path: string, body: unknown) =>
-    request<T>(path, { method: 'PUT', body: JSON.stringify(body) }),
-  delete: <T>(path: string) => request<T>(path, { method: 'DELETE' }),
+  get: <T>(path: string) => http<T>(path),
+  post: <T>(path: string, body: unknown) => http<T>(path, json('POST', body)),
+  patch: <T>(path: string, body: unknown) => http<T>(path, json('PATCH', body)),
+  put: <T>(path: string, body: unknown) => http<T>(path, json('PUT', body)),
+  delete: <T>(path: string) => http<T>(path, { method: 'DELETE' }),
 }

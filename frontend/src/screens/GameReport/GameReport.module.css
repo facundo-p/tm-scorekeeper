@@ -1,0 +1,372 @@
+/* Informe de partida (F29): port de docs/redesign/mockup/css/screens.css § Game report (D-44).
+   La pista de TR y el cambio de ELO viven en ui/instruments. */
+.report-hero {
+  display: grid;
+  gap: var(--s4);
+  align-items: center;
+}
+
+.report-hero__planet {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.report-hero__slot {
+  width: min(84cqi, 440px);
+}
+
+.report-hero__coords {
+  position: absolute;
+  bottom: 4%;
+  right: 6%;
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+}
+
+.report-hero__text {
+  display: grid;
+  gap: var(--s3);
+  justify-items: start;
+  min-width: 0;
+}
+
+.report-hero__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: var(--t-hero);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.report-hero__date {
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  margin-top: -4px;
+}
+
+.report-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.report-hero__flavor {
+  max-width: 48ch;
+}
+
+.winplate {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4);
+  --fill-a: rgba(52, 38, 18, .9);
+  --fill-b: rgba(26, 18, 12, .94);
+}
+
+.winplate__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.winplate__kicker {
+  color: var(--mc);
+  font-size: var(--t-micro);
+  font-weight: 700;
+}
+
+.winplate__sub {
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.winplate__score {
+  margin-left: auto;
+  font-family: var(--display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mc);
+  text-shadow: 0 0 22px rgba(244, 196, 58, .35);
+}
+
+.winplate__score small {
+  font-size: .85rem;
+  color: var(--ink-2);
+  margin-left: 4px;
+  text-shadow: none;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s5);
+}
+
+.report-score__legend {
+  margin: var(--s6) 0 var(--s4);
+}
+
+.report-score__corps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--edge);
+  font-size: var(--t-small);
+}
+
+.report-score__corps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Board rows: milestones and awards */
+.board-row + .board-row {
+  margin-top: var(--s5);
+}
+
+.board-row__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--t-h3);
+  font-weight: 700;
+  margin-bottom: var(--s3);
+}
+
+.board-row__title span {
+  font-size: var(--t-micro);
+  font-weight: 450;
+  color: var(--ink-3);
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-height: 78px;
+  padding: 10px 12px;
+  background: rgba(10, 7, 10, .45);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.slot.is-claimed {
+  background: linear-gradient(180deg, rgba(201, 133, 0, .16), rgba(10, 7, 10, .45));
+  box-shadow: inset 0 0 0 1px rgba(201, 133, 0, .55);
+}
+
+.slot--award.is-claimed {
+  background: linear-gradient(180deg, rgba(201, 95, 184, .16), rgba(10, 7, 10, .45));
+  box-shadow: inset 0 0 0 1px rgba(201, 95, 184, .5);
+}
+
+.slot__name {
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: .95rem;
+}
+
+.slot__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--t-small);
+}
+
+.slot__empty {
+  color: var(--ink-3);
+  font-size: var(--t-small);
+}
+
+.slot__podium {
+  display: flex;
+  gap: 12px;
+}
+
+.slot__place {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--t-micro);
+  color: var(--ink-2);
+}
+
+.slot__place b {
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 2px;
+}
+
+.slot__funder {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+}
+
+.slot__stolen {
+  font-style: normal;
+  color: var(--cat-awards);
+  font-weight: 700;
+}
+
+/* Records in a game */
+.recbroken {
+  display: grid;
+  gap: 10px;
+}
+
+.recbroken__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, rgba(61, 133, 194, .14), transparent 70%);
+  box-shadow: inset 0 0 0 1px rgba(61, 133, 194, .35);
+}
+
+.recbroken__item div {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+
+.recbroken__item :global(.muted) {
+  font-size: var(--t-small);
+}
+
+.recbroken__vals {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mc);
+}
+
+.recbroken__vals small {
+  font-family: var(--font);
+  font-size: var(--t-micro);
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.near__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-h3);
+  margin: var(--s5) 0 var(--s2);
+}
+
+.near {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.near li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.near b {
+  color: var(--ink);
+}
+
+/* Achievements in a game */
+.achgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--s4);
+}
+
+.achgrid__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.achgrid__item div {
+  display: grid;
+  gap: 2px;
+  justify-items: start;
+}
+
+.achgrid__item :global(.muted) {
+  font-size: var(--t-small);
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+@container app (min-width: 760px) {
+  .report-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .report-score,
+  .report-board {
+    grid-column: 1 / -1;
+  }
+
+  .report-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s6);
+  }
+
+  .board-row + .board-row {
+    margin-top: 0;
+  }
+
+  .slots {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@container app (min-width: 1080px) {
+  .report-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    min-height: 470px;
+  }
+
+  .report-hero__slot {
+    width: min(34cqi, 470px);
+  }
+
+  .report-ach {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Error al eliminar (la app real puede fallar; el mockup no) */
+.report-delete__error {
+  margin-top: var(--s3);
+  color: var(--down);
+  font-size: var(--t-small);
+}

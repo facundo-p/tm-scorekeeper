@@ -1,16 +1,23 @@
 from sqlalchemy import (
     Column,
     Date,
+    DateTime,
     Integer,
     String,
     Boolean,
     ForeignKey,
+    Identity,
     Table,
     Enum as PgEnum,
     ARRAY,
     UniqueConstraint,
+    CheckConstraint,
+    Index,
+    func,
+    text,
 )
 from sqlalchemy.orm import relationship, declarative_base
+from models.player_colors import PLAYER_COLORS
 from models.enums import (
     MapName,
     Expansion,
@@ -36,10 +43,22 @@ class Player(Base):
     id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
     is_active = Column(Boolean, nullable=False, default=True)
+    elo = Column(Integer, nullable=False, default=1000)
+    color = Column(String, nullable=False)
+    # Orden de alta: desempate estable de las listas de jugadores (D-74).
+    seq = Column(Integer, Identity(), nullable=False)
+    # Fecha de alta: el «desde» del plantel (D-78); las altas nuevas toman la del día.
+    joined_on = Column(Date, nullable=True, server_default=func.current_date())
+
+    __table_args__ = (
+        CheckConstraint(f"color IN ({', '.join(repr(c) for c in PLAYER_COLORS)})", name="ck_players_color"),
+        UniqueConstraint("seq", name="uq_players_seq"),
+        Index("uq_players_active_color", "color", unique=True, postgresql_where=text("is_active")),
+    )
 
     results = relationship("PlayerResult", back_populates="player")
     opened_awards = relationship("Award", back_populates="opened_by_player")
-    achievements = relationship("PlayerAchievement", back_populates="player", cascade="all, delete-orphan")
+    elo_history = relationship("PlayerEloHistory", back_populates="player", cascade="all, delete-orphan")
 
 
 class Game(Base):
@@ -51,6 +70,9 @@ class Game(Base):
     expansions = Column(ARRAY(expansion_enum), nullable=False)
     draft = Column(Boolean, nullable=False)
     generations = Column(Integer, nullable=False)
+    # Orden canónico (fecha, created_at, id): dentro de un mismo día, la que se cargó antes (F21, D-56).
+    # clock_timestamp(): la hora real del INSERT (now() sería la del inicio de la transacción, antes del lock).
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.clock_timestamp())
 
     player_results = relationship("PlayerResult", cascade="all, delete-orphan")
     awards = relationship("Award", cascade="all, delete-orphan")
@@ -58,10 +80,13 @@ class Game(Base):
 
 class PlayerResult(Base):
     __tablename__ = "player_results"
+    __table_args__ = (
+        UniqueConstraint("game_id", "player_id", name="uq_player_result_game_player"),
+    )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
-    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
     corporation = Column(corporation_enum, nullable=False)
 
     terraform_rating = Column(Integer, nullable=False)
@@ -83,7 +108,7 @@ class Award(Base):
     __tablename__ = "awards"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
     award_name = Column(award_enum, nullable=False)
     opened_by = Column(String, ForeignKey("players.id"), nullable=False)
     first_place = Column(ARRAY(String), nullable=False)
@@ -93,17 +118,43 @@ class Award(Base):
     opened_by_player = relationship("Player", back_populates="opened_awards")
 
 
-class PlayerAchievement(Base):
-    __tablename__ = "player_achievements"
+class AchievementUnlock(Base):
+    """Un nivel de logro alcanzado, fechado con la partida que lo alcanzó (D-04). Es derivado:
+    se regenera completo en cada escritura de partidas (F23, STAT-04/05)."""
+    __tablename__ = "achievement_unlocks"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False)
     code = Column(String, nullable=False)
-    tier = Column(Integer, nullable=False, default=1)
-    unlocked_at = Column(Date, nullable=False)
+    tier = Column(Integer, nullable=False)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    unlocked_on = Column(Date, nullable=False)
 
     __table_args__ = (
-        UniqueConstraint("player_id", "code", name="uq_player_achievement"),
+        UniqueConstraint("player_id", "code", "tier", name="uq_achievement_unlock"),
     )
 
-    player = relationship("Player", back_populates="achievements")
+
+class AppMeta(Base):
+    """Pares clave/valor de la aplicación; `derived_version` (D-13)."""
+    __tablename__ = "app_meta"
+
+    key = Column(String, primary_key=True)
+    value = Column(String, nullable=False)
+
+
+class PlayerEloHistory(Base):
+    __tablename__ = "player_elo_history"
+    __table_args__ = (
+        UniqueConstraint("player_id", "game_id", name="uq_elo_history_player_game"),
+    )
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    player_id = Column(String, ForeignKey("players.id", ondelete="CASCADE"), nullable=False, index=True)
+    game_id = Column(String, ForeignKey("games.id", ondelete="CASCADE"), nullable=False, index=True)
+    elo_before = Column(Integer, nullable=False)
+    elo_after = Column(Integer, nullable=False)
+    delta = Column(Integer, nullable=False)
+    recorded_at = Column(Date, nullable=False, index=True)
+
+    player = relationship("Player", back_populates="elo_history")

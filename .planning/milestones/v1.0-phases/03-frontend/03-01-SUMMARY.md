@@ -3,6 +3,8 @@ phase: 03-frontend
 plan: "01"
 subsystem: frontend-components
 tags: [react, components, achievements, lucide-react, css-modules, tdd]
+requirements: [ENDG-02, ENDG-03, PROF-02, PROF-03, PROF-04, ICON-01, ICON-02, ICON-03]
+requirements-completed: [ENDG-02, ENDG-03, PROF-02, PROF-03, PROF-04, ICON-01, ICON-02, ICON-03]
 dependency_graph:
   requires: []
   provides:

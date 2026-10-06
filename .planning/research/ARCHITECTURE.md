@@ -1,418 +1,339 @@
-# Architecture Research
+# Architecture Research — ELO Visualization Frontend
 
-**Domain:** Achievement system integration into existing layered FastAPI + React app
-**Researched:** 2026-03-23
-**Confidence:** HIGH (based on direct codebase inspection + established patterns)
+**Domain:** SPA frontend (React 18 + TS + Vite + CSS Modules) layering on top of an already-shipped FastAPI ELO backend
+**Researched:** 2026-04-27
+**Confidence:** HIGH (based on direct read of the live codebase, not assumptions)
 
-## Standard Architecture
+## TL;DR
 
-### System Overview
+ELO frontend slots into the existing layered convention (`api → hooks → pages/components → types`) without inventing new patterns. The only structural decisions to make are:
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                        Frontend (React + TS)                      │
-│                                                                   │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
-│  │  GameDetail  │  │ PlayerProfile│  │  AchievementCatalog  │   │
-│  │  (end-game   │  │  (full badge │  │  (global view,       │   │
-│  │   mini toast)│  │   grid)      │  │   who has what)      │   │
-│  └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘   │
-│         └─────────────────┴──────────────────────┘               │
-│                             │ api/achievements.ts                 │
-├─────────────────────────────┼────────────────────────────────────┤
-│                        Backend (FastAPI)                          │
-│                                                                   │
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │               achievements_routes.py                         │ │
-│  └──────────────────────────┬──────────────────────────────────┘ │
-│                              │                                    │
-│  ┌───────────────────────────┼────────────────────────────────┐  │
-│  │           Services Layer  │                                  │  │
-│  │  ┌────────────────────┐  ┌┴───────────────────────────┐    │  │
-│  │  │  GamesService      │  │  AchievementsService        │    │  │
-│  │  │  (existing)        │──│  evaluate_game()            │    │  │
-│  │  │  create_game() ────┼─►│  get_player_achievements()  │    │  │
-│  │  └────────────────────┘  │  get_catalog()              │    │  │
-│  │                          └──────────┬──────────────────┘    │  │
-│  │  ┌───────────────────────────────┐  │                        │  │
-│  │  │  Evaluators (strategy layer)  │◄─┘                        │  │
-│  │  │  ALL_EVALUATORS registry      │                           │  │
-│  │  │  SingleGameThresholdEvaluator │                           │  │
-│  │  │  AccumulatedEvaluator         │                           │  │
-│  │  │  WinStreakEvaluator (custom)  │                           │  │
-│  │  └───────────────────────────────┘                           │  │
-│  └────────────────────────────────────────────────────────────┘  │
-│                                                                   │
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │  Repositories Layer                                          │ │
-│  │  GamesRepository (existing)   AchievementsRepository (new)  │ │
-│  └─────────────────────────────────────────────────────────────┘ │
-│                                                                   │
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │  Database (PostgreSQL)                                        │ │
-│  │  players  games  player_results  awards  player_achievements │ │
-│  └─────────────────────────────────────────────────────────────┘ │
-└──────────────────────────────────────────────────────────────────┘
-```
+1. **Routing:** new top-level `/ranking` route (matches the `/records`, `/achievements` precedent), reachable from Home nav. **Not** a PlayerProfile tab — multi-player chart is global, not per-player.
+2. **Profile ELO badge:** new `Stats` tab section on `PlayerProfile`, using the `elo` field already present in `PlayerResponseDTO`.
+3. **End-of-game ELO:** new dedicated section inside `GameRecords.tsx`, sibling to Records section. **Not** an extension of `AchievementModal` (modal = celebratory transient UI for genuinely new unlocks; ELO is always-shown, deterministic, and inline). Reuses the existing fetch-with-retry pattern from `useGames.fetchAchievements`.
+4. **Backend gap discovered:** there is **no** ELO history endpoint yet. Only `GET /games/{game_id}/elo` (returns `EloChangeDTO[]` for one game) and `PlayerResponseDTO.elo` (current value) exist. The Ranking page **requires** a new backend endpoint (`GET /elo/history?from=&player_ids=` returning per-player time series). This is a hard dependency that must be sequenced first.
 
-### Component Responsibilities
+## Existing Architecture (read from codebase, not assumed)
 
-**Backend:**
-
-| Component | Responsibility | Location |
-|-----------|----------------|----------|
-| `AchievementDefinition` | Static metadata: code, description, icon, tiers, show_progress | `services/achievement_evaluators/definitions.py` |
-| `AchievementEvaluator` (ABC) | compute_tier(), get_progress(), evaluate() contract | `services/achievement_evaluators/base.py` |
-| `SingleGameThresholdEvaluator` | Generic: max value in a single game vs tier thresholds | `services/achievement_evaluators/single_game.py` |
-| `AccumulatedEvaluator` | Generic: count over all games vs tier thresholds + progress | `services/achievement_evaluators/accumulated.py` |
-| Custom evaluators (e.g. WinStreak) | Complex logic that doesn't fit generic shapes | `services/achievement_evaluators/win_streak.py` |
-| `ALL_EVALUATORS` registry | Single source of truth; iterate to evaluate all achievements | `services/achievement_evaluators/registry.py` |
-| `AchievementsService` | Orchestrates evaluation + persistence + catalog assembly | `services/achievements_service.py` |
-| `AchievementsRepository` | CRUD on `player_achievements` table | `repositories/achievements_repository.py` |
-| `achievements_routes.py` | HTTP endpoints; injects dependencies | `routes/achievements_routes.py` |
-| `PlayerAchievement` (ORM) | DB row: player_id, code, tier, unlocked_at | `db/models.py` |
-
-**Frontend:**
-
-| Component | Responsibility | Location |
-|-----------|----------------|----------|
-| `api/achievements.ts` | Typed fetch wrappers for all achievement endpoints | `src/api/achievements.ts` |
-| `AchievementBadge` | Single badge: icon + tier indicator, unlocked/locked state | `src/components/AchievementBadge/` |
-| `AchievementBadgeMini` | Compact badge for end-game notification (icon + title only) | `src/components/AchievementBadgeMini/` |
-| `AchievementsSection` | Badge grid for player profile; groups unlocked vs locked | `src/components/AchievementsSection/` |
-| `NewAchievementsToast` | Post-game modal/panel; lists newly unlocked or upgraded achievements | `src/components/NewAchievementsToast/` |
-| `PlayerProfile` (modified) | Gains a third section tab: Logros | `src/pages/PlayerProfile/` |
-| `AchievementCatalog` | Global page: all achievements + who holds each | `src/pages/AchievementCatalog/` |
-
-## Recommended Project Structure
+### Layered convention
 
 ```
-backend/
-├── services/
-│   ├── achievement_evaluators/   # mirrors record_calculators/
-│   │   ├── __init__.py
-│   │   ├── base.py               # AchievementEvaluator ABC + AchievementDefinition
-│   │   ├── definitions.py        # AchievementDefinition instances (HIGH_SCORE, etc.)
-│   │   ├── single_game.py        # SingleGameThresholdEvaluator
-│   │   ├── accumulated.py        # AccumulatedEvaluator
-│   │   ├── win_streak.py         # WinStreakEvaluator (custom)
-│   │   └── registry.py           # ALL_EVALUATORS list
-│   └── achievements_service.py   # evaluate_game(), get_player_achievements(), get_catalog()
-├── repositories/
-│   └── achievements_repository.py
-├── schemas/
-│   └── achievements.py           # PlayerAchievementDTO, AchievementCatalogItemDTO
-├── routes/
-│   └── achievements_routes.py
-└── db/
-    └── models.py                 # + PlayerAchievement ORM model
-
-frontend/src/
-├── api/
-│   └── achievements.ts
-├── components/
-│   ├── AchievementBadge/
-│   │   ├── AchievementBadge.tsx
-│   │   └── AchievementBadge.module.css
-│   ├── AchievementBadgeMini/
-│   │   ├── AchievementBadgeMini.tsx
-│   │   └── AchievementBadgeMini.module.css
-│   ├── AchievementsSection/
-│   │   ├── AchievementsSection.tsx
-│   │   └── AchievementsSection.module.css
-│   └── NewAchievementsToast/
-│       ├── NewAchievementsToast.tsx
-│       └── NewAchievementsToast.module.css
-├── pages/
-│   └── AchievementCatalog/
-│       ├── AchievementCatalog.tsx
-│       └── AchievementCatalog.module.css
-└── types/
-    └── index.ts                  # + achievement type interfaces
+┌────────────────────────────────────────────────────────────┐
+│  Pages                  src/pages/<Page>/<Page>.tsx        │
+│  (route handlers,       + <Page>.module.css                │
+│   page-level state)                                        │
+├────────────────────────────────────────────────────────────┤
+│  Components             src/components/<Comp>/<Comp>.tsx   │
+│  (reusable UI)          + <Comp>.module.css                │
+├────────────────────────────────────────────────────────────┤
+│  Hooks                  src/hooks/use<Domain>.ts           │
+│  (data fetching +       (one file per domain, exposes      │
+│   per-domain state)      submit/fetch + loading + error)   │
+├────────────────────────────────────────────────────────────┤
+│  API client             src/api/<domain>.ts                │
+│  (typed endpoint        + src/api/client.ts (request,      │
+│   wrappers)              ApiError, BASE_URL)               │
+├────────────────────────────────────────────────────────────┤
+│  Types                  src/types/index.ts                 │
+│  (shared DTOs           (single barrel — no per-domain     │
+│   mirroring backend)     splits today)                     │
+└────────────────────────────────────────────────────────────┘
 ```
 
-### Structure Rationale
+### Existing API files (`src/api/`)
 
-- **`achievement_evaluators/`:** Mirrors `record_calculators/` exactly. Same separation of base/concrete/registry. Developers already understand the pattern.
-- **`achievements_service.py`:** Single service for all achievement logic keeps the route layer thin and testable in isolation.
-- **`AchievementBadge` vs `AchievementBadgeMini`:** Two distinct visual shapes (full profile card vs end-game toast item). Different responsibilities, different CSS. Avoid a single over-parametrized badge.
+| File | Endpoints wrapped | Notes |
+|------|---|---|
+| `client.ts` | — | `api.get/post/patch/put/delete`, `ApiError` class, `BASE_URL` from `VITE_API_URL` |
+| `players.ts` | `/players/*` (list, profile, create, update) | |
+| `games.ts` | `/games/*` (create, list, results, records) | **does NOT yet wrap `GET /games/{id}/elo`** |
+| `records.ts` | `/records/` | |
+| `achievements.ts` | `/players/{id}/achievements`, `/games/{id}/achievements`, `/achievements/catalog` | |
 
-## Architectural Patterns
+### Existing hooks (`src/hooks/`)
 
-### Pattern 1: Post-creation side effect via service coordination
+Only two hooks exist — `useGames.ts` and `usePlayers.ts`. The pattern is **not** "one hook per page"; instead each hook owns a domain and exposes:
 
-**What:** `GamesService.create_game()` calls `AchievementsService.evaluate_game()` after persisting the game. The route layer injects `AchievementsService` into `GamesService` (or the route calls both services sequentially).
+- a state slice (`loading`, `error`, the data)
+- mutator callbacks (`addPlayer`, `editPlayer`, `submitGame`)
+- read callbacks that **return data instead of stashing it in hook state** when the caller is page-scoped (`useGames.fetchRecords`, `useGames.fetchAchievements`)
 
-**When to use:** The game creation is the trigger for achievement evaluation. The two operations are coupled by domain logic, not infrastructure.
+That second pattern is critical for ELO: post-game ELO and per-page records are fetched *imperatively* by the consuming page, with the hook only providing the typed wrapper plus retry policy.
 
-**Trade-offs:** Injecting into GamesService keeps `create_game` the single entry point and the route stays thin. Calling both from the route is simpler but leaks orchestration concern. Recommend injection.
+#### Existing retry/error patterns
 
-**Example:**
+- **Page-scoped data load** (e.g. `PlayerProfile`, `Records`, `GameRecords`): inline `useEffect` + `setState` + `setLoading(false)` in `.finally()`. No retries.
+- **`useGames.fetchAchievements`** (D-09 / D-10 in the comments): single retry on failure, then silent log. Pattern is:
+
+  ```ts
+  try { return await call() } catch {
+    try { return await call() } catch {
+      console.warn('...'); return null
+    }
+  }
+  ```
+
+  This is the only retry policy in the codebase. End-of-game ELO should adopt **the same pattern** (`fetchEloChanges(gameId)` with retry-once-on-failure) because the failure mode is identical: ELO row is generated by the create-game flow, but the GET that reads it might race the write or hit a transient error, and missing it shouldn't block the post-game screen.
+
+### Existing types (`src/types/index.ts`)
+
+Single barrel file, organized by domain comment blocks (`---- Player DTOs ----`, etc.). All consumers import via `import type { X } from '@/types'`. No per-domain split. **`PlayerResponseDTO.elo: number`** is already present — confirmed by `backend/schemas/player.py:43`.
+
+### Existing pages and routes (`src/App.tsx`)
+
+```
+/login                              Login
+/                                   → /home
+/home                               Home (nav grid: Jugadores, Cargar Partida, Partidas, Records, Logros)
+/players                            Players
+/players/:playerId/profile          PlayerProfile (tabs: Stats / Records / Logros via TabBar)
+/games                              GamesList
+/games/new                          GameForm
+/games/:gameId                      GameDetail
+/games/:gameId/records              GameRecords (post-game: results + records + AchievementModal)
+/records                            Records
+/achievements                       AchievementCatalog
+```
+
+All non-login routes wrapped in `<ProtectedRoute>`. `react-router-dom` v6.
+
+### Existing reusable components
+
+Relevant to ELO work:
+
+| Component | Reusable for ELO? | Notes |
+|---|---|---|
+| `MultiSelect` (`components/MultiSelect/`) | **Yes** — direct reuse for player picker | Already typed `MultiSelectOption { value, label }` and toggles a `string[]`. Drop-in. |
+| `TabBar` | Indirectly | Hard-coded `Tab = 'stats' \| 'records' \| 'logros'`. **Will need extension** if we add an ELO tab to PlayerProfile (we won't — see Decision below). |
+| `Spinner`, `Button` | Yes | |
+| `Modal` | No (avoiding modal for ELO — see Decision) | |
+| `Input`, `Select` | `Input type="date"` for the "desde" filter | |
+
+### Backend ELO surface (already shipped)
+
+| Endpoint | Returns | File |
+|---|---|---|
+| `GET /games/{game_id}/elo` | `list[EloChangeDTO]` | `backend/routes/games_routes.py:94-100` |
+| `GET /players/?active=…` | `list[PlayerResponseDTO]` (now includes `elo` field) | `backend/routes/players_routes.py:72-83` |
+
+`EloChangeDTO` (`backend/schemas/elo.py`):
 ```python
-# games_routes.py — route injects achievements_service
-games_service = GamesService(
-    games_repository=games_repository,
-    players_repository=players_repository,
-    achievements_service=achievements_service,   # injected
-)
-
-# game_service.py
-def create_game(self, game_dto: GameDTO) -> tuple[str, list[EvaluationResult]]:
-    # ... validation ...
-    game_id = self.games_repository.create(game)
-    unlocked = self.achievements_service.evaluate_game(game_id)
-    return game_id, unlocked
+{ player_id: str, player_name: str, elo_before: int, elo_after: int, delta: int }
 ```
 
-The route then returns both the created game ID and the list of newly unlocked achievements in `GameCreatedResponseDTO`.
+**No history endpoint exists.** `EloRepository.get_baseline_elo_before(date)` and the underlying `PlayerEloHistory` ORM table support querying by date — but no route exposes them. The Ranking page requires a new endpoint.
 
-### Pattern 2: Definitions in code, state in DB
+## Decisions for ELO Frontend
 
-**What:** `AchievementDefinition` objects (with tiers, icons, descriptions) live in Python modules and are never stored in the database. Only `player_achievements` rows (player_id, code, tier, unlocked_at) are persisted.
+### Decision 1: New `/ranking` top-level route, not a PlayerProfile tab
 
-**When to use:** Always, for this project. Consistent with how record calculators work. Avoids a "definitions migration" every time a new achievement is added.
+**Rationale:**
+- The chart's value prop is **multi-player comparison over time** — that has no home inside one player's profile.
+- Matches the existing precedent: `/records` and `/achievements` are global pages reachable from Home, not nested under `/players`.
+- Mobile-first: a dedicated route gives full viewport for the chart; a tab inside profile would compete for vertical space with profile chrome.
+- Adding a 4th tab to `TabBar` (`'elo'`) would also work but conflates "this player" data with "all players" data — the ranking page is fundamentally about set comparison.
 
-**Trade-offs:** Changing a tier threshold requires a reconciler pass to fix stale persisted tiers. Acceptable because it's infrequent and the reconciler handles it explicitly.
+**What goes on PlayerProfile instead:** an ELO badge inside the existing **Stats tab** (next to win-rate / games-played) showing the player's *current* ELO. Single number. Pulled from the already-existing `PlayerResponseDTO.elo` (no new endpoint needed for this surface).
 
-### Pattern 3: On-demand progress computation
+### Decision 2: End-of-game ELO inline in `GameRecords`, not in `AchievementModal`
 
-**What:** Progress toward the next tier (e.g. "7/10 games") is computed at query time in `AchievementsService.get_player_achievements()`. It is never stored. The service loads all games for the player, runs `evaluator.get_progress()`, and returns it in the DTO.
+**Rationale:**
+- `AchievementModal` is conditionally shown (`hasAny` guard at `GameRecords.tsx:49`) and is **celebratory** — it only opens when something new was unlocked. ELO changes happen on **every** game, every player, deterministically. The two have opposite cardinality.
+- Modals are hostile on mobile (full-screen overlay, requires dismissal). The end-of-game flow already has a card with `Resultados` and `Records` sections; ELO is a third section, sibling to them.
+- The existing `rankRow` grid (`GameRecords.module.css:64-73`) already uses `grid-template-columns: 48px 1fr auto auto` — adding an ELO delta column ("+12" / "-8") is a natural extension. Optionally a dedicated ELO section below records preserves separation of concerns.
 
-**When to use:** Progress changes with every game, so persisting it adds write overhead with no benefit.
-
-**Trade-offs:** Requires loading all player games for the progress query. Acceptable at current scale (small number of games per player). If it becomes a bottleneck, denormalized counts could be added later.
-
-### Pattern 4: Tier-as-upgrade, single row per achievement
-
-**What:** Each player has at most one `player_achievements` row per achievement `code`. When a tier is upgraded, the row is updated (not a new row inserted). `unlocked_at` is set on first unlock and never changed.
-
-**When to use:** Always. Matches the "badge evolves" UX requirement and avoids having to deduplicate multiple rows on read.
-
-**Trade-offs:** Losing the upgrade history. Acceptable — the requirement is to show current state, not history.
-
-## Data Flow
-
-### Flow 1: Game creation with achievement evaluation
-
+**Recommended layout (sibling section, not column extension):**
 ```
-POST /games/
-    │
-    ▼
-games_routes.create_game()
-    │  injects achievements_service
-    ▼
-GamesService.create_game(game_dto)
-    │  1. validate
-    │  2. games_repository.create(game)  →  INSERT games, player_results, awards
-    │  3. achievements_service.evaluate_game(game_id)
-    │       │
-    │       ├── games_repository.get_games_by_player(player_id)  ← all historical games
-    │       │   (for each player in the new game)
-    │       ├── achievements_repository.get_player_achievements(player_id)
-    │       ├── for each evaluator in ALL_EVALUATORS:
-    │       │       evaluator.evaluate(player_id, all_games, persisted_tier)
-    │       │       if result.new_tier:
-    │       │           achievements_repository.upsert(player_id, code, new_tier)
-    │       └── returns list[UnlockedAchievementDTO]
-    │
-    ▼
-GameCreatedResponseDTO { id, game, unlocked_achievements: [...] }
-    │
-    ▼
-Frontend: GameForm receives response
-    │  if unlocked_achievements.length > 0:
-    │      show NewAchievementsToast
+[Resultados]    — existing
+[Records]       — existing
+[ELO]           — NEW: per-player elo_before → elo_after with signed delta
+[Logros modal]  — existing (only when there's something to celebrate)
 ```
 
-### Flow 2: Player profile achievements (full view with progress)
+This avoids cramming the rank row and keeps the ELO section reusable in `GameDetail.tsx` later (out of scope but cheap to extend).
+
+### Decision 3: ELO history fetch is page-scoped state on `Ranking.tsx`, NOT a page-driving hook
+
+**Rationale:**
+- Filter state (selected player ids, "from" date) is page-local and changes frequently — it belongs in the page component, same way `Records.tsx` keeps its state local.
+- Selected players + date should be **URL search params** (`?players=a,b,c&from=2026-01-01`) so the view is shareable and survives reload. `react-router-dom` v6 has `useSearchParams` — already a transitive dep.
+- A `useElo` hook adds indirection without saving code; the actual API wrapping lives in `src/api/elo.ts`. Hooks earn their place when they encapsulate non-trivial behavior (retry policy in `useGames.fetchAchievements`, refetch coordination in `usePlayers`).
+
+**Exception:** `useGames` should grow a `fetchEloChanges(gameId)` callback with retry-once-on-failure, mirroring `fetchAchievements`. This keeps the post-game retry policy in one place.
+
+### Decision 4: Selected players default = "all active players"
+
+Matches PROJECT.md "default: todos". Implementation: when search params are empty, page reads `usePlayers({ activeOnly: true })` and uses every id. Once user toggles in `MultiSelect`, the selection is reflected to URL.
+
+### Decision 5: Backend dependency must ship first
+
+The Ranking chart needs a per-player time series filterable by date. Before any frontend chart code is written, the backend must expose:
 
 ```
-GET /players/{id}/achievements
-    │
-    ▼
-achievements_routes.get_player_achievements()
-    │
-    ▼
-AchievementsService.get_player_achievements(player_id)
-    │  1. games_repository.get_games_by_player(player_id)
-    │  2. achievements_repository.get_all(player_id)
-    │       → dict { code: (tier, unlocked_at) }
-    │  3. for each evaluator in ALL_EVALUATORS:
-    │       persisted = persisted_map.get(code, tier=0)
-    │       progress = evaluator.get_progress(player_id, games, persisted.tier)
-    │       assemble PlayerAchievementDTO
-    │
-    ▼
-list[PlayerAchievementDTO] {
-    code, title (current tier), description, icon, fallback_icon,
-    tier, max_tier, unlocked, unlocked_at, progress { current, target }
-}
-    │
-    ▼
-Frontend: AchievementsSection renders badge grid
+GET /elo/history?from=YYYY-MM-DD&player_ids=id1,id2,...
+→ list[PlayerEloHistoryDTO]
+  where PlayerEloHistoryDTO = {
+    player_id: str,
+    player_name: str,
+    points: list[EloHistoryPointDTO]
+  }
+  and EloHistoryPointDTO = {
+    recorded_at: date,    # game date
+    game_id: str,
+    elo_after: int,
+    delta: int,
+  }
 ```
 
-### Flow 3: Global catalog
+The repository layer already has the data (`PlayerEloHistoryORM`, `recorded_at` indexed). Only a route + service method + mapper are missing. **This is technically backend work, but it gates the frontend milestone** — call it out in the roadmap as Phase 0 / prerequisite.
 
-```
-GET /achievements/catalog
-    │
-    ▼
-AchievementsService.get_catalog()
-    │  iterates ALL_EVALUATORS definitions only (no DB query)
-    │
-    ▼
-list[AchievementCatalogItemDTO] {
-    code, description, icon, fallback_icon, tiers: [{ level, threshold, title }]
-}
-```
+## File Plan
 
-### Flow 4: Reconciliation (manual/startup)
+### NEW files
 
-```
-AchievementsReconciler.run()
-    │
-    ├── games_repository.list_all_games()
-    ├── players_repository.list_all()
-    ├── for each player:
-    │       evaluate all evaluators over full history
-    │       compare vs persisted
-    │       if mismatch: achievements_repository.upsert(...)
-    └── returns reconciliation report
-```
+| Absolute path | Purpose |
+|---|---|
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/api/elo.ts` | Wrap `GET /games/{id}/elo` and the new `GET /elo/history` endpoint. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloBadge/EloBadge.tsx` | Pill displaying current ELO. Used in PlayerProfile Stats tab and (later, optional) in `Players` list. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloBadge/EloBadge.module.css` | Styling. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloChangeRow/EloChangeRow.tsx` | One row: player name + `before → after` + signed delta with color. Used inside `GameRecords` ELO section. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloChangeRow/EloChangeRow.module.css` | Styling (mobile-first grid). |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloLineChart/EloLineChart.tsx` | Wraps whichever chart lib STACK research selects; takes `series: PlayerEloHistoryDTO[]` and renders a multi-line responsive chart with player legend. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/EloLineChart/EloLineChart.module.css` | Styling. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/DateFromFilter/DateFromFilter.tsx` | Thin wrapper around `<input type="date">` labelled "Desde". (Could be inline; component lifts it for reuse + tests.) |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/components/DateFromFilter/DateFromFilter.module.css` | Styling. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/Ranking/Ranking.tsx` | New top-level page. Owns filter state via `useSearchParams`, composes `MultiSelect` + `DateFromFilter` + `EloLineChart`. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/Ranking/Ranking.module.css` | Page styling. |
 
-### Frontend state management
+### MODIFIED files (with one-line WHY)
 
-```
-GameForm submits → POST /games/
-    ↓ response includes unlocked_achievements
-GameForm sets newAchievements state
-    ↓ if non-empty
-NewAchievementsToast renders (local component state, no global store needed)
-    ↓ user dismisses
-Navigate to GameDetail
+| Absolute path | Why |
+|---|---|
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/types/index.ts` | Add `EloChangeDTO`, `PlayerEloHistoryDTO`, `EloHistoryPointDTO` mirroring the backend schemas. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/hooks/useGames.ts` | Add `fetchEloChanges(gameId)` callback with retry-once-on-failure (mirrors `fetchAchievements`). |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/PlayerProfile/PlayerProfile.tsx` | Render `<EloBadge value={player.elo} />` inside the Stats tab (need to fetch player's `elo` — already in `PlayerResponseDTO` returned by `getPlayers`; the existing `Promise.all([getPlayerProfile, getPlayers])` already has it, just plumb through state). |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/GameRecords/GameRecords.tsx` | New `<section>` after Records: fetch `eloChanges` via `useGames.fetchEloChanges`, render list of `EloChangeRow`. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/GameRecords/GameRecords.module.css` | Styles for the new ELO section (likely identical to records section pattern). |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/App.tsx` | Add `<Route path="/ranking" element={<ProtectedRoute><Ranking/></ProtectedRoute>} />`. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/pages/Home/Home.tsx` | Add `{ to: '/ranking', icon: '📈', title: 'Ranking', description: 'Evolución de ELO' }` to `navItems`. |
+| `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/package.json` | Add chart library dependency (TBD by STACK research). |
 
-PlayerProfile mounts → GET /players/{id}/achievements
-    ↓
-AchievementsSection renders with fetched data (local useState, no global store)
-```
+**Files NOT touched** (intentional, document scope):
+- `TabBar.tsx` — Decision 1 routes ELO out of profile tabs.
+- `AchievementModal.tsx` — Decision 2 keeps modal celebratory-only.
+- `MultiSelect.tsx` — reused as-is.
+- `client.ts` / `ApiError` — request layer is complete.
+- All other api wrappers (`players.ts`, `games.ts`, `records.ts`, `achievements.ts`) — only `elo.ts` added; existing files untouched (avoids merge churn with parallel achievement work, matches project's per-domain file convention).
 
-No global state manager (Redux/Zustand) needed. Achievement data is page-local, fetched on mount, not shared across pages. Consistent with existing pattern in PlayerProfile.tsx and GameDetail.tsx.
+## Build Order with Explicit Dependencies
 
-## Suggested Build Order
+Each phase produces an artifact that the next phase consumes. **`requires:`** marks hard prerequisites; **`unblocks:`** marks what becomes possible.
 
-The component graph has clear dependency layers. Build bottom-up:
+### Phase 0 — Backend prerequisite (NOT in this milestone scope, but blocks Phase D)
 
-```
-1. DB migration (player_achievements table)
-        ↓
-2. AchievementDefinition dataclasses + evaluator base + generic evaluators
-        ↓
-3. AchievementsRepository (upsert, get_all)
-        ↓
-4. AchievementsService (evaluate_game, get_player_achievements, get_catalog)
-        ↓
-5. Wire evaluate_game into GamesService.create_game()
-        ↓
-6. achievements_routes.py (3 endpoints)
-        ↓
-7. Frontend api/achievements.ts + TypeScript types
-        ↓
-8. AchievementBadge + AchievementsSection (profile view)
-        ↓
-9. PlayerProfile: add Logros section
-        ↓
-10. NewAchievementsToast + wire into GameForm post-submit
-        ↓
-11. AchievementCatalog page
-        ↓
-12. AchievementsReconciler (utility, not in critical path)
-```
+Add `GET /elo/history?from=...&player_ids=...` route + service method + mapper.
 
-Steps 1–6 are the backend vertical. Steps 7–12 are the frontend vertical. The reconciler (step 12) is infrastructure and can be done any time after step 4.
+- **artifact:** working endpoint returning `list[PlayerEloHistoryDTO]`.
+- **unblocks:** Phase D.
+- **why up front:** Without this, the chart has no data source and the whole Ranking page is a stub.
 
-## Anti-Patterns
+### Phase A — Type contracts and API wrapper
 
-### Anti-Pattern 1: Calling achievements_service from the route layer instead of GamesService
+Land the typed surface with no UI yet.
 
-**What people do:** Route handler calls `games_service.create_game()` and then `achievements_service.evaluate_game()` separately.
+- **files:** `src/api/elo.ts` (new), `src/types/index.ts` (modified — add `EloChangeDTO`, `PlayerEloHistoryDTO`, `EloHistoryPointDTO`).
+- **artifact:** importable `getGameEloChanges(gameId)` and (stub-typed if Phase 0 not done yet) `getEloHistory(params)`.
+- **requires:** Nothing (uses existing `client.ts`).
+- **unblocks:** B, C, D.
 
-**Why it's wrong:** The route accumulates domain orchestration logic. If `create_game` succeeds but `evaluate_game` fails, the caller gets a 500 but the game was created. Error handling becomes inconsistent.
+### Phase B — PlayerProfile current-ELO badge
 
-**Do this instead:** Inject `achievements_service` into `GamesService` so `create_game` owns the full transaction boundary. If achievement evaluation fails, it can be caught and logged without rolling back the game (achievements are recoverable via reconciler).
+Smallest user-visible win. Pure read, no new endpoints.
 
-### Anti-Pattern 2: Persisting progress values to the DB
+- **files:** `src/components/EloBadge/*` (new), `src/pages/PlayerProfile/PlayerProfile.tsx` (modified).
+- **artifact:** ELO number visible on every profile's Stats tab.
+- **requires:** Phase A (for `EloBadge` typing — actually not strictly needed since data comes from `PlayerResponseDTO.elo` which already exists in types, but doing A first keeps `EloBadge` types co-located with the rest of the milestone's contracts).
+- **unblocks:** Nothing (terminal).
 
-**What people do:** Store `current_count` or `progress_pct` in `player_achievements` to avoid recomputing.
+### Phase C — End-of-game ELO section
 
-**Why it's wrong:** Progress is purely derived from game history, which changes with every game. Persisted progress gets stale immediately. Adds a write to every game creation with no benefit at this scale.
+Reuses the same retry pattern as achievements.
 
-**Do this instead:** Compute progress on-demand in `get_player_achievements()`. The player game history is already loaded for tier computation — progress reuses the same data.
+- **files:** `src/components/EloChangeRow/*` (new), `src/hooks/useGames.ts` (modified — `fetchEloChanges`), `src/pages/GameRecords/GameRecords.tsx` + `.module.css` (modified).
+- **artifact:** ELO section visible on the post-game screen.
+- **requires:** Phase A (uses `getGameEloChanges` + `EloChangeDTO`).
+- **unblocks:** Nothing (terminal).
 
-### Anti-Pattern 3: Storing AchievementDefinitions in the database
+### Phase D — Ranking page
 
-**What people do:** Create an `achievement_definitions` table with code, description, tiers as JSON.
+The big one.
 
-**Why it's wrong:** Definitions are code, not data. Adding a new achievement requires a data migration instead of just adding an evaluator to the registry. Makes it harder to test evaluators in isolation. Inconsistent with how record calculators work in this codebase.
+- **D.1 — Skeleton page + routing + nav entry** (no chart yet)
+  - **files:** `src/pages/Ranking/*` (new), `src/App.tsx` (modified), `src/pages/Home/Home.tsx` (modified).
+  - **artifact:** route works, page shell renders, filters are in URL state.
+  - **requires:** Phase A (types).
+- **D.2 — Filters wired to API**
+  - **files:** `src/components/DateFromFilter/*` (new), `src/pages/Ranking/Ranking.tsx` (extends D.1).
+  - **artifact:** changing filters updates URL and triggers `getEloHistory` call; raw JSON visible while chart not rendered yet.
+  - **requires:** D.1 + Phase 0 (backend endpoint).
+- **D.3 — Chart**
+  - **files:** `src/components/EloLineChart/*` (new), `package.json` (modified — chart library), `src/pages/Ranking/Ranking.tsx` (extends D.2).
+  - **artifact:** mobile-first responsive multi-line chart with legend.
+  - **requires:** D.2 + STACK research's chart-library decision.
 
-**Do this instead:** Keep definitions as Python dataclasses in `definitions.py`, registered in `ALL_EVALUATORS`. Only the player's unlock state lives in the DB.
+### Suggested phase ordering for the roadmap
 
-### Anti-Pattern 4: One badge component with too many props
+1. Phase A (types/api scaffolding, ~half-day)
+2. Phase B (badge — quickest visible value, builds confidence)
+3. Phase C (end-of-game ELO — uses retry pattern already proven for achievements)
+4. Phase 0 (backend history endpoint — done in parallel, but **must complete before D.2**)
+5. Phase D.1 (page skeleton, routing, nav)
+6. Phase D.2 (filters + data fetch)
+7. Phase D.3 (chart — last because it's the riskiest unknown until STACK lands the lib choice)
 
-**What people do:** Build one `AchievementBadge` with `variant="mini"|"full"|"catalog"` and conditional rendering internally.
+B and C are independent of each other and of D, so they can interleave. The serializing constraint is **Phase 0 → D.2 → D.3**.
 
-**Why it's wrong:** The three display shapes (mini toast, full profile, catalog row) have different layouts, different data needs, and different CSS. Combining them causes prop explosion and makes each variant harder to evolve independently.
+## Mobile-First Considerations
 
-**Do this instead:** Build `AchievementBadgeMini` (icon + title, 2 fields) and `AchievementBadge` (full card). The catalog can reuse `AchievementBadge` with a `locked` prop. Keep CSS modules separate.
+- **`/ranking` chart on small screens:** Chart needs to be horizontally scrollable or to compress dates on x-axis. STACK research must verify the chosen lib has mobile-friendly defaults (Recharts and Chart.js both do; Victory has known issues).
+- **`MultiSelect` with many players:** existing component lays buttons out as wrapping flex — fine for ~10-20 players. If the active player count grows, the page might want a collapse/expand pattern. Out of scope for v1.1.
+- **Home nav grid:** adding Ranking makes 6 cards. The existing CSS grid in `Home.module.css` already wraps; check on a 360px-wide viewport that two columns of three is readable.
+- **End-of-game ELO row:** mirror the existing `rankRow` grid (`48px 1fr auto auto`). On narrow screens, before→after may need to stack — use `grid-template-columns: 1fr auto` with name on left, "+12 (1054→1066)" on right.
 
-## Integration Points
+## Anti-Patterns to Avoid (project-specific)
 
-### Internal Boundaries
+### Anti-pattern 1: One ELO hook per page
+- **What people do:** Spawn `useEloHistory`, `useGameElo`, `useCurrentElo` because the milestone description mentions multiple surfaces.
+- **Why wrong:** The codebase has one hook per *domain*, not per *surface*. `useGames` already serves three pages (`GameForm`, `GameRecords`, `GameDetail`). ELO has only one piece of cross-page state worth hooking (the post-game retry policy on `fetchEloChanges`). Everything else is page-local fetch into page-local state, exactly like `Records.tsx`.
+- **Do this instead:** One `src/api/elo.ts` for typed wrappers, extend `useGames` for the retry-needing case, page-local `useState + useEffect` everywhere else. URL params for shareable filter state.
 
-| Boundary | Communication | Notes |
-|----------|---------------|-------|
-| `GamesService` → `AchievementsService` | Direct Python call (injected dependency) | `evaluate_game(game_id)` returns unlocked list; errors are caught and logged, not re-raised |
-| `AchievementsService` → `GamesRepository` | Existing repository interface | Service needs `get_games_by_player(player_id)` — already exists |
-| `AchievementsService` → `AchievementsRepository` | New repository | `get_all(player_id)` → dict; `upsert(player_id, code, tier)` |
-| `achievements_routes` → `AchievementsService` | Same injection pattern as existing routes | Instantiated at module level like `games_routes.py` |
-| `GameForm` (frontend) → `NewAchievementsToast` | Parent passes `unlockedAchievements` as prop | Component handles its own show/hide state |
-| `PlayerProfile` → `AchievementsSection` | Parent fetches, passes achievements array as prop | Consistent with how RecordsSection receives data |
+### Anti-pattern 2: Stuffing ELO into `AchievementModal`
+- **What people do:** Reuse the modal because both fire at end-of-game.
+- **Why wrong:** Modal = transient celebration. ELO = always present, deterministic. Coupling them means every game pops a modal even when nothing was unlocked.
+- **Do this instead:** Inline ELO section in `GameRecords` card; reserve the modal for "you unlocked something new" only.
 
-### Schema additions
+### Anti-pattern 3: Ranking as a PlayerProfile tab
+- **What people do:** Add `'elo'` to `Tab` union and stuff the chart there.
+- **Why wrong:** The chart compares N players; PlayerProfile is scoped to one player.
+- **Do this instead:** Top-level `/ranking` route. PlayerProfile gets a static `EloBadge` (current value only) inside the existing Stats tab.
 
-```
-GameCreatedResponseDTO (modified):
-  + unlocked_achievements: UnlockedAchievementDTO[]
+### Anti-pattern 4: Filter state in `useState` only (no URL)
+- **What people do:** Local state for `selectedPlayers` and `fromDate` with no URL sync.
+- **Why wrong:** Reload nukes the view, can't share a "look at this player's slump from March" link.
+- **Do this instead:** `useSearchParams` from react-router-dom v6. Source of truth = URL; setters update URL; effects read URL.
 
-UnlockedAchievementDTO:
-  code, title, icon, fallback_icon, is_new (bool), tier
-
-PlayerAchievementDTO (new):
-  code, title, description, icon, fallback_icon,
-  tier, max_tier, unlocked (bool), unlocked_at, progress?
-
-AchievementCatalogItemDTO (new):
-  code, description, icon, fallback_icon,
-  tiers: [{ level, threshold, title }]
-```
-
-## Scaling Considerations
-
-| Scale | Architecture Adjustments |
-|-------|--------------------------|
-| Current (small group, <1k games) | On-demand full history scan is fine. No optimization needed. |
-| 10k+ games per player | Add `game_count` / `win_count` denormalized columns to `players` table. Evaluators use counts instead of full history scan. |
-| Multiple concurrent users hitting profile | PostgreSQL query is the bottleneck; add index on `player_results.player_id`. Already should exist. |
-
-The reconciler is the safety net that allows changing tier thresholds without manual DB patches. Its performance matters only when run in bulk — acceptable to be slow.
+### Anti-pattern 5: Building Phase D before Phase 0 ships
+- **What people do:** Mock the history response in the frontend and build the chart against fake data.
+- **Why wrong:** Wastes effort if backend's actual response shape diverges (likely — backend may decide to chunk or paginate; date format may differ; the seeded-baseline-vs-real-game-date semantics matter for the x-axis). The repository code (`get_baseline_elo_before`) hints baseline-before-date is the source of truth — frontend must consume the *real* shape.
+- **Do this instead:** Block Phase D.2 on Phase 0. Phases A, B, C, D.1 can proceed in parallel.
 
 ## Sources
 
-- Codebase inspection: `backend/services/game_service.py`, `routes/games_routes.py`, `services/record_calculators/`, `routes/players_routes.py`, `services/player_profile_service.py`, `db/models.py`
-- Frontend inspection: `pages/PlayerProfile/PlayerProfile.tsx`, `pages/GameDetail/GameDetail.tsx`, `types/index.ts`
-- Project context: `.planning/PROJECT.md` (architecture decisions, implementation reference code)
-- Pattern: mirrors existing `RecordCalculator` / `ALL_CALCULATORS` structure at `services/record_calculators/`
+- Live codebase read: `/Users/facu/Desarrollos/Personales/tm-scorekeeper/frontend/src/{api,hooks,types,pages,components}` (see file contents inspected this session).
+- Backend ELO contract: `backend/schemas/elo.py`, `backend/schemas/player.py`, `backend/routes/games_routes.py`, `backend/routes/players_routes.py`, `backend/services/elo_service.py`, `backend/repositories/elo_repository.py`.
+- PROJECT.md milestone goals: `.planning/PROJECT.md` (v1.1 "Visualización de ELO en Frontend").
+- Existing retry pattern reference: `useGames.fetchAchievements` in `frontend/src/hooks/useGames.ts:83-96` (D-09 single retry, D-10 silent failure).
 
 ---
-*Architecture research for: achievements system integration into tm-scorekeeper*
-*Researched: 2026-03-23*
+*Architecture research for: ELO frontend visualization on existing React 18 + TS app*
+*Researched: 2026-04-27*

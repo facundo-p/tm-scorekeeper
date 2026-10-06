@@ -1,0 +1,36 @@
+# Perfil (F33).
+- id: profile-facu-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-facu' }
+  cand: { path: /jugadores/p-facu }
+  gateFromPhase: 33
+- id: profile-juli-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-juli' }
+  cand: { path: /jugadores/p-juli }
+  gateFromPhase: 33
+- id: profile-pato-summary
+  screen: perfil
+  ref: { hash: '#jugador-p-pato' }
+  cand: { path: /jugadores/p-pato }
+  gateFromPhase: 33
+- id: profile-facu-games
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=partidas' }
+  cand: { path: /jugadores/p-facu, search: '?tab=partidas' }
+  gateFromPhase: 33
+- id: profile-facu-records
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=records' }
+  cand: { path: /jugadores/p-facu, search: '?tab=records' }
+  gateFromPhase: 33
+- id: profile-facu-achievements
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?tab=logros' }
+  cand: { path: /jugadores/p-facu, search: '?tab=logros' }
+  gateFromPhase: 33
+- id: profile-facu-mesa3
+  screen: perfil
+  ref: { hash: '#jugador-p-facu?mesa=3' }
+  cand: { path: /jugadores/p-facu, search: '?mesa=3' }
+  gateFromPhase: 33

@@ -1,0 +1,415 @@
+/* Ceremonia (F31): port de docs/redesign/mockup/css/screens.css § Ceremony (D-44). */
+.cer {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(244, 196, 58, .07), transparent 70%);
+}
+
+.cer__planet {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: 170cqi;
+  translate: -50% 72%;
+  pointer-events: none;
+}
+
+.cer__slot {
+  width: 100%;
+}
+
+.cer__confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.cer__head {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: calc(var(--s4) + env(safe-area-inset-top, 0px)) calc(var(--gutter) + 52px) var(--s3) var(--gutter);
+}
+
+.cer__map {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-right: auto;
+}
+
+.cer__map small {
+  font-weight: 450;
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}
+
+.cer__main {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--s5);
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: var(--s3) var(--gutter) calc(var(--s8) * 2);
+}
+
+.cer__status {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cer__cat {
+  display: grid;
+  place-items: center;
+  min-height: 64px;
+  animation: cat-in .5s var(--ease-out) both;
+}
+
+@keyframes cat-in {
+  from { opacity: 0; transform: translateY(10px) scale(.96); }
+}
+
+.cer__title {
+  font-family: var(--display);
+  font-size: var(--t-hero);
+}
+
+.cer__catchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: color-mix(in oklab, var(--cat), transparent 75%);
+  box-shadow: inset 0 0 0 1px var(--cat), 0 0 40px color-mix(in oklab, var(--cat), transparent 70%);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.tally {
+  position: relative;
+  height: calc(var(--rows) * 62px);
+}
+
+.tally__row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 54px;
+  display: grid;
+  grid-template-columns: 28px minmax(96px, 150px) 1fr 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  transform: translateY(var(--y));
+  transition: transform .7s var(--ease-spring);
+  background: linear-gradient(90deg, rgba(39, 29, 34, .92), rgba(23, 17, 23, .85));
+  box-shadow: inset 0 0 0 1px var(--edge);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.tally__row.is-win {
+  background: linear-gradient(90deg, rgba(90, 64, 14, .95), rgba(40, 28, 14, .9));
+  box-shadow: inset 0 0 0 1px var(--mc);
+}
+
+.tally__rank {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.tally__row.is-win .tally__rank {
+  color: var(--mc);
+}
+
+.tally__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tally__who b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tally__bar {
+  display: flex;
+  gap: 2px;
+  height: 16px;
+}
+
+.tally__bar i {
+  width: calc(var(--w) * 1%);
+  background: var(--cat);
+  animation: seg-grow .6s var(--ease-out) backwards;
+  transform-origin: left;
+}
+
+.tally__bar i:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+@keyframes seg-grow {
+  from { transform: scaleX(0); }
+}
+
+.tally__total {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tally__row.is-win .tally__total {
+  color: var(--mc);
+}
+
+.tally__plus {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  translate: 0 -50%;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--up);
+  animation: plus-up .9s var(--ease-out) forwards;
+}
+
+@keyframes plus-up {
+  from { opacity: 0; transform: translateY(8px); }
+  30% { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(-14px); }
+}
+
+.cer-win {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+  animation: win-in .9s var(--ease-spring) both;
+}
+
+@keyframes win-in {
+  from { opacity: 0; transform: scale(.85); filter: blur(6px); }
+}
+
+.cer-win__kicker {
+  color: var(--mc);
+  font-weight: 700;
+  font-size: var(--t-small);
+}
+
+.cer-win__row {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.cer-win__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: var(--t-mega);
+  line-height: .95;
+  text-shadow: 0 0 40px rgba(244, 196, 58, .35);
+}
+
+.cer-win__sub {
+  color: var(--ink-2);
+}
+
+.cer__after {
+  display: grid;
+  gap: var(--s4);
+}
+
+.cer-block {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s4);
+  background: linear-gradient(180deg, rgba(39, 29, 34, .9), rgba(23, 17, 23, .9));
+  box-shadow: inset 0 0 0 1px var(--edge);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  animation: plate-in var(--d-4) var(--ease-out) backwards;
+}
+
+.cer-block__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-h3);
+}
+
+.cer-elo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 8px 18px;
+}
+
+.cer-elo li {
+  display: grid;
+  grid-template-columns: 16px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.cer-elo b {
+  font-family: var(--display);
+  font-size: 1.2rem;
+}
+
+.cer-recs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.cer-rec {
+  display: grid;
+  gap: 4px;
+  padding: 0 14px 12px;
+  background: rgba(10, 7, 10, .5);
+  box-shadow: inset 0 0 0 1px rgba(61, 133, 194, .5);
+  animation: rec-flip .8s var(--ease-spring) backwards;
+  animation-delay: calc(var(--i) * 220ms);
+  transform-origin: top;
+}
+
+@keyframes rec-flip {
+  from { transform: perspective(600px) rotateX(-80deg); opacity: 0; }
+}
+
+.cer-rec__band {
+  margin: 0 -14px 6px;
+  padding: 6px 14px;
+  background: linear-gradient(180deg, var(--frame-blue), color-mix(in oklab, var(--frame-blue), black 35%));
+  color: #fff;
+  font-size: var(--t-micro);
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.cer-rec__val {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--mc);
+}
+
+.cer-rec__val small {
+  font-family: var(--font);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  color: var(--ink-3);
+}
+
+.cer-ach {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4) var(--s6);
+}
+
+.cer-ach li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: medal-drop .8s var(--ease-spring) backwards;
+  animation-delay: calc(var(--i) * 200ms);
+}
+
+@keyframes medal-drop {
+  from { transform: translateY(-24px) scale(.6); opacity: 0; }
+}
+
+.cer-ach span {
+  display: grid;
+}
+
+.cer-ach small {
+  color: var(--ink-2);
+}
+
+.cer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s3);
+  animation: plate-in var(--d-4) var(--ease-out) backwards;
+}
+
+@container app (min-width: 760px) {
+  .cer__head {
+    padding-right: var(--gutter);
+  }
+
+  .cer__planet {
+    width: 120cqi;
+    translate: -50% 76%;
+  }
+
+  .tally__row {
+    grid-template-columns: 32px minmax(160px, 220px) 1fr 64px;
+  }
+}
+
+@keyframes plate-in {
+  from {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: none;
+  }
+}
+
+/* Con reduced-motion la ceremonia abre en el final: sin animaciones de entrada (D-86). Con 1 ms
+   (base.css) quedaban en su primer cuadro si el compositor no llegaba a arrancarlas (Chromium sin
+   GPU y con carga): el ganador, las barras y los bloques no se veían. Su estado base es el final. */
+@media (prefers-reduced-motion: reduce) {
+  .cer__cat,
+  .tally__bar i,
+  .cer-win,
+  .cer-block,
+  .cer-rec,
+  .cer-ach li,
+  .cer__actions {
+    animation: none;
+  }
+}

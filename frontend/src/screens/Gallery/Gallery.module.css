@@ -1,0 +1,7 @@
+/* Port de docs/redesign/mockup/css/screens.css (galería, gancho de comparación). */
+.gallery__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}

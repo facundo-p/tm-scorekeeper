@@ -3,6 +3,8 @@ phase: 01-backend-core
 plan: 01
 subsystem: backend/persistence
 tags: [achievements, orm, repository, migration, tdd]
+requirements: [PERS-01, PERS-02, PERS-03, PERS-04]
+requirements-completed: [PERS-01, PERS-02, PERS-03, PERS-04]
 dependency_graph:
   requires: []
   provides: [PlayerAchievement ORM, AchievementRepository, domain models, Alembic migration]

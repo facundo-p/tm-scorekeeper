@@ -1,0 +1,326 @@
+/* Partidas (F29): port de docs/redesign/mockup/css/screens.css § Games archive (D-44).
+   Filtros, chips y acciones de hoja viven en ui/filters y ui/sheet. */
+.games-tools {
+  display: grid;
+  gap: var(--s4);
+}
+
+.games-filters {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+.activef {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  margin-top: calc(var(--s4) * -1);
+}
+
+.activity {
+  display: grid;
+  gap: 8px;
+}
+
+.activity__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+.activity__strip {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  gap: 2px;
+  max-width: 900px;
+}
+
+.activity__wk {
+  aspect-ratio: 1 / 1.12;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: var(--hull-2);
+  animation: plate-in .5s var(--ease-out) backwards;
+  animation-delay: calc(var(--i) * 12ms + 200ms);
+}
+
+.activity__wk.is-1 {
+  background: var(--mars);
+}
+
+.activity__wk.is-2 {
+  background: var(--mc);
+}
+
+.month {
+  display: grid;
+  gap: var(--s3);
+}
+
+.month__title {
+  position: sticky;
+  top: var(--top-h);
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 10px var(--gutter) 8px;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, rgba(15, 11, 16, .92) 55%, rgba(15, 11, 16, 0));
+}
+
+.month__title span {
+  text-transform: capitalize;
+}
+
+.month__title small {
+  margin-left: 6px;
+  font-family: var(--font);
+  font-size: var(--t-small);
+  font-weight: 450;
+  color: var(--ink-3);
+}
+
+.mlist {
+  display: grid;
+  gap: 8px;
+}
+
+.mrow {
+  --cut: 10px;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "date map win"
+    "track track track";
+  align-items: center;
+  gap: 10px 12px;
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--ink);
+  transition: transform var(--d-2) var(--ease-out);
+}
+
+.mrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  background:
+    radial-gradient(360px circle at var(--mx, -999px) var(--my, -999px), rgba(255, 214, 160, .07), transparent 60%),
+    linear-gradient(180deg, rgba(39, 29, 34, .9), rgba(23, 17, 23, .92));
+  box-shadow: inset 0 0 0 1px var(--edge), inset 0 1px 0 rgba(255, 230, 200, .06);
+  transition: box-shadow var(--d-2);
+}
+
+.mrow:hover::before {
+  box-shadow: inset 0 0 0 1px var(--edge-2), inset 0 1px 0 rgba(255, 230, 200, .1);
+}
+
+.mrow:hover {
+  transform: translateX(3px);
+}
+
+.mrow__date {
+  grid-area: date;
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.mrow__date b {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.mrow__date span {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  margin-top: 3px;
+}
+
+.mrow__map {
+  grid-area: map;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mrow__mapname {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mrow__meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.mrow__meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mrow__track {
+  grid-area: track;
+  min-width: 0;
+  padding: 0 4px;
+}
+
+.mrow__win {
+  grid-area: win;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mrow__corp {
+  display: none;
+}
+
+.mrow__winner {
+  display: none;
+}
+
+.mrow__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-2);
+  font-size: var(--t-micro);
+  font-weight: 600;
+}
+
+.mrow__winner span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 650;
+}
+
+.mrow__winner small {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+}
+
+.mrow__pts {
+  display: grid;
+  justify-items: end;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mc);
+}
+
+.mrow__pts small {
+  font-family: var(--font);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  color: var(--ink-3);
+  margin-top: 3px;
+}
+
+.mrow__go {
+  display: none;
+  color: var(--ink-3);
+}
+
+@container app (min-width: 760px) {
+  .games-filters {
+    display: block;
+  }
+
+  .games-head__btns {
+    display: none;
+  }
+
+  .mrow__winner {
+    display: grid;
+    min-width: 0;
+  }
+
+  .mrow__who {
+    display: none;
+  }
+}
+
+@container app (min-width: 1080px) {
+  .mrow {
+    grid-template-columns: 56px minmax(170px, 230px) minmax(0, 1fr) minmax(220px, 260px) 20px;
+    grid-template-areas: "date map track win go";
+    padding: 12px 18px;
+  }
+
+  .mrow__corp {
+    display: contents;
+  }
+
+  .mrow__win {
+    justify-content: flex-start;
+  }
+
+  .mrow__pts {
+    margin-left: auto;
+  }
+
+  .mrow__go {
+    display: block;
+  }
+}
+
+@keyframes plate-in {
+  from {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: none;
+  }
+}
+
+/* Orden del archivo (#65) */
+.games-sort-row {
+  margin-top: var(--s3);
+}
+
+.games-sort__dir {
+  margin-left: 4px;
+  font-size: .75em;
+}

@@ -37,11 +37,12 @@ metrics:
   tasks_completed: 3
   files_created: 13
 requirements: [CORE-01, CORE-02, CORE-03, CORE-04, CORE-05, CORE-06, CORE-07, CORE-08]
+requirements-completed: [CORE-01, CORE-02, CORE-03, CORE-04, CORE-05, CORE-06, CORE-07, CORE-08]
 ---
 
 # Phase 01 Plan 02: Achievement Evaluators Summary
 
-Pure domain logic layer for the achievements system — AchievementEvaluator ABC, 2 generic evaluators, 2 custom evaluators, 5 achievement definitions, and the ALL_EVALUATORS registry.
+Pure domain logic layer for the achievements system — AchievementEvaluator ABC, 2 generic evaluators, 2 custom evaluators, 12 achievement definitions, and the ALL_EVALUATORS registry.
 
 ## What Was Built
 

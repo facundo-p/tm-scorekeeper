@@ -17,11 +17,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.backend
+    # Todo el repo: los tests leen fixtures/ (golden) y frontend/src/constants (espejo de reglas).
     volumes:
-      - ./backend:/app
+      - ./:/repo:ro
+    working_dir: /repo/backend
     environment:
       DATABASE_URL: postgresql://tm_user:tm_pass@db_test:5432/tm_scorekeeper_test
+      PYTHONDONTWRITEBYTECODE: "1"
     depends_on:
       db_test:
         condition: service_healthy
-    entrypoint: ["sh", "-c", "alembic upgrade head && python -m pytest tests -q"]
+    entrypoint: ["sh", "-c", "alembic upgrade head && python -m pytest tests -q -p no:cacheprovider"]

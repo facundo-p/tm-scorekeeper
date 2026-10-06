@@ -209,5 +209,12 @@ __marimo__/
 # Frontend
 frontend/node_modules/
 frontend/dist/
+frontend/dist-parity/
 frontend/.vite/
 frontend/.vite/deps/_metadata.json
+
+# v2.0 — entorno del agente y salidas de herramientas
+.env.agent
+tools/parity/out/
+tools/parity/node_modules/
+!tools/parity/lib/

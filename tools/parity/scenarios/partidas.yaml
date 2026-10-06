@@ -1,0 +1,90 @@
+# Partidas e informe (F29).
+- id: games
+  screen: partidas
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  gateFromPhase: 29
+- id: report-g063
+  screen: informe
+  ref: { hash: '#partida-g-063' }
+  cand: { path: /partidas/g-063 }
+  gateFromPhase: 29
+- id: games-sort-winner
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Ganador }
+  gateFromPhase: 29
+- id: games-sort-players
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Jugadores }
+    - click: { role: button, name: 'Ordenar por Jugadores, descendente' }
+  gateFromPhase: 29
+- id: games-sort-winner-mobile
+  screen: partidas
+  viewports: [mobile]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Filtros }
+      expect: { role: dialog }
+    - click: { role: button, name: Ordenar por Ganador }
+    - click: { role: button, name: Ver 63 partidas }
+  gateFromPhase: 29
+# Filtros y orden en escritorio (en el teléfono van en una hoja, como games-sort-winner-mobile).
+- id: games-filter-map
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Hellas, exact: true }
+  gateFromPhase: 35
+- id: games-sort-map
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas' }
+  cand: { path: /partidas }
+  actions:
+    - click: { role: button, name: Ordenar por Mapa }
+  gateFromPhase: 35
+# Ninguna partida de 2 jugadores en Terra Cimmeria: estado vacío con «Limpiar filtros».
+- id: games-empty
+  screen: partidas
+  viewports: [desktop]
+  ref: { hash: '#partidas?mesa=2' }
+  cand: { path: /partidas, search: '?mesa=2' }
+  actions:
+    - click: { role: button, name: Terra Cimmeria, exact: true }
+  gateFromPhase: 35
+- id: games-mesa3
+  screen: partidas
+  ref: { hash: '#partidas?mesa=3' }
+  cand: { path: /partidas, search: '?mesa=3' }
+  gateFromPhase: 29
+- id: report-turmoil
+  screen: informe
+  ref: { hash: '#partida-g-060' }
+  cand: { path: /partidas/g-060 }
+  gateFromPhase: 29
+- id: report-tie
+  # Empate en puntos decidido por M€ (la semilla no tiene empates totales).
+  screen: informe
+  ref: { hash: '#partida-g-016' }
+  cand: { path: /partidas/g-016 }
+  gateFromPhase: 29
+- id: report-delete
+  screen: informe
+  ref: { hash: '#partida-g-063' }
+  cand: { path: /partidas/g-063 }
+  actions:
+    - click: { role: button, name: Eliminar, exact: true }
+      expect: { role: dialog }
+  frames: 1
+  gateFromPhase: 29
