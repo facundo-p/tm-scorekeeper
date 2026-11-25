@@ -53,6 +53,7 @@ class GamesRepository:
                     corporation=Corporation(pr.corporation),
                     scores=scores,
                     end_stats=end_stats,
+                    color=pr.color,
                 )
             )
         awards: List[AwardResult] = []
@@ -106,6 +107,7 @@ class GamesRepository:
                 city_points=pr.scores.city_points,
                 turmoil_points=pr.scores.turmoil_points,
                 mc_total=pr.end_stats.mc_total,
+                color=pr.color,
             )
             orm.player_results.append(orm_pr)
 

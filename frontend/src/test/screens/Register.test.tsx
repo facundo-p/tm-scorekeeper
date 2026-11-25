@@ -79,6 +79,27 @@ describe('Registrar', () => {
     expect(sessionStorage.getItem(DRAFT_KEY)).toBeNull()
   })
 
+  it('each player can take the cube color used in this game; colors in use are blocked and the choice is saved', async () => {
+    await toTable()
+    const ana = screen.getByRole('radiogroup', { name: 'Color de Ana en esta partida' })
+    const beto = screen.getByRole('radiogroup', { name: 'Color de Beto en esta partida' })
+    const opt = (group: HTMLElement, name: string | RegExp) => [...group.querySelectorAll('[role="radio"]')].find((b) => (b.getAttribute('aria-label') ?? '').match(name))!
+    expect(opt(ana, /^rojo$/)).toHaveAttribute('aria-checked', 'true')  // por defecto, su color
+    expect(opt(ana, /^azul/)).toBeDisabled()
+    expect(opt(ana, /^azul/)).toHaveAccessibleName('azul (lo usa Beto)')
+    fireEvent.click(opt(ana, /^amarillo$/))
+    expect(opt(ana, /^amarillo$/)).toHaveAttribute('aria-checked', 'true')
+    fireEvent.click(opt(beto, /^rojo$/))  // el rojo quedó libre
+    expect(opt(ana, /^rojo/)).toBeDisabled()
+    pickCorp('Corporación de Ana', 'hel')
+    pickCorp('Corporación de Beto', 'eco')
+    walk([...SCORE_STEPS, 'Revisión'])
+    click('Guardar partida')
+    await waitFor(() => expect(calls.some((c) => c.init?.method === 'POST')).toBe(true))
+    const post = calls.find((c) => c.init?.method === 'POST')!
+    expect(JSON.parse(String(post.init!.body)).player_results.map((r: { color: string | null }) => r.color)).toEqual(['amarillo', 'rojo'])
+  })
+
   it('the corporation search offers every corporation, without groups, and blocks the one already taken', async () => {
     await toTable()
     const ana = screen.getByRole('combobox', { name: 'Corporación de Ana' })

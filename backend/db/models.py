@@ -17,7 +17,7 @@ from sqlalchemy import (
     text,
 )
 from sqlalchemy.orm import relationship, declarative_base
-from models.player_colors import PLAYER_COLORS
+from models.player_colors import GAME_COLORS, PLAYER_COLORS
 from models.enums import (
     MapName,
     Expansion,
@@ -82,6 +82,8 @@ class PlayerResult(Base):
     __tablename__ = "player_results"
     __table_args__ = (
         UniqueConstraint("game_id", "player_id", name="uq_player_result_game_player"),
+        CheckConstraint(f"color IS NULL OR color IN ({', '.join(repr(c) for c in GAME_COLORS)})",
+                        name="ck_player_results_color"),
     )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -99,6 +101,7 @@ class PlayerResult(Base):
     city_points = Column(Integer, nullable=False)
     turmoil_points = Column(Integer, nullable=True)
     mc_total = Column(Integer, nullable=False)
+    color = Column(String, nullable=True)  # color de cubo en la partida (D-88); NULL: el del jugador
 
     game = relationship("Game", back_populates="player_results")
     player = relationship("Player", back_populates="results")

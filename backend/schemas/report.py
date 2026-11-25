@@ -14,6 +14,7 @@ class ReportResultDTO(BaseModel):
     player_id: str
     player_name: str
     corporation: str
+    color: Optional[str] = None  # color de cubo en esta partida (D-88); None: el del jugador
     position: int
     tied: bool
     total_points: int
@@ -87,6 +88,7 @@ class SummaryScoreDTO(BaseModel):
     position: int
     total_points: int
     corporation: str
+    color: Optional[str] = None  # color de cubo en esta partida (D-88)
 
 
 class GameSummaryDTO(BaseModel):

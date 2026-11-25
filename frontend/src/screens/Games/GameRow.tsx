@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { summaryResults, type PlayerIndex } from '@/data/instruments'
+import { recolored, summaryResults, type PlayerIndex } from '@/data/instruments'
 import type { GameSummary } from '@/data/types'
 import { corpLabel, mapInfo } from '@/domain/catalog'
 import { PATHS } from '@/shell/paths'
@@ -24,8 +24,9 @@ function Winner({ g, players }: { g: GameSummary; players: PlayerIndex }) {
 }
 
 /** Una partida del archivo; agrupada por mes muestra el día de la semana, si no, mes y año. */
-export function GameRow({ g, players, flat }: { g: GameSummary; players: PlayerIndex; flat?: boolean }) {
+export function GameRow({ g, players: base, flat }: { g: GameSummary; players: PlayerIndex; flat?: boolean }) {
   const navigate = useNavigate()
+  const players = recolored(base, g.scores)  // el color de cubo de esta partida (D-88)
   const d = new Date(`${g.date}T12:00:00`)
   const w = g.scores[0]
   if (!w) return null  // una partida siempre tiene resultados; por las dudas no rompe la lista

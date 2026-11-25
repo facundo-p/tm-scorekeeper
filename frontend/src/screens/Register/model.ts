@@ -48,7 +48,14 @@ export const MAX_PLAYERS = 5
 export const MAX_MILESTONES = 3
 export const MAX_AWARDS = 3
 
-export interface WizardPlayer { id: string; corp: string; mc: number; scores: Record<InputCat, number> }
+export interface WizardPlayer {
+  id: string
+  corp: string
+  mc: number
+  scores: Record<InputCat, number>
+  /** Color de cubo elegido para esta partida (D-88); sin él, el del jugador. */
+  color?: string
+}
 export interface WizardAward { name: string; opened_by: string; first: string[]; second: string[] }
 
 export interface WizardState {

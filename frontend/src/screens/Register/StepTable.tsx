@@ -4,6 +4,7 @@ import { Cube } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
 import { CorpPicker } from './CorpPicker'
+import { CubePicker } from './CubePicker'
 import { MAX_PLAYERS } from './model'
 import type { StepProps } from './types'
 import styles from './Register.module.css'
@@ -27,15 +28,17 @@ function WhoTiles({ s, d, active }: Pick<StepProps, 's' | 'd'> & { active: Playe
   )
 }
 
-/** Corporaciones ya elegidas por los demás, con el nombre de quien la eligió. */
-function takenBy(s: StepProps['s'], id: string, players: StepProps['players']) {
-  return Object.fromEntries(s.players.filter((x) => x.id !== id && x.corp).map((x) => [x.corp, players.get(x.id)?.name ?? x.id]))
+/** Lo que ya eligieron los demás (corporación o color), con el nombre de quien lo eligió. */
+function takenBy(s: StepProps['s'], id: string, players: StepProps['players'], pick: (id: string) => string | undefined) {
+  return Object.fromEntries(s.players.filter((x) => x.id !== id && pick(x.id)).map((x) => [pick(x.id), players.get(x.id)?.name ?? x.id]))
 }
 
 function CorpRows({ s, d, errors, players }: StepProps) {
+  const corpOf = (id: string) => s.players.find((x) => x.id === id)?.corp
+  const colorOf = (id: string) => players.get(id)?.color  // `players` ya trae el color de esta partida
   return (
     <fieldset className={styles.wfield}>
-      <legend className={styles.wfield__label}>Corporaciones <span className="faint">escribí para buscar entre todas</span></legend>
+      <legend className={styles.wfield__label}>Corporaciones y colores <span className="faint">escribí para buscar entre todas; tocá el cubo que usó cada uno</span></legend>
       <ul className={styles.corprows}>
         {s.players.map((p) => {
           const who = players.get(p.id)
@@ -43,8 +46,12 @@ function CorpRows({ s, d, errors, players }: StepProps) {
             <li key={p.id} className={styles.corprow}>
               <span className={styles.corprow__who}><Cube color={who?.color} size={20} /><b>{who?.name}</b></span>
               <label className="vh" htmlFor={`corp-${p.id}`}>Corporación de {who?.name}</label>
-              <CorpPicker id={`corp-${p.id}`} value={p.corp} takenBy={takenBy(s, p.id, players)} bad={errors.some((e) => e.field === `corp-${p.id}`)}
-                onPick={(corp) => d({ type: 'player', id: p.id, patch: { corp } })} />
+              <div className={styles.corprow__picks}>
+                <CorpPicker id={`corp-${p.id}`} value={p.corp} takenBy={takenBy(s, p.id, players, corpOf)} bad={errors.some((e) => e.field === `corp-${p.id}`)}
+                  onPick={(corp) => d({ type: 'player', id: p.id, patch: { corp } })} />
+                <CubePicker name={who?.name ?? p.id} value={who?.color} takenBy={takenBy(s, p.id, players, colorOf)}
+                  onPick={(color) => d({ type: 'player', id: p.id, patch: { color } })} />
+              </div>
             </li>
           )
         })}

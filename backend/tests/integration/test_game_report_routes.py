@@ -97,3 +97,19 @@ def test_shared_records_list_every_holder(client, players):
 def test_an_empty_subset_has_no_summaries(client, players):
     _post_game(client, _game_payload("g1", "2026-01-01", [_pr("p1", 50), _pr("p2", 30)]))
     assert client.get("/games/summaries?map=Tharsis").json() == []
+
+
+def test_cube_color_of_a_game_is_stored_and_reported(client, players):
+    payload = _game_payload("g1", "2026-01-01", [{**_pr("p1", 50), "color": "negro"}, _pr("p2", 30)])
+    report = client.post("/games/", json=payload).json()["report"]
+    assert {r["player_id"]: r["color"] for r in report["results"]} == {"p1": "negro", "p2": None}
+    (game,) = client.get("/games/").json()
+    assert {r["player_id"]: r.get("color") for r in game["player_results"]} == {"p1": "negro", "p2": None}
+    summary = client.get("/games/summaries").json()[0]
+    assert {s["player_id"]: s["color"] for s in summary["scores"]} == {"p1": "negro", "p2": None}
+
+
+@pytest.mark.parametrize("colors", [("rosa", None), ("rojo", "rojo")])
+def test_cube_color_must_be_a_game_color_and_unique_in_the_game(client, players, colors):
+    results = [{**_pr(pid, pts), "color": c} for pid, pts, c in (("p1", 50, colors[0]), ("p2", 30, colors[1]))]
+    assert client.post("/games/", json=_game_payload("g1", "2026-01-01", results)).status_code in (400, 422)

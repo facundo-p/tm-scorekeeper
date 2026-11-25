@@ -75,6 +75,7 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
   - `GET /records` deja `emoji` y `record`; los logros dejan `icon` y `fallback_icon` (queda `glyph`).
   - Se borra el motor de récords v1 (`services/record_calculators/`).
 - Ajustes de temporada y ayuda (noviembre 2026): las temporadas suman `games_left` (partidas estimadas para cerrar, con los tres parámetros) y `pct` deja de redondear los parámetros; el oxígeno sube 1 % cada 35 puntos de vegetación (antes 52, recalcula todas las temporadas). El informe (`achievements_by_player`, `near`) y la bitácora (`GET /feed`) suman `description` de cada logro y récord.
+- Color de cubo por partida (D-88): `player_results` acepta `color` (negro, verde, azul, rojo o amarillo; único en la partida; sin él, el del jugador). Lo devuelven `GET /games/`, los `results` del informe y los `scores` de `GET /games/summaries`. **Migración** `c5d6e7f8a9b0` (columna nullable, no toca datos).
 
 ## Estadísticas y récords (v2.0)
 

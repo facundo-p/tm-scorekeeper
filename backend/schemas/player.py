@@ -1,7 +1,7 @@
 from datetime import date
 from typing import Optional
 
-from models.player_colors import PlayerColor
+from models.player_colors import GameColor, PlayerColor
 from pydantic import BaseModel, Field
 from models.enums import Milestone, Corporation
 
@@ -28,6 +28,7 @@ class PlayerResultDTO(BaseModel):
     corporation: Corporation
     scores: PlayerScoreDTO
     end_stats: PlayerEndStatsDTO
+    color: Optional[GameColor] = None  # color de cubo en esta partida (D-88); sin él, el del jugador
 
 class PlayerCreateDTO(BaseModel):
     name: str = Field(min_length=1)

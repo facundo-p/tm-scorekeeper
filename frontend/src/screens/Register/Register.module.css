@@ -307,6 +307,47 @@
   white-space: nowrap;
 }
 
+.corprow__picks {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Color de cubo en la partida (D-88) */
+.cubepick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cubepick__opt {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--edge);
+  border-radius: 6px;
+  background: var(--hull-1);
+  cursor: pointer;
+}
+
+.cubepick__opt.is-on {
+  border-color: var(--ink);
+  background: var(--hull-3);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
+.cubepick__opt:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.cubepick__opt:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 /* Buscador de corporación (combobox) */
 .corppick {
   position: relative;

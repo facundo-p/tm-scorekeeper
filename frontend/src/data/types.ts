@@ -65,6 +65,8 @@ export interface ReportResult {
   player_id: string
   player_name: string
   corporation: string
+  /** Color de cubo en esta partida (D-88); null: el del jugador. */
+  color?: string | null
   position: number
   tied: boolean
   total_points: number
@@ -278,7 +280,7 @@ export interface GameSummary {
   winners: string[]
   margin: number
   decided_by_mc: boolean
-  scores: { player_id: string; position: number; total_points: number; corporation: string }[]
+  scores: { player_id: string; position: number; total_points: number; corporation: string; color?: string | null }[]
 }
 
 export interface Seasons {

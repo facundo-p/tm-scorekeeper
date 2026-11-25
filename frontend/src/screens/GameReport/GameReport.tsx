@@ -1,7 +1,7 @@
 // Informe de partida (F29, SCR-04): port de docs/redesign/mockup/js/screens/game.js con datos de la API.
 import { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { bySignup, eloShift, playerIndex, type PlayerIndex } from '@/data/instruments'
+import { bySignup, eloShift, playerIndex, recolored, type PlayerIndex } from '@/data/instruments'
 import { useGameReport, usePlayersList } from '@/data/hooks'
 import type { GameReport as Report } from '@/data/types'
 import { PATHS } from '@/shell/paths'
@@ -60,7 +60,8 @@ export default function GameReport() {
   const { gameId = '' } = useParams()
   const r = useGameReport(gameId)
   const p = usePlayersList()
-  const players = useMemo(() => playerIndex(p.players ?? []), [p.players])
+  const report = r.report
+  const players = useMemo(() => recolored(playerIndex(p.players ?? []), report?.results ?? []), [p.players, report])
   const order = useMemo(() => bySignup(p.players ?? []).map((x) => x.player_id), [p.players])
   if (r.error && 'status' in r.error && r.error.status === 404) return <EmptyState icon="search" title="Esta partida no está en el archivo" />
   if (r.error || p.error) return <ErrorState onRetry={() => { r.refetch(); p.refetch() }} />

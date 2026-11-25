@@ -4,7 +4,7 @@ import { derived, INPUT_CATS, type InputCat, type WizardState } from './model'
 
 /** Partida tal como la devuelve la API (`report.game`, GameDTO). */
 export type SavedGame = GameReport['game'] & {
-  player_results: { player_id: string; corporation: string; scores: Record<string, number | string[] | null>; end_stats: { mc_total: number } }[]
+  player_results: { player_id: string; corporation: string; color?: string | null; scores: Record<string, number | string[] | null>; end_stats: { mc_total: number } }[]
 }
 
 /** Una partida guardada como estado del asistente (ejemplo y modo edición). */
@@ -15,7 +15,7 @@ export function stateFromGame(g: SavedGame, extra: Partial<WizardState>): Wizard
     step: 0, example: false, editing: null,
     date: g.date, map: g.map, expansions: [...g.expansions], draft: g.draft, generations: g.generations,
     players: g.player_results.map((r) => ({
-      id: r.player_id, corp: r.corporation, mc: r.end_stats.mc_total,
+      id: r.player_id, corp: r.corporation, mc: r.end_stats.mc_total, color: r.color ?? undefined,
       scores: Object.fromEntries(INPUT_CATS.map((k) => [k, Number(r.scores[k] ?? 0)])) as Record<InputCat, number>,
     })),
     milestones,
@@ -32,7 +32,7 @@ export function toPayload(s: WizardState) {
     player_results: s.players.map((p) => {
       const sc = rows.find((r) => r.id === p.id)!.sc
       return {
-        player_id: p.id, corporation: p.corp, end_stats: { mc_total: p.mc },
+        player_id: p.id, corporation: p.corp, color: p.color ?? null, end_stats: { mc_total: p.mc },
         scores: {
           ...p.scores, turmoil_points: turmoil ? p.scores.turmoil_points : null,
           milestone_points: sc.milestone_points, award_points: sc.award_points,
