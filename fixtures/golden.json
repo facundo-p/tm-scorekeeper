@@ -568,7 +568,7 @@
    "2": {
     "total": {
      "category": "total",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -578,26 +578,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 94.44444444444444,
+       "games": 8,
+       "avg": 94.25,
        "best": 111
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 91.3125,
+       "games": 15,
+       "avg": 90.93333333333334,
        "best": 120
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 88.83333333333333,
+       "games": 11,
+       "avg": 88.63636363636364,
        "best": 108
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 81.5,
+       "games": 11,
+       "avg": 82.18181818181819,
        "best": 106
       },
       {
@@ -629,7 +629,7 @@
     },
     "terraform_rating": {
      "category": "terraform_rating",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -639,8 +639,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 37.55555555555556,
+       "games": 8,
+       "avg": 37.25,
        "best": 43
       },
       {
@@ -651,20 +651,20 @@
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 35.833333333333336,
+       "games": 11,
+       "avg": 35.72727272727273,
        "best": 43
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 35.6875,
+       "games": 15,
+       "avg": 35.666666666666664,
        "best": 53
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 35.5,
+       "games": 11,
+       "avg": 35.45454545454545,
        "best": 47
       },
       {
@@ -690,7 +690,7 @@
     },
     "award_points": {
      "category": "award_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -706,26 +706,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 6.222222222222222,
+       "games": 8,
+       "avg": 5.75,
        "best": 15
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 4.4375,
+       "games": 15,
+       "avg": 4.6,
        "best": 10
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.363636363636363,
        "best": 12
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 3.5833333333333335,
+       "games": 11,
+       "avg": 3.909090909090909,
        "best": 15
       },
       {
@@ -751,7 +751,7 @@
     },
     "milestone_points": {
      "category": "milestone_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -773,8 +773,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.090909090909091,
        "best": 10
       },
       {
@@ -784,21 +784,21 @@
        "best": 5
       },
       {
-       "player_id": "p-facu",
-       "games": 16,
+       "player_id": "p-juli",
+       "games": 8,
        "avg": 3.125,
        "best": 10
       },
       {
-       "player_id": "p-juli",
-       "games": 9,
-       "avg": 2.7777777777777777,
+       "player_id": "p-facu",
+       "games": 15,
+       "avg": 3,
        "best": 10
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 1.6666666666666667,
+       "games": 11,
+       "avg": 1.8181818181818181,
        "best": 5
       },
       {
@@ -812,12 +812,12 @@
     },
     "card_resource_points": {
      "category": "card_resource_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 7.833333333333333,
+       "games": 11,
+       "avg": 7.909090909090909,
        "best": 12
       },
       {
@@ -828,8 +828,8 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 5.625,
+       "games": 15,
+       "avg": 5.466666666666667,
        "best": 10
       },
       {
@@ -840,14 +840,14 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 4.333333333333333,
+       "games": 8,
+       "avg": 4.625,
        "best": 9
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.2727272727272725,
        "best": 8
       },
       {
@@ -873,25 +873,25 @@
     },
     "card_points": {
      "category": "card_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 25,
+       "games": 15,
+       "avg": 24.8,
        "best": 35
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 23.22222222222222,
+       "games": 8,
+       "avg": 23.75,
        "best": 28
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 23,
-       "best": 28
+       "games": 11,
+       "avg": 22.545454545454547,
+       "best": 27
       },
       {
        "player_id": "p-caro",
@@ -913,8 +913,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 18.333333333333332,
+       "games": 11,
+       "avg": 18.636363636363637,
        "best": 29
       },
       {
@@ -934,12 +934,12 @@
     },
     "greenery_points": {
      "category": "greenery_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 11.11111111111111,
+       "games": 8,
+       "avg": 10.875,
        "best": 14
       },
       {
@@ -950,14 +950,14 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 8.8125,
+       "games": 15,
+       "avg": 9,
        "best": 13
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 7.75,
+       "games": 11,
+       "avg": 7.818181818181818,
        "best": 13
       },
       {
@@ -974,9 +974,9 @@
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 7.5,
-       "best": 12
+       "games": 11,
+       "avg": 7.090909090909091,
+       "best": 11
       },
       {
        "player_id": "p-lu",
@@ -995,18 +995,18 @@
     },
     "city_points": {
      "category": "city_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 8.75,
+       "games": 11,
+       "avg": 9,
        "best": 13
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 7.888888888888889,
+       "games": 8,
+       "avg": 7.75,
        "best": 12
       },
       {
@@ -1017,9 +1017,15 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 7.5,
+       "games": 15,
+       "avg": 7.466666666666667,
        "best": 12
+      },
+      {
+       "player_id": "p-meli",
+       "games": 11,
+       "avg": 6.454545454545454,
+       "best": 10
       },
       {
        "player_id": "p-tomi",
@@ -1032,12 +1038,6 @@
        "games": 7,
        "avg": 6,
        "best": 8
-      },
-      {
-       "player_id": "p-meli",
-       "games": 12,
-       "avg": 5.916666666666667,
-       "best": 10
       },
       {
        "player_id": "p-gonza",
@@ -1056,7 +1056,7 @@
     },
     "turmoil_points": {
      "category": "turmoil_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -1066,20 +1066,20 @@
       },
       {
        "player_id": "p-meli",
-       "games": 4,
-       "avg": 3.5,
+       "games": 3,
+       "avg": 3.3333333333333335,
        "best": 5
       },
       {
-       "player_id": "p-facu",
-       "games": 6,
+       "player_id": "p-juli",
+       "games": 3,
        "avg": 3,
        "best": 4
       },
       {
-       "player_id": "p-juli",
-       "games": 4,
-       "avg": 3,
+       "player_id": "p-facu",
+       "games": 5,
+       "avg": 2.8,
        "best": 4
       },
       {
@@ -1096,8 +1096,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 5,
-       "avg": 2.4,
+       "games": 4,
+       "avg": 2.25,
        "best": 4
       }
      ],
@@ -1122,18 +1122,18 @@
    "3": {
     "total": {
      "category": "total",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 95.11111111111111,
+       "games": 10,
+       "avg": 95.3,
        "best": 130
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 91.85714285714286,
+       "games": 8,
+       "avg": 91.75,
        "best": 102
       },
       {
@@ -1144,8 +1144,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 83.4,
+       "games": 6,
+       "avg": 85.5,
        "best": 106
       },
       {
@@ -1156,8 +1156,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 80.2,
+       "games": 6,
+       "avg": 79.16666666666667,
        "best": 107
       },
       {
@@ -1183,7 +1183,7 @@
     },
     "terraform_rating": {
      "category": "terraform_rating",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -1193,8 +1193,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 35.6,
+       "games": 6,
+       "avg": 36.333333333333336,
        "best": 44
       },
       {
@@ -1205,27 +1205,27 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 35.333333333333336,
+       "games": 10,
+       "avg": 35.4,
        "best": 44
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 34.833333333333336,
+       "best": 41
+      },
+      {
+       "player_id": "p-nico",
+       "games": 8,
+       "avg": 34.75,
+       "best": 39
       },
       {
        "player_id": "p-lu",
        "games": 4,
        "avg": 34.75,
        "best": 37
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 34.6,
-       "best": 41
-      },
-      {
-       "player_id": "p-nico",
-       "games": 7,
-       "avg": 34.42857142857143,
-       "best": 39
       },
       {
        "player_id": "p-tomi",
@@ -1244,12 +1244,12 @@
     },
     "award_points": {
      "category": "award_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 7.142857142857143,
+       "games": 8,
+       "avg": 6.5,
        "best": 15
       },
       {
@@ -1259,9 +1259,15 @@
        "best": 15
       },
       {
+       "player_id": "p-juli",
+       "games": 6,
+       "avg": 5.333333333333333,
+       "best": 10
+      },
+      {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 5,
+       "games": 10,
+       "avg": 4.7,
        "best": 10
       },
       {
@@ -1277,15 +1283,9 @@
        "best": 7
       },
       {
-       "player_id": "p-juli",
-       "games": 5,
-       "avg": 4.4,
-       "best": 9
-      },
-      {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 3.4,
+       "games": 6,
+       "avg": 2.8333333333333335,
        "best": 10
       },
       {
@@ -1305,7 +1305,7 @@
     },
     "milestone_points": {
      "category": "milestone_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-gonza",
@@ -1315,8 +1315,8 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 4.444444444444445,
+       "games": 10,
+       "avg": 4.5,
        "best": 15
       },
       {
@@ -1333,8 +1333,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 2.857142857142857,
+       "games": 8,
+       "avg": 3.125,
        "best": 5
       },
       {
@@ -1351,14 +1351,14 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 2,
+       "games": 6,
+       "avg": 1.6666666666666667,
        "best": 5
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 2,
+       "games": 6,
+       "avg": 1.6666666666666667,
        "best": 5
       }
      ],
@@ -1366,24 +1366,24 @@
     },
     "card_resource_points": {
      "category": "card_resource_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-meli",
-       "games": 5,
+       "games": 6,
        "avg": 7,
        "best": 10
       },
       {
-       "player_id": "p-nico",
-       "games": 7,
-       "avg": 5.571428571428571,
+       "player_id": "p-facu",
+       "games": 10,
+       "avg": 5.7,
        "best": 9
       },
       {
-       "player_id": "p-facu",
-       "games": 9,
-       "avg": 5.444444444444445,
+       "player_id": "p-nico",
+       "games": 8,
+       "avg": 5.25,
        "best": 9
       },
       {
@@ -1418,8 +1418,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 3.2,
+       "games": 6,
+       "avg": 3,
        "best": 5
       }
      ],
@@ -1427,31 +1427,25 @@
     },
     "card_points": {
      "category": "card_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
+       "games": 10,
        "avg": 28,
        "best": 35
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 21,
-       "best": 26
+       "games": 8,
+       "avg": 21.875,
+       "best": 28
       },
       {
        "player_id": "p-caro",
        "games": 9,
        "avg": 20.444444444444443,
        "best": 25
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 19.6,
-       "best": 22
       },
       {
        "player_id": "p-tomi",
@@ -1466,9 +1460,15 @@
        "best": 23
       },
       {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 18.833333333333332,
+       "best": 22
+      },
+      {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 18.4,
+       "games": 6,
+       "avg": 18.5,
        "best": 21
       },
       {
@@ -1488,25 +1488,31 @@
     },
     "greenery_points": {
      "category": "greenery_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 12.4,
+       "games": 6,
+       "avg": 12.5,
        "best": 23
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 8.857142857142858,
+       "games": 8,
+       "avg": 8.625,
        "best": 13
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 8.555555555555555,
+       "games": 10,
+       "avg": 8.3,
        "best": 11
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 7.833333333333333,
+       "best": 12
       },
       {
        "player_id": "p-caro",
@@ -1519,12 +1525,6 @@
        "games": 4,
        "avg": 7.25,
        "best": 8
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 7,
-       "best": 9
       },
       {
        "player_id": "p-gonza",
@@ -1549,12 +1549,12 @@
     },
     "city_points": {
      "category": "city_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 11.142857142857142,
+       "games": 8,
+       "avg": 10.5,
        "best": 21
       },
       {
@@ -1571,15 +1571,15 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 7.111111111111111,
+       "games": 10,
+       "avg": 7.2,
        "best": 12
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 6.8,
-       "best": 8
+       "games": 6,
+       "avg": 7.166666666666667,
+       "best": 9
       },
       {
        "player_id": "p-lu",
@@ -1588,16 +1588,16 @@
        "best": 10
       },
       {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 6.2,
-       "best": 10
-      },
-      {
        "player_id": "p-gonza",
        "games": 3,
        "avg": 6,
        "best": 7
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 5.166666666666667,
+       "best": 10
       },
       {
        "player_id": "p-tomi",
@@ -1610,13 +1610,19 @@
     },
     "turmoil_points": {
      "category": "turmoil_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 3,
-       "avg": 3.6666666666666665,
+       "games": 4,
+       "avg": 3.75,
        "best": 5
+      },
+      {
+       "player_id": "p-nico",
+       "games": 3,
+       "avg": 3,
+       "best": 4
       },
       {
        "player_id": "p-santi",
@@ -1634,7 +1640,7 @@
        "missing": 1
       },
       {
-       "player_id": "p-nico",
+       "player_id": "p-meli",
        "games": 2,
        "avg": 3,
        "best": 4,
@@ -1642,10 +1648,10 @@
       },
       {
        "player_id": "p-juli",
-       "games": 1,
+       "games": 2,
        "avg": 3,
        "best": 3,
-       "missing": 2
+       "missing": 1
       },
       {
        "player_id": "p-caro",
@@ -1653,13 +1659,6 @@
        "avg": 2.5,
        "best": 3,
        "missing": 1
-      },
-      {
-       "player_id": "p-meli",
-       "games": 1,
-       "avg": 2,
-       "best": 2,
-       "missing": 2
       },
       {
        "player_id": "p-tomi",
@@ -21259,6 +21258,7 @@
     "oxygenPct": 14,
     "oceanCount": 9,
     "pct": 1,
+    "games_left": null,
     "race": {
      "category": "total",
      "games": 24,
@@ -21351,20 +21351,20 @@
      "g-045",
      "g-046",
      "g-047",
-     "g-048",
-     "g-049"
+     "g-048"
     ],
     "temp": 19,
     "oxygen": 14,
     "oceans": 9,
-    "end": "2026-06-02",
+    "end": "2026-05-26",
     "temperature": 8,
     "oxygenPct": 14,
     "oceanCount": 9,
     "pct": 1,
+    "games_left": null,
     "race": {
      "category": "total",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -21374,26 +21374,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 94.44444444444444,
+       "games": 8,
+       "avg": 94.25,
        "best": 111
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 91.3125,
+       "games": 15,
+       "avg": 90.93333333333334,
        "best": 120
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 88.83333333333333,
+       "games": 11,
+       "avg": 88.63636363636364,
        "best": 108
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 81.5,
+       "games": 11,
+       "avg": 82.18181818181819,
        "best": 106
       },
       {
@@ -21427,8 +21427,9 @@
    },
    {
     "number": 3,
-    "start": "2026-06-16",
+    "start": "2026-06-02",
     "games": [
+     "g-049",
      "g-050",
      "g-051",
      "g-052",
@@ -21444,27 +21445,28 @@
      "g-062",
      "g-063"
     ],
-    "temp": 11.200000000000001,
-    "oxygen": 8.076923076923078,
-    "oceans": 5.25,
-    "temperature": -8,
-    "oxygenPct": 8,
+    "temp": 12.000000000000002,
+    "oxygen": 13.085714285714285,
+    "oceans": 5.625,
+    "temperature": -6,
+    "oxygenPct": 13,
     "oceanCount": 5,
-    "pct": 0.5686438318017265,
+    "pct": 0.7304242749731472,
+    "games_left": 9,
     "race": {
      "category": "total",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 95.11111111111111,
+       "games": 10,
+       "avg": 95.3,
        "best": 130
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 91.85714285714286,
+       "games": 8,
+       "avg": 91.75,
        "best": 102
       },
       {
@@ -21475,8 +21477,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 83.4,
+       "games": 6,
+       "avg": 85.5,
        "best": 106
       },
       {
@@ -21487,8 +21489,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 80.2,
+       "games": 6,
+       "avg": 79.16666666666667,
        "best": 107
       },
       {
@@ -21954,12 +21956,6 @@
    },
    {
     "date": "2026-06-02",
-    "type": "season",
-    "player_id": "p-caro",
-    "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
-   },
-   {
-    "date": "2026-06-02",
     "type": "achievement",
     "game_id": "g-049",
     "player_id": "p-facu",
@@ -21991,6 +21987,12 @@
     "game_id": "g-049",
     "player_id": "p-facu",
     "text": "Facu ganó en Utopia Planitia por 1 punto"
+   },
+   {
+    "date": "2026-05-26",
+    "type": "season",
+    "player_id": "p-caro",
+    "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
    },
    {
     "date": "2026-05-26",
@@ -30953,6 +30955,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -31045,20 +31048,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -31068,26 +31071,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -31121,8 +31124,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -31138,27 +31142,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -31169,8 +31174,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -31181,8 +31186,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -31211,7 +31216,7 @@
    ],
    "feed": [
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
@@ -40886,6 +40891,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -40978,20 +40984,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -41001,26 +41007,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -41054,8 +41060,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -41071,27 +41078,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -41102,8 +41110,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -41114,8 +41122,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -41302,7 +41310,7 @@
      "text": "Gonza ganó en Elysium por 8 puntos"
     },
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
@@ -43268,7 +43276,7 @@
     "2": {
      "total": {
       "category": "total",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43277,27 +43285,21 @@
         "best": 105
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 94.66666666666667,
-        "best": 98
-       },
-       {
-        "player_id": "p-facu",
-        "games": 6,
-        "avg": 89.5,
-        "best": 97
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 88.83333333333333,
+        "games": 5,
+        "avg": 88.4,
         "best": 108
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 5,
-        "avg": 80,
+        "avg": 88,
+        "best": 95
+       },
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 81.5,
         "best": 106
        },
        {
@@ -43308,6 +43310,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 94,
+        "best": 98,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43333,7 +43342,7 @@
      },
      "terraform_rating": {
       "category": "terraform_rating",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43342,27 +43351,21 @@
         "best": 40
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 35.666666666666664,
-        "best": 40
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 34.5,
+        "games": 5,
+        "avg": 34,
         "best": 40
        },
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 34,
+        "games": 5,
+        "avg": 33.6,
         "best": 36
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 34,
+        "games": 4,
+        "avg": 33.5,
         "best": 36
        },
        {
@@ -43378,6 +43381,13 @@
         "games": 2,
         "avg": 34.5,
         "best": 36,
+        "missing": 1
+       },
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 33.5,
+        "best": 35,
         "missing": 1
        },
        {
@@ -43398,14 +43408,8 @@
      },
      "award_points": {
       "category": "award_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 8,
-        "best": 12
-       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43414,20 +43418,20 @@
        },
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 4.5,
+        "games": 5,
+        "avg": 5,
         "best": 10
        },
        {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 3.8333333333333335,
+        "games": 5,
+        "avg": 4.2,
         "best": 12
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 2.4,
+        "games": 4,
+        "avg": 3,
         "best": 5
        },
        {
@@ -43438,6 +43442,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 7,
+        "best": 12,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43463,11 +43474,11 @@
      },
      "milestone_points": {
       "category": "milestone_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-nico",
-        "games": 6,
+        "games": 5,
         "avg": 5,
         "best": 10
        },
@@ -43484,22 +43495,16 @@
         "best": 5
        },
        {
-        "player_id": "p-facu",
-        "games": 6,
+        "player_id": "p-meli",
+        "games": 4,
         "avg": 2.5,
         "best": 5
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 5,
         "avg": 2,
         "best": 5
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 0,
-        "best": 0
        }
       ],
       "pending": [
@@ -43518,6 +43523,13 @@
         "missing": 2
        },
        {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 0,
+        "best": 0,
+        "missing": 1
+       },
+       {
         "player_id": "p-santi",
         "games": 1,
         "avg": 0,
@@ -43528,8 +43540,14 @@
      },
      "card_resource_points": {
       "category": "card_resource_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 8.5,
+        "best": 12
+       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43537,27 +43555,15 @@
         "best": 11
        },
        {
-        "player_id": "p-meli",
-        "games": 5,
-        "avg": 8.2,
-        "best": 12
-       },
-       {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 6.333333333333333,
+        "games": 5,
+        "avg": 6,
         "best": 8
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 4.333333333333333,
-        "best": 6
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 3.8333333333333335,
+        "games": 5,
+        "avg": 4,
         "best": 5
        },
        {
@@ -43574,6 +43580,13 @@
         "avg": 6,
         "best": 6,
         "missing": 2
+       },
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 5.5,
+        "best": 6,
+        "missing": 1
        },
        {
         "player_id": "p-lu",
@@ -43593,25 +43606,13 @@
      },
      "card_points": {
       "category": "card_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 25,
+        "games": 5,
+        "avg": 24.4,
         "best": 35
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 24.333333333333332,
-        "best": 28
-       },
-       {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 24,
-        "best": 28
        },
        {
         "player_id": "p-caro",
@@ -43620,9 +43621,15 @@
         "best": 27
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-nico",
         "games": 5,
-        "avg": 20.2,
+        "avg": 23.2,
+        "best": 27
+       },
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 21.5,
         "best": 29
        },
        {
@@ -43633,6 +43640,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 27,
+        "best": 28,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43658,13 +43672,13 @@
      },
      "greenery_points": {
       "category": "greenery_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 13.333333333333334,
-        "best": 14
+        "player_id": "p-facu",
+        "games": 5,
+        "avg": 9,
+        "best": 13
        },
        {
         "player_id": "p-gonza",
@@ -43673,31 +43687,32 @@
         "best": 12
        },
        {
-        "player_id": "p-facu",
-        "games": 6,
-        "avg": 8.5,
-        "best": 13
-       },
-       {
         "player_id": "p-caro",
         "games": 4,
         "avg": 8.5,
         "best": 12
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-nico",
         "games": 5,
         "avg": 8.2,
-        "best": 12
+        "best": 13
        },
        {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 8,
-        "best": 13
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 7.25,
+        "best": 11
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 13.5,
+        "best": 14,
+        "missing": 1
+       },
        {
         "player_id": "p-tomi",
         "games": 1,
@@ -43723,8 +43738,14 @@
      },
      "city_points": {
       "category": "city_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
+       {
+        "player_id": "p-nico",
+        "games": 5,
+        "avg": 8.8,
+        "best": 12
+       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43732,22 +43753,10 @@
         "best": 9
        },
        {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 8.333333333333334,
-        "best": 12
-       },
-       {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 7.5,
+        "games": 5,
+        "avg": 7.4,
         "best": 11
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 7,
-        "best": 9
        },
        {
         "player_id": "p-gonza",
@@ -43757,12 +43766,19 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 4.2,
+        "games": 4,
+        "avg": 5.25,
         "best": 8
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 6,
+        "best": 7,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43788,15 +43804,8 @@
      },
      "turmoil_points": {
       "category": "turmoil_points",
-      "games": 8,
-      "qualified": [
-       {
-        "player_id": "p-nico",
-        "games": 3,
-        "avg": 2.6666666666666665,
-        "best": 4
-       }
-      ],
+      "games": 7,
+      "qualified": [],
       "pending": [
        {
         "player_id": "p-caro",
@@ -43813,24 +43822,24 @@
         "missing": 2
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 1,
-        "avg": 4,
-        "best": 4,
+        "avg": 3,
+        "best": 3,
         "missing": 2
        },
        {
-        "player_id": "p-facu",
-        "games": 2,
-        "avg": 3.5,
-        "best": 4,
-        "missing": 1
-       },
-       {
         "player_id": "p-juli",
-        "games": 2,
+        "games": 1,
         "avg": 3,
         "best": 3,
+        "missing": 2
+       },
+       {
+        "player_id": "p-nico",
+        "games": 2,
+        "avg": 2.5,
+        "best": 4,
         "missing": 1
        },
        {
@@ -43846,12 +43855,12 @@
     "3": {
      "total": {
       "category": "total",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 94.8,
+        "games": 6,
+        "avg": 95.16666666666667,
         "best": 103
        },
        {
@@ -43868,14 +43877,14 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 88,
+        "games": 6,
+        "avg": 88.5,
         "best": 102
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 85,
+        "games": 4,
+        "avg": 87.75,
         "best": 106
        }
       ],
@@ -43896,10 +43905,10 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
-        "avg": 68,
-        "best": 68,
-        "missing": 2
+        "games": 2,
+        "avg": 71,
+        "best": 74,
+        "missing": 1
        },
        {
         "player_id": "p-gonza",
@@ -43912,7 +43921,7 @@
      },
      "terraform_rating": {
       "category": "terraform_rating",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43922,8 +43931,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 37.666666666666664,
+        "games": 4,
+        "avg": 38.25,
         "best": 44
        },
        {
@@ -43934,14 +43943,14 @@
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 36.2,
+        "games": 6,
+        "avg": 36.166666666666664,
         "best": 41
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 34,
+        "games": 6,
+        "avg": 34.5,
         "best": 39
        }
       ],
@@ -43954,18 +43963,18 @@
         "missing": 2
        },
        {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 34.5,
+        "best": 36,
+        "missing": 1
+       },
+       {
         "player_id": "p-tomi",
         "games": 2,
         "avg": 34.5,
         "best": 35,
         "missing": 1
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 33,
-        "best": 33,
-        "missing": 2
        },
        {
         "player_id": "p-gonza",
@@ -43978,19 +43987,19 @@
      },
      "award_points": {
       "category": "award_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
-        "player_id": "p-nico",
-        "games": 5,
-        "avg": 6,
-        "best": 15
+        "player_id": "p-juli",
+        "games": 4,
+        "avg": 5.75,
+        "best": 10
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 5.4,
-        "best": 10
+        "player_id": "p-nico",
+        "games": 6,
+        "avg": 5.333333333333333,
+        "best": 15
        },
        {
         "player_id": "p-santi",
@@ -43999,10 +44008,10 @@
         "best": 15
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 4.333333333333333,
-        "best": 7
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 4.833333333333333,
+        "best": 10
        },
        {
         "player_id": "p-caro",
@@ -44020,6 +44029,13 @@
         "missing": 1
        },
        {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 0,
+        "best": 0,
+        "missing": 1
+       },
+       {
         "player_id": "p-gonza",
         "games": 1,
         "avg": 0,
@@ -44032,24 +44048,29 @@
         "avg": 0,
         "best": 0,
         "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 0,
-        "best": 0,
-        "missing": 2
        }
       ]
      },
      "milestone_points": {
       "category": "milestone_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
         "games": 3,
         "avg": 5,
+        "best": 5
+       },
+       {
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 3.3333333333333335,
+        "best": 5
+       },
+       {
+        "player_id": "p-nico",
+        "games": 6,
+        "avg": 3.3333333333333335,
         "best": 5
        },
        {
@@ -44059,21 +44080,9 @@
         "best": 5
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 3,
-        "best": 5
-       },
-       {
-        "player_id": "p-nico",
-        "games": 5,
-        "avg": 3,
-        "best": 5
-       },
-       {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 1.6666666666666667,
+        "games": 4,
+        "avg": 1.25,
         "best": 5
        }
       ],
@@ -44101,16 +44110,16 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
+        "games": 2,
         "avg": 0,
         "best": 0,
-        "missing": 2
+        "missing": 1
        }
       ]
      },
      "card_resource_points": {
       "category": "card_resource_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-santi",
@@ -44120,14 +44129,14 @@
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 5.2,
-        "best": 6
+        "games": 6,
+        "avg": 5.666666666666667,
+        "best": 8
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 4.4,
+        "games": 6,
+        "avg": 4.166666666666667,
         "best": 8
        },
        {
@@ -44138,25 +44147,25 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 3,
+        "games": 4,
+        "avg": 2.75,
         "best": 4
        }
       ],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 6.5,
+        "best": 7,
+        "missing": 1
+       },
        {
         "player_id": "p-tomi",
         "games": 2,
         "avg": 6,
         "best": 7,
         "missing": 1
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 6,
-        "best": 6,
-        "missing": 2
        },
        {
         "player_id": "p-gonza",
@@ -44176,12 +44185,12 @@
      },
      "card_points": {
       "category": "card_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 28.4,
+        "games": 6,
+        "avg": 28.333333333333332,
         "best": 34
        },
        {
@@ -44192,9 +44201,9 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 19.6,
-        "best": 25
+        "games": 6,
+        "avg": 21,
+        "best": 28
        },
        {
         "player_id": "p-caro",
@@ -44204,8 +44213,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 18,
+        "games": 4,
+        "avg": 18.25,
         "best": 19
        }
       ],
@@ -44226,10 +44235,10 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
-        "avg": 18,
+        "games": 2,
+        "avg": 16.5,
         "best": 18,
-        "missing": 2
+        "missing": 1
        },
        {
         "player_id": "p-gonza",
@@ -44242,12 +44251,12 @@
      },
      "greenery_points": {
       "category": "greenery_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 12.666666666666666,
+        "games": 4,
+        "avg": 12.75,
         "best": 23
        },
        {
@@ -44258,14 +44267,14 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 9,
+        "games": 6,
+        "avg": 8.666666666666666,
         "best": 13
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 8.6,
+        "games": 6,
+        "avg": 8.166666666666666,
         "best": 10
        },
        {
@@ -44276,6 +44285,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 8.5,
+        "best": 12,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 1,
@@ -44296,24 +44312,17 @@
         "avg": 6,
         "best": 6,
         "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 5,
-        "best": 5,
-        "missing": 2
        }
       ]
      },
      "city_points": {
       "category": "city_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 11.6,
+        "games": 6,
+        "avg": 10.666666666666666,
         "best": 21
        },
        {
@@ -44323,22 +44332,22 @@
         "best": 11
        },
        {
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 7.666666666666667,
+        "best": 12
+       },
+       {
         "player_id": "p-caro",
         "games": 3,
         "avg": 7.666666666666667,
         "best": 11
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 7.6,
-        "best": 12
-       },
-       {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 6.666666666666667,
-        "best": 8
+        "games": 4,
+        "avg": 7.25,
+        "best": 9
        }
       ],
       "pending": [
@@ -44347,13 +44356,6 @@
         "games": 1,
         "avg": 8,
         "best": 8,
-        "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 6,
-        "best": 6,
         "missing": 2
        },
        {
@@ -44369,14 +44371,28 @@
         "avg": 4,
         "best": 5,
         "missing": 1
+       },
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 3,
+        "best": 6,
+        "missing": 1
        }
       ]
      },
      "turmoil_points": {
       "category": "turmoil_points",
-      "games": 6,
+      "games": 7,
       "qualified": [],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 1,
+        "avg": 4,
+        "best": 4,
+        "missing": 2
+       },
        {
         "player_id": "p-santi",
         "games": 1,
@@ -44385,25 +44401,25 @@
         "missing": 2
        },
        {
-        "player_id": "p-juli",
-        "games": 1,
+        "player_id": "p-facu",
+        "games": 2,
         "avg": 3,
-        "best": 3,
-        "missing": 2
+        "best": 4,
+        "missing": 1
        },
        {
-        "player_id": "p-facu",
-        "games": 1,
-        "avg": 2,
-        "best": 2,
-        "missing": 2
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 3,
+        "best": 3,
+        "missing": 1
        },
        {
         "player_id": "p-nico",
-        "games": 1,
-        "avg": 2,
-        "best": 2,
-        "missing": 2
+        "games": 2,
+        "avg": 2.5,
+        "best": 3,
+        "missing": 1
        }
       ]
      }
@@ -54556,6 +54572,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -54648,20 +54665,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -54671,26 +54688,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -54724,8 +54741,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -54741,27 +54759,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -54772,8 +54791,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -54784,8 +54803,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -54995,12 +55014,6 @@
     },
     {
      "date": "2026-06-02",
-     "type": "season",
-     "player_id": "p-caro",
-     "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
-    },
-    {
-     "date": "2026-06-02",
      "type": "record",
      "game_id": "g-049",
      "player_id": "p-facu",
@@ -55058,6 +55071,12 @@
      "game_id": "g-049",
      "player_id": "p-facu",
      "text": "Facu ganó en Utopia Planitia por 1 punto"
+    },
+    {
+     "date": "2026-05-26",
+     "type": "season",
+     "player_id": "p-caro",
+     "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
     },
     {
      "date": "2026-05-26",
@@ -66622,6 +66641,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -66714,20 +66734,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -66737,26 +66757,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -66790,8 +66810,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -66807,27 +66828,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -66838,8 +66860,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -66850,8 +66872,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -67016,7 +67038,7 @@
      "text": "Nico ganó en Elysium por 15 puntos"
     },
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"

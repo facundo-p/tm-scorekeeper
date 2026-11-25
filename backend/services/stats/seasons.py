@@ -1,20 +1,22 @@
 """Temporadas: el Marte del grupo (F25, SEAS-01, SEMANTICS §10, D-15).
 
 Cada partida sube la temperatura, el oxígeno (según la vegetación) y los océanos; la
-temporada cierra cuando los tres llegan al tope. Los límites salen siempre de todas las
+temporada cierra cuando los tres llegan al tope. El oxígeno suele ser el último en llegar:
+las partidas que faltan se estiman con el ritmo de cada parámetro en la temporada. Los límites salen siempre de todas las
 partidas; el filtro de mesa solo elige qué partidas entran en la carrera.
 """
 from dataclasses import dataclass, field
-from math import floor
+from math import ceil, floor
 from typing import Optional
 
 from services.helpers.numbers import plain_sum
 from services.stats.context import GameStats, StatsContext
 from services.stats.player_rows import CATEGORIES
 
-TEMP_PER_GAME, OXYGEN_PER_GREENERY, OCEANS_PER_GAME = 0.8, 1 / 52, 0.375
+TEMP_PER_GAME, OXYGEN_PER_GREENERY, OCEANS_PER_GAME = 0.8, 1 / 35, 0.375
 TEMP_MAX, OXYGEN_MAX, OCEANS_MAX = 19, 14, 9
 MIN_SEASON_GAMES = 3
+EPS = 1e-9  # la suma de 0,8 por partida no es exacta en coma flotante
 SEASON_CATEGORIES = ("total", *CATEGORIES)
 
 
@@ -85,6 +87,26 @@ def champion_of(span: SeasonSpan, by_id: dict[str, GameStats]) -> Optional[str]:
     return qualified[0]["player_id"] if qualified else None
 
 
+def _games_to_cap(value: float, cap: float, per_game: float) -> Optional[int]:
+    """Partidas para llegar al tope al ritmo dado; None si el ritmo es 0 y falta."""
+    if value >= cap:
+        return 0
+    return ceil((cap - value) / per_game - EPS) if per_game > 0 else None
+
+
+def games_left(span: SeasonSpan) -> Optional[int]:
+    """Estimación de partidas para cerrar (el oxígeno al ritmo de vegetación de la temporada).
+
+    None con la temporada cerrada o si el oxígeno no avanza (sin vegetación todavía).
+    """
+    if span.end:
+        return None
+    n = len(span.games)
+    needs = [_games_to_cap(span.temp, TEMP_MAX, TEMP_PER_GAME), _games_to_cap(span.oxygen, OXYGEN_MAX, span.oxygen / n),
+             _games_to_cap(span.oceans, OCEANS_MAX, OCEANS_PER_GAME)]
+    return None if None in needs else max(1, *needs)
+
+
 def season_view(span: SeasonSpan, by_id: dict[str, GameStats], race: dict) -> dict:
     t, o, w = floor(span.temp), floor(span.oxygen), floor(span.oceans)
     champion = champion_of(span, by_id)
@@ -92,7 +114,8 @@ def season_view(span: SeasonSpan, by_id: dict[str, GameStats], race: dict) -> di
         "number": span.number, "start": span.start, "end": span.end, "games": span.games,
         "temp": span.temp, "oxygen": span.oxygen, "oceans": span.oceans,
         "temperature": -30 + t * 2, "oxygen_pct": o, "ocean_count": w,
-        "pct": (t / TEMP_MAX + o / OXYGEN_MAX + w / OCEANS_MAX) / 3, "race": race, "champion": champion,
+        "pct": (span.temp / TEMP_MAX + span.oxygen / OXYGEN_MAX + span.oceans / OCEANS_MAX) / 3,
+        "games_left": games_left(span), "race": race, "champion": champion,
     }
 
 

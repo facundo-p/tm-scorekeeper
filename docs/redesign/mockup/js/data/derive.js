@@ -286,7 +286,7 @@ function evaluateAchievements(rows) {
 }
 
 // --- Seasons: the group's own Mars ----------------------------------------------
-const SEASON = { tempPerGame: 0.8, oxygenPerGreenery: 1 / 52, oceansPerGame: 0.375 };
+const SEASON = { tempPerGame: 0.8, oxygenPerGreenery: 1 / 35, oceansPerGame: 0.375 };
 
 function seasonSpans(games) {
   const list = [];
@@ -344,10 +344,22 @@ export function seasonRace(season, gameById, { category = 'total', playerCount =
   };
 }
 
+// Games to reach a cap at a given pace; null when the pace is 0 and something is missing.
+const gamesToCap = (value, cap, perGame) =>
+  value >= cap ? 0 : perGame > 0 ? Math.ceil((cap - value) / perGame - 1e-9) : null;
+
+// Estimated games to close an open season (oxygen at the season's own greenery pace).
+function gamesLeft(s) {
+  if (s.end) return null;
+  const needs = [gamesToCap(s.temp, 19, SEASON.tempPerGame), gamesToCap(s.oxygen, 14, s.oxygen / s.games.length),
+    gamesToCap(s.oceans, 9, SEASON.oceansPerGame)];
+  return needs.includes(null) ? null : Math.max(1, ...needs);
+}
+
 function seasons(games) {
   const gameById = Object.fromEntries(games.map((g) => [g.id, g]));
   return seasonSpans(games).map((s) => {
-    const pct = (Math.floor(s.temp) / 19 + Math.floor(s.oxygen) / 14 + Math.floor(s.oceans) / 9) / 3;
+    const pct = (s.temp / 19 + s.oxygen / 14 + s.oceans / 9) / 3;
     const race = seasonRace(s, gameById);
     return {
       ...s,
@@ -355,6 +367,7 @@ function seasons(games) {
       oxygenPct: Math.floor(s.oxygen),
       oceanCount: Math.floor(s.oceans),
       pct,
+      games_left: gamesLeft(s),
       race,
       champion: s.end ? race.qualified[0]?.player_id ?? null : null,
     };

@@ -35,7 +35,10 @@ export interface Season {
   temperature: number
   oxygen_pct: number
   ocean_count: number
+  /** Progreso continuo de la temporada (0 a 1). */
   pct: number
+  /** Partidas estimadas para cerrarla; null si está cerrada o el oxígeno todavía no avanza. */
+  games_left: number | null
   race: SeasonRace
   champion: string | null
 }

@@ -94,7 +94,7 @@ Los cortes de diseño se resuelven con **container queries** (`@container app`),
 Todas salen de datos que el backend **ya guarda**; ninguna requiere cargar nada nuevo al registrar una partida.
 
 ### Temporadas: el Marte del grupo
-El grupo terraforma un planeta propio. Cada partida suma 0,8 pasos de temperatura, 1 % de oxígeno cada 52 puntos de vegetación del grupo y 0,375 océanos. Cuando los tres parámetros llegan al máximo, la temporada termina. Con el historial de ejemplo, una temporada dura unas 24 partidas.
+El grupo terraforma un planeta propio. Cada partida suma 0,8 pasos de temperatura, 1 % de oxígeno cada 35 puntos de vegetación del grupo y 0,375 océanos. Cuando los tres parámetros llegan al máximo, la temporada termina. Con el historial de ejemplo, una temporada dura unas 24 partidas.
 
 La **carrera** se ordena por **promedio** de puntos por partida (total o una categoría: TR, hitos, recompensas, cartas, recursos, vegetación, ciudades o Turmoil, esta última solo sobre partidas con Turmoil), con filtro de mesa. Hacen falta 3 partidas para clasificar; el resto aparece aparte con «le faltan N partidas». El **campeón** es el primer clasificado por promedio total al cierre (desempate: más partidas, después mejor puntaje).
 

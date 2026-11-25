@@ -194,7 +194,7 @@ function SeasonRules({ onClose }) {
       <p>El grupo terraforma su propio Marte, partida a partida. Los parámetros son los del tablero:</p>
       <ul class="rules__list">
         <li><${Icon} name="temperature" size=${20} /><span><b>Temperatura:</b> cada partida suma casi un paso de 2 °C (19 pasos, de −30 a +8 °C).</span></li>
-        <li><${Icon} name="oxygen" size=${20} /><span><b>Oxígeno:</b> cada 52 puntos de vegetación del grupo suben 1 % (hasta 14 %).</span></li>
+        <li><${Icon} name="oxygen" size=${20} /><span><b>Oxígeno:</b> cada 35 puntos de vegetación del grupo suben 1 % (hasta 14 %).</span></li>
         <li><${Icon} name="ocean" size=${20} /><span><b>Océanos:</b> se coloca uno cada dos o tres partidas (9 en total).</span></li>
       </ul>
       <p>Cuando los tres llegan al máximo, Marte queda terraformado y la temporada se cierra. La carrera se ordena por <b>promedio</b> de puntos por partida; hacen falta ${MIN_SEASON_GAMES} partidas para clasificar.</p>

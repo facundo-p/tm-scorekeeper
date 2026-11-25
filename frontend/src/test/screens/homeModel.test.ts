@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { categoryOf, gamesLeft, logbookItems, missingText, raceLede } from '@/screens/Home/model'
+import { categoryOf, logbookItems, missingText, pendingParams, raceLede, seasonEta } from '@/screens/Home/model'
 import { unlockedCount } from '@/screens/Home/LastGame'
 import type { FeedItem, GameReport } from '@/data/types'
 
@@ -10,9 +10,13 @@ describe('Inicio (lo puro)', () => {
     expect(categoryOf(null)).toBe('total')
   })
 
-  it('estimates the games left from the temperature, at least one', () => {
-    expect(gamesLeft(-30)).toBe(24)
-    expect(gamesLeft(8)).toBe(1)
+  it('tells the games left and which parameters are still missing', () => {
+    const early = { temp: 3.2, oxygen: 2.5, oceans: 1.5, games_left: 20 }
+    expect(pendingParams(early).map((p) => p.key)).toEqual(['temp', 'oxygen', 'oceans'])
+    expect(seasonEta(early)).toBe('Faltan unas 20 partidas para completarla. Falta completar la temperatura, el oxígeno y los océanos.')
+    const oxygenOnly = { temp: 19, oxygen: 12.6, oceans: 9, games_left: 1 }
+    expect(seasonEta(oxygenOnly)).toBe('Falta más o menos 1 partida para completarla. Solo falta el oxígeno: 12,6 de 14 %.')
+    expect(seasonEta({ ...early, games_left: null })).toContain('Todavía no hay vegetación')
   })
 
   it('the race lede names the category and the Turmoil pool', () => {
