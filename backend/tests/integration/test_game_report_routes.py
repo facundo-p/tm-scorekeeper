@@ -54,6 +54,7 @@ def test_report_lists_near_records_and_unlocked_achievements(client, players):
     unlocks = {a["code"]: a for a in report["achievements_by_player"]["p1"]}
     assert "win_streak" in unlocks
     assert unlocks["win_streak"]["max_tier"] > 1 and unlocks["win_streak"]["levels"] >= 1  # «Nivel N de M» (F29)
+    assert near["highest_single_game_score"]["description"] and unlocks["win_streak"]["description"]  # burbuja de ayuda
 
 
 def test_report_of_a_missing_game_is_404(client):

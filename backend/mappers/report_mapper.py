@@ -42,7 +42,8 @@ def _tied(c: GameRecordContext) -> RecordTiedDTO:
 
 
 def _near(c: GameRecordContext) -> NearRecordDTO:
-    return NearRecordDTO(code=c.definition.code, title=c.definition.title, gap=c.gap, value=c.best.value,
+    d = c.definition
+    return NearRecordDTO(code=d.code, title=d.title, description=d.description, gap=c.gap, value=c.best.value,
                          player_id=c.best.players[0], before=c.before.value)
 
 

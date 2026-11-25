@@ -388,7 +388,7 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
         : `${name(w.player_id)} ganó en ${g.map} por ${g.margin} ${g.margin === 1 ? 'punto' : 'puntos'}` });
     for (const b of g.recordsBroken) {
       const def = RECORDS.find((d) => d.code === b.code);
-      items.push({ date: g.date, type: 'record', game_id: g.id, player_id: b.player_id, code: b.code,
+      items.push({ date: g.date, type: 'record', game_id: g.id, player_id: b.player_id, code: b.code, description: def.description,
         text: `${names(b.holders, name)} rompió «${def.title}»: ${b.value} (antes ${b.previous.value}, ${names(b.previous.holders, name)})` });
     }
   }
@@ -400,7 +400,7 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
         if (u.level < 2 && def.tiers.length > 1) continue;
         if (unlocked.some((o) => o.game_id === u.game_id && o.level > u.level)) continue;
         items.push({ date: u.date, type: 'achievement', game_id: u.game_id, player_id: pid, code: def.code, level: u.level,
-          text: `${name(pid)} desbloqueó ${tier.title}${def.tiers.length > 1 ? ` (nivel ${u.level})` : ''}` });
+          description: def.description, text: `${name(pid)} desbloqueó ${tier.title}${def.tiers.length > 1 ? ` (nivel ${u.level})` : ''}` });
       }
     }
   }

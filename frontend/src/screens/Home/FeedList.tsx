@@ -3,7 +3,7 @@ import type { FeedItem } from '@/data/types'
 import type { PlayerIndex } from '@/data/instruments'
 import { fmtDate } from '@/domain/format'
 import { PATHS } from '@/shell/paths'
-import { Cube, TagDisc } from '@/ui/atoms'
+import { Cube, HelpTip, TagDisc } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import { FEED_TAG } from './model'
 import styles from './Home.module.css'
@@ -22,7 +22,7 @@ function FeedEntry({ f, players }: { f: FeedItem; players: PlayerIndex }) {
   const gameId = f.game_id
   return (
     <li className={styles.feed__item}>
-      <TagDisc icon={icon} tone={tone} title={kind} />
+      <HelpTip title={kind} text={f.description ?? ''}><TagDisc icon={icon} tone={tone} title={kind} /></HelpTip>
       {gameId
         ? <button type="button" className={styles.feed__body} onClick={() => navigate(PATHS.game(gameId))}>{body}</button>
         : <span className={styles.feed__body}>{body}</span>}

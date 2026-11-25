@@ -21524,6 +21524,7 @@
     "game_id": "g-063",
     "player_id": "p-juli",
     "code": "highest_greenery_points",
+    "description": "Más puntos de vegetación en una partida",
     "text": "Juli rompió «Rey de los bosques»: 23 (antes 20, Juli)"
    },
    {
@@ -21532,6 +21533,7 @@
     "game_id": "g-063",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 21 (antes 14, Nico)"
    },
    {
@@ -21541,6 +21543,7 @@
     "player_id": "p-nico",
     "code": "city_planner",
     "level": 3,
+    "description": "Alcanzar X puntos de ciudades en una partida",
     "text": "Nico desbloqueó Metrópolis (nivel 3)"
    },
    {
@@ -21550,6 +21553,7 @@
     "player_id": "p-juli",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Dominador (nivel 3)"
    },
    {
@@ -21573,6 +21577,7 @@
     "player_id": "p-tomi",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Tomi desbloqueó Rey de las Recompensas"
    },
    {
@@ -21582,6 +21587,7 @@
     "player_id": "p-tomi",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Tomi desbloqueó Blitz"
    },
    {
@@ -21591,6 +21597,7 @@
     "player_id": "p-meli",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Meli desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21600,6 +21607,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21615,6 +21623,7 @@
     "game_id": "g-060",
     "player_id": "p-facu",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
    },
    {
@@ -21624,6 +21633,7 @@
     "player_id": "p-facu",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Facu desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -21633,6 +21643,7 @@
     "player_id": "p-lu",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Lu desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21642,6 +21653,7 @@
     "player_id": "p-lu",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Lu desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21658,6 +21670,7 @@
     "player_id": "p-santi",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Santi desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -21667,6 +21680,7 @@
     "player_id": "p-santi",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Santi desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21676,6 +21690,7 @@
     "player_id": "p-santi",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Santi desbloqueó Rey de las Recompensas"
    },
    {
@@ -21692,6 +21707,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21701,6 +21717,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21710,6 +21727,7 @@
     "player_id": "p-tomi",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Tomi desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21726,6 +21744,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21735,6 +21754,7 @@
     "player_id": "p-caro",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Caro desbloqueó Holding (nivel 3)"
    },
    {
@@ -21744,6 +21764,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21753,6 +21774,7 @@
     "player_id": "p-meli",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Meli desbloqueó Holding (nivel 3)"
    },
    {
@@ -21776,6 +21798,7 @@
     "player_id": "p-juli",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21785,6 +21808,7 @@
     "player_id": "p-lu",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Lu desbloqueó Habitué (nivel 2)"
    },
    {
@@ -21800,6 +21824,7 @@
     "game_id": "g-054",
     "player_id": "p-facu",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Facu rompió «Emperador de Marte»: 130 (antes 120, Facu)"
    },
    {
@@ -21809,6 +21834,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 4,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Leyenda de Marte (nivel 4)"
    },
    {
@@ -21818,6 +21844,7 @@
     "player_id": "p-facu",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Facu desbloqueó Maestro de Hitos"
    },
    {
@@ -21834,6 +21861,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -21843,6 +21871,7 @@
     "player_id": "p-tomi",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Tomi desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21852,6 +21881,7 @@
     "player_id": "p-tomi",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Tomi desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21868,6 +21898,7 @@
     "player_id": "p-nico",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Nico desbloqueó Rey de las Recompensas"
    },
    {
@@ -21877,6 +21908,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21893,6 +21925,7 @@
     "player_id": "p-caro",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21902,6 +21935,7 @@
     "player_id": "p-gonza",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Gonza desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21911,6 +21945,7 @@
     "player_id": "p-gonza",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Gonza desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21927,6 +21962,7 @@
     "player_id": "p-tomi",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Tomi desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -21936,6 +21972,7 @@
     "player_id": "p-gonza",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Gonza desbloqueó Maestro de Hitos"
    },
    {
@@ -21945,6 +21982,7 @@
     "player_id": "p-gonza",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Gonza desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -21961,6 +21999,7 @@
     "player_id": "p-facu",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Dominador (nivel 3)"
    },
    {
@@ -21970,6 +22009,7 @@
     "player_id": "p-facu",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Facu desbloqueó Holding (nivel 3)"
    },
    {
@@ -21979,6 +22019,7 @@
     "player_id": "p-nico",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Nico desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22000,6 +22041,7 @@
     "game_id": "g-048",
     "player_id": "p-meli",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Meli rompió «Barón de los recursos»: 12 (antes 11, Caro)"
    },
    {
@@ -22009,6 +22051,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22018,6 +22061,7 @@
     "player_id": "p-meli",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Meli desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22033,6 +22077,7 @@
     "game_id": "g-047",
     "player_id": "p-facu",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Facu rompió «Aplanadora»: 37 (antes 35, Caro)"
    },
    {
@@ -22049,6 +22094,7 @@
     "player_id": "p-gonza",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Gonza desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22058,6 +22104,7 @@
     "player_id": "p-gonza",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Gonza desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22074,6 +22121,7 @@
     "player_id": "p-meli",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Meli desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22090,6 +22138,7 @@
     "player_id": "p-facu",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Veterano (nivel 3)"
    },
    {
@@ -22099,6 +22148,7 @@
     "player_id": "p-nico",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Veterano (nivel 3)"
    },
    {
@@ -22108,6 +22158,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22123,6 +22174,7 @@
     "game_id": "g-043",
     "player_id": "p-caro",
     "code": "highest_turmoil_points",
+    "description": "Más puntos de Turmoil en una partida",
     "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro y Meli)"
    },
    {
@@ -22132,6 +22184,7 @@
     "player_id": "p-lu",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Lu desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -22141,6 +22194,7 @@
     "player_id": "p-lu",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Lu desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22157,6 +22211,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22173,6 +22228,7 @@
     "player_id": "p-nico",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Nico desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -22182,6 +22238,7 @@
     "player_id": "p-tomi",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Tomi desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22198,6 +22255,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22214,6 +22272,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22223,6 +22282,7 @@
     "player_id": "p-caro",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Dominador (nivel 3)"
    },
    {
@@ -22239,6 +22299,7 @@
     "player_id": "p-nico",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Nico desbloqueó Holding (nivel 3)"
    },
    {
@@ -22248,6 +22309,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22257,6 +22319,7 @@
     "player_id": "p-meli",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Meli desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -22266,6 +22329,7 @@
     "player_id": "p-meli",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Meli desbloqueó Rey de las Recompensas"
    },
    {
@@ -22282,6 +22346,7 @@
     "player_id": "p-gonza",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Gonza desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22297,6 +22362,7 @@
     "game_id": "g-036",
     "player_id": "p-caro",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli y Nico y Caro)"
    },
    {
@@ -22306,6 +22372,7 @@
     "player_id": "p-caro",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Caro desbloqueó Lobo Solitario"
    },
    {
@@ -22315,6 +22382,7 @@
     "player_id": "p-tomi",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Tomi desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22324,6 +22392,7 @@
     "player_id": "p-lu",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Lu desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22340,6 +22409,7 @@
     "player_id": "p-santi",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Santi desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22349,6 +22419,7 @@
     "player_id": "p-lu",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Lu desbloqueó Inversor (nivel 2)"
    },
    {
@@ -22358,6 +22429,7 @@
     "player_id": "p-lu",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Lu desbloqueó Lobo Solitario"
    },
    {
@@ -22367,6 +22439,7 @@
     "player_id": "p-lu",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Lu desbloqueó Incomprendido"
    },
    {
@@ -22376,6 +22449,7 @@
     "player_id": "p-lu",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Lu desbloqueó Blitz"
    },
    {
@@ -22392,6 +22466,7 @@
     "player_id": "p-santi",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Santi desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22401,6 +22476,7 @@
     "player_id": "p-gonza",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -22410,6 +22486,7 @@
     "player_id": "p-gonza",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Gonza desbloqueó Lobo Solitario"
    },
    {
@@ -22419,6 +22496,7 @@
     "player_id": "p-gonza",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Gonza desbloqueó Blitz"
    },
    {
@@ -22428,6 +22506,7 @@
     "player_id": "p-gonza",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Gonza desbloqueó Mesa llena"
    },
    {
@@ -22444,6 +22523,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22453,6 +22533,7 @@
     "player_id": "p-juli",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Juli desbloqueó Rey de las Recompensas"
    },
    {
@@ -22462,6 +22543,7 @@
     "player_id": "p-juli",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Juli desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -22478,6 +22560,7 @@
     "player_id": "p-tomi",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Tomi desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -22487,6 +22570,7 @@
     "player_id": "p-meli",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Meli desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22496,6 +22580,7 @@
     "player_id": "p-meli",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Meli desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22512,6 +22597,7 @@
     "player_id": "p-facu",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Facu desbloqueó Fotofinish"
    },
    {
@@ -22521,6 +22607,7 @@
     "player_id": "p-gonza",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22536,6 +22623,7 @@
     "game_id": "g-030",
     "player_id": "p-facu",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Facu rompió «Magnate de proyectos»: 35 (antes 34, Facu)"
    },
    {
@@ -22545,6 +22633,7 @@
     "player_id": "p-caro",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Caro desbloqueó Blitz"
    },
    {
@@ -22554,6 +22643,7 @@
     "player_id": "p-santi",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Santi desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22570,6 +22660,7 @@
     "player_id": "p-caro",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Caro desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -22579,6 +22670,7 @@
     "player_id": "p-caro",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Caro desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22588,6 +22680,7 @@
     "player_id": "p-caro",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Caro desbloqueó Mesa llena"
    },
    {
@@ -22597,6 +22690,7 @@
     "player_id": "p-gonza",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Gonza desbloqueó Inversor (nivel 2)"
    },
    {
@@ -22613,6 +22707,7 @@
     "player_id": "p-nico",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Dominador (nivel 3)"
    },
    {
@@ -22628,6 +22723,7 @@
     "game_id": "g-027",
     "player_id": "p-facu",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Facu rompió «Emperador de Marte»: 120 (antes 117, Caro)"
    },
    {
@@ -22636,6 +22732,7 @@
     "game_id": "g-027",
     "player_id": "p-facu",
     "code": "highest_terraform_rating",
+    "description": "TR más alto en una partida",
     "text": "Facu rompió «Arquitecto climático»: 53 (antes 48, Caro)"
    },
    {
@@ -22645,6 +22742,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22661,6 +22759,7 @@
     "player_id": "p-meli",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Meli desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22676,6 +22775,7 @@
     "game_id": "g-025",
     "player_id": "p-caro",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Caro rompió «Emperador de Marte»: 117 (antes 115, Caro)"
    },
    {
@@ -22684,6 +22784,7 @@
     "game_id": "g-025",
     "player_id": "p-caro",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Caro rompió «Aplanadora»: 35 (antes 25, Nico)"
    },
    {
@@ -22693,6 +22794,7 @@
     "player_id": "p-caro",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Caro desbloqueó Maestro de Hitos"
    },
    {
@@ -22715,6 +22817,7 @@
     "player_id": "p-juli",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -22724,6 +22827,7 @@
     "player_id": "p-juli",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Juli desbloqueó Imparable (nivel 2)"
    },
    {
@@ -22740,6 +22844,7 @@
     "player_id": "p-juli",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Juli desbloqueó Lobo Solitario"
    },
    {
@@ -22756,6 +22861,7 @@
     "player_id": "p-juli",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Juli desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22765,6 +22871,7 @@
     "player_id": "p-juli",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Juli desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22781,6 +22888,7 @@
     "player_id": "p-nico",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Nico desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22797,6 +22905,7 @@
     "player_id": "p-tomi",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22813,6 +22922,7 @@
     "player_id": "p-facu",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -22822,6 +22932,7 @@
     "player_id": "p-facu",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Facu desbloqueó Imparable (nivel 2)"
    },
    {
@@ -22831,6 +22942,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22840,6 +22952,7 @@
     "player_id": "p-facu",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Facu desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22849,6 +22962,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22858,6 +22972,7 @@
     "player_id": "p-pato",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Pato desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22874,6 +22989,7 @@
     "player_id": "p-facu",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22883,6 +22999,7 @@
     "player_id": "p-facu",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Facu desbloqueó Rey de las Recompensas"
    },
    {
@@ -22892,6 +23009,7 @@
     "player_id": "p-lu",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Lu desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -22907,6 +23025,7 @@
     "game_id": "g-017",
     "player_id": "p-facu",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Facu rompió «Magnate de proyectos»: 34 (antes 33, Nico)"
    },
    {
@@ -22916,6 +23035,7 @@
     "player_id": "p-facu",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Facu desbloqueó Magnate (nivel 3)"
    },
    {
@@ -22925,6 +23045,7 @@
     "player_id": "p-facu",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Facu desbloqueó Lobo Solitario"
    },
    {
@@ -22934,6 +23055,7 @@
     "player_id": "p-facu",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Facu desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22943,6 +23065,7 @@
     "player_id": "p-caro",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Caro desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22958,6 +23081,7 @@
     "game_id": "g-016",
     "player_id": "p-meli",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
    },
    {
@@ -22966,6 +23090,7 @@
     "game_id": "g-016",
     "player_id": "p-meli",
     "code": "richest_finish",
+    "description": "Más M€ al terminar una partida",
     "text": "Meli rompió «Tesorería»: 34 (antes 33, Caro y Nico y Facu)"
    },
    {
@@ -22975,6 +23100,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22984,6 +23110,7 @@
     "player_id": "p-meli",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Meli desbloqueó Incomprendido"
    },
    {
@@ -22993,6 +23120,7 @@
     "player_id": "p-meli",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Meli desbloqueó Fotofinish"
    },
    {
@@ -23009,6 +23137,7 @@
     "player_id": "p-nico",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23018,6 +23147,7 @@
     "player_id": "p-nico",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Nico desbloqueó Accionista (nivel 2)"
    },
    {
@@ -23027,6 +23157,7 @@
     "player_id": "p-juli",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23036,6 +23167,7 @@
     "player_id": "p-caro",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -23045,6 +23177,7 @@
     "player_id": "p-caro",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Caro desbloqueó Incomprendido"
    },
    {
@@ -23067,6 +23200,7 @@
     "game_id": "g-013",
     "player_id": "p-juli",
     "code": "highest_greenery_points",
+    "description": "Más puntos de vegetación en una partida",
     "text": "Juli rompió «Rey de los bosques»: 20 (antes 15, Juli)"
    },
    {
@@ -23075,6 +23209,7 @@
     "game_id": "g-013",
     "player_id": "p-juli",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Juli rompió «Motor perfecto»: 12.2 (antes 11.6, Facu)"
    },
    {
@@ -23084,6 +23219,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -23093,6 +23229,7 @@
     "player_id": "p-juli",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Juli desbloqueó Blitz"
    },
    {
@@ -23102,6 +23239,7 @@
     "player_id": "p-juli",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Juli desbloqueó Mesa llena"
    },
    {
@@ -23111,6 +23249,7 @@
     "player_id": "p-caro",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23120,6 +23259,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23129,6 +23269,7 @@
     "player_id": "p-pato",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Pato desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23144,6 +23285,7 @@
     "game_id": "g-012",
     "player_id": "p-nico",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Nico rompió «Magnate de proyectos»: 33 (antes 32, Nico)"
    },
    {
@@ -23153,6 +23295,7 @@
     "player_id": "p-nico",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -23162,6 +23305,7 @@
     "player_id": "p-nico",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Nico desbloqueó Imparable (nivel 2)"
    },
    {
@@ -23171,6 +23315,7 @@
     "player_id": "p-nico",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Nico desbloqueó Mesa llena"
    },
    {
@@ -23180,6 +23325,7 @@
     "player_id": "p-meli",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23189,6 +23335,7 @@
     "player_id": "p-meli",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Meli desbloqueó Magnate (nivel 3)"
    },
    {
@@ -23204,6 +23351,7 @@
     "game_id": "g-011",
     "player_id": "p-nico",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Nico rompió «Aplanadora»: 25 (antes 17, Caro)"
    },
    {
@@ -23213,6 +23361,7 @@
     "player_id": "p-nico",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Nico desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -23222,6 +23371,7 @@
     "player_id": "p-santi",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Santi desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23231,6 +23381,7 @@
     "player_id": "p-santi",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Santi desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23246,6 +23397,7 @@
     "game_id": "g-010",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 14 (antes 13, Nico)"
    },
    {
@@ -23254,6 +23406,7 @@
     "game_id": "g-010",
     "player_id": "p-nico",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Nico rompió «Por un pelo»: 1 (antes 2, Nico)"
    },
    {
@@ -23270,6 +23423,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23279,6 +23433,7 @@
     "player_id": "p-juli",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Juli desbloqueó Incomprendido"
    },
    {
@@ -23295,6 +23450,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23304,6 +23460,7 @@
     "player_id": "p-facu",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Facu desbloqueó Incomprendido"
    },
    {
@@ -23313,6 +23470,7 @@
     "player_id": "p-facu",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Facu desbloqueó Mesa llena"
    },
    {
@@ -23322,6 +23480,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23331,6 +23490,7 @@
     "player_id": "p-meli",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Meli desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23346,6 +23506,7 @@
     "game_id": "g-007",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 13 (antes 12, Nico)"
    },
    {
@@ -23354,6 +23515,7 @@
     "game_id": "g-007",
     "player_id": "p-facu",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
    },
    {
@@ -23363,6 +23525,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23372,6 +23535,7 @@
     "player_id": "p-facu",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Facu desbloqueó Blitz"
    },
    {
@@ -23381,6 +23545,7 @@
     "player_id": "p-pato",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Pato desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23396,6 +23561,7 @@
     "game_id": "g-006",
     "player_id": "p-nico",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Nico rompió «Magnate de proyectos»: 32 (antes 28, Juli)"
    },
    {
@@ -23404,6 +23570,7 @@
     "game_id": "g-006",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 12 (antes 11, Nico)"
    },
    {
@@ -23413,6 +23580,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23422,6 +23590,7 @@
     "player_id": "p-facu",
     "code": "stolen_awards",
     "level": 3,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Facu desbloqueó Gran Estafador (nivel 3)"
    },
    {
@@ -23431,6 +23600,7 @@
     "player_id": "p-nico",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23440,6 +23610,7 @@
     "player_id": "p-nico",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Nico desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23449,6 +23620,7 @@
     "player_id": "p-nico",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Nico desbloqueó Magnate (nivel 3)"
    },
    {
@@ -23458,6 +23630,7 @@
     "player_id": "p-nico",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Nico desbloqueó Incomprendido"
    },
    {
@@ -23473,6 +23646,7 @@
     "game_id": "g-005",
     "player_id": "p-juli",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Juli rompió «Barón de los recursos»: 10 (antes 9, Caro)"
    },
    {
@@ -23482,6 +23656,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23491,6 +23666,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23500,6 +23676,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23509,6 +23686,7 @@
     "player_id": "p-tomi",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23518,6 +23696,7 @@
     "player_id": "p-tomi",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Tomi desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23527,6 +23706,7 @@
     "player_id": "p-pato",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Pato desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23536,6 +23716,7 @@
     "player_id": "p-pato",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Pato desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23551,6 +23732,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
    },
    {
@@ -23559,6 +23741,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Nico rompió «Por un pelo»: 2 (antes 4, Caro)"
    },
    {
@@ -23567,6 +23750,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "fastest_win",
+    "description": "Victoria en la partida con menos generaciones",
     "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
    },
    {
@@ -23576,6 +23760,7 @@
     "player_id": "p-nico",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Nico desbloqueó Lobo Solitario"
    },
    {
@@ -23585,6 +23770,7 @@
     "player_id": "p-nico",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Nico desbloqueó Fotofinish"
    },
    {
@@ -23594,6 +23780,7 @@
     "player_id": "p-nico",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Nico desbloqueó Blitz"
    },
    {
@@ -23609,6 +23796,7 @@
     "game_id": "g-003",
     "player_id": "p-caro",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Caro rompió «Emperador de Marte»: 115 (antes 105, Caro)"
    },
    {
@@ -23617,6 +23805,7 @@
     "game_id": "g-003",
     "player_id": "p-juli",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Juli rompió «Magnate de proyectos»: 28 (antes 27, Caro)"
    },
    {
@@ -23625,6 +23814,7 @@
     "game_id": "g-003",
     "player_id": "p-caro",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
    },
    {
@@ -23634,6 +23824,7 @@
     "player_id": "p-caro",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Caro desbloqueó Imparable (nivel 2)"
    },
    {
@@ -23649,6 +23840,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Caro rompió «Magnate de proyectos»: 27 (antes 21, Caro)"
    },
    {
@@ -23657,6 +23849,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Caro rompió «Barón de los recursos»: 9 (antes 5, Juli)"
    },
    {
@@ -23665,6 +23858,7 @@
     "game_id": "g-002",
     "player_id": "p-facu",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Facu rompió «Urbanista supremo»: 9 (antes 6, Juli)"
    },
    {
@@ -23673,6 +23867,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Caro rompió «Aplanadora»: 17 (antes 4, Caro)"
    },
    {
@@ -23681,6 +23876,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Caro rompió «Motor perfecto»: 10.3 (antes 8.1, Caro)"
    },
    {
@@ -23689,6 +23885,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "fastest_win",
+    "description": "Victoria en la partida con menos generaciones",
     "text": "Caro rompió «Blitz»: 10 (antes 13, Caro)"
    },
    {
@@ -23698,6 +23895,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23707,6 +23905,7 @@
     "player_id": "p-facu",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Facu desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23716,6 +23915,7 @@
     "player_id": "p-nico",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Nico desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23725,6 +23925,7 @@
     "player_id": "p-nico",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Nico desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23741,6 +23942,7 @@
     "player_id": "p-juli",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23750,6 +23952,7 @@
     "player_id": "p-juli",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Juli desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23759,6 +23962,7 @@
     "player_id": "p-caro",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23768,6 +23972,7 @@
     "player_id": "p-caro",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Caro desbloqueó Inversor (nivel 2)"
    },
    {
@@ -31227,6 +31432,7 @@
      "game_id": "g-040",
      "player_id": "p-juli",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Juli rompió «Motor perfecto»: 9.2 (antes 9, Caro)"
     },
     {
@@ -31235,6 +31441,7 @@
      "game_id": "g-040",
      "player_id": "p-juli",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Juli rompió «Blitz»: 12 (antes 13, Caro y Meli)"
     },
     {
@@ -31244,6 +31451,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31253,6 +31461,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31269,6 +31478,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31278,6 +31488,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31287,6 +31498,7 @@
      "player_id": "p-meli",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Meli desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -31296,6 +31508,7 @@
      "player_id": "p-meli",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Meli desbloqueó Rey de las Recompensas"
     },
     {
@@ -31311,6 +31524,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 120 (antes 117, Caro)"
     },
     {
@@ -31319,6 +31533,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Facu rompió «Arquitecto climático»: 53 (antes 48, Caro)"
     },
     {
@@ -31327,6 +31542,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 29 (antes 25, Juli)"
     },
     {
@@ -31335,6 +31551,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Facu rompió «Urbanista supremo»: 12 (antes 6, Juli)"
     },
     {
@@ -31344,6 +31561,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31353,6 +31571,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31362,6 +31581,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31371,6 +31591,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31386,6 +31607,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Caro rompió «Emperador de Marte»: 117 (antes 105, Caro)"
     },
     {
@@ -31394,6 +31616,7 @@
      "game_id": "g-025",
      "player_id": "p-juli",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Juli rompió «Magnate de proyectos»: 25 (antes 21, Caro)"
     },
     {
@@ -31402,6 +31625,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 10 (antes 5, Juli)"
     },
     {
@@ -31410,6 +31634,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Caro rompió «Aplanadora»: 35 (antes 4, Caro)"
     },
     {
@@ -31418,6 +31643,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 9 (antes 8.1, Caro)"
     },
     {
@@ -31427,6 +31653,7 @@
      "player_id": "p-caro",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Caro desbloqueó Maestro de Hitos"
     },
     {
@@ -31449,6 +31676,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31458,6 +31686,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31467,6 +31696,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31476,6 +31706,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41158,6 +41389,7 @@
      "player_id": "p-nico",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Nico desbloqueó Rey de las Recompensas"
     },
     {
@@ -41173,6 +41405,7 @@
      "game_id": "g-057",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 46 (antes 45, Caro)"
     },
     {
@@ -41182,6 +41415,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41191,6 +41425,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41206,6 +41441,7 @@
      "game_id": "g-054",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 130 (antes 119, Facu)"
     },
     {
@@ -41214,6 +41450,7 @@
      "game_id": "g-054",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 35 (antes 32, Nico)"
     },
     {
@@ -41223,6 +41460,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 4,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Leyenda de Marte (nivel 4)"
     },
     {
@@ -41232,6 +41470,7 @@
      "player_id": "p-facu",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Facu desbloqueó Maestro de Hitos"
     },
     {
@@ -41248,6 +41487,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41257,6 +41497,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41266,6 +41507,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41282,6 +41524,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41291,6 +41534,7 @@
      "player_id": "p-tomi",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Tomi desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -41300,6 +41544,7 @@
      "player_id": "p-gonza",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Gonza desbloqueó Maestro de Hitos"
     },
     {
@@ -41321,6 +41566,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 119 (antes 114, Nico)"
     },
     {
@@ -41329,6 +41575,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Facu rompió «Barón de los recursos»: 10 (antes 9, Juli y Meli)"
     },
     {
@@ -41337,6 +41584,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Facu rompió «Aplanadora»: 37 (antes 25, Nico)"
     },
     {
@@ -41345,6 +41593,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 11.9 (antes 11.4, Nico)"
     },
     {
@@ -41354,6 +41603,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41363,6 +41613,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -41378,6 +41629,7 @@
      "game_id": "g-045",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli y Meli rompió «Barón de los recursos»: 9 (antes 8, Meli y Nico)"
     },
     {
@@ -41387,6 +41639,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41396,6 +41649,7 @@
      "player_id": "p-juli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Juli desbloqueó Incomprendido"
     },
     {
@@ -41405,6 +41659,7 @@
      "player_id": "p-juli",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Juli desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -41414,6 +41669,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41430,6 +41686,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41439,6 +41696,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -41448,6 +41706,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41457,6 +41716,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41473,6 +41733,7 @@
      "player_id": "p-nico",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -41482,6 +41743,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41497,6 +41759,7 @@
      "game_id": "g-035",
      "player_id": "p-lu",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Lu rompió «Blitz»: 9 (antes 10, Nico y Meli y Juli)"
     },
     {
@@ -41506,6 +41769,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41515,6 +41779,7 @@
      "player_id": "p-lu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Lu desbloqueó Lobo Solitario"
     },
     {
@@ -41524,6 +41789,7 @@
      "player_id": "p-lu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Lu desbloqueó Incomprendido"
     },
     {
@@ -41533,6 +41799,7 @@
      "player_id": "p-lu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Lu desbloqueó Blitz"
     },
     {
@@ -41549,6 +41816,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41558,6 +41826,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41567,6 +41836,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41576,6 +41846,7 @@
      "player_id": "p-juli",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Juli desbloqueó Rey de las Recompensas"
     },
     {
@@ -41592,6 +41863,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41601,6 +41873,7 @@
      "player_id": "p-tomi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Tomi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41610,6 +41883,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41646,6 +41920,7 @@
      "player_id": "p-facu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Facu desbloqueó Lobo Solitario"
     },
     {
@@ -41655,6 +41930,7 @@
      "player_id": "p-facu",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Facu desbloqueó Rey de las Recompensas"
     },
     {
@@ -41664,6 +41940,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41673,6 +41950,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41688,6 +41966,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Meli y Nico rompió «Maestro de la política»: 4 (antes 3, Santi y Meli)"
     },
     {
@@ -41696,6 +41975,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
     },
     {
@@ -41704,6 +41984,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Meli rompió «Tesorería»: 34 (antes 32, Facu)"
     },
     {
@@ -41713,6 +41994,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41722,6 +42004,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41731,6 +42014,7 @@
      "player_id": "p-meli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Meli desbloqueó Incomprendido"
     },
     {
@@ -41740,6 +42024,7 @@
      "player_id": "p-meli",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Meli desbloqueó Fotofinish"
     },
     {
@@ -41755,6 +42040,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Nico rompió «Emperador de Marte»: 114 (antes 101, Nico)"
     },
     {
@@ -41763,6 +42049,7 @@
      "game_id": "g-011",
      "player_id": "p-meli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Meli rompió «Barón de los recursos»: 8 (antes 6, Facu y Caro)"
     },
     {
@@ -41771,6 +42058,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Nico rompió «Rey de los bosques»: 13 (antes 10, Nico)"
     },
     {
@@ -41779,6 +42067,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Nico rompió «Aplanadora»: 25 (antes 4, Nico)"
     },
     {
@@ -41787,6 +42076,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 11.4 (antes 10.1, Nico)"
     },
     {
@@ -41796,6 +42086,7 @@
      "player_id": "p-nico",
      "code": "win_streak",
      "level": 2,
+     "description": "Ganar partidas consecutivas",
      "text": "Nico desbloqueó Imparable (nivel 2)"
     },
     {
@@ -41805,6 +42096,7 @@
      "player_id": "p-nico",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Nico desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -41814,6 +42106,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41823,6 +42116,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41832,6 +42126,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41847,6 +42142,7 @@
      "game_id": "g-010",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 45 (antes 37, Nico)"
     },
     {
@@ -41855,6 +42151,7 @@
      "game_id": "g-010",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 14 (antes 12, Nico)"
     },
     {
@@ -41863,6 +42160,7 @@
      "game_id": "g-010",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 1 (antes 4, Nico)"
     },
     {
@@ -41872,6 +42170,7 @@
      "player_id": "p-nico",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Nico desbloqueó Fotofinish"
     },
     {
@@ -41881,6 +42180,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41890,6 +42190,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41899,6 +42200,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41908,6 +42210,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41924,6 +42227,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41933,6 +42237,7 @@
      "player_id": "p-facu",
      "code": "stolen_awards",
      "level": 3,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Facu desbloqueó Gran Estafador (nivel 3)"
     },
     {
@@ -41942,6 +42247,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41951,6 +42257,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41960,6 +42267,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Magnate (nivel 3)"
     },
     {
@@ -41969,6 +42277,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -41978,6 +42287,7 @@
      "player_id": "p-nico",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Nico desbloqueó Incomprendido"
     },
     {
@@ -54838,6 +55148,7 @@
      "game_id": "g-063",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 46 (antes 42, Caro)"
     },
     {
@@ -54846,6 +55157,7 @@
      "game_id": "g-063",
      "player_id": "p-juli",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Juli rompió «Rey de los bosques»: 23 (antes 15, Juli)"
     },
     {
@@ -54854,6 +55166,7 @@
      "game_id": "g-063",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 21 (antes 13, Nico)"
     },
     {
@@ -54863,6 +55176,7 @@
      "player_id": "p-nico",
      "code": "city_planner",
      "level": 3,
+     "description": "Alcanzar X puntos de ciudades en una partida",
      "text": "Nico desbloqueó Metrópolis (nivel 3)"
     },
     {
@@ -54879,6 +55193,7 @@
      "player_id": "p-tomi",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Tomi desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -54888,6 +55203,7 @@
      "player_id": "p-tomi",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Tomi desbloqueó Rey de las Recompensas"
     },
     {
@@ -54897,6 +55213,7 @@
      "player_id": "p-tomi",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Tomi desbloqueó Blitz"
     },
     {
@@ -54913,6 +55230,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -54922,6 +55240,7 @@
      "player_id": "p-santi",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Santi desbloqueó Rey de las Recompensas"
     },
     {
@@ -54937,6 +55256,7 @@
      "game_id": "g-056",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 42 (antes 41, Caro)"
     },
     {
@@ -54952,6 +55272,7 @@
      "game_id": "g-053",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 41 (antes 40, Caro y Nico y Juli)"
     },
     {
@@ -54961,6 +55282,7 @@
      "player_id": "p-caro",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Caro desbloqueó Accionista (nivel 2)"
     },
     {
@@ -54976,6 +55298,7 @@
      "game_id": "g-052",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 12.1 (antes 11.7, Caro)"
     },
     {
@@ -54985,6 +55308,7 @@
      "player_id": "p-nico",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Nico desbloqueó Rey de las Recompensas"
     },
     {
@@ -54994,6 +55318,7 @@
      "player_id": "p-nico",
      "code": "giant_killer",
      "level": 3,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Nico desbloqueó Verdugo del Consejo (nivel 3)"
     },
     {
@@ -55003,6 +55328,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55018,6 +55344,7 @@
      "game_id": "g-049",
      "player_id": "p-facu",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Facu rompió «Por un pelo»: 1 (antes 2, Nico y Facu)"
     },
     {
@@ -55027,6 +55354,7 @@
      "player_id": "p-facu",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Facu desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55036,6 +55364,7 @@
      "player_id": "p-facu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Facu desbloqueó Incomprendido"
     },
     {
@@ -55045,6 +55374,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55054,6 +55384,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55063,6 +55394,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55084,6 +55416,7 @@
      "game_id": "g-048",
      "player_id": "p-meli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Meli rompió «Barón de los recursos»: 12 (antes 11, Caro)"
     },
     {
@@ -55093,6 +55426,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55102,6 +55436,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55111,6 +55446,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55126,6 +55462,7 @@
      "game_id": "g-044",
      "player_id": "p-nico",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Nico rompió «Aplanadora»: 23 (antes 17, Caro)"
     },
     {
@@ -55141,6 +55478,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 40 (antes 39, Caro y Juli y Facu y Tomi y Pato)"
     },
     {
@@ -55149,6 +55487,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro)"
     },
     {
@@ -55158,6 +55497,7 @@
      "player_id": "p-caro",
      "code": "win_streak",
      "level": 2,
+     "description": "Ganar partidas consecutivas",
      "text": "Caro desbloqueó Imparable (nivel 2)"
     },
     {
@@ -55167,6 +55507,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55176,6 +55517,7 @@
      "player_id": "p-caro",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Caro desbloqueó Lobo Solitario"
     },
     {
@@ -55185,6 +55527,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55194,6 +55537,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55203,6 +55547,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55212,6 +55557,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55227,6 +55573,7 @@
      "game_id": "g-039",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Nico y Caro)"
     },
     {
@@ -55236,6 +55583,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55245,6 +55593,7 @@
      "player_id": "p-caro",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Caro desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -55254,6 +55603,7 @@
      "player_id": "p-caro",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Caro desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55263,6 +55613,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55279,6 +55630,7 @@
      "player_id": "p-facu",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Facu desbloqueó Fotofinish"
     },
     {
@@ -55288,6 +55640,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55297,6 +55650,7 @@
      "player_id": "p-juli",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Juli desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55312,6 +55666,7 @@
      "game_id": "g-030",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 35 (antes 34, Facu)"
     },
     {
@@ -55320,6 +55675,7 @@
      "game_id": "g-030",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 11.7 (antes 11.6, Facu)"
     },
     {
@@ -55329,6 +55685,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55338,6 +55695,7 @@
      "player_id": "p-facu",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Facu desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55347,6 +55705,7 @@
      "player_id": "p-caro",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Caro desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55356,6 +55715,7 @@
      "player_id": "p-caro",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Caro desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55365,6 +55725,7 @@
      "player_id": "p-caro",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Caro desbloqueó Blitz"
     },
     {
@@ -55381,6 +55742,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55390,6 +55752,7 @@
      "player_id": "p-nico",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55412,6 +55775,7 @@
      "player_id": "p-facu",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Facu desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55421,6 +55785,7 @@
      "player_id": "p-facu",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Facu desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -55430,6 +55795,7 @@
      "player_id": "p-juli",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Juli desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55439,6 +55805,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55448,6 +55815,7 @@
      "player_id": "p-juli",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Juli desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55464,6 +55832,7 @@
      "player_id": "p-nico",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Nico desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55473,6 +55842,7 @@
      "player_id": "p-juli",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Juli desbloqueó Lobo Solitario"
     },
     {
@@ -55482,6 +55852,7 @@
      "player_id": "p-juli",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Juli desbloqueó Blitz"
     },
     {
@@ -55491,6 +55862,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55507,6 +55879,7 @@
      "player_id": "p-nico",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55516,6 +55889,7 @@
      "player_id": "p-nico",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Nico desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55532,6 +55906,7 @@
      "player_id": "p-nico",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Nico desbloqueó Incomprendido"
     },
     {
@@ -55541,6 +55916,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55557,6 +55933,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55566,6 +55943,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55581,6 +55959,7 @@
      "game_id": "g-017",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 34 (antes 28, Juli y Facu)"
     },
     {
@@ -55590,6 +55969,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -55599,6 +55979,7 @@
      "player_id": "p-facu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Facu desbloqueó Lobo Solitario"
     },
     {
@@ -55608,6 +55989,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55617,6 +55999,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55626,6 +56009,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55642,6 +56026,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55651,6 +56036,7 @@
      "player_id": "p-caro",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Caro desbloqueó Incomprendido"
     },
     {
@@ -55667,6 +56053,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55676,6 +56063,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55685,6 +56073,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55700,6 +56089,7 @@
      "game_id": "g-009",
      "player_id": "p-nico",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Nico rompió «Tesorería»: 33 (antes 31, Facu)"
     },
     {
@@ -55709,6 +56099,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55718,6 +56109,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55727,6 +56119,7 @@
      "player_id": "p-juli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Juli desbloqueó Incomprendido"
     },
     {
@@ -55742,6 +56135,7 @@
      "game_id": "g-007",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 13 (antes 11, Nico)"
     },
     {
@@ -55750,6 +56144,7 @@
      "game_id": "g-007",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
     },
     {
@@ -55759,6 +56154,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55768,6 +56164,7 @@
      "player_id": "p-facu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Facu desbloqueó Blitz"
     },
     {
@@ -55777,6 +56174,7 @@
      "player_id": "p-pato",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Pato desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55792,6 +56190,7 @@
      "game_id": "g-005",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli rompió «Barón de los recursos»: 10 (antes 9, Caro)"
     },
     {
@@ -55801,6 +56200,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55810,6 +56210,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55819,6 +56220,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55828,6 +56230,7 @@
      "player_id": "p-tomi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Tomi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55837,6 +56240,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55846,6 +56250,7 @@
      "player_id": "p-pato",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Pato desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55861,6 +56266,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
     },
     {
@@ -55869,6 +56275,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 2 (antes 17, Caro)"
     },
     {
@@ -55877,6 +56284,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
     },
     {
@@ -55886,6 +56294,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -55895,6 +56304,7 @@
      "player_id": "p-nico",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Nico desbloqueó Fotofinish"
     },
     {
@@ -55904,6 +56314,7 @@
      "player_id": "p-nico",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Nico desbloqueó Blitz"
     },
     {
@@ -55919,6 +56330,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Caro rompió «Emperador de Marte»: 115 (antes 103, Caro)"
     },
     {
@@ -55927,6 +56339,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 39 (antes 38, Caro)"
     },
     {
@@ -55935,6 +56348,7 @@
      "game_id": "g-003",
      "player_id": "p-juli",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Juli rompió «Magnate de proyectos»: 28 (antes 27, Caro)"
     },
     {
@@ -55943,6 +56357,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
     },
     {
@@ -55951,6 +56366,7 @@
      "game_id": "g-003",
      "player_id": "p-facu",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Facu rompió «Tesorería»: 31 (antes 26, Facu)"
     },
     {
@@ -55960,6 +56376,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55976,6 +56393,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55985,6 +56403,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55994,6 +56413,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -56003,6 +56423,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Inversor (nivel 2)"
     },
     {
@@ -56012,6 +56433,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -56021,6 +56443,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -56030,6 +56453,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -66907,6 +67331,7 @@
      "game_id": "g-060",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
     },
     {
@@ -66916,6 +67341,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66925,6 +67351,7 @@
      "player_id": "p-facu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Facu desbloqueó Blitz"
     },
     {
@@ -66934,6 +67361,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66943,6 +67371,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -66952,6 +67381,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66961,6 +67391,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -66970,6 +67401,7 @@
      "player_id": "p-lu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Lu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -66985,6 +67417,7 @@
      "game_id": "g-058",
      "player_id": "p-caro",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Caro rompió «Blitz»: 8 (antes 9, Juli y Gonza)"
     },
     {
@@ -66994,6 +67427,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -67003,6 +67437,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67012,6 +67447,7 @@
      "player_id": "p-caro",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Caro desbloqueó Blitz"
     },
     {
@@ -67028,6 +67464,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -67049,6 +67486,7 @@
      "game_id": "g-046",
      "player_id": "p-juli",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Juli rompió «Urbanista supremo»: 12 (antes 10, Meli y Caro)"
     },
     {
@@ -67057,6 +67495,7 @@
      "game_id": "g-046",
      "player_id": "p-facu",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Facu rompió «Tesorería»: 33 (antes 32, Santi y Gonza)"
     },
     {
@@ -67066,6 +67505,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -67075,6 +67515,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67084,6 +67525,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67093,6 +67535,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67108,6 +67551,7 @@
      "game_id": "g-037",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Meli rompió «Maestro de la política»: 5 (antes 3, Facu y Tomi y Meli y Pato y Caro y Gonza)"
     },
     {
@@ -67117,6 +67561,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67126,6 +67571,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67141,6 +67587,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 41 (antes 38, Facu y Meli y Caro y Gonza)"
     },
     {
@@ -67149,6 +67596,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli)"
     },
     {
@@ -67158,6 +67606,7 @@
      "player_id": "p-caro",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Caro desbloqueó Lobo Solitario"
     },
     {
@@ -67167,6 +67616,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67183,6 +67633,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67192,6 +67643,7 @@
      "player_id": "p-gonza",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Gonza desbloqueó Lobo Solitario"
     },
     {
@@ -67201,6 +67653,7 @@
      "player_id": "p-gonza",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Gonza desbloqueó Blitz"
     },
     {
@@ -67210,6 +67663,7 @@
      "player_id": "p-gonza",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Gonza desbloqueó Mesa llena"
     },
     {
@@ -67225,6 +67679,7 @@
      "game_id": "g-029",
      "player_id": "p-caro",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Caro rompió «Aplanadora»: 26 (antes 23, Juli)"
     },
     {
@@ -67234,6 +67689,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67243,6 +67699,7 @@
      "player_id": "p-caro",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Caro desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -67252,6 +67709,7 @@
      "player_id": "p-caro",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Caro desbloqueó Mesa llena"
     },
     {
@@ -67261,6 +67719,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67270,6 +67729,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67291,6 +67751,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Juli rompió «Emperador de Marte»: 110 (antes 106, Nico)"
     },
     {
@@ -67299,6 +67760,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli y Meli rompió «Barón de los recursos»: 10 (antes 9, Meli y Pato)"
     },
     {
@@ -67307,6 +67769,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Juli rompió «Rey de los bosques»: 20 (antes 11, Tomi y Pato)"
     },
     {
@@ -67315,6 +67778,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Juli rompió «Aplanadora»: 23 (antes 9, Facu)"
     },
     {
@@ -67323,6 +67787,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Juli rompió «Motor perfecto»: 12.2 (antes 10.6, Nico)"
     },
     {
@@ -67331,6 +67796,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Juli rompió «Blitz»: 9 (antes 10, Facu y Nico)"
     },
     {
@@ -67339,6 +67805,7 @@
      "game_id": "g-013",
      "player_id": "p-santi",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Santi rompió «Tesorería»: 32 (antes 26, Tomi y Pato)"
     },
     {
@@ -67348,6 +67815,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67357,6 +67825,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67366,6 +67835,7 @@
      "player_id": "p-juli",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Juli desbloqueó Blitz"
     },
     {
@@ -67375,6 +67845,7 @@
      "player_id": "p-juli",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Juli desbloqueó Mesa llena"
     },
     {
@@ -67384,6 +67855,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67393,6 +67865,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67402,6 +67875,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67411,6 +67885,7 @@
      "player_id": "p-pato",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Pato desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67426,6 +67901,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Nico rompió «Emperador de Marte»: 106 (antes 105, Facu)"
     },
     {
@@ -67434,6 +67910,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Nico rompió «Magnate de proyectos»: 33 (antes 28, Facu)"
     },
     {
@@ -67442,6 +67919,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 5 (antes 9, Facu)"
     },
     {
@@ -67450,6 +67928,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 10.6 (antes 10.5, Facu)"
     },
     {
@@ -67459,6 +67938,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67468,6 +67948,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67477,6 +67958,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -67486,6 +67968,7 @@
      "player_id": "p-nico",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Nico desbloqueó Mesa llena"
     },
     {
@@ -67495,6 +67978,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67504,6 +67988,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67513,6 +67998,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67522,6 +68008,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67538,6 +68025,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67547,6 +68035,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67556,6 +68045,7 @@
      "player_id": "p-facu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Facu desbloqueó Incomprendido"
     },
     {
@@ -67565,6 +68055,7 @@
      "player_id": "p-facu",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Facu desbloqueó Mesa llena"
     },
     {
@@ -67574,6 +68065,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67583,6 +68075,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67592,6 +68085,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {

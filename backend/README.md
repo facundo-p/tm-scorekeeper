@@ -74,6 +74,7 @@ backend (`services/helpers/order.py`). Ganadores: todos los de la posición 1 (`
   - `POST /achievements/reconcile`: lo reemplaza `POST /admin/recompute`.
   - `GET /records` deja `emoji` y `record`; los logros dejan `icon` y `fallback_icon` (queda `glyph`).
   - Se borra el motor de récords v1 (`services/record_calculators/`).
+- Ajustes de temporada y ayuda (noviembre 2026): las temporadas suman `games_left` (partidas estimadas para cerrar, con los tres parámetros) y `pct` deja de redondear los parámetros; el oxígeno sube 1 % cada 35 puntos de vegetación (antes 52, recalcula todas las temporadas). El informe (`achievements_by_player`, `near`) y la bitácora (`GET /feed`) suman `description` de cada logro y récord.
 
 ## Estadísticas y récords (v2.0)
 

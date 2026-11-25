@@ -2,7 +2,7 @@
 import type { PlayerIndex } from '@/data/instruments'
 import type { GameReport, NearRecord } from '@/data/types'
 import { RECORD_ICON } from '@/domain/catalog'
-import { Cube, Medal, NewBadge, Plate, PlayerTag, SectionHead, TagDisc } from '@/ui/atoms'
+import { Cube, HelpTip, Medal, NewBadge, Plate, PlayerTag, SectionHead, TagDisc } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
 import reveal from '@/ui/reveal.module.css'
 import { tierText, unlocksOf } from './model'
@@ -17,6 +17,7 @@ function NearItem({ c, players }: { c: NearRecord; players: PlayerIndex }) {
       <span>{c.gap === 0
         ? <>{name} <b>igualó</b> «{c.title}» ({c.value})</>
         : <>{name} quedó a <b>{c.gap}</b> de «{c.title}» ({c.value} contra {c.before})</>}</span>
+      <HelpTip title={c.title} text={c.description} />
     </li>
   )
 }
@@ -54,7 +55,7 @@ export function AchievementsInGame({ report, players, rank }: { report: GameRepo
       <ul className={styles.achgrid}>
         {unlocks.map((u) => (
           <li key={`${u.player_id}-${u.code}`} className={styles.achgrid__item}>
-            <Medal glyph={u.glyph} tier={u.tier} size="m" single={u.max_tier === 1} />
+            <HelpTip title={u.title} text={u.description}><Medal glyph={u.glyph} tier={u.tier} size="m" single={u.max_tier === 1} /></HelpTip>
             <div><b>{u.title}</b><span className="muted">{tierText(u)}</span><PlayerTag player={players.get(u.player_id)} size="s" /></div>
           </li>
         ))}

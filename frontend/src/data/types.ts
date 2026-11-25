@@ -7,6 +7,8 @@ export interface FeedItem {
   player_id?: string | null
   code?: string | null
   level?: number | null
+  /** Qué es el récord o el logro (burbuja de ayuda). */
+  description?: string | null
   text: string
 }
 
@@ -82,9 +84,9 @@ export interface RecordBroken {
   previous: { value: number; player_id: string; holders: string[] }
 }
 
-export interface NearRecord { code: string; title: string; gap: number; value: number; player_id: string; before: number }
+export interface NearRecord { code: string; title: string; description: string; gap: number; value: number; player_id: string; before: number }
 
-export interface GameUnlock { code: string; title: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
+export interface GameUnlock { code: string; title: string; description: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
 
 export interface EloChange {
   player_id: string

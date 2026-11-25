@@ -47,6 +47,7 @@ class RecordTiedDTO(BaseModel):
 class NearRecordDTO(BaseModel):
     code: str
     title: str
+    description: str = ""
     gap: RecordValue
     value: RecordValue
     player_id: str

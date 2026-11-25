@@ -60,4 +60,5 @@ class FeedItemDTO(BaseModel):
     player_id: Optional[str] = None
     code: Optional[str] = None
     level: Optional[int] = None
+    description: Optional[str] = None  # qué es el récord o el logro (para la burbuja de ayuda)
     text: str
