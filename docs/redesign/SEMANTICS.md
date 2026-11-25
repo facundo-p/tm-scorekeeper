@@ -123,7 +123,7 @@ Sobre sus partidas (del subconjunto si hay filtro):
 
 ## 7. Cara a cara
 
-Para cada par (a, b) de jugadores que compartieron partidas: partidas, delante (posición de a menor), detrás y empatados. % = delante / partidas.
+Para cada par (a, b) de jugadores que compartieron partidas: partidas, delante (posición de a menor), detrás y empatados. % = delante / partidas. La matriz muestra el % desde 1 partida compartida; con menos de 3 la celda va atenuada (muestra chica).
 
 ## 8. Equidad (D del dueño, punto 6)
 

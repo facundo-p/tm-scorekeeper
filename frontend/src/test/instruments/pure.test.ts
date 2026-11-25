@@ -40,10 +40,11 @@ describe('instrumentos (lo puro)', () => {
     expect(sq[sq.length - 1]).toBe(95)
   })
 
-  it('head to head needs two games; ahead is ocean, behind is rust', () => {
+  it('head to head shows from one game (few games flagged); ahead is ocean, behind is rust', () => {
     const m = { a: { b: { games: 4, ahead: 3 }, c: { games: 1, ahead: 1 } }, b: { a: { games: 4, ahead: 1 } } }
-    expect(h2hCell(m, 'a', 'c')).toBeNull()
-    expect(h2hCell(m, 'a', 'b')).toMatchObject({ rate: 0.75, tone: 'a', strength: 0.55 })
+    expect(h2hCell(m, 'a', 'd')).toBeNull()
+    expect(h2hCell(m, 'a', 'c')).toMatchObject({ rate: 1, few: true })
+    expect(h2hCell(m, 'a', 'b')).toMatchObject({ rate: 0.75, tone: 'a', strength: 0.55, few: false })
     expect(h2hCell(m, 'b', 'a')).toMatchObject({ tone: 'b' })
   })
 })
