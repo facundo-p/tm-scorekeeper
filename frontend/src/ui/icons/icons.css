@@ -1,0 +1,79 @@
+/* Port literal de docs/redesign/mockup/css/components.css (íconos y mapas). Clases globales
+   porque las usa el SVG de glyphs.ts (D-44). */
+/* ---------- Icons ---------- */
+.icon {
+  flex: none;
+  overflow: visible;
+}
+
+.i-st {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.i-fill {
+  fill: currentColor;
+}
+
+.g-thin {
+  stroke-width: 1.4 !important;
+}
+
+.g-ink { fill: var(--hull-0); }
+.g-ink-st { fill: none; stroke: var(--hull-0); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.g-tr-bg { fill: var(--cat-tr); }
+.g-award { fill: var(--cat-awards); }
+.g-award-dk { fill: color-mix(in oklab, var(--cat-awards), black 30%); }
+.g-milestone { fill: var(--cat-milestones); }
+.g-resource { fill: var(--cat-resources); }
+.g-card { fill: var(--cat-cards); }
+.g-card-vp { fill: var(--mc-hi); stroke: var(--hull-0); stroke-width: 1.2; }
+.g-greenery { fill: var(--cat-greenery); }
+.g-leaf { fill: color-mix(in oklab, var(--plant), white 30%); stroke: var(--hull-0); stroke-width: 1.2; stroke-linecap: round; }
+.g-city { fill: var(--cat-cities); }
+.g-city-ink { fill: none; stroke: var(--hull-0); stroke-width: 1.5; stroke-linejoin: round; }
+.g-ocean { fill: var(--ocean); }
+.g-wave { fill: none; stroke: color-mix(in oklab, var(--ocean), white 55%); stroke-width: 1.5; stroke-linecap: round; }
+.g-turmoil { fill: var(--cat-turmoil); }
+.g-mc { fill: var(--mc); }
+.g-mc-txt { fill: var(--ink-inv); font: 800 9.5px var(--font); font-stretch: 80%; text-anchor: middle; }
+.g-steel { fill: var(--res-steel); }
+.g-titanium { fill: var(--res-titanium); }
+.g-plant { fill: var(--plant); stroke: var(--hull-0); stroke-width: 1.2; }
+.g-energy { fill: var(--res-energy); }
+.g-heat { fill: var(--res-heat); }
+.g-temp-st { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.g-temp { fill: var(--temp-hot); }
+.g-temp-line { stroke: var(--temp-hot); stroke-width: 2.4; stroke-linecap: round; }
+.g-oxy-st { fill: none; stroke: var(--oxygen); stroke-width: 2.2; }
+.g-oxy-txt { fill: var(--oxygen); font: 800 8px var(--font); text-anchor: middle; }
+.g-exp { fill: currentColor; }
+.g-exp-st { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.g-exp-ink { fill: none; stroke: var(--hull-0); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.g-venus-st { fill: none; stroke: var(--venus); stroke-width: 2.2; }
+.g-venus-line { stroke: var(--venus); stroke-width: 2.2; stroke-linecap: round; }
+.g-metal { fill: currentColor; }
+.g-metal-dim { fill: currentColor; opacity: .55; }
+.g-metal-st { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.g-evenodd { fill-rule: evenodd; }
+
+/* Map glyphs */
+.map-glyph {
+  flex: none;
+  --m: var(--mars-hi);
+}
+
+.m-hex { fill: color-mix(in oklab, var(--m), var(--hull-0) 72%); stroke: color-mix(in oklab, var(--m), var(--hull-0) 25%); stroke-width: 1.1; }
+.m-st { fill: none; stroke: var(--m); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.m-thin { stroke-width: 1.2; }
+.m-fill { fill: var(--m); }
+.map-glyph[data-map="tharsis"] { --m: #ee8a3f; }
+.map-glyph[data-map="hellas"] { --m: #4aa8cc; }
+.map-glyph[data-map="elysium"] { --m: #6cb878; }
+.map-glyph[data-map="utopia"] { --m: #a58ce0; }
+.map-glyph[data-map="cimmeria"] { --m: #d0a27a; }
+.map-glyph[data-map="borealis"] { --m: #c4def5; }
+.map-glyph[data-map="amazonis"] { --m: #e8c45a; }

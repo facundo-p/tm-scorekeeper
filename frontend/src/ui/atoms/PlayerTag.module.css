@@ -1,0 +1,43 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.ptag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  color: var(--ink);
+  font-weight: 600;
+  text-align: left;
+}
+
+.ptag__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ptag__sub {
+  color: var(--ink-2);
+  font-weight: 450;
+  font-size: var(--t-small);
+}
+
+.ptag--link {
+  border-radius: 3px;
+}
+
+.ptag--link:hover .ptag__name {
+  text-decoration: underline;
+  text-decoration-color: var(--mc);
+  text-underline-offset: 3px;
+}
+
+.ptag--l {
+  font-size: 1.05rem;
+  gap: 9px;
+}
+
+.ptag--s {
+  font-size: var(--t-small);
+  gap: 5px;
+}

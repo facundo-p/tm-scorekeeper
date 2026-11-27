@@ -1,0 +1,14 @@
+/* Port de docs/redesign/mockup/css/screens.css (`.pach__bar`: perfil y logros, D-44). */
+.pach__bar {
+  height: 5px;
+  background: var(--hull-3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.pach__bar i {
+  display: block;
+  height: 100%;
+  width: calc(var(--p) * 1%);
+  background: linear-gradient(90deg, var(--mc-lo), var(--mc));
+}

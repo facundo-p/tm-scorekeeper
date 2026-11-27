@@ -1,105 +1,60 @@
 ---
 name: new-record
-description: Add a new record calculator to the Strategy pattern registry with proper base class, registration, and mapper support
+description: Add a new record to the v2 records engine (definition, per-game metric or career value, golden and tests)
 argument-hint: [record-name]
 ---
 
-# New Record Calculator
+# New record
 
-Add a new record to the records system for `$ARGUMENTS`.
+Add a new record for `$ARGUMENTS` to the v2 engine in `backend/services/records/` (F22).
+Semantics live in `docs/redesign/SEMANTICS.md` §4 (D-05, D-18); read them first.
 
 ## Pre-flight
 
-1. Ask the user for:
-   - **Record name** (if not provided): snake_case code (e.g. `highest_venus_points`)
-   - **Description**: what this record tracks (Spanish, e.g. "Mayor puntaje de Venus en una partida")
-   - **Title**: achievement title (Spanish, e.g. "Conquistador de Venus")
-   - **Emoji**: representative emoji
-   - **Calculator type**:
-     - **MaxScore** — highest value from a player score field (use `MaxScoreCalculator`)
-     - **Accumulative** — aggregates across all games (like `MostGamesPlayedCalculator`)
-     - **Custom** — unique logic needing its own class
+Resolve, from the prompt or the mockup catalog (`docs/redesign/mockup/js/data/catalog.js`, `RECORDS`):
 
-2. Confirm before generating.
+- **code** in snake_case (e.g. `highest_venus_points`)
+- **title** and **description** in Spanish, **unit** (`pts`, `TR`, `gen`, `M€`, …)
+- **scope**: `game` (best value in one game) or `career` (accumulated per player)
+- **lower_is_better**: only when a smaller value is the record (e.g. `closest_win`, `fastest_win`)
+
+The mockup is the reference implementation (`derive.js`): add the record there too and
+regenerate the golden (`node tools/fixtures/export.mjs`), so both sides stay in step.
 
 ## Architecture
 
-The records system uses a Strategy pattern:
-
 ```
-base.py          → RecordCalculator (ABC) with calculate() and evaluate()
-max_score_calculator.py → MaxScoreCalculator (reusable for single-field max records)
-registry.py      → ALL_CALCULATORS list
-```
-
-## For MaxScore type (simplest)
-
-Create `backend/services/record_calculators/{record_name}.py`:
-
-```python
-from services.record_calculators.max_score_calculator import MaxScoreCalculator
-
-{RecordName}Calculator = MaxScoreCalculator(
-    extractor=lambda p: p.scores.{field_name},
-    code="{record_name}",
-    title="{title}",
-    emoji="{emoji}",
-    description="{description}"
-)
+definitions.py → RecordDef and RECORD_DEFS (order = order on screen)
+metrics.py     → GAME_METRICS: code → fn(GameStats) → [(player_id, value)]   (scope "game")
+career.py      → CAREER_VALUE: code → fn(CareerTotals) → int                 (scope "career")
+tracker.py     → D-05 per game: set / broken / tied, at most one break per game
+service.py     → RecordsService: records(subset), history(code, subset), game_context(game_id)
 ```
 
-Reference: `backend/services/record_calculators/highest_city_points.py`
+`GameStats` (from `services/stats/context.py`) brings the game, its ranked results, the
+winners and the margin. `StatsContext` filters by `GameSubset` and keeps canonical order.
 
-## For Accumulative type
+## Game record
 
-Create `backend/services/record_calculators/{record_name}.py`:
+1. Add the `RecordDef(...)` to `RECORD_DEFS`.
+2. Add the metric to `GAME_METRICS`. Return candidates for every player who qualifies; the
+   tracker picks the best value and every player who reached it. In higher-is-better
+   records a 0 never sets the record (D-30); return nothing for games that don't qualify
+   (e.g. `biggest_margin` only with a single winner). Round with `round()` (half-even, D-06).
 
-```python
-from typing import List
-from collections import Counter
-from models.game import Game
-from models.record_entry import RecordEntry, RecordAttribute, LABEL_PLAYER
-from services.record_calculators.base import RecordCalculator
+## Career record
 
-class {RecordName}Calculator(RecordCalculator):
-    code = "{record_name}"
-    description = "{description}"
-    title = "{title}"
-    emoji = "{emoji}"
+1. Add the `RecordDef(...)` with `scope="career"`.
+2. If it needs a new running total, add the field to `CareerTotals` and update `_add_game`.
+3. Add the value to `CAREER_VALUE`.
 
-    def games_for_current(self, games_until_current):
-        return games_until_current  # Uses ALL games, not just last
+## Tests
 
-    def calculate(self, games: List[Game]) -> RecordEntry | None:
-        if not games:
-            return None
-        # ... accumulation logic
-        return RecordEntry(
-            value=...,
-            title=self.title,
-            attributes=[RecordAttribute(label=LABEL_PLAYER, value=player_id)],
-        )
+- Unit: `backend/tests/test_records_v2.py` (set, tie, break, zero, subset).
+- Golden: `backend/tests/golden/test_golden.py::test_records` checks every record, all
+  games and by table size, against `fixtures/golden.json`.
+
+```bash
+DATABASE_URL=postgresql://tm_user:tm_pass@localhost:5432/tm_scorekeeper_test \
+  backend/.venv/bin/python -m pytest backend/tests -q
 ```
-
-Reference: `backend/services/record_calculators/most_games_played.py`
-
-## For Custom type
-
-Create class extending `RecordCalculator` with custom `calculate()`. Override `games_for_current()` if needed.
-
-## Registration
-
-Add to `backend/services/record_calculators/registry.py`:
-
-1. Import the calculator
-2. Add to `ALL_CALCULATORS` list
-
-## Important notes
-
-- `calculate()` receives a `List[Game]` and returns `RecordEntry | None`
-- `games_for_current()` defaults to last game only; override for accumulative records
-- `evaluate()` in base class handles before/after comparison automatically
-- `RecordEntry` has: `value` (numeric), `title` (optional str), `attributes` (list of label/value)
-- Available attributes: `LABEL_PLAYER`, `LABEL_DATE` from `models.record_entry`
-- Player scores accessible via `player_result.scores.{field}` — check `models/player_score.py` for available fields
-- DO NOT run tests on host — use `make test-backend`

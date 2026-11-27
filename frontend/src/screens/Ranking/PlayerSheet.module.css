@@ -1,0 +1,56 @@
+/* Port de docs/redesign/mockup/css/screens.css (formulario de jugador, D-44). */
+.pform {
+  display: grid;
+  gap: var(--s5);
+}
+
+.pform__set {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.cubepick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cubepick__opt {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  background: var(--hull-1);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  cursor: pointer;
+  font-size: var(--t-micro);
+  color: var(--ink-2);
+  text-transform: capitalize;
+}
+
+.cubepick__opt input {
+  position: absolute;
+  opacity: 0;
+}
+
+.cubepick__opt.is-on {
+  box-shadow: inset 0 0 0 2px var(--mc);
+  color: var(--ink);
+}
+
+.cubepick__opt.is-taken {
+  opacity: .5;
+}
+
+.cubepick__opt:focus-within {
+  outline: 2px solid var(--mc);
+  outline-offset: 2px;
+}
+
+.pform__error {
+  color: var(--down);
+  font-size: var(--t-small);
+}

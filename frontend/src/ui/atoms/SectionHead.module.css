@@ -1,0 +1,24 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.shead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+  margin-bottom: var(--s4);
+}
+
+.shead__title {
+  font-size: var(--t-h2);
+  font-weight: 750;
+  font-stretch: 78%;
+  letter-spacing: .01em;
+}
+
+.shead__aside {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}

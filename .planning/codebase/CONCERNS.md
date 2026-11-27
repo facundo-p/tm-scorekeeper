@@ -1,5 +1,7 @@
 # Codebase Concerns
 
+> **Histórico:** análisis del código de v1 (2026-03-19). Desde v2.0 el frontend y parte del backend cambiaron por completo; la referencia vigente son los README (raíz, `frontend/`, `backend/`) y `.planning/v2.0/`.
+
 **Analysis Date:** 2026-03-19
 
 ## Security Issues

@@ -1,0 +1,8 @@
+# 26-01 SUMMARY — Shell, rutas, datos y filtro de mesa
+
+- **Shell (26.1):** `shell/AppShell.tsx` arma el marco con cielo (`Sky.tsx`: capas de estrellas de `fx/stars.ts` con semilla fija, centelleo, paralaje y meteoro; se mide a sí mismo), barra superior (marca, transmisión con los primeros 8 ítems de la bitácora que no son partidas, chip de temporada), rail en escritorio y dock con FAB en móvil. Estilos de `Chrome.module.css` generados desde `shell.css` del mockup, con las container queries 560/760/1180. `Frame` suma la variante `bare` y los slots `sky/rail/topbar/dock`.
+- **Rutas (26.2):** `routes.tsx` con las rutas D-02 (`shell/paths.ts`), redirecciones desde las viejas (`/games/:id`, `/players/:id/profile`, …), `React.lazy`, 404 dentro del shell y `ErrorBoundary` que se recupera al navegar. Las páginas viejas siguen vivas dentro de `Legacy` hasta que llegue su pantalla (D-69).
+- **Datos (26.3):** `api/http.ts` (Bearer, 15 s, `AbortController`, `ApiError` con `kind` http/timeout/network); `api/client.ts` queda como fachada. TanStack Query 5 (`data/query.ts`) y los primeros hooks (`useFeed`, `useCurrentSeason`, `usePlayersList`).
+- **Filtro de mesa (26.4):** `ui/MesaFilter` (`MesaFilter`, `MesaNotice`, `useMesaParam`; `?mesa=` inválido se ignora) y `ui/filters` (`FilterGroup`, `FilterChip`).
+- **Arnés:** escenarios de shell con `planetFromPhase: 27` (el planeta llega en F27), normalización de `href` entre el mockup (hash) y la app (rutas) en el árbol de accesibilidad (D-70).
+- **Tests:** `http.test.ts`, `paths.test.ts`, `MesaFilter.test.tsx`, `AppShell.test.tsx`, `Sky.test.tsx`; `Login.test` pasa a `/acceso`.

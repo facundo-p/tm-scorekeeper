@@ -11,9 +11,15 @@ def test_milestone_enum_contract():
         # Hellas
         "Diversifier", "Tactician", "Polar Explorer", "Energizer", "Rim Settler",
         # Vastitas Borealis
-        "Agronomist", "Engineer", "Spacecrafter", "Geologist", "Farmer",
+        "Agronomist", "Engineer", "Spacefarer", "Geologist", "Farmer",
         # Amazonis Planitia
         "Terran", "Landshaper", "Merchant", "Sponsor", "Lobbyist",
+        # Utopia Planitia
+        "Manager", "Pioneer", "Trader", "Metallurgist", "Researcher",
+        # Terra Cimmeria
+        "Planetologist", "Architect", "Coastguard", "Forester", "Fundraiser",
+        # Venus Next
+        "Hoverlord",
     }
 
     actual = {m.value for m in Milestone}
@@ -32,6 +38,12 @@ def test_award_enum_contract():
         "Traveller", "Landscaper", "Highlander", "Promoter", "Blacksmith",
         # Amazonis Planitia
         "Collector", "Innovator", "Constructor", "Manufacturer", "Physicist",
+        # Utopia Planitia
+        "Suburbian", "Investor", "Botanist", "Incorporator", "Metropolist",
+        # Terra Cimmeria
+        "Electrician", "Founder", "Mogul", "Zoologist", "Forecaster",
+        # Venus Next
+        "Venuphile",
     }
 
     actual = {a.value for a in Award}

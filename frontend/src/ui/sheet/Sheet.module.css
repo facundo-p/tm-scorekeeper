@@ -1,0 +1,86 @@
+/* Port de docs/redesign/mockup/css/components.css y de .sheet-actions (screens.css). */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  align-items: end;
+  background: rgba(5, 3, 6, .62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fade-in var(--d-2) ease both;
+}
+
+.sheet {
+  position: relative;
+  max-height: 88%;
+  overflow-y: auto;
+  padding: var(--s5) var(--gutter) calc(var(--s6) + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, var(--hull-2), var(--hull-0) 30%);
+  border-top: 1px solid var(--bevel);
+  animation: sheet-up var(--d-3) var(--ease-out) both;
+}
+
+.sheet__grip {
+  width: 44px;
+  height: 4px;
+  margin: -6px auto 14px;
+  border-radius: 2px;
+  background: var(--edge-2);
+}
+
+.sheet__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+}
+
+.sheet__title {
+  font-size: 1.35rem;
+  font-weight: 750;
+  font-stretch: 80%;
+}
+
+.sheet__close {
+  margin-left: auto;
+}
+
+@keyframes sheet-up {
+  from { transform: translateY(40px); opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@container app (min-width: 760px) {
+  .sheet-backdrop {
+    align-items: center;
+    justify-items: center;
+  }
+
+  .sheet {
+    width: min(640px, calc(100% - 64px));
+    max-height: min(84%, 860px);
+    padding: var(--s6);
+    border: 1px solid var(--edge-2);
+    border-top-color: var(--bevel);
+    clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  }
+
+  .sheet--wide {
+    width: min(920px, calc(100% - 64px));
+  }
+
+  .sheet__grip {
+    display: none;
+  }
+}
+
+.sheet-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+  margin-top: var(--s5);
+}

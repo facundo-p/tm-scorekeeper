@@ -1,0 +1,280 @@
+/* Port de docs/redesign/mockup/css/screens.css (Ranking, D-44). */
+.ranking-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s5);
+}
+
+.elo-panel__filters {
+  display: grid;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+}
+
+.lb {
+  display: grid;
+}
+
+.lb__head,
+.lb__row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.lb__head {
+  padding: 0 10px 8px;
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  border-bottom: 1px solid var(--edge-2);
+}
+
+.lb__head .n,
+.lb__row .n {
+  text-align: right;
+}
+
+.lb__x {
+  display: none;
+}
+
+.lb__row {
+  width: 100%;
+  min-height: 56px;
+  padding: 6px 10px;
+  text-align: left;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--edge);
+  transition: background var(--d-1);
+  animation: plate-in var(--d-4) var(--ease-out) backwards;
+  animation-delay: calc(var(--i) * 50ms + 200ms);
+}
+
+.lb__row:hover {
+  background: rgba(255, 230, 200, .04);
+}
+
+.lb__rank {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.lb__row.is-top-1 .lb__rank { color: var(--mc); }
+.lb__row.is-top-2 .lb__rank { color: var(--res-titanium); }
+.lb__row.is-top-3 .lb__rank { color: #d39a6a; }
+
+.lb__row.is-top {
+  min-height: 64px;
+}
+
+.lb__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.lb__who > span {
+  display: grid;
+  min-width: 0;
+}
+
+.lb__who b {
+  font-weight: 650;
+  font-size: 1.02rem;
+}
+
+.lb__who small {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb__elo {
+  display: grid;
+  justify-items: end;
+}
+
+.lb__elo b {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.lb__peak {
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Por tamaño de mesa: selector de jugador (screens.css, sección de equidad) */
+.bytable__pick select {
+  min-width: 140px;
+}
+
+/* Head to head */
+.h2h-panel__lede {
+  font-size: var(--t-small);
+  margin: calc(var(--s2) * -1) 0 var(--s4);
+  max-width: 70ch;
+}
+
+.h2h-panel__body {
+  display: grid;
+  gap: var(--s5);
+}
+
+.h2h-panel__h {
+  font-size: var(--t-h3);
+  margin-bottom: var(--s3);
+}
+
+.h2h-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--s4);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+}
+
+.h2h-legend span {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  margin-left: 8px;
+}
+
+.h2h-legend__a { background: var(--ocean); }
+.h2h-legend__b { background: var(--mars); }
+
+.rivals {
+  display: grid;
+  gap: var(--s3);
+}
+
+.rivals__item {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.rivals__side {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.rivals__side--b {
+  justify-content: flex-end;
+}
+
+.rivals__score {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rivals__score b {
+  font-family: var(--display);
+  font-size: 1.3rem;
+}
+
+.rivals__score i {
+  font-style: normal;
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  white-space: nowrap;
+}
+
+.rivals__bar {
+  grid-column: 1 / -1;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ocean) calc(var(--a) * 1%), var(--mars) calc(var(--a) * 1%));
+  border-radius: 2px;
+}
+
+/* Roster */
+.roster__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px 24px;
+}
+
+.roster__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  border-bottom: 1px solid var(--edge);
+}
+
+.roster__item.is-off {
+  opacity: .6;
+}
+
+.roster__name {
+  font-weight: 650;
+}
+
+.roster__since {
+  color: var(--ink-3);
+  font-size: var(--t-micro);
+  margin-right: auto;
+}
+
+.roster__note {
+  margin-top: var(--s3);
+  font-size: var(--t-small);
+}
+
+@container app (min-width: 760px) {
+  .lb__head,
+  .lb__row {
+    grid-template-columns: 34px minmax(120px, 1fr) 116px 56px 64px 68px 112px 104px 168px 92px;
+  }
+
+  .lb__x {
+    display: block;
+  }
+
+  .elo-panel__filters {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+}
+
+@container app (min-width: 1080px) {
+  .h2h-panel__body {
+    grid-template-columns: auto minmax(260px, 1fr);
+    align-items: start;
+  }
+}
+
+@keyframes plate-in {
+  from {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: none;
+  }
+}

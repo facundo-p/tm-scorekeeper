@@ -1,0 +1,56 @@
+/* Port de docs/redesign/mockup/css/screens.css (equidad: owner's points 6 y 7; D-44). */
+.infotip {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  border: 1px solid var(--edge-2);
+  border-radius: 50%;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.vsexp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.vsexp small {
+  color: var(--ink-3);
+}
+
+.bytable__t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.bytable__t th,
+.bytable__t td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--edge);
+  text-align: left;
+}
+
+.bytable__t .n {
+  text-align: right;
+}
+
+.bytable__t thead th {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.bytable__t tr.is-empty {
+  color: var(--ink-3);
+}
+
+.bytable__wrap {
+  overflow-x: auto;
+}

@@ -1,0 +1,6992 @@
+{
+ "players": [
+  {
+   "id": "p-facu",
+   "name": "Facu",
+   "color": "rojo",
+   "is_active": true,
+   "since": "2025-03-08"
+  },
+  {
+   "id": "p-nico",
+   "name": "Nico",
+   "color": "azul",
+   "is_active": true,
+   "since": "2025-03-08"
+  },
+  {
+   "id": "p-juli",
+   "name": "Juli",
+   "color": "verde",
+   "is_active": true,
+   "since": "2025-03-08"
+  },
+  {
+   "id": "p-caro",
+   "name": "Caro",
+   "color": "amarillo",
+   "is_active": true,
+   "since": "2025-03-08"
+  },
+  {
+   "id": "p-tomi",
+   "name": "Tomi",
+   "color": "violeta",
+   "is_active": true,
+   "since": "2025-04-12"
+  },
+  {
+   "id": "p-meli",
+   "name": "Meli",
+   "color": "rosa",
+   "is_active": true,
+   "since": "2025-05-03"
+  },
+  {
+   "id": "p-santi",
+   "name": "Santi",
+   "color": "naranja",
+   "is_active": true,
+   "since": "2025-06-14"
+  },
+  {
+   "id": "p-lu",
+   "name": "Lu",
+   "color": "blanco",
+   "is_active": true,
+   "since": "2025-09-06"
+  },
+  {
+   "id": "p-gonza",
+   "name": "Gonza",
+   "color": "negro",
+   "is_active": true,
+   "since": "2025-11-15"
+  },
+  {
+   "id": "p-pato",
+   "name": "Pato",
+   "color": "gris",
+   "is_active": false,
+   "since": "2025-03-22"
+  }
+ ],
+ "games": [
+  {
+   "id": "g-001",
+   "date": "2025-03-08",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 13,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 48,
+      "milestone_points": 10,
+      "milestones": [
+       "Rim Settler",
+       "Diversifier"
+      ],
+      "award_points": 10,
+      "card_points": 21,
+      "card_resource_points": 4,
+      "greenery_points": 8,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 45,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 10,
+      "card_points": 20,
+      "card_resource_points": 5,
+      "greenery_points": 15,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Magnate",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Space Baron",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli",
+      "p-caro"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-002",
+   "date": "2025-03-14",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Turmoil",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Mons Insurance",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 8,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Terralabs Investigation",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Polar Explorer"
+      ],
+      "award_points": 5,
+      "card_points": 27,
+      "card_resource_points": 9,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": 5
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Mining Guild",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 24,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Teractor",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 4,
+      "card_points": 15,
+      "card_resource_points": 4,
+      "greenery_points": 15,
+      "city_points": 4,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Space Baron",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Excentric",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-003",
+   "date": "2025-04-04",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Builder"
+      ],
+      "award_points": 6,
+      "card_points": 25,
+      "card_resource_points": 2,
+      "greenery_points": 12,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 28,
+      "card_resource_points": 5,
+      "greenery_points": 12,
+      "city_points": 7,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "Septem Tribus",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 5,
+      "greenery_points": 9,
+      "city_points": 4,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 5
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Utopia Invest",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 10,
+      "milestones": [
+       "Mayor",
+       "Terraformer"
+      ],
+      "award_points": 10,
+      "card_points": 25,
+      "card_resource_points": 8,
+      "greenery_points": 10,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Miner",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-004",
+   "date": "2025-04-11",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 8,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 20,
+      "card_resource_points": 5,
+      "greenery_points": 11,
+      "city_points": 4,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 10,
+      "milestones": [
+       "Planner",
+       "Mayor"
+      ],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 2,
+      "greenery_points": 4,
+      "city_points": 8,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 22,
+      "card_resource_points": 6,
+      "greenery_points": 10,
+      "city_points": 11,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 5,
+      "milestones": [
+       "Builder"
+      ],
+      "award_points": 2,
+      "card_points": 22,
+      "card_resource_points": 8,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Miner",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-005",
+   "date": "2025-04-25",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-pato",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 4,
+      "greenery_points": 9,
+      "city_points": 9,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 14
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 5,
+      "milestones": [
+       "Generalist"
+      ],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 10,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 19
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Pristar",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 10,
+      "milestones": [
+       "Legend",
+       "Tycoon"
+      ],
+      "award_points": 7,
+      "card_points": 26,
+      "card_resource_points": 9,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Nirgal Enterprises",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 24,
+      "card_resource_points": 3,
+      "greenery_points": 13,
+      "city_points": 5,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Industrialist",
+     "opened_by": "p-pato",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-006",
+   "date": "2025-05-02",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 15,
+      "card_resource_points": 2,
+      "greenery_points": 4,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 14
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Morning Star Inc.",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 6,
+      "card_points": 32,
+      "card_resource_points": 4,
+      "greenery_points": 10,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 15,
+      "card_points": 26,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Desert Settler",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-007",
+   "date": "2025-05-09",
+   "map": "Hellas",
+   "expansions": [],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 5,
+      "milestones": [
+       "Polar Explorer"
+      ],
+      "award_points": 7,
+      "card_points": 28,
+      "card_resource_points": 7,
+      "greenery_points": 12,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 25,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 12,
+      "card_points": 19,
+      "card_resource_points": 6,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 13,
+      "card_resource_points": 3,
+      "greenery_points": 7,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Energizer"
+      ],
+      "award_points": 2,
+      "card_points": 21,
+      "card_resource_points": 6,
+      "greenery_points": 12,
+      "city_points": 13,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Space Baron",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Excentric",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-008",
+   "date": "2025-05-16",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-pato",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 1,
+      "greenery_points": 5,
+      "city_points": 0,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Aridor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 12,
+      "card_points": 15,
+      "card_resource_points": 6,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 19,
+      "card_resource_points": 4,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 17,
+      "card_resource_points": 9,
+      "greenery_points": 5,
+      "city_points": 10,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 10,
+      "milestones": [
+       "Planner",
+       "Mayor"
+      ],
+      "award_points": 2,
+      "card_points": 28,
+      "card_resource_points": 7,
+      "greenery_points": 10,
+      "city_points": 7,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-009",
+   "date": "2025-05-30",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Mining Guild",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "award_points": 4,
+      "card_points": 27,
+      "card_resource_points": 7,
+      "greenery_points": 11,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Aridor",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 14,
+      "card_resource_points": 7,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 19,
+      "card_resource_points": 4,
+      "greenery_points": 10,
+      "city_points": 11,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 5,
+      "milestones": [
+       "Mayor"
+      ],
+      "award_points": 5,
+      "card_points": 22,
+      "card_resource_points": 4,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Banker",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-010",
+   "date": "2025-06-06",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 12,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Manutech",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "award_points": 0,
+      "card_points": 23,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 14,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 0,
+      "card_points": 22,
+      "card_resource_points": 4,
+      "greenery_points": 9,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 45,
+      "milestone_points": 5,
+      "milestones": [
+       "Mayor"
+      ],
+      "award_points": 0,
+      "card_points": 24,
+      "card_resource_points": 6,
+      "greenery_points": 6,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    }
+   ],
+   "awards": []
+  },
+  {
+   "id": "g-011",
+   "date": "2025-06-20",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-santi",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 23,
+      "card_resource_points": 6,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Terralabs Investigation",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 10,
+      "milestones": [
+       "Builder",
+       "Mayor"
+      ],
+      "award_points": 12,
+      "card_points": 22,
+      "card_resource_points": 5,
+      "greenery_points": 13,
+      "city_points": 13,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Septem Tribus",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 7,
+      "card_points": 18,
+      "card_resource_points": 8,
+      "greenery_points": 4,
+      "city_points": 7,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Thermalist",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-santi"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-012",
+   "date": "2025-06-28",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Ecologist"
+      ],
+      "award_points": 5,
+      "card_points": 30,
+      "card_resource_points": 9,
+      "greenery_points": 7,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Nirgal Enterprises",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Legend"
+      ],
+      "award_points": 2,
+      "card_points": 24,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Generalist"
+      ],
+      "award_points": 2,
+      "card_points": 14,
+      "card_resource_points": 9,
+      "greenery_points": 11,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 15,
+      "card_resource_points": 4,
+      "greenery_points": 2,
+      "city_points": 3,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 12,
+      "card_points": 33,
+      "card_resource_points": 8,
+      "greenery_points": 9,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Celebrity",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-pato"
+     ]
+    },
+    {
+     "name": "Industrialist",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-013",
+   "date": "2025-07-19",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Tactician"
+      ],
+      "award_points": 5,
+      "card_points": 21,
+      "card_resource_points": 4,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "Cheung Shing Mars",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Energizer"
+      ],
+      "award_points": 0,
+      "card_points": 12,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Saturn Systems",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 17,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Diversifier"
+      ],
+      "award_points": 9,
+      "card_points": 25,
+      "card_resource_points": 10,
+      "greenery_points": 20,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 10,
+      "greenery_points": 7,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Contractor",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-santi"
+     ]
+    },
+    {
+     "name": "Space Baron",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Magnate",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-014",
+   "date": "2025-07-25",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Teractor",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 10,
+      "card_points": 19,
+      "card_resource_points": 10,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 0,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 10,
+      "milestones": [
+       "Terraformer",
+       "Gardener"
+      ],
+      "award_points": 2,
+      "card_points": 28,
+      "card_resource_points": 7,
+      "greenery_points": 10,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 21,
+      "card_resource_points": 9,
+      "greenery_points": 2,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Thermalist",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-015",
+   "date": "2025-08-08",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 20,
+      "card_resource_points": 4,
+      "greenery_points": 3,
+      "city_points": 5,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 18,
+      "card_resource_points": 6,
+      "greenery_points": 8,
+      "city_points": 11,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Utopia Invest",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 10,
+      "milestones": [
+       "Builder",
+       "Planner"
+      ],
+      "award_points": 2,
+      "card_points": 27,
+      "card_resource_points": 3,
+      "greenery_points": 7,
+      "city_points": 10,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 14
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 22,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 10,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-016",
+   "date": "2025-08-16",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-santi",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 10,
+      "milestones": [
+       "Rim Settler",
+       "Polar Explorer"
+      ],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 4,
+      "greenery_points": 5,
+      "city_points": 9,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 4
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 29,
+      "card_resource_points": 8,
+      "greenery_points": 7,
+      "city_points": 11,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Tactician"
+      ],
+      "award_points": 0,
+      "card_points": 23,
+      "card_resource_points": 7,
+      "greenery_points": 9,
+      "city_points": 11,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 34
+     }
+    }
+   ],
+   "awards": []
+  },
+  {
+   "id": "g-017",
+   "date": "2025-08-30",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 26,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 25,
+      "card_resource_points": 4,
+      "greenery_points": 3,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 34,
+      "card_resource_points": 6,
+      "greenery_points": 10,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Thorgate",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Builder"
+      ],
+      "award_points": 2,
+      "card_points": 17,
+      "card_resource_points": 5,
+      "greenery_points": 10,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 10,
+      "milestones": [
+       "Terraformer",
+       "Mayor"
+      ],
+      "award_points": 2,
+      "card_points": 25,
+      "card_resource_points": 7,
+      "greenery_points": 11,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-santi"
+     ]
+    },
+    {
+     "name": "Miner",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-018",
+   "date": "2025-09-07",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-pato",
+     "corporation": "Aphrodite",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Specialist"
+      ],
+      "award_points": 4,
+      "card_points": 13,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Ecologist"
+      ],
+      "award_points": 2,
+      "card_points": 14,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 15,
+      "card_points": 25,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Industrialist",
+     "opened_by": "p-pato",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-pato"
+     ]
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-pato",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-pato"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-lu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-019",
+   "date": "2025-09-14",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Turmoil",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-pato",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 9,
+      "card_resource_points": 2,
+      "greenery_points": 3,
+      "city_points": 6,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 10,
+      "milestones": [
+       "Legend",
+       "Tycoon"
+      ],
+      "award_points": 0,
+      "card_points": 19,
+      "card_resource_points": 4,
+      "greenery_points": 3,
+      "city_points": 7,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 4,
+      "card_points": 19,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 8,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 10,
+      "card_points": 22,
+      "card_resource_points": 5,
+      "greenery_points": 11,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 14
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Venuphile",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Benefactor",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-020",
+   "date": "2025-09-20",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Energizer"
+      ],
+      "award_points": 0,
+      "card_points": 13,
+      "card_resource_points": 6,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Saturn Systems",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Polar Explorer"
+      ],
+      "award_points": 2,
+      "card_points": 15,
+      "card_resource_points": 3,
+      "greenery_points": 9,
+      "city_points": 11,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 19,
+      "card_resource_points": 2,
+      "greenery_points": 5,
+      "city_points": 2,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 5,
+      "milestones": [
+       "Rim Settler"
+      ],
+      "award_points": 12,
+      "card_points": 15,
+      "card_resource_points": 0,
+      "greenery_points": 5,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Excentric",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Space Baron",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-021",
+   "date": "2025-09-27",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Philares",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 5,
+      "card_points": 22,
+      "card_resource_points": 3,
+      "greenery_points": 9,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 20,
+      "card_resource_points": 6,
+      "greenery_points": 8,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 9,
+      "card_points": 26,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    },
+    {
+     "player_id": "p-pato",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Scientist",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-pato",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-022",
+   "date": "2025-10-04",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Mining Guild",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 19,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 0,
+      "card_points": 24,
+      "card_resource_points": 4,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 10,
+      "milestones": [
+       "Terraformer",
+       "Mayor"
+      ],
+      "award_points": 5,
+      "card_points": 22,
+      "card_resource_points": 6,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Miner",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-023",
+   "date": "2025-10-11",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Viron",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 24,
+      "card_resource_points": 7,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 10,
+      "milestones": [
+       "Hoverlord",
+       "Generalist"
+      ],
+      "award_points": 10,
+      "card_points": 13,
+      "card_resource_points": 6,
+      "greenery_points": 7,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Ecologist"
+      ],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 12
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 19,
+      "card_resource_points": 9,
+      "greenery_points": 15,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 19
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Desert Settler",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-juli",
+      "p-caro"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Celebrity",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-024",
+   "date": "2025-10-18",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 6,
+      "card_points": 27,
+      "card_resource_points": 6,
+      "greenery_points": 13,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 5,
+      "milestones": [
+       "Mayor"
+      ],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 1,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 15,
+      "card_points": 25,
+      "card_resource_points": 5,
+      "greenery_points": 5,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 13,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 14
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Miner",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-025",
+   "date": "2025-10-26",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 13,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 45,
+      "milestone_points": 15,
+      "milestones": [
+       "Polar Explorer",
+       "Hoverlord",
+       "Energizer"
+      ],
+      "award_points": 10,
+      "card_points": 24,
+      "card_resource_points": 10,
+      "greenery_points": 9,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 3,
+      "greenery_points": 9,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Cultivator",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-026",
+   "date": "2025-11-02",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 12,
+      "card_points": 28,
+      "card_resource_points": 6,
+      "greenery_points": 13,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 9,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 5
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Nirgal Enterprises",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 10,
+      "milestones": [
+       "Gardener",
+       "Terraformer"
+      ],
+      "award_points": 7,
+      "card_points": 27,
+      "card_resource_points": 2,
+      "greenery_points": 13,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 3,
+      "greenery_points": 5,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-027",
+   "date": "2025-11-08",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 14,
+   "player_results": [
+    {
+     "player_id": "p-santi",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 44,
+      "milestone_points": 5,
+      "milestones": [
+       "Ecologist"
+      ],
+      "award_points": 15,
+      "card_points": 20,
+      "card_resource_points": 7,
+      "greenery_points": 4,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 53,
+      "milestone_points": 5,
+      "milestones": [
+       "Specialist"
+      ],
+      "award_points": 5,
+      "card_points": 29,
+      "card_resource_points": 8,
+      "greenery_points": 8,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-facu",
+      "p-santi"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Celebrity",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Benefactor",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-028",
+   "date": "2025-11-16",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 10,
+      "milestones": [
+       "Builder",
+       "Planner"
+      ],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 13,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "award_points": 0,
+      "card_points": 26,
+      "card_resource_points": 1,
+      "greenery_points": 10,
+      "city_points": 6,
+      "turmoil_points": 1
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 2,
+      "greenery_points": 8,
+      "city_points": 4,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    }
+   ],
+   "awards": []
+  },
+  {
+   "id": "g-029",
+   "date": "2025-11-23",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 10,
+      "milestones": [
+       "Planner",
+       "Gardener"
+      ],
+      "award_points": 10,
+      "card_points": 25,
+      "card_resource_points": 8,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 4,
+      "greenery_points": 10,
+      "city_points": 2,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 22,
+      "card_resource_points": 3,
+      "greenery_points": 9,
+      "city_points": 9,
+      "turmoil_points": 1
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Stormcraft Incorporated",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 7,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Mining Guild",
+     "scores": {
+      "terraform_rating": 28,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 0,
+      "card_points": 19,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Miner",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-santi"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-030",
+   "date": "2025-11-30",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-gonza",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 28,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 19,
+      "card_resource_points": 1,
+      "greenery_points": 12,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 6,
+      "greenery_points": 6,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 35,
+      "card_resource_points": 7,
+      "greenery_points": 10,
+      "city_points": 11,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Energizer"
+      ],
+      "award_points": 5,
+      "card_points": 27,
+      "card_resource_points": 10,
+      "greenery_points": 12,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Cultivator",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-031",
+   "date": "2025-12-07",
+   "map": "Amazonis Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-gonza",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 5,
+      "milestones": [
+       "Lobbyist"
+      ],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 2,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": 1
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Terran"
+      ],
+      "award_points": 10,
+      "card_points": 23,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Mons Insurance",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 18,
+      "card_resource_points": 3,
+      "greenery_points": 6,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 26,
+      "card_resource_points": 5,
+      "greenery_points": 14,
+      "city_points": 5,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Manufacturer",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Physicist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-032",
+   "date": "2025-12-15",
+   "map": "Vastitas Borealis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "Cheung Shing Mars",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 9,
+      "card_points": 14,
+      "card_resource_points": 2,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 5,
+      "milestones": [
+       "Geologist"
+      ],
+      "award_points": 10,
+      "card_points": 24,
+      "card_resource_points": 6,
+      "greenery_points": 4,
+      "city_points": 9,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Hoteles Lagoazul",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 22,
+      "card_resource_points": 7,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Traveller",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Promoter",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Highlander",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-033",
+   "date": "2025-12-22",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Cheung Shing Mars",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Rim Settler"
+      ],
+      "award_points": 15,
+      "card_points": 22,
+      "card_resource_points": 2,
+      "greenery_points": 10,
+      "city_points": 7,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Tactician"
+      ],
+      "award_points": 6,
+      "card_points": 20,
+      "card_resource_points": 6,
+      "greenery_points": 4,
+      "city_points": 4,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Diversifier"
+      ],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 4,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Space Baron",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Excentric",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-034",
+   "date": "2026-01-12",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Saturn Systems",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 11,
+      "card_resource_points": 8,
+      "greenery_points": 5,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 5,
+      "milestones": [
+       "Energizer"
+      ],
+      "award_points": 0,
+      "card_points": 23,
+      "card_resource_points": 6,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Cheung Shing Mars",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Polar Explorer"
+      ],
+      "award_points": 2,
+      "card_points": 18,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 24,
+      "card_resource_points": 6,
+      "greenery_points": 11,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 24,
+      "card_resource_points": 5,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Cultivator",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Excentric",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-gonza"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Magnate",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-035",
+   "date": "2026-01-26",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-santi",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 0,
+      "card_points": 13,
+      "card_resource_points": 2,
+      "greenery_points": 7,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 17,
+      "card_resource_points": 1,
+      "greenery_points": 8,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Scientist",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-lu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-036",
+   "date": "2026-02-09",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-lu",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Tactician"
+      ],
+      "award_points": 2,
+      "card_points": 15,
+      "card_resource_points": 5,
+      "greenery_points": 3,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Saturn Systems",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Polar Explorer"
+      ],
+      "award_points": 7,
+      "card_points": 23,
+      "card_resource_points": 0,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 22,
+      "card_resource_points": 11,
+      "greenery_points": 8,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 27,
+      "milestone_points": 5,
+      "milestones": [
+       "Diversifier"
+      ],
+      "award_points": 5,
+      "card_points": 11,
+      "card_resource_points": 7,
+      "greenery_points": 12,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 5
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 19,
+      "card_resource_points": 8,
+      "greenery_points": 6,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Space Baron",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-lu"
+     ]
+    },
+    {
+     "name": "Excentric",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Cultivator",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-037",
+   "date": "2026-02-23",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude",
+    "Turmoil",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-gonza",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 25,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 9,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Aphrodite",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 10,
+      "milestones": [
+       "Rim Settler",
+       "Polar Explorer"
+      ],
+      "award_points": 0,
+      "card_points": 21,
+      "card_resource_points": 1,
+      "greenery_points": 8,
+      "city_points": 7,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 16,
+      "card_resource_points": 9,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": 5
+     },
+     "end_stats": {
+      "mc_total": 12
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 18,
+      "card_resource_points": 8,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 28,
+      "milestone_points": 5,
+      "milestones": [
+       "Hoverlord"
+      ],
+      "award_points": 2,
+      "card_points": 15,
+      "card_resource_points": 0,
+      "greenery_points": 9,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Cultivator",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-gonza"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-038",
+   "date": "2026-03-03",
+   "map": "Amazonis Planitia",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 13,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 43,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 3,
+      "greenery_points": 7,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Manutech",
+     "scores": {
+      "terraform_rating": 47,
+      "milestone_points": 5,
+      "milestones": [
+       "Terran"
+      ],
+      "award_points": 15,
+      "card_points": 14,
+      "card_resource_points": 6,
+      "greenery_points": 9,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Manufacturer",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Innovator",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-039",
+   "date": "2026-03-10",
+   "map": "Vastitas Borealis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Cheung Shing Mars",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Farmer"
+      ],
+      "award_points": 9,
+      "card_points": 20,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Geologist"
+      ],
+      "award_points": 12,
+      "card_points": 18,
+      "card_resource_points": 11,
+      "greenery_points": 4,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 5,
+      "milestones": [
+       "Engineer"
+      ],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 2,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 4,
+      "greenery_points": 2,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 4
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Traveller",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Blacksmith",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Highlander",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-040",
+   "date": "2026-03-17",
+   "map": "Vastitas Borealis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 12,
+   "player_results": [
+    {
+     "player_id": "p-lu",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 5,
+      "milestones": [
+       "Agronomist"
+      ],
+      "award_points": 5,
+      "card_points": 21,
+      "card_resource_points": 3,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 5
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 43,
+      "milestone_points": 10,
+      "milestones": [
+       "Spacefarer",
+       "Farmer"
+      ],
+      "award_points": 10,
+      "card_points": 24,
+      "card_resource_points": 2,
+      "greenery_points": 11,
+      "city_points": 11,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Highlander",
+     "opened_by": "p-lu",
+     "first_place": [
+      "p-lu"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Promoter",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Traveller",
+     "opened_by": "p-lu",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-041",
+   "date": "2026-03-31",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 9,
+      "card_points": 27,
+      "card_resource_points": 8,
+      "greenery_points": 12,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 5,
+      "milestones": [
+       "Mayor"
+      ],
+      "award_points": 15,
+      "card_points": 20,
+      "card_resource_points": 4,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 39,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 21,
+      "card_resource_points": 1,
+      "greenery_points": 8,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Thermalist",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-tomi",
+      "p-nico"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-042",
+   "date": "2026-04-14",
+   "map": "Tharsis",
+   "expansions": [
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 12,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 9,
+      "card_points": 31,
+      "card_resource_points": 5,
+      "greenery_points": 12,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 27,
+      "card_resource_points": 4,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 7,
+      "card_points": 16,
+      "card_resource_points": 4,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-gonza"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Thermalist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-043",
+   "date": "2026-04-21",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-gonza",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 4,
+      "greenery_points": 10,
+      "city_points": 4,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 27,
+      "milestone_points": 5,
+      "milestones": [
+       "Builder"
+      ],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 5,
+      "greenery_points": 5,
+      "city_points": 8,
+      "turmoil_points": 1
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Hoteles Lagoazul",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 5,
+      "card_points": 24,
+      "card_resource_points": 7,
+      "greenery_points": 10,
+      "city_points": 7,
+      "turmoil_points": 6
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 24,
+      "card_resource_points": 8,
+      "greenery_points": 10,
+      "city_points": 9,
+      "turmoil_points": 6
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Banker",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    },
+    {
+     "name": "Miner",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-lu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-044",
+   "date": "2026-04-28",
+   "map": "Hellas",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 6,
+      "greenery_points": 13,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 5,
+      "milestones": [
+       "Tactician"
+      ],
+      "award_points": 2,
+      "card_points": 12,
+      "card_resource_points": 4,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 5,
+      "milestones": [
+       "Rim Settler"
+      ],
+      "award_points": 5,
+      "card_points": 21,
+      "card_resource_points": 9,
+      "greenery_points": 9,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 5,
+      "milestones": [
+       "Diversifier"
+      ],
+      "award_points": 12,
+      "card_points": 26,
+      "card_resource_points": 5,
+      "greenery_points": 8,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Excentric",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Space Baron",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Contractor",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-045",
+   "date": "2026-05-05",
+   "map": "Utopia Planitia",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Pioneer"
+      ],
+      "award_points": 2,
+      "card_points": 20,
+      "card_resource_points": 9,
+      "greenery_points": 8,
+      "city_points": 10,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Hoteles Lagoazul",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Researcher"
+      ],
+      "award_points": 5,
+      "card_points": 18,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 5,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Metallurgist"
+      ],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 9,
+      "greenery_points": 11,
+      "city_points": 9,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Suburbian",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-046",
+   "date": "2026-05-12",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-lu",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Legend"
+      ],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 1,
+      "greenery_points": 6,
+      "city_points": 3,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Teractor",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 14,
+      "card_resource_points": 0,
+      "greenery_points": 7,
+      "city_points": 2,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Tycoon"
+      ],
+      "award_points": 7,
+      "card_points": 24,
+      "card_resource_points": 9,
+      "greenery_points": 11,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 6
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Celestic",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 30,
+      "card_resource_points": 6,
+      "greenery_points": 13,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Hoverlord"
+      ],
+      "award_points": 9,
+      "card_points": 22,
+      "card_resource_points": 4,
+      "greenery_points": 5,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Desert Settler",
+     "opened_by": "p-lu",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Venuphile",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Estate Dealer",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-047",
+   "date": "2026-05-19",
+   "map": "Amazonis Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Poseidon",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 6,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 10,
+      "milestones": [
+       "Sponsor",
+       "Lobbyist"
+      ],
+      "award_points": 5,
+      "card_points": 30,
+      "card_resource_points": 10,
+      "greenery_points": 11,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 5,
+      "milestones": [
+       "Terran"
+      ],
+      "award_points": 2,
+      "card_points": 19,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Collector",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-048",
+   "date": "2026-05-26",
+   "map": "Amazonis Planitia",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 31,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 4,
+      "card_points": 24,
+      "card_resource_points": 8,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Sponsor"
+      ],
+      "award_points": 5,
+      "card_points": 29,
+      "card_resource_points": 12,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Lobbyist"
+      ],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 5,
+      "greenery_points": 9,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 4
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 5,
+      "milestones": [
+       "Terran"
+      ],
+      "award_points": 5,
+      "card_points": 26,
+      "card_resource_points": 5,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Physicist",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Collector",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-049",
+   "date": "2026-06-02",
+   "map": "Utopia Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 10,
+      "card_points": 19,
+      "card_resource_points": 2,
+      "greenery_points": 13,
+      "city_points": 9,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 19
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Metallurgist"
+      ],
+      "award_points": 2,
+      "card_points": 28,
+      "card_resource_points": 3,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Terralabs Research",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Pioneer"
+      ],
+      "award_points": 2,
+      "card_points": 28,
+      "card_resource_points": 8,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 15,
+      "card_resource_points": 7,
+      "greenery_points": 12,
+      "city_points": 0,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Investor",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Botanist",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-050",
+   "date": "2026-06-16",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-gonza",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 15,
+      "milestones": [
+       "Ecologist",
+       "Hoverlord",
+       "Generalist"
+      ],
+      "award_points": 7,
+      "card_points": 22,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Arcadian Communities",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 10,
+      "card_points": 21,
+      "card_resource_points": 7,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 26,
+      "card_resource_points": 5,
+      "greenery_points": 8,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Benefactor",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    },
+    {
+     "name": "Desert Settler",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Industrialist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu",
+      "p-gonza"
+     ],
+     "second_place": []
+    }
+   ]
+  },
+  {
+   "id": "g-051",
+   "date": "2026-06-23",
+   "map": "Utopia Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-meli",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Hoverlord"
+      ],
+      "award_points": 0,
+      "card_points": 21,
+      "card_resource_points": 6,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Metallurgist"
+      ],
+      "award_points": 7,
+      "card_points": 23,
+      "card_resource_points": 2,
+      "greenery_points": 8,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 45,
+      "milestone_points": 5,
+      "milestones": [
+       "Pioneer"
+      ],
+      "award_points": 7,
+      "card_points": 22,
+      "card_resource_points": 7,
+      "greenery_points": 7,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Venuphile",
+     "opened_by": "p-gonza",
+     "first_place": [
+      "p-gonza"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Metropolist",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-gonza"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-052",
+   "date": "2026-06-30",
+   "map": "Vastitas Borealis",
+   "expansions": [
+    "Prelude"
+   ],
+   "draft": true,
+   "generations": 8,
+   "player_results": [
+    {
+     "player_id": "p-santi",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 7,
+      "greenery_points": 4,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Inventrix",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 5,
+      "milestones": [
+       "Engineer"
+      ],
+      "award_points": 15,
+      "card_points": 25,
+      "card_resource_points": 4,
+      "greenery_points": 8,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 33
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 6,
+      "card_points": 28,
+      "card_resource_points": 3,
+      "greenery_points": 7,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    },
+    {
+     "player_id": "p-gonza",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 5,
+      "milestones": [
+       "Farmer"
+      ],
+      "award_points": 0,
+      "card_points": 12,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Blacksmith",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Traveller",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Landscaper",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-053",
+   "date": "2026-07-07",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-tomi",
+     "corporation": "Poseidon",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 16,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Phobolog",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 5,
+      "milestones": [
+       "Builder"
+      ],
+      "award_points": 5,
+      "card_points": 24,
+      "card_resource_points": 6,
+      "greenery_points": 10,
+      "city_points": 3,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 23
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 9,
+      "card_points": 25,
+      "card_resource_points": 8,
+      "greenery_points": 10,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 15
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 0,
+      "card_points": 34,
+      "card_resource_points": 6,
+      "greenery_points": 10,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Miner",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-054",
+   "date": "2026-07-14",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 13,
+   "player_results": [
+    {
+     "player_id": "p-tomi",
+     "corporation": "Novel Corporation",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 26,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 8
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Polyphemos",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 6,
+      "greenery_points": 6,
+      "city_points": 8,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Terralabs Investigation",
+     "scores": {
+      "terraform_rating": 44,
+      "milestone_points": 15,
+      "milestones": [
+       "Mayor",
+       "Gardener",
+       "Hoverlord"
+      ],
+      "award_points": 7,
+      "card_points": 35,
+      "card_resource_points": 9,
+      "greenery_points": 10,
+      "city_points": 6,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Scientist",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-tomi"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-055",
+   "date": "2026-07-21",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-lu",
+     "corporation": "Palladin Shipping",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 15,
+      "card_resource_points": 4,
+      "greenery_points": 6,
+      "city_points": 2,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 11
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Vitor",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Legend"
+      ],
+      "award_points": 0,
+      "card_points": 17,
+      "card_resource_points": 5,
+      "greenery_points": 13,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Generalist"
+      ],
+      "award_points": 5,
+      "card_points": 26,
+      "card_resource_points": 9,
+      "greenery_points": 8,
+      "city_points": 12,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 29
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Arklight",
+     "scores": {
+      "terraform_rating": 38,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 25,
+      "card_resource_points": 4,
+      "greenery_points": 10,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Tycoon"
+      ],
+      "award_points": 0,
+      "card_points": 16,
+      "card_resource_points": 1,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Desert Settler",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-lu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-056",
+   "date": "2026-07-28",
+   "map": "Elysium",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Viron",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 7,
+      "card_points": 27,
+      "card_resource_points": 6,
+      "greenery_points": 10,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 16
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Recyclon",
+     "scores": {
+      "terraform_rating": 42,
+      "milestone_points": 5,
+      "milestones": [
+       "Legend"
+      ],
+      "award_points": 7,
+      "card_points": 19,
+      "card_resource_points": 6,
+      "greenery_points": 12,
+      "city_points": 11,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 19
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 11,
+      "card_resource_points": 4,
+      "greenery_points": 13,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Factorum",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Generalist"
+      ],
+      "award_points": 0,
+      "card_points": 19,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Venuphile",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Celebrity",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-057",
+   "date": "2026-08-11",
+   "map": "Terra Cimmeria",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-caro",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 46,
+      "milestone_points": 5,
+      "milestones": [
+       "Coastguard"
+      ],
+      "award_points": 4,
+      "card_points": 17,
+      "card_resource_points": 1,
+      "greenery_points": 6,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 32
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Valley Trust",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 5,
+      "milestones": [
+       "Forester"
+      ],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 0,
+      "greenery_points": 5,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 22
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Morning Star Inc.",
+     "scores": {
+      "terraform_rating": 41,
+      "milestone_points": 5,
+      "milestones": [
+       "Fundraiser"
+      ],
+      "award_points": 10,
+      "card_points": 22,
+      "card_resource_points": 10,
+      "greenery_points": 9,
+      "city_points": 10,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Forecaster",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Zoologist",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-058",
+   "date": "2026-08-18",
+   "map": "Terra Cimmeria",
+   "expansions": [
+    "Prelude",
+    "Venus next"
+   ],
+   "draft": true,
+   "generations": 8,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Morning Star Inc.",
+     "scores": {
+      "terraform_rating": 30,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 19,
+      "card_resource_points": 3,
+      "greenery_points": 5,
+      "city_points": 5,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Manutech",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 2,
+      "card_points": 17,
+      "card_resource_points": 5,
+      "greenery_points": 6,
+      "city_points": 3,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 25
+     }
+    },
+    {
+     "player_id": "p-tomi",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 26,
+      "milestone_points": 5,
+      "milestones": [
+       "Coastguard"
+      ],
+      "award_points": 0,
+      "card_points": 10,
+      "card_resource_points": 3,
+      "greenery_points": 6,
+      "city_points": 4,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 5
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Philares",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 10,
+      "milestones": [
+       "Planetologist",
+       "Architect"
+      ],
+      "award_points": 10,
+      "card_points": 21,
+      "card_resource_points": 5,
+      "greenery_points": 4,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 20
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 32,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 9,
+      "card_points": 21,
+      "card_resource_points": 2,
+      "greenery_points": 11,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Forecaster",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Mogul",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-meli"
+     ]
+    },
+    {
+     "name": "Zoologist",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-caro"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-059",
+   "date": "2026-09-01",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-facu",
+     "corporation": "Producciones Interplanetarias",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 4,
+      "card_points": 28,
+      "card_resource_points": 5,
+      "greenery_points": 7,
+      "city_points": 6,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Hoteles Lagoazul",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 3,
+      "greenery_points": 4,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 13
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Mayor"
+      ],
+      "award_points": 2,
+      "card_points": 21,
+      "card_resource_points": 4,
+      "greenery_points": 7,
+      "city_points": 7,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Spire",
+     "scores": {
+      "terraform_rating": 40,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 15,
+      "card_points": 22,
+      "card_resource_points": 5,
+      "greenery_points": 9,
+      "city_points": 11,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 27
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Scientist",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Landlord",
+     "opened_by": "p-santi",
+     "first_place": [
+      "p-santi"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-060",
+   "date": "2026-09-08",
+   "map": "Utopia Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies",
+    "Turmoil"
+   ],
+   "draft": true,
+   "generations": 8,
+   "player_results": [
+    {
+     "player_id": "p-lu",
+     "corporation": "Mining Guild",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Manager"
+      ],
+      "award_points": 5,
+      "card_points": 19,
+      "card_resource_points": 3,
+      "greenery_points": 8,
+      "city_points": 7,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Ecotec",
+     "scores": {
+      "terraform_rating": 27,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 20,
+      "card_resource_points": 0,
+      "greenery_points": 5,
+      "city_points": 8,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 19
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Stormcraft Incorporated",
+     "scores": {
+      "terraform_rating": 28,
+      "milestone_points": 10,
+      "milestones": [
+       "Pioneer",
+       "Trader"
+      ],
+      "award_points": 4,
+      "card_points": 30,
+      "card_resource_points": 6,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": 5
+     },
+     "end_stats": {
+      "mc_total": 9
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Teractor",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 8,
+      "card_resource_points": 4,
+      "greenery_points": 2,
+      "city_points": 6,
+      "turmoil_points": 1
+     },
+     "end_stats": {
+      "mc_total": 24
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Robinson Industries",
+     "scores": {
+      "terraform_rating": 29,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 5,
+      "card_points": 20,
+      "card_resource_points": 8,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": 2
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Metropolist",
+     "opened_by": "p-lu",
+     "first_place": [
+      "p-lu"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    },
+    {
+     "name": "Investor",
+     "opened_by": "p-meli",
+     "first_place": [
+      "p-meli"
+     ],
+     "second_place": [
+      "p-facu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-061",
+   "date": "2026-09-15",
+   "map": "Amazonis Planitia",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 9,
+   "player_results": [
+    {
+     "player_id": "p-tomi",
+     "corporation": "Stormcraft Incorporated",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 5,
+      "milestones": [
+       "Merchant"
+      ],
+      "award_points": 15,
+      "card_points": 26,
+      "card_resource_points": 7,
+      "greenery_points": 6,
+      "city_points": 3,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 30
+     }
+    },
+    {
+     "player_id": "p-juli",
+     "corporation": "Thorgate",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 6,
+      "card_points": 19,
+      "card_resource_points": 2,
+      "greenery_points": 11,
+      "city_points": 8,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-santi",
+     "corporation": "Credicor",
+     "scores": {
+      "terraform_rating": 36,
+      "milestone_points": 5,
+      "milestones": [
+       "Lobbyist"
+      ],
+      "award_points": 0,
+      "card_points": 22,
+      "card_resource_points": 6,
+      "greenery_points": 5,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 18
+     }
+    },
+    {
+     "player_id": "p-meli",
+     "corporation": "Poseidon",
+     "scores": {
+      "terraform_rating": 33,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 6,
+      "greenery_points": 5,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 26
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Collector",
+     "opened_by": "p-tomi",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Innovator",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Manufacturer",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-tomi"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-062",
+   "date": "2026-09-22",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Turmoil"
+   ],
+   "draft": false,
+   "generations": 10,
+   "player_results": [
+    {
+     "player_id": "p-nico",
+     "corporation": "United Nations Mars Initiative (UNMI)",
+     "scores": {
+      "terraform_rating": 34,
+      "milestone_points": 0,
+      "milestones": [],
+      "award_points": 15,
+      "card_points": 23,
+      "card_resource_points": 8,
+      "greenery_points": 9,
+      "city_points": 8,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 10
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Sagitta",
+     "scores": {
+      "terraform_rating": 37,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "award_points": 9,
+      "card_points": 23,
+      "card_resource_points": 2,
+      "greenery_points": 4,
+      "city_points": 6,
+      "turmoil_points": 3
+     },
+     "end_stats": {
+      "mc_total": 7
+     }
+    },
+    {
+     "player_id": "p-lu",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 35,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "award_points": 0,
+      "card_points": 18,
+      "card_resource_points": 6,
+      "greenery_points": 8,
+      "city_points": 10,
+      "turmoil_points": 4
+     },
+     "end_stats": {
+      "mc_total": 28
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-caro",
+     "first_place": [
+      "p-caro",
+      "p-nico"
+     ],
+     "second_place": []
+    },
+    {
+     "name": "Miner",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-nico"
+     ],
+     "second_place": [
+      "p-caro"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-063",
+   "date": "2026-09-27",
+   "map": "Tharsis",
+   "expansions": [
+    "Prelude",
+    "Colonies"
+   ],
+   "draft": true,
+   "generations": 11,
+   "player_results": [
+    {
+     "player_id": "p-juli",
+     "corporation": "Ecoline",
+     "scores": {
+      "terraform_rating": 44,
+      "award_points": 7,
+      "milestone_points": 5,
+      "milestones": [
+       "Gardener"
+      ],
+      "card_resource_points": 4,
+      "card_points": 17,
+      "greenery_points": 23,
+      "city_points": 6,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 21
+     }
+    },
+    {
+     "player_id": "p-facu",
+     "corporation": "Point Luna",
+     "scores": {
+      "terraform_rating": 41,
+      "award_points": 10,
+      "milestone_points": 5,
+      "milestones": [
+       "Planner"
+      ],
+      "card_resource_points": 6,
+      "card_points": 25,
+      "greenery_points": 9,
+      "city_points": 7,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 17
+     }
+    },
+    {
+     "player_id": "p-nico",
+     "corporation": "Tharsis Republic",
+     "scores": {
+      "terraform_rating": 39,
+      "award_points": 4,
+      "milestone_points": 0,
+      "milestones": [],
+      "card_resource_points": 2,
+      "card_points": 16,
+      "greenery_points": 7,
+      "city_points": 21,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 31
+     }
+    },
+    {
+     "player_id": "p-caro",
+     "corporation": "Helion",
+     "scores": {
+      "terraform_rating": 46,
+      "award_points": 0,
+      "milestone_points": 5,
+      "milestones": [
+       "Terraformer"
+      ],
+      "card_resource_points": 0,
+      "card_points": 13,
+      "greenery_points": 8,
+      "city_points": 9,
+      "turmoil_points": null
+     },
+     "end_stats": {
+      "mc_total": 12
+     }
+    }
+   ],
+   "awards": [
+    {
+     "name": "Landlord",
+     "opened_by": "p-nico",
+     "first_place": [
+      "p-juli"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    },
+    {
+     "name": "Scientist",
+     "opened_by": "p-facu",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-juli"
+     ]
+    },
+    {
+     "name": "Banker",
+     "opened_by": "p-juli",
+     "first_place": [
+      "p-facu"
+     ],
+     "second_place": [
+      "p-nico"
+     ]
+    }
+   ]
+  }
+ ]
+}

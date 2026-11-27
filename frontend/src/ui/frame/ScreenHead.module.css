@@ -1,0 +1,28 @@
+/* Port de docs/redesign/mockup/css/screens.css (encabezado de pantalla). */
+.screen-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s3) var(--s5);
+  padding-top: var(--s3);
+}
+
+.screen-head__title {
+  font-family: var(--display);
+  font-size: var(--t-title);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .01em;
+}
+
+.screen-head__sub {
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.screen-head__aside {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}

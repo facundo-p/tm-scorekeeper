@@ -1,0 +1,30 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: var(--s2);
+  padding: var(--s7) var(--s5);
+  text-align: center;
+}
+
+.empty__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: var(--hull-2);
+  color: var(--ink-2);
+  margin-bottom: var(--s2);
+}
+
+.empty__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.empty__body {
+  max-width: 38ch;
+  color: var(--ink-2);
+  margin-bottom: var(--s3);
+}

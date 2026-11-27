@@ -1,0 +1,5 @@
+/* Sistema visual v2.0 (D-43): lo carga el marco (src/ui/frame), que envuelve todas las pantallas. */
+@import './tokens.css';
+@import './fonts.css';
+@import './base.css';
+@import '../ui/icons/icons.css';

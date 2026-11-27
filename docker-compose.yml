@@ -28,6 +28,11 @@ services:
       DATABASE_URL: postgresql://tm_user:tm_pass@db:5432/tm_scorekeeper
       FRONTEND_URL: http://localhost:5173
       SEED_DATA: "true"
+      # Autenticación (D-03): definirlas en un .env de la raíz (ver backend/.env.example).
+      AUTH_USERNAME: ${AUTH_USERNAME:-}
+      AUTH_PASSWORD_HASH: ${AUTH_PASSWORD_HASH:-}
+      AUTH_SECRET: ${AUTH_SECRET:-}
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
     depends_on:
       db:
         condition: service_healthy

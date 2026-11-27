@@ -1,0 +1,43 @@
+# Galería de átomos e instrumentos (F19 / F27), shell (F26) y planeta estacionado (F27, D-72).
+- id: gal-atoms
+  screen: galeria
+  ref: { hash: '#galeria' }
+  cand: { path: /__galeria }
+  planet: none
+  gateFromPhase: 19
+- id: gal-sheet
+  screen: galeria
+  ref: { hash: '#galeria' }
+  cand: { path: /__galeria }
+  planet: none
+  actions:
+    - click: { role: button, name: Abrir hoja }
+      expect: { role: dialog }
+  frames: 1
+  gateFromPhase: 19
+- id: gal-instruments
+  screen: galeria
+  ref: { hash: '#galeria?parte=instrumentos' }
+  cand: { path: /__galeria, search: '?parte=instrumentos' }
+  planet: none
+  gateFromPhase: 27
+- id: '404'
+  screen: shell
+  ref: { hash: '#no-existe' }
+  cand: { path: /no-existe }
+  gateFromPhase: 26
+- id: state-loading
+  screen: shell
+  ref: { hash: '#inicio', search: '?demo=loading' }
+  cand: { path: /, search: '?demo=loading' }
+  gateFromPhase: 26
+- id: state-error
+  screen: shell
+  ref: { hash: '#inicio', search: '?demo=error' }
+  cand: { path: /, search: '?demo=error' }
+  gateFromPhase: 26
+- id: planet-parked
+  screen: shell
+  ref: { hash: '#ranking', search: '?demo=loading' }
+  cand: { path: /ranking, search: '?demo=loading' }
+  gateFromPhase: 27

@@ -1,0 +1,20 @@
+{
+  "name": "tm-parity",
+  "private": true,
+  "type": "module",
+  "description": "Arnés de comparación visual y estructural mockup ↔ app (v2.0, F16).",
+  "scripts": {
+    "parity": "node run.mjs",
+    "self": "node run.mjs --self",
+    "test": "node --test lib/*.test.mjs"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "htm": "3.1.1",
+    "pixelmatch": "7.2.0",
+    "playwright": "1.56.1",
+    "pngjs": "7.0.0",
+    "preact": "10.27.2",
+    "yaml": "2.8.1"
+  }
+}

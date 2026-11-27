@@ -1,0 +1,18 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.pips {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.pip {
+  width: 9px;
+  height: 9px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: var(--hull-3);
+}
+
+.pip--t1 { background: var(--res-steel); }
+.pip--t2 { background: var(--res-titanium); }
+.pip--t3 { background: var(--mc); }
+.pip--t4 { background: #b07cf2; }
+.pip--t5 { background: linear-gradient(180deg, #7fd88a, var(--ocean)); }

@@ -3,6 +3,8 @@ phase: 02-integraci-n-y-api
 plan: 01
 subsystem: backend-achievements-service
 tags: [service, dtos, mappers, repository, tdd]
+requirements: [API-03, INTG-01, INTG-02, INTG-04, INTG-05]
+requirements-completed: [API-03, INTG-01, INTG-02, INTG-04, INTG-05]
 dependency_graph:
   requires:
     - Phase 01 evaluator system (ALL_EVALUATORS, AchievementEvaluator base)

@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "Marca los módulos del mockup como ESM para importarlos en Node (tools/fixtures/export.mjs)."
+}

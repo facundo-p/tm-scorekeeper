@@ -1,0 +1,16 @@
+/* Port de docs/redesign/mockup/css/screens.css (piezas compartidas): `.tagdisc`. */
+.tagdisc {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex: none;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.tagdisc--blue { background: var(--frame-blue); }
+.tagdisc--green { background: var(--frame-green); }
+.tagdisc--red { background: var(--frame-red); }
+.tagdisc--gold { background: var(--mc-lo); }

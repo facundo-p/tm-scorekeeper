@@ -10,7 +10,9 @@ DATABASE_URL = os.getenv(
 )
 
 engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# expire_on_commit=False: los repositorios confirman al salir de su bloque (db/uow.py) y
+# algunos devuelven filas ORM ya leídas; no deben vaciarse al confirmar.
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, expire_on_commit=False, bind=engine)
 
 
 def get_session():

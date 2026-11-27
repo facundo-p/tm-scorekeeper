@@ -1,0 +1,145 @@
+/* Port literal de docs/redesign/mockup/css/tokens.css: mantener sincronizados. */
+/* Layout concept: a persistent orbital stage (stars + WebGL Mars) sits behind a HUD shell.
+   Desktop = left command rail + asymmetric content; phone = one column + bottom hex dock.
+   One committed look (Mars orbit at night), so every colour below is final and dark. */
+:root {
+  color-scheme: dark;
+
+  /* Ground and hull plates (warm violet-black, biased toward Mars rust) */
+  --space: #0f0b10;
+  --space-2: #160f15;
+  --hull-0: #171117;
+  --hull-1: #1d161a;
+  --hull-2: #271d22;
+  --hull-3: #33262c;
+  --edge: #46353a;
+  --edge-2: #5d4644;
+  --bevel: #8a6650;
+  --shadow: #050306;
+
+  /* Ink: Martian dust whites */
+  --ink: #f4e6d4;
+  --ink-2: #cdb8a4;
+  --ink-3: #a99382;
+  --ink-inv: #241405;
+
+  /* Brand: regolith and MegaCredits */
+  --mars: #c8552b;
+  --mars-hi: #e8804c;
+  --mars-lo: #6e2717;
+  --mc: #f4c43a;
+  --mc-hi: #ffe08a;
+  --mc-lo: #c48a17;
+
+  /* Global parameters, sampled from the board: thermometer cyan to crimson,
+     oxygen arc plum to sky, ocean tiles */
+  --temp-0: #23ade3;
+  --temp-1: #2f86c8;
+  --temp-2: #6a5cb0;
+  --temp-3: #93418a;
+  --temp-4: #b8396c;
+  --temp-5: #de3446;
+  --temp-hot: #de3446;
+  --oxy-0: #6a4560;
+  --oxygen: #92cae7;
+  --ocean: #3682b4;
+  --ocean-deep: #24568e;
+
+  /* TR track squares and card frames (automated, active, event, prelude) */
+  --track: #e87c27;
+  --track-5: #f0d240;
+  --frame-green: #2f8a43;
+  --frame-blue: #3d85c2;
+  --frame-red: #cc4340;
+  --frame-prelude: #bc448f;
+  --plant: #5fb34a;
+  --venus: #e6b94f;
+
+  /* Resources (icons only) */
+  --res-steel: #b07a4c;
+  --res-titanium: #c9d0d8;
+  --res-energy: #9a62e0;
+  --res-heat: #ef5a2c;
+
+  /* Score categories: validated categorical order on --hull-1
+     (worst adjacent CVD dE 14.4, normal-vision dE 17.0, all >= 3:1) */
+  --cat-tr: #d95926;
+  --cat-awards: #c95fb8;
+  --cat-milestones: #c98500;
+  --cat-resources: #16a39b;
+  --cat-cards: #3f82e8;
+  --cat-greenery: #4c9a2f;
+  --cat-cities: #9283e6;
+  --cat-turmoil: #e45f5f;
+
+  /* Status: reserved meaning, always paired with a glyph and a sign */
+  --up: #7fd88a;
+  --down: #ff8a7a;
+  --warn: #f2b63e;
+
+  /* Player cubes (the board's marker colours, extended for big groups) */
+  --p-rojo: #e2483d;
+  --p-verde: #3fae49;
+  --p-azul: #3b7be0;
+  --p-amarillo: #f0c330;
+  --p-negro: #55555f;
+  --p-naranja: #ee7a2a;
+  --p-violeta: #8f5fe0;
+  --p-rosa: #e05aa6;
+  --p-blanco: #e8e4dc;
+
+  /* Type: Chakra Petch stands in for the game's squared numerals and titles;
+     Saira (variable width) carries the interface; Crimson Pro italic is
+     reserved for flavour lines, like the italic quotes on the cards. */
+  --font: "Saira", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --display: "Chakra Petch", "Saira", "Arial Narrow", system-ui, sans-serif;
+  --flavor: "Crimson Pro", "Palatino Linotype", Palatino, Georgia, serif;
+  --w-cond: 72;
+  --w-semi: 88;
+  --w-norm: 100;
+  --w-wide: 118;
+
+  --t-mega: clamp(3rem, 1.7rem + 5.2cqi, 5.6rem);
+  --t-hero: clamp(2.3rem, 1.5rem + 3.2cqi, 3.9rem);
+  --t-title: clamp(1.7rem, 1.25rem + 1.6cqi, 2.4rem);
+  --t-h2: 1.375rem;
+  --t-h3: 1.0625rem;
+  --t-body: 0.9375rem;
+  --t-small: 0.8125rem;
+  --t-micro: 0.71875rem;
+
+  /* Space (4px grid) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --gutter: clamp(16px, 2.6cqi, 40px);
+
+  /* Chamfers instead of radii: hierarchy by cut size */
+  --cut-s: 6px;
+  --cut-m: 12px;
+  --cut-l: 22px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.16, .84, .24, 1);
+  --ease-io: cubic-bezier(.65, 0, .35, 1);
+  --ease-spring: cubic-bezier(.34, 1.45, .64, 1);
+  --d-1: 120ms;
+  --d-2: 220ms;
+  --d-3: 420ms;
+  --d-4: 760ms;
+
+  /* Shell metrics */
+  --rail-w: 0px;
+  --dock-h: 0px;
+  --top-h: 60px;
+}
+
+body {
+  background: var(--space);
+  color: var(--ink);
+}

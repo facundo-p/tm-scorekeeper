@@ -1,0 +1,49 @@
+# Récords y logros (F34).
+- id: records
+  screen: records
+  ref: { hash: '#records' }
+  cand: { path: /records }
+  gateFromPhase: 34
+- id: achievements
+  screen: logros
+  ref: { hash: '#logros' }
+  cand: { path: /logros }
+  gateFromPhase: 34
+- id: records-map
+  screen: records
+  ref: { hash: '#records?mapa=Tharsis' }
+  cand: { path: /records, search: '?mapa=Tharsis' }
+  gateFromPhase: 34
+- id: records-expansion
+  screen: records
+  ref: { hash: '#records?exp=Turmoil' }
+  cand: { path: /records, search: '?exp=Turmoil' }
+  gateFromPhase: 34
+- id: records-mesa4
+  screen: records
+  ref: { hash: '#records?mesa=4' }
+  cand: { path: /records, search: '?mesa=4' }
+  gateFromPhase: 34
+- id: achievements-mesa3
+  screen: logros
+  ref: { hash: '#logros?mesa=3' }
+  cand: { path: /logros, search: '?mesa=3' }
+  gateFromPhase: 34
+# La hoja de un logro: escalera de niveles con quién llegó a cada uno.
+- id: achievement-sheet
+  screen: logros
+  ref: { hash: '#logros' }
+  cand: { path: /logros }
+  actions:
+    - click: { role: button, name: Alcanzar X puntos en una partida }
+      expect: { role: dialog }
+  gateFromPhase: 34
+# El progreso de un jugador sobre la grilla.
+- id: achievements-player
+  screen: logros
+  ref: { hash: '#logros' }
+  cand: { path: /logros }
+  actions:
+    - click: { role: button, name: Facu }
+      expect: { text: 'Facu tiene' }
+  gateFromPhase: 34

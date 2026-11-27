@@ -1,0 +1,55 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.plate {
+  --cut: var(--cut-m);
+  --fill-a: rgba(39, 29, 34, .93);
+  --fill-b: rgba(23, 17, 23, .95);
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding: var(--s5);
+}
+
+.plate::before,
+.plate::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.plate::before {
+  inset: 0;
+  z-index: -2;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  background: linear-gradient(180deg, var(--bevel), var(--edge) 14%, var(--edge) 78%, var(--shadow));
+}
+
+.plate::after {
+  inset: 1px;
+  z-index: -1;
+  clip-path: polygon(calc(var(--cut) - .42px) 0, 100% 0, 100% calc(100% - var(--cut) + .42px), calc(100% - var(--cut) + .42px) 100%, 0 100%, 0 calc(var(--cut) - .42px));
+  background:
+    radial-gradient(480px circle at var(--mx, -999px) var(--my, -999px), rgba(255, 214, 160, .06), transparent 62%),
+    linear-gradient(180deg, var(--fill-a), var(--fill-b));
+}
+
+.plate--cut-s { --cut: var(--cut-s); }
+.plate--cut-l { --cut: var(--cut-l); }
+
+.plate--inset {
+  --fill-a: rgba(15, 11, 16, .8);
+  --fill-b: rgba(15, 11, 16, .9);
+}
+
+.plate--glass {
+  --fill-a: rgba(29, 22, 26, .66);
+  --fill-b: rgba(17, 12, 17, .78);
+}
+
+.plate--glass::after {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.plate--gold::before {
+  background: linear-gradient(160deg, var(--mc-hi), var(--mc) 30%, var(--mc-lo) 70%, var(--mars-lo));
+}

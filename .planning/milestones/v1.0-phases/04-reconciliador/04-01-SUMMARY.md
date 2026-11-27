@@ -3,6 +3,8 @@ phase: 04-reconciliador
 plan: "01"
 subsystem: backend
 tags: [achievements, reconciler, service, endpoint, tdd]
+requirements: [TOOL-01, TOOL-02, TOOL-03]
+requirements-completed: [TOOL-01, TOOL-02, TOOL-03]
 dependency_graph:
   requires:
     - backend/services/achievements_service.py (AchievementsService)

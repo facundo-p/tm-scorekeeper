@@ -1,0 +1,20 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.cube {
+  --c: var(--p-blanco);
+  flex: none;
+  overflow: visible;
+}
+
+.cube__top { fill: color-mix(in oklab, var(--c), white 28%); }
+.cube__left { fill: var(--c); }
+.cube__right { fill: color-mix(in oklab, var(--c), black 32%); }
+.cube--rojo { --c: var(--p-rojo); }
+.cube--verde { --c: var(--p-verde); }
+.cube--azul { --c: var(--p-azul); }
+.cube--amarillo { --c: var(--p-amarillo); }
+.cube--negro { --c: var(--p-negro); }
+.cube--naranja { --c: var(--p-naranja); }
+.cube--violeta { --c: var(--p-violeta); }
+.cube--rosa { --c: var(--p-rosa); }
+.cube--blanco { --c: var(--p-blanco); }
+.cube--gris { --c: #8b8582; }

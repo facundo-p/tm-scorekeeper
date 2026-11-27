@@ -11,8 +11,8 @@ requires:
 
 provides:
   - POST /games/{game_id}/achievements — triggers achievement evaluation, returns 200 with achievements_by_player (never 500)
-  - GET /players/{player_id}/achievements — returns all 5 achievements with tier/progress for player
-  - GET /achievements/catalog — returns all 5 achievement definitions with holders
+  - GET /players/{player_id}/achievements — returns all 12 achievements with tier/progress for player
+  - GET /achievements/catalog — returns all 12 achievement definitions with holders
   - achievements_router registered in main.py
   - TypeScript interfaces for all achievement DTOs in frontend/src/types/index.ts
   - frontend/src/api/achievements.ts with triggerAchievements, getPlayerAchievements, getAchievementsCatalog
@@ -52,6 +52,7 @@ patterns-established:
   - "Route files get a module-level service singleton, not inline instantiation per request"
   - "TypeScript interfaces mirror backend Pydantic schemas field-for-field"
 
+requirements: [INTG-03, API-01, API-02]
 requirements-completed: [INTG-03, API-01, API-02]
 
 # Metrics

@@ -1,0 +1,32 @@
+/* Port de docs/redesign/mockup/css/components.css (D-44: claves BEM del mockup). */
+.exptags {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.exptag {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--hull-2);
+  box-shadow: inset 0 0 0 1px var(--edge-2);
+  color: var(--ink-2);
+}
+
+.exptag__letter {
+  display: none;
+}
+
+.exptag--draft {
+  color: var(--ink-3);
+}
+
+/* Filas del archivo (`.mrow__meta .exptag` en el mockup). */
+.exptags--s .exptag {
+  width: 20px;
+  height: 20px;
+}

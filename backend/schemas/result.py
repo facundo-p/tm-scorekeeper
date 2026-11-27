@@ -8,8 +8,8 @@ class PlayerResultDTO(BaseModel):
     mc_total: int
     position: int
     tied: bool
-    # tied = True indica que el jugador comparte la posición con el jugador anterior (no abre una nueva posición).
-    # El primer jugador de un grupo empatado tiene tied = False.
+    # tied = True para todos los miembros de un grupo empatado (mismo total y mismos M€),
+    # incluido el primero (D-17, v2.0).
 
 class GameResultDTO(BaseModel):
     game_id: str

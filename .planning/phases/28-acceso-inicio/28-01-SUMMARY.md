@@ -1,0 +1,25 @@
+# 28-01 SUMMARY — Acceso e Inicio
+
+- **Acceso** (`screens/Login`):
+  - Port de `login.js` con el login real.
+  - `useLoginForm` separa la lógica: valida campos vacíos sin llamar al servidor y navega a `/` al entrar.
+  - Ojo para mostrar la contraseña, planeta en el slot y la marca compartida (`Mark`).
+  - Los textos de 422 y 429 quedan como en el mockup.
+  - Se borró la página vieja; su test pasó a `test/screens/Login.test.tsx`.
+- **Inicio** (`screens/Home`):
+  - Héroe con consola de parámetros, planeta interactivo y órbita de datos (resumen del grupo).
+  - Última partida (informe de la más nueva), bitácora, consejo (top 5 del ranking con sparkline) y carrera con `?cat=` y `?mesa=`.
+  - Hoja de reglas con los campeones anteriores, que se piden al abrirla.
+  - Lo puro está en `model.ts`.
+- **Piezas compartidas**:
+  - `TagDisc`, `Plate` como formulario, `inputClassFor` y `MesaNotice` con clase.
+  - `useSearchParam`, en el que ahora se apoya `useMesaParam`.
+  - `.flavor` global.
+  - `keepPrevious` en `useApiQuery`.
+- **Backend (D-74)**:
+  - `players.seq` (orden de alta, migración `a3b4c5d6e7f8`); `get_all()` ordena por él.
+  - `levels` por logro en el informe.
+- **Arnés**: `expectStatus` en escenarios (el 401 de `login-wrong`).
+- **Tests**:
+  - Frontend: `Login` (8) y Home (3 de render y 6 puros).
+  - Backend: orden de alta y niveles (2).
