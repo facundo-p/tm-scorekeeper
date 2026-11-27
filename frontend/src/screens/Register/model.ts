@@ -1,4 +1,5 @@
 // Lo puro del asistente de registro (port de docs/redesign/mockup/js/screens/register.js).
+import { GAME_COLORS } from '@/data/instruments'
 import { CATEGORIES } from '@/domain/catalog'
 import { today } from '@/domain/clock'
 import { awardLabel } from '@/domain/labels'
@@ -88,6 +89,7 @@ export type Action =
   | { type: 'reset' }
   | { type: 'togglePlayer'; id: string }
   | { type: 'player'; id: string; patch: Partial<WizardPlayer> }
+  | { type: 'color'; id: string; color: string; shown: Record<string, string | undefined> }
   | { type: 'score'; id: string; key: InputCat; value: number }
   | { type: 'milestone'; name: string; id: string }
   | { type: 'award'; awards: WizardAward[] }
@@ -127,6 +129,26 @@ export const patchAward = (awards: WizardAward[], name: string, patch: Partial<W
 const patchPlayer = (s: WizardState, id: string, f: (p: WizardPlayer) => WizardPlayer) =>
   ({ ...s, players: s.players.map((p) => (p.id === id ? f(p) : p)) })
 
+const isGameColor = (c: string | undefined): c is string => (GAME_COLORS as readonly string[]).includes(c ?? '')
+
+/**
+ * Elegir el cubo de un jugador (D-88). Si otro de la mesa ya lo tenía, intercambian: el otro se queda
+ * con el que tenía este; si ese no es uno de los cinco del juego, con el primero libre.
+ * `shown` es el color que se ve hoy de cada uno (el elegido o el suyo).
+ */
+function pickColor(s: WizardState, id: string, color: string, shown: Record<string, string | undefined>): WizardState {
+  const prev = shown[id]
+  const used = new Set(s.players.filter((p) => p.id !== id).map((p) => shown[p.id]))
+  const back = isGameColor(prev) ? prev : GAME_COLORS.find((c) => c !== color && !used.has(c))
+  return {
+    ...s,
+    players: s.players.map((p) => {
+      if (p.id === id) return { ...p, color }
+      return shown[p.id] === color ? { ...p, color: back } : p
+    }),
+  }
+}
+
 export function reducer(s: WizardState, a: Action): WizardState {
   switch (a.type) {
     case 'set': return { ...s, ...a.patch }
@@ -134,6 +156,7 @@ export function reducer(s: WizardState, a: Action): WizardState {
     case 'reset': return blankState()
     case 'togglePlayer': return togglePlayer(s, a.id)
     case 'player': return patchPlayer(s, a.id, (p) => ({ ...p, ...a.patch }))
+    case 'color': return pickColor(s, a.id, a.color, a.shown)
     case 'score': return patchPlayer(s, a.id, (p) => ({ ...p, scores: { ...p.scores, [a.key]: Math.max(0, a.value) } }))
     case 'milestone': return claimMilestone(s, a.name, a.id)
     case 'award': return { ...s, awards: a.awards }

@@ -79,18 +79,20 @@ describe('Registrar', () => {
     expect(sessionStorage.getItem(DRAFT_KEY)).toBeNull()
   })
 
-  it('each player can take the cube color used in this game; colors in use are blocked and the choice is saved', async () => {
+  it('each player can take the cube color used in this game; a color in use swaps both and the choice is saved', async () => {
     await toTable()
     const ana = screen.getByRole('radiogroup', { name: 'Color de Ana en esta partida' })
     const beto = screen.getByRole('radiogroup', { name: 'Color de Beto en esta partida' })
     const opt = (group: HTMLElement, name: string | RegExp) => [...group.querySelectorAll('[role="radio"]')].find((b) => (b.getAttribute('aria-label') ?? '').match(name))!
     expect(opt(ana, /^rojo$/)).toHaveAttribute('aria-checked', 'true')  // por defecto, su color
-    expect(opt(ana, /^azul/)).toBeDisabled()
-    expect(opt(ana, /^azul/)).toHaveAccessibleName('azul (lo usa Beto)')
-    fireEvent.click(opt(ana, /^amarillo$/))
+    expect(opt(ana, /^azul/)).toBeEnabled()
+    expect(opt(ana, /^azul/)).toHaveAccessibleName('azul (lo usa Beto; intercambian)')
+    fireEvent.click(opt(ana, /^azul/))  // intercambian: Ana azul, Beto rojo
+    expect(opt(ana, /^azul/)).toHaveAttribute('aria-checked', 'true')
+    expect(opt(beto, /^rojo/)).toHaveAttribute('aria-checked', 'true')
+    fireEvent.click(opt(ana, /^amarillo$/))  // libre: Beto se queda con el rojo
     expect(opt(ana, /^amarillo$/)).toHaveAttribute('aria-checked', 'true')
-    fireEvent.click(opt(beto, /^rojo$/))  // el rojo quedó libre
-    expect(opt(ana, /^rojo/)).toBeDisabled()
+    expect(opt(beto, /^rojo/)).toHaveAttribute('aria-checked', 'true')
     pickCorp('Corporación de Ana', 'hel')
     pickCorp('Corporación de Beto', 'eco')
     walk([...SCORE_STEPS, 'Revisión'])

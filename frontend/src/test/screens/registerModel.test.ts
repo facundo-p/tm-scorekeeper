@@ -70,6 +70,31 @@ describe('asistente de registro (lo puro)', () => {
   })
 })
 
+describe('color de cubo (D-88)', () => {
+  const colors = (s: WizardState) => Object.fromEntries(s.players.map((p) => [p.id, p.color]))
+
+  it('a free color is just taken; the others keep theirs', () => {
+    const s = reducer(withPlayers('a', 'b'), { type: 'color', id: 'a', color: 'verde', shown: { a: 'rojo', b: 'azul' } })
+    expect(colors(s)).toEqual({ a: 'verde', b: undefined })
+  })
+
+  it('a color another player shows (chosen or their own) swaps both', () => {
+    const shown = { a: 'rojo', b: 'azul', c: 'verde', d: 'negro', e: 'amarillo' }
+    const s = reducer(withPlayers('a', 'b', 'c', 'd', 'e'), { type: 'color', id: 'a', color: 'negro', shown })
+    expect(colors(s)).toEqual({ a: 'negro', b: undefined, c: undefined, d: 'rojo', e: undefined })
+  })
+
+  it('if the picker had a non-game color, the other gets the first free game color', () => {
+    const s = reducer(withPlayers('a', 'b', 'c'), { type: 'color', id: 'a', color: 'negro', shown: { a: 'violeta', b: 'negro', c: 'verde' } })
+    expect(colors(s)).toEqual({ a: 'negro', b: 'azul', c: undefined })
+  })
+
+  it('picking the color one already has changes nothing else', () => {
+    const s = reducer(withPlayers('a', 'b'), { type: 'color', id: 'a', color: 'rojo', shown: { a: 'rojo', b: 'azul' } })
+    expect(colors(s)).toEqual({ a: 'rojo', b: undefined })
+  })
+})
+
 describe('pasos y marcador provisorio', () => {
   const ids = (exp: string[]) => stepsFor(exp).map((x) => x.id)
 
