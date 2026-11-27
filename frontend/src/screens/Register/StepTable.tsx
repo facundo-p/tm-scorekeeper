@@ -36,9 +36,10 @@ function takenBy(s: StepProps['s'], id: string, players: StepProps['players'], p
 function CorpRows({ s, d, errors, players }: StepProps) {
   const corpOf = (id: string) => s.players.find((x) => x.id === id)?.corp
   const colorOf = (id: string) => players.get(id)?.color  // `players` ya trae el color de esta partida
+  const shown = Object.fromEntries(s.players.map((x) => [x.id, colorOf(x.id)]))
   return (
     <fieldset className={styles.wfield}>
-      <legend className={styles.wfield__label}>Corporaciones y colores <span className="faint">escribí para buscar entre todas; tocá el cubo que usó cada uno</span></legend>
+      <legend className={styles.wfield__label}>Corporaciones y colores <span className="faint">escribí para buscar entre todas; tocá el cubo que usó cada uno; si ya lo tenía otro, intercambian</span></legend>
       <ul className={styles.corprows}>
         {s.players.map((p) => {
           const who = players.get(p.id)
@@ -50,7 +51,7 @@ function CorpRows({ s, d, errors, players }: StepProps) {
                 <CorpPicker id={`corp-${p.id}`} value={p.corp} takenBy={takenBy(s, p.id, players, corpOf)} bad={errors.some((e) => e.field === `corp-${p.id}`)}
                   onPick={(corp) => d({ type: 'player', id: p.id, patch: { corp } })} />
                 <CubePicker name={who?.name ?? p.id} value={who?.color} takenBy={takenBy(s, p.id, players, colorOf)}
-                  onPick={(color) => d({ type: 'player', id: p.id, patch: { color } })} />
+                  onPick={(color) => d({ type: 'color', id: p.id, color, shown })} />
               </div>
             </li>
           )

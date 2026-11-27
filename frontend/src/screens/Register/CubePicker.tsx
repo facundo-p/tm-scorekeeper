@@ -9,7 +9,7 @@ interface CubePickerProps {
   name: string
   /** Color que se ve hoy (el elegido o el suyo). */
   value: string | undefined
-  /** Colores que ya usan los demás, con el nombre de quién. */
+  /** Colores que ya usan los demás, con el nombre de quién (elegirlo los intercambia). */
   takenBy: Record<string, string>
   onPick: (color: string) => void
 }
@@ -20,9 +20,9 @@ export function CubePicker({ name, value, takenBy, onPick }: CubePickerProps) {
       {GAME_COLORS.map((c) => {
         const by = takenBy[c]
         return (
-          <button key={c} type="button" role="radio" aria-checked={value === c} disabled={!!by}
+          <button key={c} type="button" role="radio" aria-checked={value === c}
             className={cx(styles.cubepick__opt, value === c && styles['is-on'])}
-            aria-label={by ? `${c} (lo usa ${by})` : c} title={by ? `Lo usa ${by}` : c} onClick={() => onPick(c)}>
+            aria-label={by ? `${c} (lo usa ${by}; intercambian)` : c} title={by ? `Lo usa ${by}: intercambian` : c} onClick={() => onPick(c)}>
             <Cube color={c} size={18} />
           </button>
         )
