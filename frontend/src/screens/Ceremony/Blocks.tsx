@@ -5,7 +5,7 @@ import type { GameReport } from '@/data/types'
 import { corpLabel } from '@/domain/catalog'
 import { cssVars } from '@/domain/cssVars'
 import { fmt } from '@/domain/format'
-import { CorpEmblem, CountUp, Cube, Medal } from '@/ui/atoms'
+import { CorpEmblem, CountUp, Cube, HelpTip, Medal } from '@/ui/atoms'
 import delta from '@/ui/atoms/Delta.module.css'
 import { cx } from '@/ui/cx'
 import { Icon } from '@/ui/icons'
@@ -60,7 +60,7 @@ export function RecordsBlock({ report, players }: BlockProps) {
           {broken.map((c, i) => (
             <li key={c.code} className={styles['cer-rec']} style={cssVars({ i })}>
               <span className={styles['cer-rec__band']}>Nuevo récord</span>
-              <b>{c.title}</b>
+              <b>{c.title} <HelpTip title={c.title} text={c.description} /></b>
               <span className={styles['cer-rec__val']}><Cube color={players.get(c.player_id)?.color} size={16} />{c.value}
                 <small>antes {c.previous.value} ({nameOf(players, c.previous.player_id)})</small></span>
             </li>
@@ -79,7 +79,7 @@ export function AchBlock({ report, players, rank }: BlockProps & { rank: (id: st
       {list.length === 0 ? <p className="faint">Nadie desbloqueó logros en esta partida.</p> : (
         <ul className={styles['cer-ach']}>
           {list.map((a, i) => (
-            <li key={`${a.player_id}-${a.code}`} style={cssVars({ i })}><Medal glyph={a.glyph} tier={a.tier} size="m" single={a.max_tier === 1} />
+            <li key={`${a.player_id}-${a.code}`} style={cssVars({ i })}><HelpTip title={a.title} text={a.description}><Medal glyph={a.glyph} tier={a.tier} size="m" single={a.max_tier === 1} /></HelpTip>
               <span><b>{a.title}</b><small>{nameOf(players, a.player_id)}{a.max_tier > 1 ? `, nivel ${a.tier}` : ''}</small></span></li>
           ))}
         </ul>

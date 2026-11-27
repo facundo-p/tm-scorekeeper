@@ -11,6 +11,19 @@ export const bySignup = (players: PlayerSummary[]) => players.slice().sort((a, b
 export const playerIndex = (players: PlayerSummary[]): PlayerIndex =>
   new Map(players.map((p) => [p.player_id, { id: p.player_id, name: p.name, color: p.color }]))
 
+/** Los cinco colores de cubo del juego físico: el color de un jugador en una partida (D-88). */
+export const GAME_COLORS = ['negro', 'verde', 'azul', 'rojo', 'amarillo'] as const
+
+/** El índice con el color de cubo que cada uno usó en una partida (D-88); sin color, queda el suyo. */
+export function recolored(index: PlayerIndex, colors: Iterable<{ player_id: string; color?: string | null }>): PlayerIndex {
+  const out = new Map(index)
+  for (const { player_id, color } of colors) {
+    const p = index.get(player_id)
+    if (p && color) out.set(player_id, { ...p, color })
+  }
+  return out
+}
+
 /** Jugador del índice; si no está (por ejemplo, borrado), uno gris con el nombre que vino. */
 const who = (index: PlayerIndex, id: string, name: string): PlayerLike => index.get(id) ?? { id, name, color: 'gris' }
 

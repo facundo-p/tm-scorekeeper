@@ -123,7 +123,7 @@ Sobre sus partidas (del subconjunto si hay filtro):
 
 ## 7. Cara a cara
 
-Para cada par (a, b) de jugadores que compartieron partidas: partidas, delante (posición de a menor), detrás y empatados. % = delante / partidas.
+Para cada par (a, b) de jugadores que compartieron partidas: partidas, delante (posición de a menor), detrás y empatados. % = delante / partidas. La matriz muestra el % desde 1 partida compartida; con menos de 3 la celda va atenuada (muestra chica).
 
 ## 8. Equidad (D del dueño, punto 6)
 
@@ -142,9 +142,10 @@ Sobre las partidas del jugador (del subconjunto si hay filtro), con `n` = mesa d
 ## 10. Temporadas
 
 El grupo terraforma su propio Marte (punto 4 del dueño):
-- Cada partida suma +0,8 pasos de temperatura (tope 19; cada paso son 2 °C desde −30), O₂ += Σ vegetación de la partida / 52 (tope 14) y océanos +0,375 (tope 9).
+- Cada partida suma +0,8 pasos de temperatura (tope 19; cada paso son 2 °C desde −30), O₂ += Σ vegetación de la partida / 35 (tope 14; era / 52 hasta la recalibración de noviembre 2026, que recalcula todas las temporadas) y océanos +0,375 (tope 9).
 - La temporada **cierra** en la partida en que los tres parámetros llegan al tope; la siguiente partida abre la temporada nueva.
-- Lecturas: temperatura = −30 + 2 × ⌊pasos⌋, O₂ = ⌊O₂⌋ %, océanos = ⌊océanos⌋; % terraformado = promedio de ⌊t⌋/19, ⌊O₂⌋/14 y ⌊océanos⌋/9.
+- Lecturas: temperatura = −30 + 2 × ⌊pasos⌋, O₂ = ⌊O₂⌋ %, océanos = ⌊océanos⌋; % terraformado = promedio de t/19, O₂/14 y océanos/9, **sin redondear** (así cada partida mueve el porcentaje).
+- **Partidas que faltan** (`games_left`, solo con la temporada abierta): el máximo, por parámetro, de ⌈(tope − valor) / ritmo⌉, con ritmo 0,8 de temperatura, 0,375 de océanos y, para el O₂, su promedio por partida en la temporada; mínimo 1. Sin vegetación todavía en la temporada, no se estima (null).
 - **Carrera:** por **promedio** de puntos por partida de la temporada (total o una categoría; Turmoil solo sobre partidas con Turmoil), con filtro de mesa. Hacen falta **3 partidas** (de la categoría y la mesa elegidas) para clasificar; los demás se listan aparte con su promedio y «le faltan N partidas». Orden: promedio desc, más partidas, mejor partida (de la categoría), id.
 - Las temporadas son del grupo: sus límites salen siempre de **todas** las partidas; el filtro de mesa solo elige qué partidas de la temporada entran en la carrera.
 - **Campeón** (D-15): el primer clasificado por promedio total al cierre (sin filtro de mesa); desempate por más partidas y después por mejor puntaje. Sin clasificados, no hay campeón.

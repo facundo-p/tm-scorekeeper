@@ -7,6 +7,8 @@ export interface FeedItem {
   player_id?: string | null
   code?: string | null
   level?: number | null
+  /** Qué es el récord o el logro (burbuja de ayuda). */
+  description?: string | null
   text: string
 }
 
@@ -35,7 +37,10 @@ export interface Season {
   temperature: number
   oxygen_pct: number
   ocean_count: number
+  /** Progreso continuo de la temporada (0 a 1). */
   pct: number
+  /** Partidas estimadas para cerrarla; null si está cerrada o el oxígeno todavía no avanza. */
+  games_left: number | null
   race: SeasonRace
   champion: string | null
 }
@@ -60,6 +65,8 @@ export interface ReportResult {
   player_id: string
   player_name: string
   corporation: string
+  /** Color de cubo en esta partida (D-88); null: el del jugador. */
+  color?: string | null
   position: number
   tied: boolean
   total_points: number
@@ -79,9 +86,9 @@ export interface RecordBroken {
   previous: { value: number; player_id: string; holders: string[] }
 }
 
-export interface NearRecord { code: string; title: string; gap: number; value: number; player_id: string; before: number }
+export interface NearRecord { code: string; title: string; description: string; gap: number; value: number; player_id: string; before: number }
 
-export interface GameUnlock { code: string; title: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
+export interface GameUnlock { code: string; title: string; description: string; tier: number; levels: number; max_tier: number; glyph: string; is_new: boolean }
 
 export interface EloChange {
   player_id: string
@@ -273,7 +280,7 @@ export interface GameSummary {
   winners: string[]
   margin: number
   decided_by_mc: boolean
-  scores: { player_id: string; position: number; total_points: number; corporation: string }[]
+  scores: { player_id: string; position: number; total_points: number; corporation: string; color?: string | null }[]
 }
 
 export interface Seasons {

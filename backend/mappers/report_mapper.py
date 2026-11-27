@@ -11,15 +11,15 @@ from services.report_service import GameReport
 from services.stats.context import GameStats
 
 
-def _corporation(stats: GameStats, player_id: str) -> str:
-    return next(p.corporation for p in stats.game.player_results if p.player_id == player_id).value
+def _entry(stats: GameStats, player_id: str):
+    return next(p for p in stats.game.player_results if p.player_id == player_id)
 
 
 def _results(report: GameReport, names: dict) -> list[ReportResultDTO]:
     stats = report.stats
     return [ReportResultDTO(
         player_id=r.player_id, player_name=names.get(r.player_id, r.player_id),
-        corporation=_corporation(stats, r.player_id),
+        corporation=_entry(stats, r.player_id).corporation.value, color=_entry(stats, r.player_id).color,
         position=r.position, tied=r.tied, total_points=r.total_points, mc_total=r.mc_total,
         scores=player_score_model_to_dto(stats.scores_of(r.player_id)),
     ) for r in stats.results]
@@ -42,7 +42,8 @@ def _tied(c: GameRecordContext) -> RecordTiedDTO:
 
 
 def _near(c: GameRecordContext) -> NearRecordDTO:
-    return NearRecordDTO(code=c.definition.code, title=c.definition.title, gap=c.gap, value=c.best.value,
+    d = c.definition
+    return NearRecordDTO(code=d.code, title=d.title, description=d.description, gap=c.gap, value=c.best.value,
                          player_id=c.best.players[0], before=c.before.value)
 
 
@@ -67,5 +68,6 @@ def summary_to_dto(stats: GameStats) -> GameSummaryDTO:
         generations=g.generations, draft=g.draft, player_count=len(stats.results), winners=stats.winners,
         margin=stats.margin, decided_by_mc=stats.decided_by_mc,
         scores=[SummaryScoreDTO(player_id=r.player_id, position=r.position, total_points=r.total_points,
-                                corporation=_corporation(stats, r.player_id)) for r in stats.results],
+                                corporation=_entry(stats, r.player_id).corporation.value,
+                                color=_entry(stats, r.player_id).color) for r in stats.results],
     )

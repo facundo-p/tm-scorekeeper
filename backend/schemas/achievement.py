@@ -10,6 +10,7 @@ AchievementView = Literal["all", "mesa"]
 class AchievementUnlockedDTO(BaseModel):
     code: str
     title: str
+    description: str = ""  # qué hay que hacer para el logro (burbuja de ayuda)
     tier: int
     is_new: bool
     is_upgrade: bool

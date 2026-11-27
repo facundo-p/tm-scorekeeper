@@ -286,7 +286,7 @@ function evaluateAchievements(rows) {
 }
 
 // --- Seasons: the group's own Mars ----------------------------------------------
-const SEASON = { tempPerGame: 0.8, oxygenPerGreenery: 1 / 52, oceansPerGame: 0.375 };
+const SEASON = { tempPerGame: 0.8, oxygenPerGreenery: 1 / 35, oceansPerGame: 0.375 };
 
 function seasonSpans(games) {
   const list = [];
@@ -344,10 +344,22 @@ export function seasonRace(season, gameById, { category = 'total', playerCount =
   };
 }
 
+// Games to reach a cap at a given pace; null when the pace is 0 and something is missing.
+const gamesToCap = (value, cap, perGame) =>
+  value >= cap ? 0 : perGame > 0 ? Math.ceil((cap - value) / perGame - 1e-9) : null;
+
+// Estimated games to close an open season (oxygen at the season's own greenery pace).
+function gamesLeft(s) {
+  if (s.end) return null;
+  const needs = [gamesToCap(s.temp, 19, SEASON.tempPerGame), gamesToCap(s.oxygen, 14, s.oxygen / s.games.length),
+    gamesToCap(s.oceans, 9, SEASON.oceansPerGame)];
+  return needs.includes(null) ? null : Math.max(1, ...needs);
+}
+
 function seasons(games) {
   const gameById = Object.fromEntries(games.map((g) => [g.id, g]));
   return seasonSpans(games).map((s) => {
-    const pct = (Math.floor(s.temp) / 19 + Math.floor(s.oxygen) / 14 + Math.floor(s.oceans) / 9) / 3;
+    const pct = (s.temp / 19 + s.oxygen / 14 + s.oceans / 9) / 3;
     const race = seasonRace(s, gameById);
     return {
       ...s,
@@ -355,6 +367,7 @@ function seasons(games) {
       oxygenPct: Math.floor(s.oxygen),
       oceanCount: Math.floor(s.oceans),
       pct,
+      games_left: gamesLeft(s),
       race,
       champion: s.end ? race.qualified[0]?.player_id ?? null : null,
     };
@@ -375,7 +388,7 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
         : `${name(w.player_id)} ganó en ${g.map} por ${g.margin} ${g.margin === 1 ? 'punto' : 'puntos'}` });
     for (const b of g.recordsBroken) {
       const def = RECORDS.find((d) => d.code === b.code);
-      items.push({ date: g.date, type: 'record', game_id: g.id, player_id: b.player_id, code: b.code,
+      items.push({ date: g.date, type: 'record', game_id: g.id, player_id: b.player_id, code: b.code, description: def.description,
         text: `${names(b.holders, name)} rompió «${def.title}»: ${b.value} (antes ${b.previous.value}, ${names(b.previous.holders, name)})` });
     }
   }
@@ -387,7 +400,7 @@ function buildFeed(games, players, achievementsByPlayer, seasonList) {
         if (u.level < 2 && def.tiers.length > 1) continue;
         if (unlocked.some((o) => o.game_id === u.game_id && o.level > u.level)) continue;
         items.push({ date: u.date, type: 'achievement', game_id: u.game_id, player_id: pid, code: def.code, level: u.level,
-          text: `${name(pid)} desbloqueó ${tier.title}${def.tiers.length > 1 ? ` (nivel ${u.level})` : ''}` });
+          description: def.description, text: `${name(pid)} desbloqueó ${tier.title}${def.tiers.length > 1 ? ` (nivel ${u.level})` : ''}` });
       }
     }
   }

@@ -36,7 +36,8 @@ class SeasonDTO(BaseModel):
     temperature: int
     oxygen_pct: int
     ocean_count: int
-    pct: float
+    pct: float  # progreso continuo (sin redondear los parámetros)
+    games_left: Optional[int]  # estimación para cerrar; None si está cerrada o el oxígeno no avanza
     race: SeasonRaceDTO
     champion: Optional[str]
 
@@ -59,4 +60,5 @@ class FeedItemDTO(BaseModel):
     player_id: Optional[str] = None
     code: Optional[str] = None
     level: Optional[int] = None
+    description: Optional[str] = None  # qué es el récord o el logro (para la burbuja de ayuda)
     text: str

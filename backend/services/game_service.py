@@ -95,6 +95,11 @@ class GamesService:
                 seen.add(milestone)
 
 
+    def _validate_unique_colors(self, players: list[PlayerResult]) -> None:
+        colors = [p.color for p in players if p.color]
+        if len(colors) != len(set(colors)):
+            raise ValueError("Each cube color can only be used by one player per game")
+
     def _validate_awards_count(self, awards: list[AwardResult]) -> None:
         if len(awards) > 3:
             raise ValueError(
@@ -190,6 +195,7 @@ class GamesService:
         self._validate_milestones(game.player_results)
         self._validate_milestone_points_coherence(game.player_results)
         self._validate_unique_milestones(game.player_results)
+        self._validate_unique_colors(game.player_results)
         self._validate_awards_count(game.awards)
         self._validate_unique_awards(game.awards)
         self._validate_award_players(game.awards, game.player_results)

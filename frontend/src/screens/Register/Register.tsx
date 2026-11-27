@@ -3,7 +3,7 @@
 import { useMemo, type ComponentType } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { ApiError } from '@/api/http'
-import { bySignup, playerIndex, type PlayerIndex } from '@/data/instruments'
+import { bySignup, playerIndex, recolored, type PlayerIndex } from '@/data/instruments'
 import { fmtDate } from '@/domain/format'
 import { useGameReport, usePlayersList } from '@/data/hooks'
 import type { PlayerLike } from '@/ui/atoms'
@@ -60,8 +60,10 @@ function NavButtons({ w }: { w: ReturnType<typeof useWizard> }) {
 
 interface WizardProps { initial: WizardState; players: PlayerIndex; active: PlayerLike[]; editSub?: string }
 
-function Wizard({ initial, players, active, editSub }: WizardProps) {
-  const w = useWizard(initial, (id) => players.get(id)?.name ?? id)
+function Wizard({ initial, players: base, active, editSub }: WizardProps) {
+  const w = useWizard(initial, (id) => base.get(id)?.name ?? id)
+  // Los pasos ven el color de cubo elegido para esta partida (D-88).
+  const players = useMemo(() => recolored(base, w.s.players.map((p) => ({ player_id: p.id, color: p.color }))), [base, w.s.players])
   const { id, title } = w.steps[w.step]
   const View = VIEWS[id]
   const cats = scoredCats(w.s)

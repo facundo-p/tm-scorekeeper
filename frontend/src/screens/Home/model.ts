@@ -1,6 +1,7 @@
 // Lo puro de Inicio (port de docs/redesign/mockup/js/screens/home.js).
 import { CATEGORIES } from '@/domain/catalog'
-import type { FeedItem } from '@/data/types'
+import type { FeedItem, Season } from '@/data/types'
+import { fmt } from '@/domain/format'
 import type { TagTone } from '@/ui/atoms'
 
 export const MIN_SEASON_GAMES = 3
@@ -10,8 +11,30 @@ export const CAT_LABEL: Record<string, string> = { total: 'Total', ...Object.fro
 /** `?cat=` válido o la carrera por total. */
 export const categoryOf = (cat: string | null) => (cat && SEASON_CATEGORIES.includes(cat) ? cat : 'total')
 
-/** Partidas que faltan, aproximadas, para completar la temperatura (19 pasos de 2 °C, ~0,8 por partida). */
-export const gamesLeft = (temperature: number) => Math.max(1, Math.ceil((19 - (temperature + 30) / 2) / 0.8))
+/** Topes de los parámetros de la temporada (pasos de temperatura, % de oxígeno, océanos). */
+const SEASON_PARAMS = [
+  { key: 'temp', cap: 19, label: 'la temperatura' },
+  { key: 'oxygen', cap: 14, label: 'el oxígeno' },
+  { key: 'oceans', cap: 9, label: 'los océanos' },
+] as const
+
+type SeasonLevels = Pick<Season, 'temp' | 'oxygen' | 'oceans' | 'games_left'>
+
+/** Parámetros que todavía no llegaron al tope, en orden del tablero. */
+export const pendingParams = (s: SeasonLevels) => SEASON_PARAMS.filter((p) => s[p.key] < p.cap)
+
+const joinEs = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} y ${xs[xs.length - 1]}`)
+
+/** Qué falta para cerrar la temporada: partidas estimadas y parámetros pendientes. */
+export function seasonEta(s: SeasonLevels) {
+  const pending = pendingParams(s)
+  const what = pending.length === 1 && pending[0].key === 'oxygen'
+    ? `Solo falta el oxígeno: ${fmt.dec(s.oxygen)} de 14 %.`
+    : `Falta completar ${joinEs(pending.map((p) => p.label))}.`
+  if (s.games_left == null) return `${what} Todavía no hay vegetación para estimar cuántas partidas faltan.`
+  const left = s.games_left === 1 ? 'Falta más o menos 1 partida' : `Faltan unas ${s.games_left} partidas`
+  return `${left} para completarla. ${what}`
+}
 
 export function raceLede(category: string, games: number) {
   const what = category === 'total' ? 'puntos' : CAT_LABEL[category].toLowerCase()

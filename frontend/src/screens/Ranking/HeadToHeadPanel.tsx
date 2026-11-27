@@ -2,7 +2,7 @@ import type { HeadToHead, RankingRow } from '@/data/types'
 import { cssVars } from '@/domain/cssVars'
 import { Cube, NewBadge, Plate, SectionHead } from '@/ui/atoms'
 import { cx } from '@/ui/cx'
-import { H2HMatrix } from '@/ui/instruments'
+import { H2HMatrix, H2H_FEW_GAMES } from '@/ui/instruments'
 import reveal from '@/ui/reveal.module.css'
 import { asPlayer, rivalries, type Rivalry } from './model'
 import styles from './Ranking.module.css'
@@ -32,7 +32,7 @@ export function HeadToHeadPanel({ rows, h2h }: { rows: RankingRow[]; h2h: HeadTo
   return (
     <Plate className={reveal.reveal} label="Cara a cara">
       <SectionHead title="Cara a cara"><NewBadge /></SectionHead>
-      <p className={cx('muted', styles['h2h-panel__lede'])}>Qué porcentaje de las partidas compartidas terminó cada jugador (fila) por delante del otro (columna).</p>
+      <p className={cx('muted', styles['h2h-panel__lede'])}>Qué porcentaje de las partidas compartidas terminó cada jugador (fila) por delante del otro (columna). Los valores en cursiva tienen menos de {H2H_FEW_GAMES} partidas compartidas.</p>
       <div className={styles['h2h-panel__body']}>
         <H2HMatrix players={rows.map(asPlayer)} matrix={h2h.matrix} />
         <div>

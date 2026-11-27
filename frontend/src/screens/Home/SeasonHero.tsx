@@ -10,7 +10,7 @@ import { Icon } from '@/ui/icons'
 import { OceanSlots, OxygenArc, Thermometer } from '@/ui/instruments'
 import plate from '@/ui/atoms/Plate.module.css'
 import reveal from '@/ui/reveal.module.css'
-import { gamesLeft } from './model'
+import { seasonEta } from './model'
 import styles from './Home.module.css'
 
 /** Datos del archivo alrededor del planeta (en escritorio, en órbita). */
@@ -69,7 +69,7 @@ export function SeasonHero({ season, summary, onRules }: { season: Season; summa
           <Button variant="primary" size="l" icon="plus" onClick={() => navigate(PATHS.register)}>Registrar partida</Button>
           <Button variant="ghost" icon="info" onClick={onRules}>Cómo avanza la temporada</Button>
         </div>
-        <p className={styles.hero__eta}>Faltan unas {gamesLeft(season.temperature)} partidas para completarla.</p>
+        <p className={styles.hero__eta}>{seasonEta(season)}</p>
       </div>
       <HeroPlanet season={season} summary={summary} />
     </section>

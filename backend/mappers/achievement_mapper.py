@@ -14,8 +14,8 @@ from services.achievement_evaluators.tiers import AchievementState
 
 def game_unlock_to_dto(unlock) -> AchievementUnlockedDTO:
     d = ACHIEVEMENT_BY_CODE[unlock.code]
-    return AchievementUnlockedDTO(code=d.code, title=d.tier(unlock.tier).title, tier=unlock.tier,
-                                  is_new=unlock.is_new, is_upgrade=not unlock.is_new, levels=unlock.levels,
+    return AchievementUnlockedDTO(code=d.code, title=d.tier(unlock.tier).title, description=d.description,
+                                  tier=unlock.tier, is_new=unlock.is_new, is_upgrade=not unlock.is_new, levels=unlock.levels,
                                   max_tier=d.max_tier, glyph=d.glyph)
 
 

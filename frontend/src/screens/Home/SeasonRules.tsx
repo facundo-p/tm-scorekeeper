@@ -31,10 +31,10 @@ export function SeasonRules({ players, onClose }: { players: PlayerIndex; onClos
         <p>El grupo terraforma su propio Marte, partida a partida. Los parámetros son los del tablero:</p>
         <ul className={styles.rules__list}>
           <li><Icon name="temperature" size={20} /><span><b>Temperatura:</b> cada partida suma casi un paso de 2 °C (19 pasos, de −30 a +8 °C).</span></li>
-          <li><Icon name="oxygen" size={20} /><span><b>Oxígeno:</b> cada 52 puntos de vegetación del grupo suben 1 % (hasta 14 %).</span></li>
+          <li><Icon name="oxygen" size={20} /><span><b>Oxígeno:</b> cada 35 puntos de vegetación del grupo suben 1 % (hasta 14 %). Suele ser el último en completarse: depende de cuánta vegetación hagan.</span></li>
           <li><Icon name="ocean" size={20} /><span><b>Océanos:</b> se coloca uno cada dos o tres partidas (9 en total).</span></li>
         </ul>
-        <p>Cuando los tres llegan al máximo, Marte queda terraformado y la temporada se cierra. La carrera se ordena por <b>promedio</b> de puntos por partida; hacen falta {MIN_SEASON_GAMES} partidas para clasificar.</p>
+        <p>Cuando los tres llegan al máximo, Marte queda terraformado y la temporada se cierra. Las partidas que faltan se estiman con el ritmo de cada parámetro en la temporada. La carrera se ordena por <b>promedio</b> de puntos por partida; hacen falta {MIN_SEASON_GAMES} partidas para clasificar.</p>
         <p>El campeón es el primer clasificado por promedio total al cierre. Si dos empatan, gana quien jugó más partidas, y después quien hizo el mejor puntaje.</p>
         <h3 className={styles.rules__h}>Temporadas anteriores</h3>
         {seasons && <PastSeasons seasons={seasons} players={players} />}

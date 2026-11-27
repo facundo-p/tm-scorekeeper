@@ -6,7 +6,7 @@ import { createQueryClient } from '@/data/query'
 import Home from '@/screens/Home/Home'
 
 const race = { category: 'total', games: 12, qualified: [{ player_id: 'p-facu', games: 5, avg: 92.4, best: 110 }], pending: [{ player_id: 'p-nico', games: 1, avg: 80, best: 80, missing: 2 }] }
-const season = { number: 3, start: '2026-05-01', end: null, games: [], temp: 0, oxygen: 0, oceans: 0, temperature: -4, oxygen_pct: 9, ocean_count: 6, pct: 0.57, race, champion: null }
+const season = { number: 3, start: '2026-05-01', end: null, games: [], temp: 0, oxygen: 0, oceans: 0, temperature: -4, oxygen_pct: 9, ocean_count: 6, pct: 0.57, games_left: 9, race, champion: null }
 const API: Record<string, unknown> = {
   '/seasons/current': season,
   '/stats/summary': { view: 'all', games: 63, generations: 640, avg_winner: 98, avg_generations: 10, first: null, last: null, top_corp: { name: 'Helion', games: 9, wins: 3, avg: 90, avg_pos: 2 }, corps_used: 20, top_map: null },

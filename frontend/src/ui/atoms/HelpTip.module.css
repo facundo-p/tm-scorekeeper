@@ -1,0 +1,54 @@
+/* Burbuja de ayuda de logros y récords: se abre al tocar el ícono (mobile-first). */
+.helptip {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+
+.helptip__trigger {
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-3);
+  cursor: help;
+}
+
+.helptip__trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.helptip__bubble {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 6px);
+  left: 0;
+  display: grid;
+  gap: 2px;
+  width: max-content;
+  max-width: min(260px, 75vw);
+  padding: 8px 10px;
+  border: 1px solid var(--edge-2);
+  border-radius: 6px;
+  background: var(--hull-3);
+  box-shadow: 0 6px 18px var(--shadow);
+  color: var(--ink-2);
+  font-size: var(--t-small);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  animation: helptip-in var(--d-1) both;
+}
+
+.helptip__bubble b {
+  color: var(--ink);
+}
+
+@keyframes helptip-in {
+  from { opacity: 0; }
+}

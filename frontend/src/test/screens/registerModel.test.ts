@@ -155,6 +155,12 @@ describe('de y hacia la API', () => {
     expect(body.awards).toEqual([{ name: 'Banker', opened_by: 'b', first_place: ['a'], second_place: [] }])
   })
 
+  it('the cube color of the game goes back and forth; without one, null (the player keeps theirs)', () => {
+    const s = stateFromGame({ ...game, player_results: [{ ...game.player_results[0], color: 'negro' }, game.player_results[1]] }, {})
+    expect(s.players.map((p) => p.color)).toEqual(['negro', undefined])
+    expect(toPayload(s).player_results.map((r) => r.color)).toEqual(['negro', null])
+  })
+
   it('with Turmoil the payload carries the turmoil points; without it, null', () => {
     const s = stateFromGame({ ...game, expansions: ['Turmoil'], player_results: game.player_results.map((r) => ({ ...r, scores: { ...r.scores, turmoil_points: 4 } })) }, {})
     expect(toPayload(s).player_results.map((r) => r.scores.turmoil_points)).toEqual([4, 4])

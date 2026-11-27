@@ -43,8 +43,9 @@ describe('instrumentos', () => {
     </>)
     expect(screen.getByRole('list', { name: /Últimas partidas/ }).textContent).toBe('14')
     expect(screen.getByText('—')).toBeInTheDocument()
-    expect(screen.getByText('75')).toHaveAttribute('data-tip', 'Facu terminó delante de Nico en 3 de 4')
-    expect(screen.getByText('Sin datos')).toBeInTheDocument()
+    expect(screen.getByText('75')).toHaveAttribute('data-tip', 'Facu terminó delante de Nico en 3 de 4 partidas')
+    expect(screen.getByText('100')).toHaveAttribute('data-tip', 'Nico terminó delante de Facu en 1 de 1 partida')
+    expect(screen.queryByText('Sin datos')).not.toBeInTheDocument()
   })
 
   it('the ELO chart can be read as a table', () => {

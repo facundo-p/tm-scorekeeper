@@ -5,21 +5,28 @@ import { cx } from '@/ui/cx'
 import type { H2HMatrixData } from './types'
 import styles from './instruments.module.css'
 
-/** Celda de `a` contra `b`: tasa de partidas por delante, tono e intensidad; null con menos de 2 partidas. */
+/** Por debajo de estas partidas compartidas, la celda se muestra atenuada (muestra chica). */
+export const H2H_FEW_GAMES = 3
+
+/** Celda de `a` contra `b`: tasa de partidas por delante, tono e intensidad; null sin partidas compartidas. */
 export function h2hCell(matrix: H2HMatrixData, a: string, b: string) {
   const c = matrix[a]?.[b]
-  if (!c || c.games < 2) return null
+  if (!c || c.games < 1) return null
   const rate = c.ahead / c.games
-  return { ...c, rate, tone: rate >= 0.5 ? 'a' : 'b', strength: Math.min(1, Math.abs(rate - 0.5) * 2.2) }
+  const few = c.games < H2H_FEW_GAMES
+  return { ...c, rate, few, tone: rate >= 0.5 ? 'a' : 'b', strength: Math.min(1, Math.abs(rate - 0.5) * 2.2) }
 }
+
+const gamesWord = (n: number) => (n === 1 ? 'partida' : 'partidas')
 
 function Cell({ a, b, matrix }: { a: PlayerLike; b: PlayerLike; matrix: H2HMatrixData }) {
   if (a.id === b.id) return <td className={styles.h2h__self} aria-hidden="true" />
   const c = h2hCell(matrix, a.id, b.id)
   if (!c) return <td className={styles.h2h__na}><span className="vh">Sin datos</span></td>
   return (
-    <td className={cx(styles.h2h__cell, styles[`h2h__cell--${c.tone}`])} style={cssVars({ s: c.strength.toFixed(2) })}
-      data-tip={`${a.name} terminó delante de ${b.name} en ${c.ahead} de ${c.games}`} tabIndex={0}>
+    <td className={cx(styles.h2h__cell, styles[`h2h__cell--${c.tone}`], c.few && styles['h2h__cell--few'])}
+      style={cssVars({ s: c.strength.toFixed(2) })} tabIndex={0}
+      data-tip={`${a.name} terminó delante de ${b.name} en ${c.ahead} de ${c.games} ${gamesWord(c.games)}`}>
       {Math.round(c.rate * 100)}
     </td>
   )

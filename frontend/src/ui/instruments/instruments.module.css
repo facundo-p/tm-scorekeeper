@@ -611,6 +611,12 @@
   color: var(--ink);
 }
 
+.h2h__cell--few {
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.6;
+}
+
 .h2h__self {
   background: repeating-linear-gradient(45deg, var(--hull-1) 0 4px, var(--hull-0) 4px 8px);
 }

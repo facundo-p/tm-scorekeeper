@@ -5,6 +5,11 @@ PLAYER_COLORS = ("rojo", "verde", "azul", "amarillo", "negro", "naranja", "viole
 PlayerColor = Literal["rojo", "verde", "azul", "amarillo", "negro", "naranja", "violeta", "rosa", "blanco", "gris"]
 
 
+# Los cinco colores de cubo del juego físico: el color de un jugador en una partida (D-88).
+GAME_COLORS = ("negro", "verde", "azul", "rojo", "amarillo")
+GameColor = Literal["negro", "verde", "azul", "rojo", "amarillo"]
+
+
 class ColorTaken(ValueError):
     """Otro jugador activo ya tiene ese color (409)."""
 

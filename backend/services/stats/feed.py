@@ -31,7 +31,7 @@ def _record_items(gs: GameStats, broken: dict, names: dict) -> list[dict]:
         text = (f"{_names(best.players, names)} rompió «{rec.title}»: {js_number(best.value)} "
                 f"(antes {js_number(previous.value)}, {_names(before, names)})")
         items.append({"date": gs.game.date, "type": "record", "game_id": gs.id, "player_id": best.players[0],
-                      "code": code, "text": text})
+                      "code": code, "description": rec.description, "text": text})
     return items
 
 
@@ -50,7 +50,7 @@ def _achievement_items(achievements: dict, names: dict) -> list[dict]:
                 d = state.definition
                 level = f" (nivel {u.level})" if len(d.tiers) > 1 else ""
                 items.append({"date": u.date, "type": "achievement", "game_id": u.game_id, "player_id": pid,
-                              "code": d.code, "level": u.level,
+                              "code": d.code, "level": u.level, "description": d.description,
                               "text": f"{names.get(pid, pid)} desbloqueó {d.tier(u.level).title}{level}"})
     return items
 

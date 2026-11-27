@@ -14,6 +14,7 @@ def player_result_dto_to_model(dto: PlayerResultDTO) -> PlayerResult:
         corporation=dto.corporation,
         scores=player_score_dto_to_model(dto.scores),
         end_stats=player_end_stats_dto_to_model(dto.end_stats),
+        color=dto.color,
     )
 
 
@@ -23,4 +24,5 @@ def player_result_model_to_dto(model: PlayerResult) -> PlayerResultDTO:
         corporation=model.corporation,
         scores=player_score_model_to_dto(model.scores),
         end_stats=player_end_stats_model_to_dto(model.end_stats),
+        color=model.color,
     )

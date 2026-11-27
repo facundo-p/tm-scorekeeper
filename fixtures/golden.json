@@ -568,7 +568,7 @@
    "2": {
     "total": {
      "category": "total",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -578,26 +578,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 94.44444444444444,
+       "games": 8,
+       "avg": 94.25,
        "best": 111
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 91.3125,
+       "games": 15,
+       "avg": 90.93333333333334,
        "best": 120
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 88.83333333333333,
+       "games": 11,
+       "avg": 88.63636363636364,
        "best": 108
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 81.5,
+       "games": 11,
+       "avg": 82.18181818181819,
        "best": 106
       },
       {
@@ -629,7 +629,7 @@
     },
     "terraform_rating": {
      "category": "terraform_rating",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -639,8 +639,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 37.55555555555556,
+       "games": 8,
+       "avg": 37.25,
        "best": 43
       },
       {
@@ -651,20 +651,20 @@
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 35.833333333333336,
+       "games": 11,
+       "avg": 35.72727272727273,
        "best": 43
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 35.6875,
+       "games": 15,
+       "avg": 35.666666666666664,
        "best": 53
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 35.5,
+       "games": 11,
+       "avg": 35.45454545454545,
        "best": 47
       },
       {
@@ -690,7 +690,7 @@
     },
     "award_points": {
      "category": "award_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -706,26 +706,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 6.222222222222222,
+       "games": 8,
+       "avg": 5.75,
        "best": 15
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 4.4375,
+       "games": 15,
+       "avg": 4.6,
        "best": 10
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.363636363636363,
        "best": 12
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 3.5833333333333335,
+       "games": 11,
+       "avg": 3.909090909090909,
        "best": 15
       },
       {
@@ -751,7 +751,7 @@
     },
     "milestone_points": {
      "category": "milestone_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -773,8 +773,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.090909090909091,
        "best": 10
       },
       {
@@ -784,21 +784,21 @@
        "best": 5
       },
       {
-       "player_id": "p-facu",
-       "games": 16,
+       "player_id": "p-juli",
+       "games": 8,
        "avg": 3.125,
        "best": 10
       },
       {
-       "player_id": "p-juli",
-       "games": 9,
-       "avg": 2.7777777777777777,
+       "player_id": "p-facu",
+       "games": 15,
+       "avg": 3,
        "best": 10
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 1.6666666666666667,
+       "games": 11,
+       "avg": 1.8181818181818181,
        "best": 5
       },
       {
@@ -812,12 +812,12 @@
     },
     "card_resource_points": {
      "category": "card_resource_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 7.833333333333333,
+       "games": 11,
+       "avg": 7.909090909090909,
        "best": 12
       },
       {
@@ -828,8 +828,8 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 5.625,
+       "games": 15,
+       "avg": 5.466666666666667,
        "best": 10
       },
       {
@@ -840,14 +840,14 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 4.333333333333333,
+       "games": 8,
+       "avg": 4.625,
        "best": 9
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 4.166666666666667,
+       "games": 11,
+       "avg": 4.2727272727272725,
        "best": 8
       },
       {
@@ -873,25 +873,25 @@
     },
     "card_points": {
      "category": "card_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 25,
+       "games": 15,
+       "avg": 24.8,
        "best": 35
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 23.22222222222222,
+       "games": 8,
+       "avg": 23.75,
        "best": 28
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 23,
-       "best": 28
+       "games": 11,
+       "avg": 22.545454545454547,
+       "best": 27
       },
       {
        "player_id": "p-caro",
@@ -913,8 +913,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 18.333333333333332,
+       "games": 11,
+       "avg": 18.636363636363637,
        "best": 29
       },
       {
@@ -934,12 +934,12 @@
     },
     "greenery_points": {
      "category": "greenery_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 11.11111111111111,
+       "games": 8,
+       "avg": 10.875,
        "best": 14
       },
       {
@@ -950,14 +950,14 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 8.8125,
+       "games": 15,
+       "avg": 9,
        "best": 13
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 7.75,
+       "games": 11,
+       "avg": 7.818181818181818,
        "best": 13
       },
       {
@@ -974,9 +974,9 @@
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 7.5,
-       "best": 12
+       "games": 11,
+       "avg": 7.090909090909091,
+       "best": 11
       },
       {
        "player_id": "p-lu",
@@ -995,18 +995,18 @@
     },
     "city_points": {
      "category": "city_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 8.75,
+       "games": 11,
+       "avg": 9,
        "best": 13
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 7.888888888888889,
+       "games": 8,
+       "avg": 7.75,
        "best": 12
       },
       {
@@ -1017,9 +1017,15 @@
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 7.5,
+       "games": 15,
+       "avg": 7.466666666666667,
        "best": 12
+      },
+      {
+       "player_id": "p-meli",
+       "games": 11,
+       "avg": 6.454545454545454,
+       "best": 10
       },
       {
        "player_id": "p-tomi",
@@ -1032,12 +1038,6 @@
        "games": 7,
        "avg": 6,
        "best": 8
-      },
-      {
-       "player_id": "p-meli",
-       "games": 12,
-       "avg": 5.916666666666667,
-       "best": 10
       },
       {
        "player_id": "p-gonza",
@@ -1056,7 +1056,7 @@
     },
     "turmoil_points": {
      "category": "turmoil_points",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -1066,20 +1066,20 @@
       },
       {
        "player_id": "p-meli",
-       "games": 4,
-       "avg": 3.5,
+       "games": 3,
+       "avg": 3.3333333333333335,
        "best": 5
       },
       {
-       "player_id": "p-facu",
-       "games": 6,
+       "player_id": "p-juli",
+       "games": 3,
        "avg": 3,
        "best": 4
       },
       {
-       "player_id": "p-juli",
-       "games": 4,
-       "avg": 3,
+       "player_id": "p-facu",
+       "games": 5,
+       "avg": 2.8,
        "best": 4
       },
       {
@@ -1096,8 +1096,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 5,
-       "avg": 2.4,
+       "games": 4,
+       "avg": 2.25,
        "best": 4
       }
      ],
@@ -1122,18 +1122,18 @@
    "3": {
     "total": {
      "category": "total",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 95.11111111111111,
+       "games": 10,
+       "avg": 95.3,
        "best": 130
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 91.85714285714286,
+       "games": 8,
+       "avg": 91.75,
        "best": 102
       },
       {
@@ -1144,8 +1144,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 83.4,
+       "games": 6,
+       "avg": 85.5,
        "best": 106
       },
       {
@@ -1156,8 +1156,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 80.2,
+       "games": 6,
+       "avg": 79.16666666666667,
        "best": 107
       },
       {
@@ -1183,7 +1183,7 @@
     },
     "terraform_rating": {
      "category": "terraform_rating",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -1193,8 +1193,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 35.6,
+       "games": 6,
+       "avg": 36.333333333333336,
        "best": 44
       },
       {
@@ -1205,27 +1205,27 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 35.333333333333336,
+       "games": 10,
+       "avg": 35.4,
        "best": 44
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 34.833333333333336,
+       "best": 41
+      },
+      {
+       "player_id": "p-nico",
+       "games": 8,
+       "avg": 34.75,
+       "best": 39
       },
       {
        "player_id": "p-lu",
        "games": 4,
        "avg": 34.75,
        "best": 37
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 34.6,
-       "best": 41
-      },
-      {
-       "player_id": "p-nico",
-       "games": 7,
-       "avg": 34.42857142857143,
-       "best": 39
       },
       {
        "player_id": "p-tomi",
@@ -1244,12 +1244,12 @@
     },
     "award_points": {
      "category": "award_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 7.142857142857143,
+       "games": 8,
+       "avg": 6.5,
        "best": 15
       },
       {
@@ -1259,9 +1259,15 @@
        "best": 15
       },
       {
+       "player_id": "p-juli",
+       "games": 6,
+       "avg": 5.333333333333333,
+       "best": 10
+      },
+      {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 5,
+       "games": 10,
+       "avg": 4.7,
        "best": 10
       },
       {
@@ -1277,15 +1283,9 @@
        "best": 7
       },
       {
-       "player_id": "p-juli",
-       "games": 5,
-       "avg": 4.4,
-       "best": 9
-      },
-      {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 3.4,
+       "games": 6,
+       "avg": 2.8333333333333335,
        "best": 10
       },
       {
@@ -1305,7 +1305,7 @@
     },
     "milestone_points": {
      "category": "milestone_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-gonza",
@@ -1315,8 +1315,8 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 4.444444444444445,
+       "games": 10,
+       "avg": 4.5,
        "best": 15
       },
       {
@@ -1333,8 +1333,8 @@
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 2.857142857142857,
+       "games": 8,
+       "avg": 3.125,
        "best": 5
       },
       {
@@ -1351,14 +1351,14 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 2,
+       "games": 6,
+       "avg": 1.6666666666666667,
        "best": 5
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 2,
+       "games": 6,
+       "avg": 1.6666666666666667,
        "best": 5
       }
      ],
@@ -1366,24 +1366,24 @@
     },
     "card_resource_points": {
      "category": "card_resource_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-meli",
-       "games": 5,
+       "games": 6,
        "avg": 7,
        "best": 10
       },
       {
-       "player_id": "p-nico",
-       "games": 7,
-       "avg": 5.571428571428571,
+       "player_id": "p-facu",
+       "games": 10,
+       "avg": 5.7,
        "best": 9
       },
       {
-       "player_id": "p-facu",
-       "games": 9,
-       "avg": 5.444444444444445,
+       "player_id": "p-nico",
+       "games": 8,
+       "avg": 5.25,
        "best": 9
       },
       {
@@ -1418,8 +1418,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 3.2,
+       "games": 6,
+       "avg": 3,
        "best": 5
       }
      ],
@@ -1427,31 +1427,25 @@
     },
     "card_points": {
      "category": "card_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
+       "games": 10,
        "avg": 28,
        "best": 35
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 21,
-       "best": 26
+       "games": 8,
+       "avg": 21.875,
+       "best": 28
       },
       {
        "player_id": "p-caro",
        "games": 9,
        "avg": 20.444444444444443,
        "best": 25
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 19.6,
-       "best": 22
       },
       {
        "player_id": "p-tomi",
@@ -1466,9 +1460,15 @@
        "best": 23
       },
       {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 18.833333333333332,
+       "best": 22
+      },
+      {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 18.4,
+       "games": 6,
+       "avg": 18.5,
        "best": 21
       },
       {
@@ -1488,25 +1488,31 @@
     },
     "greenery_points": {
      "category": "greenery_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 12.4,
+       "games": 6,
+       "avg": 12.5,
        "best": 23
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 8.857142857142858,
+       "games": 8,
+       "avg": 8.625,
        "best": 13
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 8.555555555555555,
+       "games": 10,
+       "avg": 8.3,
        "best": 11
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 7.833333333333333,
+       "best": 12
       },
       {
        "player_id": "p-caro",
@@ -1519,12 +1525,6 @@
        "games": 4,
        "avg": 7.25,
        "best": 8
-      },
-      {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 7,
-       "best": 9
       },
       {
        "player_id": "p-gonza",
@@ -1549,12 +1549,12 @@
     },
     "city_points": {
      "category": "city_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 11.142857142857142,
+       "games": 8,
+       "avg": 10.5,
        "best": 21
       },
       {
@@ -1571,15 +1571,15 @@
       },
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 7.111111111111111,
+       "games": 10,
+       "avg": 7.2,
        "best": 12
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 6.8,
-       "best": 8
+       "games": 6,
+       "avg": 7.166666666666667,
+       "best": 9
       },
       {
        "player_id": "p-lu",
@@ -1588,16 +1588,16 @@
        "best": 10
       },
       {
-       "player_id": "p-meli",
-       "games": 5,
-       "avg": 6.2,
-       "best": 10
-      },
-      {
        "player_id": "p-gonza",
        "games": 3,
        "avg": 6,
        "best": 7
+      },
+      {
+       "player_id": "p-meli",
+       "games": 6,
+       "avg": 5.166666666666667,
+       "best": 10
       },
       {
        "player_id": "p-tomi",
@@ -1610,13 +1610,19 @@
     },
     "turmoil_points": {
      "category": "turmoil_points",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 3,
-       "avg": 3.6666666666666665,
+       "games": 4,
+       "avg": 3.75,
        "best": 5
+      },
+      {
+       "player_id": "p-nico",
+       "games": 3,
+       "avg": 3,
+       "best": 4
       },
       {
        "player_id": "p-santi",
@@ -1634,7 +1640,7 @@
        "missing": 1
       },
       {
-       "player_id": "p-nico",
+       "player_id": "p-meli",
        "games": 2,
        "avg": 3,
        "best": 4,
@@ -1642,10 +1648,10 @@
       },
       {
        "player_id": "p-juli",
-       "games": 1,
+       "games": 2,
        "avg": 3,
        "best": 3,
-       "missing": 2
+       "missing": 1
       },
       {
        "player_id": "p-caro",
@@ -1653,13 +1659,6 @@
        "avg": 2.5,
        "best": 3,
        "missing": 1
-      },
-      {
-       "player_id": "p-meli",
-       "games": 1,
-       "avg": 2,
-       "best": 2,
-       "missing": 2
       },
       {
        "player_id": "p-tomi",
@@ -21259,6 +21258,7 @@
     "oxygenPct": 14,
     "oceanCount": 9,
     "pct": 1,
+    "games_left": null,
     "race": {
      "category": "total",
      "games": 24,
@@ -21351,20 +21351,20 @@
      "g-045",
      "g-046",
      "g-047",
-     "g-048",
-     "g-049"
+     "g-048"
     ],
     "temp": 19,
     "oxygen": 14,
     "oceans": 9,
-    "end": "2026-06-02",
+    "end": "2026-05-26",
     "temperature": 8,
     "oxygenPct": 14,
     "oceanCount": 9,
     "pct": 1,
+    "games_left": null,
     "race": {
      "category": "total",
-     "games": 25,
+     "games": 24,
      "qualified": [
       {
        "player_id": "p-caro",
@@ -21374,26 +21374,26 @@
       },
       {
        "player_id": "p-juli",
-       "games": 9,
-       "avg": 94.44444444444444,
+       "games": 8,
+       "avg": 94.25,
        "best": 111
       },
       {
        "player_id": "p-facu",
-       "games": 16,
-       "avg": 91.3125,
+       "games": 15,
+       "avg": 90.93333333333334,
        "best": 120
       },
       {
        "player_id": "p-nico",
-       "games": 12,
-       "avg": 88.83333333333333,
+       "games": 11,
+       "avg": 88.63636363636364,
        "best": 108
       },
       {
        "player_id": "p-meli",
-       "games": 12,
-       "avg": 81.5,
+       "games": 11,
+       "avg": 82.18181818181819,
        "best": 106
       },
       {
@@ -21427,8 +21427,9 @@
    },
    {
     "number": 3,
-    "start": "2026-06-16",
+    "start": "2026-06-02",
     "games": [
+     "g-049",
      "g-050",
      "g-051",
      "g-052",
@@ -21444,27 +21445,28 @@
      "g-062",
      "g-063"
     ],
-    "temp": 11.200000000000001,
-    "oxygen": 8.076923076923078,
-    "oceans": 5.25,
-    "temperature": -8,
-    "oxygenPct": 8,
+    "temp": 12.000000000000002,
+    "oxygen": 13.085714285714285,
+    "oceans": 5.625,
+    "temperature": -6,
+    "oxygenPct": 13,
     "oceanCount": 5,
-    "pct": 0.5686438318017265,
+    "pct": 0.7304242749731472,
+    "games_left": 9,
     "race": {
      "category": "total",
-     "games": 14,
+     "games": 15,
      "qualified": [
       {
        "player_id": "p-facu",
-       "games": 9,
-       "avg": 95.11111111111111,
+       "games": 10,
+       "avg": 95.3,
        "best": 130
       },
       {
        "player_id": "p-nico",
-       "games": 7,
-       "avg": 91.85714285714286,
+       "games": 8,
+       "avg": 91.75,
        "best": 102
       },
       {
@@ -21475,8 +21477,8 @@
       },
       {
        "player_id": "p-juli",
-       "games": 5,
-       "avg": 83.4,
+       "games": 6,
+       "avg": 85.5,
        "best": 106
       },
       {
@@ -21487,8 +21489,8 @@
       },
       {
        "player_id": "p-meli",
-       "games": 5,
-       "avg": 80.2,
+       "games": 6,
+       "avg": 79.16666666666667,
        "best": 107
       },
       {
@@ -21522,6 +21524,7 @@
     "game_id": "g-063",
     "player_id": "p-juli",
     "code": "highest_greenery_points",
+    "description": "Más puntos de vegetación en una partida",
     "text": "Juli rompió «Rey de los bosques»: 23 (antes 20, Juli)"
    },
    {
@@ -21530,6 +21533,7 @@
     "game_id": "g-063",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 21 (antes 14, Nico)"
    },
    {
@@ -21539,6 +21543,7 @@
     "player_id": "p-nico",
     "code": "city_planner",
     "level": 3,
+    "description": "Alcanzar X puntos de ciudades en una partida",
     "text": "Nico desbloqueó Metrópolis (nivel 3)"
    },
    {
@@ -21548,6 +21553,7 @@
     "player_id": "p-juli",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Dominador (nivel 3)"
    },
    {
@@ -21571,6 +21577,7 @@
     "player_id": "p-tomi",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Tomi desbloqueó Rey de las Recompensas"
    },
    {
@@ -21580,6 +21587,7 @@
     "player_id": "p-tomi",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Tomi desbloqueó Blitz"
    },
    {
@@ -21589,6 +21597,7 @@
     "player_id": "p-meli",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Meli desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21598,6 +21607,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21613,6 +21623,7 @@
     "game_id": "g-060",
     "player_id": "p-facu",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
    },
    {
@@ -21622,6 +21633,7 @@
     "player_id": "p-facu",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Facu desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -21631,6 +21643,7 @@
     "player_id": "p-lu",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Lu desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21640,6 +21653,7 @@
     "player_id": "p-lu",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Lu desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21656,6 +21670,7 @@
     "player_id": "p-santi",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Santi desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -21665,6 +21680,7 @@
     "player_id": "p-santi",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Santi desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21674,6 +21690,7 @@
     "player_id": "p-santi",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Santi desbloqueó Rey de las Recompensas"
    },
    {
@@ -21690,6 +21707,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21699,6 +21717,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21708,6 +21727,7 @@
     "player_id": "p-tomi",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Tomi desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21724,6 +21744,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21733,6 +21754,7 @@
     "player_id": "p-caro",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Caro desbloqueó Holding (nivel 3)"
    },
    {
@@ -21742,6 +21764,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 4,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Señor de Marte (nivel 4)"
    },
    {
@@ -21751,6 +21774,7 @@
     "player_id": "p-meli",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Meli desbloqueó Holding (nivel 3)"
    },
    {
@@ -21774,6 +21798,7 @@
     "player_id": "p-juli",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21783,6 +21808,7 @@
     "player_id": "p-lu",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Lu desbloqueó Habitué (nivel 2)"
    },
    {
@@ -21798,6 +21824,7 @@
     "game_id": "g-054",
     "player_id": "p-facu",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Facu rompió «Emperador de Marte»: 130 (antes 120, Facu)"
    },
    {
@@ -21807,6 +21834,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 4,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Leyenda de Marte (nivel 4)"
    },
    {
@@ -21816,6 +21844,7 @@
     "player_id": "p-facu",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Facu desbloqueó Maestro de Hitos"
    },
    {
@@ -21832,6 +21861,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -21841,6 +21871,7 @@
     "player_id": "p-tomi",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Tomi desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21850,6 +21881,7 @@
     "player_id": "p-tomi",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Tomi desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21866,6 +21898,7 @@
     "player_id": "p-nico",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Nico desbloqueó Rey de las Recompensas"
    },
    {
@@ -21875,6 +21908,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21891,6 +21925,7 @@
     "player_id": "p-caro",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Veterano (nivel 3)"
    },
    {
@@ -21900,6 +21935,7 @@
     "player_id": "p-gonza",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Gonza desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -21909,6 +21945,7 @@
     "player_id": "p-gonza",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Gonza desbloqueó Accionista (nivel 2)"
    },
    {
@@ -21925,6 +21962,7 @@
     "player_id": "p-tomi",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Tomi desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -21934,6 +21972,7 @@
     "player_id": "p-gonza",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Gonza desbloqueó Maestro de Hitos"
    },
    {
@@ -21943,6 +21982,7 @@
     "player_id": "p-gonza",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Gonza desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -21954,17 +21994,12 @@
    },
    {
     "date": "2026-06-02",
-    "type": "season",
-    "player_id": "p-caro",
-    "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
-   },
-   {
-    "date": "2026-06-02",
     "type": "achievement",
     "game_id": "g-049",
     "player_id": "p-facu",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Dominador (nivel 3)"
    },
    {
@@ -21974,6 +22009,7 @@
     "player_id": "p-facu",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Facu desbloqueó Holding (nivel 3)"
    },
    {
@@ -21983,6 +22019,7 @@
     "player_id": "p-nico",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Nico desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -21994,10 +22031,17 @@
    },
    {
     "date": "2026-05-26",
+    "type": "season",
+    "player_id": "p-caro",
+    "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
+   },
+   {
+    "date": "2026-05-26",
     "type": "record",
     "game_id": "g-048",
     "player_id": "p-meli",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Meli rompió «Barón de los recursos»: 12 (antes 11, Caro)"
    },
    {
@@ -22007,6 +22051,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22016,6 +22061,7 @@
     "player_id": "p-meli",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Meli desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22031,6 +22077,7 @@
     "game_id": "g-047",
     "player_id": "p-facu",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Facu rompió «Aplanadora»: 37 (antes 35, Caro)"
    },
    {
@@ -22047,6 +22094,7 @@
     "player_id": "p-gonza",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Gonza desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22056,6 +22104,7 @@
     "player_id": "p-gonza",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Gonza desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22072,6 +22121,7 @@
     "player_id": "p-meli",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Meli desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22088,6 +22138,7 @@
     "player_id": "p-facu",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Veterano (nivel 3)"
    },
    {
@@ -22097,6 +22148,7 @@
     "player_id": "p-nico",
     "code": "games_played",
     "level": 3,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Veterano (nivel 3)"
    },
    {
@@ -22106,6 +22158,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22121,6 +22174,7 @@
     "game_id": "g-043",
     "player_id": "p-caro",
     "code": "highest_turmoil_points",
+    "description": "Más puntos de Turmoil en una partida",
     "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro y Meli)"
    },
    {
@@ -22130,6 +22184,7 @@
     "player_id": "p-lu",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Lu desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -22139,6 +22194,7 @@
     "player_id": "p-lu",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Lu desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22155,6 +22211,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22171,6 +22228,7 @@
     "player_id": "p-nico",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Nico desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -22180,6 +22238,7 @@
     "player_id": "p-tomi",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Tomi desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22196,6 +22255,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22212,6 +22272,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22221,6 +22282,7 @@
     "player_id": "p-caro",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Dominador (nivel 3)"
    },
    {
@@ -22237,6 +22299,7 @@
     "player_id": "p-nico",
     "code": "corp_collector",
     "level": 3,
+    "description": "Jugar con corporaciones distintas",
     "text": "Nico desbloqueó Holding (nivel 3)"
    },
    {
@@ -22246,6 +22309,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 3,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
    },
    {
@@ -22255,6 +22319,7 @@
     "player_id": "p-meli",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Meli desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -22264,6 +22329,7 @@
     "player_id": "p-meli",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Meli desbloqueó Rey de las Recompensas"
    },
    {
@@ -22280,6 +22346,7 @@
     "player_id": "p-gonza",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Gonza desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22295,6 +22362,7 @@
     "game_id": "g-036",
     "player_id": "p-caro",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli y Nico y Caro)"
    },
    {
@@ -22304,6 +22372,7 @@
     "player_id": "p-caro",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Caro desbloqueó Lobo Solitario"
    },
    {
@@ -22313,6 +22382,7 @@
     "player_id": "p-tomi",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Tomi desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22322,6 +22392,7 @@
     "player_id": "p-lu",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Lu desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22338,6 +22409,7 @@
     "player_id": "p-santi",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Santi desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22347,6 +22419,7 @@
     "player_id": "p-lu",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Lu desbloqueó Inversor (nivel 2)"
    },
    {
@@ -22356,6 +22429,7 @@
     "player_id": "p-lu",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Lu desbloqueó Lobo Solitario"
    },
    {
@@ -22365,6 +22439,7 @@
     "player_id": "p-lu",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Lu desbloqueó Incomprendido"
    },
    {
@@ -22374,6 +22449,7 @@
     "player_id": "p-lu",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Lu desbloqueó Blitz"
    },
    {
@@ -22390,6 +22466,7 @@
     "player_id": "p-santi",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Santi desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22399,6 +22476,7 @@
     "player_id": "p-gonza",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -22408,6 +22486,7 @@
     "player_id": "p-gonza",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Gonza desbloqueó Lobo Solitario"
    },
    {
@@ -22417,6 +22496,7 @@
     "player_id": "p-gonza",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Gonza desbloqueó Blitz"
    },
    {
@@ -22426,6 +22506,7 @@
     "player_id": "p-gonza",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Gonza desbloqueó Mesa llena"
    },
    {
@@ -22442,6 +22523,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 4,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Maestro Botánico (nivel 4)"
    },
    {
@@ -22451,6 +22533,7 @@
     "player_id": "p-juli",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Juli desbloqueó Rey de las Recompensas"
    },
    {
@@ -22460,6 +22543,7 @@
     "player_id": "p-juli",
     "code": "giant_killer",
     "level": 3,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Juli desbloqueó Verdugo del Consejo (nivel 3)"
    },
    {
@@ -22476,6 +22560,7 @@
     "player_id": "p-tomi",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Tomi desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -22485,6 +22570,7 @@
     "player_id": "p-meli",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Meli desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22494,6 +22580,7 @@
     "player_id": "p-meli",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Meli desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22510,6 +22597,7 @@
     "player_id": "p-facu",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Facu desbloqueó Fotofinish"
    },
    {
@@ -22519,6 +22607,7 @@
     "player_id": "p-gonza",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22534,6 +22623,7 @@
     "game_id": "g-030",
     "player_id": "p-facu",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Facu rompió «Magnate de proyectos»: 35 (antes 34, Facu)"
    },
    {
@@ -22543,6 +22633,7 @@
     "player_id": "p-caro",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Caro desbloqueó Blitz"
    },
    {
@@ -22552,6 +22643,7 @@
     "player_id": "p-santi",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Santi desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22568,6 +22660,7 @@
     "player_id": "p-caro",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Caro desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -22577,6 +22670,7 @@
     "player_id": "p-caro",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Caro desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22586,6 +22680,7 @@
     "player_id": "p-caro",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Caro desbloqueó Mesa llena"
    },
    {
@@ -22595,6 +22690,7 @@
     "player_id": "p-gonza",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Gonza desbloqueó Inversor (nivel 2)"
    },
    {
@@ -22611,6 +22707,7 @@
     "player_id": "p-nico",
     "code": "games_won",
     "level": 3,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Dominador (nivel 3)"
    },
    {
@@ -22626,6 +22723,7 @@
     "game_id": "g-027",
     "player_id": "p-facu",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Facu rompió «Emperador de Marte»: 120 (antes 117, Caro)"
    },
    {
@@ -22634,6 +22732,7 @@
     "game_id": "g-027",
     "player_id": "p-facu",
     "code": "highest_terraform_rating",
+    "description": "TR más alto en una partida",
     "text": "Facu rompió «Arquitecto climático»: 53 (antes 48, Caro)"
    },
    {
@@ -22643,6 +22742,7 @@
     "player_id": "p-santi",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Santi desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22659,6 +22759,7 @@
     "player_id": "p-meli",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Meli desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -22674,6 +22775,7 @@
     "game_id": "g-025",
     "player_id": "p-caro",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Caro rompió «Emperador de Marte»: 117 (antes 115, Caro)"
    },
    {
@@ -22682,6 +22784,7 @@
     "game_id": "g-025",
     "player_id": "p-caro",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Caro rompió «Aplanadora»: 35 (antes 25, Nico)"
    },
    {
@@ -22691,6 +22794,7 @@
     "player_id": "p-caro",
     "code": "milestone_master",
     "level": 1,
+    "description": "Ganar una partida habiendo reclamado los 3 hitos",
     "text": "Caro desbloqueó Maestro de Hitos"
    },
    {
@@ -22713,6 +22817,7 @@
     "player_id": "p-juli",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -22722,6 +22827,7 @@
     "player_id": "p-juli",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Juli desbloqueó Imparable (nivel 2)"
    },
    {
@@ -22738,6 +22844,7 @@
     "player_id": "p-juli",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Juli desbloqueó Lobo Solitario"
    },
    {
@@ -22754,6 +22861,7 @@
     "player_id": "p-juli",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Juli desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22763,6 +22871,7 @@
     "player_id": "p-juli",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Juli desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22779,6 +22888,7 @@
     "player_id": "p-nico",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Nico desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22795,6 +22905,7 @@
     "player_id": "p-tomi",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -22811,6 +22922,7 @@
     "player_id": "p-facu",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -22820,6 +22932,7 @@
     "player_id": "p-facu",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Facu desbloqueó Imparable (nivel 2)"
    },
    {
@@ -22829,6 +22942,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22838,6 +22952,7 @@
     "player_id": "p-facu",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Facu desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22847,6 +22962,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22856,6 +22972,7 @@
     "player_id": "p-pato",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Pato desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22872,6 +22989,7 @@
     "player_id": "p-facu",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Facu desbloqueó Habitué (nivel 2)"
    },
    {
@@ -22881,6 +22999,7 @@
     "player_id": "p-facu",
     "code": "award_master",
     "level": 1,
+    "description": "Ganar una partida quedando 1.º en las 3 recompensas",
     "text": "Facu desbloqueó Rey de las Recompensas"
    },
    {
@@ -22890,6 +23009,7 @@
     "player_id": "p-lu",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Lu desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -22905,6 +23025,7 @@
     "game_id": "g-017",
     "player_id": "p-facu",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Facu rompió «Magnate de proyectos»: 34 (antes 33, Nico)"
    },
    {
@@ -22914,6 +23035,7 @@
     "player_id": "p-facu",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Facu desbloqueó Magnate (nivel 3)"
    },
    {
@@ -22923,6 +23045,7 @@
     "player_id": "p-facu",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Facu desbloqueó Lobo Solitario"
    },
    {
@@ -22932,6 +23055,7 @@
     "player_id": "p-facu",
     "code": "giant_killer",
     "level": 2,
+    "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
     "text": "Facu desbloqueó Matagigantes (nivel 2)"
    },
    {
@@ -22941,6 +23065,7 @@
     "player_id": "p-caro",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Caro desbloqueó Accionista (nivel 2)"
    },
    {
@@ -22956,6 +23081,7 @@
     "game_id": "g-016",
     "player_id": "p-meli",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
    },
    {
@@ -22964,6 +23090,7 @@
     "game_id": "g-016",
     "player_id": "p-meli",
     "code": "richest_finish",
+    "description": "Más M€ al terminar una partida",
     "text": "Meli rompió «Tesorería»: 34 (antes 33, Caro y Nico y Facu)"
    },
    {
@@ -22973,6 +23100,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -22982,6 +23110,7 @@
     "player_id": "p-meli",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Meli desbloqueó Incomprendido"
    },
    {
@@ -22991,6 +23120,7 @@
     "player_id": "p-meli",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Meli desbloqueó Fotofinish"
    },
    {
@@ -23007,6 +23137,7 @@
     "player_id": "p-nico",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23016,6 +23147,7 @@
     "player_id": "p-nico",
     "code": "corp_collector",
     "level": 2,
+    "description": "Jugar con corporaciones distintas",
     "text": "Nico desbloqueó Accionista (nivel 2)"
    },
    {
@@ -23025,6 +23157,7 @@
     "player_id": "p-juli",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Juli desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23034,6 +23167,7 @@
     "player_id": "p-caro",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -23043,6 +23177,7 @@
     "player_id": "p-caro",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Caro desbloqueó Incomprendido"
    },
    {
@@ -23065,6 +23200,7 @@
     "game_id": "g-013",
     "player_id": "p-juli",
     "code": "highest_greenery_points",
+    "description": "Más puntos de vegetación en una partida",
     "text": "Juli rompió «Rey de los bosques»: 20 (antes 15, Juli)"
    },
    {
@@ -23073,6 +23209,7 @@
     "game_id": "g-013",
     "player_id": "p-juli",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Juli rompió «Motor perfecto»: 12.2 (antes 11.6, Facu)"
    },
    {
@@ -23082,6 +23219,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 3,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Guardián del Bosque (nivel 3)"
    },
    {
@@ -23091,6 +23229,7 @@
     "player_id": "p-juli",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Juli desbloqueó Blitz"
    },
    {
@@ -23100,6 +23239,7 @@
     "player_id": "p-juli",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Juli desbloqueó Mesa llena"
    },
    {
@@ -23109,6 +23249,7 @@
     "player_id": "p-caro",
     "code": "games_played",
     "level": 2,
+    "description": "Jugar partidas de Terraforming Mars",
     "text": "Caro desbloqueó Habitué (nivel 2)"
    },
    {
@@ -23118,6 +23259,7 @@
     "player_id": "p-meli",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Meli desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23127,6 +23269,7 @@
     "player_id": "p-pato",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Pato desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23142,6 +23285,7 @@
     "game_id": "g-012",
     "player_id": "p-nico",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Nico rompió «Magnate de proyectos»: 33 (antes 32, Nico)"
    },
    {
@@ -23151,6 +23295,7 @@
     "player_id": "p-nico",
     "code": "games_won",
     "level": 2,
+    "description": "Ganar partidas de Terraforming Mars",
     "text": "Nico desbloqueó Conquistador (nivel 2)"
    },
    {
@@ -23160,6 +23305,7 @@
     "player_id": "p-nico",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Nico desbloqueó Imparable (nivel 2)"
    },
    {
@@ -23169,6 +23315,7 @@
     "player_id": "p-nico",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Nico desbloqueó Mesa llena"
    },
    {
@@ -23178,6 +23325,7 @@
     "player_id": "p-meli",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23187,6 +23335,7 @@
     "player_id": "p-meli",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Meli desbloqueó Magnate (nivel 3)"
    },
    {
@@ -23202,6 +23351,7 @@
     "game_id": "g-011",
     "player_id": "p-nico",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Nico rompió «Aplanadora»: 25 (antes 17, Caro)"
    },
    {
@@ -23211,6 +23361,7 @@
     "player_id": "p-nico",
     "code": "stolen_awards",
     "level": 2,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Nico desbloqueó Ladrón (nivel 2)"
    },
    {
@@ -23220,6 +23371,7 @@
     "player_id": "p-santi",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Santi desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23229,6 +23381,7 @@
     "player_id": "p-santi",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Santi desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23244,6 +23397,7 @@
     "game_id": "g-010",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 14 (antes 13, Nico)"
    },
    {
@@ -23252,6 +23406,7 @@
     "game_id": "g-010",
     "player_id": "p-nico",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Nico rompió «Por un pelo»: 1 (antes 2, Nico)"
    },
    {
@@ -23268,6 +23423,7 @@
     "player_id": "p-nico",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Nico desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23277,6 +23433,7 @@
     "player_id": "p-juli",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Juli desbloqueó Incomprendido"
    },
    {
@@ -23293,6 +23450,7 @@
     "player_id": "p-facu",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Facu desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23302,6 +23460,7 @@
     "player_id": "p-facu",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Facu desbloqueó Incomprendido"
    },
    {
@@ -23311,6 +23470,7 @@
     "player_id": "p-facu",
     "code": "full_table",
     "level": 1,
+    "description": "Ganar una partida de 5 jugadores",
     "text": "Facu desbloqueó Mesa llena"
    },
    {
@@ -23320,6 +23480,7 @@
     "player_id": "p-caro",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Caro desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23329,6 +23490,7 @@
     "player_id": "p-meli",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Meli desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23344,6 +23506,7 @@
     "game_id": "g-007",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 13 (antes 12, Nico)"
    },
    {
@@ -23352,6 +23515,7 @@
     "game_id": "g-007",
     "player_id": "p-facu",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
    },
    {
@@ -23361,6 +23525,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23370,6 +23535,7 @@
     "player_id": "p-facu",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Facu desbloqueó Blitz"
    },
    {
@@ -23379,6 +23545,7 @@
     "player_id": "p-pato",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Pato desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23394,6 +23561,7 @@
     "game_id": "g-006",
     "player_id": "p-nico",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Nico rompió «Magnate de proyectos»: 32 (antes 28, Juli)"
    },
    {
@@ -23402,6 +23570,7 @@
     "game_id": "g-006",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 12 (antes 11, Nico)"
    },
    {
@@ -23411,6 +23580,7 @@
     "player_id": "p-facu",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Facu desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23420,6 +23590,7 @@
     "player_id": "p-facu",
     "code": "stolen_awards",
     "level": 3,
+    "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
     "text": "Facu desbloqueó Gran Estafador (nivel 3)"
    },
    {
@@ -23429,6 +23600,7 @@
     "player_id": "p-nico",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23438,6 +23610,7 @@
     "player_id": "p-nico",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Nico desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23447,6 +23620,7 @@
     "player_id": "p-nico",
     "code": "card_points",
     "level": 3,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Nico desbloqueó Magnate (nivel 3)"
    },
    {
@@ -23456,6 +23630,7 @@
     "player_id": "p-nico",
     "code": "no_award_win",
     "level": 1,
+    "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
     "text": "Nico desbloqueó Incomprendido"
    },
    {
@@ -23471,6 +23646,7 @@
     "game_id": "g-005",
     "player_id": "p-juli",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Juli rompió «Barón de los recursos»: 10 (antes 9, Caro)"
    },
    {
@@ -23480,6 +23656,7 @@
     "player_id": "p-juli",
     "code": "greenery_tiles",
     "level": 2,
+    "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
     "text": "Juli desbloqueó Ecologista (nivel 2)"
    },
    {
@@ -23489,6 +23666,7 @@
     "player_id": "p-juli",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Juli desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23498,6 +23676,7 @@
     "player_id": "p-caro",
     "code": "all_maps",
     "level": 2,
+    "description": "Jugar en distintos mapas de Marte",
     "text": "Caro desbloqueó Cartógrafo (nivel 2)"
    },
    {
@@ -23507,6 +23686,7 @@
     "player_id": "p-tomi",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23516,6 +23696,7 @@
     "player_id": "p-tomi",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Tomi desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23525,6 +23706,7 @@
     "player_id": "p-pato",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Pato desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23534,6 +23716,7 @@
     "player_id": "p-pato",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Pato desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23549,6 +23732,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
    },
    {
@@ -23557,6 +23741,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "closest_win",
+    "description": "Victoria más ajustada (menor diferencia con el segundo)",
     "text": "Nico rompió «Por un pelo»: 2 (antes 4, Caro)"
    },
    {
@@ -23565,6 +23750,7 @@
     "game_id": "g-004",
     "player_id": "p-nico",
     "code": "fastest_win",
+    "description": "Victoria en la partida con menos generaciones",
     "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
    },
    {
@@ -23574,6 +23760,7 @@
     "player_id": "p-nico",
     "code": "no_milestone_win",
     "level": 1,
+    "description": "Ganar una partida sin haber reclamado ningún hito",
     "text": "Nico desbloqueó Lobo Solitario"
    },
    {
@@ -23583,6 +23770,7 @@
     "player_id": "p-nico",
     "code": "photo_finish",
     "level": 1,
+    "description": "Ganar por 2 puntos o menos",
     "text": "Nico desbloqueó Fotofinish"
    },
    {
@@ -23592,6 +23780,7 @@
     "player_id": "p-nico",
     "code": "blitz",
     "level": 1,
+    "description": "Ganar una partida de 9 generaciones o menos",
     "text": "Nico desbloqueó Blitz"
    },
    {
@@ -23607,6 +23796,7 @@
     "game_id": "g-003",
     "player_id": "p-caro",
     "code": "highest_single_game_score",
+    "description": "Puntaje más alto en una partida",
     "text": "Caro rompió «Emperador de Marte»: 115 (antes 105, Caro)"
    },
    {
@@ -23615,6 +23805,7 @@
     "game_id": "g-003",
     "player_id": "p-juli",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Juli rompió «Magnate de proyectos»: 28 (antes 27, Caro)"
    },
    {
@@ -23623,6 +23814,7 @@
     "game_id": "g-003",
     "player_id": "p-caro",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
    },
    {
@@ -23632,6 +23824,7 @@
     "player_id": "p-caro",
     "code": "win_streak",
     "level": 2,
+    "description": "Ganar partidas consecutivas",
     "text": "Caro desbloqueó Imparable (nivel 2)"
    },
    {
@@ -23647,6 +23840,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "highest_card_points",
+    "description": "Más puntos de cartas en una partida",
     "text": "Caro rompió «Magnate de proyectos»: 27 (antes 21, Caro)"
    },
    {
@@ -23655,6 +23849,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "highest_card_resource_points",
+    "description": "Más puntos por recursos de cartas en una partida",
     "text": "Caro rompió «Barón de los recursos»: 9 (antes 5, Juli)"
    },
    {
@@ -23663,6 +23858,7 @@
     "game_id": "g-002",
     "player_id": "p-facu",
     "code": "highest_city_points",
+    "description": "Más puntos de ciudades en una partida",
     "text": "Facu rompió «Urbanista supremo»: 9 (antes 6, Juli)"
    },
    {
@@ -23671,6 +23867,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "biggest_margin",
+    "description": "Mayor diferencia entre el ganador y el segundo",
     "text": "Caro rompió «Aplanadora»: 17 (antes 4, Caro)"
    },
    {
@@ -23679,6 +23876,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "points_per_generation",
+    "description": "Más puntos por generación en una partida",
     "text": "Caro rompió «Motor perfecto»: 10.3 (antes 8.1, Caro)"
    },
    {
@@ -23687,6 +23885,7 @@
     "game_id": "g-002",
     "player_id": "p-caro",
     "code": "fastest_win",
+    "description": "Victoria en la partida con menos generaciones",
     "text": "Caro rompió «Blitz»: 10 (antes 13, Caro)"
    },
    {
@@ -23696,6 +23895,7 @@
     "player_id": "p-facu",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Facu desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23705,6 +23905,7 @@
     "player_id": "p-facu",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Facu desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23714,6 +23915,7 @@
     "player_id": "p-nico",
     "code": "high_score",
     "level": 2,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Nico desbloqueó Joven Promesa (nivel 2)"
    },
    {
@@ -23723,6 +23925,7 @@
     "player_id": "p-nico",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Nico desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23739,6 +23942,7 @@
     "player_id": "p-juli",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23748,6 +23952,7 @@
     "player_id": "p-juli",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Juli desbloqueó Inversor (nivel 2)"
    },
    {
@@ -23757,6 +23962,7 @@
     "player_id": "p-caro",
     "code": "high_score",
     "level": 3,
+    "description": "Alcanzar X puntos en una partida",
     "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
    },
    {
@@ -23766,6 +23972,7 @@
     "player_id": "p-caro",
     "code": "card_points",
     "level": 2,
+    "description": "Alcanzar X puntos de cartas en una partida",
     "text": "Caro desbloqueó Inversor (nivel 2)"
    },
    {
@@ -30953,6 +31160,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -31045,20 +31253,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -31068,26 +31276,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -31121,8 +31329,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -31138,27 +31347,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -31169,8 +31379,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -31181,8 +31391,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -31211,7 +31421,7 @@
    ],
    "feed": [
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
@@ -31222,6 +31432,7 @@
      "game_id": "g-040",
      "player_id": "p-juli",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Juli rompió «Motor perfecto»: 9.2 (antes 9, Caro)"
     },
     {
@@ -31230,6 +31441,7 @@
      "game_id": "g-040",
      "player_id": "p-juli",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Juli rompió «Blitz»: 12 (antes 13, Caro y Meli)"
     },
     {
@@ -31239,6 +31451,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31248,6 +31461,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31264,6 +31478,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31273,6 +31488,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31282,6 +31498,7 @@
      "player_id": "p-meli",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Meli desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -31291,6 +31508,7 @@
      "player_id": "p-meli",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Meli desbloqueó Rey de las Recompensas"
     },
     {
@@ -31306,6 +31524,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 120 (antes 117, Caro)"
     },
     {
@@ -31314,6 +31533,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Facu rompió «Arquitecto climático»: 53 (antes 48, Caro)"
     },
     {
@@ -31322,6 +31542,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 29 (antes 25, Juli)"
     },
     {
@@ -31330,6 +31551,7 @@
      "game_id": "g-027",
      "player_id": "p-facu",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Facu rompió «Urbanista supremo»: 12 (antes 6, Juli)"
     },
     {
@@ -31339,6 +31561,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31348,6 +31571,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31357,6 +31581,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -31366,6 +31591,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31381,6 +31607,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Caro rompió «Emperador de Marte»: 117 (antes 105, Caro)"
     },
     {
@@ -31389,6 +31616,7 @@
      "game_id": "g-025",
      "player_id": "p-juli",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Juli rompió «Magnate de proyectos»: 25 (antes 21, Caro)"
     },
     {
@@ -31397,6 +31625,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 10 (antes 5, Juli)"
     },
     {
@@ -31405,6 +31634,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Caro rompió «Aplanadora»: 35 (antes 4, Caro)"
     },
     {
@@ -31413,6 +31643,7 @@
      "game_id": "g-025",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 9 (antes 8.1, Caro)"
     },
     {
@@ -31422,6 +31653,7 @@
      "player_id": "p-caro",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Caro desbloqueó Maestro de Hitos"
     },
     {
@@ -31444,6 +31676,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31453,6 +31686,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -31462,6 +31696,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -31471,6 +31706,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -40886,6 +41122,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -40978,20 +41215,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -41001,26 +41238,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -41054,8 +41291,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -41071,27 +41309,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -41102,8 +41341,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -41114,8 +41353,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -41150,6 +41389,7 @@
      "player_id": "p-nico",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Nico desbloqueó Rey de las Recompensas"
     },
     {
@@ -41165,6 +41405,7 @@
      "game_id": "g-057",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 46 (antes 45, Caro)"
     },
     {
@@ -41174,6 +41415,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41183,6 +41425,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41198,6 +41441,7 @@
      "game_id": "g-054",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 130 (antes 119, Facu)"
     },
     {
@@ -41206,6 +41450,7 @@
      "game_id": "g-054",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 35 (antes 32, Nico)"
     },
     {
@@ -41215,6 +41460,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 4,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Leyenda de Marte (nivel 4)"
     },
     {
@@ -41224,6 +41470,7 @@
      "player_id": "p-facu",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Facu desbloqueó Maestro de Hitos"
     },
     {
@@ -41240,6 +41487,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41249,6 +41497,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41258,6 +41507,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41274,6 +41524,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41283,6 +41534,7 @@
      "player_id": "p-tomi",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Tomi desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -41292,6 +41544,7 @@
      "player_id": "p-gonza",
      "code": "milestone_master",
      "level": 1,
+     "description": "Ganar una partida habiendo reclamado los 3 hitos",
      "text": "Gonza desbloqueó Maestro de Hitos"
     },
     {
@@ -41302,7 +41555,7 @@
      "text": "Gonza ganó en Elysium por 8 puntos"
     },
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
@@ -41313,6 +41566,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Facu rompió «Emperador de Marte»: 119 (antes 114, Nico)"
     },
     {
@@ -41321,6 +41575,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Facu rompió «Barón de los recursos»: 10 (antes 9, Juli y Meli)"
     },
     {
@@ -41329,6 +41584,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Facu rompió «Aplanadora»: 37 (antes 25, Nico)"
     },
     {
@@ -41337,6 +41593,7 @@
      "game_id": "g-047",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 11.9 (antes 11.4, Nico)"
     },
     {
@@ -41346,6 +41603,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41355,6 +41613,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -41370,6 +41629,7 @@
      "game_id": "g-045",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli y Meli rompió «Barón de los recursos»: 9 (antes 8, Meli y Nico)"
     },
     {
@@ -41379,6 +41639,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41388,6 +41649,7 @@
      "player_id": "p-juli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Juli desbloqueó Incomprendido"
     },
     {
@@ -41397,6 +41659,7 @@
      "player_id": "p-juli",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Juli desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -41406,6 +41669,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41422,6 +41686,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41431,6 +41696,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -41440,6 +41706,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41449,6 +41716,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41465,6 +41733,7 @@
      "player_id": "p-nico",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -41474,6 +41743,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -41489,6 +41759,7 @@
      "game_id": "g-035",
      "player_id": "p-lu",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Lu rompió «Blitz»: 9 (antes 10, Nico y Meli y Juli)"
     },
     {
@@ -41498,6 +41769,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41507,6 +41779,7 @@
      "player_id": "p-lu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Lu desbloqueó Lobo Solitario"
     },
     {
@@ -41516,6 +41789,7 @@
      "player_id": "p-lu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Lu desbloqueó Incomprendido"
     },
     {
@@ -41525,6 +41799,7 @@
      "player_id": "p-lu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Lu desbloqueó Blitz"
     },
     {
@@ -41541,6 +41816,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41550,6 +41826,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41559,6 +41836,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41568,6 +41846,7 @@
      "player_id": "p-juli",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Juli desbloqueó Rey de las Recompensas"
     },
     {
@@ -41584,6 +41863,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41593,6 +41873,7 @@
      "player_id": "p-tomi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Tomi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41602,6 +41883,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41638,6 +41920,7 @@
      "player_id": "p-facu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Facu desbloqueó Lobo Solitario"
     },
     {
@@ -41647,6 +41930,7 @@
      "player_id": "p-facu",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Facu desbloqueó Rey de las Recompensas"
     },
     {
@@ -41656,6 +41940,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41665,6 +41950,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41680,6 +41966,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Meli y Nico rompió «Maestro de la política»: 4 (antes 3, Santi y Meli)"
     },
     {
@@ -41688,6 +41975,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Meli rompió «Por un pelo»: 0 (antes 1, Nico)"
     },
     {
@@ -41696,6 +41984,7 @@
      "game_id": "g-016",
      "player_id": "p-meli",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Meli rompió «Tesorería»: 34 (antes 32, Facu)"
     },
     {
@@ -41705,6 +41994,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -41714,6 +42004,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41723,6 +42014,7 @@
      "player_id": "p-meli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Meli desbloqueó Incomprendido"
     },
     {
@@ -41732,6 +42024,7 @@
      "player_id": "p-meli",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Meli desbloqueó Fotofinish"
     },
     {
@@ -41747,6 +42040,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Nico rompió «Emperador de Marte»: 114 (antes 101, Nico)"
     },
     {
@@ -41755,6 +42049,7 @@
      "game_id": "g-011",
      "player_id": "p-meli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Meli rompió «Barón de los recursos»: 8 (antes 6, Facu y Caro)"
     },
     {
@@ -41763,6 +42058,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Nico rompió «Rey de los bosques»: 13 (antes 10, Nico)"
     },
     {
@@ -41771,6 +42067,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Nico rompió «Aplanadora»: 25 (antes 4, Nico)"
     },
     {
@@ -41779,6 +42076,7 @@
      "game_id": "g-011",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 11.4 (antes 10.1, Nico)"
     },
     {
@@ -41788,6 +42086,7 @@
      "player_id": "p-nico",
      "code": "win_streak",
      "level": 2,
+     "description": "Ganar partidas consecutivas",
      "text": "Nico desbloqueó Imparable (nivel 2)"
     },
     {
@@ -41797,6 +42096,7 @@
      "player_id": "p-nico",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Nico desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -41806,6 +42106,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41815,6 +42116,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41824,6 +42126,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41839,6 +42142,7 @@
      "game_id": "g-010",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 45 (antes 37, Nico)"
     },
     {
@@ -41847,6 +42151,7 @@
      "game_id": "g-010",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 14 (antes 12, Nico)"
     },
     {
@@ -41855,6 +42160,7 @@
      "game_id": "g-010",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 1 (antes 4, Nico)"
     },
     {
@@ -41864,6 +42170,7 @@
      "player_id": "p-nico",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Nico desbloqueó Fotofinish"
     },
     {
@@ -41873,6 +42180,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41882,6 +42190,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41891,6 +42200,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41900,6 +42210,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41916,6 +42227,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -41925,6 +42237,7 @@
      "player_id": "p-facu",
      "code": "stolen_awards",
      "level": 3,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Facu desbloqueó Gran Estafador (nivel 3)"
     },
     {
@@ -41934,6 +42247,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -41943,6 +42257,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -41952,6 +42267,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Magnate (nivel 3)"
     },
     {
@@ -41961,6 +42277,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -41970,6 +42287,7 @@
      "player_id": "p-nico",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Nico desbloqueó Incomprendido"
     },
     {
@@ -43268,7 +43586,7 @@
     "2": {
      "total": {
       "category": "total",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43277,27 +43595,21 @@
         "best": 105
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 94.66666666666667,
-        "best": 98
-       },
-       {
-        "player_id": "p-facu",
-        "games": 6,
-        "avg": 89.5,
-        "best": 97
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 88.83333333333333,
+        "games": 5,
+        "avg": 88.4,
         "best": 108
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 5,
-        "avg": 80,
+        "avg": 88,
+        "best": 95
+       },
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 81.5,
         "best": 106
        },
        {
@@ -43308,6 +43620,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 94,
+        "best": 98,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43333,7 +43652,7 @@
      },
      "terraform_rating": {
       "category": "terraform_rating",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43342,27 +43661,21 @@
         "best": 40
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 35.666666666666664,
-        "best": 40
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 34.5,
+        "games": 5,
+        "avg": 34,
         "best": 40
        },
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 34,
+        "games": 5,
+        "avg": 33.6,
         "best": 36
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 34,
+        "games": 4,
+        "avg": 33.5,
         "best": 36
        },
        {
@@ -43378,6 +43691,13 @@
         "games": 2,
         "avg": 34.5,
         "best": 36,
+        "missing": 1
+       },
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 33.5,
+        "best": 35,
         "missing": 1
        },
        {
@@ -43398,14 +43718,8 @@
      },
      "award_points": {
       "category": "award_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 8,
-        "best": 12
-       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43414,20 +43728,20 @@
        },
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 4.5,
+        "games": 5,
+        "avg": 5,
         "best": 10
        },
        {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 3.8333333333333335,
+        "games": 5,
+        "avg": 4.2,
         "best": 12
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 2.4,
+        "games": 4,
+        "avg": 3,
         "best": 5
        },
        {
@@ -43438,6 +43752,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 7,
+        "best": 12,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43463,11 +43784,11 @@
      },
      "milestone_points": {
       "category": "milestone_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-nico",
-        "games": 6,
+        "games": 5,
         "avg": 5,
         "best": 10
        },
@@ -43484,22 +43805,16 @@
         "best": 5
        },
        {
-        "player_id": "p-facu",
-        "games": 6,
+        "player_id": "p-meli",
+        "games": 4,
         "avg": 2.5,
         "best": 5
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 5,
         "avg": 2,
         "best": 5
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 0,
-        "best": 0
        }
       ],
       "pending": [
@@ -43518,6 +43833,13 @@
         "missing": 2
        },
        {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 0,
+        "best": 0,
+        "missing": 1
+       },
+       {
         "player_id": "p-santi",
         "games": 1,
         "avg": 0,
@@ -43528,8 +43850,14 @@
      },
      "card_resource_points": {
       "category": "card_resource_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 8.5,
+        "best": 12
+       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43537,27 +43865,15 @@
         "best": 11
        },
        {
-        "player_id": "p-meli",
-        "games": 5,
-        "avg": 8.2,
-        "best": 12
-       },
-       {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 6.333333333333333,
+        "games": 5,
+        "avg": 6,
         "best": 8
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 4.333333333333333,
-        "best": 6
-       },
-       {
         "player_id": "p-nico",
-        "games": 6,
-        "avg": 3.8333333333333335,
+        "games": 5,
+        "avg": 4,
         "best": 5
        },
        {
@@ -43574,6 +43890,13 @@
         "avg": 6,
         "best": 6,
         "missing": 2
+       },
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 5.5,
+        "best": 6,
+        "missing": 1
        },
        {
         "player_id": "p-lu",
@@ -43593,25 +43916,13 @@
      },
      "card_points": {
       "category": "card_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 25,
+        "games": 5,
+        "avg": 24.4,
         "best": 35
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 24.333333333333332,
-        "best": 28
-       },
-       {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 24,
-        "best": 28
        },
        {
         "player_id": "p-caro",
@@ -43620,9 +43931,15 @@
         "best": 27
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-nico",
         "games": 5,
-        "avg": 20.2,
+        "avg": 23.2,
+        "best": 27
+       },
+       {
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 21.5,
         "best": 29
        },
        {
@@ -43633,6 +43950,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 27,
+        "best": 28,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43658,13 +43982,13 @@
      },
      "greenery_points": {
       "category": "greenery_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 13.333333333333334,
-        "best": 14
+        "player_id": "p-facu",
+        "games": 5,
+        "avg": 9,
+        "best": 13
        },
        {
         "player_id": "p-gonza",
@@ -43673,31 +43997,32 @@
         "best": 12
        },
        {
-        "player_id": "p-facu",
-        "games": 6,
-        "avg": 8.5,
-        "best": 13
-       },
-       {
         "player_id": "p-caro",
         "games": 4,
         "avg": 8.5,
         "best": 12
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-nico",
         "games": 5,
         "avg": 8.2,
-        "best": 12
+        "best": 13
        },
        {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 8,
-        "best": 13
+        "player_id": "p-meli",
+        "games": 4,
+        "avg": 7.25,
+        "best": 11
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 13.5,
+        "best": 14,
+        "missing": 1
+       },
        {
         "player_id": "p-tomi",
         "games": 1,
@@ -43723,8 +44048,14 @@
      },
      "city_points": {
       "category": "city_points",
-      "games": 8,
+      "games": 7,
       "qualified": [
+       {
+        "player_id": "p-nico",
+        "games": 5,
+        "avg": 8.8,
+        "best": 12
+       },
        {
         "player_id": "p-caro",
         "games": 4,
@@ -43732,22 +44063,10 @@
         "best": 9
        },
        {
-        "player_id": "p-nico",
-        "games": 6,
-        "avg": 8.333333333333334,
-        "best": 12
-       },
-       {
         "player_id": "p-facu",
-        "games": 6,
-        "avg": 7.5,
+        "games": 5,
+        "avg": 7.4,
         "best": 11
-       },
-       {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 7,
-        "best": 9
        },
        {
         "player_id": "p-gonza",
@@ -43757,12 +44076,19 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 4.2,
+        "games": 4,
+        "avg": 5.25,
         "best": 8
        }
       ],
       "pending": [
+       {
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 6,
+        "best": 7,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 2,
@@ -43788,15 +44114,8 @@
      },
      "turmoil_points": {
       "category": "turmoil_points",
-      "games": 8,
-      "qualified": [
-       {
-        "player_id": "p-nico",
-        "games": 3,
-        "avg": 2.6666666666666665,
-        "best": 4
-       }
-      ],
+      "games": 7,
+      "qualified": [],
       "pending": [
        {
         "player_id": "p-caro",
@@ -43813,24 +44132,24 @@
         "missing": 2
        },
        {
-        "player_id": "p-meli",
+        "player_id": "p-facu",
         "games": 1,
-        "avg": 4,
-        "best": 4,
+        "avg": 3,
+        "best": 3,
         "missing": 2
        },
        {
-        "player_id": "p-facu",
-        "games": 2,
-        "avg": 3.5,
-        "best": 4,
-        "missing": 1
-       },
-       {
         "player_id": "p-juli",
-        "games": 2,
+        "games": 1,
         "avg": 3,
         "best": 3,
+        "missing": 2
+       },
+       {
+        "player_id": "p-nico",
+        "games": 2,
+        "avg": 2.5,
+        "best": 4,
         "missing": 1
        },
        {
@@ -43846,12 +44165,12 @@
     "3": {
      "total": {
       "category": "total",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 94.8,
+        "games": 6,
+        "avg": 95.16666666666667,
         "best": 103
        },
        {
@@ -43868,14 +44187,14 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 88,
+        "games": 6,
+        "avg": 88.5,
         "best": 102
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 85,
+        "games": 4,
+        "avg": 87.75,
         "best": 106
        }
       ],
@@ -43896,10 +44215,10 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
-        "avg": 68,
-        "best": 68,
-        "missing": 2
+        "games": 2,
+        "avg": 71,
+        "best": 74,
+        "missing": 1
        },
        {
         "player_id": "p-gonza",
@@ -43912,7 +44231,7 @@
      },
      "terraform_rating": {
       "category": "terraform_rating",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -43922,8 +44241,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 37.666666666666664,
+        "games": 4,
+        "avg": 38.25,
         "best": 44
        },
        {
@@ -43934,14 +44253,14 @@
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 36.2,
+        "games": 6,
+        "avg": 36.166666666666664,
         "best": 41
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 34,
+        "games": 6,
+        "avg": 34.5,
         "best": 39
        }
       ],
@@ -43954,18 +44273,18 @@
         "missing": 2
        },
        {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 34.5,
+        "best": 36,
+        "missing": 1
+       },
+       {
         "player_id": "p-tomi",
         "games": 2,
         "avg": 34.5,
         "best": 35,
         "missing": 1
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 33,
-        "best": 33,
-        "missing": 2
        },
        {
         "player_id": "p-gonza",
@@ -43978,19 +44297,19 @@
      },
      "award_points": {
       "category": "award_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
-        "player_id": "p-nico",
-        "games": 5,
-        "avg": 6,
-        "best": 15
+        "player_id": "p-juli",
+        "games": 4,
+        "avg": 5.75,
+        "best": 10
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 5.4,
-        "best": 10
+        "player_id": "p-nico",
+        "games": 6,
+        "avg": 5.333333333333333,
+        "best": 15
        },
        {
         "player_id": "p-santi",
@@ -43999,10 +44318,10 @@
         "best": 15
        },
        {
-        "player_id": "p-juli",
-        "games": 3,
-        "avg": 4.333333333333333,
-        "best": 7
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 4.833333333333333,
+        "best": 10
        },
        {
         "player_id": "p-caro",
@@ -44020,6 +44339,13 @@
         "missing": 1
        },
        {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 0,
+        "best": 0,
+        "missing": 1
+       },
+       {
         "player_id": "p-gonza",
         "games": 1,
         "avg": 0,
@@ -44032,24 +44358,29 @@
         "avg": 0,
         "best": 0,
         "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 0,
-        "best": 0,
-        "missing": 2
        }
       ]
      },
      "milestone_points": {
       "category": "milestone_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-caro",
         "games": 3,
         "avg": 5,
+        "best": 5
+       },
+       {
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 3.3333333333333335,
+        "best": 5
+       },
+       {
+        "player_id": "p-nico",
+        "games": 6,
+        "avg": 3.3333333333333335,
         "best": 5
        },
        {
@@ -44059,21 +44390,9 @@
         "best": 5
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 3,
-        "best": 5
-       },
-       {
-        "player_id": "p-nico",
-        "games": 5,
-        "avg": 3,
-        "best": 5
-       },
-       {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 1.6666666666666667,
+        "games": 4,
+        "avg": 1.25,
         "best": 5
        }
       ],
@@ -44101,16 +44420,16 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
+        "games": 2,
         "avg": 0,
         "best": 0,
-        "missing": 2
+        "missing": 1
        }
       ]
      },
      "card_resource_points": {
       "category": "card_resource_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-santi",
@@ -44120,14 +44439,14 @@
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 5.2,
-        "best": 6
+        "games": 6,
+        "avg": 5.666666666666667,
+        "best": 8
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 4.4,
+        "games": 6,
+        "avg": 4.166666666666667,
         "best": 8
        },
        {
@@ -44138,25 +44457,25 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 3,
+        "games": 4,
+        "avg": 2.75,
         "best": 4
        }
       ],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 6.5,
+        "best": 7,
+        "missing": 1
+       },
        {
         "player_id": "p-tomi",
         "games": 2,
         "avg": 6,
         "best": 7,
         "missing": 1
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 6,
-        "best": 6,
-        "missing": 2
        },
        {
         "player_id": "p-gonza",
@@ -44176,12 +44495,12 @@
      },
      "card_points": {
       "category": "card_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 28.4,
+        "games": 6,
+        "avg": 28.333333333333332,
         "best": 34
        },
        {
@@ -44192,9 +44511,9 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 19.6,
-        "best": 25
+        "games": 6,
+        "avg": 21,
+        "best": 28
        },
        {
         "player_id": "p-caro",
@@ -44204,8 +44523,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 18,
+        "games": 4,
+        "avg": 18.25,
         "best": 19
        }
       ],
@@ -44226,10 +44545,10 @@
        },
        {
         "player_id": "p-meli",
-        "games": 1,
-        "avg": 18,
+        "games": 2,
+        "avg": 16.5,
         "best": 18,
-        "missing": 2
+        "missing": 1
        },
        {
         "player_id": "p-gonza",
@@ -44242,12 +44561,12 @@
      },
      "greenery_points": {
       "category": "greenery_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 12.666666666666666,
+        "games": 4,
+        "avg": 12.75,
         "best": 23
        },
        {
@@ -44258,14 +44577,14 @@
        },
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 9,
+        "games": 6,
+        "avg": 8.666666666666666,
         "best": 13
        },
        {
         "player_id": "p-facu",
-        "games": 5,
-        "avg": 8.6,
+        "games": 6,
+        "avg": 8.166666666666666,
         "best": 10
        },
        {
@@ -44276,6 +44595,13 @@
        }
       ],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 8.5,
+        "best": 12,
+        "missing": 1
+       },
        {
         "player_id": "p-lu",
         "games": 1,
@@ -44296,24 +44622,17 @@
         "avg": 6,
         "best": 6,
         "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 5,
-        "best": 5,
-        "missing": 2
        }
       ]
      },
      "city_points": {
       "category": "city_points",
-      "games": 6,
+      "games": 7,
       "qualified": [
        {
         "player_id": "p-nico",
-        "games": 5,
-        "avg": 11.6,
+        "games": 6,
+        "avg": 10.666666666666666,
         "best": 21
        },
        {
@@ -44323,22 +44642,22 @@
         "best": 11
        },
        {
+        "player_id": "p-facu",
+        "games": 6,
+        "avg": 7.666666666666667,
+        "best": 12
+       },
+       {
         "player_id": "p-caro",
         "games": 3,
         "avg": 7.666666666666667,
         "best": 11
        },
        {
-        "player_id": "p-facu",
-        "games": 5,
-        "avg": 7.6,
-        "best": 12
-       },
-       {
         "player_id": "p-juli",
-        "games": 3,
-        "avg": 6.666666666666667,
-        "best": 8
+        "games": 4,
+        "avg": 7.25,
+        "best": 9
        }
       ],
       "pending": [
@@ -44347,13 +44666,6 @@
         "games": 1,
         "avg": 8,
         "best": 8,
-        "missing": 2
-       },
-       {
-        "player_id": "p-meli",
-        "games": 1,
-        "avg": 6,
-        "best": 6,
         "missing": 2
        },
        {
@@ -44369,14 +44681,28 @@
         "avg": 4,
         "best": 5,
         "missing": 1
+       },
+       {
+        "player_id": "p-meli",
+        "games": 2,
+        "avg": 3,
+        "best": 6,
+        "missing": 1
        }
       ]
      },
      "turmoil_points": {
       "category": "turmoil_points",
-      "games": 6,
+      "games": 7,
       "qualified": [],
       "pending": [
+       {
+        "player_id": "p-meli",
+        "games": 1,
+        "avg": 4,
+        "best": 4,
+        "missing": 2
+       },
        {
         "player_id": "p-santi",
         "games": 1,
@@ -44385,25 +44711,25 @@
         "missing": 2
        },
        {
-        "player_id": "p-juli",
-        "games": 1,
+        "player_id": "p-facu",
+        "games": 2,
         "avg": 3,
-        "best": 3,
-        "missing": 2
+        "best": 4,
+        "missing": 1
        },
        {
-        "player_id": "p-facu",
-        "games": 1,
-        "avg": 2,
-        "best": 2,
-        "missing": 2
+        "player_id": "p-juli",
+        "games": 2,
+        "avg": 3,
+        "best": 3,
+        "missing": 1
        },
        {
         "player_id": "p-nico",
-        "games": 1,
-        "avg": 2,
-        "best": 2,
-        "missing": 2
+        "games": 2,
+        "avg": 2.5,
+        "best": 3,
+        "missing": 1
        }
       ]
      }
@@ -54556,6 +54882,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -54648,20 +54975,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -54671,26 +54998,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -54724,8 +55051,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -54741,27 +55069,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -54772,8 +55101,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -54784,8 +55113,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -54819,6 +55148,7 @@
      "game_id": "g-063",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 46 (antes 42, Caro)"
     },
     {
@@ -54827,6 +55157,7 @@
      "game_id": "g-063",
      "player_id": "p-juli",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Juli rompió «Rey de los bosques»: 23 (antes 15, Juli)"
     },
     {
@@ -54835,6 +55166,7 @@
      "game_id": "g-063",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 21 (antes 13, Nico)"
     },
     {
@@ -54844,6 +55176,7 @@
      "player_id": "p-nico",
      "code": "city_planner",
      "level": 3,
+     "description": "Alcanzar X puntos de ciudades en una partida",
      "text": "Nico desbloqueó Metrópolis (nivel 3)"
     },
     {
@@ -54860,6 +55193,7 @@
      "player_id": "p-tomi",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Tomi desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -54869,6 +55203,7 @@
      "player_id": "p-tomi",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Tomi desbloqueó Rey de las Recompensas"
     },
     {
@@ -54878,6 +55213,7 @@
      "player_id": "p-tomi",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Tomi desbloqueó Blitz"
     },
     {
@@ -54894,6 +55230,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -54903,6 +55240,7 @@
      "player_id": "p-santi",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Santi desbloqueó Rey de las Recompensas"
     },
     {
@@ -54918,6 +55256,7 @@
      "game_id": "g-056",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 42 (antes 41, Caro)"
     },
     {
@@ -54933,6 +55272,7 @@
      "game_id": "g-053",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 41 (antes 40, Caro y Nico y Juli)"
     },
     {
@@ -54942,6 +55282,7 @@
      "player_id": "p-caro",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Caro desbloqueó Accionista (nivel 2)"
     },
     {
@@ -54957,6 +55298,7 @@
      "game_id": "g-052",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 12.1 (antes 11.7, Caro)"
     },
     {
@@ -54966,6 +55308,7 @@
      "player_id": "p-nico",
      "code": "award_master",
      "level": 1,
+     "description": "Ganar una partida quedando 1.º en las 3 recompensas",
      "text": "Nico desbloqueó Rey de las Recompensas"
     },
     {
@@ -54975,6 +55318,7 @@
      "player_id": "p-nico",
      "code": "giant_killer",
      "level": 3,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Nico desbloqueó Verdugo del Consejo (nivel 3)"
     },
     {
@@ -54984,6 +55328,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -54995,16 +55340,11 @@
     },
     {
      "date": "2026-06-02",
-     "type": "season",
-     "player_id": "p-caro",
-     "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
-    },
-    {
-     "date": "2026-06-02",
      "type": "record",
      "game_id": "g-049",
      "player_id": "p-facu",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Facu rompió «Por un pelo»: 1 (antes 2, Nico y Facu)"
     },
     {
@@ -55014,6 +55354,7 @@
      "player_id": "p-facu",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Facu desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55023,6 +55364,7 @@
      "player_id": "p-facu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Facu desbloqueó Incomprendido"
     },
     {
@@ -55032,6 +55374,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55041,6 +55384,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55050,6 +55394,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55061,10 +55406,17 @@
     },
     {
      "date": "2026-05-26",
+     "type": "season",
+     "player_id": "p-caro",
+     "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
+    },
+    {
+     "date": "2026-05-26",
      "type": "record",
      "game_id": "g-048",
      "player_id": "p-meli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Meli rompió «Barón de los recursos»: 12 (antes 11, Caro)"
     },
     {
@@ -55074,6 +55426,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55083,6 +55436,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55092,6 +55446,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55107,6 +55462,7 @@
      "game_id": "g-044",
      "player_id": "p-nico",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Nico rompió «Aplanadora»: 23 (antes 17, Caro)"
     },
     {
@@ -55122,6 +55478,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 40 (antes 39, Caro y Juli y Facu y Tomi y Pato)"
     },
     {
@@ -55130,6 +55487,7 @@
      "game_id": "g-043",
      "player_id": "p-caro",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Caro y Lu rompió «Maestro de la política»: 6 (antes 5, Caro)"
     },
     {
@@ -55139,6 +55497,7 @@
      "player_id": "p-caro",
      "code": "win_streak",
      "level": 2,
+     "description": "Ganar partidas consecutivas",
      "text": "Caro desbloqueó Imparable (nivel 2)"
     },
     {
@@ -55148,6 +55507,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55157,6 +55517,7 @@
      "player_id": "p-caro",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Caro desbloqueó Lobo Solitario"
     },
     {
@@ -55166,6 +55527,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55175,6 +55537,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55184,6 +55547,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55193,6 +55557,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55208,6 +55573,7 @@
      "game_id": "g-039",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Nico y Caro)"
     },
     {
@@ -55217,6 +55583,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -55226,6 +55593,7 @@
      "player_id": "p-caro",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Caro desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -55235,6 +55603,7 @@
      "player_id": "p-caro",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Caro desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55244,6 +55613,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55260,6 +55630,7 @@
      "player_id": "p-facu",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Facu desbloqueó Fotofinish"
     },
     {
@@ -55269,6 +55640,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55278,6 +55650,7 @@
      "player_id": "p-juli",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Juli desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55293,6 +55666,7 @@
      "game_id": "g-030",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 35 (antes 34, Facu)"
     },
     {
@@ -55301,6 +55675,7 @@
      "game_id": "g-030",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 11.7 (antes 11.6, Facu)"
     },
     {
@@ -55310,6 +55685,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55319,6 +55695,7 @@
      "player_id": "p-facu",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Facu desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55328,6 +55705,7 @@
      "player_id": "p-caro",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Caro desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55337,6 +55715,7 @@
      "player_id": "p-caro",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Caro desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55346,6 +55725,7 @@
      "player_id": "p-caro",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Caro desbloqueó Blitz"
     },
     {
@@ -55362,6 +55742,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55371,6 +55752,7 @@
      "player_id": "p-nico",
      "code": "games_won",
      "level": 2,
+     "description": "Ganar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Conquistador (nivel 2)"
     },
     {
@@ -55393,6 +55775,7 @@
      "player_id": "p-facu",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Facu desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55402,6 +55785,7 @@
      "player_id": "p-facu",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Facu desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -55411,6 +55795,7 @@
      "player_id": "p-juli",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Juli desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55420,6 +55805,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 3,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Guardián del Bosque (nivel 3)"
     },
     {
@@ -55429,6 +55815,7 @@
      "player_id": "p-juli",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Juli desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55445,6 +55832,7 @@
      "player_id": "p-nico",
      "code": "corp_collector",
      "level": 2,
+     "description": "Jugar con corporaciones distintas",
      "text": "Nico desbloqueó Accionista (nivel 2)"
     },
     {
@@ -55454,6 +55842,7 @@
      "player_id": "p-juli",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Juli desbloqueó Lobo Solitario"
     },
     {
@@ -55463,6 +55852,7 @@
      "player_id": "p-juli",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Juli desbloqueó Blitz"
     },
     {
@@ -55472,6 +55862,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55488,6 +55879,7 @@
      "player_id": "p-nico",
      "code": "games_played",
      "level": 2,
+     "description": "Jugar partidas de Terraforming Mars",
      "text": "Nico desbloqueó Habitué (nivel 2)"
     },
     {
@@ -55497,6 +55889,7 @@
      "player_id": "p-nico",
      "code": "giant_killer",
      "level": 2,
+     "description": "Ganar una partida en la que jugaba el n.º 1 del ranking",
      "text": "Nico desbloqueó Matagigantes (nivel 2)"
     },
     {
@@ -55513,6 +55906,7 @@
      "player_id": "p-nico",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Nico desbloqueó Incomprendido"
     },
     {
@@ -55522,6 +55916,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55538,6 +55933,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55547,6 +55943,7 @@
      "player_id": "p-nico",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Nico desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55562,6 +55959,7 @@
      "game_id": "g-017",
      "player_id": "p-facu",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Facu rompió «Magnate de proyectos»: 34 (antes 28, Juli y Facu)"
     },
     {
@@ -55571,6 +55969,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -55580,6 +55979,7 @@
      "player_id": "p-facu",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Facu desbloqueó Lobo Solitario"
     },
     {
@@ -55589,6 +55989,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55598,6 +55999,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55607,6 +56009,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55623,6 +56026,7 @@
      "player_id": "p-nico",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Nico desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55632,6 +56036,7 @@
      "player_id": "p-caro",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Caro desbloqueó Incomprendido"
     },
     {
@@ -55648,6 +56053,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55657,6 +56063,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55666,6 +56073,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55681,6 +56089,7 @@
      "game_id": "g-009",
      "player_id": "p-nico",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Nico rompió «Tesorería»: 33 (antes 31, Facu)"
     },
     {
@@ -55690,6 +56099,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55699,6 +56109,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -55708,6 +56119,7 @@
      "player_id": "p-juli",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Juli desbloqueó Incomprendido"
     },
     {
@@ -55723,6 +56135,7 @@
      "game_id": "g-007",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 13 (antes 11, Nico)"
     },
     {
@@ -55731,6 +56144,7 @@
      "game_id": "g-007",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 11.6 (antes 11.5, Caro)"
     },
     {
@@ -55740,6 +56154,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -55749,6 +56164,7 @@
      "player_id": "p-facu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Facu desbloqueó Blitz"
     },
     {
@@ -55758,6 +56174,7 @@
      "player_id": "p-pato",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Pato desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55773,6 +56190,7 @@
      "game_id": "g-005",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli rompió «Barón de los recursos»: 10 (antes 9, Caro)"
     },
     {
@@ -55782,6 +56200,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55791,6 +56210,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -55800,6 +56220,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55809,6 +56230,7 @@
      "player_id": "p-tomi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Tomi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55818,6 +56240,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55827,6 +56250,7 @@
      "player_id": "p-pato",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Pato desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55842,6 +56266,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Nico rompió «Urbanista supremo»: 11 (antes 9, Facu y Caro)"
     },
     {
@@ -55850,6 +56275,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 2 (antes 17, Caro)"
     },
     {
@@ -55858,6 +56284,7 @@
      "game_id": "g-004",
      "player_id": "p-nico",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Nico rompió «Blitz»: 8 (antes 10, Caro)"
     },
     {
@@ -55867,6 +56294,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -55876,6 +56304,7 @@
      "player_id": "p-nico",
      "code": "photo_finish",
      "level": 1,
+     "description": "Ganar por 2 puntos o menos",
      "text": "Nico desbloqueó Fotofinish"
     },
     {
@@ -55885,6 +56314,7 @@
      "player_id": "p-nico",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Nico desbloqueó Blitz"
     },
     {
@@ -55900,6 +56330,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Caro rompió «Emperador de Marte»: 115 (antes 103, Caro)"
     },
     {
@@ -55908,6 +56339,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 39 (antes 38, Caro)"
     },
     {
@@ -55916,6 +56348,7 @@
      "game_id": "g-003",
      "player_id": "p-juli",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Juli rompió «Magnate de proyectos»: 28 (antes 27, Caro)"
     },
     {
@@ -55924,6 +56357,7 @@
      "game_id": "g-003",
      "player_id": "p-caro",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Caro rompió «Motor perfecto»: 11.5 (antes 10.3, Caro)"
     },
     {
@@ -55932,6 +56366,7 @@
      "game_id": "g-003",
      "player_id": "p-facu",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Facu rompió «Tesorería»: 31 (antes 26, Facu)"
     },
     {
@@ -55941,6 +56376,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55957,6 +56393,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55966,6 +56403,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55975,6 +56413,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -55984,6 +56423,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Inversor (nivel 2)"
     },
     {
@@ -55993,6 +56433,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -56002,6 +56443,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -56011,6 +56453,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -66622,6 +67065,7 @@
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
       "games": 24,
@@ -66714,20 +67158,20 @@
       "g-045",
       "g-046",
       "g-047",
-      "g-048",
-      "g-049"
+      "g-048"
      ],
      "temp": 19,
      "oxygen": 14,
      "oceans": 9,
-     "end": "2026-06-02",
+     "end": "2026-05-26",
      "temperature": 8,
      "oxygenPct": 14,
      "oceanCount": 9,
      "pct": 1,
+     "games_left": null,
      "race": {
       "category": "total",
-      "games": 25,
+      "games": 24,
       "qualified": [
        {
         "player_id": "p-caro",
@@ -66737,26 +67181,26 @@
        },
        {
         "player_id": "p-juli",
-        "games": 9,
-        "avg": 94.44444444444444,
+        "games": 8,
+        "avg": 94.25,
         "best": 111
        },
        {
         "player_id": "p-facu",
-        "games": 16,
-        "avg": 91.3125,
+        "games": 15,
+        "avg": 90.93333333333334,
         "best": 120
        },
        {
         "player_id": "p-nico",
-        "games": 12,
-        "avg": 88.83333333333333,
+        "games": 11,
+        "avg": 88.63636363636364,
         "best": 108
        },
        {
         "player_id": "p-meli",
-        "games": 12,
-        "avg": 81.5,
+        "games": 11,
+        "avg": 82.18181818181819,
         "best": 106
        },
        {
@@ -66790,8 +67234,9 @@
     },
     {
      "number": 3,
-     "start": "2026-06-16",
+     "start": "2026-06-02",
      "games": [
+      "g-049",
       "g-050",
       "g-051",
       "g-052",
@@ -66807,27 +67252,28 @@
       "g-062",
       "g-063"
      ],
-     "temp": 11.200000000000001,
-     "oxygen": 8.076923076923078,
-     "oceans": 5.25,
-     "temperature": -8,
-     "oxygenPct": 8,
+     "temp": 12.000000000000002,
+     "oxygen": 13.085714285714285,
+     "oceans": 5.625,
+     "temperature": -6,
+     "oxygenPct": 13,
      "oceanCount": 5,
-     "pct": 0.5686438318017265,
+     "pct": 0.7304242749731472,
+     "games_left": 9,
      "race": {
       "category": "total",
-      "games": 14,
+      "games": 15,
       "qualified": [
        {
         "player_id": "p-facu",
-        "games": 9,
-        "avg": 95.11111111111111,
+        "games": 10,
+        "avg": 95.3,
         "best": 130
        },
        {
         "player_id": "p-nico",
-        "games": 7,
-        "avg": 91.85714285714286,
+        "games": 8,
+        "avg": 91.75,
         "best": 102
        },
        {
@@ -66838,8 +67284,8 @@
        },
        {
         "player_id": "p-juli",
-        "games": 5,
-        "avg": 83.4,
+        "games": 6,
+        "avg": 85.5,
         "best": 106
        },
        {
@@ -66850,8 +67296,8 @@
        },
        {
         "player_id": "p-meli",
-        "games": 5,
-        "avg": 80.2,
+        "games": 6,
+        "avg": 79.16666666666667,
         "best": 107
        },
        {
@@ -66885,6 +67331,7 @@
      "game_id": "g-060",
      "player_id": "p-facu",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Facu rompió «Motor perfecto»: 12.8 (antes 12.2, Juli)"
     },
     {
@@ -66894,6 +67341,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66903,6 +67351,7 @@
      "player_id": "p-facu",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Facu desbloqueó Blitz"
     },
     {
@@ -66912,6 +67361,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66921,6 +67371,7 @@
      "player_id": "p-meli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Meli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -66930,6 +67381,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 3,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Conquistador de Marte (nivel 3)"
     },
     {
@@ -66939,6 +67391,7 @@
      "player_id": "p-santi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Santi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -66948,6 +67401,7 @@
      "player_id": "p-lu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Lu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -66963,6 +67417,7 @@
      "game_id": "g-058",
      "player_id": "p-caro",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Caro rompió «Blitz»: 8 (antes 9, Juli y Gonza)"
     },
     {
@@ -66972,6 +67427,7 @@
      "player_id": "p-juli",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Juli desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -66981,6 +67437,7 @@
      "player_id": "p-juli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Juli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -66990,6 +67447,7 @@
      "player_id": "p-caro",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Caro desbloqueó Blitz"
     },
     {
@@ -67006,6 +67464,7 @@
      "player_id": "p-caro",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Caro desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -67016,7 +67475,7 @@
      "text": "Nico ganó en Elysium por 15 puntos"
     },
     {
-     "date": "2026-06-02",
+     "date": "2026-05-26",
      "type": "season",
      "player_id": "p-caro",
      "text": "Temporada 2 completa: Marte terraformado. Campeón: Caro"
@@ -67027,6 +67486,7 @@
      "game_id": "g-046",
      "player_id": "p-juli",
      "code": "highest_city_points",
+     "description": "Más puntos de ciudades en una partida",
      "text": "Juli rompió «Urbanista supremo»: 12 (antes 10, Meli y Caro)"
     },
     {
@@ -67035,6 +67495,7 @@
      "game_id": "g-046",
      "player_id": "p-facu",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Facu rompió «Tesorería»: 33 (antes 32, Santi y Gonza)"
     },
     {
@@ -67044,6 +67505,7 @@
      "player_id": "p-facu",
      "code": "greenery_tiles",
      "level": 2,
+     "description": "Sumar puntos de vegetación a lo largo de todas las partidas",
      "text": "Facu desbloqueó Ecologista (nivel 2)"
     },
     {
@@ -67053,6 +67515,7 @@
      "player_id": "p-facu",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Facu desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67062,6 +67525,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67071,6 +67535,7 @@
      "player_id": "p-gonza",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Gonza desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67086,6 +67551,7 @@
      "game_id": "g-037",
      "player_id": "p-meli",
      "code": "highest_turmoil_points",
+     "description": "Más puntos de Turmoil en una partida",
      "text": "Meli rompió «Maestro de la política»: 5 (antes 3, Facu y Tomi y Meli y Pato y Caro y Gonza)"
     },
     {
@@ -67095,6 +67561,7 @@
      "player_id": "p-lu",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Lu desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67104,6 +67571,7 @@
      "player_id": "p-lu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Lu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67119,6 +67587,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_terraform_rating",
+     "description": "TR más alto en una partida",
      "text": "Caro rompió «Arquitecto climático»: 41 (antes 38, Facu y Meli y Caro y Gonza)"
     },
     {
@@ -67127,6 +67596,7 @@
      "game_id": "g-036",
      "player_id": "p-caro",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Caro rompió «Barón de los recursos»: 11 (antes 10, Juli y Meli)"
     },
     {
@@ -67136,6 +67606,7 @@
      "player_id": "p-caro",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Caro desbloqueó Lobo Solitario"
     },
     {
@@ -67145,6 +67616,7 @@
      "player_id": "p-tomi",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Tomi desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67161,6 +67633,7 @@
      "player_id": "p-gonza",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Gonza desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67170,6 +67643,7 @@
      "player_id": "p-gonza",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Gonza desbloqueó Lobo Solitario"
     },
     {
@@ -67179,6 +67653,7 @@
      "player_id": "p-gonza",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Gonza desbloqueó Blitz"
     },
     {
@@ -67188,6 +67663,7 @@
      "player_id": "p-gonza",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Gonza desbloqueó Mesa llena"
     },
     {
@@ -67203,6 +67679,7 @@
      "game_id": "g-029",
      "player_id": "p-caro",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Caro rompió «Aplanadora»: 26 (antes 23, Juli)"
     },
     {
@@ -67212,6 +67689,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67221,6 +67699,7 @@
      "player_id": "p-caro",
      "code": "stolen_awards",
      "level": 2,
+     "description": "Quedar 1.º en solitario en recompensas que financió otro, en una misma partida",
      "text": "Caro desbloqueó Ladrón (nivel 2)"
     },
     {
@@ -67230,6 +67709,7 @@
      "player_id": "p-caro",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Caro desbloqueó Mesa llena"
     },
     {
@@ -67239,6 +67719,7 @@
      "player_id": "p-santi",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Santi desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67248,6 +67729,7 @@
      "player_id": "p-gonza",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Gonza desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67269,6 +67751,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Juli rompió «Emperador de Marte»: 110 (antes 106, Nico)"
     },
     {
@@ -67277,6 +67760,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_card_resource_points",
+     "description": "Más puntos por recursos de cartas en una partida",
      "text": "Juli y Meli rompió «Barón de los recursos»: 10 (antes 9, Meli y Pato)"
     },
     {
@@ -67285,6 +67769,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "highest_greenery_points",
+     "description": "Más puntos de vegetación en una partida",
      "text": "Juli rompió «Rey de los bosques»: 20 (antes 11, Tomi y Pato)"
     },
     {
@@ -67293,6 +67778,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "biggest_margin",
+     "description": "Mayor diferencia entre el ganador y el segundo",
      "text": "Juli rompió «Aplanadora»: 23 (antes 9, Facu)"
     },
     {
@@ -67301,6 +67787,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Juli rompió «Motor perfecto»: 12.2 (antes 10.6, Nico)"
     },
     {
@@ -67309,6 +67796,7 @@
      "game_id": "g-013",
      "player_id": "p-juli",
      "code": "fastest_win",
+     "description": "Victoria en la partida con menos generaciones",
      "text": "Juli rompió «Blitz»: 9 (antes 10, Facu y Nico)"
     },
     {
@@ -67317,6 +67805,7 @@
      "game_id": "g-013",
      "player_id": "p-santi",
      "code": "richest_finish",
+     "description": "Más M€ al terminar una partida",
      "text": "Santi rompió «Tesorería»: 32 (antes 26, Tomi y Pato)"
     },
     {
@@ -67326,6 +67815,7 @@
      "player_id": "p-juli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Juli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67335,6 +67825,7 @@
      "player_id": "p-juli",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Juli desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67344,6 +67835,7 @@
      "player_id": "p-juli",
      "code": "blitz",
      "level": 1,
+     "description": "Ganar una partida de 9 generaciones o menos",
      "text": "Juli desbloqueó Blitz"
     },
     {
@@ -67353,6 +67845,7 @@
      "player_id": "p-juli",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Juli desbloqueó Mesa llena"
     },
     {
@@ -67362,6 +67855,7 @@
      "player_id": "p-caro",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Caro desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67371,6 +67865,7 @@
      "player_id": "p-meli",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Meli desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67380,6 +67875,7 @@
      "player_id": "p-santi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Santi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67389,6 +67885,7 @@
      "player_id": "p-pato",
      "code": "all_maps",
      "level": 2,
+     "description": "Jugar en distintos mapas de Marte",
      "text": "Pato desbloqueó Cartógrafo (nivel 2)"
     },
     {
@@ -67404,6 +67901,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "highest_single_game_score",
+     "description": "Puntaje más alto en una partida",
      "text": "Nico rompió «Emperador de Marte»: 106 (antes 105, Facu)"
     },
     {
@@ -67412,6 +67910,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "highest_card_points",
+     "description": "Más puntos de cartas en una partida",
      "text": "Nico rompió «Magnate de proyectos»: 33 (antes 28, Facu)"
     },
     {
@@ -67420,6 +67919,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "closest_win",
+     "description": "Victoria más ajustada (menor diferencia con el segundo)",
      "text": "Nico rompió «Por un pelo»: 5 (antes 9, Facu)"
     },
     {
@@ -67428,6 +67928,7 @@
      "game_id": "g-012",
      "player_id": "p-nico",
      "code": "points_per_generation",
+     "description": "Más puntos por generación en una partida",
      "text": "Nico rompió «Motor perfecto»: 10.6 (antes 10.5, Facu)"
     },
     {
@@ -67437,6 +67938,7 @@
      "player_id": "p-nico",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Nico desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67446,6 +67948,7 @@
      "player_id": "p-nico",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Nico desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67455,6 +67958,7 @@
      "player_id": "p-nico",
      "code": "no_milestone_win",
      "level": 1,
+     "description": "Ganar una partida sin haber reclamado ningún hito",
      "text": "Nico desbloqueó Lobo Solitario"
     },
     {
@@ -67464,6 +67968,7 @@
      "player_id": "p-nico",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Nico desbloqueó Mesa llena"
     },
     {
@@ -67473,6 +67978,7 @@
      "player_id": "p-caro",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Caro desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67482,6 +67988,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67491,6 +67998,7 @@
      "player_id": "p-meli",
      "code": "card_points",
      "level": 3,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Meli desbloqueó Magnate (nivel 3)"
     },
     {
@@ -67500,6 +68008,7 @@
      "player_id": "p-pato",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Pato desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67516,6 +68025,7 @@
      "player_id": "p-facu",
      "code": "high_score",
      "level": 3,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Facu desbloqueó Gran Terraformador (nivel 3)"
     },
     {
@@ -67525,6 +68035,7 @@
      "player_id": "p-facu",
      "code": "card_points",
      "level": 2,
+     "description": "Alcanzar X puntos de cartas en una partida",
      "text": "Facu desbloqueó Inversor (nivel 2)"
     },
     {
@@ -67534,6 +68045,7 @@
      "player_id": "p-facu",
      "code": "no_award_win",
      "level": 1,
+     "description": "Ganar una partida sin quedar 1.º en ninguna recompensa",
      "text": "Facu desbloqueó Incomprendido"
     },
     {
@@ -67543,6 +68055,7 @@
      "player_id": "p-facu",
      "code": "full_table",
      "level": 1,
+     "description": "Ganar una partida de 5 jugadores",
      "text": "Facu desbloqueó Mesa llena"
     },
     {
@@ -67552,6 +68065,7 @@
      "player_id": "p-caro",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Caro desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67561,6 +68075,7 @@
      "player_id": "p-tomi",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Tomi desbloqueó Joven Promesa (nivel 2)"
     },
     {
@@ -67570,6 +68085,7 @@
      "player_id": "p-meli",
      "code": "high_score",
      "level": 2,
+     "description": "Alcanzar X puntos en una partida",
      "text": "Meli desbloqueó Joven Promesa (nivel 2)"
     },
     {

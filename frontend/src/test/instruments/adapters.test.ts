@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eloSeries, eloShift, playerIndex, scoredGame } from '@/data/instruments'
+import { eloSeries, eloShift, playerIndex, recolored, scoredGame } from '@/data/instruments'
 import type { GameReport, PlayerSummary } from '@/data/types'
 
 const players: PlayerSummary[] = [
@@ -39,5 +39,14 @@ describe('de la API a los instrumentos', () => {
 
   it('a game without ELO changes gives no rows', () => {
     expect(eloShift({ ...report, elo: [] }, index)).toEqual([])
+  })
+
+  it('recolors the index with the cube color of a game, leaving the rest and unknown players alone', () => {
+    const base = playerIndex(players)
+    const index = recolored(base, [{ player_id: 'p-facu', color: 'negro' }, { player_id: 'p-nico', color: null }, { player_id: 'p-gone', color: 'verde' }])
+    expect(index.get('p-facu')).toMatchObject({ name: 'Facu', color: 'negro' })
+    expect(index.get('p-nico')?.color).toBe('azul')
+    expect(index.has('p-gone')).toBe(false)
+    expect(base.get('p-facu')?.color).toBe('rojo')
   })
 })
